@@ -1,0 +1,5 @@
+node_modules/
+dist/
+# Derived from the D&D5e Animations preset (GPL-3): generated per world by tools/import-aa, never committed here
+prototypes/fx-recipes.json
+recipes/imported.json
