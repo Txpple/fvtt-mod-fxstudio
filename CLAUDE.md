@@ -2,15 +2,19 @@
 
 **What this is.** A house Foundry VTT module that plays visual and sound effects for dnd5e from
 what happened at the table. It keeps Sequencer as the engine and JB2A + PSFX as the libraries,
-and replaces Automated Animations (AA) and the D&D5e Animations preset with seven plain rules, a
-short list of custom looks, and four screens that speak in sentences. Sister of Battle Flow
+and replaces Automated Animations (AA) and the D&D5e Animations preset by carrying their whole
+corpus over losslessly as its baseline, with the user's own looks in a house corpus on top, the
+outcome layers AA never had, and four screens that speak in sentences. It never guesses a look:
+an ability with no row plays nothing until the user gives it one. Sister of Battle Flow
 (`../fvtt-mod-battleflow`, the rules of the game) and Misc Patches (`../fvtt-mod-miscpatches`):
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status: PLANNED, NOT BUILT (2026-09-05).** Read [PLAN.md](PLAN.md) first; it holds the
-architecture, the measured facts, the one-and-done AA import, Battle Flow's part, and five
-phases with an exit measurement each. `prototypes/` holds the investigation's scripts and the
+**Status: PLANNED, NOT BUILT (2026-09-05; decisions locked 2026-09-06).** Read [PLAN.md](PLAN.md)
+first; §0 holds the six locked decisions (whole corpus as baseline, zero loss measured, GPL
+baseline shipped with attribution, house corpus, no guessing, improvements in scope), then the
+architecture, the measured facts, the lossless AA import with its parity proof and matching
+census, Battle Flow's part, and five phases with an exit measurement each. `prototypes/` holds the investigation's scripts and the
 clickable prototype the user ruled the shape on ("it reads right"). Work starts on the user's
 explicit **"go"**; a handoff or a plan is not one. Each phase ends at a check-in.
 
@@ -61,7 +65,8 @@ explicit **"go"**; a handoff or a plan is not one. Each phase ends at a check-in
 ## What is installed on the sandbox (mirrors prod, 2026-09-05)
 
 Sequencer 4.2.3 · JB2A Patreon 0.9.2 (209 styles, 10052 database paths, registers `jb2a.*`) ·
-PSFX 0.16.0 — the **free** build today (277 paths; ~203 preset sounds need Patreon) · Automated
+PSFX Patreon 0.17.0 on prod as module id `psfx-patreon` (1230 paths, registers `psfx.*`; the sandbox still
+has the free `psfx` 0.16.0 until the next refresh) · Automated
 Animations 7.0.22 and D&D5e Animations 3.3.0 — **still on until cutover** (PLAN §6 phase 4) ·
 dnd5e 5.3.3 on Foundry 14. AA's world settings hold the 1290-row autorec; leave them alone until
 the import has run and been checked.
@@ -75,9 +80,13 @@ the user's prod window. Prod parity is a measurement: `deploy-house-module.mjs f
 
 ## Licence rule (measured 2026-09-05)
 
-D&D5e Animations is **GPL-3**. Its preset rows are its authors' work: the import **tool** is ours
-and ships; the **data** it generates (`recipes/imported.json`, `prototypes/fx-recipes.json`) is
-produced from the user's own world and is **never committed** to this MIT repo (gitignored).
+D&D5e Animations is **GPL-3**. The user ruled (2026-09-06) that its whole corpus is the baseline,
+carried over with **zero loss**, and ships in this repo: `recipes/baseline.json` is a separate work
+under GPL-3 with `recipes/BASELINE-LICENSE` and attribution to MrVauxs and Sisimshow (D&D5e
+Animations 3.3.0); the code, rules and the user's own `recipes/house.json` stay MIT. Nothing in the
+baseline is retired to a rule, and there are no rules in scope: the derivation rules the
+investigation tested are parked, off, never owed (PLAN §7). Two corpora, later wins: baseline →
+house (+ the world setting as the live edit buffer). See PLAN §0, §3.1, §4.
 AA's Sequencer chains are MIT and may be vendored with attribution. Sequencer is used through its
 public API only — presets, custom sections, our own database namespace — never patched.
 

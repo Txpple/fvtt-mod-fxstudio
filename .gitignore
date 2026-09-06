@@ -1,5 +1,4 @@
 node_modules/
 dist/
-# Derived from the D&D5e Animations preset (GPL-3): generated per world by tools/import-aa, never committed here
+# The investigation's scratch conversion (superseded by recipes/baseline.json, which IS committed under GPL-3)
 prototypes/fx-recipes.json
-recipes/imported.json
