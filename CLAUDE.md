@@ -10,8 +10,9 @@ an ability with no row plays nothing until the user gives it one. Sister of Batt
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status: phase 0 built on the sandbox (2026-09-06); phase 1 (lossless replay) next, on the
-user's word.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
+**Status: phase 0 built on the sandbox (2026-09-06); phase 1 (lossless replay) is a GO — the user
+said "lets start phase 1 in a new context" on 2026-09-06, so a fresh session starts building it
+without asking again.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
 improvements in scope), then the architecture, the measured facts, the lossless AA import with its
 parity proof and matching census, Battle Flow's part, and five phases with an exit measurement

@@ -1,6 +1,6 @@
 # fxstudio — the plan
 
-**Status: phase 0 built on the sandbox, 2026-09-06; phase 1 next.** Written 2026-09-05 after a
+**Status: phase 0 built on the sandbox, 2026-09-06; phase 1 is a go (2026-09-06).** Written 2026-09-05 after a
 day's investigation; the user ruled the shape off a clickable prototype ("it reads right") and
 asked for this plan. Re-reviewed and locked 2026-09-06 (§0); the go came the same day. Phase 0's
 exit is measured in `recipes/import-report.md` (parity 1289 of 1289, check green); what was
