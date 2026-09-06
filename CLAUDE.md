@@ -10,13 +10,17 @@ an ability with no row plays nothing until the user gives it one. Sister of Batt
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status: PLANNED, NOT BUILT (2026-09-05; decisions locked 2026-09-06).** Read [PLAN.md](PLAN.md)
-first; §0 holds the six locked decisions (whole corpus as baseline, zero loss measured, GPL
-baseline shipped with attribution, house corpus, no guessing, improvements in scope), then the
-architecture, the measured facts, the lossless AA import with its parity proof and matching
-census, Battle Flow's part, and five phases with an exit measurement each. `prototypes/` holds the investigation's scripts and the
-clickable prototype the user ruled the shape on ("it reads right"). Work starts on the user's
-explicit **"go"**; a handoff or a plan is not one. Each phase ends at a check-in.
+**Status: phase 0 built on the sandbox (2026-09-06); phase 1 (lossless replay) next, on the
+user's word.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
+baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
+improvements in scope), then the architecture, the measured facts, the lossless AA import with its
+parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
+each. [DESIGN.md](DESIGN.md) holds what was decided while building (the row, the private Sequencer
+table `fxstudio.aa.*` and why, the matching rules); [BACKLOG.md](BACKLOG.md) what is parked;
+`recipes/import-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
+the tools. `prototypes/` holds the investigation's scripts and the clickable prototype the user
+ruled the shape on ("it reads right"). Each phase ends at a check-in; the next phase starts on
+the user's word, never on a handoff or a plan.
 
 ## How the user works (standing rules, learned in the sister repos)
 
@@ -42,6 +46,10 @@ explicit **"go"**; a handoff or a plan is not one. Each phase ends at a check-in
   fvtt-mod-fxstudio --local`, then **restart** the sandbox when `module.json` changed (a new
   setting, a new file in `esmodules`, a new version); a world reload is enough for script edits.
   Deploy while the server is down, then start — that satisfies the script-cache discipline.
+  ⚠ The deploy script ships `scripts/`, `styles/`, `templates/`, `lang/` and `module.json`; this
+  module also serves **`recipes/`** (fetched at boot), which must travel too — see tools/README.md.
+  The module is registered and enabled on the sandbox since 2026-09-06 (`tools/sandbox-module.mjs`
+  writes `core.moduleConfiguration` offline; a refresh wipes that as well as the files).
 - **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes locally deployed modules AND
   Battle Flow's test fixtures. Re-deploy after every refresh. The user wants the sandbox an
   EXACT copy of prod after a refresh: add fixtures (`node

@@ -1,9 +1,10 @@
 # fxstudio — the plan
 
-**Status: planned, not started.** Written 2026-09-05 after a day's investigation; the user ruled
-the shape off a clickable prototype ("it reads right") and asked for this plan. Re-reviewed and
-locked 2026-09-06 (§0). Nothing here is built. Work starts on the user's explicit "go", and each
-phase below ends at a check-in.
+**Status: phase 0 built on the sandbox, 2026-09-06; phase 1 next.** Written 2026-09-05 after a
+day's investigation; the user ruled the shape off a clickable prototype ("it reads right") and
+asked for this plan. Re-reviewed and locked 2026-09-06 (§0); the go came the same day. Phase 0's
+exit is measured in `recipes/import-report.md` (parity 1289 of 1289, check green); what was
+decided while building is in [DESIGN.md](DESIGN.md). Each phase ends at a check-in.
 
 ## 0. Decisions locked (the user's, 2026-09-06)
 
@@ -203,7 +204,7 @@ change to any flag shape. fxstudio never reads Battle Flow's internal flags.
 
 | Phase | Builds | Exit |
 | --- | --- | --- |
-| **0 · Foundation** (½ day) | repo skeleton with `module.json` requiring Sequencer; the row format; `check-looks`; `import-aa` with its parity proof, matching census and report; `baseline.json` and `house.json` written and committed with their licences | parity 1289 of 1289 on prod's data; the check green on every row; the census and the "nothing plays" list read by the user |
+| **0 · Foundation** (½ day) — **built 2026-09-06** | repo skeleton with `module.json` requiring Sequencer; the row format; `check-looks`; `import-aa` with its parity proof, matching census and report; `baseline.json` and `house.json` written and committed with their licences; plus, found while building, the private Sequencer table (`aa-database.json`, DESIGN §3) because AA's metadata differs from JB2A's for 1178 layers | **measured:** parity 1289 of 1289 on the sandbox copy of prod's data; `check-looks` green (4435 paths, 0 missing); the module boots on the sandbox and resolves; the census and the "nothing plays" list are in `recipes/import-report.md` **for the user to read** |
 | **1 · Lossless replay** (2 days) | reader for dnd5e messages and template/effect hooks; resolver (house → baseline → nothing); every corpus preset: swing, projectile, on-token, template ×4, teleport, projectile-to-template, dual-attach, thunderwave, active-effect loop; attacks play knowing hit or miss | a replay suite drives one row of every menu type and family on the sandbox side by side with AA and the user calls them the same; the five party sheets play; `smoke-looks` green |
 | **2 · The screens** (1–2 days) | the four screens and the item-sheet FX button as ruled; Preview; the three-picker editor writing the world layer; the export tool | the user adds "Sharran Step, like Misty Step but black" in-game unaided and it plays |
 | **3 · Outcomes** (1–2 days) | Battle Flow's hooks (its own commit) and the outcome presets: hit flash, miss, save mark, condition icons, damage applied | Riposte, a held Shield, a failed save, Fire Shield and an aura all play; suite extended |
