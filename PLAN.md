@@ -6,7 +6,7 @@ hatch, the dnd5e reader on the new moments, the migration with its render-level 
 1296 looks equal to AA's own sequence, five deliberate differences named and counted), the
 baseline per kind, the starters, the authoring API and tools; phase 1's presets retired to the
 oracle and deleted from `scripts/`; no AA vocabulary left (`tools/check-legacy.mjs`). The exit
-measurements are in §6. Phase 3 (the screens) starts on the user's word after the user reads
+measurements are in §6. Phase 3 (the screens) is a go, given at the phase 2 check-in; alongside it the user reads
 `recipes/migration-report.md` and [BACKLOG.md](BACKLOG.md).** Phase 1 (lossless replay) was built
 the same day, and the user's first evening on it ruled the model AA left behind out — "abandon the
 old practices of AA; keep only its corpus; do it right"; ARCHITECTURE.md was ruled with its costs
