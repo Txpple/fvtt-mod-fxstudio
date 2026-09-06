@@ -1,0 +1,389 @@
+# fxstudio — the architecture (ruled 2026-09-06)
+
+**Why this document exists.** Phase 1 proved the corpus can play: every one of Automated
+Animations' 1289 rows plays through FX Studio with the same files, sound and options, measured
+(DESIGN §6). It proved it by porting AA's own model — rows keyed by name, AA's menus, AA's option
+blobs, AA's sequences — and the first evening of use showed the cost: "Maul of Momentum" plays
+nothing because the weapon word comes first, and Gren's Shield spell plays a shield bash because a
+name is all a row knows. Those are not two bugs; they are one design, AA's, inherited whole. The
+user ruled: **abandon AA's practices, keep only its corpus, and design the thing right for the long
+term** — modular, clear, sustainable, and with a better way for people *and* assistants to add
+looks. This is that design, **ruled by the user the same day with its costs accepted ("those are
+fine")**; it is PLAN §0's seventh locked decision and supersedes PLAN §3.1's resolver, presets and
+data paragraphs. PLAN §0's first six decisions stand (whole corpus, zero loss measured, GPL
+baseline, house corpus, no guessing, improvements in scope).
+
+**This is a greenfield opportunity to do it right.** Automated Animations was written before
+Foundry 14 and before assistants, and its architecture (rows keyed by name, menus, thirty-field
+option blobs, sequences that branch on the row) is not one this module carries. AA's corpus is
+migrated once so the table does not start from zero; none of its practices, vocabulary or model
+survive in `scripts/`. Ruled by the user 2026-09-06 after the first evening on phase 1.
+
+The one-line version: **a look is found by what acted and when, not by what it was called; a look
+is written as the sentence the user would say; the engine knows eight shapes, plus one escape hatch, and nothing else.**
+
+## 0. Read this every time, and check yourself against it
+
+This is a greenfield design. We do not inherit Automated Animations' legacy architecture or its
+practices, on purpose. Phase 1 showed how easily that happens anyway: the plan carried AA's rows,
+menus and option blobs because they were in front of us and the easiest thing to prove equal, and
+the first evening of use found the cost. So, **every time you read this, stop and ask: what am I
+doing right now, does it follow this principle, and am I adopting AA's shape out of convenience?**
+Cross-check against these tells before writing code or data:
+
+- a rule about *names* (a substring, a word regex, an exclude list) instead of a key from
+  identity;
+- a field that carries an AA option verbatim, or a concept that exists only because AA had it
+  (a menu, a preset type, "playOn: default", a shield flag, a wait that counts "the last of all
+  targets") — bake the *value* onto a scene, never the concept;
+- a branch in the engine on what a *row* says instead of on what a *shape* needs;
+- a special case for one look (claw sizing, a dagger's return delay) instead of a knob every
+  look can use;
+- choosing "the same representation as AA" because it is easier to prove equal — the proof is at
+  the render, not the representation;
+- a vocabulary word a GM would not say, or an assistant could not guess the meaning of.
+
+If a tell fires, the answer is not "AA did it this way"; it is the sentence the user would say,
+the identity dnd5e already keeps, and the eight shapes. A mechanical check backs this up:
+`tools/check-legacy.mjs` (phase 2) fails on any AA vocabulary in `scripts/` or `recipes/`
+(`autoanimations`, `menu`, `aefx`, `ontoken`, `templatefx`, `playOn`, `isRadius`, and the rest of
+the option-blob names) except inside the migration tool and its oracle.
+
+## 1. The model in one picture
+
+```
+                 readers (one per source)                           the corpus (data)
+  dnd5e messages, regions, effects ─┐                     baseline/  house/  starters  outcomes
+  core: statuses, combat, movement ─┼──► MOMENT ──► resolve ◄── looks indexed by (subject key, moment)
+  Battle Flow's public hooks ───────┘   {when, subject,     │
+                                         source, targets,   ▼
+                                         outcomes, place}  LOOK = scenes (shape + asset + place + knobs)
+                                                            │
+                                                            ▼
+                                                 engine: 8 shapes → one Sequence → Sequencer
+```
+
+Four layers, each a directory, dependencies pointing down only (enforced by a check, as Battle
+Flow does):
+
+| Layer | Knows about | Never imports |
+| --- | --- | --- |
+| `core/` — moments, subjects, looks, resolve | plain data | Foundry, Sequencer |
+| `readers/` — dnd5e, core, battleflow | Foundry documents and hooks | the engine |
+| `engine/` — shapes, places, assets, render | Sequencer and the canvas | readers |
+| `ui/` — the four screens (phase 3) | the API | Sequencer |
+
+The entry file wires them and nothing else. Adding a source of moments is a reader; adding a way
+a picture can move is a shape; adding a kind of thing that can have a look is a subject kind.
+None of those touch the others.
+
+## 2. Moments — what happened
+
+A moment is a plain record every reader produces the same way:
+
+```
+{ when, subject, source, targets: [{token, outcome?}], place?, tie?, id, user }
+```
+
+- `when` is one of a closed vocabulary. Now: `use`, `effect`. Phase 4 adds the outcomes and
+  events: `hit`, `miss`, `saved`, `failed-save`, `damaged` (with the damage type), `healed`,
+  `status` (on and off), `downed`, `critical`, `fumble`, and Battle Flow's moments (`riposte`,
+  `shield-paid`, `hold-answered`, `maneuver`, `fold`, `emanation`), plus core's (`turn-start`,
+  `combat-start`, `rest`). Each is a word a sentence can use.
+- `subject` is what acted, with its identity keys (§3).
+- `source` is the acting token; `targets` the targeted tokens, each with its outcome when the
+  moment knows it (an attack knows hit or miss per target from dnd5e's own message).
+- `place` is a placed template (a Region), a destination, or nothing.
+- `tie` is the document persistent pictures live and die with (an active effect, a Region).
+
+**The timing policy is the reader's, written down once.** A `use` fires as late as the answer is
+known and no later: after the attack roll for attacks (hit and miss known), after the damage roll
+for save and healing spells (targets known), on template placement for areas, on the card for
+everything else. This is what AA did on this world by accident of its hooks; here it is one table
+in `readers/dnd5e.js` and one paragraph in the docs, and Battle Flow's verdict hook can replace
+"after the attack roll" in phase 4 without any look changing.
+
+## 3. Subjects — what acted, by identity, not by name
+
+The user's two bugs are one rule: **a look is keyed by what the thing IS, in a vocabulary dnd5e
+already keeps, and only then by what it is called.** No substring, no whole-word regex, no
+"exclude" lists. Matching happens once, at migration and at authoring, against closed lists; at
+the table a lookup is an exact map hit.
+
+A subject has an ordered list of keys, most specific first. The resolver takes the first key that
+has a look (unless that look is switched off). Keys are `<kind>:<id>`:
+
+| Kind | Id, most specific first | Where dnd5e keeps it |
+| --- | --- | --- |
+| `spell` | the spell's identifier (`fire-bolt`) | `system.identifier` (every item has one; dnd5e slugs the name) |
+| `weapon` | the name slug (`maul-of-momentum`), then the base weapon (`maul`) | `system.type.baseItem`, one of 43 in the 2024 list |
+| `natural` | the name slug (`bite`) | a weapon whose `type.value` is `natural` (monster attacks) |
+| `feature` | the identifier (`brutal-strike`) | `system.identifier` |
+| `item` | the name slug (`potion-of-healing`) | consumables, equipment, tools, loot |
+| `effect` | the effect's name slug, then its origin's key (`spell:shield`) | `ActiveEffect.name`, `origin` |
+| `status` | the status id (`prone`) | `CONFIG.statusEffects`, the token's statuses |
+| `damage` | the damage type (`fire`) | phase 4 |
+| `event` | the event name (`riposte`, `turn-start`) | the reader that emits it |
+
+Two refinements, ruled with the rest on 2026-09-06: a subject's most specific key may
+name the activity (`spell:fire-bolt/attack`), so one item can carry a different look per activity
+without the activity's *name* ever being consulted; and a "cast spell" activity is keyed by the
+spell it links, so a staff that casts Fireball plays Fireball's look.
+
+One normalisation rule, documented and testable: a slug is the lower-cased name with a trailing
+qualifier removed — "Misty Step - Spellcasting", "Bless - Fey-Touched", "Potion of Healing
+(Greater)" — after the full name has been tried first. It is still the thing's own name.
+
+What this does to the two bugs: "Maul of Momentum" is `weapon:maul-of-momentum` then
+`weapon:maul`, and the migrated Maul look answers the second. Gren's Shield is `spell:shield`; the
+shield-bash look is keyed `weapon:shield` and can never meet it. Nothing about names had to be
+patched, and nothing about it will need patching when the next oddly named weapon or spell arrives.
+
+**AA's family rows** ("Sword" for anything with sword in it, "Bite" for any bite) do not survive
+as rules. The migration expands each one, once, against the closed lists: the 43 base weapons'
+names, the natural-attack names across the installed compendia (a census), and the world's own
+items — and writes explicit keys: the Sword look is `for: [weapon:longsword, weapon:shortsword,
+weapon:greatsword]`. The census lists every expansion so the user reads what AA's substring would
+and would not have caught before it becomes data. Where AA's rule caught something by accident
+("Axe" for Battleaxe, "Shield" for Shield of Faith), the census shows it and it is not carried;
+where it caught something wanted, the user keeps it with one word.
+
+**No guessing, still.** Keying a maul as a maul is identity, not derivation: the look for
+`weapon:maul` exists because the corpus has one, and a subject with no key in the corpus plays
+nothing and is listed. The derivation rules (a look from a spell's school or damage type) stay
+parked exactly as PLAN §7 says.
+
+## 4. Looks — the sentence is the data
+
+A look is written the way the user would say it, and the screens, the docs and an assistant all
+read and write the same shape:
+
+```
+{ id: "fire-bolt",
+  for: ["spell:fire-bolt"],
+  on: "use",
+  scenes: [
+    { shape: "shoot", asset: { family: "jb2a.fire_bolt", colour: "orange" },
+      from: "source", to: "each-target", onMiss: "fly-past",
+      sound: { asset: "psfx.cantrips.fire-bolt", volume: 0.75 } }
+  ],
+  by: "baseline", note: "D&D5e Animations 3.3.0" }
+```
+
+which the screens render as *"Fire Bolt · when used · a bolt (JB2A fire bolt, orange) shoots from
+the caster to each target and flies past on a miss · with the fire bolt sound."* There is no
+second grammar: the sentence is generated from the look, never parsed back.
+
+### 4.1 The look
+
+| Field | Meaning |
+| --- | --- |
+| `id` | unique across the corpora; a house look with a baseline look's id replaces it |
+| `for` | the subject keys it answers (§3); empty for a starter |
+| `on` | the moment kind (§2) |
+| `like` | inherit everything not stated from another look or a starter (`starter:bolt`) — the variant workflow |
+| `with` | overrides applied to every scene of the inherited look: `colour`, `sound`, `size`, `opacity` — "like Misty Step but black" is `like: misty-step, with: {colour: black}` |
+| `off` | a house look that silences a baseline look |
+| `scenes` | the pictures, in start order |
+| `by`, `at`, `note` | provenance: who wrote it (a user, an assistant, the migration), when, and why in a sentence |
+
+### 4.2 The scene
+
+| Field | Meaning |
+| --- | --- |
+| `shape` | one of eight (§5) |
+| `asset` | `{family, variant?, colour?}` resolved against the libraries' own registration, or a database path, or `{file}` for a raw path; `template: [grid, start, end]` only where the migration must reproduce AA's stretch metadata (§6.3) |
+| `from`, `to`, `at` | places: `source`, `each-target`, `targets-else-source`, `both`, `template`, `destination`, `impact` (where the previous scene landed, a miss included) |
+| `size` | `{squares}`, `{scale}`, `{radius, plusToken}` or `{fit: template}` — one of, by shape |
+| `timing` | `delay`, `wait` (the next scene starts after this one), `repeat` and `every`, `rate`, `fadeIn`, `fadeOut` |
+| `look` | `opacity`, `tint`, `mirror`, `below` (under tokens), `elevation`, `mask`, `zIndex` |
+| `persist` | `none`, `effect` (while the tying effect stands), `template` (while the Region stands), `until-removed` |
+| `onMiss` | `fly-past`, `skip`, `play` — for shapes that can miss |
+| `sound` | `{asset, volume, delay, start, repeat, every}` |
+| `thrown` | strike only: the shoot to use when the target is out of reach, and its return flight |
+
+Every knob is named for what it does and has one meaning across shapes. AA's thirty-field option
+blobs, its `playOn: default`, `isRadius` + `addTokenWidth`, `isShieldFX`, `animationSource`, its
+"complete" loops and "the last of all targets" waits are all gone: the migration turns each into a
+value on a scene (a shield look becomes two mark scenes, a loop becomes `fadeOut: 0`), and the
+concept does not survive.
+
+### 4.3 Files
+
+```
+recipes/
+  baseline/      spells.json  weapons.json  natural.json  features.json  items.json  effects.json
+                 (GPL-3, migrated, read-only, regenerated by the migration; one file per kind so a
+                  person or an assistant can read the spells without the weapons)
+  house.json     the user's looks and overrides (MIT, committed, portable)
+  starters.json  the abstract looks every new look starts from (§7)
+  outcomes.json  the outcome layers' looks and colour defaults (phase 4)
+  aa-assets.json the frozen private asset table, only for what cannot be nativised (§6.3); goal: empty
+  SCHEMA.md      the grammar above with every knob's range and default, for people and assistants
+```
+
+plus the world setting `looks` as the live edit buffer, and an item pointer `flags.fxstudio.look`
+naming a look id for one specific item. Every file carries `schema: 2`; a future change to the
+shape is a migration function in the tools, never a hand edit.
+
+## 5. The engine — eight shapes, one escape hatch, nothing else
+
+`engine/shapes/` is the only place Sequencer's API is called. Each shape is one small module that
+turns a scene plus resolved places into Sequencer sections on one Sequence:
+
+| Shape | The picture | Replaces in AA |
+| --- | --- | --- |
+| `strike` | a swing at the source, rotated toward each target (moved toward it when out of reach); can miss; `thrown` swaps in a shoot with a return flight | the melee menu and its switch |
+| `shoot` | from a place to a place, stretched; can miss; a return flight | the range menu |
+| `mark` | a static picture at a place, sized to the token or as a radius; once or persistent; masked | on-token, secondary, source and target layers, shield halves |
+| `fill` | a picture sized to a placed template's shape (circle, cone, line, rectangle), attached to it or left on the ground | templatefx; thunderwave's position-picked variant is an asset rule |
+| `aura` | attached to a token, a radius, breathing and pulsing | the aura menu |
+| `beam` | attached at both ends, persistent | dual attach |
+| `move` | the token itself: fade, travel, arrive; the destination picked by click or read from the token's own movement | the teleport preset's second half |
+| `sound` | a sound section | every sound block |
+| `custom` | the escape hatch: a list of Sequencer calls as data, validated against a whitelist, read in the sentence as "a custom effect"; rare by design, so the vocabulary never grows one special case at a time | nothing in the corpus |
+
+The presets AA had are compositions in data, not code: teleport is *mark at source, shoot to the
+destination, mark at the destination, move*; the Fireball shape is *shoot to the template (wait),
+mark at the template, mark persistent*. The engine never learns the word "preset".
+
+`engine/places.js` resolves a place word to canvas objects and points (the source token, each
+target, the Region, the destination, the impact spot). `engine/assets.js` resolves `{family,
+colour}` to a path against the libraries' registration, lists a family's colours and variants
+(the screens' colour picker, the assistant's catalogue), and answers "does this exist" — the same
+code `check-looks` runs offline. `engine/render.js` builds one Sequence from a look's scenes,
+decides who plays (the author, else the first active GM; the creator for templates and effects —
+DESIGN §6, unchanged), stamps origins for persistence and dedupe, and writes the ledger.
+
+## 6. Migration — AA's corpus in, AA's practices out
+
+One tool, run once more, then history: `tools/migrate-aa.mjs`.
+
+### 6.1 Rows to looks
+
+Every AA row becomes a look whose subject keys come from AA's own descriptor (its `weapon`,
+`spell`, `creature` types and its effect section say the kind) plus the migration's expansion of
+family rows against the closed lists (§3); `on` is `use` for every menu and `effect` for AA's
+effect rows; layers become scenes in AA's own order (source, sound, primary, secondary, target)
+with AA's values mapped onto the knobs. The mapping is a table in the tool, one line per AA
+option, and the docs carry it so a reader can see where every value went.
+
+### 6.2 Zero loss, proved at the render
+
+Phase 1's ported presets become the **oracle**: moved to `tools/lib/oracle/`, they still build AA's
+Sequence for any row and moment. The proof records, for every row against a canonical moment of
+its kind, the exact Sequencer calls the oracle makes and the exact calls the new engine makes from
+the migrated look, and compares them call for call. Exit: every row equal, with the deliberate
+differences listed by name (the reach fix, the mask fix, a miss playing as a miss). This is a
+stronger proof than phase 0's (same files and options) because it compares what Sequencer is
+told, and it is what lets the ported presets be deleted from `scripts/` with a clear conscience.
+
+### 6.3 The private asset table, retired by measurement
+
+AA played JB2A's files through its own Sequencer table with its own stretch metadata, and 1182
+layers differ from JB2A's own entries in that metadata; phase 0 froze AA's subset as
+`fxstudio.aa.*` so the pictures would not change. Sequencer 4.2.3 lets a single effect override
+that metadata (`template()`), so the migration can point every migrated asset at JB2A's native
+path and carry AA's metadata as a per-scene `template` value only where the shape actually uses it
+(a stretch; not a swing sized in grid squares). The oracle proof decides layer by layer; what it
+cannot reproduce natively stays in `recipes/aa-assets.json`. The measurement is the count left in
+that file; the goal is zero, and the house corpus never needs it.
+
+## 7. Authoring — one grammar, three doors, one validator
+
+This is the part the user called the most important: **a newer, better way for end users and
+assistants to create looks.** The design makes them the same activity.
+
+**One grammar.** A look is the sentence (§4). A person composes it from pickers; an assistant
+writes it as data; both produce the same object, checked by the same validator, saved to the same
+buffer, exported to the same file, and read back as the same sentence. There is nothing an
+assistant can write that a screen cannot show, and nothing a screen can build that an assistant
+cannot read.
+
+**Three doors.**
+
+1. **The screens** (phase 3, the ruled prototype): *Look up* shows a subject's sentence and why;
+   *Change the look* starts from a starter or an existing look, offers the family's colours and
+   the sound, previews, and saves to the world buffer; *Custom looks* lists the house first;
+   *Check* shows what plays nothing, per sheet and per compendium, and what does not resolve.
+2. **The API**, in the game, for anything that can run script — a macro, a bridge, an assistant
+   at the table: `api.looks.validate(look)` returns problems in sentences; `api.looks.sentence(look)`
+   the sentence; `api.looks.save(look)` writes the buffer with provenance; `api.preview(look,
+   {source, targets})` plays it once on the chosen tokens without saving; `api.census()` the
+   "nothing plays yet" list as data. The screens are built on this API, so it is always complete.
+3. **The files and tools**, offline, for an assistant working from the repo: `recipes/SCHEMA.md`
+   is the grammar with every default; `tools/assets.mjs "misty step"` searches the libraries'
+   own registration (families, variants, colours, sizes, sounds) so a path is looked up, never
+   guessed; `tools/check-looks.mjs` validates a look file the way the API does; `tools/census.mjs`
+   lists what has no look, per sheet and compendium, as text or data; `tools/preview.mjs <look>`
+   plays a look on the sandbox fixture so the result can be seen (and captured) before it is
+   proposed. An assistant's round trip is: census → pick a subject → pick a starter → find the
+   asset → write the look → validate → preview → propose.
+
+**Starters.** `recipes/starters.json` holds one abstract look per shape and per common intent — a
+bolt to the target, a swing, a mark on the target, a mark on yourself, a burst on an area, a fill
+of an area, an aura, a beam, a teleport — with sensible sizes and timings. Every new look is a
+starter or an existing look plus a subject, an asset and a colour. That is the whole authoring
+model for ninety percent of looks, and it is one line: `{for: [spell:sharran-step], like:
+misty-step, with: {colour: black}}`.
+
+**Provenance and review.** Every look records `by` (a user's name, an assistant's name, or the
+migration), `at`, and a `note` in a sentence. The Custom looks screen shows the newest first with
+who wrote them; the export tool folds the buffer into `house.json` so git holds the history. An
+assistant's looks are proposals in the buffer until the user keeps them by exporting; nothing an
+assistant writes reaches `house.json` without a person running the export. No guessing at the
+table: an assistant proposing fifty looks for the fifty PHB spells with none is fine, and the user
+reads fifty sentences and keeps the ones that read right.
+
+## 8. Tools and checks
+
+| Tool | Kind | What it proves |
+| --- | --- | --- |
+| `migrate-aa.mjs` | one-time | AA's corpus into looks, the family expansions, the oracle proof (§6.2), the asset nativisation count (§6.3), the census, the report |
+| `check-looks.mjs` | offline, seconds | every look validates; every asset resolves against the libraries' registration and the disk |
+| `check-imports.mjs`, `check-layers.mjs` | offline | every module loads; every import points down the layer order |
+| `census.mjs` | offline or live | every subject in the world and the compendia → which look answers, what plays nothing |
+| `assets.mjs` | offline | the catalogue search |
+| `smoke-looks.mjs` | live | every look builds on the sandbox against a synthetic moment and every path resolves live |
+| `smoke-replay.mjs` | live | one look of every shape and moment through real dnd5e flows |
+| `smoke-author.mjs` | live | the assistant's round trip: a look written as data, validated, previewed, saved, read back as a sentence, exported |
+| `preview.mjs` | live | plays a look on the fixture for a person or an assistant to see |
+
+## 9. What changes for the user, and what does not
+
+- Every picture that plays today keeps playing, proved at the render, minus the two accidents
+  the user already saw (a maul that did nothing, a spell that bashed).
+- The sentence screens arrive on a shape that *is* the sentence, so they are thinner and the
+  prototype's wording holds.
+- Adding a look for a spell, a weapon, a feature, an effect, a condition, a Battle Flow moment or
+  a table event is the same act with the same grammar, whoever does it.
+- The module's own vocabulary is small enough to hold in one head: eight shapes, a dozen moment
+  kinds, nine subject kinds, twenty knobs. None of AA's words survive in `scripts/`; a check greps
+  for them.
+
+## 10. Decisions — ruled 2026-09-06 ("those are fine")
+
+1. **Identity keys replace name matching** (§3): weapons by base weapon after their own name,
+   spells and features by dnd5e's identifier, effects by name then origin. The family rows are
+   expanded once at migration and listed.
+2. **The look grammar** (§4) is the corpus's shape from here, and the sentence is generated from
+   it, never parsed.
+3. **Eight shapes** (§5); AA's presets become compositions in data; the ported presets are
+   retired to the oracle after the proof.
+4. **The private asset table is retired by measurement** (§6.3); what cannot be nativised stays
+   frozen and counted.
+5. **The authoring model** (§7): one grammar, the screens, the API and the files as three doors,
+   starters, provenance, and export as the only way into `house.json`.
+6. **The baseline splits per kind** (§4.3) for readability.
+7. **Teleport picks its destination by click** as migrated, with "from the token's own movement"
+   as the user's switch per look.
+
+The costs the user accepted with them, in plain words: about three days before the screens; a
+long list of small questions while AA's thirty settings per look are translated and checked; AA's
+private copy of the video list may not fully go away (counted, not promised); nothing plays by
+luck any more, so the "nothing plays yet" list starts a little longer; a new weapon type or
+creature name later needs a look added on purpose; a small new vocabulary; a few more tools to
+keep alive.
+
+The plan's phases from here are in PLAN §6. Phase 2 builds this; the user's "continue" in the
+next context is the go.

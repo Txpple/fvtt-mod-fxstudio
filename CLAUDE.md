@@ -5,25 +5,43 @@ what happened at the table. It keeps Sequencer as the engine and JB2A + PSFX as 
 and replaces Automated Animations (AA) and the D&D5e Animations preset by carrying their whole
 corpus over losslessly as its baseline, with the user's own looks in a house corpus on top, the
 outcome layers AA never had, and four screens that speak in sentences. It never guesses a look:
-an ability with no row plays nothing until the user gives it one. Sister of Battle Flow
+an ability with no row plays nothing until the user gives it one. **It is a greenfield opportunity
+to do it right: AA was written before Foundry 14 and before assistants, and its architecture is not
+carried — AA's corpus is migrated once so the table does not start from zero, and nothing of its
+practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §0.7,
+[ARCHITECTURE.md](ARCHITECTURE.md)).** Sister of Battle Flow
 (`../fvtt-mod-battleflow`, the rules of the game) and Misc Patches (`../fvtt-mod-miscpatches`):
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status: phase 0 built on the sandbox (2026-09-06); phase 1 (lossless replay) is a GO — the user
-said "lets start phase 1 in a new context" on 2026-09-06, so a fresh session starts building it
-without asking again.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
+**Status (2026-09-06): phase 1 (lossless replay) is built, green and committed; the user's first
+evening on it ruled AA's inherited model OUT, and [ARCHITECTURE.md](ARCHITECTURE.md) — identity
+keys, the look as the sentence, nine shapes, one authoring model for people and assistants — was
+RULED the same day with its costs accepted. Phase 2 (the model, PLAN §6) is the next work and the
+user's "I'll start a new window to continue" is its go: a fresh session reads ARCHITECTURE.md, then
+PLAN §6, says in its first line that it is starting phase 2, and builds it without asking again.
+The sandbox runs FX Studio alone (AA and D&D5e Animations switched off there on 2026-09-06 with
+`tools/sandbox-module.mjs`; prod still runs AA).** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
 improvements in scope), then the architecture, the measured facts, the lossless AA import with its
 parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
 each. [DESIGN.md](DESIGN.md) holds what was decided while building (the row, the private Sequencer
-table `fxstudio.aa.*` and why, the matching rules); [BACKLOG.md](BACKLOG.md) what is parked;
+table `fxstudio.aa.*` and why, the matching rules, and §6: the moments, who plays, the presets,
+the ledger); [BACKLOG.md](BACKLOG.md) what is parked;
 `recipes/import-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
 the tools. `prototypes/` holds the investigation's scripts and the clickable prototype the user
 ruled the shape on ("it reads right"). Each phase ends at a check-in; the next phase starts on
 the user's word, never on a handoff or a plan.
 
 ## How the user works (standing rules, learned in the sister repos)
+
+- **Greenfield, checked every time (the user, 2026-09-06).** We intentionally do not inherit AA's
+  legacy architecture or practices. Every time you read this, stop and ask: *what am I doing right
+  now, does it follow that principle, and am I adopting AA's shape out of convenience?* Cross-check
+  against the tells in [ARCHITECTURE.md](ARCHITECTURE.md) §0 (a rule about names, an AA option
+  carried verbatim, a concept that exists only because AA had it, an engine branch on a row, a
+  special case for one look, "same representation because it is easier to prove"). Phase 1 is the
+  proof it happens by default: the plan carried AA's rows because they were in front of us.
 
 - **Wait for "go".** Investigate, prototype and plan freely; build only when told. One green
   pass, then check in at every break point.
@@ -60,6 +78,12 @@ the user's word, never on a handoff or a plan.
   there without the user's word. Both worlds share ids, so a `get-world-info` tells them apart
   only by Foundry version and who is connected. `disconnect-bridge` before a suite or a restart:
   one connected user blocks the restart.
+- **The suites here** are `tools/smoke-looks.mjs` (every row builds live) and
+  `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
+  compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
+  Battle Flow fixtures are needed. `tools/check-imports.mjs` after any edit under `scripts/`.
+  ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
+  before measuring anything from it (the suite's `moveTo`).
 - **Suites** go in `tools/` and use the MCP repo's Foundry client
   (`../fvtt-mcp-molten5e/dist/foundry.js`, credentials from its `.env`; the suite identity is
   "Tester Assistant"). Follow Battle Flow's `tools/README.md` pattern: section-filterable, every
@@ -76,9 +100,10 @@ the user's word, never on a handoff or a plan.
 Sequencer 4.2.3 · JB2A Patreon 0.9.2 (209 styles, 10052 database paths, registers `jb2a.*`) ·
 PSFX Patreon 0.17.0 on prod as module id `psfx-patreon` (1230 paths, registers `psfx.*`; the sandbox still
 has the free `psfx` 0.16.0 until the next refresh) · Automated
-Animations 7.0.22 and D&D5e Animations 3.3.0 — **still on until cutover** (PLAN §6 phase 4) ·
-dnd5e 5.3.3 on Foundry 14. AA's world settings hold the 1290-row autorec; leave them alone until
-the import has run and been checked.
+Animations 7.0.22 and D&D5e Animations 3.3.0 — **installed but switched OFF on the sandbox since
+2026-09-06** (still on on prod until cutover, PLAN §6 phase 5; the migration still needs AA's
+sourcemap, so neither is uninstalled) · dnd5e 5.3.3 on Foundry 14. AA's world settings hold the
+1290-row autorec; leave them alone.
 
 ## Prod
 

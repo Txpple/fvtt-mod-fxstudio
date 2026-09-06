@@ -1,6 +1,12 @@
 # fxstudio — the plan
 
-**Status: phase 0 built on the sandbox, 2026-09-06; phase 1 is a go (2026-09-06).** Written 2026-09-05 after a
+**Status: phase 1 (lossless replay) built on the sandbox, 2026-09-06, and the user's first evening on it
+ruled the model AA left behind out — "abandon the old practices of AA; keep only its corpus; do it right".
+[ARCHITECTURE.md](ARCHITECTURE.md) is the net-new architecture (identity keys, the look as the sentence,
+nine shapes, one authoring model for people and assistants), RULED the same day with its costs accepted
+("those are fine"); the phases in §6 are re-cut from it. Phase 2 (the model) is the next work: the user's
+"I'll start a new window to continue" is its go, and the fresh session starts building it, saying so in
+its first line.** Written 2026-09-05 after a
 day's investigation; the user ruled the shape off a clickable prototype ("it reads right") and
 asked for this plan. Re-reviewed and locked 2026-09-06 (§0); the go came the same day. Phase 0's
 exit is measured in `recipes/import-report.md` (parity 1289 of 1289, check green); what was
@@ -26,8 +32,25 @@ decided while building is in [DESIGN.md](DESIGN.md). Each phase ends at a check-
 6. **The improvements stay in scope:** playing once the dice are known, the outcome layers,
    Battle Flow's moments, exact-name matching, and the sentence screens. They are additions
    on top of an exact replay, never substitutes for one.
+7. **Greenfield (ruled 2026-09-06).** This is a greenfield opportunity to do it right. Automated Animations was written before
+   Foundry 14 and before assistants, and its architecture (rows keyed by name, menus, thirty-field
+   option blobs, sequences that branch on the row) is not one this module carries. AA's corpus is
+   migrated once so the table does not start from zero; none of its practices, vocabulary or model
+   survive in `scripts/`. Ruled by the user 2026-09-06 after the first evening on phase 1.
+   [ARCHITECTURE.md](ARCHITECTURE.md) is the design; its §10 decisions, the two refinements and the
+   costs listed with them were accepted in full. Decision 2's measurement moves to the render (the
+   same Sequencer calls, ARCHITECTURE §6.2), and decision 5 is read as ruled there: keying a thing
+   by the identity dnd5e stamps on it (a maul as a maul) is identity, not guessing. **Every session
+   re-reads ARCHITECTURE §0 and checks its own work against it: what am I doing, does it follow
+   this principle, am I adopting AA's shape out of convenience?**
 
 ## 1. What it is, in one paragraph
+
+**This is a greenfield opportunity to do it right.** Automated Animations was written before
+Foundry 14 and before assistants, and its architecture (rows keyed by name, menus, thirty-field
+option blobs, sequences that branch on the row) is not one this module carries. AA's corpus is
+migrated once so the table does not start from zero; none of its practices, vocabulary or model
+survive in `scripts/`. Ruled by the user 2026-09-06 after the first evening on phase 1.
 
 A sister module beside Battle Flow that plays visual and sound effects for what happens at the
 table. It keeps **Sequencer** as the engine and **JB2A** and **PSFX** (Patreon builds of both) as
@@ -71,6 +94,13 @@ listed for the user before cutover, never dropped silently.
 
 ## 3. Architecture
 
+**2026-09-06: [ARCHITECTURE.md](ARCHITECTURE.md) supersedes this section's resolver, presets and
+data paragraphs once the user rules on it.** What stays as written here: the pieces and their
+direction, the reader, the rendering decision (DESIGN §6), the UI, the validation. What changes:
+a look is found by identity keys (a maul is `weapon:maul`, the Shield spell is `spell:shield`),
+never by a name rule; a row is a look written as the sentence (scenes of eight shapes) instead of
+AA's menus and option blobs; the ported presets become the migration's oracle and are retired.
+
 ### 3.1 The pieces
 
 ```
@@ -110,11 +140,13 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   template, unbind alpha and visibility). Plus the outcome presets: impact flash, miss, save
   mark, condition icon. AA's MIT-licensed sequence code is the reference; vendor and simplify,
   never depend. No macro preset: the corpus uses none.
-- **Rendering.** Transient effects render **locally on every client** from the same message
-  (Sequencer `.locally()`), with any random variant seeded by the message id so all clients agree.
-  Persistent effects (a Shield loop, an aura) are created once by the client that created the
-  effect document, `.persist()`ed and `.tieToDocuments()`ed so deletion removes them. No sockets
-  of our own.
+- **Rendering** (measured in phase 1, DESIGN §6). One client plays and Sequencer carries the
+  picture to every other client, as under AA: the message's author (else the first active GM),
+  or the user who placed the template or created the effect. The plan had said "locally on every
+  client, seeded by the message id"; Sequencer 4.2.3 has no seed, so each client would pick its
+  own file and mirror. Persistent effects (a Shield loop, an aura) are `.persist()`ed with the
+  document's uuid as origin and `.tieToDocuments()`ed so deletion removes them. No sockets of our
+  own.
 - **Data, two corpora, later wins.** (1) `recipes/baseline.json`: the **baseline corpus**, the
   D&D5e Animations 3.3.0 preset converted row-for-row from the module's own `autorec.json`,
   committed to this repo under GPL-3 with attribution (`recipes/BASELINE-LICENSE`), read-only,
@@ -202,13 +234,17 @@ change to any flag shape. fxstudio never reads Battle Flow's internal flags.
 
 ## 6. Phases, each with an exit measurement
 
+**Re-cut 2026-09-06** on the user's ruling to abandon AA's model; phases 0 and 1 stand as built,
+the rest follow [ARCHITECTURE.md](ARCHITECTURE.md). The screens still come before the outcomes.
+
 | Phase | Builds | Exit |
 | --- | --- | --- |
 | **0 · Foundation** (½ day) — **built 2026-09-06** | repo skeleton with `module.json` requiring Sequencer; the row format; `check-looks`; `import-aa` with its parity proof, matching census and report; `baseline.json` and `house.json` written and committed with their licences; plus, found while building, the private Sequencer table (`aa-database.json`, DESIGN §3) because AA's metadata differs from JB2A's for 1178 layers | **measured:** parity 1289 of 1289 on the sandbox copy of prod's data; `check-looks` green (4435 paths, 0 missing); the module boots on the sandbox and resolves; the census and the "nothing plays" list are in `recipes/import-report.md` **for the user to read** |
-| **1 · Lossless replay** (2 days) | reader for dnd5e messages and template/effect hooks; resolver (house → baseline → nothing); every corpus preset: swing, projectile, on-token, template ×4, teleport, projectile-to-template, dual-attach, thunderwave, active-effect loop; attacks play knowing hit or miss | a replay suite drives one row of every menu type and family on the sandbox side by side with AA and the user calls them the same; the five party sheets play; `smoke-looks` green |
-| **2 · The screens** (1–2 days) | the four screens and the item-sheet FX button as ruled; Preview; the three-picker editor writing the world layer; the export tool | the user adds "Sharran Step, like Misty Step but black" in-game unaided and it plays |
-| **3 · Outcomes** (1–2 days) | Battle Flow's hooks (its own commit) and the outcome presets: hit flash, miss, save mark, condition icons, damage applied | Riposte, a held Shield, a failed save, Fire Shield and an aura all play; suite extended |
-| **4 · Cutover** (½ day + a week's watch) | AA and D&D5e Animations off on the sandbox, then prod on the user's word | prod parity check; no AA hook fires; uninstall after a week of play |
+| **1 · Lossless replay** (2 days) — **built 2026-09-06** | reader for dnd5e messages and template/effect hooks; resolver (house → baseline → nothing); every corpus preset: swing, projectile, on-token, template ×4, teleport, projectile-to-template, dual-attach, thunderwave, active-effect loop; attacks play knowing hit or miss; the ledger and the `play` switch | **measured:** `smoke-replay` 35 of 35 (one row of every menu type and family through real dnd5e flows, AA still on beside it); `smoke-looks` green (1292 rows build live, every path resolves; the party's sheets all build); parity still 1289 of 1289 after the twin grew the thunderwave and dual-attach nodes. **Left for the user:** watch it side by side (`node tools/smoke-replay.mjs --watch 4000` from a second client on the sandbox) and call them the same |
+| **2 · The model** (≈3 days) — **proposed, awaiting the ruling** | ARCHITECTURE §§2–8: the moment and subject vocabularies with identity keys; the look grammar and `SCHEMA.md`; the eight shapes and the engine (places, assets, render); the dnd5e reader on the new moments; `migrate-aa` with the family expansion, the render-level oracle proof and the asset nativisation; the baseline per kind; starters; the authoring API (`validate`, `sentence`, `save`, `preview`, `census`) and tools (`assets`, `census`, `check-looks`, `preview`, `check-layers`); the ported presets moved to the oracle and deleted from `scripts/` | **measured:** the oracle proof equal for every migrated look with the deliberate differences named; the count of assets still on the frozen table (goal zero); the census in the new keys listing every changed answer (Maul of Momentum plays; the Shield spell no longer bashes) for the user to read; `smoke-looks`, `smoke-replay` and the new `smoke-author` (an assistant's round trip: write, validate, preview, save, read back, export) green; no AA vocabulary left in `scripts/` |
+| **3 · The screens** (1–2 days) | the four screens and the item-sheet FX button as ruled, on the look grammar: sentences generated from looks; starters and colours from the asset catalogue; Preview; Save to the buffer with provenance; the export tool | the user adds "Sharran Step, like Misty Step but black" in-game unaided and it plays; an assistant adds one through the API and the user reads it as a sentence on the Custom looks screen |
+| **4 · Outcomes and moments** (1–2 days) | Battle Flow's hooks (its own commit) and the core reader (statuses, combat, movement); the outcome looks in `outcomes.json`: hit flash by damage type, miss, save mark, condition icons, damage applied; the Automatic screen's switches as `off` on those looks | Riposte, a held Shield, a failed save, Fire Shield and an aura all play; suite extended |
+| **5 · Cutover** (½ day + a week's watch) | AA and D&D5e Animations off on the sandbox (done 2026-09-06 for the user's look), then prod on the user's word | prod parity check; no AA hook fires; uninstall after a week of play |
 
 The screens come before the outcomes because the menu is the pain the user named. Order inside
 a phase follows the suite: every preset gets a section before the next preset starts.
@@ -218,12 +254,15 @@ a phase follows the suite: every preset gets a section before the next preset st
 - **Go.**
 - **Export:** whether folding the world layer into `house.json` is a tool run or a button on the
   Check screen.
-- **Template timing:** dnd5e 5.x places templates as Regions; the reader keys on `createRegion`
-  with the activity origin, the same hook AA uses on this version. Measure once on the sandbox.
-- **Local rendering and reloads:** a client that reloads mid-animation misses it. Acceptable for
-  transient effects; persistent ones survive because they are Sequencer-persisted.
-- **Monster attacks:** natural attacks have no base item; the baseline's generic rows (Bite,
-  Claw, Tail…) matched by whole word cover them. Measure on the campaign's NPCs in phase 1.
+- **Template timing — measured 2026-09-06:** Foundry 14 migrates a created MeasuredTemplate to a
+  Region and carries dnd5e's flags with it, so `createRegion` with `flags.dnd5e.origin` is the
+  moment; the reader waits the half second AA waited for the Region to be drawn. `smoke-replay` §6–7.
+- **Reloads:** a client that reloads mid-animation misses it. Acceptable for transient effects;
+  persistent ones survive because they are Sequencer-persisted.
+- **Monster attacks — measured 2026-09-06:** of the campaign's 205 NPC attack activities on 135
+  actors, 171 reach a row by exact name, 28 by whole word (Necrotic Sword → Sword, Rose-Gold
+  Longsword → Longsword), 6 nothing (Smother, Battleaxe, Torch, Constricting Vine); `smoke-looks`
+  prints the census each run.
 - **Performance:** preload the party's styles at combat start (`Sequencer.Preloader`); measure
   first-play latency on a cold client.
 - **Parked, off by default, never owed — derived looks.** The investigation tested seven rules
