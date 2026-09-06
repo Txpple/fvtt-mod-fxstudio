@@ -20,8 +20,9 @@ What is parked, and why. Nothing here is owed; each line says who decides.
   `{ "for": ["effect:skill-guidance-…"], "like": "guidance" }` per variant, or a wider ruling.
 - **An item's own look** (four in `house.json`: Unholy Word, Necrotic Burst, First Light, Goldthorn,
   from AA's item flags) is keyed by the item's name, so it answers any item of that name, not only
-  the one it was set on. The item pointer `flags.fxstudio.look` (PLAN §3.1) lands with the screens
-  in phase 3; until then the four are listed in the report's house section.
+  the one it was set on. The item pointer landed with the screens (phase 3): open the item's sheet,
+  press the wand, Change the look, tick "only this one", Save — the look is then keyed to nothing
+  and the item points at it. The four house looks stay as they are until the user re-keys them.
 
 ## From phase 2 (2026-09-06)
 
@@ -52,8 +53,9 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 
 - **Derived looks**, off by default, never owed: the seven rules in `prototypes/derive*.mjs`.
 - **Retirement** of baseline looks a rule reproduces identically. Depends on the option above.
-- **Export**: whether folding the world buffer into `house.json` is a tool run or a button on the
-  Check screen. The tool exists (`tools/export-looks.mjs`); the button is a phase 3 choice.
+- **Export** stays a tool run (`tools/export-looks.mjs --write`), decided in phase 3: the game
+  cannot write the repo, and a person reads the sentences before they reach git. The Check screen
+  says how many looks wait, and clears from the world only what the house file already holds.
 
 ## Known and accepted
 
@@ -70,6 +72,11 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 
 ## Later phases (PLAN §6)
 
-- Phase 3: the four screens and the item-sheet button on the look grammar; the item pointer.
+- Phase 3 is built. Parked from it (DESIGN §8): the prototype's *Automatic* tab (its rules are
+  the parked derivation; phase 4 gives the tab the outcome layers' switches instead); "play nothing
+  for one item only" (an off look needs a key; one item's silence is a look with no scenes, not yet
+  offered); editing a look scene by scene in the window (the editor changes what `like` and `with`
+  can say — a starter or a look, a colour, a sound, a size; anything deeper is the API or the file,
+  by design); the migration's technical notes on the seven house looks show as written.
 - Phase 4: Battle Flow's hooks, the core reader (statuses, combat, movement), the outcome looks.
 - Phase 5: cutover.

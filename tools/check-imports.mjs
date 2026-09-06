@@ -7,7 +7,8 @@ import { join } from 'node:path';
 import { REPO, toUrl } from './lib/env.mjs';
 
 globalThis.Hooks = { once() {}, on() {}, callAll() {} };
-globalThis.game = { settings: { get() {}, register() {} }, modules: { get: () => ({}) }, user: {}, users: [] };
+globalThis.game = { settings: { get() {}, register() {}, registerMenu() {} }, modules: { get: () => ({}) }, user: {}, users: [] };
+globalThis.foundry = { applications: { api: { ApplicationV2: class { constructor() {} render() {} }, DialogV2: { confirm: async () => false } } } };
 globalThis.Sequencer = { Database: { entryExists: () => false, getPathsUnder: () => [], getEntry: () => null }, EffectManager: { getEffects: () => [] } };
 globalThis.Item = class {};
 globalThis.CONFIG = { DND5E: {} };

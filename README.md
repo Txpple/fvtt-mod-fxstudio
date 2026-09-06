@@ -7,7 +7,15 @@ and JB2A and PSFX as the libraries; replaces Automated Animations by carrying it
 Animations corpus over losslessly, adds the user's own looks and the outcome layers AA never had,
 and is driven through four screens that speak in sentences. It never guesses a look.
 
-**Status: phase 2 (the model) built, 2026-09-06.** [ARCHITECTURE.md](ARCHITECTURE.md) is the
+**Status: phase 3 (the screens) built, 2026-09-06.** FX Studio opens from the Settings sidebar
+(the GM's "Open FX Studio" button) or from the wand on any item sheet: *Look up* an ability and
+read what it plays as a sentence and why; *Change the look* from a starter or any existing look,
+in the family's own colours, with a sound found in PSFX or none, and Save it to the world with your
+name on it; *Custom looks* lists what was written here and in the house file, newest first, with
+who wrote each; *Check* shows what plays nothing on each sheet and in the books, what did not
+resolve, and what waits for the export. One item can carry a look of its own ("only this one").
+Everything the screens do goes through the API, so a macro or an assistant can do the same
+(`tools/smoke-screens.mjs` and `tools/smoke-author.mjs` prove both doors). [ARCHITECTURE.md](ARCHITECTURE.md) is the
 design: a look is found by what acted and when (identity keys dnd5e already keeps — a spell's
 identifier, a weapon's name then its base weapon, a natural attack, a feature, an item, an
 effect), never by a name rule; a look is written as the sentence the user would say
@@ -22,7 +30,7 @@ Measured on the sandbox: every look builds and every path resolves live (`tools/
 one look of every shape and moment plays through real dnd5e flows (`tools/smoke-replay.mjs`, 37 of
 37 — a Maul of Momentum plays the maul, the Shield spell no longer bashes), and an assistant's
 round trip through the API — write, validate, read as a sentence, preview, save with provenance,
-export — is green (`tools/smoke-author.mjs`). Phase 3, the four screens on this grammar, starts on
+export — is green (`tools/smoke-author.mjs`). Phase 4, the outcomes and Battle Flow's moments, starts on
 the user's word. Read [PLAN.md](PLAN.md) for the phases, [DESIGN.md](DESIGN.md) for what was
 decided while building, [BACKLOG.md](BACKLOG.md) for what is parked, and the migration report for
 what the user reads before cutover. `prototypes/` holds the investigation's scripts and the

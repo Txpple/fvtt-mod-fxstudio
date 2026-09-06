@@ -222,8 +222,8 @@ recipes/
   SCHEMA.md      the grammar above with every knob's range and default, for people and assistants
 ```
 
-plus the world setting `looks` as the live edit buffer, and an item pointer `flags.fxstudio.look`
-naming a look id for one specific item (phase 3). Every file carries `schema: 2`; a future change to the
+plus the world setting `looks` as the live edit buffer, and an item pointer `flags.fvtt-mod-fxstudio.look`
+naming a look id for one specific item (phase 3; the flag's scope is the module id, as Foundry requires). Every file carries `schema: 2`; a future change to the
 shape is a migration function in the tools, never a hand edit. **As built (phase 2, 2026-09-06):**
 `recipes/baseline/` holds 1289 looks (spells 586, weapons 132, natural 87, features 277, items 23,
 effects 184), `house.json` 7, `starters.json` 10, `aa-assets.json` 15 paths; `migration-report.md`
@@ -307,7 +307,7 @@ cannot read.
 
 **Three doors.**
 
-1. **The screens** (phase 3, the ruled prototype): *Look up* shows a subject's sentence and why;
+1. **The screens** (phase 3, built 2026-09-06 as ruled on the prototype; DESIGN §8): *Look up* shows a subject's sentence and why;
    *Change the look* starts from a starter or an existing look, offers the family's colours and
    the sound, previews, and saves to the world buffer; *Custom looks* lists the house first;
    *Check* shows what plays nothing, per sheet and per compendium, and what does not resolve.

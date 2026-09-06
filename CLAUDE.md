@@ -14,19 +14,20 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-06): phase 2 (the model) is built and green on the sandbox — ARCHITECTURE.md
+**Status (2026-09-06): phase 3 (the screens) is built and green on the sandbox — `scripts/ui/`
+(one window, ApplicationV2 on plain DOM, built on the API: Look up with the editor inside, Custom
+looks, Check), the item-sheet button, the settings button, the item pointer
+`flags.fvtt-mod-fxstudio.look`; `tools/smoke-screens.mjs` drives it on the DOM (32 of 32; DESIGN
+§8). Phase 2 (the model) the same day — ARCHITECTURE.md
 as ruled: `scripts/core/` (moments, subjects with identity keys, the look grammar, the corpus),
 `scripts/readers/dnd5e.js`, `scripts/engine/` (eight shapes and the escape hatch, places, assets,
 the renderer), `scripts/api.js` (the authoring API); the corpus migrated to `recipes/baseline/`
 per kind with a render-level proof (1296 of 1296; `recipes/migration-report.md`); phase 1's
 presets and rows retired to `tools/lib/oracle/`. The four live suites and the offline checks are
-green (tools/README.md). **Phase 3 (the four screens on the look grammar, PLAN §6) is a GO: the
-user said "let's work on that in a new context window" at the phase 2 check-in (2026-09-06).** A
-fresh session reads ARCHITECTURE.md §7, `recipes/SCHEMA.md`, `scripts/api.js` and the ruled
-prototype (`prototypes/fxstudio2.template.html`), says in its first line that it is starting
-phase 3, and builds the four screens and the item-sheet button on the API without asking again;
-the exit is PLAN §6 phase 3 ("Sharran Step, like Misty Step but black" added in-game unaided).
-The sandbox runs FX Studio alone (AA and D&D5e Animations switched off there on 2026-09-06 with
+green (tools/README.md). **Phase 3 is at its check-in: the user does the exit by hand ("Sharran
+Step, like Misty Step but black" added in-game unaided, from the Settings button or an item
+sheet's wand) and says go for phase 4 (outcomes and moments, PLAN §6); nothing of phase 4 starts
+before that word.** The sandbox runs FX Studio alone (AA and D&D5e Animations switched off there on 2026-09-06 with
 `tools/sandbox-module.mjs`; prod still runs AA).** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
 improvements in scope), then the architecture, the measured facts, the lossless AA import with its
@@ -84,7 +85,7 @@ the user's word, never on a handoff or a plan.
   there without the user's word. Both worlds share ids, so a `get-world-info` tells them apart
   only by Foundry version and who is connected. `disconnect-bridge` before a suite or a restart:
   one connected user blocks the restart.
-- **The suites here** are `tools/smoke-looks.mjs` (every look builds live), `tools/smoke-author.mjs` (the assistant's round trip) and
+- **The suites here** are `tools/smoke-looks.mjs` (every look builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
   `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
   compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
   Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs` and `check-legacy.mjs` after any edit under `scripts/`; `check-looks.mjs` after any edit under `recipes/`.

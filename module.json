@@ -11,6 +11,9 @@
   "esmodules": [
     "scripts/fxstudio.js"
   ],
+  "styles": [
+    "styles/fxstudio.css"
+  ],
   "compatibility": {
     "minimum": "14",
     "verified": "14"

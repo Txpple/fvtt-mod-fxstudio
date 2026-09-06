@@ -50,7 +50,7 @@ export function build(look, moment) {
 
 /** the look that answers a moment, through the corpus index */
 export function resolveMoment(index, moment) {
-  return resolve(index, moment.subject?.keys ?? [], moment.when, { hasPlace: !!moment.place });
+  return resolve(index, moment.subject?.keys ?? [], moment.when, { hasPlace: !!moment.place, pointer: moment.subject?.pointer ?? null });
 }
 
 /**

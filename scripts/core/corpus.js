@@ -63,9 +63,16 @@ export function needsPlace(look) {
  * @param index   from buildIndex
  * @param keys    the subject's keys, most specific first
  * @param on      the moment kind
- * @param opts    {hasPlace: the moment carries a placed template}
+ * @param opts    {hasPlace: the moment carries a placed template; pointer: the look id one specific item names (its own look, ahead of every key)}
  */
-export function resolve(index, keys, on, { hasPlace = false } = {}) {
+export function resolve(index, keys, on, { hasPlace = false, pointer = null } = {}) {
+  if (pointer) {
+    const own = index.byId.get(pointer);
+    if (own && (own.look.off || own.look.on === on)) {
+      if (own.look.off) return { look: null, key: 'this item', source: own.source, why: `this item's own look "${pointer}" is switched off` };
+      return { look: own.look, key: 'this item', source: own.source, original: own.original, pointer };
+    }
+  }
   for (const key of keys ?? []) {
     const candidates = [...(index.byKey.get(`${key}|${on}`) ?? []), ...(index.byKey.get(`${key}|*`) ?? [])];
     if (!candidates.length) continue;

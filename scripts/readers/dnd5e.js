@@ -64,6 +64,9 @@ export function subjectOfItem(item, { activity = null, ammunition = null } = {})
   });
   s.reach = !!item.system?.properties?.has?.('rch');
   s.uuid = item.uuid;
+  // one specific item's own look (the item pointer, set from the screens): its id, ahead of every key
+  const pointer = item.flags?.['fvtt-mod-fxstudio']?.look;
+  if (typeof pointer === 'string' && pointer) s.pointer = pointer;
   return s;
 }
 

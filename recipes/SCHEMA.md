@@ -30,6 +30,7 @@ target and flies past on a miss · with the PSFX cantrips fire-bolt sound.*
 | `starters.json` | the abstract looks every new look starts from (`starter:bolt`, …) | MIT |
 | `aa-assets.json` | the frozen asset table: what the migration could not point at the libraries' own paths; counted, meant to reach zero | MIT |
 | the world setting `looks` | the live edit buffer the screens and the API write | — |
+| an item's flag `fvtt-mod-fxstudio.look` | the item pointer: one specific item names a look id of its own (set from the screens with "only this one"); it answers ahead of every key, and such a look has an empty `for` | — |
 
 Every file is `{ "_meta": {...}, "looks": [look, …] }` with `_meta.schema: 2`. Resolution order:
 the world buffer, then `house.json`, then the baseline — later wins per look id, and per subject key.

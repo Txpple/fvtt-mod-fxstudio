@@ -7,12 +7,13 @@ import { buildIndex } from './core/corpus.js';
 import { registerReader } from './readers/dnd5e.js';
 import { endPicturesOf, play, useSettings } from './engine/render.js';
 import { makeApi } from './api.js';
+import { registerScreens } from './ui/index.js';
 
 export { MODULE_ID };
 const log = (...a) => console.log('FX Studio |', ...a);
 
 const BASELINE_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects'];
-const state = { corpora: { baseline: [], house: [], starters: [], frozen: null }, index: null, rebuild };
+const state = { corpora: { baseline: [], house: [], starters: [], frozen: null }, index: null, rebuild, open: null };
 
 async function loadJson(path) {
   const r = await fetch(`modules/${MODULE_ID}/${path}`);
@@ -23,11 +24,13 @@ async function loadJson(path) {
 function rebuild() {
   state.index = buildIndex({ baseline: state.corpora.baseline, house: state.corpora.house, world: getWorldLooks(), starters: state.corpora.starters });
   for (const p of state.index.problems) console.warn('FX Studio |', p);
+  Hooks.callAll('fxstudio.rebuilt', state.index);
   return state.index;
 }
 
 Hooks.once('init', () => {
   registerSettings();
+  state.open = registerScreens({ moduleId: MODULE_ID });
   useSettings({ playing, logging });
   registerReader({
     dispatch: (moment) => play(state.index ?? rebuild(), moment).catch((e) => console.error('FX Studio |', e)),

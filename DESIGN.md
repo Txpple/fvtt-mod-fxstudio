@@ -264,3 +264,74 @@ phase 1 did (DESIGN §6). AA's hundred-millisecond "global delay" is gone.
 live; the party: Gren 40 of 57, Jetten 26 of 35, Morgash 13 of 26, Thomas 30 of 47 play; NPC attacks
 193 of 198 (Smother, Battleaxe, Constricting Vine nothing); `smoke-replay` 37 of 37; `smoke-author`
 12 of 12.
+
+## 8. Phase 3 — the screens (built 2026-09-06)
+
+What was decided while building the four screens on the look grammar; ARCHITECTURE §7 is the
+model, the prototype (`prototypes/fxstudio2.template.html`) the ruled shape.
+
+### One window, built on the API and nothing else
+
+`scripts/ui/studio.js` is one ApplicationV2 window with three tabs — Look up (with *Change the
+look* opening inside it, as the prototype did), Custom looks, Check — rendered as plain DOM
+through its own `_renderHTML`, no template engine, no Handlebars files; `scripts/ui/html.js`
+holds escaping and the swatches, `scripts/ui/sheet-button.js` the item sheet's door. Every fact
+on a screen comes from `api.*` (`census`, `sentenceFor`, `looks.list/get/save/remove`, `preview`,
+`assets.colours/search/resolve`, `ledger`), so the screens can never show what an assistant could
+not write, and `tools/check-layers.mjs` keeps `ui/` importing only `core/`, the API and the
+settings. The window opens three ways, all through `api.open({item | key | id | tab})`: the
+Settings sidebar's "Open FX Studio" button (a settings menu, GM only), the wand on any dnd5e item
+sheet, and a macro or an assistant calling the API.
+
+### The editor speaks the grammar's own words
+
+The prototype's three pickers are exactly `like` and `with`: *Start from* is a look or a starter
+(`like`), *Colour* the family's own colours read off the libraries' registration for the first
+picture of the expanded start look (`with.colour`), *Sound* keep / none / one found in PSFX by a
+word (`with.sound`), *Size* a scale (`with.scale`). The draft is validated and read back as the
+sentence on every change, before Save. Which key the look answers is a pill per bare key of the
+subject — a Maul of Momentum offers "the Maul of Momentum" and "any maul", the identity model in
+the user's hands — and "only this one" makes a look with no keys that one item points at. Anything
+deeper than that (a second scene, a delay, a persistent mark) is the API or the file, on purpose:
+the window changes what the sentence can say in one line, and stays thin.
+
+### Ids, replacing, silencing
+
+A new look's id is the key's own id (`sharran-step`). Changing a look that already carries that id
+(Fire Bolt from the baseline) cannot be `like: fire-bolt` under the same id — a circle — so the
+window saves a copy with the changes applied, under the same id, keeping every key the replaced
+look answered (a Sword look answers three weapons; changing it for one keeps the other two).
+A key whose natural id is taken by a look for something else gets a kind-prefixed id
+(`weapon-shield` beside `shield`). *Play nothing* writes an `off` look for the key (and, when the
+key's look carried more keys, for all of them, since it replaces by id). *Back to the look it had*
+removes the world look (and the item pointer) so what was underneath shows through again; a house
+look cannot be removed from the game, only overridden, since the file is git's.
+
+### The item pointer
+
+`flags.fvtt-mod-fxstudio.look` on an item (the flag's scope must be a module id; ARCHITECTURE §4.3
+had written `fxstudio`) names a look id; the reader copies it onto the subject as `pointer`, and
+`resolve` honours it ahead of every key when the look's moment kind matches. Such a look has
+`for: []` and is listed as "one item's own look". The four house looks the migration keyed by an
+item's name are unchanged (BACKLOG).
+
+### Check, the buffer and the export
+
+The export stays a tool: the game cannot write the repo, and a person reads the sentences before
+they reach git. The Check screen says how many looks wait and, once the export has run and the
+module is deployed, offers to clear from the world only what `house.json` already holds word for
+word (`api.looks.exported`, `clearExported`). "The books" reads the PHB packs on demand (a few
+seconds) rather than at open. What played last is the ledger.
+
+### What the prototype had that is not built
+
+The *Automatic* tab was the derivation rules, parked by PLAN §7; phase 4 gives that tab the outcome
+layers' switches instead. Its colour table (a colour per damage type and school) goes with it.
+
+### Measured on the sandbox, 2026-09-06
+
+`tools/smoke-screens.mjs` drives the window on the DOM, 32 of 32 (PLAN §6 phase 3). The other
+suites and the offline checks are green after the change. Two platform facts found while
+building: ApplicationV2 reserves `state` on the instance (the window's view state is `view`), and
+dnd5e's sheets put every header control into a dropdown, so the sheet button is both a header
+button (dnd5e's own copy-uuid markup) and a dropdown entry.

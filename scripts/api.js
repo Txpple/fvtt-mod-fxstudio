@@ -15,6 +15,7 @@ import { getWorldLooks, setWorldLooks } from './settings.js';
  */
 export function makeApi(state) {
   const ids = () => new Set([...state.index.byId.keys(), ...state.index.starters.keys()]);
+  const sameLook = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   const lookup = (id) => state.index.byId.get(id)?.look ?? state.index.starters.get(id) ?? null;
 
   const looks = {
@@ -57,6 +58,16 @@ export function makeApi(state) {
       state.rebuild();
       return { ok: true };
     },
+    /** the buffer's looks that recipes/house.json already holds word for word (the export has run and been deployed) */
+    exported: () => getWorldLooks().filter((l) => state.corpora.house.some((h) => h.id === l.id && sameLook(h, l))),
+    /** drop from the buffer what the house file already holds; what it does not hold stays. Returns how many went. */
+    clearExported: async () => {
+      const gone = looks.exported().map((l) => l.id);
+      if (!gone.length) return { ok: true, cleared: 0 };
+      await setWorldLooks(getWorldLooks().filter((l) => !gone.includes(l.id)));
+      state.rebuild();
+      return { ok: true, cleared: gone.length };
+    },
   };
 
   const subjects = {
@@ -69,14 +80,23 @@ export function makeApi(state) {
   /** the look a subject (or an item) resolves to for a moment kind: {look, key, source} or {look: null, why} */
   const resolveFor = (subjectOrItem, on = 'use', { hasPlace = false } = {}) => {
     const subject = subjectOrItem?.keys ? subjectOrItem : subjectOrItem?.documentName === 'ActiveEffect' ? subjectOfEffect(subjectOrItem) : subjectOfItem(subjectOrItem);
-    return { subject, ...resolve(state.index, subject?.keys ?? [], on, { hasPlace }) };
+    return { subject, ...resolve(state.index, subject?.keys ?? [], on, { hasPlace, pointer: subject?.pointer ?? null }) };
   };
 
-  /** the sentence for what an item would play: "Fire Bolt · when used · …" or "Nothing plays yet." */
-  const sentenceFor = (item, on = 'use') => {
-    const r = resolveFor(item, on);
-    if (!r.look) return { sentence: 'Nothing plays yet.', why: r.why, subject: r.subject };
-    return { sentence: sentence(r.look, { name: item.name }), look: r.look, key: r.key, source: r.source, why: `${item.name} is ${keyWords(r.key)}, and ${r.source} has a look for that.`, subject: r.subject };
+  /** the sentence for what an item (or a subject) would play: "Fire Bolt · when used · …" or "Nothing plays yet." */
+  const sentenceFor = (item, on = 'use', { hasPlace = false } = {}) => {
+    const r = resolveFor(item, on, { hasPlace });
+    const name = item?.name ?? r.subject?.name ?? null;
+    if (!r.look) return { sentence: 'Nothing plays yet.', why: whyNothing(r, name), subject: r.subject, key: r.key ?? null, source: r.source ?? null, off: /switched off/.test(r.why ?? '') };
+    return { sentence: sentence(r.look, { name }), look: r.look, original: r.original ?? null, key: r.key, source: r.source, why: whyLook(r, name), subject: r.subject };
+  };
+  const SOURCE_WORDS = { world: 'a look written in this world', house: 'the house file', baseline: 'the imported set' };
+  const whyLook = (r, name) => r.pointer ? `This ${name ?? 'item'} has a look of its own (${SOURCE_WORDS[r.source] ?? r.source}).` : `${name ?? 'It'} is ${keyWords(r.key)}, and ${SOURCE_WORDS[r.source] ?? r.source} has a look for that.`;
+  const whyNothing = (r, name) => {
+    if (/switched off/.test(r.why ?? '')) return `${name ?? 'It'} was switched off on purpose (${SOURCE_WORDS[r.source] ?? r.source}); it plays nothing until you give it a look again.`;
+    const keys = r.subject?.keys ?? [];
+    if (!keys.length) return 'Nothing here can be given a look.';
+    return `No look answers ${keys.map(keyWords).join(', or ')}. Give it one below.`;
   };
 
   /**
@@ -111,10 +131,10 @@ export function makeApi(state) {
         if (!acts.length && it.type !== 'weapon') continue;
         const subject = subjectOfItem(it, { activity: acts[0] ?? null });
         const hasPlace = acts.some((a) => a?.target?.template?.type);
-        const r = resolve(state.index, subject.keys, 'use', { hasPlace });
+        const r = resolve(state.index, subject.keys, 'use', { hasPlace, pointer: subject.pointer ?? null });
         out.asked++;
         if (r.look) out.answered++; else out.nothing.push({ actor: actor.name, name: it.name, type: it.type, keys: subject.keys });
-        row.items.push({ name: it.name, type: it.type, keys: subject.keys, look: r.look?.id ?? null, key: r.key ?? null, source: r.source ?? null, why: r.why ?? null });
+        row.items.push({ name: it.name, type: it.type, id: it.id, uuid: it.uuid, keys: subject.keys, hasPlace, look: r.look?.id ?? null, key: r.key ?? null, source: r.source ?? null, why: r.why ?? null, off: !r.look && /switched off/.test(r.why ?? '') });
       }
       for (const ef of actor.allApplicableEffects?.() ?? actor.effects) {
         const subject = subjectOfEffect(ef);
@@ -125,6 +145,9 @@ export function makeApi(state) {
     }
     return out;
   };
+
+  /** open the screens: {tab: 'lookup' | 'custom' | 'check', item: an Item to look up, id: a look id to edit} */
+  const open = (opts = {}) => state.open?.(opts) ?? null;
 
   const assets = {
     search: (word, opts) => search(word, opts),
@@ -148,6 +171,7 @@ export function makeApi(state) {
     sentenceFor,
     preview,
     census,
+    open,
     build,
     play: (moment, opts) => play(state.index, moment, opts),
     read: { message: readMessage, region: readRegion, effect: readEffect },
