@@ -91,3 +91,41 @@
 .fxstudio code { font-size: 12px; color: var(--fx-muted); }
 .fxstudio .toast { position: sticky; bottom: 8px; margin: 12px auto 0; width: fit-content; max-width: 90%; background: var(--fx-text); color: var(--fx-ground); padding: 8px 14px; border-radius: 10px; box-shadow: var(--fx-shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
 .fxstudio .toast[data-on="true"] { opacity: 1; }
+
+/* the Create-a-look walk */
+.fxstudio .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
+.fxstudio .fx-wrap button.step { padding: 7px 10px; border-radius: 8px; border: 1px solid var(--fx-line2); color: var(--fx-muted); font-size: 12.5px; display: flex; gap: 8px; align-items: center; background: transparent; text-align: left; }
+.fxstudio .step .k { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--fx-line); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.fxstudio .step[data-state="now"] { border-color: var(--fx-accent); color: var(--fx-text); background: var(--fx-accent-soft); }
+.fxstudio .step[data-state="now"] .k { border-color: var(--fx-accent); color: var(--fx-accent); }
+.fxstudio .step[data-state="done"] { color: var(--fx-text); }
+.fxstudio .step[data-state="done"] .k { background: var(--fx-accent); color: var(--fx-accent-ink); border-color: transparent; }
+.fxstudio .walk h3 { margin: 0 0 3px; font-size: 16px; font-weight: 600; border: 0; }
+.fxstudio .walk .lead { margin: 0 0 12px; }
+.fxstudio .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.fxstudio .fx-wrap button.choice { text-align: left; padding: 12px 14px; border-radius: 12px; display: grid; gap: 3px; }
+.fxstudio .choice b { font-weight: 600; }
+.fxstudio .choice span { color: var(--fx-muted); font-size: 12.5px; }
+.fxstudio .choice[aria-pressed="true"] { border-color: var(--fx-accent); background: var(--fx-accent-soft); }
+.fxstudio .scene { display: grid; grid-template-columns: 58px 1fr auto; gap: 8px 10px; align-items: start; padding: 10px 0; border-top: 1px solid var(--fx-line2); }
+.fxstudio .scene:first-child { border-top: 0; padding-top: 0; }
+.fxstudio .scene .shape { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; padding-top: 6px; }
+.fxstudio .scene .knobs { display: flex; flex-wrap: wrap; gap: 6px; }
+.fxstudio .scene .knobs select, .fxstudio .scene .knobs input { width: auto; padding: 5px 8px; font-size: 12.5px; }
+.fxstudio .scene .knobs .search { min-width: 200px; }
+.fxstudio .scene .knobs .search input { width: 100%; }
+.fxstudio .scene .line { grid-column: 2; color: var(--fx-muted); font-size: 12.5px; }
+.fxstudio .fx-wrap .scene button.drop { padding: 3px 8px; }
+.fxstudio .hint { display: flex; gap: 10px; padding: 8px 12px; border-radius: 8px; background: var(--fx-panel2); color: var(--fx-muted); font-size: 12.5px; margin-top: 10px; }
+.fxstudio .hint b { color: var(--fx-text); font-weight: 500; }
+.fxstudio .soon { font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px dashed var(--fx-line); color: var(--fx-faint); margin-left: 6px; }
+.fxstudio .walk .nav { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--fx-line2); }
+.fxstudio .walk .nav .spacer { flex: 1; }
+.fxstudio .walk .sub { margin-top: 12px; }
+/* the Corpus tab */
+.fxstudio .tag.main { color: var(--fx-good); border-color: var(--fx-good); }
+.fxstudio .tag.bound { color: var(--fx-warn); border-color: var(--fx-warn); }
+.fxstudio .flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: center; margin: 6px 0 8px; }
+.fxstudio .flow .box { border: 1px solid var(--fx-line); border-radius: 10px; padding: 8px 10px; font-size: 13px; background: var(--fx-panel2); }
+.fxstudio .flow .box .l { color: var(--fx-muted); font-size: 11.5px; }
+.fxstudio .flow .arrow { color: var(--fx-faint); font-size: 16px; }

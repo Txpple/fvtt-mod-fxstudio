@@ -13,6 +13,7 @@
 //   off     a house look that silences whatever answered before it (its `for` keys play nothing)
 //   scenes  the pictures and sounds, in start order
 //   by, at, note   who wrote it (a name, an assistant, "the migration"), when (ISO date), why
+//   to      a look written in this world only: the corpus it is bound for (house | baseline) until shipped
 //
 // A SCENE — every knob is named for what it does and means the same thing in every shape
 //   shape    strike | shoot | mark | fill | aura | beam | move | sound | custom
@@ -31,7 +32,8 @@
 //   return   {asset} a return flight (shoot)
 //   thrown   {asset, return, sound, reach} — strike: what flies when the target is out of reach
 //   breathe {min, max, every}, pulse {min, max, every} — aura
-//   range, pick ("click" | "movement"), speed, fade {to, after, back}, after, jump, checkCollision — move
+//   range, pick ("click" | "movement"), speed, fade {to, after, back}, after, jump — move; seen, unoccupied: what the
+//            spell's words demand of the spot (a space you can see; an unoccupied space), judged before the token moves
 //   clearTemplate   the placed template is removed once the scene has played
 //   calls    custom only: [[method, ...args], …] against a whitelist
 
@@ -46,6 +48,7 @@ export const ON_MISS = ['fly-past', 'play', 'skip'];
 export const PICK = ['click', 'movement'];
 export const SIZE_KINDS = ['tokenWidths', 'radius', 'squares', 'fit'];
 export const FIT = ['shape', 'object'];
+export const TO = ['house', 'baseline'];
 
 /** the knobs each shape reads; anything else on a scene is a problem the validator names */
 const COMMON = ['shape', 'asset', 'sound', 'delay', 'wait', 'repeat', 'every', 'rate', 'fadeIn', 'fadeOut', 'opacity', 'tint', 'below', 'elevation', 'zIndex', 'anchor', 'note'];
@@ -56,7 +59,7 @@ export const KNOBS = {
   fill: [...COMMON, 'at', 'size', 'mask', 'persist', 'rotate', 'aboveLighting', 'xray', 'clearTemplate'],
   aura: [...COMMON, 'at', 'size', 'persist', 'attach', 'breathe', 'pulse'],
   beam: [...COMMON, 'from', 'to', 'persist'],
-  move: ['shape', 'sound', 'delay', 'range', 'pick', 'speed', 'fade', 'after', 'jump', 'checkCollision', 'note'],
+  move: ['shape', 'sound', 'delay', 'range', 'pick', 'speed', 'fade', 'after', 'jump', 'seen', 'unoccupied', 'note'],
   sound: ['shape', 'asset', 'volume', 'delay', 'start', 'repeat', 'every', 'wait', 'note'],
   custom: ['shape', 'calls', 'note'],
 };
@@ -69,7 +72,7 @@ export const DEFAULTS = {
   fill: { at: 'template', size: { fit: 'shape', scale: { x: 1, y: 1 } }, persist: 'none', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1 },
   aura: { at: 'targets-else-source', size: { radius: 3 }, persist: 'until-removed', opacity: 1, zIndex: 1, rate: 1, fadeIn: 250, fadeOut: 500 },
   beam: { from: 'source', to: 'each-target', persist: 'until-removed', rate: 1 },
-  move: { range: 30, pick: 'click', speed: 120, jump: true, after: 0, checkCollision: false },
+  move: { range: 30, pick: 'click', speed: 120, jump: true, after: 0, seen: true, unoccupied: true },
   sound: { volume: 0.75, delay: 0, start: 0, repeat: 1, every: 250 },
   custom: {},
 };
@@ -175,6 +178,7 @@ export function validate(look, { ids = null } = {}) {
     else for (const k of look.for) if (!isKey(k)) out.push(`"${k}" is not a subject key (kind:id, e.g. spell:fire-bolt or weapon:maul)`);
   }
   if (look.on !== undefined && !WHEN.includes(look.on)) out.push(`"on" must be one of ${WHEN.join(', ')}`);
+  if (look.to !== undefined && !TO.includes(look.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus a look written here is bound for)`);
   if (look.off) {
     if (!look.for?.length) out.push('an "off" look needs the keys it silences in "for"');
     return out;
@@ -194,7 +198,7 @@ export function validate(look, { ids = null } = {}) {
     }
   }
   if (Array.isArray(look.scenes)) look.scenes.forEach((s, i) => out.push(...sceneProblems(s, i, look)));
-  for (const k of Object.keys(look)) if (!['id', 'for', 'on', 'like', 'with', 'off', 'scenes', 'by', 'at', 'note', 'source'].includes(k)) out.push(`a look does not have a "${k}"`);
+  for (const k of Object.keys(look)) if (!['id', 'for', 'on', 'like', 'with', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source'].includes(k)) out.push(`a look does not have a "${k}"`);
   return out;
 }
 
@@ -254,7 +258,7 @@ function applyWith(look) {
 // ---------------------------------------------------------------------------------------------
 // the sentence
 // ---------------------------------------------------------------------------------------------
-const PLACE_WORDS = {
+export const PLACE_WORDS = {
   source: 'the caster', 'each-target': 'each target', 'targets-else-source': 'each target, or the caster when nothing is targeted', both: 'the caster and each target',
   template: 'the template', destination: 'the chosen spot', impact: 'where the last picture landed', area: 'inside the standing area',
 };
@@ -347,7 +351,10 @@ export function sceneWords(scene) {
       return tail(w);
     }
     case 'beam': return tail(`a beam (${a}) from ${PLACE_WORDS[s.from]} to ${PLACE_WORDS[s.to]}${s.persist !== 'none' ? ` ${persistWords[s.persist]}` : ''}`);
-    case 'move': return tail(`the caster ${s.fade ? 'fades and ' : ''}${s.jump ? 'appears' : 'travels'} at the chosen spot${s.range ? ` within ${s.range} feet` : ''}${s.pick === 'movement' ? ', read from the token\'s own move' : ''}`);
+    case 'move': {
+      const spot = s.seen && s.unoccupied ? ', an unoccupied space they can see' : s.seen ? ', a space they can see' : s.unoccupied ? ', an unoccupied space' : '';
+      return tail(`the caster ${s.fade ? 'fades and ' : ''}${s.jump ? 'appears' : 'travels'} at the chosen spot${s.range ? ` within ${s.range} feet` : ''}${spot}${s.pick === 'movement' ? ', read from the token\'s own move' : ''}`);
+    }
     case 'sound': return `the ${a} sound`;
     case 'custom': return 'a custom effect';
     default: return `(${s.shape})`;

@@ -1,0 +1,334 @@
+<title>FX Studio: Create a look</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root{
+  --ground:#f4f3ef; --panel:#ffffff; --panel2:#f7f6f2; --line:#dcdad2; --line2:#eae8e1;
+  --text:#1f2128; --muted:#666a75; --faint:#9a9da8;
+  --accent:#1f8f88; --accent-ink:#ffffff; --accent-soft:#e3f2f0;
+  --good:#3f9a48; --warn:#b8862a; --bad:#c9524f; --shadow:0 8px 24px rgba(20,24,40,.10);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --ground:#15161b; --panel:#1c1e25; --panel2:#22252e; --line:#2e313c; --line2:#272a33;
+  --text:#e8e4da; --muted:#a0a2ad; --faint:#6b6e7a;
+  --accent:#5fc4bd; --accent-ink:#0f1d1c; --accent-soft:#1f3634;
+  --good:#6fbf73; --warn:#e0a04a; --bad:#e06c6c; --shadow:0 8px 24px rgba(0,0,0,.45); } }
+:root[data-theme="dark"]{
+  --ground:#15161b; --panel:#1c1e25; --panel2:#22252e; --line:#2e313c; --line2:#272a33;
+  --text:#e8e4da; --muted:#a0a2ad; --faint:#6b6e7a;
+  --accent:#5fc4bd; --accent-ink:#0f1d1c; --accent-soft:#1f3634;
+  --good:#6fbf73; --warn:#e0a04a; --bad:#e06c6c; --shadow:0 8px 24px rgba(0,0,0,.45); }
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--text);font:15.5px/1.5 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+code{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--muted)}
+button{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 14px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
+button.quiet{background:transparent;border-color:transparent;color:var(--muted)} button.quiet:hover{color:var(--text);background:var(--panel2)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=search],input[type=text],select{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+.wrap{max-width:900px;margin:0 auto;padding:22px 20px 60px}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+header h1{margin:0;font-size:24px;font-weight:600;letter-spacing:-.01em}
+header p{margin:0;color:var(--muted)}
+.tabs{display:flex;gap:6px;margin:18px 0 22px;flex-wrap:wrap}
+.tabs button{border-radius:999px;padding:8px 16px;color:var(--muted);background:transparent;border-color:transparent}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--text);border-color:var(--line);font-weight:500}
+.pane{display:none}.pane[data-active="true"]{display:block}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.stack{display:grid;gap:14px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pills .lbl{color:var(--muted);font-size:13.5px;margin-right:4px}
+.pill{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 12px;font-size:13.5px;cursor:pointer}
+.pill[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--text)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--faint);display:inline-block;flex:none;margin-right:6px;vertical-align:1px}
+.dot.custom{background:var(--accent)} .dot.baseline{background:var(--good)} .dot.none{background:var(--warn)}
+.sentence{font-size:19px;line-height:1.45;margin:0 0 8px}
+.sentence b{font-weight:600}
+.why{color:var(--muted);margin:0 0 6px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.actions .spacer{flex:1}
+.note{color:var(--muted);font-size:13.5px}
+.sub{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:6px 0 10px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}
+.preview{margin:14px 0;padding:12px 14px;background:var(--panel2);border-radius:8px}
+/* the walk */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:16px}
+.step{padding:8px 10px;border-radius:8px;border:1px solid var(--line2);color:var(--muted);font-size:13px;display:flex;gap:8px;align-items:center;background:transparent;text-align:left}
+.step .k{font-family:"IBM Plex Mono",monospace;font-size:12px;width:20px;height:20px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.step[data-state="now"]{border-color:var(--accent);color:var(--text);background:var(--accent-soft)} .step[data-state="now"] .k{border-color:var(--accent);color:var(--accent)}
+.step[data-state="done"]{color:var(--text)} .step[data-state="done"] .k{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.step[data-state="todo"]{cursor:default}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.choice{text-align:left;padding:14px 16px;border-radius:12px;display:grid;gap:4px}
+.choice b{font-weight:600}
+.choice span{color:var(--muted);font-size:13.5px}
+.choice[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.scene{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--line2)}
+.scene:first-of-type{border-top:0}
+.scene .shape{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:4px;width:56px}
+.scene .knobs{display:flex;flex-wrap:wrap;gap:8px}
+.scene .knobs select{width:auto;padding:5px 8px;font-size:13.5px}
+.scene .line{grid-column:2;color:var(--muted);font-size:14px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:5px;border:1px solid rgba(0,0,0,.15)}
+.hint{display:flex;gap:10px;padding:10px 12px;border-radius:8px;background:var(--panel2);color:var(--muted);font-size:13.5px}
+.hint b{color:var(--text);font-weight:500}
+.soon{font-size:12px;padding:1px 7px;border-radius:999px;border:1px dashed var(--line);color:var(--faint);margin-left:6px;vertical-align:1px}
+/* corpus */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.tile .num{font-size:28px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tile .l{color:var(--muted);font-size:13.5px}
+.tile.warn .num{color:var(--warn)} .tile.good .num{color:var(--good)}
+.list .row{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:11px 0;border-bottom:1px solid var(--line2)}
+.list .row:last-child{border-bottom:0}
+.list .row .n{font-weight:500}
+.list .row .s{color:var(--muted);grid-column:1/-1;font-size:14px}
+.list .row .b{display:flex;gap:6px;align-items:center}
+.tag{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.yours{color:var(--accent);border-color:var(--accent)}
+.tag.main{color:var(--good);border-color:var(--good)}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin:8px 0 4px}
+.flow .box{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;background:var(--panel2)}
+.flow .box .l{color:var(--muted);font-size:12.5px}
+.flow .arrow{color:var(--faint);font-size:18px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--text);color:var(--ground);padding:10px 16px;border-radius:10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s;max-width:90vw}
+.toast[data-on="true"]{opacity:1}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}
+@media (max-width:700px){.steps{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.flow .arrow{display:none}}
+</style>
+
+<div class="wrap">
+  <header><h1>FX Studio</h1><p>Every ability on your sheets gets a look. Look one up, create one, ship the corpus.</p></header>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="false" data-tab="lookup">Look up</button>
+    <button role="tab" aria-selected="true" data-tab="create">Create a look</button>
+    <button role="tab" aria-selected="false" data-tab="custom">Custom looks</button>
+    <button role="tab" aria-selected="false" data-tab="corpus">Corpus</button>
+    <button role="tab" aria-selected="false" data-tab="check">Check</button>
+  </div>
+
+  <section class="pane" data-tab="lookup">
+    <div class="stack">
+      <div class="card">
+        <h2 style="margin:0 0 4px;font-size:26px;font-weight:600">Cure Wounds <span class="tag main">imported</span></h2>
+        <div class="why">On Gren’s sheet · a spell</div>
+        <p class="sentence">When used, <b>a blue healing glow</b> on each target, or on the caster when nothing is targeted, with the cure wounds sound.</p>
+        <p class="why">From the baseline (D&amp;D5e Animations 3.3.0, “Cure Wounds”).</p>
+        <div class="actions"><button class="primary">Preview on the map</button><button data-go="create-from" data-from="Cure Wounds">Create a look from this</button><button class="quiet">Play nothing</button></div>
+      </div>
+      <p class="note">This tab is as built today. The one change: “Change the look” becomes “Create a look from this”, which opens the walk on the Create tab with this look already duplicated.</p>
+    </div>
+  </section>
+
+  <section class="pane" data-tab="create" data-active="true">
+    <div class="steps" id="steps"></div>
+    <div class="card" id="walk"></div>
+  </section>
+
+  <section class="pane" data-tab="custom">
+    <div class="card list">
+      <div class="sub">6 custom looks · newest first</div>
+      <div class="row"><span class="n">Sharran Step <span class="note">· the spell Sharran Step</span></span><span class="b"><span class="tag yours">draft in this world</span><button class="quiet">Edit</button><button class="quiet">Remove</button></span><span class="s">When used, like Misty Step but dark black. — Matt, today: “Gren’s teleport”</span></div>
+      <div class="row"><span class="n">Goldthorn’s Bite <span class="note">· one item’s own look</span></span><span class="b"><span class="tag yours">house corpus</span><button class="quiet">Edit</button></span><span class="s">On a hit, a green thorned strike at the target, with the dagger sound. — Matt, 2026-09-06</span></div>
+      <div class="row"><span class="n">Misty Step <span class="note">· the spell Misty Step</span></span><span class="b"><span class="tag yours">house corpus</span><button class="quiet">Edit</button></span><span class="s">When used, a blue mist swallows the caster, who appears where you click, in a second blue mist. — the house look</span></div>
+    </div>
+  </section>
+
+  <section class="pane" data-tab="corpus">
+    <div class="stack">
+      <div class="tiles">
+        <div class="tile"><div class="num">1 296</div><div class="l">main corpus (the baseline)</div></div>
+        <div class="tile good"><div class="num">5</div><div class="l">house corpus</div></div>
+        <div class="tile warn"><div class="num">1</div><div class="l">draft in this world, not yet in a corpus</div></div>
+        <div class="tile"><div class="num">0.1.0</div><div class="l">version shipped</div></div>
+      </div>
+      <div class="card">
+        <div class="sub">How a look travels</div>
+        <div class="flow">
+          <div class="box"><div class="l">written in the game</div>a draft in this world</div><div class="arrow">→</div>
+          <div class="box"><div class="l">Save to</div>the house corpus, or the main corpus</div><div class="arrow">→</div>
+          <div class="box"><div class="l">Ship</div>the corpus files written to the module, a version stamped</div>
+        </div>
+        <p class="note">The game writes the module’s own <code>recipes/</code> folder on the server (Foundry lets a GM upload files). The repo pulls those files back with one tool, so a look you save here is one commit away from a release. The main corpus stays GPL with its attribution; the house corpus is yours.</p>
+      </div>
+      <div class="card list">
+        <div class="sub">Not yet shipped · what changed since 0.1.0</div>
+        <div class="row"><span class="n">Sharran Step</span><span class="b"><span class="tag yours">draft</span><button data-act="promote">Save to the house corpus</button></span><span class="s">When used, like Misty Step but dark black.</span></div>
+        <div class="row"><span class="n">Goldthorn’s Bite</span><span class="b"><span class="tag yours">house · new</span></span><span class="s">On a hit, a green thorned strike at the target.</span></div>
+        <div class="row"><span class="n">Cure Wounds</span><span class="b"><span class="tag main">main · changed</span></span><span class="s">Now plays on the healing roll (the reader, not the look).</span></div>
+      </div>
+      <div class="card">
+        <div class="sub">Ship</div>
+        <div class="fields">
+          <div class="field"><label>Next version</label><select><option>0.1.1 — a fix or a few looks</option><option>0.2.0 — new looks people will notice</option></select></div>
+          <div class="field"><label>Release note (one line, in sentences)</label><input type="text" value="Sharran Step and Goldthorn’s Bite; heals now play."></div>
+        </div>
+        <div class="actions" style="margin-top:12px"><button class="primary" data-act="ship">Write the corpus files and stamp 0.1.1</button><button class="quiet">Show what will be written</button></div>
+        <p class="note" style="margin-top:10px">Writes <code>recipes/house.json</code>, the changed baseline files and the version into the module on this server. Git, the tag and the GitHub release stay in the repo: <code>tools/pull-corpus.mjs</code> then the release ritual.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pane" data-tab="check">
+    <div class="card"><p class="note">As built today: nothing plays yet per sheet, looks that do not read, the books, what played last.</p></div>
+  </section>
+</div>
+<div class="toast" id="toast" data-on="false"></div>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+let toastT; const toast = (m) => { const t = $('#toast'); t.textContent = m; t.dataset.on = 'true'; clearTimeout(toastT); toastT = setTimeout(() => (t.dataset.on = 'false'), 2600); };
+
+// ---- tabs ----
+document.querySelectorAll('.tabs [data-tab]').forEach((b) => b.addEventListener('click', () => showTab(b.dataset.tab)));
+function showTab(name) {
+  document.querySelectorAll('.tabs [data-tab]').forEach((b) => (b.setAttribute('aria-selected', b.dataset.tab === name)));
+  document.querySelectorAll('.pane').forEach((p) => (p.dataset.active = p.dataset.tab === name));
+}
+$('[data-go="create-from"]').addEventListener('click', () => { S.subject = { name: 'Cure Wounds', kind: 'spell', owner: 'Gren' }; S.start = 'dup'; S.from = 'Cure Wounds'; S.scenes = SCENES['Cure Wounds'].map((x) => ({ ...x })); S.step = 3; showTab('create'); render(); });
+
+// ---- data (examples, the shapes as the module has them) ----
+const STARTERS = ['a bolt', 'a swing', 'a mark', 'an aura', 'a fill', 'a beam', 'a move'];
+const LOOKS = ['Misty Step', 'Fire Bolt', 'Cure Wounds', 'Healing Word', 'Longsword', 'Bless', 'Witch Bolt', 'Fireball', 'Sacred Flame'];
+const SCENES = {
+  'Misty Step': [{ shape: 'move', asset: 'misty step', colour: 'blue', at: 'the caster, then where you click', size: 'as it comes', sound: 'the misty step sound' }],
+  'Cure Wounds': [{ shape: 'mark', asset: 'cure wounds glow', colour: 'blue', at: 'each target, or the caster when nothing is targeted', size: 'a little bigger', sound: 'the cure wounds sound' }],
+  'Fire Bolt': [{ shape: 'shoot', asset: 'fire bolt', colour: 'orange', at: 'from the caster to each target', size: 'as it comes', sound: 'the fire bolt sound' }],
+  'Fireball': [{ shape: 'shoot', asset: 'fireball beam', colour: 'orange', at: 'from the caster to the template', size: 'as it comes', sound: 'no sound' }, { shape: 'fill', asset: 'fireball explosion', colour: 'orange', at: 'the template', size: 'fits the shape', sound: 'the fireball sound' }],
+};
+const STARTER_SCENE = { 'a bolt': { shape: 'shoot', asset: 'a generic bolt', colour: 'blue', at: 'from the caster to each target', size: 'as it comes', sound: 'no sound' }, 'a swing': { shape: 'strike', asset: 'a sword swing', colour: 'white', at: 'from the caster to each target', size: 'as it comes', sound: 'the sword sound' }, 'a mark': { shape: 'mark', asset: 'a generic impact', colour: 'blue', at: 'each target, or the caster when nothing is targeted', size: 'as it comes', sound: 'no sound' }, 'an aura': { shape: 'aura', asset: 'a generic aura', colour: 'yellow', at: 'the caster', size: 'as it comes', sound: 'no sound' }, 'a fill': { shape: 'fill', asset: 'a generic burst', colour: 'orange', at: 'the template', size: 'fits the shape', sound: 'no sound' }, 'a beam': { shape: 'beam', asset: 'a generic beam', colour: 'purple', at: 'from the caster to each target, held', size: 'as it comes', sound: 'no sound' }, 'a move': { shape: 'move', asset: 'misty step', colour: 'blue', at: 'the caster, then where you click', size: 'as it comes', sound: 'no sound' } };
+const COLOURS = { blue: '#4da3ff', 'dark black': '#2a2a33', orange: '#ff8a3d', red: '#e0524f', green: '#4fb36a', purple: '#9b6bff', white: '#eeeeee', yellow: '#f2c94c' };
+const SHAPES = ['strike', 'shoot', 'mark', 'fill', 'aura', 'beam', 'move', 'sound'];
+const PLACES = ['the caster', 'each target', 'each target, or the caster when nothing is targeted', 'from the caster to each target', 'the template', 'where you click'];
+const SIZES = ['half size', 'a little smaller', 'as it comes', 'a little bigger', 'twice the size', 'fits the shape'];
+const SOUNDS = ['no sound', 'the sound it has', 'the misty step sound', 'the cure wounds sound', 'the fire bolt sound', 'the sword sound', 'find another…'];
+const WHEN = [['use', 'when it is used'], ['effect', 'while its effect stands']];
+const OUTCOMES = [['hit', 'on a hit'], ['miss', 'on a miss'], ['save', 'on a failed save'], ['damage', 'when damage lands']];
+
+// ---- state ----
+const S = { step: 1, subject: null, isNew: false, newName: '', newKind: 'spell', start: null, from: null, scenes: [], when: 'use', outcomes: [], onMiss: 'play', keys: ['the spell'], onlyThis: false, saveTo: 'house', note: '' };
+const STEPS = ['For what', 'Start from', 'The look', 'When it plays', 'Save to'];
+const ready = (n) => [true, !!S.subject || (S.isNew && S.newName.trim()), !!S.start, S.scenes.length > 0, true][n - 1];
+
+function render() {
+  $('#steps').innerHTML = STEPS.map((t, i) => { const n = i + 1; const st = n === S.step ? 'now' : n < S.step ? 'done' : 'todo'; return `<button class="step" data-state="${st}" data-step="${n}" ${st === 'todo' ? 'disabled' : ''}><span class="k">${n}</span>${t}</button>`; }).join('');
+  $('#walk').innerHTML = [step1, step2, step3, step4, step5][S.step - 1]() + nav();
+}
+const nav = () => `<div class="actions" style="margin-top:18px">${S.step > 1 ? '<button data-act="back">Back</button>' : '<button class="quiet" data-act="cancel">Cancel</button>'}<span class="spacer"></span>${S.step === 3 || S.step === 4 ? '<button data-act="preview">Preview on the map</button>' : ''}${S.step < 5 ? `<button class="primary" data-act="next" ${ready(S.step) ? '' : 'disabled'}>Next</button>` : '<button class="primary" data-act="save">Save</button>'}</div>`;
+
+function step1() {
+  const name = S.subject?.name ?? (S.isNew ? S.newName : '');
+  return `<h3 style="margin:0 0 4px">What is this look for?</h3><p class="note" style="margin:0 0 14px">An ability on a sheet, or one the corpus has never heard of yet.</p>
+  <div class="fields"><div class="field"><label>An ability</label><input type="search" data-in="q" placeholder="Type an ability… Fire Bolt, Goldthorn, Second Wind" value="${esc(name)}"></div></div>
+  <div class="pills" style="margin-top:12px"><span class="lbl">or pick a sheet:</span>${['Gren', 'Goldthorn', 'Tessa', 'Brom'].map((n) => `<button class="pill" data-act="sheet" data-name="${n}">${n}</button>`).join('')}</div>
+  ${S.subject ? `<div class="hint" style="margin-top:14px"><span><b>${esc(S.subject.name)}</b> · on ${esc(S.subject.owner)}’s sheet · a ${S.subject.kind}${S.subject.has ? ` · already has a look (<b>${esc(S.subject.has)}</b>); the new one will replace it` : ' · <span class="dot none"></span>plays nothing yet'}</span></div>` : ''}
+  ${S.isNew ? `<div class="pills" style="margin-top:14px"><span class="lbl">not on any sheet yet · it is</span>${['spell', 'weapon', 'feature', 'item', 'effect'].map((k) => `<button class="pill" aria-pressed="${S.newKind === k}" data-act="kind" data-kind="${k}">a${k === 'item' || k === 'effect' ? 'n' : ''} ${k}</button>`).join('')}</div>` : ''}`;
+}
+
+function step2() {
+  const c = (id, title, sub, extra = '') => `<button class="choice" aria-pressed="${S.start === id}" data-act="start" data-start="${id}"><b>${title}</b><span>${sub}</span>${extra}</button>`;
+  const dup = S.start === 'dup' ? `<div class="field" style="margin-top:12px"><label>Which look?</label><select data-in="from">${LOOKS.map((l) => `<option ${S.from === l ? 'selected' : ''}>${l}</option>`).join('')}</select></div>` : '';
+  const starter = S.start === 'starter' ? `<div class="pills" style="margin-top:12px"><span class="lbl">which shape?</span>${STARTERS.map((s) => `<button class="pill" aria-pressed="${S.from === s}" data-act="from" data-from="${s}">${s}</button>`).join('')}</div>` : '';
+  return `<h3 style="margin:0 0 4px">Start from</h3><p class="note" style="margin:0 0 14px">${S.subject?.has ? `${esc(S.subject.name)} already has a look. Duplicate it and change what you like, or start elsewhere.` : 'Most looks are a small change to one that exists.'}</p>
+  <div class="choices">
+    ${c('dup', 'Duplicate an existing look', 'Pick any look in the corpus and work from there. Misty Step but black is two clicks.')}
+    ${c('starter', 'A starter', 'One plain shape — a bolt, a swing, a mark, an aura — with its colours and a sound to choose.')}
+    ${c('scratch', 'From scratch', 'An empty look. Add scenes one at a time: what plays, where, how big, with what sound.')}
+  </div>${dup}${starter}`;
+}
+
+function sceneLine(sc) { return `${sc.shape === 'sound' ? esc(sc.sound) : `${esc(sc.asset)} in <span class="sw" style="background:${COLOURS[sc.colour] ?? '#999'}"></span>${esc(sc.colour)}, at ${esc(sc.at)}, ${esc(sc.size)}${sc.sound && sc.sound !== 'no sound' ? `, with ${esc(sc.sound)}` : ''}`}`; }
+function sentence() {
+  const who = S.subject?.name ?? S.newName ?? 'it';
+  const whenW = Object.fromEntries(WHEN)[S.when];
+  const outs = S.outcomes.map((o) => Object.fromEntries(OUTCOMES)[o]);
+  const head = outs.length ? `${outs.join(' and ')}, ` : `${whenW.charAt(0).toUpperCase() + whenW.slice(1)}, `;
+  const body = S.scenes.length ? S.scenes.map((sc, i) => `${i ? (i === S.scenes.length - 1 ? ' then ' : ', ') : ''}<b>${esc(sc.asset)}</b> in ${esc(sc.colour)} at ${esc(sc.at)}${sc.sound && sc.sound !== 'no sound' ? ` with ${esc(sc.sound)}` : ''}`).join('') : '<i>nothing yet</i>';
+  return `${head}${body}.${S.onMiss === 'skip' ? ' A miss plays nothing.' : ''}`;
+}
+const opt = (list, v) => list.map((x) => `<option ${x === v ? 'selected' : ''}>${x}</option>`).join('');
+function step3() {
+  const rows = S.scenes.map((sc, i) => `<div class="scene"><div class="shape">${sc.shape}</div><div class="knobs">
+      ${sc.shape !== 'sound' ? `<input type="text" data-scene="${i}" data-k="asset" value="${esc(sc.asset)}" style="width:190px;padding:5px 8px;font-size:13.5px" aria-label="picture">
+      <select data-scene="${i}" data-k="colour" aria-label="colour">${opt(Object.keys(COLOURS), sc.colour)}</select>
+      <select data-scene="${i}" data-k="at" aria-label="where">${opt(PLACES, sc.at)}</select>
+      <select data-scene="${i}" data-k="size" aria-label="size">${opt(SIZES, sc.size)}</select>` : ''}
+      <select data-scene="${i}" data-k="sound" aria-label="sound">${opt(SOUNDS, sc.sound)}</select>
+    </div><button class="quiet" data-act="drop" data-i="${i}" aria-label="remove scene">✕</button><div class="line">${sceneLine(sc)}</div></div>`).join('');
+  return `<h3 style="margin:0 0 4px">The look</h3><p class="note" style="margin:0 0 10px">${S.start === 'dup' ? `A copy of ${esc(S.from)}. ` : ''}Each line is one scene: what plays, in what colour, where, how big, with what sound. The sentence underneath is what the module will say about it.</p>
+  <div>${rows || '<p class="note">No scenes yet. Add one below.</p>'}</div>
+  <div class="pills" style="margin-top:10px;padding-top:12px;border-top:1px solid var(--line2)"><span class="lbl">add a scene:</span>${SHAPES.map((s) => `<button class="pill" data-act="add" data-shape="${s}">${s}</button>`).join('')}</div>
+  <div class="preview"><p class="sentence" style="font-size:17px;margin:0">${sentence()}</p></div>`;
+}
+
+function step4() {
+  const w = WHEN.map(([k, t]) => `<button class="pill" aria-pressed="${S.when === k}" data-act="when" data-when="${k}">${t}</button>`).join('');
+  const o = OUTCOMES.map(([k, t]) => `<button class="pill" aria-pressed="${S.outcomes.includes(k)}" data-act="outcome" data-o="${k}">${t}</button>`).join('');
+  const name = S.subject?.name ?? S.newName;
+  const keys = [`any ${S.subject?.kind ?? S.newKind} called ${esc(name)}`, ...(S.subject?.base ? [`any ${S.subject.base}`] : [])];
+  return `<h3 style="margin:0 0 4px">When it plays</h3><p class="note" style="margin:0 0 14px">The moment the look answers, and who it answers for.</p>
+  <div class="sub">the moment</div><div class="pills">${w}</div>
+  <div class="sub" style="margin-top:16px">the outcome<span class="soon">phase 4</span></div><div class="pills">${o}</div>
+  <p class="note" style="margin:6px 0 0">Pick none to play at the moment above whatever happens. Pick one or more to play only then: a hit flash, a miss, a failed save.</p>
+  <div class="sub" style="margin-top:16px">on a miss</div><div class="pills"><button class="pill" aria-pressed="${S.onMiss === 'play'}" data-act="miss" data-v="play">still plays (as a miss)</button><button class="pill" aria-pressed="${S.onMiss === 'skip'}" data-act="miss" data-v="skip">plays nothing</button></div>
+  <div class="sub" style="margin-top:16px">answers for</div><div class="pills">${keys.map((k, i) => `<button class="pill" aria-pressed="${!S.onlyThis && i === 0}" data-act="key">${k}</button>`).join('')}${S.subject ? `<button class="pill" aria-pressed="${S.onlyThis}" data-act="only">only this one, on ${esc(S.subject.owner)}’s sheet</button>` : ''}</div>
+  <div class="preview"><p class="sentence" style="font-size:17px;margin:0">${sentence()}</p></div>`;
+}
+
+function step5() {
+  const c = (id, title, sub) => `<button class="choice" aria-pressed="${S.saveTo === id}" data-act="saveto" data-to="${id}"><b>${title}</b><span>${sub}</span></button>`;
+  return `<h3 style="margin:0 0 4px">Save to</h3><p class="note" style="margin:0 0 14px">Where the look lives decides who gets it.</p>
+  <div class="choices">
+    ${c('world', 'This world only', 'A draft. Plays here, ships nowhere until you move it. Good for trying things at the table.')}
+    ${c('house', 'The house corpus', 'Yours. Ships with the module for every world you run. MIT, in the repo’s house file.')}
+    ${c('main', 'The main corpus', 'The baseline everyone gets: the imported library. GPL with its attribution. For fixes and looks that belong to the spell itself.')}
+  </div>
+  <div class="field" style="margin-top:14px"><label>Why (a note for whoever reads this later)</label><input type="text" data-in="note" value="${esc(S.note)}" placeholder="${esc(`like ${S.from ?? 'a starter'}${S.scenes[0] ? ` but ${S.scenes[0].colour}` : ''}`)}"></div>
+  <div class="preview"><div class="sub" style="margin:0 0 6px">what will be saved</div><p class="sentence" style="font-size:17px;margin:0 0 6px"><b>${esc(S.subject?.name ?? S.newName)}</b> · ${sentence()}</p><p class="note" style="margin:0">To ${S.saveTo === 'world' ? 'this world, as a draft' : S.saveTo === 'house' ? 'the house corpus' : 'the main corpus'} · by Matt, today${S.saveTo !== 'world' ? ' · shows on Corpus as not yet shipped' : ''}.</p></div>`;
+}
+
+// ---- events ----
+$('#steps').addEventListener('click', (e) => { const b = e.target.closest('[data-step]'); if (b && !b.disabled) { S.step = +b.dataset.step; render(); } });
+$('#walk').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const a = b.dataset.act;
+  if (a === 'next') { S.step++; if (S.step === 3 && !S.scenes.length) seed(); }
+  else if (a === 'back') S.step--;
+  else if (a === 'cancel') { Object.assign(S, { step: 1, subject: null, isNew: false, newName: '', start: null, from: null, scenes: [], outcomes: [], onlyThis: false }); }
+  else if (a === 'sheet') { S.subject = { name: b.dataset.name === 'Gren' ? 'Healing Word' : 'Goldthorn’s Bite', owner: b.dataset.name, kind: b.dataset.name === 'Gren' ? 'spell' : 'weapon', has: b.dataset.name === 'Gren' ? 'Healing Word, imported' : null, base: b.dataset.name === 'Gren' ? null : 'dagger' }; S.isNew = false; }
+  else if (a === 'kind') S.newKind = b.dataset.kind;
+  else if (a === 'start') { S.start = b.dataset.start; S.from = S.start === 'dup' ? (S.subject?.has ? S.subject.name : 'Misty Step') : S.start === 'starter' ? 'a bolt' : null; S.scenes = []; }
+  else if (a === 'from') { S.from = b.dataset.from; S.scenes = []; }
+  else if (a === 'add') S.scenes.push(b.dataset.shape === 'sound' ? { shape: 'sound', sound: 'the sword sound' } : { ...STARTER_SCENE[{ strike: 'a swing', shoot: 'a bolt', mark: 'a mark', fill: 'a fill', aura: 'an aura', beam: 'a beam', move: 'a move' }[b.dataset.shape]] });
+  else if (a === 'drop') S.scenes.splice(+b.dataset.i, 1);
+  else if (a === 'when') S.when = b.dataset.when;
+  else if (a === 'outcome') { const o = b.dataset.o; S.outcomes = S.outcomes.includes(o) ? S.outcomes.filter((x) => x !== o) : [...S.outcomes, o]; }
+  else if (a === 'miss') S.onMiss = b.dataset.v;
+  else if (a === 'only') S.onlyThis = !S.onlyThis;
+  else if (a === 'key') S.onlyThis = false;
+  else if (a === 'saveto') S.saveTo = b.dataset.to;
+  else if (a === 'preview') return toast('Playing it once on the map, on the selected token…');
+  else if (a === 'save') { toast(`Saved to ${S.saveTo === 'world' ? 'this world' : S.saveTo === 'house' ? 'the house corpus' : 'the main corpus'}. ${S.subject?.name ?? S.newName} now has its own look.`); showTab(S.saveTo === 'world' ? 'custom' : 'corpus'); return; }
+  render();
+});
+$('#walk').addEventListener('input', (e) => {
+  const t = e.target;
+  if (t.dataset.in === 'q') { const q = t.value.trim(); const hit = LOOKS.find((l) => l.toLowerCase() === q.toLowerCase()); if (hit) { S.subject = { name: hit, owner: 'Gren', kind: 'spell', has: `${hit}, imported` }; S.isNew = false; } else { S.subject = null; S.isNew = !!q; S.newName = q; } const hint = $('#walk .hint, #walk .pills[style]'); render(); $('[data-in="q"]').focus(); const el = $('[data-in="q"]'); el.setSelectionRange(el.value.length, el.value.length); return; }
+  if (t.dataset.in === 'note') { S.note = t.value; return; }
+  if (t.dataset.scene !== undefined) { S.scenes[+t.dataset.scene][t.dataset.k] = t.value; if (t.tagName === 'SELECT') render(); else t.closest('.scene').querySelector('.line').innerHTML = sceneLine(S.scenes[+t.dataset.scene]); }
+});
+$('#walk').addEventListener('change', (e) => { const t = e.target; if (t.dataset.in === 'from') { S.from = t.value; S.scenes = []; render(); } });
+function seed() {
+  if (S.start === 'dup') S.scenes = (SCENES[S.from] ?? [{ shape: 'mark', asset: `${S.from.toLowerCase()}`, colour: 'blue', at: 'each target, or the caster when nothing is targeted', size: 'as it comes', sound: 'the sound it has' }]).map((x) => ({ ...x }));
+  else if (S.start === 'starter') S.scenes = [{ ...STARTER_SCENE[S.from] }];
+}
+document.querySelector('[data-act="ship"]').addEventListener('click', () => toast('Written: recipes/house.json, recipes/baseline/spells.json, version 0.1.1. Pull them into the repo to release.'));
+document.querySelector('[data-act="promote"]').addEventListener('click', (e) => { e.target.closest('.row').querySelector('.tag').textContent = 'house · new'; e.target.remove(); toast('Sharran Step moved to the house corpus.'); });
+
+// open in a realistic state: Gren's Healing Word, duplicated, at step 3
+S.subject = { name: 'Healing Word', owner: 'Gren', kind: 'spell', has: 'Healing Word, imported' }; S.start = 'dup'; S.from = 'Cure Wounds'; S.step = 3; seed();
+render();
+</script>

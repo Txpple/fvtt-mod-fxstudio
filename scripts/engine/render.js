@@ -44,7 +44,8 @@ export function build(look, moment) {
   }
   if (ctx.clearTemplate) { const region = ctx.clearTemplate; seq.thenDo(() => { canvas.scene.deleteEmbeddedDocuments(region.documentName ?? 'Region', [region.id]); }); }
   const hasPictureScenes = scenes.some((s) => s.shape !== 'sound');
-  const empty = ctx.waiting || (hasPictureScenes && ctx.pictures === 0) || (!hasPictureScenes && ctx.sounds.length === 0);
+  // a refused move (the spot is not what the words demand) stops the whole look: no mark plays where the token will not go
+  const empty = ctx.waiting || ctx.refused || (hasPictureScenes && ctx.pictures === 0) || (!hasPictureScenes && ctx.sounds.length === 0);
   return { seq: empty ? null : seq, ctx };
 }
 
@@ -72,7 +73,7 @@ export async function play(index, moment, { dryRun = false, look: given = null }
     console.error('FX Studio | building the look failed', e);
     return record({ ...base, look: look.id, key, source, why: `build failed: ${e.message}` });
   }
-  const entry = { ...base, look: look.id, key, source, files: ctx.files, sounds: ctx.sounds, missing: ctx.missing, notes: ctx.notes, played: false, why: seq ? '' : ctx.waiting?.why ?? 'nothing to play (no targets, or the token already carries it)' };
+  const entry = { ...base, look: look.id, key, source, files: ctx.files, sounds: ctx.sounds, missing: ctx.missing, notes: ctx.notes, played: false, why: seq ? '' : ctx.waiting?.why ?? (ctx.refused ? `the move was refused: ${ctx.refused}` : 'nothing to play (no targets, or the token already carries it)') };
   if (ctx.waiting && !dryRun) {
     // a move with no destination yet: arm the click, then play the whole look from there
     move.armPicker(ctx.waiting.scene, moment, (pos) => { play(index, { ...moment, destination: pos }, { look }).catch((e) => console.error('FX Studio |', e)); });

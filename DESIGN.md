@@ -114,7 +114,7 @@ off), so nothing moves to a different moment:
 | What happened | Read from | Plays when | `hits` |
 | --- | --- | --- | --- |
 | an attack roll | the dnd5e attack message (`flags.dnd5e.roll.type = attack`) | the activity has no area template | dnd5e's own verdict per target: a miss is a non-critical total under the target's AC, or a fumble (`flags.dnd5e.targets` carries each AC) |
-| a damage roll | the damage message | no template, and the activity is not an attack (a save spell, a heal) | every target counts as hit |
+| a damage roll | the damage message (a heal's is flagged `healing` by dnd5e; the reader treats it as the same moment) | no template, and the activity is not an attack (a save spell, a heal) | every target counts as hit |
 | an activity used | the usage card (`type = usage`) | no template, no damage parts, not a heal | every target |
 | a template placed | `createRegion` with `flags.dnd5e.origin` (Foundry 14 migrates a MeasuredTemplate to a Region; dnd5e's flags travel with it) | always, half a second after creation as AA waited | — |
 | an active effect created or switched on | `createActiveEffect`, `updateActiveEffect` | the effect is enabled | — |
@@ -272,8 +272,8 @@ model, the prototype (`prototypes/fxstudio2.template.html`) the ruled shape.
 
 ### One window, built on the API and nothing else
 
-`scripts/ui/studio.js` is one ApplicationV2 window with three tabs — Look up (with *Change the
-look* opening inside it, as the prototype did), Custom looks, Check — rendered as plain DOM
+`scripts/ui/studio.js` is one ApplicationV2 window with five tabs — Look up, Create a look
+(`scripts/ui/create.js`), Custom looks, Corpus (`scripts/ui/corpus.js`), Check — rendered as plain DOM
 through its own `_renderHTML`, no template engine, no Handlebars files; `scripts/ui/html.js`
 holds escaping and the swatches, `scripts/ui/sheet-button.js` the item sheet's door. Every fact
 on a screen comes from `api.*` (`census`, `sentenceFor`, `looks.list/get/save/remove`, `preview`,
@@ -283,17 +283,68 @@ settings. The window opens three ways, all through `api.open({item | key | id | 
 Settings sidebar's "Open FX Studio" button (a settings menu, GM only), the wand on any dnd5e item
 sheet, and a macro or an assistant calling the API.
 
-### The editor speaks the grammar's own words
+### The Create-a-look walk (ruled 2026-09-06 off `prototypes/fxstudio3-create.html`)
 
-The prototype's three pickers are exactly `like` and `with`: *Start from* is a look or a starter
-(`like`), *Colour* the family's own colours read off the libraries' registration for the first
-picture of the expanded start look (`with.colour`), *Sound* keep / none / one found in PSFX by a
-word (`with.sound`), *Size* a scale (`with.scale`). The draft is validated and read back as the
-sentence on every change, before Save. Which key the look answers is a pill per bare key of the
-subject — a Maul of Momentum offers "the Maul of Momentum" and "any maul", the identity model in
-the user's hands — and "only this one" makes a look with no keys that one item points at. Anything
-deeper than that (a second scene, a delay, a persistent mark) is the API or the file, on purpose:
-the window changes what the sentence can say in one line, and stays thin.
+At the phase 3 check-in the user found the way into authoring wonky and ruled the walk off a
+clickable prototype: one obvious *Create a look*, in five steps, replacing the inline editor.
+**For what** — an ability typed or picked off a sheet, or a new name with its kind. **Start
+from** — *duplicate an existing look*, *a starter*, or *from scratch*: three ways to seed the
+scenes and nothing more; after that the walk is the same for every look. **The look** — one line
+per scene: the picture (a search over JB2A's registration), the family's own colours, where it
+plays (the places of the grammar), how big (a scale over the size it came with), with what sound
+(kept, none, or one found in PSFX); a scene removed with one click, one added per shape from the
+starters; the sentence read back underneath on every change. **When it plays** — the moment
+(`on`), the outcomes shown as phase 4 and not yet offered, *on a miss* (still plays or plays
+nothing: `onMiss` on the scenes that can miss), which key it answers (a pill per bare key) and
+"only this one" (the item pointer). **Save to** — this world only (a draft), the house corpus or
+the main corpus (see *The corpus* below), with a note. The draft is a plain look with scenes from
+the first step (`ui/create.js` `draftLook`); nothing is parsed from words; Preview on the map plays
+it from any step past the second. The prototype's `like` + `with` one-liner is gone from the
+screens: a look the walk saves carries its scenes, because the walk edits scenes. The API still
+takes `like` + `with` (an assistant's one-liner), and the corpus files keep theirs.
+
+### The move is a teleport, judged by the words (2026-09-06)
+
+Misc Patches' teleport patch (born 2026-09-04 from Misty Step stopping at a wall under
+Automated Animations) moved here the day the move became this module's own, on the user's word.
+It is no longer a patch on somebody else's move: `scripts/engine/shapes/move.js` places the
+token with Foundry's own teleport movement action (`displace`, the one its undo uses; a waypoint
+carries the action), which crosses walls and creatures, where a bare move is walked and stopped
+by a wall and by dnd5e's movement automation in front of a hostile. What the spell's words demand
+of the spot is two knobs of the move scene, judged before the token moves — at the click, or on
+a given destination — and never the range, which the ring and the table hold: `seen` (a space the
+caster can see: no sight-blocking wall between the token's centre and the spot's, measured from
+the document's position because the placeable lags a move) and `unoccupied` (no creature standing
+there). A refusal is a notice at the click and the picker stays armed; on a given destination it
+is a ledger line and the whole look stays silent, so no mark plays where the token will not go.
+The sentence says it: "…appears at the chosen spot within 30 feet, an unoccupied space they can
+see". AA's *Check Collision* option (a movement ray tested at the circle) is gone from the grammar:
+it was the user's own "walls matter" per look, and the migration reads it as `seen` — a look AA
+had it on keeps the default, one with it off (Dimension Door, Far Step, Starlight Step, Teleport,
+and the jumps: Drop, Leap, Pounce, Tunneler) says `seen: false`. The walk's move line offers the
+spot ("to an unoccupied space they can see", "…seen or not", "a space they can see", "any space")
+and the range. Misc Patches keeps its copy switched on for prod until the cutover (its list and
+rules are the same); on the sandbox it is not active. Measured: smoke-replay §9 — a
+movement-only wall crossed, a sight wall refusing with the reason in the ledger, a look that need
+not see crossing it, a creature on the spot refusing (45 of 45).
+
+### The corpus, shipped from the game
+
+The user ruled that the settings must be where a shippable corpus is built, not a tool run. A
+look written in this world is a *draft* until it is bound for a corpus (`to: house | baseline`,
+a field of the grammar on world looks only). The Corpus tab shows what waits, binds and unbinds,
+and *ships*: `scripts/ship.js` folds every bound look into its corpus file inside the module's own
+folder on the server (Foundry lets a GM upload files; measured on the sandbox — a `house.json`
+overwritten in place), a house look into `recipes/house.json` and a main one into the baseline
+file of its first key's kind, stamps the version and a note in the shipping record
+(`recipes/shipped.json`), takes the shipped looks out of the world buffer and reads the corpora
+again past the browser's cache — so a shipped look answers from its corpus at once, under the same
+id, and any item pointer to it still holds. The running module's `module.json` is never rewritten
+under it (Foundry refuses that upload, and it would be wrong anyway): the version lives in the
+record, and `tools/pull-corpus.mjs` brings `recipes/**` and the version into the repo, where git,
+the tag and the release ritual stay. A look with no ability key (one item's own) can only go to
+the house corpus, since the main corpus is filed by kind. `tools/export-looks.mjs` remains as the
+offline path for a world whose server forbids uploads.
 
 ### Ids, replacing, silencing
 
@@ -315,13 +366,12 @@ had written `fxstudio`) names a look id; the reader copies it onto the subject a
 `for: []` and is listed as "one item's own look". The four house looks the migration keyed by an
 item's name are unchanged (BACKLOG).
 
-### Check, the buffer and the export
+### Check
 
-The export stays a tool: the game cannot write the repo, and a person reads the sentences before
-they reach git. The Check screen says how many looks wait and, once the export has run and the
-module is deployed, offers to clear from the world only what `house.json` already holds word for
-word (`api.looks.exported`, `clearExported`). "The books" reads the PHB packs on demand (a few
-seconds) rather than at open. What played last is the ledger.
+"The books" reads the PHB packs on demand (a few seconds) rather than at open. What played last
+is the ledger. The buffer tile counts what is written in this world and how much of it is bound
+and not yet shipped; the house-file card and "clear what the house file already holds" went with
+the export, since Corpus ships and clears in one step.
 
 ### What the prototype had that is not built
 
@@ -330,8 +380,10 @@ layers' switches instead. Its colour table (a colour per damage type and school)
 
 ### Measured on the sandbox, 2026-09-06
 
-`tools/smoke-screens.mjs` drives the window on the DOM, 32 of 32 (PLAN §6 phase 3). The other
-suites and the offline checks are green after the change. Two platform facts found while
+`tools/smoke-screens.mjs` drives the window on the DOM, 54 of 54 after the walk and the Corpus
+tab (the ship writes `house.json` and the record on the sandbox, is read back, and the files are
+restored byte for byte; `deploy-house-module.mjs --check` agrees). The other suites and the
+offline checks are green after the change. Two platform facts found while
 building: ApplicationV2 reserves `state` on the instance (the window's view state is `view`), and
 dnd5e's sheets put every header control into a dropdown, so the sheet button is both a header
 button (dnd5e's own copy-uuid markup) and a dropdown entry.

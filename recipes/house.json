@@ -108,7 +108,6 @@
     {
      "shape": "move",
      "after": 1000,
-     "checkCollision": true,
      "fade": {
       "to": 0.01,
       "after": 750,

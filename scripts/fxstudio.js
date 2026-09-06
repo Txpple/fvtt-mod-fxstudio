@@ -13,10 +13,10 @@ export { MODULE_ID };
 const log = (...a) => console.log('FX Studio |', ...a);
 
 const BASELINE_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects'];
-const state = { corpora: { baseline: [], house: [], starters: [], frozen: null }, index: null, rebuild, open: null };
+const state = { corpora: { baseline: [], house: [], starters: [], frozen: null, shipped: [] }, index: null, rebuild, reload, open: null };
 
-async function loadJson(path) {
-  const r = await fetch(`modules/${MODULE_ID}/${path}`);
+async function loadJson(path, { fresh = false } = {}) {
+  const r = await fetch(`modules/${MODULE_ID}/${path}${fresh ? `?t=${Date.now()}` : ''}`, fresh ? { cache: 'no-store' } : {});
   if (!r.ok) throw new Error(`FX Studio: cannot load ${path} (${r.status})`);
   return r.json();
 }
@@ -38,12 +38,25 @@ Hooks.once('init', () => {
   });
 });
 
-Hooks.once('setup', async () => {
-  const files = await Promise.all(BASELINE_FILES.map((k) => loadJson(`recipes/baseline/${k}.json`).catch((e) => (log(e.message), { looks: [] }))));
+/** the corpora as the module's files hold them; `fresh` reads the server past the browser's cache (after a ship) */
+async function loadCorpora(fresh = false) {
+  const o = { fresh };
+  const files = await Promise.all(BASELINE_FILES.map((k) => loadJson(`recipes/baseline/${k}.json`, o).catch((e) => (log(e.message), { looks: [] }))));
   state.corpora.baseline = files.flatMap((f) => f.looks ?? []);
-  state.corpora.house = (await loadJson('recipes/house.json').catch(() => ({ looks: [] }))).looks ?? [];
-  state.corpora.starters = (await loadJson('recipes/starters.json').catch(() => ({ looks: [] }))).looks ?? [];
-  state.corpora.frozen = await loadJson('recipes/aa-assets.json').catch(() => null);
+  state.corpora.house = (await loadJson('recipes/house.json', o).catch(() => ({ looks: [] }))).looks ?? [];
+  state.corpora.starters = (await loadJson('recipes/starters.json', o).catch(() => ({ looks: [] }))).looks ?? [];
+  state.corpora.shipped = (await loadJson('recipes/shipped.json', o).catch(() => ({ shipped: [] }))).shipped ?? [];
+  if (!fresh) state.corpora.frozen = await loadJson('recipes/aa-assets.json').catch(() => null);
+}
+
+/** read the corpus files again (a ship wrote them) and rebuild the index */
+async function reload() {
+  await loadCorpora(true);
+  return rebuild();
+}
+
+Hooks.once('setup', async () => {
+  await loadCorpora();
   rebuild();
   log(`corpus ready: ${state.corpora.baseline.length} baseline looks, ${state.corpora.house.length} house looks, ${getWorldLooks().length} in the world buffer, ${state.corpora.starters.length} starters`);
 });

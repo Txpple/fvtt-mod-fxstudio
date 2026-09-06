@@ -85,7 +85,7 @@
    "scenes": [
     { "shape": "mark", "asset": { "path": "jb2a.misty_step.01.blue" }, "at": "source", "size": { "tokenWidths": 1.5 }, "fadeIn": 250, "fadeOut": 250, "elevation": { "level": 999 } },
     { "shape": "mark", "asset": { "path": "jb2a.misty_step.02.blue" }, "at": "destination", "size": { "tokenWidths": 1.5 }, "delay": 500, "fadeIn": 250, "fadeOut": 250, "elevation": { "level": 999 } },
-    { "shape": "move", "range": 30, "jump": true, "after": 1000, "fade": { "to": 0.01, "after": 750, "back": 250 }, "checkCollision": true }
+    { "shape": "move", "range": 30, "jump": true, "after": 1000, "fade": { "to": 0.01, "after": 750, "back": 250 } }
    ]
   },
   {

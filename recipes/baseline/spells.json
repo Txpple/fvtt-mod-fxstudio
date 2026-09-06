@@ -420,6 +420,7 @@
     },
     {
      "shape": "move",
+     "seen": false,
      "range": 60,
      "after": 1000,
      "fade": {
@@ -481,6 +482,7 @@
     },
     {
      "shape": "move",
+     "seen": false,
      "range": 500,
      "after": 1000,
      "fade": {
@@ -542,7 +544,6 @@
      "shape": "move",
      "range": 90,
      "after": 1000,
-     "checkCollision": true,
      "fade": {
       "to": 0.01,
       "after": 750,
@@ -20112,6 +20113,7 @@
     },
     {
      "shape": "move",
+     "seen": false,
      "range": 500,
      "after": 1000,
      "fade": {
@@ -20200,6 +20202,7 @@
     },
     {
      "shape": "move",
+     "seen": false,
      "range": 60,
      "after": 1000,
      "fade": {
@@ -20371,7 +20374,6 @@
      "shape": "move",
      "range": 9999,
      "after": 1000,
-     "checkCollision": true,
      "fade": {
       "to": 0,
       "after": 750,
@@ -20568,7 +20570,6 @@
     {
      "shape": "move",
      "after": 1000,
-     "checkCollision": true,
      "fade": {
       "to": 0.01,
       "after": 750,
@@ -20633,7 +20634,6 @@
      "shape": "move",
      "range": 9999,
      "after": 1000,
-     "checkCollision": true,
      "fade": {
       "to": 0,
       "after": 750,
@@ -20697,7 +20697,6 @@
      "shape": "move",
      "range": 60,
      "after": 1000,
-     "checkCollision": true,
      "fade": {
       "to": 0,
       "after": 750,

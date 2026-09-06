@@ -1,0 +1,6 @@
+{
+ "_meta": {
+  "note": "What the Corpus tab shipped from a world: one line per ship (version, date, who, note, the looks and where each went). Written by the game into the module, pulled into the repo with tools/pull-corpus.mjs."
+ },
+ "shipped": []
+}

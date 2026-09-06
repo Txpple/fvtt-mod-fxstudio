@@ -8,10 +8,11 @@ import { keysFor, keyWords } from './core/subjects.js';
 import { build, ledger, play, resolveMoment } from './engine/render.js';
 import { coloursOf, database, familyOf, recoloured, resolveAsset, search } from './engine/assets.js';
 import { readEffect, readMessage, readRegion, subjectOfEffect, subjectOfItem } from './readers/dnd5e.js';
-import { getWorldLooks, setWorldLooks } from './settings.js';
+import { MODULE_ID, getWorldLooks, setWorldLooks } from './settings.js';
+import { TO_WORDS, baselineFile, nextVersions, pending, ship, stage } from './ship.js';
 
 /**
- * @param state  {get index, corpora: {baseline, house, starters}, rebuild()}
+ * @param state  {get index, corpora: {baseline, house, starters, shipped}, rebuild(), reload()}
  */
 export function makeApi(state) {
   const ids = () => new Set([...state.index.byId.keys(), ...state.index.starters.keys()]);
@@ -36,13 +37,16 @@ export function makeApi(state) {
     buffer: () => getWorldLooks(),
     /**
      * Save a look to the world buffer with provenance (replacing one with the same id). Returns
-     * {ok, problems, look}. Nothing reaches recipes/house.json until a person runs the export.
+     * {ok, problems, look}. `to` binds it for a corpus (house | baseline); without it the look is a
+     * draft that plays in this world only. Nothing reaches the corpus files until Corpus ships.
      */
-    save: async (look, { by = null, note = null } = {}) => {
+    save: async (look, { by = null, note = null, to = undefined } = {}) => {
       const problems = validate(look, { ids: ids() });
       if (problems.length) return { ok: false, problems, look };
       const stamped = { ...look, by: by ?? look.by ?? game.user?.name ?? 'someone', at: look.at ?? new Date().toISOString().slice(0, 10) };
       if (note) stamped.note = note;
+      if (to) stamped.to = to; else if (to === null) delete stamped.to;
+      if (stamped.to === 'baseline' && !baselineFile(stamped)) return { ok: false, problems: ['a look with no ability of its own belongs in the house corpus, not the main one'], look };
       const buffer = getWorldLooks().filter((l) => l.id !== stamped.id);
       buffer.push(stamped);
       await setWorldLooks(buffer);
@@ -68,6 +72,27 @@ export function makeApi(state) {
       state.rebuild();
       return { ok: true, cleared: gone.length };
     },
+  };
+
+  /** the corpus: what is written here and where it is bound, binding, shipping, the record */
+  const cmpVersion = (a, b) => { const x = String(a).split('.').map(Number); const y = String(b).split('.').map(Number); for (let i = 0; i < 3; i++) if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) - (y[i] ?? 0); return 0; };
+  const corpus = {
+    pending,
+    stage: async (id, to) => { const r = await stage(id, to); if (r.ok) state.rebuild(); return r; },
+    /** ship every bound look into the module's corpus files, stamp the version, keep the record, read the corpora again */
+    ship: async ({ version = null, note = '' } = {}) => {
+      const r = await ship({ version, note, by: game.user?.name ?? null });
+      if (r.ok) await state.reload();
+      return r;
+    },
+    /** may this look go to the main corpus? (it needs an ability key to pick its file) */
+    canBaseline: (look) => !!baselineFile(look),
+    shipped: () => state.corpora.shipped ?? [],
+    /** the version the module runs, or the last one shipped from here when that is newer */
+    version: () => { const running = game.modules.get(MODULE_ID)?.version ?? '0.0.0'; const last = state.corpora.shipped?.[0]?.version; return last && cmpVersion(last, running) > 0 ? last : running; },
+    nextVersions: (current) => nextVersions(current ?? corpus.version()),
+    words: TO_WORDS,
+    reload: () => state.reload(),
   };
 
   const subjects = {
@@ -146,7 +171,7 @@ export function makeApi(state) {
     return out;
   };
 
-  /** open the screens: {tab: 'lookup' | 'custom' | 'check', item: an Item to look up, id: a look id to edit} */
+  /** open the screens: {tab: 'lookup' | 'create' | 'custom' | 'corpus' | 'check', item: an Item to look up, id: a look id (Look up, or the walk when tab is 'create'), key} */
   const open = (opts = {}) => state.open?.(opts) ?? null;
 
   const assets = {
@@ -164,6 +189,7 @@ export function makeApi(state) {
     get corpora() { return state.corpora; },
     get ledger() { return ledger; },
     looks,
+    corpus,
     subjects,
     assets,
     resolve: resolveFor,

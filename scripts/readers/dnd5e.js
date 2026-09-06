@@ -6,7 +6,7 @@
 //
 // THE TIMING POLICY, written once: a `use` fires as late as the answer is known and no later —
 //   an attack            on the attack roll (hit and miss known per target)
-//   a save or a heal     on the damage roll (the targets known)
+//   a save or a heal     on the damage roll (the targets known; a heal's roll is flagged "healing")
 //   an area              on the template placement (the Region drawn)
 //   everything else      on the usage card
 // This is what Automated Animations did on this world by accident of its hooks; here it is one
@@ -90,7 +90,7 @@ export function readMessage(message) {
   const rollType = f.roll?.type ?? null;
   let kind;
   if (rollType === 'attack') kind = 'attack';
-  else if (rollType === 'damage') kind = 'damage';
+  else if (rollType === 'damage' || rollType === 'healing') kind = 'damage'; // dnd5e flags a heal's roll "healing"; it is the same moment
   else if (!rollType && message.type === 'usage') kind = 'use';
   else return null;
 

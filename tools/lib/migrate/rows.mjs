@@ -188,7 +188,7 @@ export function rowToLook(row, nativiser, { id, keys, on }) {
       if (d.end?.aa || d.end?.file) { const o = d.end.options; parts.push(trim({ shape: 'mark', at: 'destination', asset: assetOf(d.end, 'end'), delay: o.delay, ...elevationOf(o, 'always'), size: { tokenWidths: 1.5 * o.size }, opacity: o.opacity, fadeIn: o.fadeIn, fadeOut: o.fadeOut, rate: o.playbackRate, mask: o.isMasked || undefined, zIndex: 0 })); }
       if (snd) { if (parts.length) parts[0].sound = snd; else parts.push({ shape: 'sound', ...snd }); }
       const o = d.options;
-      const move = { shape: 'move', range: o.range, speed: o.speed, jump: !!o.teleport, after: o.delayMove, checkCollision: o.checkCollision, pick: 'click' };
+      const move = { shape: 'move', range: o.range, speed: o.speed, jump: !!o.teleport, after: o.delayMove, pick: 'click', ...(o.checkCollision ? {} : { seen: false }) }; // AA's Check Collision was the user's own "walls matter" per look: it is now "a space you can see" (the default); off means the spot need not be seen
       if (o.alpha < 1) move.fade = { to: o.alpha, after: o.delayFade, back: o.delayReturn };
       if (o.hideFromPlayers || o.measureType !== 'alternating') notes.push('move: the range ring is always shown to everyone and measured alternating; AA had switches for both (no row used them)');
       scenes.push(...parts, trim(move));

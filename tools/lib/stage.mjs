@@ -53,7 +53,6 @@ export function token({ id = null, name = null, x = 500, y = 500, size = 1, scal
     get center() { return { x: t.x + w / 2, y: t.y + w / 2 }; },
     document: { x, y, width: size, height: size, elevation, texture: { scaleX: scale, scaleY: scale }, ring: null, move: async () => {}, update: async () => {} },
     actor: { items: { get: () => null, getName: () => null } },
-    checkCollision: () => false,
     _isToken: true,
   };
   Object.defineProperty(t.document, 'x', { get: () => t.x, set: (v) => { t.x = v; } });

@@ -22,14 +22,15 @@ const SECTIONS = {
   6: 'fills: Burning Hands (cone), Lightning Bolt (line), Grease (rectangle) and Cloud of Daggers (circle, persistent, attached: gone when the template is deleted)',
   7: 'compositions on a template: Fireball (a bolt to the template, then the burst) and Thunderwave (the picture picked by where the template sits)',
   8: 'the beam: Witch Bolt stands on the caster, stretched to the target, until ended',
-  9: 'the move: Misty Step (the house look) with a destination given — the token appears there',
+  9: 'the move: Misty Step (the house look) with a destination given — the token appears there; the teleport crosses a movement wall (displace), a sight wall refuses it, a look that need not see crosses it, a creature on the spot refuses it',
   10: 'active effects: Barkskin (a shield, two halves, persistent) appears on create, ends on disable, returns on enable, ends on delete; Bless is an aura',
   11: 'the play switch: off, nothing plays and the ledger says so; on again',
   12: 'no look: an ability with no look plays nothing and the ledger lists its keys',
   13: 'identity over names: a "Maul of Momentum" plays the maul look by its base weapon; a Shield spell plays nothing (no bash)',
+  14: 'the heal: Cure Wounds plays on its healing roll (dnd5e flags it "healing", not "damage"), on the target when one is aimed and on the caster when none is',
 };
 const DEPENDS = {};
-const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield'];
+const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds'];
 
 const { plan, pulled, watch } = sectionPlan(SECTIONS, DEPENDS);
 const { f, dispose } = await connectSandbox({ tag: 'replay', watchdogMs: 900_000 });
@@ -63,7 +64,7 @@ try {
     const settle = async () => { await sleep(1400 + watch); };
     const effectsOn = (token, origin) => Sequencer.EffectManager.getEffects({ object: token, ...(origin ? { origin } : {}) });
     const rollAttack = async (name) => { const a = activityOf(name, 'attack'); const before = game.messages.size; await a.rollAttack({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.flags?.dnd5e?.roll?.type === 'attack'); return { m, e: m ? ledgerFor(m.id) : null }; };
-    const rollDamage = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.flags?.dnd5e?.roll?.type === 'damage'); return { m, e: m ? ledgerFor(m.id) : null }; };
+    const rollDamage = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => ['damage', 'healing'].includes(x.flags?.dnd5e?.roll?.type)); return { m, e: m ? ledgerFor(m.id) : null }; };
     const useIt = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.use({ consume: false, create: { measuredTemplate: false } }, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'usage'); return { m, e: m ? ledgerFor(m.id) : null }; };
     const placeTemplate = async (name, data) => { const a = activityOf(name); const [doc] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ ...data, flags: { dnd5e: { origin: a.uuid, item: a.item.uuid } } }]); await sleep(600); await settle(); const region = canvas.scene.regions.get(doc.id) ?? doc; return { region, e: ledgerFor(region.id) }; };
     const removeTemplate = async (region) => { if (canvas.scene.regions.get(region.id)) await canvas.scene.deleteEmbeddedDocuments('Region', [region.id]); await sleep(600); };
@@ -77,12 +78,16 @@ try {
         await aim();
         await setAC(1);
         await moveTo(target, 600);
-        let { e } = await rollAttack('Longsword');
+        let hit = await rollAttack('Longsword');
+        for (let i = 0; i < 3 && hit.m?.rolls?.[0]?.isFumble; i++) hit = await rollAttack('Longsword'); // a natural 1 misses AC 1: roll again
+        let { e } = hit;
         ok('§1 Longsword hit: the longsword look answered by weapon:longsword, from JB2A\'s own path', e?.look === 'longsword' && e.key === 'weapon:longsword' && named(e, 'jb2a.sword.melee'), `${e?.look} (${e?.key}) ${files(e)}`);
         ok('§1 Longsword hit: the ledger marks the target hit', e?.targets?.[0]?.hit === true, JSON.stringify(e?.targets));
         ok('§1 Longsword hit: the PSFX sound came with it', e?.sounds?.[0]?.startsWith('psfx.'), e?.sounds?.join(', '));
         await setAC(99);
-        ({ e } = await rollAttack('Longsword'));
+        let miss = await rollAttack('Longsword');
+        for (let i = 0; i < 3 && miss.m?.rolls?.[0]?.isCritical; i++) miss = await rollAttack('Longsword'); // a natural 20 hits AC 99: roll again
+        ({ e } = miss);
         ok('§1 Longsword miss: the swing still plays (as a miss)', e?.look === 'longsword' && e.played, files(e));
         ok('§1 Longsword miss: the ledger marks no hit', e?.targets?.[0]?.hit === false, JSON.stringify(e?.targets));
         await setAC(1);
@@ -163,12 +168,42 @@ try {
         await aim(false);
         const it = item('Misty Step');
         const before = { x: caster.document.x, y: caster.document.y };
-        const moment = { when: 'use', kind: 'use', subject: api.subjects.ofItem(it), source: caster, targets: [], origin: it?.uuid ?? 'test', id: 'replay-move', destination: { x: 350, y: 850 } };
-        const e = await api.play(moment);
-        await sleep(1500 + watch);
+        // the token is placed a second after the pictures end: wait for the landing (or for a refusal to stand) before measuring
+        const play = async (destination, extra = {}) => { const moment = { when: 'use', kind: 'use', subject: api.subjects.ofItem(it), source: caster, targets: [], origin: it?.uuid ?? 'test', id: `replay-move-${Date.now()}`, destination }; const e = await api.play(moment, extra); const want = canvas.grid.getTopLeftPoint(destination); for (let i = 0; i < 60 && e.played && (caster.document.x !== want.x || caster.document.y !== want.y); i++) await sleep(100); await sleep(1500 + watch); return e; };
+        let e = await play({ x: 350, y: 850 });
         ok('§9 Misty Step: the house look played the move', e?.look === 'misty-step' && e.source === 'house' && e.played, `${e?.source} ${files(e)}`);
         ok('§9 Misty Step: the token moved to the destination', caster.document.x === 300 && caster.document.y === 800, `${caster.document.x},${caster.document.y}`);
+        ok('§9 the sentence says what the spot must be', /an unoccupied space they can see/.test(api.sentenceFor(it).sentence), api.sentenceFor(it).sentence);
         await moveTo(caster, before.x, before.y);
+        // the teleport's words, judged before the token moves (Misc Patches' teleport patch, carried here 2026-09-06)
+        const g = canvas.grid.size;
+        const cx = before.x, cy = before.y;
+        const destX = cx + 4 * g;
+        const wallX = cx + 2 * g + g / 2;
+        const raise = async (sight) => { const [w] = await canvas.scene.createEmbeddedDocuments('Wall', [{ c: [wallX, cy - 2 * g, wallX, cy + 3 * g], move: 20, sight }]); await sleep(300); return w.id; };
+        const lower = async (id) => { if (canvas.scene.walls.get(id)) await canvas.scene.deleteEmbeddedDocuments('Wall', [id]); await sleep(300); };
+        // home again with a displace move: a plain move would be walked into the suite's own wall
+        const home = async () => { for (let tries = 0; tries < 4; tries++) { await caster.document.move([{ x: cx, y: cy, action: 'displace' }], { animate: false }); for (let i = 0; i < 30 && (caster.document.x !== cx || caster.document.y !== cy); i++) await sleep(100); if (caster.document.x === cx && caster.document.y === cy) break; await sleep(500); } await sleep(150); };
+        let wallId = await raise(0);
+        try {
+          e = await play({ x: destX + 10, y: cy + 10 });
+          ok('§9 a wall that blocks movement only: the teleport crosses it (Foundry\'s own displace action, no walk)', e.played && caster.document.x === destX && caster.document.y === cy, `${e.why || 'played'} · at ${caster.document.x},${caster.document.y}`);
+          await home();
+          await lower(wallId); wallId = await raise(20);
+          e = await play({ x: destX + 10, y: cy + 10 });
+          ok('§9 a sight-blocking wall between: refused ("a space you can see"), the token where it was, the ledger says why', !e.played && /space you can see/.test(e.why ?? '') && caster.document.x === cx, `${e.why} · at ${caster.document.x}`);
+          const noSight = api.looks.expand({ id: 'replay-no-sight', like: 'misty-step' });
+          for (const sc of noSight.scenes) if (sc.shape === 'move') sc.seen = false;
+          e = await play({ x: destX + 10, y: cy + 10 }, { look: noSight });
+          ok('§9 a look whose spot need not be seen (Dimension Door\'s words) crosses the sight wall', e.played && caster.document.x === destX, `${e.why || 'played'} · at ${caster.document.x}`);
+          await home();
+        } finally { await lower(wallId); }
+        const tb = { x: target.document.x, y: target.document.y };
+        await moveTo(target, destX, cy);
+        e = await play({ x: destX + 10, y: cy + 10 });
+        ok('§9 a creature standing on the spot: refused ("an unoccupied space")', !e.played && /unoccupied space/.test(e.why ?? '') && caster.document.x === cx, `${e.why} · at ${caster.document.x}`);
+        await moveTo(target, tb.x, tb.y);
+        await home();
       }
       if (want(10)) {
         const mk = async (name) => { const [eff] = await target.actor.createEmbeddedDocuments('ActiveEffect', [{ name, img: 'icons/svg/aura.svg', origin: target.actor.uuid }]); await sleep(1200 + watch); return eff; };
@@ -221,6 +256,16 @@ try {
         const shield = item('Shield');
         const s = shield ? await usage(shield) : { e: null };
         ok('§13 the Shield spell: keyed spell:shield, plays nothing (AA played the shield bash)', shield && s.e && !s.e.look && s.e.keys[0]?.startsWith('spell:shield'), shield ? `${s.e?.why} · ${s.e?.keys?.join(', ')}` : 'no Shield spell in the packs');
+      }
+      if (want(14)) {
+        await aim();
+        const used = await useIt('Cure Wounds');
+        ok('§14 Cure Wounds: the usage card plays nothing (it heals)', !used.e, used.e ? `ledger: ${used.e.look}` : 'no ledger entry for the card');
+        const aimed = await rollDamage('Cure Wounds');
+        ok('§14 Cure Wounds: the healing roll plays the look on the target', aimed.m?.flags?.dnd5e?.roll?.type === 'healing' && aimed.e?.look === 'cure-wounds' && aimed.e.played && aimed.e.targets?.[0]?.name === target.name, `${aimed.m?.flags?.dnd5e?.roll?.type} · ${aimed.e?.look} on ${aimed.e?.targets?.map((t) => t.name).join(', ')} ${files(aimed.e)}`);
+        await aim(false);
+        const alone = await rollDamage('Cure Wounds');
+        ok('§14 Cure Wounds with nothing targeted: the healing roll plays the look on the caster', alone.e?.look === 'cure-wounds' && alone.e.played && !alone.e.targets?.length, `${alone.e?.look} ${alone.e?.why || ''} ${files(alone.e)}`);
       }
     } finally {
       await setAC(startAC);

@@ -15,10 +15,14 @@ same author, same conventions — plain ES modules, no build step, no patching, 
 socketlib, MIT.
 
 **Status (2026-09-06): phase 3 (the screens) is built and green on the sandbox — `scripts/ui/`
-(one window, ApplicationV2 on plain DOM, built on the API: Look up with the editor inside, Custom
-looks, Check), the item-sheet button, the settings button, the item pointer
-`flags.fvtt-mod-fxstudio.look`; `tools/smoke-screens.mjs` drives it on the DOM (32 of 32; DESIGN
-§8). Phase 2 (the model) the same day — ARCHITECTURE.md
+(one window, ApplicationV2 on plain DOM, built on the API: Look up, Create a look — the five-step
+walk ruled off `prototypes/fxstudio3-create.html`, Custom looks, Corpus — the shippable corpus
+built from the game, `scripts/ship.js` writing the corpus files into the module on the server and
+`tools/pull-corpus.mjs` bringing them into the repo, Check), the item-sheet button, the settings
+button, the item pointer `flags.fvtt-mod-fxstudio.look`; `tools/smoke-screens.mjs` drives it on
+the DOM, a real ship included (54 of 54; DESIGN §8). The debug pass of the same day fixed heals
+(dnd5e flags a heal's roll `healing`) and carried Misc Patches' teleport patch into the move shape
+(`displace`, the spot judged by `seen`/`unoccupied`; smoke-replay 45 of 45). Phase 2 (the model) the same day — ARCHITECTURE.md
 as ruled: `scripts/core/` (moments, subjects with identity keys, the look grammar, the corpus),
 `scripts/readers/dnd5e.js`, `scripts/engine/` (eight shapes and the escape hatch, places, assets,
 the renderer), `scripts/api.js` (the authoring API); the corpus migrated to `recipes/baseline/`
