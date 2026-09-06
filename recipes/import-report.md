@@ -1,6 +1,6 @@
 # Import report — Automated Animations → FX Studio
 
-Run 2026-09-06 against the world `the-broken-heart-of-greenrest` snapshot (AA 7.0.22, D&D5e Animations 3.3.0, JB2A 0.9.2, PSFX 0.17.0, Sequencer 4.2.3). Regenerate with `node tools/import-aa.mjs --write --psfx-free <free build>`.
+Run 2026-09-06 against the world `the-broken-heart-of-greenrest` snapshot (AA 7.0.22, D&D5e Animations 3.3.0, JB2A 0.9.2, PSFX 0.17.0, Sequencer 4.2.3). Regenerate with `node tools/import-aa.mjs --write`.
 
 ## Numbers
 
@@ -22,9 +22,9 @@ Run 2026-09-06 against the world `the-broken-heart-of-greenrest` snapshot (AA 7.
 | Item flags kept as house rows | 4 |
 | Item flags that add nothing | 1 |
 | House rows | 7 |
-| Layers converted | 1772 |
+| Layers converted | 1775 |
 | · with an exact JB2A twin (same files, same structure) | 38 |
-| · named by their JB2A family (the family holds more than AA's pick) | 1201 |
+| · named by their JB2A family (the family holds more than AA's pick) | 1204 |
 | · without a twin (play through the private table only) | 0 |
 | · custom paths kept as given | 533 |
 | · paths AA silently replaced with its first entry | 2 |
@@ -39,10 +39,10 @@ Run 2026-09-06 against the world `the-broken-heart-of-greenrest` snapshot (AA 7.
 | Melee rows with the thrown-weapon switch on | 122 |
 | Sound-only rows | 0 |
 | Macro rows | 0 |
-| Private twin: variant nodes / Sequencer entries | 325 / 1576 |
+| Private twin: variant nodes / Sequencer entries | 328 / 1591 |
 | **Parity: world rows that play identically** | **1289 of 1289** |
 | Labels shadowed by another row under AA | 8 |
-| JB2A twins whose Sequencer metadata differs from AA's (why the private table exists) | 1178 |
+| JB2A twins whose Sequencer metadata differs from AA's (why the private table exists) | 1182 |
 
 ## The house layer
 
@@ -60,7 +60,7 @@ Item flags that add nothing over the baseline:
 
 ## Re-pointed sounds
 
-None.
+(run with `--psfx-free` to re-point regrouped PSFX paths)
 
 ## Layers without a JB2A twin
 
@@ -95,7 +95,7 @@ Under AA these rows can never play for their own name because a shorter or earli
 
 ## Why the private table
 
-AA registers its own copy of the JB2A files with its own Sequencer metadata (templates, markers). The native `jb2a.*` paths carry JB2A's metadata, which differs for 1178 layers; playing those through the native path would change how Sequencer stretches and times them. The module therefore registers AA's subset verbatim as `fxstudio.aa` and the baseline plays through it. Examples:
+AA registers its own copy of the JB2A files with its own Sequencer metadata (templates, markers). The native `jb2a.*` paths carry JB2A's metadata, which differs for 1182 layers; playing those through the native path would change how Sequencer stretches and times them. The module therefore registers AA's subset verbatim as `fxstudio.aa` and the baseline plays through it. Examples:
 
 - autoanimations.melee.generic.slashing.03.orange → jb2a.melee_generic.slash.01.orange: {"template":[100,0,0]} vs {"metadata":{"name":"Melee - Generic"},"template":[200,300,300]}
 - autoanimations.melee.weapon.sword.fire.red → jb2a.sword.melee.fire.red: {"template":[100,0,0]} vs {"metadata":{"name":"Sword"},"template":[200,300,300]}

@@ -160,6 +160,10 @@ function convertEntry(entry) {
       Object.assign(p, convertVideo(p.video, `${where} ${part}`));
       if (p.sound) p.sound = convertSound(p.sound, `${where} ${part}`); else delete p.sound;
     }
+    // dual-attach carries its one video at the top of its data; thunderwave builds its path at play time
+    // from the template's position (center / mid / left), so the twin must carry all three variants
+    if (entry.presetType === 'dualattach') Object.assign(data, convertVideo(data.video, `${where} video`));
+    if (entry.presetType === 'thunderwave') for (const v of Object.keys(aa.templatefx?.square?.thunderwave ?? {})) if (!v.startsWith('_')) aaNeeded.add(`autoanimations.templatefx.square.thunderwave.${v}`);
     if (data.sound) data.sound = convertSound(data.sound, where); else delete data.sound;
     if (data.afterImage && !data.afterImage.enable) delete data.afterImage;
     row.fx = [{ preset: PRESET_TYPE[entry.presetType], data }];
@@ -332,6 +336,7 @@ function prove(entry) {
       if (!e || !e.video) { if (d[part] && d[part].video) problems.push(`${where}: ${part} present but AA has none`); continue; }
       problems.push(...proveLayer(e.video, e.sound || null, e.options, d[part] ?? {}, `${where} ${part}`));
     }
+    if (target.presetType === 'dualattach') problems.push(...proveLayer(s.primary.video, s.primary.sound || null, undefined, d, `${where} video`));
     if (s.primary.options && !eq(s.primary.options, d.options)) problems.push(`${where}: preset options differ`);
     if (s.primary.color && s.primary.color !== d.color) problems.push(`${where}: colour differs`);
     if (s.primary.sound) { const a = soundFilesFree(s.primary.sound.file), b = d.sound ? soundFilesAt(d.sound.file) : null; if (!d.sound?.unresolved && !eq(a, b)) problems.push(`${where}: preset sound differs`); }

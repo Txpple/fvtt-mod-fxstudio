@@ -1,8 +1,12 @@
 # fxstudio — design notes
 
 What was decided and measured while building, kept beside [PLAN.md](PLAN.md) (the plan) and
-[BACKLOG.md](BACKLOG.md) (what is parked and why). Phase 0 (foundation) is built; the numbers
-below are from the import run of 2026-09-06 and are re-measured by the tools, never hand-carried.
+[BACKLOG.md](BACKLOG.md) (what is parked and why). **§§2–4 and §6 describe the phase 0/1 shape —
+AA's rows, menus and option blobs, ported so the corpus could be proved to play — which
+[ARCHITECTURE.md](ARCHITECTURE.md) (ruled 2026-09-06) replaces in phase 2; they stay here as the
+record of what the migration's oracle does and why the private table existed.** Phases 0 (foundation) and 1 (lossless replay)
+are built; the numbers below are from the runs of 2026-09-06 and are re-measured by the tools,
+never hand-carried.
 
 ## 1. Two corpora and a buffer, later wins
 
@@ -92,5 +96,92 @@ name accidents, each listed for the user to keep or drop); 34 differ; the effect
 
 Offline, seconds, no Foundry: `import-aa.mjs` (the migration and its proof), `check-looks.mjs`
 (every path in both corpora and the private table against the libraries' registration files
-and the disk; the Check screen will run the same test live). Live, read-only: `smoke-boot.mjs`.
+and the disk; the Check screen will run the same test live), `check-imports.mjs` (every script
+loads in node). Live, read-only: `smoke-boot.mjs`. Live suites with their own fixture:
+`smoke-looks.mjs` (every row builds, every path resolves, the party and NPC census) and
+`smoke-replay.mjs` (every family through real dnd5e flows; `--watch` to compare with AA by eye).
 Sandbox operations: `sandbox-module.mjs`. See [tools/README.md](tools/README.md).
+
+## 6. Phase 1 — the reader, the dispatcher, the presets (built 2026-09-06)
+
+### The moments, and which rows they may play
+
+`scripts/reader.js` turns a hook into a plain MOMENT `{kind, on, names, item, activity, sourceToken,
+targets, hits, template?, origin, tieTo?, id}` and `scripts/play.js` resolves and plays it. The
+rules are Automated Animations' own dnd5e rules on this world (its "play on damage" setting was
+off), so nothing moves to a different moment:
+
+| What happened | Read from | Plays when | `hits` |
+| --- | --- | --- | --- |
+| an attack roll | the dnd5e attack message (`flags.dnd5e.roll.type = attack`) | the activity has no area template | dnd5e's own verdict per target: a miss is a non-critical total under the target's AC, or a fumble (`flags.dnd5e.targets` carries each AC) |
+| a damage roll | the damage message | no template, and the activity is not an attack (a save spell, a heal) | every target counts as hit |
+| an activity used | the usage card (`type = usage`) | no template, no damage parts, not a heal | every target |
+| a template placed | `createRegion` with `flags.dnd5e.origin` (Foundry 14 migrates a MeasuredTemplate to a Region; dnd5e's flags travel with it) | always, half a second after creation as AA waited | — |
+| an active effect created or switched on | `createActiveEffect`, `updateActiveEffect` | the effect is enabled | — |
+
+The attack message carries the AC dnd5e used, so the swing or the projectile plays knowing the
+answer: a miss plays as a miss (`.missed()`), which AA on this world never did (its "play on miss"
+setting was off, so every attack looked like a hit). That is the one deliberate change of picture
+in phase 1, and it is the improvement PLAN §0.6 kept in scope.
+
+Names looked up, in order: the ammunition's (an attack roll names it in `flags.dnd5e.roll`), then
+the item's. The activity's name is never consulted (DESIGN §4).
+
+### Who plays
+
+**One client plays and Sequencer carries the picture to every other client, as it did under AA.**
+For a message it is the author (or, when the author is not connected, the first active GM); for a
+template or an effect it is the user who created the document. PLAN §3.1 had said "render locally
+on every client from the same message, seeded by the message id"; measured while building,
+Sequencer 4.2.3 has no seed: which of a multi-file entry's files plays and whether a swing is
+mirrored are chosen when the effect is built, so a picture rendered separately on each client would
+differ from client to client. Broadcasting from the one client that owns the moment keeps every
+screen the same, needs no socket of this module's own, and is what the parity proof compares
+against. Persistent effects are `.persist()`ed with the item or effect uuid as their origin and
+`tieToDocuments` to the active effect, so deleting the effect ends them; a template effect
+attached to its Region ends when the Region is deleted.
+
+### The presets
+
+`scripts/presets/` holds a port of each AA sequence, line for line where a number is a number
+(`common.js` carries the shared arithmetic: AA's size, elevation, distance and the three extra
+layers): `swing` (melee, with the thrown switch and the return flight), `projectile` (range),
+`ontoken` (on-token and the on-token effect looks, shield effects as top and bottom halves),
+`template` (circle, cone, ray, square on a Region), `aura`, `teleport` (the click, the ring, the
+move), `protemplate`, `dualattach`, `thunderwave`. A preset BUILDS a Sequence from a context and
+returns it; the dispatcher plays it. Every `.file()` goes through one helper that records the path,
+so a build can be read without playing — that is what `smoke-looks` does for every row.
+
+Carried as AA did it, on purpose: AA's "global delay" of 100 ms before every animation (this
+world's setting); the secondary layer's wait counting the last of ALL targets; the teleport
+reading its end fades from the start options; the token moved only after the whole sequence has
+played. Not carried, none used by the corpus: macros, tile persistence (needed AA's GM socket;
+warned and played on the ground), the Levels module's `onLevels` (not installed here), 3D. Fixed,
+because they were dead code under dnd5e 5, not pictures: AA's reach check read a property that is
+now a Set (a reach weapon's target two squares away is now a swing, not a throw); a masked shield
+effect referenced a variable out of scope.
+
+Two gaps in phase 0's recipes surfaced when the presets asked for paths: dual-attach rows carried
+their video unresolved, and the thunderwave preset builds its path at play time from three
+variants the twin did not hold. `import-aa` now resolves both; parity is still 1289 of 1289.
+
+### The ledger and the switch
+
+`api.ledger` keeps the last 100 moments: what happened, which names were asked, which row
+answered (and from which corpus), the preset, every file and sound named, the targets and the
+hits, and why nothing played when nothing did ("no row in any corpus", "playing is switched off",
+"waiting for the destination click"). The Check screen (phase 2) reads it; the suites assert on it.
+The world setting `play` is the cutover switch: off, the module loads and answers but plays
+nothing, so AA and FX Studio can be watched one at a time on the same table.
+
+### Measured on the sandbox, 2026-09-06
+
+- `smoke-looks`: 1292 effective rows build against a synthetic moment, 1126 distinct paths named,
+  every one resolves live (the one known-missing file since AA tolerated). The party's four
+  sheets: every ability with a look builds (40, 23, 12, 31); 115 abilities play nothing, the
+  import report's list. NPC attacks: 205 on 135 actors, 171 by exact name, 28 by whole word
+  (Necrotic Sword → Sword, Rose-Gold Longsword → Longsword), 6 nothing (Smother, Battleaxe, Torch,
+  Constricting Vine — Battleaxe was AA's substring "Axe", listed in the report).
+- `smoke-replay`: 35 of 35, every family through a real dnd5e flow side by side with AA still on.
+- Foundry 14 animates a token DOCUMENT's coordinates through a move; a suite that attacks right
+  after `update({x})` measures a target mid-flight. `moveTo` in the suite waits for the landing.

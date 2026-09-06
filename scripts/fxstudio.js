@@ -1,8 +1,12 @@
-// FX Studio — entry point. Phase 0: load the two corpora and the world buffer, register the private
+// FX Studio — entry point. Loads the two corpora and the world buffer, registers the private
 // database twin of Automated Animations' table so every baseline row plays through the same
-// Sequencer entries it always did, and expose the resolver. Nothing plays yet (phase 1).
+// Sequencer entries it always did, listens to the table (scripts/reader.js) and plays what the
+// corpus answers (scripts/play.js, scripts/presets/). Exposes the resolver and the player on
+// game.modules.get('fvtt-mod-fxstudio').api.
 import { buildIndex, lookup, rowsNamed, effectiveRows } from './corpus.js';
 import { registerSettings, SETTINGS, getWorldRows } from './settings.js';
+import { registerReader, readMessage, readRegion, readEffect } from './reader.js';
+import { play, build, resolve, ledger, PRESETS } from './play.js';
 
 export const MODULE_ID = 'fvtt-mod-fxstudio';
 const log = (...a) => console.log('FX Studio |', ...a);
@@ -22,6 +26,7 @@ export function rebuildIndex() {
 
 Hooks.once('init', () => {
   registerSettings();
+  registerReader(() => state.index ?? rebuildIndex());
 });
 
 Hooks.once('setup', async () => {
@@ -51,10 +56,22 @@ Hooks.once('ready', () => {
     get index() { return state.index; },
     get baseline() { return state.baseline; },
     get house() { return state.house; },
+    get ledger() { return ledger; },
+    PRESETS,
     lookup: (name, opts) => lookup(state.index, name, opts),
     rowsNamed: (name) => rowsNamed(state.index, name),
     effectiveRows: () => effectiveRows(state.index),
     rebuildIndex,
+    /** the row a moment resolves to */
+    resolve: (moment) => resolve(state.index, moment),
+    /** build a row's Sequence against a moment without playing it: {seq, ctx} */
+    build,
+    /** resolve and play a moment; {dryRun: true} builds without playing */
+    play: (moment, opts) => play(state.index, moment, opts),
+    /** what the reader makes of a message, a region, an effect */
+    readMessage,
+    readRegion,
+    readEffect,
     SETTINGS,
   };
 });

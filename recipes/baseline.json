@@ -71878,8 +71878,7 @@
        "menuType": "generic",
        "animation": "energybeam",
        "variant": "reverse",
-       "color": "darkgreen",
-       "customPath": false
+       "color": "darkgreen"
       },
       "options": {
        "elevation": 1000,
@@ -71895,7 +71894,10 @@
        "startTime": 0,
        "repeat": 1,
        "repeatDelay": 250
-      }
+      },
+      "aa": "autoanimations.range.generic.energybeam.reverse.darkgreen",
+      "file": "jb2a.energy_beam.reverse.dark_green",
+      "twin": "family"
      }
     }
    ]
@@ -74277,8 +74279,7 @@
        "menuType": "generic",
        "animation": "energybeam",
        "variant": "reverse",
-       "color": "red",
-       "customPath": false
+       "color": "red"
       },
       "options": {
        "elevation": 1000,
@@ -74294,7 +74295,10 @@
        "startTime": 0,
        "repeat": 1,
        "repeatDelay": 250
-      }
+      },
+      "aa": "autoanimations.range.generic.energybeam.reverse.red",
+      "file": "jb2a.energy_beam.reverse.red",
+      "twin": "family"
      }
     }
    ]
@@ -74559,8 +74563,7 @@
        "menuType": "spell",
        "animation": "witchbolt",
        "variant": "01",
-       "color": "darkpurple",
-       "customPath": false
+       "color": "darkpurple"
       },
       "options": {
        "elevation": 1000,
@@ -74576,7 +74579,10 @@
        "startTime": 0,
        "repeat": 5,
        "repeatDelay": 500
-      }
+      },
+      "aa": "autoanimations.range.spell.witchbolt.01.darkpurple",
+      "file": "jb2a.witch_bolt.dark_purple",
+      "twin": "family"
      }
     }
    ]
