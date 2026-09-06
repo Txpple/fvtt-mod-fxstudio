@@ -1,0 +1,101 @@
+{
+ "_meta": {
+  "schema": 2,
+  "licence": "MIT",
+  "note": "The abstract looks every new look starts from (ARCHITECTURE §7): one per shape and per common intent, with sensible sizes and timings. A new look is a starter or an existing look plus a subject, an asset and a colour: {for: [\"spell:sharran-step\"], like: \"starter:teleport\", with: {colour: \"dark_black\"}}. Referenced as starter:<id>."
+ },
+ "looks": [
+  {
+   "id": "bolt",
+   "for": [],
+   "on": "use",
+   "note": "a bolt shoots from the caster to each target and flies past on a miss",
+   "scenes": [
+    { "shape": "shoot", "asset": { "path": "jb2a.magic_missile.blue" } }
+   ]
+  },
+  {
+   "id": "swing",
+   "for": [],
+   "on": "use",
+   "note": "a swing at each target, five token widths across",
+   "scenes": [
+    { "shape": "strike", "asset": { "path": "jb2a.melee_generic.slash.01.orange" } }
+   ]
+  },
+  {
+   "id": "mark",
+   "for": [],
+   "on": "use",
+   "note": "a mark on each target, or on the caster when nothing is targeted",
+   "scenes": [
+    { "shape": "mark", "asset": { "path": "jb2a.impact.001.blue" }, "at": "targets-else-source", "size": { "tokenWidths": 1.5 } }
+   ]
+  },
+  {
+   "id": "self",
+   "for": [],
+   "on": "use",
+   "note": "a mark on the caster",
+   "scenes": [
+    { "shape": "mark", "asset": { "path": "jb2a.markers.circle_of_stars.blue" }, "at": "source", "size": { "tokenWidths": 1.5 } }
+   ]
+  },
+  {
+   "id": "burst",
+   "for": [],
+   "on": "use",
+   "note": "a burst at the placed template, once",
+   "scenes": [
+    { "shape": "mark", "asset": { "path": "jb2a.explosion.01.orange" }, "at": "template", "size": { "fit": "object", "scale": 1.25 }, "fadeIn": 0, "fadeOut": 0 }
+   ]
+  },
+  {
+   "id": "fill",
+   "for": [],
+   "on": "use",
+   "note": "the placed area fills, attached to the template while it stands",
+   "scenes": [
+    { "shape": "fill", "asset": { "path": "jb2a.template_circle.aura.01.complete.small.bluepurple" }, "persist": "template", "fadeIn": 500, "fadeOut": 500 }
+   ]
+  },
+  {
+   "id": "aura",
+   "for": [],
+   "on": "effect",
+   "note": "an aura around the token for as long as the effect stands",
+   "scenes": [
+    { "shape": "aura", "asset": { "path": "jb2a.spirit_guardians.blue.no_ring" }, "at": "source", "size": { "radius": 3 }, "persist": "effect", "opacity": 0.75 }
+   ]
+  },
+  {
+   "id": "beam",
+   "for": [],
+   "on": "use",
+   "note": "a beam from the caster to each target until ended",
+   "scenes": [
+    { "shape": "beam", "asset": { "path": "jb2a.energy_beam.normal.blue.01" } }
+   ]
+  },
+  {
+   "id": "teleport",
+   "for": [],
+   "on": "use",
+   "note": "a mark where the caster stands, a flight to the chosen spot, a mark there, and the caster appears there",
+   "scenes": [
+    { "shape": "mark", "asset": { "path": "jb2a.misty_step.01.blue" }, "at": "source", "size": { "tokenWidths": 1.5 }, "fadeIn": 250, "fadeOut": 250, "elevation": { "level": 999 } },
+    { "shape": "mark", "asset": { "path": "jb2a.misty_step.02.blue" }, "at": "destination", "size": { "tokenWidths": 1.5 }, "delay": 500, "fadeIn": 250, "fadeOut": 250, "elevation": { "level": 999 } },
+    { "shape": "move", "range": 30, "jump": true, "after": 1000, "fade": { "to": 0.01, "after": 750, "back": 250 }, "checkCollision": true }
+   ]
+  },
+  {
+   "id": "sound",
+   "for": [],
+   "on": "use",
+   "note": "a sound and nothing else",
+   "scenes": [
+    { "shape": "sound", "asset": "psfx.cantrips.fire-bolt", "volume": 0.75 }
+   ]
+  }
+ ]
+}

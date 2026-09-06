@@ -27,6 +27,10 @@ export const MODULES = {
   dnd5eAnimations: `${DATA}/modules/dnd5e-animations`,
   phb: `${DATA}/modules/dnd-players-handbook`,
   sequencer: `${DATA}/modules/sequencer`,
+  dnd5e: `${DATA}/systems/dnd5e`,
+  mm: `${DATA}/modules/dnd-monster-manual`,
+  dmg: `${DATA}/modules/dnd-dungeon-masters-guide`,
+  ravenloft: `${DATA}/modules/dnd-ravenloft-horrors-within`,
 };
 
 export const worldDb = (name) => `${DATA}/worlds/${WORLD}/data/${name}`;

@@ -1,9 +1,9 @@
 // The one-and-done migration from Automated Animations (PLAN §4). Offline: reads a snapshot of the
 // world's LevelDB, the D&D5e Animations preset file, and the libraries' own registration files.
 //
-//   node tools/import-aa.mjs                 # convert, split, prove, census, report; write nothing
-//   node tools/import-aa.mjs --write         # also write recipes/{baseline,house,aa-database}.json
-//   node tools/import-aa.mjs --psfx-free <psfx_sequencer.js of the free build>   # for re-pointing sounds
+//   node tools/lib/oracle/import-aa.mjs                 # convert, split, prove, census, report; write nothing
+//   node tools/lib/oracle/import-aa.mjs --write         # also write recipes/{baseline,house,aa-database}.json
+//   node tools/lib/oracle/import-aa.mjs --psfx-free <psfx_sequencer.js of the free build>   # for re-pointing sounds
 //
 // Steps, each measured and printed:
 //   1 read      the preset file, the seven aaAutorec-* world settings, every flags.autoanimations on items
@@ -17,12 +17,15 @@
 //               lookup and through fxstudio's; every name whose answer differs is listed
 //   6 report    recipes/import-report.md
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { basename, join } from 'node:path';
-import { DATA, MODULES, RECIPES, REPO, ROOTS, moduleVersion, worldDb } from './lib/env.mjs';
-import { packDir, readActors, readPackItems, readSettings, snapshot } from './lib/leveldb.mjs';
-import { fileIndex, filesUnder, leafPaths, loadAA, loadJb2a, loadPsfx, loadPsfxOther, metadataAt, nodeAt, resolvePath, shape, subtreeAt } from './lib/libraries.mjs';
-import { MENUS, aaLookup, buildPath, rinse, sanitizeEntry } from './lib/aa-port.mjs';
-import { buildIndex, lookup } from '../scripts/corpus.js';
+import { basename, dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+// phase 2: the rows are the oracle's input, not the module's corpus; they live beside this tool
+const ORACLE = dirname(fileURLToPath(import.meta.url));
+import { DATA, MODULES, REPO, ROOTS, moduleVersion, worldDb } from '../env.mjs';
+import { packDir, readActors, readPackItems, readSettings, snapshot } from '../leveldb.mjs';
+import { fileIndex, filesUnder, leafPaths, loadAA, loadJb2a, loadPsfx, loadPsfxOther, metadataAt, nodeAt, resolvePath, shape, subtreeAt } from '../libraries.mjs';
+import { MENUS, aaLookup, buildPath, rinse, sanitizeEntry } from '../aa-port.mjs';
+import { buildIndex, lookup } from './corpus.js';
 
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write');
@@ -434,7 +437,7 @@ say(`   party: ${partyPlays} of ${partyItems} abilities have a look; ${partyItem
 const today = new Date().toISOString().slice(0, 10);
 R(`# Import report — Automated Animations → FX Studio`);
 R();
-R(`Run ${today} against the world \`${basename(worldDb('').replace(/\/data\/$/, ''))}\` snapshot (AA ${versions.aa}, D&D5e Animations ${versions.dnd5eAnimations}, JB2A ${versions.jb2a}, PSFX ${versions.psfx}, Sequencer ${versions.sequencer}). Regenerate with \`node tools/import-aa.mjs --write${psfxFreeFile ? ' --psfx-free <free build>' : ''}\`.`);
+R(`Run ${today} against the world \`${basename(worldDb('').replace(/\/data\/$/, ''))}\` snapshot (AA ${versions.aa}, D&D5e Animations ${versions.dnd5eAnimations}, JB2A ${versions.jb2a}, PSFX ${versions.psfx}, Sequencer ${versions.sequencer}). Regenerate with \`node tools/lib/oracle/import-aa.mjs --write${psfxFreeFile ? ' --psfx-free <free build>' : ''}\`.`);
 R();
 R(`## Numbers`);
 R();
@@ -528,15 +531,15 @@ R();
 for (const { actor, miss } of nothing) R(`- **${actor}** (${miss.length}): ${miss.join('; ') || '—'}`);
 R();
 
-mkdirSync(RECIPES, { recursive: true });
-const reportPath = join(RECIPES, 'import-report.md');
+mkdirSync(ORACLE, { recursive: true });
+const reportPath = join(ORACLE, 'import-report.md');
 if (WRITE) {
   const meta = (extra) => ({ generated: today, tool: 'tools/import-aa.mjs', sources: versions, ...extra });
-  writeFileSync(join(RECIPES, 'baseline.json'), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: 'The D&D5e Animations preset converted row for row, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.', rows: presetRows.length }), rows: presetRows }, null, 1));
-  writeFileSync(join(RECIPES, 'house.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own looks: what this world changed over the baseline at import, and everything built since.", rows: houseRows.length }), rows: houseRows }, null, 1));
-  writeFileSync(join(RECIPES, 'aa-database.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'The subset of AA\'s private Sequencer table the corpus plays, verbatim with its metadata, registered as fxstudio.aa so every baseline row resolves to the same Sequencer entry it did under AA.', aaVersion: versions.aa, nodes: aaNeeded.size, entries: twinLeaves.size, missingFiles: twinMissing }), db: twinDb }));
+  writeFileSync(join(ORACLE, 'baseline-rows.json'), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: 'The D&D5e Animations preset converted row for row, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.', rows: presetRows.length }), rows: presetRows }, null, 1));
+  writeFileSync(join(ORACLE, 'house-rows.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own looks: what this world changed over the baseline at import, and everything built since.", rows: houseRows.length }), rows: houseRows }, null, 1));
+  writeFileSync(join(ORACLE, 'aa-database.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'The subset of AA\'s private Sequencer table the corpus plays, verbatim with its metadata, registered as fxstudio.aa so every baseline row resolves to the same Sequencer entry it did under AA.', aaVersion: versions.aa, nodes: aaNeeded.size, entries: twinLeaves.size, missingFiles: twinMissing }), db: twinDb }));
   writeFileSync(reportPath, report.join('\n'));
-  say(`6 · wrote recipes/baseline.json (${presetRows.length}), recipes/house.json (${houseRows.length}), recipes/aa-database.json, recipes/import-report.md`);
+  say(`6 · wrote tools/lib/oracle/baseline-rows.json (${presetRows.length}), house-rows.json (${houseRows.length}), aa-database.json, import-report.md`);
 } else {
   const p = join(REPO, 'dist', 'import-report.md');
   mkdirSync(join(REPO, 'dist'), { recursive: true });

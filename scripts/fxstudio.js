@@ -1,17 +1,18 @@
-// FX Studio — entry point. Loads the two corpora and the world buffer, registers the private
-// database twin of Automated Animations' table so every baseline row plays through the same
-// Sequencer entries it always did, listens to the table (scripts/reader.js) and plays what the
-// corpus answers (scripts/play.js, scripts/presets/). Exposes the resolver and the player on
-// game.modules.get('fvtt-mod-fxstudio').api.
-import { buildIndex, lookup, rowsNamed, effectiveRows } from './corpus.js';
-import { registerSettings, SETTINGS, getWorldRows } from './settings.js';
-import { registerReader, readMessage, readRegion, readEffect } from './reader.js';
-import { play, build, resolve, ledger, PRESETS } from './play.js';
+// FX Studio — entry point. Loads the corpora (the baseline per kind, the house looks, the starters,
+// the frozen asset table if any) and the world buffer, indexes them by subject key, listens to the
+// table through the dnd5e reader and plays what the corpus answers through the engine. Exposes the
+// authoring API on game.modules.get('fvtt-mod-fxstudio').api. Wires the layers and nothing else.
+import { MODULE_ID, SETTINGS, getWorldLooks, logging, playing, registerSettings } from './settings.js';
+import { buildIndex } from './core/corpus.js';
+import { registerReader } from './readers/dnd5e.js';
+import { endPicturesOf, play, useSettings } from './engine/render.js';
+import { makeApi } from './api.js';
 
-export const MODULE_ID = 'fvtt-mod-fxstudio';
+export { MODULE_ID };
 const log = (...a) => console.log('FX Studio |', ...a);
 
-const state = { baseline: null, house: null, aaDatabase: null, index: null };
+const BASELINE_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects'];
+const state = { corpora: { baseline: [], house: [], starters: [], frozen: null }, index: null, rebuild };
 
 async function loadJson(path) {
   const r = await fetch(`modules/${MODULE_ID}/${path}`);
@@ -19,59 +20,41 @@ async function loadJson(path) {
   return r.json();
 }
 
-export function rebuildIndex() {
-  state.index = buildIndex({ baseline: state.baseline?.rows ?? [], house: state.house?.rows ?? [], world: getWorldRows() });
+function rebuild() {
+  state.index = buildIndex({ baseline: state.corpora.baseline, house: state.corpora.house, world: getWorldLooks(), starters: state.corpora.starters });
+  for (const p of state.index.problems) console.warn('FX Studio |', p);
   return state.index;
 }
 
 Hooks.once('init', () => {
   registerSettings();
-  registerReader(() => state.index ?? rebuildIndex());
+  useSettings({ playing, logging });
+  registerReader({
+    dispatch: (moment) => play(state.index ?? rebuild(), moment).catch((e) => console.error('FX Studio |', e)),
+    end: (origin, token) => endPicturesOf(origin, token),
+  });
 });
 
 Hooks.once('setup', async () => {
-  const [baseline, house, aaDatabase] = await Promise.all([
-    loadJson('recipes/baseline.json').catch((e) => (log(e.message), { rows: [] })),
-    loadJson('recipes/house.json').catch(() => ({ rows: [] })),
-    loadJson('recipes/aa-database.json').catch((e) => (log(e.message), null)),
-  ]);
-  state.baseline = baseline;
-  state.house = house;
-  state.aaDatabase = aaDatabase;
-  rebuildIndex();
-  log(`corpus ready: ${baseline.rows.length} baseline rows, ${house.rows.length} house rows, ${getWorldRows().length} in the world buffer`);
+  const files = await Promise.all(BASELINE_FILES.map((k) => loadJson(`recipes/baseline/${k}.json`).catch((e) => (log(e.message), { looks: [] }))));
+  state.corpora.baseline = files.flatMap((f) => f.looks ?? []);
+  state.corpora.house = (await loadJson('recipes/house.json').catch(() => ({ looks: [] }))).looks ?? [];
+  state.corpora.starters = (await loadJson('recipes/starters.json').catch(() => ({ looks: [] }))).looks ?? [];
+  state.corpora.frozen = await loadJson('recipes/aa-assets.json').catch(() => null);
+  rebuild();
+  log(`corpus ready: ${state.corpora.baseline.length} baseline looks, ${state.corpora.house.length} house looks, ${getWorldLooks().length} in the world buffer, ${state.corpora.starters.length} starters`);
 });
 
-// The private twin of AA's database: the subset the corpus plays, files pointing at JB2A Patreon,
-// metadata and all. Registered under fxstudio.aa so a baseline row's `aa` path resolves to the
-// same Sequencer entry AA resolved.
+// The frozen asset table: what the migration could not point at the libraries' own paths, kept
+// verbatim with its metadata and registered under fxstudio.* — counted, and meant to reach zero.
 Hooks.on('sequencer.ready', () => {
-  if (!state.aaDatabase?.db) return;
-  Sequencer.Database.registerEntries('fxstudio', state.aaDatabase.db, true);
-  log(`registered fxstudio.aa (${state.aaDatabase.meta?.nodes ?? '?'} nodes from Automated Animations ${state.aaDatabase.meta?.aaVersion ?? ''})`);
+  const frozen = state.corpora.frozen;
+  if (!frozen?.db || !Object.keys(frozen.db).some((k) => !k.startsWith('_'))) return;
+  Sequencer.Database.registerEntries('fxstudio', frozen.db, true);
+  log(`registered the frozen asset table (${frozen.meta?.entries ?? '?'} entries the libraries do not hold natively)`);
 });
 
 Hooks.once('ready', () => {
-  game.modules.get(MODULE_ID).api = {
-    get index() { return state.index; },
-    get baseline() { return state.baseline; },
-    get house() { return state.house; },
-    get ledger() { return ledger; },
-    PRESETS,
-    lookup: (name, opts) => lookup(state.index, name, opts),
-    rowsNamed: (name) => rowsNamed(state.index, name),
-    effectiveRows: () => effectiveRows(state.index),
-    rebuildIndex,
-    /** the row a moment resolves to */
-    resolve: (moment) => resolve(state.index, moment),
-    /** build a row's Sequence against a moment without playing it: {seq, ctx} */
-    build,
-    /** resolve and play a moment; {dryRun: true} builds without playing */
-    play: (moment, opts) => play(state.index, moment, opts),
-    /** what the reader makes of a message, a region, an effect */
-    readMessage,
-    readRegion,
-    readEffect,
-    SETTINGS,
-  };
+  game.modules.get(MODULE_ID).api = makeApi(state);
+  game.modules.get(MODULE_ID).api.SETTINGS = SETTINGS;
 });

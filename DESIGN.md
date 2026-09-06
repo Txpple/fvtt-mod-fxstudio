@@ -1,7 +1,7 @@
 # fxstudio — design notes
 
 What was decided and measured while building, kept beside [PLAN.md](PLAN.md) (the plan) and
-[BACKLOG.md](BACKLOG.md) (what is parked and why). **§§2–4 and §6 describe the phase 0/1 shape —
+[BACKLOG.md](BACKLOG.md) (what is parked and why). **§7 is phase 2, the model as built. §§2–4 and §6 describe the phase 0/1 shape —
 AA's rows, menus and option blobs, ported so the corpus could be proved to play — which
 [ARCHITECTURE.md](ARCHITECTURE.md) (ruled 2026-09-06) replaces in phase 2; they stay here as the
 record of what the migration's oracle does and why the private table existed.** Phases 0 (foundation) and 1 (lossless replay)
@@ -185,3 +185,82 @@ nothing, so AA and FX Studio can be watched one at a time on the same table.
 - `smoke-replay`: 35 of 35, every family through a real dnd5e flow side by side with AA still on.
 - Foundry 14 animates a token DOCUMENT's coordinates through a move; a suite that attacks right
   after `update({x})` measures a target mid-flight. `moveTo` in the suite waits for the landing.
+
+## 7. Phase 2 — the model (built 2026-09-06)
+
+What was decided while building ARCHITECTURE.md; the architecture itself is there, this is the
+record of the choices it left open and the numbers the tools measured.
+
+### The proof compares what Sequencer is told
+
+Phase 0's parity compared representations (same files, same options). Phase 2's proof compares
+behaviour: `tools/lib/stage.mjs` is enough of the canvas and Sequencer's API to BUILD a Sequence in
+node, with a recording Sequence; the oracle (phase 1's port of AA, moved to `tools/lib/oracle/`)
+and the engine both build against canonical moments per kind of row (one target hit, missed, out of
+reach, two targets; a template of the row's shape with and without a target; an effect on a token;
+a destination chosen), and `tools/lib/migrate/proof.mjs` compares section by section in a canonical
+form: call order inside a section ignored, calls stating Sequencer's own default dropped, option
+keys that are false or zero dropped, a token its centre for a location and its id for an
+attachment, names and origins dropped, a path compared by what it plays (files, stretch template,
+loop markers). Five deliberate differences are named and counted (the report lists them): a
+targetless cast plays nothing rather than its sound alone; a follow-up mark with nothing to land on
+plays no sound; a bolt from a standing area with none standing leaves from the caster's centre; a
+mark that falls back to the caster honours its delay; a shield's halves start bottom-first. Result:
+1296 of 1296 looks, 3208 of 3329 moments exactly, 121 by an allowance.
+
+### Where every AA option went
+
+`tools/lib/migrate/rows.mjs` is the table. The concepts that did not survive: the menu (a shape and
+a place); `playOn` (`at`: source / each-target / targets-else-source / both); `isRadius` +
+`addTokenWidth` (`size: {radius, plusToken}`) against `size` (`{tokenWidths: 1.5 × size}`); the
+shield flag (two mark scenes, the bottom half rotated 180, from the raw file and the same file
+named Below); "complete" videos (`fadeOut: 0`); `animationSource` (the `area` place); `rotateSource`
+(`face: away-from-source`); `reverse` (from each-target to source); the melee switch (`thrown`);
+`persistType` (`persist: template | until-removed`); AA's four presets (compositions: a bolt to the
+template then marks; marks, a flight and a `move`; a `beam`; a fill with an asset picked by
+position); AA's `elevation` quirks (three modes, baked as values: a swing and a mark never emitted an
+elevation, the extra layers did, the compositions did with a below-tokens check). Where AA dropped
+a value (a beam's opacity, a delay on a caster-only mark) the report says so per row.
+
+### Keys, from the closed lists
+
+A row's label meets the lists once (`tools/lib/migrate/keys.mjs`): the spells, features and items
+of the PHB, the DMG, the Monster Manual's features and the system's own packs (2014 and 2024); the
+38 base weapons; the natural attacks of every creature in the installed books (272 names); the
+world's own items. A weapon or creature-attack row is keyed only as a weapon or a natural attack
+whatever its word also names (the melee "Shield" is the bash, never the spell — the user's bug); a
+bolt row named exactly as a spell or a feature is that spell or feature (Mind Sliver, Life Drain).
+Family words expand against the base weapons, the natural attacks and the books' and the world's
+weapons; what they would also have caught (a feat, a wand) is listed, not carried. A key two rows
+claim goes to the longer label, as AA's search took the longest label contained in a name (31
+ceded). A name no list holds is keyed as a spell, a feature and an item (194). A weapon, a natural
+attack and an item go by their own name, not by dnd5e's identifier, which is a slug of the name
+that goes stale when an item is renamed (measured: "Necrotic Scythe" still carried
+`necrotic-sword`).
+
+### The frozen table, retired to 15
+
+Of 555 AA paths, 21 are the same files under a JB2A node of the same structure, 394 lists of
+single-file JB2A leaves, 90 JB2A by-distance nodes (JB2A nests the variant above the range keys and
+stores single files unwrapped; a list of the variant nodes picks a variant at random and then by
+distance, as AA's `{05ft: [a1, a2], …}` did), 35 the raw files AA picked out of a larger set; AA's
+stretch template is carried on 75 scenes. 15 remain: nodes whose loop markers differ between AA's
+copy and JB2A's, since Sequencer applies markers from the registration and a native path would
+change the loop points. `recipes/aa-assets.json` holds their 20 entries.
+
+### The engine's own rules (not AA's)
+
+A look never doubles up: a token already carrying a picture of this origin is skipped. A
+persistent picture is attached, kept on the token's prototype, stamped with its origin and tied to
+the effect it stands for. A picture sized in token widths measures the token as drawn (image scale
+and ring included), everywhere. A move with no destination arms the click on the acting user's
+client and plays the whole look once the click lands. Every per-token picture is named after its
+spot so a later scene can land where it did, a miss included. The renderer decides who plays as
+phase 1 did (DESIGN §6). AA's hundred-millisecond "global delay" is gone.
+
+### Measured on the sandbox, 2026-09-06
+
+`smoke-boot` green; `smoke-looks`: 1293 looks build, 1231 distinct paths named, every one resolves
+live; the party: Gren 40 of 57, Jetten 26 of 35, Morgash 13 of 26, Thomas 30 of 47 play; NPC attacks
+193 of 198 (Smother, Battleaxe, Constricting Vine nothing); `smoke-replay` 37 of 37; `smoke-author`
+12 of 12.

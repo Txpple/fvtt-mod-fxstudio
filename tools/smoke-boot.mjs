@@ -1,62 +1,56 @@
-// Does the module boot on the sandbox? Read-only: connects, asks the running world what it loaded,
-// resolves a handful of baseline rows through the live resolver and through Sequencer's database,
-// and compares them with the recipes on disk. Touches nothing.
-//
+// Read-only boot check on the sandbox: connects as "Tester Assistant", asks the world what the
+// module loaded (the corpora, the index, the starters, the frozen table in Sequencer), resolves a
+// few subjects through the live API and compares with the recipes on disk. Disconnect the MCP
+// bridge first.
 //   node tools/smoke-boot.mjs
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { RECIPES } from './lib/env.mjs';
 import { connectSandbox } from './lib/foundry.mjs';
+import { indexRecipes, readRecipes } from './lib/recipes.mjs';
+import { resolve } from '../scripts/core/corpus.js';
 
-const baseline = JSON.parse(readFileSync(join(RECIPES, 'baseline.json'), 'utf8'));
-const house = JSON.parse(readFileSync(join(RECIPES, 'house.json'), 'utf8'));
-const SAMPLE = ['Fire Bolt', 'Longsword', 'Fireball', 'Misty Step', 'Shield', 'Claw', 'Sorcerous Burst', 'Sharran Step'];
-const failures = [];
-const ok = (cond, what) => { if (cond) console.log(`  ✓ ${what}`); else { console.log(`  ✗ ${what}`); failures.push(what); } };
-
+const recipes = readRecipes();
+const offline = indexRecipes(recipes);
 const { f, dispose } = await connectSandbox({ tag: 'boot' });
 try {
-  const r = await f.evaluate((names) => {
-    const m = game.modules.get('fvtt-mod-fxstudio');
-    const api = m?.api;
-    const out = { active: !!m?.active, version: m?.version, api: !!api, sequencer: !!globalThis.Sequencer };
-    if (!api) return out;
-    out.baseline = api.baseline?.rows?.length;
-    out.house = api.house?.rows?.length;
-    out.setting = Array.isArray(game.settings.get('fvtt-mod-fxstudio', 'looks'));
-    out.twinRegistered = Sequencer.Database.entryExists('fxstudio.aa.range');
-    out.lookups = {};
-    for (const n of names) {
-      const hit = api.lookup(n);
-      const row = hit?.row;
-      const layer = row?.fx?.[0];
-      const aa = layer?.aa ?? layer?.data?.projectile?.aa ?? layer?.data?.start?.aa;
-      // a layer plays through the private table, or through its custom path when AA had one
-      const path = aa ? aa.replace(/^autoanimations\./, 'fxstudio.aa.') : (layer?.file ?? null);
-      let files = null;
-      if (path && Sequencer.Database.entryExists(path)) {
-        const e = Sequencer.Database.getEntry(path);
-        const list = Array.isArray(e) ? e : [e];
-        files = list.flatMap((x) => (x.getAllFiles ? x.getAllFiles() : [])).sort();
-      }
-      out.lookups[n] = hit ? { name: row.name, menu: row.menu, source: hit.source, path, files: files?.length ?? null, template: path ? Sequencer.Database.getEntry(path)?.template ?? null : null } : null;
-    }
-    return out;
-  }, SAMPLE);
-  console.log(`module ${r.version} active=${r.active} api=${r.api} sequencer=${r.sequencer}`);
-  ok(r.active && r.api, 'module active with its api');
-  ok(r.baseline === baseline.rows.length, `baseline rows loaded: ${r.baseline} (disk ${baseline.rows.length})`);
-  ok(r.house === house.rows.length, `house rows loaded: ${r.house} (disk ${house.rows.length})`);
-  ok(r.setting, 'the looks setting registered as an array');
-  ok(r.twinRegistered, 'fxstudio.aa registered with Sequencer');
-  for (const n of SAMPLE) {
-    const l = r.lookups?.[n];
-    if (n === 'Sharran Step') { ok(l === null, `"${n}" resolves to nothing (no row yet)`); continue; }
-    ok(l && l.files > 0, `"${n}" → ${l ? `"${l.name}" [${l.menu}] from ${l.source}, ${l.path} = ${l.files} file(s), template ${JSON.stringify(l.template)}` : 'nothing'}`);
+  const live = await f.evaluate(() => {
+    const api = game.modules.get('fvtt-mod-fxstudio')?.api;
+    if (!api) return { error: 'the module has no api: did it load?' };
+    const probe = (keys, on = 'use') => { const r = api.resolve({ keys }, on); return r.look ? `${r.look.id} (${r.source}, ${r.key})` : null; };
+    return {
+      counts: api.index.counts,
+      problems: api.index.problems,
+      starters: api.looks.starters().length,
+      frozen: Sequencer.Database.entryExists('fxstudio.aa') ? Sequencer.Database.getPathsUnder('fxstudio.aa').length : 0,
+      probes: {
+        fireBolt: probe(['spell:fire-bolt/attack', 'spell:fire-bolt']),
+        maulOfMomentum: probe(['weapon:maul-of-momentum', 'weapon:maul']),
+        shieldSpell: probe(['spell:shield/utility', 'spell:shield']),
+        shieldEffect: probe(['effect:shield', 'spell:shield'], 'effect'),
+        bite: probe(['natural:bite/attack', 'natural:bite']),
+        sentence: api.looks.sentence(api.looks.get('fire-bolt')?.look),
+      },
+      version: game.modules.get('fvtt-mod-fxstudio').version,
+    };
+  }, null);
+  if (live.error) { console.error(live.error); process.exitCode = 1; }
+  else {
+    console.log(`[boot] FX Studio ${live.version}: ${JSON.stringify(live.counts)} · starters ${live.starters} · frozen table sections ${live.frozen} · index problems ${live.problems.length}`);
+    for (const p of live.problems) console.log(`  ✗ ${p}`);
+    const same = (keys, on, name) => { const r = resolve(offline, keys, on); const want = r.look ? `${r.look.id} (${r.source}, ${r.key})` : null; return want === live.probes[name]; };
+    const checks = [
+      ['Fire Bolt resolves the same live and offline', same(['spell:fire-bolt/attack', 'spell:fire-bolt'], 'use', 'fireBolt'), live.probes.fireBolt],
+      ['Maul of Momentum plays the maul look by its base weapon', /^maul \(/.test(live.probes.maulOfMomentum ?? ''), live.probes.maulOfMomentum],
+      ['the Shield spell plays nothing', live.probes.shieldSpell === null, String(live.probes.shieldSpell)],
+      ['the Shield effect plays the shield look', /^shield \(/.test(live.probes.shieldEffect ?? ''), live.probes.shieldEffect],
+      ['a Bite plays the bite look', /\(baseline, natural:bite\)/.test(live.probes.bite ?? ''), live.probes.bite],
+      ['the baseline count matches the recipes', live.counts.baseline === recipes.baseline.length, `${live.counts.baseline} vs ${recipes.baseline.length}`],
+      ['no index problems', live.problems.length === 0, `${live.problems.length}`],
+    ];
+    let failed = 0;
+    for (const [name, pass, detail] of checks) { if (!pass) failed++; console.log(`  ${pass ? '✓' : '✗'} ${name} — ${detail}`); }
+    console.log(`  · ${live.probes.sentence}`);
+    console.log(failed ? `FAIL: ${failed}` : 'PASS');
+    process.exitCode = failed ? 1 : 0;
   }
-  ok(r.lookups?.['Sorcerous Burst']?.source === 'house', 'Sorcerous Burst comes from the house layer');
 } finally {
   await dispose();
 }
-console.log(failures.length ? `FAIL: ${failures.length}` : 'PASS');
-process.exitCode = failures.length ? 1 : 0;

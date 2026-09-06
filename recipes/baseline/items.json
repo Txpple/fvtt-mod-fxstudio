@@ -1,0 +1,892 @@
+{
+ "_meta": {
+  "schema": 2,
+  "generated": "2026-09-06",
+  "tool": "tools/migrate-aa.mjs",
+  "sources": {
+   "aa": "7.0.22",
+   "dnd5eAnimations": "3.3.0",
+   "jb2a": "0.9.2",
+   "psfx": "0.17.0",
+   "sequencer": "4.2.3",
+   "dnd5e": null
+  },
+  "licence": "GPL-3.0-or-later (see BASELINE-LICENSE)",
+  "source": "D&D5e Animations 3.3.0",
+  "authors": [
+   "MrVauxs",
+   "Sisimshow"
+  ],
+  "note": "The items of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "looks": 23
+ },
+ "looks": [
+  {
+   "id": "ink",
+   "for": [
+    "item:ink"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.water.001",
+      "start": 2500
+     },
+     "asset": {
+      "path": "jb2a.liquid.splash.dark_black"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Ink\" (ontoken)"
+  },
+  {
+   "id": "burnt-othur-fumes",
+   "for": [
+    "item:burnt-othur-fumes"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.throw.flask.03.green"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01",
+      "delay": 500
+     },
+     "opacity": 0.8,
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_02_Dark_Black_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-gasp-1.mp3",
+      "delay": 2000
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Burnt Othur Fumes\" (range)"
+  },
+  {
+   "id": "essence-of-ether",
+   "for": [
+    "item:essence-of-ether"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.throw.flask.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01",
+      "delay": 500
+     },
+     "opacity": 0.8,
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_02_Dark_Purple_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-2.mp3",
+      "delay": 2000
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Essence of Ether\" (range)"
+  },
+  {
+   "id": "holy-water",
+   "for": [
+    "item:holy-water"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.throw.flask.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1",
+      "delay": 500
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.liquid.splash.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001",
+      "delay": 1500,
+      "start": 2500
+     },
+     "opacity": 0.8,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Holy Water\" (range)"
+  },
+  {
+   "id": "malice",
+   "for": [
+    "item:malice"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.throw.flask.02.purple"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01",
+      "delay": 500
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_02_Dark_Purple_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-gasp-1.mp3",
+      "delay": 2000
+     },
+     "opacity": 0.8,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Malice\" (range)"
+  },
+  {
+   "id": "acid-vial",
+   "for": [
+    "item:acid-vial",
+    "item:acid"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "path": "jb2a.liquid.splash.green"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Acid (vial)\" (ontoken)"
+  },
+  {
+   "id": "assassins-blood",
+   "for": [
+    "item:assassins-blood"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Purple_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Assassin's Blood\" (ontoken)"
+  },
+  {
+   "id": "crawler-mucus",
+   "for": [
+    "item:crawler-mucus"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "path": "jb2a.liquid.splash.grey"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Crawler Mucus\" (ontoken)"
+  },
+  {
+   "id": "midnight-tears",
+   "for": [
+    "item:midnight-tears"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_01_Dark_Black_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Midnight Tears\" (ontoken)"
+  },
+  {
+   "id": "oil-of-taggit",
+   "for": [
+    "item:oil-of-taggit"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "start": 700
+     },
+     "asset": {
+      "path": "jb2a.liquid.splash.dark_black"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Oil of Taggit\" (ontoken)"
+  },
+  {
+   "id": "pale-tincture",
+   "for": [
+    "item:pale-tincture"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Regular_Grey_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Pale Tincture\" (ontoken)"
+  },
+  {
+   "id": "potion-of-greater-healing",
+   "for": [
+    "item:potion-of-greater-healing"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "start": 100
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.400px.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Greater Healing\" (ontoken)"
+  },
+  {
+   "id": "potion-of-healing",
+   "for": [
+    "item:potion-of-healing"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "start": 100
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.400px.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+  },
+  {
+   "id": "potion-of-poison",
+   "for": [
+    "item:potion-of-poison"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Green_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Poison\" (ontoken)"
+  },
+  {
+   "id": "potion-of-superior-healing",
+   "for": [
+    "item:potion-of-superior-healing"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.bluepurple"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Superior Healing\" (ontoken)"
+  },
+  {
+   "id": "potion-of-supreme-healing",
+   "for": [
+    "item:potion-of-supreme-healing"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.bluepurple"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Supreme Healing\" (ontoken)"
+  },
+  {
+   "id": "purple-worm-poison",
+   "for": [
+    "item:purple-worm-poison"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "start": 700
+     },
+     "opacity": 0.8,
+     "asset": {
+      "path": "jb2a.liquid.splash.bright_purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Purple Worm Poison\" (ontoken)"
+  },
+  {
+   "id": "serpent-venom",
+   "for": [
+    "item:serpent-venom"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "start": 500
+     },
+     "opacity": 0.8,
+     "asset": {
+      "path": "jb2a.liquid.splash.green"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Serpent Venom\" (ontoken)"
+  },
+  {
+   "id": "torpor",
+   "for": [
+    "item:torpor"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Regular_Blue_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Torpor\" (ontoken)"
+  },
+  {
+   "id": "truth-serum",
+   "for": [
+    "item:truth-serum"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Purple_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Truth Serum\" (ontoken)"
+  },
+  {
+   "id": "wyvern-poison",
+   "for": [
+    "item:wyvern-poison"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh*",
+      "delay": 100,
+      "repeat": 2
+     },
+     "asset": {
+      "path": "jb2a.claws.400px.dark_red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Wyvern Poison\" (ontoken)"
+  },
+  {
+   "id": "ball-bearings",
+   "for": [
+    "item:ball-bearings"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "modules/dnd5e-animations/assets/graphics/textures/BallBearings.webp"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "below": true,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Ball Bearings\" (templatefx)"
+  },
+  {
+   "id": "caltrops",
+   "for": [
+    "item:caltrops"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "to": "template",
+     "asset": {
+      "file": "jb2a.caltrops.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01"
+     },
+     "wait": true,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "file": "jb2a.caltrops.endframe.01.grey"
+     },
+     "size": {
+      "fit": "object",
+      "scale": 0.01
+     },
+     "zIndex": 5,
+     "wait": -750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    },
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "file": "jb2a.caltrops.endframe.01.grey"
+     },
+     "size": {
+      "fit": "object",
+      "scale": 1.25
+     },
+     "persist": "until-removed",
+     "below": true,
+     "zIndex": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Caltrops\" (preset)"
+  }
+ ]
+}

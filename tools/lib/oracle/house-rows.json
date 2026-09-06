@@ -1,0 +1,402 @@
+{
+ "_meta": {
+  "generated": "2026-09-06",
+  "tool": "tools/import-aa.mjs",
+  "sources": {
+   "aa": "7.0.22",
+   "dnd5eAnimations": "3.3.0",
+   "jb2a": "0.9.2",
+   "psfx": "0.17.0",
+   "sequencer": "4.2.3"
+  },
+  "licence": "MIT",
+  "note": "The user's own looks: what this world changed over the baseline at import, and everything built since.",
+  "rows": 7
+ },
+ "rows": [
+  {
+   "name": "Sorcerous Burst",
+   "menu": "range",
+   "fx": [
+    {
+     "preset": "projectile",
+     "video": {
+      "dbSection": "range",
+      "menuType": "spell",
+      "animation": "guidingbolt",
+      "variant": "01",
+      "color": "yellowblue"
+     },
+     "aa": "autoanimations.range.spell.guidingbolt.01.yellowblue",
+     "file": "jb2a.guiding_bolt.01.blueyellow",
+     "twin": "family",
+     "sound": {
+      "file": "psfx.ranged-magic.generic.projectile.instant.001",
+      "volume": 0.75,
+      "delay": 0,
+      "startTime": 0,
+      "repeat": 1,
+      "repeatDelay": 250
+     },
+     "options": {
+      "animationSource": false,
+      "contrast": 0,
+      "delay": 0,
+      "elevation": 1000,
+      "isAbsolute": false,
+      "isReturning": false,
+      "isWait": false,
+      "onlyX": false,
+      "opacity": 1,
+      "playbackRate": 1,
+      "randomOffset": false,
+      "repeat": 1,
+      "repeatDelay": 250,
+      "reverse": false,
+      "saturation": 0,
+      "tint": false,
+      "tintColor": "#FFFFFF",
+      "zIndex": 1
+     }
+    }
+   ],
+   "note": "changed in this world: primary.video.menuType, primary.video.animation, primary.video.variant, primary.video.color, primary.video.enableCustom"
+  },
+  {
+   "name": "Necrotic Burst",
+   "menu": "range",
+   "fx": [
+    {
+     "preset": "projectile",
+     "video": {
+      "dbSection": "range",
+      "menuType": "spell",
+      "animation": "eldritchblast",
+      "variant": "01",
+      "color": "purple"
+     },
+     "aa": "autoanimations.range.spell.eldritchblast.01.purple",
+     "file": "jb2a.eldritch_blast.purple",
+     "twin": "family",
+     "sound": {
+      "file": "psfx.cantrips.eldritch-blast.v1",
+      "volume": 0.75,
+      "delay": 0,
+      "startTime": 0,
+      "repeat": 1,
+      "repeatDelay": 250
+     },
+     "options": {
+      "animationSource": false,
+      "contrast": 0,
+      "delay": 0,
+      "elevation": 1000,
+      "isAbsolute": false,
+      "isReturning": false,
+      "isWait": false,
+      "onlyX": false,
+      "opacity": 1,
+      "playbackRate": 1,
+      "randomOffset": false,
+      "repeat": 1,
+      "repeatDelay": 250,
+      "reverse": false,
+      "saturation": 0,
+      "tint": false,
+      "tintColor": "#FFFFFF",
+      "zIndex": 1
+     }
+    }
+   ],
+   "note": "changed in this world: primary.video.animation, primary.video.variant, primary.video.color, primary.video.enableCustom, primary.video.customPath, primary.sound.file +17"
+  },
+  {
+   "name": "Misty Step",
+   "menu": "preset",
+   "presetType": "teleportation",
+   "fx": [
+    {
+     "preset": "teleport",
+     "data": {
+      "start": {
+       "video": {
+        "dbSection": "static",
+        "menuType": "spell",
+        "animation": "mistystep",
+        "variant": "01",
+        "color": "blue"
+       },
+       "options": {
+        "delay": 0,
+        "elevation": 1000,
+        "isAbsolute": false,
+        "fadeIn": 250,
+        "fadeOut": 250,
+        "isMasked": false,
+        "isRadius": false,
+        "opacity": 1,
+        "playbackRate": 1,
+        "size": 1.5
+       },
+       "aa": "autoanimations.static.spell.mistystep.01.blue",
+       "file": "jb2a.misty_step.01.blue",
+       "twin": "family"
+      },
+      "between": false,
+      "end": {
+       "video": {
+        "dbSection": "static",
+        "menuType": "spell",
+        "animation": "mistystep",
+        "variant": "02",
+        "color": "blue"
+       },
+       "options": {
+        "delay": 500,
+        "elevation": 1000,
+        "isAbsolute": false,
+        "fadeIn": 250,
+        "fadeOut": 250,
+        "isMasked": false,
+        "isRadius": false,
+        "opacity": 1,
+        "playbackRate": 1,
+        "size": 1.5
+       },
+       "aa": "autoanimations.static.spell.mistystep.02.blue",
+       "file": "jb2a.misty_step.02.blue",
+       "twin": "family"
+      },
+      "options": {
+       "measureType": "alternating",
+       "hideFromPlayers": false,
+       "range": 30,
+       "teleport": true,
+       "delayMove": 1000,
+       "speed": 120,
+       "alpha": 0.01,
+       "delayFade": 750,
+       "delayReturn": 250,
+       "checkCollision": true
+      },
+      "sound": {
+       "file": "psfx.2nd-level-spells.misty-step.v1.complete.generic",
+       "volume": 0.75,
+       "delay": 0,
+       "startTime": 0,
+       "repeat": 1,
+       "repeatDelay": 250
+      }
+     }
+    }
+   ],
+   "note": "changed in this world: data.start.color, data.end.color"
+  },
+  {
+   "name": "Unholy Word",
+   "menu": "templatefx",
+   "fx": [
+    {
+     "preset": "template",
+     "video": null,
+     "file": "jb2a.markers.light.complete.yellow",
+     "sound": {
+      "file": "psfx.cantrips.light.v1.001",
+      "volume": 0.75,
+      "delay": 0,
+      "startTime": 0,
+      "repeat": 1,
+      "repeatDelay": 250
+     },
+     "options": {
+      "aboveTemplate": false,
+      "contrast": 0,
+      "delay": 0,
+      "elevation": 1000,
+      "isAbsolute": false,
+      "isMasked": false,
+      "isWait": false,
+      "occlusionMode": "3",
+      "occlusionAlpha": 0.5,
+      "opacity": 0.5,
+      "persistent": true,
+      "persistType": "attachtemplate",
+      "playbackRate": 1,
+      "removeTemplate": false,
+      "repeat": 1,
+      "repeatDelay": 250,
+      "rotate": 0,
+      "saturation": 0,
+      "scale": {
+       "x": 1,
+       "y": 1
+      },
+      "tint": false,
+      "tintColor": "#FFFFFF",
+      "scaleX": 1,
+      "scaleY": 1,
+      "xray": false,
+      "zIndex": 1
+     }
+    }
+   ],
+   "note": "the item's own look (Harrow Vane / Unholy Word)"
+  },
+  {
+   "name": "Necrotic Burst",
+   "menu": "range",
+   "fx": [
+    {
+     "preset": "projectile",
+     "video": {
+      "dbSection": "range",
+      "menuType": "spell",
+      "animation": "eldritchblast",
+      "variant": "01",
+      "color": "purple"
+     },
+     "aa": "autoanimations.range.spell.eldritchblast.01.purple",
+     "file": "jb2a.eldritch_blast.purple",
+     "twin": "family",
+     "options": {
+      "animationSource": false,
+      "contrast": 0,
+      "delay": 0,
+      "elevation": 1000,
+      "isAbsolute": false,
+      "isReturning": false,
+      "isWait": false,
+      "onlyX": false,
+      "opacity": 1,
+      "playbackRate": 1,
+      "randomOffset": false,
+      "repeat": 1,
+      "repeatDelay": 250,
+      "reverse": false,
+      "saturation": 0,
+      "tint": false,
+      "tintColor": "#FFFFFF",
+      "zIndex": 1
+     }
+    }
+   ],
+   "note": "the item's own look (Harrow Vane / Necrotic Burst)"
+  },
+  {
+   "name": "First Light",
+   "menu": "melee",
+   "match": "word",
+   "fx": [
+    {
+     "preset": "melee-swing",
+     "video": {
+      "dbSection": "melee",
+      "menuType": "weapon",
+      "animation": "sword",
+      "variant": "01",
+      "color": "white"
+     },
+     "aa": "autoanimations.melee.weapon.sword.01.white",
+     "file": "jb2a.sword.melee.01.white",
+     "twin": "exact",
+     "sound": {
+      "file": "psfx.weapon-attacks.sword.v1",
+      "volume": 0.75,
+      "delay": 0,
+      "startTime": 0,
+      "repeat": 1,
+      "repeatDelay": 250
+     },
+     "options": {
+      "contrast": 0,
+      "delay": 0,
+      "elevation": 1000,
+      "isAbsolute": false,
+      "isWait": false,
+      "opacity": 1,
+      "playbackRate": 1,
+      "repeat": 1,
+      "repeatDelay": 250,
+      "saturation": 0,
+      "size": 1,
+      "tint": false,
+      "tintColor": "#FFFFFF",
+      "zIndex": 1
+     }
+    }
+   ],
+   "thrown": {
+    "options": {
+     "detect": "automatic",
+     "range": 2,
+     "isReturning": false,
+     "switchType": "on"
+    },
+    "video": {
+     "dbSection": "range",
+     "menuType": "weapon",
+     "animation": "sword",
+     "variant": "01",
+     "color": "white"
+    },
+    "aa": "autoanimations.range.weapon.sword.01.white",
+    "file": "jb2a.sword.throw.white",
+    "twin": "family"
+   },
+   "note": "the item's own look (Thomas A. Invictus / First Light)"
+  },
+  {
+   "name": "Goldthorn",
+   "menu": "melee",
+   "match": "word",
+   "fx": [
+    {
+     "preset": "melee-swing",
+     "video": {
+      "dbSection": "melee",
+      "menuType": "weapon",
+      "animation": "scimitar",
+      "variant": "01",
+      "color": "white"
+     },
+     "aa": "autoanimations.melee.weapon.scimitar.01.white",
+     "file": "jb2a.scimitar.melee.01.white",
+     "twin": "exact",
+     "sound": {
+      "file": "psfx.weapon-attacks.sword.v1",
+      "volume": 0.75,
+      "delay": 0,
+      "startTime": 0,
+      "repeat": 1,
+      "repeatDelay": 250
+     },
+     "options": {
+      "contrast": 0,
+      "delay": 0,
+      "elevation": 1000,
+      "isAbsolute": false,
+      "isWait": false,
+      "opacity": 1,
+      "playbackRate": 1,
+      "repeat": 1,
+      "repeatDelay": 250,
+      "saturation": 0,
+      "size": 1,
+      "tint": false,
+      "tintColor": "#FFFFFF",
+      "zIndex": 1
+     }
+    }
+   ],
+   "thrown": {
+    "options": {
+     "detect": "automatic",
+     "range": 2,
+     "isReturning": false,
+     "switchType": "on"
+    }
+   },
+   "note": "the item's own look (Jetten Elisedil / Goldthorn)"
+  }
+ ]
+}

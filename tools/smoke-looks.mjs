@@ -1,14 +1,14 @@
-// Does every row in both corpora BUILD on the sandbox? Every effective row is compiled by its
-// preset against a synthetic moment on the test fixture (a caster, a target, a placed template),
-// never played, and every path the build named is checked against Sequencer's database and the
-// server. This is the phase 1 exit's automated half: the presets accept the whole corpus, and the
-// corpus resolves live, not only offline (check-looks). Builds and tears down its own fixture.
+// Does every look in the corpus BUILD on the sandbox? Every look is built by the engine against a
+// synthetic moment on the test fixture (a caster, a target, a placed template), never played, and
+// every path the build names is checked against Sequencer's database and the server. Then the
+// party's sheets and the NPC attacks through the API's census: what plays, what plays nothing.
+// Builds and tears down its own fixture.
 //
 //   node tools/smoke-looks.mjs
 import { connectSandbox } from './lib/foundry.mjs';
 import { fixtureDown, fixtureUp } from './lib/suite.mjs';
 
-// files the import report already lists as absent on this install (silent under AA, silent now)
+// files the migration report already lists as absent on this install (silent under AA, silent now)
 const KNOWN_MISSING = ['Map.png'];
 
 const { f, dispose } = await connectSandbox({ tag: 'looks', watchdogMs: 600_000 });
@@ -21,38 +21,35 @@ try {
     const api = game.modules.get('fvtt-mod-fxstudio').api;
     const caster = canvas.tokens.get(casterTokenId);
     const target = canvas.tokens.get(targetTokenId);
-    // one placed template of each shape the corpus sizes by: a circle and a cone, made as templates and migrated to Regions by Foundry 14
-    const origin = caster.actor.items.contents[0]?.uuid ?? caster.actor.uuid;
-    const [circle] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'circle', distance: 20, x: 1100, y: 500, flags: { fxstudio: { test: true } } }]);
-    const [cone] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'cone', distance: 15, direction: 0, x: 600, y: 550, angle: 53.13, flags: { fxstudio: { test: true } } }]);
-    const [square] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'rect', distance: 15, direction: 45, x: 1000, y: 400, flags: { fxstudio: { test: true } } }]);
+    const origin = caster.actor.uuid;
+    const [circle] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'circle', distance: 20, x: 1100, y: 500 }]);
+    const [cone] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'cone', distance: 15, direction: 0, x: 600, y: 550, angle: 53.13 }]);
+    const [square] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'rect', distance: 15, direction: 45, x: 1000, y: 400 }]);
     await new Promise((r) => setTimeout(r, 400));
     const regionOf = (doc) => canvas.scene.regions.get(doc.id) ?? doc;
     const templates = { circle: regionOf(circle), cone: regionOf(cone), square: regionOf(square) };
-    const rows = api.effectiveRows();
-    const results = { rows: rows.length, built: 0, empty: [], errors: [], paths: new Map(), byPreset: {} };
-    const momentFor = (row) => {
-      const base = { names: [row.name], item: caster.actor.items.contents[0] ?? null, activity: null, sourceToken: caster, targets: [target], hits: null, origin, id: 'looks' };
-      const preset = row.fx?.[0]?.preset;
-      if (row.menu === 'aefx') return { ...base, kind: 'effect', on: 'effect', tieTo: null };
-      if (row.menu === 'templatefx' || preset === 'projectile-to-template' || preset === 'thunderwave') {
-        const t = preset === 'thunderwave' ? templates.square : row.fx[0].video?.menuType === 'cone' || row.fx[0].video?.menuType === 'ray' ? templates.cone : templates.circle;
-        return { ...base, kind: 'template', on: 'template', template: t };
-      }
-      if (preset === 'teleport') return { ...base, kind: 'use', on: 'use', destination: { x: 850, y: 850 }, noMove: true };
-      return { ...base, kind: 'use', on: 'use' };
+    const list = api.looks.list();
+    const results = { looks: list.length, built: 0, empty: [], errors: [], paths: new Map(), byShape: {}, problems: api.index.problems };
+    const needsPlace = (look) => look.scenes.some((s) => s.shape === 'fill' || s.at === 'template' || s.to === 'template');
+    const momentFor = (look) => {
+      const base = { subject: { name: look.id, keys: look.for }, source: caster, targets: [{ token: target, hit: true }], origin, id: 'looks' };
+      if (look.on === 'effect') return { ...base, when: 'effect', kind: 'effect', source: target, tie: null };
+      if (needsPlace(look)) return { ...base, when: 'use', kind: 'template', place: templates.circle, tie: templates.circle };
+      if (look.scenes.some((s) => s.shape === 'move')) return { ...base, when: 'use', kind: 'use', destination: { x: 850, y: 850 }, noMove: true };
+      return { ...base, when: 'use', kind: 'use' };
     };
-    for (const { row, source } of rows) {
-      if (row.off) continue;
-      const preset = row.fx?.[0]?.preset ?? (row.soundOnly ? 'sound-only' : '?');
-      results.byPreset[preset] = (results.byPreset[preset] ?? 0) + 1;
+    for (const { look, source } of list) {
+      if (look.off) continue;
+      const shape = look.scenes?.[0]?.shape ?? '?';
+      results.byShape[shape] = (results.byShape[shape] ?? 0) + 1;
       try {
-        const { seq, ctx } = api.build(row, momentFor(row), row.name);
+        const { seq, ctx } = api.build(look, momentFor(look));
         results.built++;
-        if (!seq) results.empty.push(`${row.name} [${row.menu}] (${preset})`);
-        for (const p of [...ctx.files, ...ctx.sounds]) { if (!p) { results.errors.push(`${row.name} [${row.menu}] (${source}): a layer has no path`); continue; } (results.paths.get(p) ?? results.paths.set(p, []).get(p)).push(row.name); }
+        if (!seq) results.empty.push(`${look.id} (${shape})`);
+        for (const m of ctx.missing) results.errors.push(`${look.id} (${source}): ${m}`);
+        for (const p of [...ctx.files.flat(), ...ctx.sounds]) { if (!p) { results.errors.push(`${look.id} (${source}): a scene has no path`); continue; } (results.paths.get(p) ?? results.paths.set(p, []).get(p)).push(look.id); }
       } catch (e) {
-        results.errors.push(`${row.name} [${row.menu}] (${source}): ${e.message}`);
+        results.errors.push(`${look.id} (${source}): ${e.message}`);
       }
     }
     // every named path resolves: database paths through Sequencer, raw paths through the server
@@ -64,71 +61,38 @@ try {
     }
     const checked = new Map();
     for (const [p, names] of raw) {
-      const isWild = p.includes('*');
-      const probe = isWild ? null : p;
       let ok = true;
-      if (probe) {
-        if (!checked.has(probe)) { try { const r = await fetch(probe, { method: 'HEAD' }); checked.set(probe, r.ok); } catch { checked.set(probe, false); } }
-        ok = checked.get(probe);
-      } else {
-        // a wildcard path: Sequencer resolves it through the server's file browser at play; ask the same way
-        try { const dir = p.slice(0, p.lastIndexOf('/')); const list = await foundry.applications.apps.FilePicker.implementation.browse('data', dir); ok = list.files.length > 0; } catch { ok = false; }
-      }
+      if (p.includes('*')) { try { const dir = p.slice(0, p.lastIndexOf('/')); const l = await foundry.applications.apps.FilePicker.implementation.browse('data', dir); ok = l.files.length > 0; } catch { ok = false; } }
+      else { if (!checked.has(p)) { try { const r = await fetch(p, { method: 'HEAD' }); checked.set(p, r.ok); } catch { checked.set(p, false); } } ok = checked.get(p); }
       if (!ok) missing.push(`${p} (${names.slice(0, 3).join(', ')}${names.length > 3 ? '…' : ''})`);
     }
     const tolerated = missing.filter((m) => knownMissing.some((k) => m.includes(k)));
     const real = missing.filter((m) => !tolerated.includes(m));
 
-    // the party's sheets: every ability with a look builds; the rest is the "nothing plays yet" list
+    // the party and the NPCs, through the API's census
     const partyId = game.settings.get('dnd5e', 'primaryParty')?.actor?.id ?? null;
     const party = partyId ? (game.actors.get(partyId)?.system?.members ?? []).map((m) => m.actor ?? game.actors.get(m.actor?.id ?? m)).filter(Boolean) : game.actors.filter((a) => a.type === 'character' && a.hasPlayerOwner);
-    const partyOut = [];
-    const nothing = [];
-    for (const actor of party) {
-      let looks = 0, builds = 0, none = 0;
-      for (const it of actor.items) {
-        if (!['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool'].includes(it.type)) continue;
-        const hit = api.lookup(it.name);
-        if (!hit) { none++; nothing.push(`${actor.name}: ${it.name}`); continue; }
-        looks++;
-        try { const m = momentFor(hit.row); m.item = it; api.build(hit.row, m, hit.name ?? it.name); builds++; }
-        catch (e) { results.errors.push(`${actor.name} / ${it.name} → "${hit.row.name}": ${e.message}`); }
-      }
-      partyOut.push({ name: actor.name, looks, builds, none });
-    }
-
-    // monster attacks (PLAN §7): the world's NPCs' attack activities, and how many reach a row by whole word
-    const npcOut = { actors: 0, attacks: 0, exact: 0, word: 0, none: 0, samples: { word: [], none: [] } };
-    for (const actor of game.actors.filter((a) => a.type === 'npc')) {
-      let any = false;
-      for (const it of actor.items) {
-        if (!it.system?.activities?.some?.((a) => a.type === 'attack')) continue;
-        any = true;
-        npcOut.attacks++;
-        const hit = api.lookup(it.name);
-        if (!hit) { npcOut.none++; if (npcOut.samples.none.length < 12 && !npcOut.samples.none.includes(it.name)) npcOut.samples.none.push(it.name); }
-        else if (hit.how === 'word') { npcOut.word++; if (npcOut.samples.word.length < 12) { const s = `${it.name} → ${hit.row.name}`; if (!npcOut.samples.word.includes(s)) npcOut.samples.word.push(s); } }
-        else npcOut.exact++;
-      }
-      if (any) npcOut.actors++;
-    }
+    const c = api.census({ actors: party });
+    const partyOut = c.actors.map((a) => ({ name: a.name, plays: a.items.filter((i) => i.look).length, items: a.items.length, effects: a.effects.filter((e) => e.look).length, effectsAll: a.effects.length }));
+    const npc = api.census({ actors: game.actors.filter((a) => a.type === 'npc') });
+    const attacks = npc.actors.flatMap((a) => a.items.filter((i) => i.type === 'weapon'));
+    const npcOut = { attacks: attacks.length, plays: attacks.filter((i) => i.look).length, byBase: attacks.filter((i) => i.look && i.key && i.keys.indexOf(i.key) > 1).map((i) => `${i.name} → ${i.key}`).slice(0, 8), nothing: [...new Set(attacks.filter((i) => !i.look).map((i) => i.name))].slice(0, 14) };
 
     await canvas.scene.deleteEmbeddedDocuments('Region', [circle.id, cone.id, square.id].filter((id) => canvas.scene.regions.get(id)));
-    return { rows: results.rows, built: results.built, byPreset: results.byPreset, empty: results.empty, errors: results.errors, paths: results.paths.size, rawChecked: checked.size, missing: real, tolerated, party: partyOut, nothing, npc: npcOut };
+    return { looks: results.looks, built: results.built, byShape: results.byShape, empty: results.empty, errors: results.errors, problems: results.problems, paths: results.paths.size, rawChecked: checked.size, missing: real, tolerated, party: partyOut, nothing: c.nothing.map((n) => `${n.actor}: ${n.name}`), npc: npcOut };
   }, { casterTokenId: fixture.casterTokenId, targetTokenId: fixture.targetTokenId, knownMissing: KNOWN_MISSING });
-  console.log(`[looks] ${out.rows} rows · built ${out.built} · presets ${Object.entries(out.byPreset).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+  console.log(`[looks] ${out.looks} looks · built ${out.built} · shapes ${Object.entries(out.byShape).map(([k, v]) => `${k} ${v}`).join(', ')}`);
   console.log(`[looks] ${out.paths} distinct paths named, ${out.rawChecked} raw files asked of the server`);
+  for (const p of out.problems) console.log(`  ✗ index: ${p}`);
   for (const e of out.errors) console.log(`  ✗ build: ${e}`);
   for (const m of out.missing) console.log(`  ✗ missing: ${m}`);
   for (const m of out.tolerated) console.log(`  · known missing since AA: ${m}`);
-  if (out.empty.length) console.log(`  · ${out.empty.length} row(s) built to nothing against this moment: ${out.empty.slice(0, 6).join('; ')}${out.empty.length > 6 ? '…' : ''}`);
-  console.log(`[looks] the party: ${out.party.map((p) => `${p.name} ${p.builds}/${p.looks} build, ${p.none} nothing`).join(' · ')}`);
-  if (out.nothing.length) console.log(`  · nothing plays yet for ${out.nothing.length} abilities (the import report lists them)`);
-  console.log(`[looks] NPC attacks: ${out.npc.attacks} on ${out.npc.actors} actors · by exact name ${out.npc.exact} · by whole word ${out.npc.word} · nothing ${out.npc.none}`);
-  if (out.npc.samples.word.length) console.log(`  · by word, e.g. ${out.npc.samples.word.slice(0, 8).join('; ')}`);
-  if (out.npc.samples.none.length) console.log(`  · nothing, e.g. ${out.npc.samples.none.slice(0, 12).join('; ')}`);
-  const failed = out.errors.length + out.missing.length;
-  console.log(failed ? `FAIL: ${out.errors.length} build error(s), ${out.missing.length} missing path(s)` : `PASS: ${out.built} rows build, every path resolves`);
+  if (out.empty.length) console.log(`  · ${out.empty.length} look(s) built to nothing against this moment: ${out.empty.slice(0, 6).join('; ')}${out.empty.length > 6 ? '…' : ''}`);
+  console.log(`[looks] the party: ${out.party.map((p) => `${p.name} ${p.plays}/${p.items} play, effects ${p.effects}/${p.effectsAll}`).join(' · ')}`);
+  if (out.nothing.length) console.log(`  · nothing plays yet for ${out.nothing.length} abilities (the migration report lists them)`);
+  console.log(`[looks] NPC attacks: ${out.npc.attacks}, ${out.npc.plays} play · by a later key, e.g. ${out.npc.byBase.join('; ') || '—'} · nothing: ${out.npc.nothing.join('; ') || '—'}`);
+  const failed = out.errors.length + out.missing.length + out.problems.length;
+  console.log(failed ? `FAIL: ${out.errors.length} build error(s), ${out.missing.length} missing path(s), ${out.problems.length} index problem(s)` : `PASS: ${out.built} looks build, every path resolves`);
   process.exitCode = failed ? 1 : 0;
 } finally {
   if (fixture) { const d = await f.evaluate(fixtureDown, { ...fixture, since }).catch((e) => ({ error: e.message })); console.log(`[looks] teardown: ${JSON.stringify(d)}`); }

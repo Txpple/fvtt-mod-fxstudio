@@ -8,7 +8,9 @@ import { REPO, toUrl } from './lib/env.mjs';
 
 globalThis.Hooks = { once() {}, on() {}, callAll() {} };
 globalThis.game = { settings: { get() {}, register() {} }, modules: { get: () => ({}) }, user: {}, users: [] };
-globalThis.Sequencer = { Database: { entryExists: () => false } };
+globalThis.Sequencer = { Database: { entryExists: () => false, getPathsUnder: () => [], getEntry: () => null }, EffectManager: { getEffects: () => [] } };
+globalThis.Item = class {};
+globalThis.CONFIG = { DND5E: {} };
 
 const files = [];
 const walk = (dir) => { for (const n of readdirSync(dir)) { const p = join(dir, n); if (statSync(p).isDirectory()) walk(p); else if (n.endsWith('.js')) files.push(p); } };

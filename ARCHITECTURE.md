@@ -223,8 +223,13 @@ recipes/
 ```
 
 plus the world setting `looks` as the live edit buffer, and an item pointer `flags.fxstudio.look`
-naming a look id for one specific item. Every file carries `schema: 2`; a future change to the
-shape is a migration function in the tools, never a hand edit.
+naming a look id for one specific item (phase 3). Every file carries `schema: 2`; a future change to the
+shape is a migration function in the tools, never a hand edit. **As built (phase 2, 2026-09-06):**
+`recipes/baseline/` holds 1289 looks (spells 586, weapons 132, natural 87, features 277, items 23,
+effects 184), `house.json` 7, `starters.json` 10, `aa-assets.json` 15 paths; `migration-report.md`
+is the census; the scene's knobs are flat on the scene (`delay`, `opacity`, …) rather than grouped
+under `timing`/`look`, and an asset may also be `{byPosition: {center, mid, left}}` (a picture picked
+by where the template sits) — `recipes/SCHEMA.md` is the grammar as written.
 
 ## 5. The engine — eight shapes, one escape hatch, nothing else
 
@@ -348,6 +353,10 @@ reads fifty sentences and keeps the ones that read right.
 | `smoke-replay.mjs` | live | one look of every shape and moment through real dnd5e flows |
 | `smoke-author.mjs` | live | the assistant's round trip: a look written as data, validated, previewed, saved, read back as a sentence, exported |
 | `preview.mjs` | live | plays a look on the fixture for a person or an assistant to see |
+| `check-legacy.mjs` | offline | no Automated Animations vocabulary in `scripts/` or `recipes/` (§0's mechanical half) |
+| `export-looks.mjs` | offline | the world buffer as sentences with who wrote them; `--write` folds it into `house.json` |
+
+All of these exist as of phase 2 (2026-09-06); tools/README.md is the reference.
 
 ## 9. What changes for the user, and what does not
 

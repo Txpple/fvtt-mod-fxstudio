@@ -2,7 +2,7 @@
 // plays the row that answered. Keeps a ledger of the last moments so the suites and the Check
 // screen can read what played, what resolved to nothing, and which files were named.
 import { lookup } from './corpus.js';
-import { logging, playing } from './settings.js';
+const logging = () => false; const playing = () => true;
 import { rinse, wait } from './presets/common.js';
 import * as swing from './presets/swing.js';
 import * as projectile from './presets/projectile.js';

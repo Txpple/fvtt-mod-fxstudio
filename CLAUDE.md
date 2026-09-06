@@ -14,12 +14,15 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-06): phase 1 (lossless replay) is built, green and committed; the user's first
-evening on it ruled AA's inherited model OUT, and [ARCHITECTURE.md](ARCHITECTURE.md) — identity
-keys, the look as the sentence, nine shapes, one authoring model for people and assistants — was
-RULED the same day with its costs accepted. Phase 2 (the model, PLAN §6) is the next work and the
-user's "I'll start a new window to continue" is its go: a fresh session reads ARCHITECTURE.md, then
-PLAN §6, says in its first line that it is starting phase 2, and builds it without asking again.
+**Status (2026-09-06): phase 2 (the model) is built and green on the sandbox — ARCHITECTURE.md
+as ruled: `scripts/core/` (moments, subjects with identity keys, the look grammar, the corpus),
+`scripts/readers/dnd5e.js`, `scripts/engine/` (eight shapes and the escape hatch, places, assets,
+the renderer), `scripts/api.js` (the authoring API); the corpus migrated to `recipes/baseline/`
+per kind with a render-level proof (1296 of 1296; `recipes/migration-report.md`); phase 1's
+presets and rows retired to `tools/lib/oracle/`. The four live suites and the offline checks are
+green (tools/README.md). Phase 3 (the four screens on the look grammar, PLAN §6) is next and
+starts ONLY on the user's word, after the user has read the migration report and BACKLOG.md; a
+fresh session reads ARCHITECTURE.md §7, `recipes/SCHEMA.md` and the ruled prototype before it.
 The sandbox runs FX Studio alone (AA and D&D5e Animations switched off there on 2026-09-06 with
 `tools/sandbox-module.mjs`; prod still runs AA).** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
@@ -27,8 +30,8 @@ improvements in scope), then the architecture, the measured facts, the lossless 
 parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
 each. [DESIGN.md](DESIGN.md) holds what was decided while building (the row, the private Sequencer
 table `fxstudio.aa.*` and why, the matching rules, and §6: the moments, who plays, the presets,
-the ledger); [BACKLOG.md](BACKLOG.md) what is parked;
-`recipes/import-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
+the ledger; §7: phase 2 — the proof, where every AA option went, the keys, the frozen table); [BACKLOG.md](BACKLOG.md) what is parked;
+`recipes/migration-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
 the tools. `prototypes/` holds the investigation's scripts and the clickable prototype the user
 ruled the shape on ("it reads right"). Each phase ends at a check-in; the next phase starts on
 the user's word, never on a handoff or a plan.
@@ -78,10 +81,10 @@ the user's word, never on a handoff or a plan.
   there without the user's word. Both worlds share ids, so a `get-world-info` tells them apart
   only by Foundry version and who is connected. `disconnect-bridge` before a suite or a restart:
   one connected user blocks the restart.
-- **The suites here** are `tools/smoke-looks.mjs` (every row builds live) and
+- **The suites here** are `tools/smoke-looks.mjs` (every look builds live), `tools/smoke-author.mjs` (the assistant's round trip) and
   `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
   compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
-  Battle Flow fixtures are needed. `tools/check-imports.mjs` after any edit under `scripts/`.
+  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs` and `check-legacy.mjs` after any edit under `scripts/`; `check-looks.mjs` after any edit under `recipes/`.
   ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
   before measuring anything from it (the suite's `moveTo`).
 - **Suites** go in `tools/` and use the MCP repo's Foundry client

@@ -7,23 +7,28 @@ and JB2A and PSFX as the libraries; replaces Automated Animations by carrying it
 Animations corpus over losslessly, adds the user's own looks and the outcome layers AA never had,
 and is driven through four screens that speak in sentences. It never guesses a look.
 
-**Status: phase 1 (lossless replay) built, 2026-09-06.** The corpus is in `recipes/` — the
-baseline converted row for row from D&D5e Animations with a parity proof (every row plays the same
-files, sound and options it did under Automated Animations, 1289 of 1289), the house layer this
-world had on top, and the private Sequencer table the baseline plays through. The module reads
-dnd5e's own messages, placed templates and active effects, resolves by exact name (house, then
-baseline, else nothing — listed, never guessed) and plays every row through a port of AA's
-sequences; attacks play knowing hit or miss. Measured on the sandbox: every row builds and every
-path resolves live (`tools/smoke-looks.mjs`), one row of every family plays through real dnd5e
-flows (`tools/smoke-replay.mjs`, 35 of 35). The first evening on it ruled AA's inherited model out:
-[ARCHITECTURE.md](ARCHITECTURE.md) is the net-new design (identity keys, the look as the sentence,
-nine shapes, one authoring model for people and assistants), ruled 2026-09-06, and phase 2 builds it. Read
-[PLAN.md](PLAN.md) for the phases, [DESIGN.md](DESIGN.md) for what was decided while building,
-[BACKLOG.md](BACKLOG.md) for what is parked, and `recipes/import-report.md` for the census the
-user reads before cutover. `prototypes/` holds the investigation's scripts and the clickable
-prototype the design was ruled on.
+**Status: phase 2 (the model) built, 2026-09-06.** [ARCHITECTURE.md](ARCHITECTURE.md) is the
+design: a look is found by what acted and when (identity keys dnd5e already keeps — a spell's
+identifier, a weapon's name then its base weapon, a natural attack, a feature, an item, an
+effect), never by a name rule; a look is written as the sentence the user would say
+(`recipes/SCHEMA.md` is the grammar); the engine knows eight shapes and one escape hatch
+(`scripts/engine/shapes/`). The corpus is `recipes/baseline/` (the D&D5e Animations corpus
+migrated once, one file per kind, 1289 looks), `house.json` (the user's), `starters.json` (what a
+new look starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
+metadata, counted). The migration (`tools/migrate-aa.mjs`) is proved at the render: for every
+row, the exact Sequencer calls the new engine makes equal the calls AA's own sequence made, with
+five deliberate differences named and counted (1296 of 1296; `recipes/migration-report.md`).
+Measured on the sandbox: every look builds and every path resolves live (`tools/smoke-looks.mjs`),
+one look of every shape and moment plays through real dnd5e flows (`tools/smoke-replay.mjs`, 37 of
+37 — a Maul of Momentum plays the maul, the Shield spell no longer bashes), and an assistant's
+round trip through the API — write, validate, read as a sentence, preview, save with provenance,
+export — is green (`tools/smoke-author.mjs`). Phase 3, the four screens on this grammar, starts on
+the user's word. Read [PLAN.md](PLAN.md) for the phases, [DESIGN.md](DESIGN.md) for what was
+decided while building, [BACKLOG.md](BACKLOG.md) for what is parked, and the migration report for
+what the user reads before cutover. `prototypes/` holds the investigation's scripts and the
+clickable prototype the screens were ruled on.
 
-**Licence.** The code is MIT. `recipes/baseline.json` is a derived work of
+**Licence.** The code is MIT. `recipes/baseline/*.json` is a derived work of
 [D&D5e Animations](https://github.com/MrVauxs/dnd5e-animations) 3.3.0 by MrVauxs and Sisimshow and is
 licensed GPL-3 (see `recipes/BASELINE-LICENSE`); it is carried over whole so nothing that played under
 Automated Animations is lost.

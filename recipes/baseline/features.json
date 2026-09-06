@@ -1,0 +1,9279 @@
+{
+ "_meta": {
+  "schema": 2,
+  "generated": "2026-09-06",
+  "tool": "tools/migrate-aa.mjs",
+  "sources": {
+   "aa": "7.0.22",
+   "dnd5eAnimations": "3.3.0",
+   "jb2a": "0.9.2",
+   "psfx": "0.17.0",
+   "sequencer": "4.2.3",
+   "dnd5e": null
+  },
+  "licence": "GPL-3.0-or-later (see BASELINE-LICENSE)",
+  "source": "D&D5e Animations 3.3.0",
+  "authors": [
+   "MrVauxs",
+   "Sisimshow"
+  ],
+  "note": "The features of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "looks": 277
+ },
+ "looks": [
+  {
+   "id": "rage",
+   "for": [
+    "feature:rage"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-1.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "paths": [
+       "jb2a.impact.ground_crack.01.orange",
+       "jb2a.impact.ground_crack.02.orange",
+       "jb2a.impact.ground_crack.03.orange"
+      ]
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.explosion.02.orange"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3",
+      "delay": 250
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 250
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Rage\" (ontoken)"
+  },
+  {
+   "id": "steps-of-the-fey",
+   "for": [
+    "feature:steps-of-the-fey"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.green"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.green"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Steps of the Fey\" (preset)"
+  },
+  {
+   "id": "awakened-mind",
+   "for": [
+    "feature:awakened-mind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "paths": [
+       "jb2a.energy_strands.range.standard.purple.01",
+       "jb2a.energy_strands.range.standard.purple.02",
+       "jb2a.energy_strands.range.standard.purple.03",
+       "jb2a.energy_strands.range.standard.purple.04"
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Awakened Mind\" (range)"
+  },
+  {
+   "id": "beguiling-defenses",
+   "for": [
+    "feature:beguiling-defenses"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shield.01.intro.purple"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "shoot",
+     "asset": {
+      "paths": [
+       "jb2a.energy_strands.range.standard.purple.01",
+       "jb2a.energy_strands.range.standard.purple.02",
+       "jb2a.energy_strands.range.standard.purple.03",
+       "jb2a.energy_strands.range.standard.purple.04"
+      ]
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.002"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Beguiling Defenses\" (range)"
+  },
+  {
+   "id": "cinder-breath",
+   "for": [
+    "feature:cinder-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "file": "jb2a.smoke.puff.side.02.dark_black"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.fire",
+      "start": 150
+     },
+     "opacity": 0.9,
+     "tint": {
+      "colour": "#c00000",
+      "contrast": 0,
+      "saturation": 0
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cinder Breath\" (range)"
+  },
+  {
+   "id": "consume-life",
+   "for": [
+    "feature:consume-life"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.dark_red.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.intro",
+      "start": 500
+     },
+     "from": "each-target",
+     "to": "source",
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Consume Life\" (range)"
+  },
+  {
+   "id": "devour-intellect",
+   "for": [
+    "feature:devour-intellect"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.intro",
+      "start": 500
+     },
+     "from": "each-target",
+     "to": "source",
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Devour Intellect\" (range)"
+  },
+  {
+   "id": "dominate-mind",
+   "for": [
+    "feature:dominate-mind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.intro",
+      "start": 850
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.greenorange"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#00ff11",
+      "contrast": 0.5,
+      "saturation": -1
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Dominate Mind\" (range)"
+  },
+  {
+   "id": "draining-kiss",
+   "for": [
+    "feature:draining-kiss"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.dark_red.01"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.002",
+      "delay": 1000,
+      "repeat": 3,
+      "every": 500
+     },
+     "from": "each-target",
+     "to": "source",
+     "delay": 1000
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.icon.heart.dark_red"
+     },
+     "fadeIn": 500,
+     "opacity": 0.75,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Draining Kiss\" (range)"
+  },
+  {
+   "id": "energy-drain",
+   "for": [
+    "feature:energy-drain"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_beam.reverse.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.005",
+      "start": 5000
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Energy Drain\" (range)"
+  },
+  {
+   "id": "life-drain",
+   "for": [
+    "feature:life-drain",
+    "natural:life-drain"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.intro",
+      "start": 700
+     },
+     "from": "each-target",
+     "to": "source",
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Life Drain\" (range)"
+  },
+  {
+   "id": "lightning-strike",
+   "for": [
+    "feature:lightning-strike",
+    "natural:lightning-strike"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.chain_lightning.primary.blue"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.primary"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Lightning Strike\" (range)"
+  },
+  {
+   "id": "magical-backlash",
+   "for": [
+    "feature:magical-backlash"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.magic_missile.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.magic-missile.v1",
+      "start": 200
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Magical Backlash\" (range)"
+  },
+  {
+   "id": "mud-breath",
+   "for": [
+    "feature:mud-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.launch.cannon_ball.01.black"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01",
+      "volume": 1,
+      "start": 250
+     },
+     "tint": {
+      "colour": "#7b3524",
+      "contrast": 1,
+      "saturation": -1
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "file": "jb2a.liquid.splash.brown"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.intro.water",
+      "volume": 0.5,
+      "delay": 1000
+     },
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mud Breath\" (range)"
+  },
+  {
+   "id": "possession",
+   "for": [
+    "feature:possession"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "paths": [
+       "jb2a.energy_strands.range.standard.dark_purple.01",
+       "jb2a.energy_strands.range.standard.dark_purple.02",
+       "jb2a.energy_strands.range.standard.dark_purple.03",
+       "jb2a.energy_strands.range.standard.dark_purple.04"
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.icon.fear.dark_purple"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3",
+      "delay": 1000
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Possession\" (range)"
+  },
+  {
+   "id": "rend-mind",
+   "for": [
+    "feature:rend-mind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro",
+      "start": 100
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Rend Mind\" (range)"
+  },
+  {
+   "id": "restore-balance",
+   "for": [
+    "feature:restore-balance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_conduit.bluepurple.circle.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.intro",
+      "start": 250
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "file": "jb2a.cast_shape.circle.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.outro",
+      "delay": 1500
+     },
+     "repeat": 3,
+     "every": 1500,
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Restore Balance\" (range)"
+  },
+  {
+   "id": "stench-spray",
+   "for": [
+    "feature:stench-spray"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "file": "jb2a.ranged.04.projectile.01.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray",
+      "start": 2500
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Stench Spray\" (range)"
+  },
+  {
+   "id": "telekinetic-thrust",
+   "for": [
+    "feature:telekinetic-thrust"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.eldritch_blast.pink"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.eldritch-blast.v1"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Telekinetic Thrust\" (range)"
+  },
+  {
+   "id": "telepathic-speech",
+   "for": [
+    "feature:telepathic-speech"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "paths": [
+       "jb2a.energy_strands.range.standard.orange.01",
+       "jb2a.energy_strands.range.standard.orange.02",
+       "jb2a.energy_strands.range.standard.orange.03",
+       "jb2a.energy_strands.range.standard.orange.04"
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Telepathic Speech\" (range)"
+  },
+  {
+   "id": "watery-rebuke",
+   "for": [
+    "feature:watery-rebuke"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "file": "jb2a.ranged.04.projectile.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001",
+      "start": 100
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Watery Rebuke\" (range)"
+  },
+  {
+   "id": "witch-strike",
+   "for": [
+    "feature:witch-strike"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.witch_bolt.blue"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.secondary",
+      "repeat": 4,
+      "every": 1000
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Witch Strike\" (range)"
+  },
+  {
+   "id": "abjure-foes",
+   "for": [
+    "feature:abjure-foes"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Abjure Foes\" (ontoken)"
+  },
+  {
+   "id": "action-surge",
+   "for": [
+    "feature:action-surge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.impact.003.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Action Surge\" (ontoken)"
+  },
+  {
+   "id": "adrenaline-rush",
+   "for": [
+    "feature:adrenaline-rush"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.impact.003.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Adrenaline Rush\" (ontoken)"
+  },
+  {
+   "id": "animal-spirit",
+   "for": [
+    "feature:animal-spirit"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.projectile.instant.002",
+      "delay": 500,
+      "start": 250
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.fairies.inward_burst.01.greenyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Animal Spirit\" (ontoken)"
+  },
+  {
+   "id": "arcane-recovery",
+   "for": [
+    "feature:arcane-recovery"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.markers.circle_of_stars.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Arcane Recovery\" (ontoken)"
+  },
+  {
+   "id": "arcane-ward-mark",
+   "for": [
+    "feature:arcane-ward"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "path": "jb2a.shield.01.complete.01.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Arcane Ward\" (ontoken)"
+  },
+  {
+   "id": "archdruid",
+   "for": [
+    "feature:archdruid"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro",
+      "volume": 0.5
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.02.round.4x4.complete.greenred"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.aura_themed.01.outward.complete.nature.01.green"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.outro.generic"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Archdruid\" (ontoken)"
+  },
+  {
+   "id": "banish",
+   "for": [
+    "feature:banish"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.portals.horizontal.ring.yellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Banish\" (ontoken)"
+  },
+  {
+   "id": "bardic-inspiration",
+   "for": [
+    "feature:bardic-inspiration"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.bardic_inspiration.blueyellow"
+     },
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed.keyOfA"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA"
+     },
+     "asset": {
+      "path": "jb2a.markers.music.blueyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Bardic Inspiration\" (ontoken)"
+  },
+  {
+   "id": "bend-luck",
+   "for": [
+    "feature:bend-luck"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.002"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.02.green"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Bend Luck\" (ontoken)"
+  },
+  {
+   "id": "blessed-healer",
+   "for": [
+    "feature:blessed-healer"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Blessed Healer\" (ontoken)"
+  },
+  {
+   "id": "blessed-strikes",
+   "for": [
+    "feature:blessed-strikes"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.target.blueyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Blessed Strikes\" (ontoken)"
+  },
+  {
+   "id": "bolster",
+   "for": [
+    "feature:bolster"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.complete"
+     },
+     "asset": {
+      "file": "jb2a.aura_themed.01.orbit.complete.metal.01.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Bolster\" (ontoken)"
+  },
+  {
+   "id": "branches-of-the-tree",
+   "for": [
+    "feature:branches-of-the-tree"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.entangle.brown"
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Branches of the Tree\" (ontoken)"
+  },
+  {
+   "id": "bulwark-of-force",
+   "for": [
+    "feature:bulwark-of-force"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.complete.02.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Bulwark of Force\" (ontoken)"
+  },
+  {
+   "id": "burst-of-ingenuity",
+   "for": [
+    "feature:burst-of-ingenuity"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.sound.001",
+      "delay": 1600
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.roll.green"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "icons/svg/light.svg"
+     },
+     "size": {
+      "radius": 0.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Burst of Ingenuity\" (ontoken)"
+  },
+  {
+   "id": "cacophony",
+   "for": [
+    "feature:cacophony"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.sound.001",
+      "delay": 500
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.soundwave.02.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cacophony\" (ontoken)"
+  },
+  {
+   "id": "celestial-resilience",
+   "for": [
+    "feature:celestial-resilience"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.cure_wounds.400px.yellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Celestial Resilience\" (ontoken)"
+  },
+  {
+   "id": "celestial-revelation",
+   "for": [
+    "feature:celestial-revelation"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.reversed.blueyellow"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/dnd5e-animations/assets/graphics/Wings.webp"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "below": true,
+     "delay": 1800
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Celestial Revelation\" (ontoken)"
+  },
+  {
+   "id": "channel-divinity",
+   "for": [
+    "feature:channel-divinity"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Channel Divinity\" (ontoken)"
+  },
+  {
+   "id": "charm",
+   "for": [
+    "feature:charm"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.casting.generic.001",
+      "delay": 100
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.014.red"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.impact.001.blue"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.016",
+      "delay": 250
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 250
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Charm\" (ontoken)"
+  },
+  {
+   "id": "children-of-the-night",
+   "for": [
+    "feature:children-of-the-night"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Children of the Night\" (ontoken)"
+  },
+  {
+   "id": "chomp",
+   "for": [
+    "feature:chomp"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
+     },
+     "asset": {
+      "path": "jb2a.bite.400px.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Chomp\" (ontoken)"
+  },
+  {
+   "id": "clairvoyant-combatant",
+   "for": [
+    "feature:clairvoyant-combatant"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.002.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Clairvoyant Combatant\" (ontoken)"
+  },
+  {
+   "id": "cleansing-touch",
+   "for": [
+    "feature:restoring-touch",
+    "feature:cleansing-touch"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.greenyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cleansing Touch\" (ontoken)"
+  },
+  {
+   "id": "cloak-of-shadows",
+   "for": [
+    "feature:cloak-of-shadows"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.003.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cloak of Shadows\" (ontoken)"
+  },
+  {
+   "id": "cloud-of-insects",
+   "for": [
+    "feature:cloud-of-insects"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swarm.mp3"
+     },
+     "asset": {
+      "file": "jb2a.butterflies.many.orange"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.butterflies.many.orange"
+     },
+     "size": {
+      "tokenWidths": 1.7999999999999998
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#00ff55",
+      "contrast": 0,
+      "saturation": 0
+     },
+     "delay": 2000
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.butterflies.many.orange"
+     },
+     "size": {
+      "tokenWidths": 1.125
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#ae00ff",
+      "contrast": 0,
+      "saturation": 0
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cloud of Insects\" (ontoken)"
+  },
+  {
+   "id": "constrict",
+   "for": [
+    "feature:constrict",
+    "natural:constrict"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     },
+     "asset": {
+      "path": "jb2a.markers.chain.standard.loop.02.yellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Constrict\" (ontoken)"
+  },
+  {
+   "id": "consume-memories",
+   "for": [
+    "feature:consume-memories"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.arms_of_hadar.dark_green"
+     },
+     "below": true,
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.400px.green"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "volume": 1,
+      "delay": 2000
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Consume Memories\" (ontoken)"
+  },
+  {
+   "id": "controlled-chaos",
+   "for": [
+    "feature:controlled-chaos"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.002",
+      "delay": 100
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.001.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Controlled Chaos\" (ontoken)"
+  },
+  {
+   "id": "cosmic-omen",
+   "for": [
+    "feature:cosmic-omen"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.outro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.circle_of_stars.yellowblue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cosmic Omen\" (ontoken)"
+  },
+  {
+   "id": "countercharm",
+   "for": [
+    "feature:countercharm"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.complete",
+      "start": 2000
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.markers.music.blueyellow"
+     },
+     "below": true,
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.condition.boon.01.019.blue"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Countercharm\" (ontoken)"
+  },
+  {
+   "id": "cunning-action",
+   "for": [
+    "feature:cunning-action"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.intro.generic"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cunning Action\" (ontoken)"
+  },
+  {
+   "id": "cunning-strike",
+   "for": [
+    "feature:cunning-strike"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.projectile.instant.003",
+      "start": 100
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.slash.02.001.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cunning Strike\" (ontoken)"
+  },
+  {
+   "id": "curse-of-the-riddle",
+   "for": [
+    "feature:curse-of-the-riddle"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.complete",
+      "start": 250
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.runes.blue.01"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Curse of the Riddle\" (ontoken)"
+  },
+  {
+   "id": "cutting-words",
+   "for": [
+    "feature:cutting-words"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.soundwave.02.orangepurple"
+     },
+     "sound": {
+      "asset": "psfx.casting.sound.001",
+      "delay": 500
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.soundwave.02.orangepurple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cutting Words\" (ontoken)"
+  },
+  {
+   "id": "dark-ones-blessing",
+   "for": [
+    "feature:dark-ones-blessing"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001",
+      "delay": 250
+     },
+     "asset": {
+      "path": "jb2a.bless.400px.intro.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Dark One's Blessing\" (ontoken)"
+  },
+  {
+   "id": "dark-ones-own-luck",
+   "for": [
+    "feature:dark-ones-own-luck"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar"
+     },
+     "tint": {
+      "colour": "#A020F0",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.roll.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.001.purple"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Dark One's Own Luck\" (ontoken)"
+  },
+  {
+   "id": "deadly-aim",
+   "for": [
+    "feature:deadly-aim"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.intro.generic"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_purple"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.melee_generic.slashing.two_handed"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Deadly Aim\" (ontoken)"
+  },
+  {
+   "id": "death-strike",
+   "for": [
+    "feature:death-strike",
+    "natural:death-strike"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_red"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.melee_attack.05.scythe.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1.3",
+      "delay": 500
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 500
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.liquid.splash_side02.red"
+     },
+     "anchor": {
+      "x": 0.25,
+      "y": 0.5
+     },
+     "elevation": {
+      "level": 499,
+      "absolute": false
+     },
+     "delay": 750
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Death Strike\" (ontoken)"
+  },
+  {
+   "id": "defensive-tactics",
+   "for": [
+    "feature:defensive-tactics"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.outro.generic"
+     },
+     "asset": {
+      "path": "jb2a.hunters_mark.pulse.02.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Defensive Tactics\" (ontoken)"
+  },
+  {
+   "id": "deflect-missiles",
+   "for": [
+    "feature:deflect-attacks",
+    "feature:deflect-missiles"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1.0"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.piercing.two_handed"
+     },
+     "anchor": {
+      "x": 0.6,
+      "y": 0.5
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Deflect Missiles\" (ontoken)"
+  },
+  {
+   "id": "devious-strikes",
+   "for": [
+    "feature:devious-strikes"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.slash.02.001.blue"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Devious Strikes\" (ontoken)"
+  },
+  {
+   "id": "disciplined-survivor",
+   "for": [
+    "feature:disciplined-survivor"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.002.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Disciplined Survivor\" (ontoken)"
+  },
+  {
+   "id": "divine-intervention",
+   "for": [
+    "feature:divine-intervention"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.dancing-lights.v1"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light.loop.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Divine Intervention\" (ontoken)"
+  },
+  {
+   "id": "divine-sense",
+   "for": [
+    "feature:divine-sense"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.complete"
+     },
+     "size": {
+      "tokenWidths": 4.5
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Divine Sense\" (ontoken)"
+  },
+  {
+   "id": "divine-strike",
+   "for": [
+    "feature:divine-strike"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.target.blueyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Divine Strike\" (ontoken)"
+  },
+  {
+   "id": "draconic-flight",
+   "for": [
+    "feature:draconic-flight"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-6.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.explosion.08.1200.dark_blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/dnd5e-animations/assets/graphics/DragonWings.webp"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-4.mp3",
+      "delay": 600
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.65
+     },
+     "opacity": 0.5,
+     "rate": 0.2,
+     "size": {
+      "radius": 2
+     },
+     "below": true,
+     "tint": {
+      "colour": "#00ffff",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "delay": 600
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Draconic Flight\" (ontoken)"
+  },
+  {
+   "id": "dread-ambusher",
+   "for": [
+    "feature:dread-ambusher"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.projectile.instant.003"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.slash.02.001.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Dread Ambusher\" (ontoken)"
+  },
+  {
+   "id": "dreadful-strikes",
+   "for": [
+    "feature:dreadful-strikes"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.projectile.instant.003"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.slash.02.001.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Dreadful Strikes\" (ontoken)"
+  },
+  {
+   "id": "eldritch-master",
+   "for": [
+    "feature:eldritch-master"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.arms_of_hadar.dark_purple"
+     },
+     "below": true
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Eldritch Master\" (ontoken)"
+  },
+  {
+   "id": "eldritch-smite",
+   "for": [
+    "feature:eldritch-smite"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.cantrips.eldritch-blast.v1",
+      "start": 1200
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "paths": [
+       "jb2a.impact.005.purple",
+       "jb2a.impact.007.purple",
+       "jb2a.impact.009.purple",
+       "jb2a.impact.011.purple",
+       "jb2a.impact.012.purple"
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Eldritch Smite\" (ontoken)"
+  },
+  {
+   "id": "elemental-affinity",
+   "for": [
+    "feature:elemental-affinity"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.dark.01.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Elemental Affinity\" (ontoken)"
+  },
+  {
+   "id": "elemental-attunement",
+   "for": [
+    "feature:elemental-attunement"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.earth.01.browngreen"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Elemental Attunement\" (ontoken)"
+  },
+  {
+   "id": "empowered-evocation",
+   "for": [
+    "feature:empowered-evocation"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.fire.01.orange"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Empowered Evocation\" (ontoken)"
+  },
+  {
+   "id": "empty-body",
+   "for": [
+    "feature:superior-defense",
+    "feature:empty-body"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.002",
+      "delay": 250
+     },
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_01_Regular_Grey_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_02_Regular_Grey_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Empty Body\" (ontoken)"
+  },
+  {
+   "id": "entangling-trail",
+   "for": [
+    "feature:entangling-trail"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro"
+     },
+     "asset": {
+      "path": "jb2a.entangle.brown"
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Entangling Trail\" (ontoken)"
+  },
+  {
+   "id": "envenom-weapons",
+   "for": [
+    "feature:envenom-weapons"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "start": 500
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.008.green"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Envenom Weapons\" (ontoken)"
+  },
+  {
+   "id": "ethereal-sight",
+   "for": [
+    "feature:ethereal-sight"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "tint": {
+      "colour": "#80e1ff",
+      "contrast": 1,
+      "saturation": -1
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.002.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Ethereal Sight\" (ontoken)"
+  },
+  {
+   "id": "euphoria-breath",
+   "for": [
+    "feature:euphoria-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.complete",
+      "delay": 1000
+     },
+     "opacity": 0.8,
+     "size": {
+      "tokenWidths": 2.0999999999999996
+     },
+     "asset": {
+      "path": "fxstudio.aa.static.smoke.plume.complete"
+     },
+     "anchor": {
+      "x": 0.36,
+      "y": 0.36
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Euphoria Breath\" (ontoken)"
+  },
+  {
+   "id": "extract-brain",
+   "for": [
+    "feature:extract-brain"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "rate": 1.3,
+     "asset": {
+      "path": "jb2a.arms_of_hadar.dark_purple"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.toll_the_dead.purple.skull_smoke"
+     },
+     "rate": 0.5,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 200
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Extract Brain\" (ontoken)"
+  },
+  {
+   "id": "fast-hands",
+   "for": [
+    "feature:fast-hands"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.004.green"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fast Hands\" (ontoken)"
+  },
+  {
+   "id": "fell-word",
+   "for": [
+    "feature:fell-word"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.green",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target"
+     },
+     "size": {
+      "tokenWidths": 4.5
+     },
+     "asset": {
+      "path": "jb2a.sacred_flame.target.green",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.necromancy.loop.green"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fell Word\" (ontoken)"
+  },
+  {
+   "id": "fire-aura",
+   "for": [
+    "feature:fire-aura"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.flames.01.orange"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fire Aura\" (ontoken)"
+  },
+  {
+   "id": "flyby",
+   "for": [
+    "feature:flyby"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
+     },
+     "asset": {
+      "path": "jb2a.claws.400px.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Flyby\" (ontoken)"
+  },
+  {
+   "id": "font-of-inspiration",
+   "for": [
+    "feature:font-of-inspiration"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.violin.01.sforzando"
+     },
+     "asset": {
+      "path": "jb2a.bardic_inspiration.purplepink"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Font of Inspiration\" (ontoken)"
+  },
+  {
+   "id": "font-of-magic",
+   "for": [
+    "feature:font-of-magic"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.02.dark_red"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Font of Magic\" (ontoken)"
+  },
+  {
+   "id": "frightful-presence",
+   "for": [
+    "feature:frightful-presence"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "asset": {
+      "path": "jb2a.icon.fear.orange"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Frightful Presence\" (ontoken)"
+  },
+  {
+   "id": "frosts-chill",
+   "for": [
+    "feature:frosts-chill"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.cantrips.ray-of-frost.v2",
+      "start": 500
+     },
+     "mask": true,
+     "asset": {
+      "path": "jb2a.impact.frost.blue.01"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Frost's Chill\" (ontoken)"
+  },
+  {
+   "id": "giggling-magic",
+   "for": [
+    "feature:giggling-magic"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.complete",
+      "start": 500
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.markers.fear.orange.01"
+     },
+     "repeat": 2,
+     "every": 1000,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Giggling Magic\" (ontoken)"
+  },
+  {
+   "id": "glare",
+   "for": [
+    "feature:glare"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Eyes/Eyes_Single01_01_Regular_OrangeRed_300x300.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Glare\" (ontoken)"
+  },
+  {
+   "id": "glorious-defense",
+   "for": [
+    "feature:glorious-defense"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.complete.03.yellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Glorious Defense\" (ontoken)"
+  },
+  {
+   "id": "hand-of-harm",
+   "for": [
+    "feature:hand-of-harm"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.004.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hand of Harm\" (ontoken)"
+  },
+  {
+   "id": "hand-of-healing",
+   "for": [
+    "feature:hand-of-healing"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.005.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hand of Healing\" (ontoken)"
+  },
+  {
+   "id": "hand-of-ultimate-mercy",
+   "for": [
+    "feature:hand-of-ultimate-mercy"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.005.blue"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.energy_attack.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic.002.003",
+      "delay": 500
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hand of Ultimate Mercy\" (ontoken)"
+  },
+  {
+   "id": "healing-hands",
+   "for": [
+    "feature:healing-hands"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Healing Hands\" (ontoken)"
+  },
+  {
+   "id": "healing-light",
+   "for": [
+    "feature:healing-light"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light.complete.yellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Healing Light\" (ontoken)"
+  },
+  {
+   "id": "healing-touch",
+   "for": [
+    "feature:healing-touch"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.red"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.cure_wounds.400px.red"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Healing Touch\" (ontoken)"
+  },
+  {
+   "id": "heart-sight",
+   "for": [
+    "feature:heart-sight"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Eyes/Eyes_Single01_01_Regular_OrangeRed_300x300.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#ff80e3",
+      "contrast": 1,
+      "saturation": -1
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.outro",
+      "delay": -2000
+     },
+     "asset": {
+      "path": "jb2a.markers.heart.pink.03"
+     },
+     "delay": -2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Heart Sight\" (ontoken)"
+  },
+  {
+   "id": "hide-in-plain-sight",
+   "for": [
+    "feature:hide-in-plain-sight"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.02.round.4x4.complete.greenred"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.plant_growth.03.round.4x4.complete.greenyellow"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hide in Plain Sight\" (ontoken)"
+  },
+  {
+   "id": "hills-tumble",
+   "for": [
+    "feature:hills-tumble"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Bludgeoning/bludgeoning-swing-impact-blunt-1.mp3"
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.slash.02.002.orange"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hill's Tumble\" (ontoken)"
+  },
+  {
+   "id": "holy-nimbus",
+   "for": [
+    "feature:holy-nimbus"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.target.yellowwhite"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Holy Nimbus\" (ontoken)"
+  },
+  {
+   "id": "horrify",
+   "for": [
+    "feature:horrify"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "asset": {
+      "path": "jb2a.icon.fear.dark_orange"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_orange.01"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Horrify\" (ontoken)"
+  },
+  {
+   "id": "horrifying-visage",
+   "for": [
+    "feature:horrifying-visage"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.icon.fear.dark_purple"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": -5000,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.icon.horror.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Horrifying Visage\" (ontoken)"
+  },
+  {
+   "id": "hunters-prey",
+   "for": [
+    "feature:hunters-prey"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.sound.001",
+      "delay": 500
+     },
+     "asset": {
+      "path": "jb2a.hunters_mark.pulse.01.green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hunter's Prey\" (ontoken)"
+  },
+  {
+   "id": "hurl-through-hell",
+   "for": [
+    "feature:hurl-through-hell"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.portals.horizontal.ring.dark_red"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.wall_of_fire.ring.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001",
+      "delay": 500
+     },
+     "repeat": 2,
+     "every": 3600,
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 1199,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hurl Through Hell\" (ontoken)"
+  },
+  {
+   "id": "illusory-reality",
+   "for": [
+    "feature:illusory-reality"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.illusion.complete.dark_purple"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.cast_shape.circle.01.purple"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Illusory Reality\" (ontoken)"
+  },
+  {
+   "id": "illusory-self",
+   "for": [
+    "feature:illusory-self"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.outro"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.pink"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Illusory Self\" (ontoken)"
+  },
+  {
+   "id": "indomitable",
+   "for": [
+    "feature:indomitable"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.sound.001",
+      "delay": 750
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.roll.green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Indomitable\" (ontoken)"
+  },
+  {
+   "id": "infiltration-expertise",
+   "for": [
+    "feature:infiltration-expertise"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.006.green"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Infiltration Expertise\" (ontoken)"
+  },
+  {
+   "id": "innate-sorcery",
+   "for": [
+    "feature:innate-sorcery"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 500
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.orangepurple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Innate Sorcery\" (ontoken)"
+  },
+  {
+   "id": "invoke-duplicity",
+   "for": [
+    "feature:invoke-duplicity"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.001"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.005.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Invoke Duplicity\" (ontoken)"
+  },
+  {
+   "id": "jinx",
+   "for": [
+    "feature:jinx"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.complete",
+      "start": 500
+     },
+     "asset": {
+      "path": "jb2a.markers.01.greenorange"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Jinx\" (ontoken)"
+  },
+  {
+   "id": "lay-on-hands",
+   "for": [
+    "feature:lay-on-hands"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.blueyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Lay on Hands\" (ontoken)"
+  },
+  {
+   "id": "lordly-presence",
+   "for": [
+    "feature:lordly-presence"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-4.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.soundwave.01.multicolored01"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Lordly Presence\" (ontoken)"
+  },
+  {
+   "id": "magical-cunning",
+   "for": [
+    "feature:magical-cunning"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.004.purple"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.energy_strands.02.marker.bluepurple"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Magical Cunning\" (ontoken)"
+  },
+  {
+   "id": "mantle-of-inspiration",
+   "for": [
+    "feature:mantle-of-inspiration"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.loop",
+      "repeat": 2,
+      "every": 4000
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.fairies.complete.01.greenyellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mantle of Inspiration\" (ontoken)"
+  },
+  {
+   "id": "metamagic",
+   "for": [
+    "feature:metamagic"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.sound.001"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.dodecahedron.rune.below.blueyellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Metamagic\" (ontoken)"
+  },
+  {
+   "id": "mind-corrosion",
+   "for": [
+    "feature:mind-corrosion"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "rate": 1.5,
+     "mask": true,
+     "asset": {
+      "path": "jb2a.liquid.blob.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mind Corrosion\" (ontoken)"
+  },
+  {
+   "id": "mind-rending-roar",
+   "for": [
+    "feature:mind-rending-roar"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-1.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.soundwave.02.red"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mind-Rending Roar\" (ontoken)"
+  },
+  {
+   "id": "mockery",
+   "for": [
+    "feature:mockery"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver"
+     },
+     "asset": {
+      "file": "jb2a.on_token_buff.001.003.purplered"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.on_token_buff.001.003.purplered"
+     },
+     "sound": {
+      "asset": "psfx.incantations.feminine.001.demonic.harm",
+      "volume": 0.25,
+      "start": 500
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mockery\" (ontoken)"
+  },
+  {
+   "id": "mucus-cloud",
+   "for": [
+    "feature:mucus-cloud"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.5,
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "persist": "until-removed",
+     "asset": {
+      "path": "jb2a.liquid.blob.green"
+     },
+     "below": true
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mucus Cloud\" (ontoken)"
+  },
+  {
+   "id": "natural-recovery",
+   "for": [
+    "feature:natural-recovery"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.aura_themed.01.outward.complete.nature.01.green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Natural Recovery\" (ontoken)"
+  },
+  {
+   "id": "nightmare",
+   "for": [
+    "feature:nightmare"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "asset": {
+      "path": "jb2a.icon.fear.dark_purple"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_purple.01"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Nightmare\" (ontoken)"
+  },
+  {
+   "id": "nimble-escape",
+   "for": [
+    "feature:nimble-escape"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.weapon-swooshes.psychic.v1"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Nimble Escape\" (ontoken)"
+  },
+  {
+   "id": "overchannel",
+   "for": [
+    "feature:overchannel"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.secondary",
+      "volume": 0.5,
+      "repeat": 5,
+      "every": 500
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "file": "jb2a.token_border.circle.static.green.001"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.static_electricity.02.green"
+     },
+     "size": {
+      "radius": 0.75
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Overchannel\" (ontoken)"
+  },
+  {
+   "id": "patient-defense",
+   "for": [
+    "feature:patient-defense"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "path": "jb2a.shimmer.01.orange"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Patient Defense\" (ontoken)"
+  },
+  {
+   "id": "perfect-self",
+   "for": [
+    "feature:perfect-focus",
+    "feature:perfect-self"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.01.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Perfect Self\" (ontoken)"
+  },
+  {
+   "id": "poison",
+   "for": [
+    "feature:poison"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Green_400x400.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Poison\" (ontoken)"
+  },
+  {
+   "id": "preserve-life",
+   "for": [
+    "feature:preserve-life"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.yellow"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Preserve Life\" (ontoken)"
+  },
+  {
+   "id": "primal-companion",
+   "for": [
+    "feature:primal-companion"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.outro"
+     },
+     "opacity": 0.99,
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.energy_strands.complete.dark_green"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Energy/EnergyStrandIN01_03_Regular_Green_600x600.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#00f030",
+      "contrast": 0,
+      "saturation": 0
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Primal Companion\" (ontoken)"
+  },
+  {
+   "id": "primeval-awareness",
+   "for": [
+    "feature:primeval-awareness"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "asset": {
+      "path": "jb2a.hunters_mark.pulse.01.green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Primeval Awareness\" (ontoken)"
+  },
+  {
+   "id": "projected-ward",
+   "for": [
+    "feature:projected-ward"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "path": "jb2a.shield.01.complete.01.blue"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Projected Ward\" (ontoken)"
+  },
+  {
+   "id": "psychic-crush",
+   "for": [
+    "feature:psychic-crush"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "opacity": 0.5,
+     "asset": {
+      "path": "jb2a.particles.inward.purple.01.01"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.divine_smite.caster.purplepink"
+     },
+     "size": {
+      "radius": 0.75
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Psychic Crush\" (ontoken)"
+  },
+  {
+   "id": "radiant-soul",
+   "for": [
+    "feature:radiant-soul"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.fire.01.orange"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Radiant Soul\" (ontoken)"
+  },
+  {
+   "id": "rampage",
+   "for": [
+    "feature:rampage"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "opacity": 0.75,
+     "rate": 1.5,
+     "mask": true,
+     "asset": {
+      "file": "jb2a.markers.on_token_mask.loop.01.red"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Rampage\" (ontoken)"
+  },
+  {
+   "id": "regeneration",
+   "for": [
+    "feature:regeneration"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.orangepurple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Regeneration\" (ontoken)"
+  },
+  {
+   "id": "relentless-endurance",
+   "for": [
+    "feature:relentless-endurance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.002.001"
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.016.red"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.cure_wounds.400px.blue"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.016"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Relentless Endurance\" (ontoken)"
+  },
+  {
+   "id": "restoring-touch",
+   "for": [
+    "feature:restoring-touch"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 500
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Restoring Touch\" (ontoken)"
+  },
+  {
+   "id": "revelation-in-flesh",
+   "for": [
+    "feature:revelation-in-flesh"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.arms_of_hadar.dark_red"
+     },
+     "below": true
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Revelation in Flesh\" (ontoken)"
+  },
+  {
+   "id": "roar",
+   "for": [
+    "feature:roar"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-1.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.soundwave.02.red"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Roar\" (ontoken)"
+  },
+  {
+   "id": "sacred-weapon",
+   "for": [
+    "feature:sacred-weapon",
+    "natural:sacred-weapon"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sacred Weapon\" (ontoken)"
+  },
+  {
+   "id": "scare",
+   "for": [
+    "feature:scare"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "asset": {
+      "path": "jb2a.icon.fear.dark_orange"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Scare\" (ontoken)"
+  },
+  {
+   "id": "scorching-sands",
+   "for": [
+    "feature:scorching-sands"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001",
+      "start": 500
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "tint": {
+      "colour": "#ff990a",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "asset": {
+      "file": "jb2a.side_impact.part.smoke.greenyellow"
+     },
+     "repeat": 4,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Scorching Sands\" (ontoken)"
+  },
+  {
+   "id": "sear-undead",
+   "for": [
+    "feature:sear-undead"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.sacred_flame.target.yellow",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sear Undead\" (ontoken)"
+  },
+  {
+   "id": "searing-vengeance",
+   "for": [
+    "feature:searing-vengeance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster",
+      "start": 250
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.yellow"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.template_circle.out_pulse.02.burst.yellowwhite"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 2500
+     },
+     "size": {
+      "radius": 3
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Searing Vengeance\" (ontoken)"
+  },
+  {
+   "id": "second-wind",
+   "for": [
+    "feature:second-wind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Second Wind\" (ontoken)"
+  },
+  {
+   "id": "shimmering-shield",
+   "for": [
+    "feature:shimmering-shield"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.particles.swirl.blue.01.01"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Shimmering Shield\" (ontoken)"
+  },
+  {
+   "id": "signature-spells",
+   "for": [
+    "feature:signature-spells"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 500
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.orangepurple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Signature Spells\" (ontoken)"
+  },
+  {
+   "id": "slow-fall",
+   "for": [
+    "feature:slow-fall"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1",
+      "start": 4000
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Slow Fall\" (ontoken)"
+  },
+  {
+   "id": "smite",
+   "for": [
+    "feature:smite"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Smite\" (ontoken)"
+  },
+  {
+   "id": "sneak-attack",
+   "for": [
+    "feature:sneak-attack"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_green"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.melee_generic.slashing.two_handed"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sneak Attack\" (ontoken)"
+  },
+  {
+   "id": "song-of-rest",
+   "for": [
+    "feature:song-of-rest"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone"
+     },
+     "asset": {
+      "path": "jb2a.bardic_inspiration.greenorange"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Song of Rest\" (ontoken)"
+  },
+  {
+   "id": "sorcerous-restoration",
+   "for": [
+    "feature:sorcerous-restoration"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.orangepurple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sorcerous Restoration\" (ontoken)"
+  },
+  {
+   "id": "sorcery-incarnate",
+   "for": [
+    "feature:sorcery-incarnate"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.orangepurple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sorcery Incarnate\" (ontoken)"
+  },
+  {
+   "id": "spell-mastery",
+   "for": [
+    "feature:spell-mastery"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 500
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.bluepurple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Spell Mastery\" (ontoken)"
+  },
+  {
+   "id": "spell-reflection",
+   "for": [
+    "feature:spell-reflection"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.dark.01.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Spell Reflection\" (ontoken)"
+  },
+  {
+   "id": "spell-thief",
+   "for": [
+    "feature:spell-thief"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.blue"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Spell Thief\" (ontoken)"
+  },
+  {
+   "id": "stalkers-flurry",
+   "for": [
+    "feature:stalkers-flurry"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.projectile.instant.001",
+      "start": 400
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "file": "jb2a.melee_generic.slash.02.001.purple"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Stalker's Flurry\" (ontoken)"
+  },
+  {
+   "id": "steady-aim",
+   "for": [
+    "feature:steady-aim"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Eyes/Eyes_Single01_01_Dark_Yellow_300x300.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": -1600,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "both",
+     "opacity": 0.01,
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Eyes/Eyes_Single01_01_Dark_Yellow_300x300.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "modules/dnd5e-animations/assets/graphics/crosshair.webp"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Steady Aim\" (ontoken)"
+  },
+  {
+   "id": "step-of-the-wind",
+   "for": [
+    "feature:step-of-the-wind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.orange"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.wind_stream.1200.white"
+     },
+     "size": {
+      "radius": 0.75
+     },
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "mask": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Step of the Wind\" (ontoken)"
+  },
+  {
+   "id": "stillness-of-mind",
+   "for": [
+    "feature:self-restoration",
+    "feature:stillness-of-mind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "asset": {
+      "path": "jb2a.particles.swirl.purple.01.01"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Stillness of Mind\" (ontoken)"
+  },
+  {
+   "id": "stones-endurance",
+   "for": [
+    "feature:stones-endurance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001",
+      "start": 500
+     },
+     "opacity": 0.5,
+     "tint": {
+      "colour": "#FFFFFF",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "mask": true,
+     "asset": {
+      "path": "jb2a.impact.frost.white.01"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Stone's Endurance\" (ontoken)"
+  },
+  {
+   "id": "storms-thunder",
+   "for": [
+    "feature:storms-thunder"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.secondary"
+     },
+     "asset": {
+      "path": "jb2a.static_electricity.01.blue"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Storm's Thunder\" (ontoken)"
+  },
+  {
+   "id": "stroke-of-luck",
+   "for": [
+    "feature:stroke-of-luck"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.roll.green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Stroke of Luck\" (ontoken)"
+  },
+  {
+   "id": "supreme-sneak",
+   "for": [
+    "feature:supreme-sneak"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_green"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.melee_generic.slashing.two_handed"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1.3",
+      "delay": 500
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 500
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.liquid.splash_side02.red"
+     },
+     "anchor": {
+      "x": 0.25,
+      "y": 0.5
+     },
+     "elevation": {
+      "level": 499,
+      "absolute": false
+     },
+     "delay": 750
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Supreme Sneak\" (ontoken)"
+  },
+  {
+   "id": "swallow",
+   "for": [
+    "feature:swallow",
+    "natural:swallow"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swallow.mp3"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.bite.400px.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Swallow\" (ontoken)"
+  },
+  {
+   "id": "tactical-mind",
+   "for": [
+    "feature:tactical-mind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.010.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Tactical Mind\" (ontoken)"
+  },
+  {
+   "id": "tactical-shift",
+   "for": [
+    "feature:tactical-shift"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.011.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Tactical Shift\" (ontoken)"
+  },
+  {
+   "id": "tamed-surge",
+   "for": [
+    "feature:tamed-surge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.002",
+      "volume": 0.6,
+      "repeat": 20
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.01.blue"
+     },
+     "repeat": 20
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.001.blue"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Tamed Surge\" (ontoken)"
+  },
+  {
+   "id": "telekinetic",
+   "for": [
+    "feature:telekinetic"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.005.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Telekinetic\" (ontoken)"
+  },
+  {
+   "id": "tides-of-chaos",
+   "for": [
+    "feature:tides-of-chaos"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.cast_generic.02.dark_red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Tides of Chaos\" (ontoken)"
+  },
+  {
+   "id": "tireless",
+   "for": [
+    "feature:tireless"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster",
+      "delay": 250
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.003.green"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.energy_strands.in.green.01"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Tireless\" (ontoken)"
+  },
+  {
+   "id": "uncanny-dodge",
+   "for": [
+    "feature:uncanny-dodge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "path": "jb2a.shimmer.01.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Uncanny Dodge\" (ontoken)"
+  },
+  {
+   "id": "uncanny-metabolism",
+   "for": [
+    "feature:uncanny-metabolism"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Uncanny Metabolism\" (ontoken)"
+  },
+  {
+   "id": "undying-sentinel",
+   "for": [
+    "feature:undying-sentinel"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "asset": {
+      "path": "jb2a.entangle.green02"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.plant_growth.03.round.4x4.complete.greenyellow"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Undying Sentinel\" (ontoken)"
+  },
+  {
+   "id": "vanish",
+   "for": [
+    "feature:natures-veil",
+    "feature:vanish"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003",
+      "delay": 250
+     },
+     "asset": {
+      "path": "jb2a.sneak_attack.dark_green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Vanish\" (ontoken)"
+  },
+  {
+   "id": "veil-of-shadow",
+   "for": [
+    "feature:veil-of-shadow"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.evocation.intro"
+     },
+     "opacity": 0.5,
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "fadeOut": 1000,
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.melee_generic.slashing.two_handed"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "delay": 1000,
+      "start": 1100
+     },
+     "size": {
+      "radius": 0.75
+     },
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Veil of Shadow\" (ontoken)"
+  },
+  {
+   "id": "vile-appearance",
+   "for": [
+    "feature:vile-appearance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "asset": {
+      "path": "jb2a.icon.fear.dark_purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Vile Appearance\" (ontoken)"
+  },
+  {
+   "id": "vitality-of-the-tree",
+   "for": [
+    "feature:vitality-of-the-tree"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.green"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.plant_growth.03.round.4x4.complete.greenyellow"
+     },
+     "size": {
+      "radius": 1
+     },
+     "below": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Vitality of the Tree\" (ontoken)"
+  },
+  {
+   "id": "vow-of-enmity",
+   "for": [
+    "feature:vow-of-enmity"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "file": "jb2a.condition.curse.01.013.red"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Vow of Enmity\" (ontoken)"
+  },
+  {
+   "id": "vow-of-revenge",
+   "for": [
+    "feature:vow-of-revenge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.casting.sound.001"
+     },
+     "asset": {
+      "file": "jb2a.markers.simple.001.complete.001.blue"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Vow of Revenge\" (ontoken)"
+  },
+  {
+   "id": "war-bond",
+   "for": [
+    "feature:war-bond"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "file": "jb2a.condition.boon.01.002.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"War Bond\" (ontoken)"
+  },
+  {
+   "id": "war-cry",
+   "for": [
+    "feature:war-cry"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/warcry.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.soundwave.02.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"War Cry\" (ontoken)"
+  },
+  {
+   "id": "warding-flare",
+   "for": [
+    "feature:warding-flare"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.class-features.divine-smite"
+     },
+     "opacity": 0.75,
+     "asset": {
+      "path": "jb2a.divine_smite.target.yellowwhite"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Warding Flare\" (ontoken)"
+  },
+  {
+   "id": "warrior-of-the-gods",
+   "for": [
+    "feature:warrior-of-the-gods"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1",
+      "volume": 0.5
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.spirit_guardians.orange.no_ring"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.healing_generic.400px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 2000
+     },
+     "size": {
+      "radius": 0.75
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Warrior of the Gods\" (ontoken)"
+  },
+  {
+   "id": "weight-of-years",
+   "for": [
+    "feature:weight-of-years"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Ambience/chains.mp3",
+      "delay": 250
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "fxstudio.aa.static.chains.standard.complete.blue"
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.template_circle.radar.loop.800px.001.sweep.blue"
+     },
+     "size": {
+      "radius": 0.75
+     },
+     "elevation": {
+      "level": 1199,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Weight of Years\" (ontoken)"
+  },
+  {
+   "id": "weird-insight",
+   "for": [
+    "feature:weird-insight"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Eyes/Eyes_Single01_03_Regular_OrangeYellow_300x300.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Weird Insight\" (ontoken)"
+  },
+  {
+   "id": "whelm",
+   "for": [
+    "feature:whelm"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.water.001",
+      "start": 2500
+     },
+     "opacity": 0.5,
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "persist": "until-removed",
+     "asset": {
+      "path": "jb2a.liquid.blob.blue"
+     },
+     "below": true
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Whelm\" (ontoken)"
+  },
+  {
+   "id": "whirlwind",
+   "for": [
+    "feature:whirlwind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "opacity": 0.5,
+     "asset": {
+      "path": "jb2a.whirlwind.bluewhite"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Whirlwind\" (ontoken)"
+  },
+  {
+   "id": "wholeness-of-body",
+   "for": [
+    "feature:wholeness-of-body"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.orangepurple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Wholeness of Body\" (ontoken)"
+  },
+  {
+   "id": "wild-companion",
+   "for": [
+    "feature:wild-companion"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.02.ring.4x4.complete.greenred"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Wild Companion\" (ontoken)"
+  },
+  {
+   "id": "wild-resurgence",
+   "for": [
+    "feature:wild-resurgence"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.002.003"
+     },
+     "asset": {
+      "file": "jb2a.on_token_buff.001.003.greenyellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Wild Resurgence\" (ontoken)"
+  },
+  {
+   "id": "wild-shape",
+   "for": [
+    "feature:wild-shape"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-3.mp3",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.hunters_mark.pulse.02.green"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.on_token_buff.001.003.greenyellow"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic.002.003",
+      "delay": 250
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "delay": 250
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Wild Shape\" (ontoken)"
+  },
+  {
+   "id": "zealous-presence",
+   "for": [
+    "feature:zealous-presence"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-1.mp3"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.soundwave.01.orangeyellow"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.soundwave.02.orangeyellow"
+     },
+     "size": {
+      "radius": 2
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Zealous Presence\" (ontoken)"
+  },
+  {
+   "id": "acid-breath",
+   "for": [
+    "feature:acid-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.acid.line.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 2000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Acid Breath\" (templatefx)"
+  },
+  {
+   "id": "antimagic-cone",
+   "for": [
+    "feature:antimagic-cone"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.beam.002"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 2,
+       "y": 2
+      }
+     },
+     "opacity": 0.25,
+     "mask": true,
+     "delay": 0,
+     "anchor": {
+      "x": 0.5,
+      "y": 0.5
+     },
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Antimagic Cone\" (templatefx)"
+  },
+  {
+   "id": "blinding-breath",
+   "for": [
+    "feature:blinding-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.smoke.puff.side.02.white"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire-side.001",
+      "start": 600
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "tint": {
+      "colour": "#edd862",
+      "contrast": 0,
+      "saturation": 0
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Blinding Breath\" (templatefx)"
+  },
+  {
+   "id": "blinding-flash",
+   "for": [
+    "feature:blinding-flash"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.shatter.orange"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Blinding Flash\" (templatefx)"
+  },
+  {
+   "id": "breath-weapon-lightning",
+   "for": [
+    "feature:breath-weapon"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.lightning.line.blue"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.secondary",
+      "delay": 3000,
+      "repeat": 10
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1,
+       "y": 0.25
+      }
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Breath Weapon (Lightning)\" (templatefx)"
+  },
+  {
+   "id": "cold-breath",
+   "for": [
+    "feature:cold-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.cold.cone.blue"
+     },
+     "sound": {
+      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cold Breath\" (templatefx)"
+  },
+  {
+   "id": "cold-gale",
+   "for": [
+    "feature:cold-gale"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.gust_of_wind.veryfast"
+     },
+     "sound": {
+      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "mask": true,
+     "tint": {
+      "colour": "#b8eaff",
+      "contrast": 0,
+      "saturation": 0
+     },
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cold Gale\" (templatefx)"
+  },
+  {
+   "id": "crackling-wave",
+   "for": [
+    "feature:crackling-wave"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.template_cone_5e.lightning.01.complete.bluepurple"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.secondary",
+      "repeat": 7,
+      "every": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "mask": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Crackling Wave\" (templatefx)"
+  },
+  {
+   "id": "death-burst",
+   "for": [
+    "feature:death-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.explosion.08.dark_orange"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.explosion"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "tint": {
+      "colour": "#FFFFFF",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Death Burst\" (templatefx)"
+  },
+  {
+   "id": "deathly-teleport",
+   "for": [
+    "feature:deathly-teleport"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.explosion.08.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.explosion"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Deathly Teleport\" (templatefx)"
+  },
+  {
+   "id": "deathly-wail",
+   "for": [
+    "feature:deathly-wail"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.soundwave.02.orangeyellow"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/warcry.mp3"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Deathly Wail\" (templatefx)"
+  },
+  {
+   "id": "disrupt-life",
+   "for": [
+    "feature:disrupt-life"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.ominous-bell.001",
+      "volume": 1,
+      "start": 1200
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "tint": {
+      "colour": "#38b238",
+      "contrast": 0.5,
+      "saturation": -1
+     },
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.spirit_guardians.green.ring"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Disrupt Life\" (templatefx)"
+  },
+  {
+   "id": "divine-beam",
+   "for": [
+    "feature:divine-beam"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.ranged.beam.001.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.beam.001"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.5,
+       "y": 1.5
+      }
+     },
+     "tint": {
+      "colour": "#ffff00",
+      "contrast": 0.75,
+      "saturation": -0.6
+     },
+     "delay": 0,
+     "anchor": {
+      "x": 0.15,
+      "y": 0.5
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Divine Beam\" (templatefx)"
+  },
+  {
+   "id": "elemental-burst",
+   "for": [
+    "feature:elemental-burst",
+    "natural:elemental-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.cast_generic.earth.01.browngreen"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Elemental Burst\" (templatefx)"
+  },
+  {
+   "id": "euphoria-breath-area",
+   "for": [
+    "feature:euphoria-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.purple"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Euphoria Breath\" (templatefx)"
+  },
+  {
+   "id": "fetid-cloud",
+   "for": [
+    "feature:fetid-cloud"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.ambient_fog.001.loop.large.greenyellow"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fetid Cloud\" (templatefx)"
+  },
+  {
+   "id": "fiendish-blood",
+   "for": [
+    "feature:fiendish-blood"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.liquid.splash02.red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "start": 500
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fiendish Blood\" (templatefx)"
+  },
+  {
+   "id": "fire-breath",
+   "for": [
+    "feature:fire-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.fire.cone.orange.01"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fire Breath\" (templatefx)"
+  },
+  {
+   "id": "freezing-burst",
+   "for": [
+    "feature:freezing-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.explosion.05.bluewhite"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.ray-of-frost.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Freezing Burst\" (templatefx)"
+  },
+  {
+   "id": "frost-breath",
+   "for": [
+    "feature:frost-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.cold.cone.blue"
+     },
+     "sound": {
+      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Frost Breath\" (templatefx)"
+  },
+  {
+   "id": "heat-aura",
+   "for": [
+    "feature:heat-aura"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.fireball.loop_debris.dark_red",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.25,
+       "y": 1.25
+      }
+     },
+     "opacity": 0.25,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Heat Aura\" (templatefx)"
+  },
+  {
+   "id": "holy-burst",
+   "for": [
+    "feature:holy-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.shatter.red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Holy Burst\" (templatefx)"
+  },
+  {
+   "id": "horrific-visage",
+   "for": [
+    "feature:horrific-visage"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.symbol.normal.horror.dark_teal"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.v1.001"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "mask": true,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Horrific Visage\" (templatefx)"
+  },
+  {
+   "id": "howl",
+   "for": [
+    "feature:howl"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.soundwave.02.red"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Howl\" (templatefx)"
+  },
+  {
+   "id": "hunger-of-yeenoghu",
+   "for": [
+    "feature:hunger-of-yeenoghu"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.6,
+       "y": 1.6
+      }
+     },
+     "opacity": 0.8,
+     "mask": true,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hunger of Yeenoghu\" (templatefx)"
+  },
+  {
+   "id": "ignited-illumination",
+   "for": [
+    "feature:ignited-illumination"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.flames.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.ambient.firesources.fireplace.001"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 0.5,
+       "y": 0.5
+      }
+     },
+     "opacity": 0.5,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Ignited Illumination\" (templatefx)"
+  },
+  {
+   "id": "ink-cloud",
+   "for": [
+    "feature:ink-cloud"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001",
+      "start": 2500
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.9,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Ink Cloud\" (templatefx)"
+  },
+  {
+   "id": "lands-aid",
+   "for": [
+    "feature:lands-aid"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.plant_growth.01.round.4x4.loop.bluepurple"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro",
+      "volume": 0.5
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "below": true,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Land's Aid\" (templatefx)"
+  },
+  {
+   "id": "lightning-breath",
+   "for": [
+    "feature:lightning-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.lightning.line.blue"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.secondary",
+      "delay": 3000,
+      "repeat": 10
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1,
+       "y": 0.25
+      }
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Lightning Breath\" (templatefx)"
+  },
+  {
+   "id": "lightning-storm",
+   "for": [
+    "feature:lightning-storm"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.call_lightning.low_res.blueorange"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.cast"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Lightning Storm\" (templatefx)"
+  },
+  {
+   "id": "mind-blast",
+   "for": [
+    "feature:mind-blast"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/1st_Level/Detect_Magic/DetectMagicCone_01_Regular_Purple_15ft_500x500.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1",
+      "delay": 1
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.3,
+       "y": 1.3
+      }
+     },
+     "rate": 1.3,
+     "delay": 1
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mind Blast\" (templatefx)"
+  },
+  {
+   "id": "mind-burst",
+   "for": [
+    "feature:mind-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.detect_magic.circle.purple"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1",
+      "delay": 1
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.3,
+       "y": 1.3
+      }
+     },
+     "rate": 1.3,
+     "delay": 1
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Mind Burst\" (templatefx)"
+  },
+  {
+   "id": "necrotic-breath",
+   "for": [
+    "feature:necrotic-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.fire.cone.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Necrotic Breath\" (templatefx)"
+  },
+  {
+   "id": "negative-energy-cone",
+   "for": [
+    "feature:negative-energy-cone"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 2,
+       "y": 2
+      }
+     },
+     "opacity": 0.25,
+     "mask": true,
+     "delay": 0,
+     "anchor": {
+      "x": 0.5,
+      "y": 0.5
+     },
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Negative Energy Cone\" (templatefx)"
+  },
+  {
+   "id": "noxious-miasma",
+   "for": [
+    "feature:noxious-miasma"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.fog_cloud.02.green"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.6,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Noxious Miasma\" (templatefx)"
+  },
+  {
+   "id": "paralyzing-breath",
+   "for": [
+    "feature:paralyzing-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.blue"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Paralyzing Breath\" (templatefx)"
+  },
+  {
+   "id": "petrifying-breath",
+   "for": [
+    "feature:petrifying-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Petrifying Breath\" (templatefx)"
+  },
+  {
+   "id": "petrifying-gaze",
+   "for": [
+    "feature:petrifying-gaze"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Eyes/Eyes_Single01_01_Regular_BlueGreen_300x300.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#808080",
+      "contrast": 1,
+      "saturation": -1
+     },
+     "delay": -3500,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.cone_of_cold.blue"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0,
+     "delay": 0
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.impact.frost.white.01"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#808080",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "mask": true,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Petrifying Gaze\" (templatefx)"
+  },
+  {
+   "id": "poison-breath",
+   "for": [
+    "feature:poison-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Poison Breath\" (templatefx)"
+  },
+  {
+   "id": "radiance-of-the-dawn",
+   "for": [
+    "feature:radiance-of-the-dawn"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.markers.light.complete.yellow"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.5,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Radiance of the Dawn\" (templatefx)"
+  },
+  {
+   "id": "radiant-teleport",
+   "for": [
+    "feature:radiant-teleport"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.shatter.orange"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Radiant Teleport\" (templatefx)"
+  },
+  {
+   "id": "repulsion-breath",
+   "for": [
+    "feature:repulsion-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/1st_Level/Detect_Magic/DetectMagicCone_01_Regular_Purple_15ft_500x500.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.eldritch-blast.v1",
+      "start": 1250
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.25,
+       "y": 1.25
+      }
+     },
+     "rate": 1.5,
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Repulsion Breath\" (templatefx)"
+  },
+  {
+   "id": "screech",
+   "for": [
+    "feature:screech"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.soundwave.02.red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.v1.001",
+      "volume": 1,
+      "start": 2500
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Screech\" (templatefx)"
+  },
+  {
+   "id": "shadow-breath",
+   "for": [
+    "feature:shadow-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.dark_black"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.burning-hands.v1.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Shadow Breath\" (templatefx)"
+  },
+  {
+   "id": "shockwave-of-glory",
+   "for": [
+    "feature:shockwave-of-glory"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.shatter.red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Shockwave of Glory\" (templatefx)"
+  },
+  {
+   "id": "shriek",
+   "for": [
+    "feature:shriek"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.soundwave.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.v1.001",
+      "start": 2500
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.5,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Shriek\" (templatefx)"
+  },
+  {
+   "id": "sickening-vapors",
+   "for": [
+    "feature:sickening-vapors"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.fog_cloud.02.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.15,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sickening Vapors\" (templatefx)"
+  },
+  {
+   "id": "sleep-breath",
+   "for": [
+    "feature:sleep-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.purple"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Sleep Breath\" (templatefx)"
+  },
+  {
+   "id": "slowing-breath",
+   "for": [
+    "feature:slowing-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.purple"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Slowing Breath\" (templatefx)"
+  },
+  {
+   "id": "spiteful-escape",
+   "for": [
+    "feature:spiteful-escape"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.purplepink"
+     },
+     "sound": {
+      "asset": "psfx.casting.sound.001",
+      "start": 900
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Spiteful Escape\" (templatefx)"
+  },
+  {
+   "id": "steam-breath",
+   "for": [
+    "feature:steam-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.burning_hands.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "tint": {
+      "colour": "#FFFFFF",
+      "contrast": 0.75,
+      "saturation": -1
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Steam Breath\" (templatefx)"
+  },
+  {
+   "id": "stench",
+   "for": [
+    "feature:stench"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.fog_cloud.02.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.15,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Stench\" (templatefx)"
+  },
+  {
+   "id": "terrifying-presence",
+   "for": [
+    "feature:terrifying-presence"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.symbol.normal.horror.purple"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Terrifying Presence\" (templatefx)"
+  },
+  {
+   "id": "thunderous-bellow",
+   "for": [
+    "feature:thunderous-bellow"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.shatter.orange"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 2,
+       "y": 2
+      }
+     },
+     "mask": true,
+     "delay": 0,
+     "anchor": {
+      "x": 0.5,
+      "y": 0.5
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Thunderous Bellow\" (templatefx)"
+  },
+  {
+   "id": "toxic-ink",
+   "for": [
+    "feature:toxic-ink"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.7,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Toxic Ink\" (templatefx)"
+  },
+  {
+   "id": "unsettling-visage",
+   "for": [
+    "feature:unsettling-visage"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.symbol.normal.horror.dark_teal"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Unsettling Visage\" (templatefx)"
+  },
+  {
+   "id": "warping-implosion",
+   "for": [
+    "feature:warping-implosion"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.shatter.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.eldritch-blast"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Warping Implosion\" (templatefx)"
+  },
+  {
+   "id": "weakening-breath",
+   "for": [
+    "feature:weakening-breath"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "paths": [
+       "jb2a.impact.001.blue",
+       "jb2a.impact.002.blue",
+       "jb2a.impact.003.blue",
+       "jb2a.impact.004.blue",
+       "jb2a.impact.005.blue",
+       "jb2a.impact.007.blue",
+       "jb2a.impact.008.blue",
+       "jb2a.impact.009.blue",
+       "jb2a.impact.010.blue",
+       "jb2a.impact.011.blue",
+       "jb2a.impact.012.blue"
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
+     },
+     "fadeIn": 0,
+     "fadeOut": 0,
+     "opacity": 0.01,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 0,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Weakening Breath\" (templatefx)"
+  },
+  {
+   "id": "whirlwind-area",
+   "for": [
+    "feature:whirlwind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.whirl.loop.dark_black"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.5,
+     "rate": 2,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Whirlwind\" (templatefx)"
+  },
+  {
+   "id": "world-shaking-movement",
+   "for": [
+    "feature:world-shaking-movement"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.shatter.orange"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "delay": 0,
+     "anchor": {
+      "x": 0.5,
+      "y": 0.5
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"World-Shaking Movement\" (templatefx)"
+  },
+  {
+   "id": "wrath-of-the-sea",
+   "for": [
+    "feature:wrath-of-the-sea"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.water_splash.circle.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.5,
+     "below": true,
+     "delay": 0,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Wrath of the Sea\" (templatefx)"
+  },
+  {
+   "id": "aquatic-charge",
+   "for": [
+    "feature:aquatic-charge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.liquid.splash02.blue"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.water",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "file": "jb2a.ranged.04.projectile.01.blue"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.liquid.splash02.blue"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Aquatic Charge\" (preset)"
+  },
+  {
+   "id": "arcane-charge",
+   "for": [
+    "feature:arcane-charge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "path": "jb2a.scorching_ray.01.yellow"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.yellow"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Arcane Charge\" (preset)"
+  },
+  {
+   "id": "arcane-prowl",
+   "for": [
+    "feature:arcane-prowl"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.blue"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.blue"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Arcane Prowl\" (preset)"
+  },
+  {
+   "id": "bewitching-magic",
+   "for": [
+    "feature:bewitching-magic"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.green"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.green"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Bewitching Magic\" (preset)"
+  },
+  {
+   "id": "bubble-dash",
+   "for": [
+    "feature:bubble-dash"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.liquid.splash02.blue"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.water",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "file": "jb2a.ranged.04.projectile.01.blue"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.liquid.splash02.blue"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Bubble Dash\" (preset)"
+  },
+  {
+   "id": "clouds-jaunt",
+   "for": [
+    "feature:clouds-jaunt"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.grey"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.primary",
+      "volume": 1,
+      "delay": 250
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "path": "jb2a.chain_lightning.primary.yellow"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.grey"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Cloud's Jaunt\" (preset)"
+  },
+  {
+   "id": "drop",
+   "for": [
+    "feature:drop"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.006.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.outro.air",
+      "volume": 1,
+      "delay": 2000
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.drop_shadow.dark_black"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": -1,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 500,
+     "fade": {
+      "to": 0,
+      "after": 250,
+      "back": 3200
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Drop\" (preset)"
+  },
+  {
+   "id": "fleet-step",
+   "for": [
+    "feature:fleet-step"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.teleport.01.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "delay": 500,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.intro.generic",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.teleport.01.yellow"
+     },
+     "delay": 1000,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 60,
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Fleet Step\" (preset)"
+  },
+  {
+   "id": "hellfire-orb",
+   "for": [
+    "feature:hellfire-orb"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "to": "template",
+     "asset": {
+      "path": "jb2a.fireball.beam.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.beam",
+      "volume": 1
+     },
+     "wait": -1800,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "file": "jb2a.fireball.explosion.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.explosion",
+      "volume": 1
+     },
+     "size": {
+      "fit": "object",
+      "scale": 1.25
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Hellfire Orb\" (preset)"
+  },
+  {
+   "id": "leap",
+   "for": [
+    "feature:leap"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.006.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.outro.air",
+      "volume": 1,
+      "delay": 2000
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.drop_shadow.dark_black"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": -1,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 500,
+     "fade": {
+      "to": 0,
+      "after": 250,
+      "back": 3200
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Leap\" (preset)"
+  },
+  {
+   "id": "moonlight-step",
+   "for": [
+    "feature:moonlight-step"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.green"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.1st-level-spells.magic-missile.v1",
+      "volume": 1,
+      "start": 200
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "path": "jb2a.magic_missile.green"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.green"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Moonlight Step\" (preset)"
+  },
+  {
+   "id": "pounce",
+   "for": [
+    "feature:pounce"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.impact.006.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.outro.air",
+      "volume": 1,
+      "delay": 2000
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.drop_shadow.dark_black"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": -1,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "rate": 2,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 500,
+     "fade": {
+      "to": 0,
+      "after": 250,
+      "back": 3200
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Pounce\" (preset)"
+  },
+  {
+   "id": "shadow-step",
+   "for": [
+    "feature:shadow-step"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.dark_black"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.fire",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.dark_black"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 60,
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Shadow Step\" (preset)"
+  },
+  {
+   "id": "shadowy-dodge",
+   "for": [
+    "feature:shadowy-dodge"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.dark_green"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.fire",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.dark_green"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Shadowy Dodge\" (preset)"
+  },
+  {
+   "id": "step-of-the-wind-preset",
+   "for": [
+    "feature:step-of-the-wind"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.teleport.01.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "delay": 500,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.air",
+      "volume": 1,
+      "delay": 500
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.teleport.01.yellow"
+     },
+     "delay": 1000,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 60,
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Step of the Wind\" (preset)"
+  },
+  {
+   "id": "travel-along-the-tree",
+   "for": [
+    "feature:travel-along-the-tree"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.entangle.02.loop.02.green"
+     },
+     "elevation": {
+      "level": -1,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.entangle.02.loop.02.green"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": -1,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 60,
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Travel along the Tree\" (preset)"
+  },
+  {
+   "id": "tunneler",
+   "for": [
+    "feature:tunneler"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.burrow.out.01.brown"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.creature.movement.burrow.001.ranged",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "file": "jb2a.burrow.ranged.01.brown"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.burrow.out.01.brown"
+     },
+     "delay": 2500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 2600,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Tunneler\" (preset)"
+  },
+  {
+   "id": "warp-step",
+   "for": [
+    "feature:warp-step"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.yellow"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.yellow"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Warp Step\" (preset)"
+  },
+  {
+   "id": "watery-rush",
+   "for": [
+    "feature:watery-rush"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.liquid.splash02.blue"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "delay": 0,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.water",
+      "volume": 1
+     }
+    },
+    {
+     "shape": "shoot",
+     "to": "destination",
+     "asset": {
+      "file": "jb2a.ranged.04.projectile.01.blue"
+     },
+     "delay": 0,
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "file": "jb2a.liquid.splash02.blue"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "checkCollision": true,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-06",
+   "note": "D&D5e Animations 3.3.0: \"Watery Rush\" (preset)"
+  }
+ ]
+}

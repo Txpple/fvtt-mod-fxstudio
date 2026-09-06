@@ -1,8 +1,8 @@
-// World settings. One holds the live edit buffer the screens write (`looks`: an array of rows in the
-// corpus format); tools/export-looks.mjs folds it into recipes/house.json so it is versioned. `play`
-// is the cutover switch: with it off the module loads, resolves and lists, but plays nothing, so
-// Automated Animations and FX Studio can be compared on the same table one at a time.
-import { MODULE_ID } from './fxstudio.js';
+// World settings. `looks` is the live edit buffer the screens and the API write (an array of looks
+// in the grammar of core/looks.js); tools/export-looks.mjs folds it into recipes/house.json so git
+// holds the history. `play` is the cutover switch: with it off the module loads, resolves and lists,
+// but plays nothing, so Automated Animations and FX Studio can be compared on the same table.
+export const MODULE_ID = 'fvtt-mod-fxstudio';
 
 export const SETTINGS = {
   looks: 'looks',
@@ -13,7 +13,7 @@ export const SETTINGS = {
 export function registerSettings() {
   game.settings.register(MODULE_ID, SETTINGS.looks, {
     name: 'FX Studio looks (world buffer)',
-    hint: 'The looks changed in this world through the FX Studio screens, before they are folded into the house corpus.',
+    hint: 'The looks written in this world through the FX Studio screens or its API, before they are folded into the house corpus.',
     scope: 'world',
     config: false,
     type: Array,
@@ -37,13 +37,17 @@ export function registerSettings() {
   });
 }
 
-export function getWorldRows() {
+export function getWorldLooks() {
   try {
     const v = game.settings.get(MODULE_ID, SETTINGS.looks);
     return Array.isArray(v) ? v : [];
   } catch {
     return [];
   }
+}
+
+export async function setWorldLooks(looks) {
+  return game.settings.set(MODULE_ID, SETTINGS.looks, looks);
 }
 
 export const playing = () => { try { return game.settings.get(MODULE_ID, SETTINGS.play) !== false; } catch { return true; } };
