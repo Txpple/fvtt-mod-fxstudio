@@ -20,9 +20,12 @@ as ruled: `scripts/core/` (moments, subjects with identity keys, the look gramma
 the renderer), `scripts/api.js` (the authoring API); the corpus migrated to `recipes/baseline/`
 per kind with a render-level proof (1296 of 1296; `recipes/migration-report.md`); phase 1's
 presets and rows retired to `tools/lib/oracle/`. The four live suites and the offline checks are
-green (tools/README.md). Phase 3 (the four screens on the look grammar, PLAN §6) is next and
-starts ONLY on the user's word, after the user has read the migration report and BACKLOG.md; a
-fresh session reads ARCHITECTURE.md §7, `recipes/SCHEMA.md` and the ruled prototype before it.
+green (tools/README.md). **Phase 3 (the four screens on the look grammar, PLAN §6) is a GO: the
+user said "let's work on that in a new context window" at the phase 2 check-in (2026-09-06).** A
+fresh session reads ARCHITECTURE.md §7, `recipes/SCHEMA.md`, `scripts/api.js` and the ruled
+prototype (`prototypes/fxstudio2.template.html`), says in its first line that it is starting
+phase 3, and builds the four screens and the item-sheet button on the API without asking again;
+the exit is PLAN §6 phase 3 ("Sharran Step, like Misty Step but black" added in-game unaided).
 The sandbox runs FX Studio alone (AA and D&D5e Animations switched off there on 2026-09-06 with
 `tools/sandbox-module.mjs`; prod still runs AA).** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
