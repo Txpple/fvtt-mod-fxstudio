@@ -1,19 +1,19 @@
 // A LOOK is the sentence the user would say, as data (ARCHITECTURE §4). One grammar for the
 // screens, the API, the files and an assistant: this module holds it, checks it, expands `like`
-// and `with`, and turns a look back into its sentence. The sentence is generated from the look
+// and `with`, and turns an FX back into its sentence. The sentence is generated from the FX
 // and never parsed back. Pure: no Foundry, no Sequencer.
 //
 // A LOOK
 //   { id, for: [keys], on, like?, with?, off?, scenes: [scene…], by?, at?, note? }
-//   id      unique across the corpora; a house look with a baseline look's id replaces it
+//   id      unique across the corpora; a house fx with a baseline fx's id replaces it
 //   for     the subject keys it answers (core/subjects.js); empty for a starter
 //   on      the moment kind it answers (core/moments.js WHEN)
-//   like    inherit everything not stated from another look (its id) or a starter ("starter:bolt")
+//   like    inherit everything not stated from another fx (its id) or a starter ("starter:bolt")
 //   with    overrides applied to every scene of what was inherited: {colour, sound, opacity, scale}
-//   off     a house look that silences whatever answered before it (its `for` keys play nothing)
+//   off     a house fx that silences whatever answered before it (its `for` keys play nothing)
 //   scenes  the pictures and sounds, in start order
 //   by, at, note   who wrote it (a name, an assistant, "the migration"), when (ISO date), why
-//   to      a look written in this world only: the corpus it is bound for (house | baseline) until shipped
+//   to      an FX written in this world only: the corpus it is bound for (house | baseline) until shipped
 //
 // A SCENE — every knob is named for what it does and means the same thing in every shape
 //   shape    strike | shoot | mark | fill | aura | beam | move | sound | custom
@@ -116,7 +116,7 @@ export function assetsOf(scene) {
   return out;
 }
 
-function sceneProblems(scene, i, look) {
+function sceneProblems(scene, i, fx) {
   const where = `scene ${i + 1}${scene?.shape ? ` (${scene.shape})` : ''}`;
   if (!isObj(scene)) return [`${where}: a scene must be an object`];
   const out = [];
@@ -159,46 +159,46 @@ function sceneProblems(scene, i, look) {
     if (!Array.isArray(scene.calls) || !scene.calls.length) out.push(`${where}: custom needs calls: [[method, ...args], …]`);
     else for (const c of scene.calls) { if (!Array.isArray(c) || typeof c[0] !== 'string') out.push(`${where}: each call is [method, ...args]`); else if (!CUSTOM_WHITELIST.includes(c[0])) out.push(`${where}: "${c[0]}" is not a call a custom scene may make`); }
   }
-  void look;
+  void fx;
   return out;
 }
 
 /**
- * Every problem with a look, in sentences. An empty list means the look is well formed (whether its
+ * Every problem with an FX, in sentences. An empty list means the FX is well formed (whether its
  * assets exist is the engine's and the check tool's question, not this one).
- * @param look
- * @param opts {ids: Set of known look and starter ids, for `like`}
+ * @param fx
+ * @param opts {ids: Set of known fx and starter ids, for `like`}
  */
-export function validate(look, { ids = null } = {}) {
+export function validate(fx, { ids = null } = {}) {
   const out = [];
-  if (!isObj(look)) return ['a look must be an object'];
-  if (typeof look.id !== 'string' || !/^[a-z0-9][a-z0-9-]*$/.test(look.id)) out.push(`the id "${look.id}" must be lower-case letters, digits and dashes`);
-  if (look.for !== undefined) {
-    if (!Array.isArray(look.for)) out.push('"for" must be a list of subject keys');
-    else for (const k of look.for) if (!isKey(k)) out.push(`"${k}" is not a subject key (kind:id, e.g. spell:fire-bolt or weapon:maul)`);
+  if (!isObj(fx)) return ['an FX must be an object'];
+  if (typeof fx.id !== 'string' || !/^[a-z0-9][a-z0-9-]*$/.test(fx.id)) out.push(`the id "${fx.id}" must be lower-case letters, digits and dashes`);
+  if (fx.for !== undefined) {
+    if (!Array.isArray(fx.for)) out.push('"for" must be a list of subject keys');
+    else for (const k of fx.for) if (!isKey(k)) out.push(`"${k}" is not a subject key (kind:id, e.g. spell:fire-bolt or weapon:maul)`);
   }
-  if (look.on !== undefined && !WHEN.includes(look.on)) out.push(`"on" must be one of ${WHEN.join(', ')}`);
-  if (look.to !== undefined && !TO.includes(look.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus a look written here is bound for)`);
-  if (look.off) {
-    if (!look.for?.length) out.push('an "off" look needs the keys it silences in "for"');
+  if (fx.on !== undefined && !WHEN.includes(fx.on)) out.push(`"on" must be one of ${WHEN.join(', ')}`);
+  if (fx.to !== undefined && !TO.includes(fx.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus an FX written here is bound for)`);
+  if (fx.off) {
+    if (!fx.for?.length) out.push('an "off" fx needs the keys it silences in "for"');
     return out;
   }
-  if (look.like !== undefined) {
-    if (typeof look.like !== 'string') out.push('"like" must name a look or a starter');
-    else if (ids && !ids.has(look.like)) out.push(`"like" names "${look.like}", which is not a look or a starter`);
+  if (fx.like !== undefined) {
+    if (typeof fx.like !== 'string') out.push('"like" must name an FX or a starter');
+    else if (ids && !ids.has(fx.like)) out.push(`"like" names "${fx.like}", which is not an FX or a starter`);
   } else {
-    if (look.on === undefined) out.push('says nothing about when it plays ("on")');
-    if (!Array.isArray(look.scenes) || !look.scenes.length) out.push('has no scenes');
+    if (fx.on === undefined) out.push('says nothing about when it plays ("on")');
+    if (!Array.isArray(fx.scenes) || !fx.scenes.length) out.push('has no scenes');
   }
-  if (look.with !== undefined) {
-    if (!isObj(look.with)) out.push('"with" must be {asset?, colour?, sound?, opacity?, scale?}');
+  if (fx.with !== undefined) {
+    if (!isObj(fx.with)) out.push('"with" must be {asset?, colour?, sound?, opacity?, scale?}');
     else {
-      for (const k of Object.keys(look.with)) if (!['asset', 'colour', 'sound', 'opacity', 'scale'].includes(k)) out.push(`"with" does not know "${k}" (asset, colour, sound, opacity, scale)`);
-      if (look.with.asset !== undefined) out.push(...assetProblems(look.with.asset, 'with.asset'));
+      for (const k of Object.keys(fx.with)) if (!['asset', 'colour', 'sound', 'opacity', 'scale'].includes(k)) out.push(`"with" does not know "${k}" (asset, colour, sound, opacity, scale)`);
+      if (fx.with.asset !== undefined) out.push(...assetProblems(fx.with.asset, 'with.asset'));
     }
   }
-  if (Array.isArray(look.scenes)) look.scenes.forEach((s, i) => out.push(...sceneProblems(s, i, look)));
-  for (const k of Object.keys(look)) if (!['id', 'for', 'on', 'like', 'with', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source'].includes(k)) out.push(`a look does not have a "${k}"`);
+  if (Array.isArray(fx.scenes)) fx.scenes.forEach((s, i) => out.push(...sceneProblems(s, i, fx)));
+  for (const k of Object.keys(fx)) if (!['id', 'for', 'on', 'like', 'with', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source'].includes(k)) out.push(`an FX does not have a "${k}"`);
   return out;
 }
 
@@ -216,30 +216,30 @@ export function recolour(asset, colour) {
 }
 
 /**
- * The look with everything it inherits filled in: `like` (a chain, a starter at its root) and then
- * `with` applied to every scene. `lookup(id)` returns the look or starter an id names.
+ * The FX with everything it inherits filled in: `like` (a chain, a starter at its root) and then
+ * `with` applied to every scene. `lookup(id)` returns the FX or starter an id names.
  */
-export function expand(look, lookup, depth = 0) {
-  if (!look?.like) return applyWith(clone(look));
-  if (depth > 8) throw new Error(`"${look.id}" inherits in a circle`);
-  const base = lookup(look.like);
-  if (!base) throw new Error(`"${look.id}" is like "${look.like}", which does not exist`);
+export function expand(fx, lookup, depth = 0) {
+  if (!fx?.like) return applyWith(clone(fx));
+  if (depth > 8) throw new Error(`"${fx.id}" inherits in a circle`);
+  const base = lookup(fx.like);
+  if (!base) throw new Error(`"${fx.id}" is like "${fx.like}", which does not exist`);
   const parent = expand(base, lookup, depth + 1);
-  const out = { ...clone(parent), ...clone(look) };
+  const out = { ...clone(parent), ...clone(fx) };
   delete out.like;
-  if (!look.scenes) out.scenes = clone(parent.scenes);
-  if (look.for === undefined) out.for = clone(parent.for) ?? [];
+  if (!fx.scenes) out.scenes = clone(parent.scenes);
+  if (fx.for === undefined) out.for = clone(parent.for) ?? [];
   if (parent.id?.startsWith('starter:') || !parent.for?.length) { /* a starter's emptiness is not inherited as an answer */ }
-  out.inherited = look.like;
+  out.inherited = fx.like;
   return applyWith(out);
 }
 
-function applyWith(look) {
-  const w = look?.with;
-  if (!w || !look.scenes) return look;
+function applyWith(fx) {
+  const w = fx?.with;
+  if (!w || !fx.scenes) return fx;
   let soundPlaced = false;
-  const pictures = look.scenes.filter((s) => s.asset && s.shape !== 'sound');
-  for (const s of look.scenes) {
+  const pictures = fx.scenes.filter((s) => s.asset && s.shape !== 'sound');
+  for (const s of fx.scenes) {
     // the asset goes on the first picture (a starter's stand-in); the colour on every picture
     if (w.asset !== undefined && s === pictures[0]) s.asset = typeof w.asset === 'string' ? (w.asset.includes('/') ? { file: w.asset } : { path: w.asset }) : { ...w.asset };
     if (w.colour && s.asset) s.asset = recolour(s.asset, w.colour);
@@ -250,9 +250,9 @@ function applyWith(look) {
     }
     if (w.sound !== undefined && s.sound) { s.sound = w.sound === null ? undefined : { ...s.sound, ...(typeof w.sound === 'string' ? { asset: w.sound } : w.sound) }; if (s.sound === undefined) delete s.sound; soundPlaced = true; }
   }
-  if (w.sound && !soundPlaced) { const first = look.scenes.find((s) => s.shape !== 'sound' && s.shape !== 'custom'); if (first) first.sound = typeof w.sound === 'string' ? { asset: w.sound } : { ...w.sound }; }
-  delete look.with;
-  return look;
+  if (w.sound && !soundPlaced) { const first = fx.scenes.find((s) => s.shape !== 'sound' && s.shape !== 'custom'); if (first) first.sound = typeof w.sound === 'string' ? { asset: w.sound } : { ...w.sound }; }
+  delete fx.with;
+  return fx;
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -362,17 +362,17 @@ export function sceneWords(scene) {
 }
 
 /**
- * The sentence for a look: "Fire Bolt · when used · a bolt (JB2A fire bolt, orange) shoots from the
+ * The sentence for an FX: "Fire Bolt · when used · a bolt (JB2A fire bolt, orange) shoots from the
  * caster to each target and flies past on a miss · with the PSFX fire bolt sound."
- * @param look   an expanded look (no `like` left)
+ * @param fx   an expanded fx (no `like` left)
  * @param opts   {name: what to call it (the subject's name); short: no provenance}
  */
-export function sentence(look, { name = null } = {}) {
-  if (!look) return 'Nothing plays.';
-  if (look.off) return `${name ?? look.id} · plays nothing (switched off).`;
-  const head = name ?? look.id.replace(/-/g, ' ');
-  const when = WHEN_WORDS[look.on] ?? look.on;
-  const scenes = look.scenes ?? [];
+export function sentence(fx, { name = null } = {}) {
+  if (!fx) return 'Nothing plays.';
+  if (fx.off) return `${name ?? fx.id} · plays nothing (switched off).`;
+  const head = name ?? fx.id.replace(/-/g, ' ');
+  const when = WHEN_WORDS[fx.on] ?? fx.on;
+  const scenes = fx.scenes ?? [];
   const clauses = [];
   const sounds = [];
   scenes.forEach((s, i) => {
@@ -391,12 +391,12 @@ export function sentence(look, { name = null } = {}) {
 const titleWords = (s) => String(s).replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
 /** the provenance in words: "written by the migration on 2026-09-06: D&D5e Animations 3.3.0" */
-export function provenance(look) {
-  if (!look) return '';
+export function provenance(fx) {
+  if (!fx) return '';
   const parts = [];
-  if (look.by) parts.push(`by ${look.by}`);
-  if (look.at) parts.push(`on ${look.at}`);
+  if (fx.by) parts.push(`by ${fx.by}`);
+  if (fx.at) parts.push(`on ${fx.at}`);
   let s = parts.length ? `written ${parts.join(' ')}` : '';
-  if (look.note) s += `${s ? ': ' : ''}${look.note}`;
+  if (fx.note) s += `${s ? ': ' : ''}${fx.note}`;
   return s;
 }

@@ -4,7 +4,7 @@
   "licence": "MIT",
   "note": "The abstract looks every new look starts from (ARCHITECTURE §7): one per shape and per common intent, with sensible sizes and timings. A new look is a starter or an existing look plus a subject, an asset and a colour: {for: [\"spell:sharran-step\"], like: \"starter:teleport\", with: {colour: \"dark_black\"}}. Referenced as starter:<id>."
  },
- "looks": [
+ "fx": [
   {
    "id": "bolt",
    "for": [],

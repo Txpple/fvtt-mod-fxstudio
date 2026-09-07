@@ -14,11 +14,11 @@ try {
   const live = await f.evaluate(() => {
     const api = game.modules.get('fvtt-mod-fxstudio')?.api;
     if (!api) return { error: 'the module has no api: did it load?' };
-    const probe = (keys, on = 'use') => { const r = api.resolve({ keys }, on); return r.look ? `${r.look.id} (${r.source}, ${r.key})` : null; };
+    const probe = (keys, on = 'use') => { const r = api.resolve({ keys }, on); return r.fx ? `${r.fx.id} (${r.source}, ${r.key})` : null; };
     return {
       counts: api.index.counts,
       problems: api.index.problems,
-      starters: api.looks.starters().length,
+      starters: api.fx.starters().length,
       frozen: Sequencer.Database.entryExists('fxstudio.aa') ? Sequencer.Database.getPathsUnder('fxstudio.aa').length : 0,
       probes: {
         fireBolt: probe(['spell:fire-bolt/attack', 'spell:fire-bolt']),
@@ -26,7 +26,7 @@ try {
         shieldSpell: probe(['spell:shield/utility', 'spell:shield']),
         shieldEffect: probe(['effect:shield', 'spell:shield'], 'effect'),
         bite: probe(['natural:bite/attack', 'natural:bite']),
-        sentence: api.looks.sentence(api.looks.get('fire-bolt')?.look),
+        sentence: api.fx.sentence(api.fx.get('fire-bolt')?.fx),
       },
       version: game.modules.get('fvtt-mod-fxstudio').version,
     };
@@ -35,13 +35,13 @@ try {
   else {
     console.log(`[boot] FX Studio ${live.version}: ${JSON.stringify(live.counts)} · starters ${live.starters} · frozen table sections ${live.frozen} · index problems ${live.problems.length}`);
     for (const p of live.problems) console.log(`  ✗ ${p}`);
-    const same = (keys, on, name) => { const r = resolve(offline, keys, on); const want = r.look ? `${r.look.id} (${r.source}, ${r.key})` : null; return want === live.probes[name]; };
+    const same = (keys, on, name) => { const r = resolve(offline, keys, on); const want = r.fx ? `${r.fx.id} (${r.source}, ${r.key})` : null; return want === live.probes[name]; };
     const checks = [
       ['Fire Bolt resolves the same live and offline', same(['spell:fire-bolt/attack', 'spell:fire-bolt'], 'use', 'fireBolt'), live.probes.fireBolt],
-      ['Maul of Momentum plays the maul look by its base weapon', /^maul \(/.test(live.probes.maulOfMomentum ?? ''), live.probes.maulOfMomentum],
+      ['Maul of Momentum plays the maul fx by its base weapon', /^maul \(/.test(live.probes.maulOfMomentum ?? ''), live.probes.maulOfMomentum],
       ['the Shield spell plays nothing', live.probes.shieldSpell === null, String(live.probes.shieldSpell)],
-      ['the Shield effect plays the shield look', /^shield \(/.test(live.probes.shieldEffect ?? ''), live.probes.shieldEffect],
-      ['a Bite plays the bite look', /\(baseline, natural:bite\)/.test(live.probes.bite ?? ''), live.probes.bite],
+      ['the Shield effect plays the shield fx', /^shield \(/.test(live.probes.shieldEffect ?? ''), live.probes.shieldEffect],
+      ['a Bite plays the bite fx', /\(baseline, natural:bite\)/.test(live.probes.bite ?? ''), live.probes.bite],
       ['the baseline count matches the recipes', live.counts.baseline === recipes.baseline.length, `${live.counts.baseline} vs ${recipes.baseline.length}`],
       ['no index problems', live.problems.length === 0, `${live.problems.length}`],
     ];

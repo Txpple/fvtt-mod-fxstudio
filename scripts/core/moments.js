@@ -3,7 +3,7 @@
 //
 //   { when, subject, source, targets: [{token, hit?}], place?, destination?, tie?, id, user }
 //
-//   when         one of WHEN — the kind of moment a look can answer ("on")
+//   when         one of WHEN — the kind of moment an FX can answer ("on")
 //   subject      what acted, with its identity keys (core/subjects.js): {keys, name, kind, ...}
 //   source       the acting token (a Token placeable at the table; a plain stand-in in the tools)
 //   targets      the targeted tokens, each with `hit` when the moment knows it (an attack does)

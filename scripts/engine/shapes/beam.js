@@ -8,10 +8,10 @@ import { spotsFor } from '../places.js';
 export function build(seq, scene0, ctx) {
   const s = full(scene0);
   const { moment } = ctx;
-  const from = spotsFor(s.from, moment, { lookName: ctx.look.id })[0];
+  const from = spotsFor(s.from, moment, { fxName: ctx.fx.id })[0];
   if (!from?.token) return;
   const standing = Sequencer.EffectManager.getEffects({ object: from.token, origin: moment.origin });
-  const targets = spotsFor(s.to, moment, { lookName: ctx.look.id }).filter((p) => p.token && !standing.some((x) => x.data?.target?.includes?.(p.token.id)));
+  const targets = spotsFor(s.to, moment, { fxName: ctx.fx.id }).filter((p) => p.token && !standing.some((x) => x.data?.target?.includes?.(p.token.id)));
   if (!targets.length) return;
   addSound(seq, s.sound, ctx);
   for (const p of targets) {
@@ -25,6 +25,6 @@ export function build(seq, scene0, ctx) {
     e.origin(moment.origin);
     e.opacity(s.opacity ?? 1);
     elevate(e, s);
-    e.name(`${ctx.look.id} ${p.token.id}`);
+    e.name(`${ctx.fx.id} ${p.token.id}`);
   }
 }

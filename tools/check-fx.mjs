@@ -1,17 +1,17 @@
-// Every look validates (the grammar of core/looks.js, the same validator the API runs) and every
+// Every FX validates (the grammar of core/fx.js, the same validator the API runs) and every
 // asset it names resolves against JB2A's and PSFX's own registration files and the disk — with no
-// Foundry running. A look that names a path that does not exist is a defect, and this is what
-// catches a library regrouping its paths. Run after any library update and on any look file
+// Foundry running. An FX that names a path that does not exist is a defect, and this is what
+// catches a library regrouping its paths. Run after any library update and on any FX file
 // before it is proposed.
 //
-//   node tools/check-looks.mjs                # every recipe: the baseline per kind, the house, the starters
-//   node tools/check-looks.mjs <file.json>    # a look file (a list, {looks: [...]}, or one look) against the recipes
-//   node tools/check-looks.mjs --quiet        # counts only
-//   node tools/check-looks.mjs --sentences    # print every look's sentence as well
+//   node tools/check-fx.mjs                # every recipe: the baseline per kind, the house, the starters
+//   node tools/check-fx.mjs <file.json>    # an FX file (a list, {fx: [...]}, or one FX) against the recipes
+//   node tools/check-fx.mjs --quiet        # counts only
+//   node tools/check-fx.mjs --sentences    # print every FX's sentence as well
 import { existsSync } from 'node:fs';
 import { ROOTS } from './lib/env.mjs';
-import { readLookFile, readRecipes, useLibraries } from './lib/recipes.mjs';
-import { assetsOf, expand, sentence, validate } from '../scripts/core/looks.js';
+import { readFxFile, readRecipes, useLibraries } from './lib/recipes.mjs';
+import { assetsOf, expand, sentence, validate } from '../scripts/core/fx.js';
 import { resolveAsset } from '../scripts/engine/assets.js';
 
 const args = process.argv.slice(2);
@@ -22,22 +22,22 @@ const file = args.find((a) => !a.startsWith('--'));
 const recipes = readRecipes();
 const { db } = await useLibraries(recipes);
 const known = new Set(recipes.frozen?.meta?.missingFiles ?? []); // files AA's table names that this JB2A build lacks: silent under AA too
-const sets = file ? [['file', readLookFile(file)]] : [['baseline', recipes.baseline], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
+const sets = file ? [['file', readFxFile(file)]] : [['baseline', recipes.baseline], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
 const ids = new Set([...recipes.baseline, ...recipes.house].map((l) => l.id).concat(recipes.starters.map((s) => `starter:${s.id}`)));
 if (file) for (const l of sets[0][1]) if (l?.id) ids.add(l.id);
 const lookup = (id) => [...recipes.baseline, ...recipes.house].find((l) => l.id === id) ?? recipes.starters.map((s) => ({ ...s, id: `starter:${s.id}` })).find((s) => s.id === id) ?? (file ? sets[0][1].find((l) => l.id === id) : null) ?? null;
 
 const problems = [];
-const counts = { looks: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0 };
-for (const [source, looks] of sets) {
-  for (const look of looks) {
-    counts.looks++;
-    const where = `${source} "${look?.id}"`;
-    const errs = validate(look, { ids });
+const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0 };
+for (const [source, list] of sets) {
+  for (const fx of list) {
+    counts.fx++;
+    const where = `${source} "${fx?.id}"`;
+    const errs = validate(fx, { ids });
     if (errs.length) { counts.invalid++; problems.push(`${where}: ${errs.join('; ')}`); continue; }
-    if (look.off) { counts.off++; continue; }
+    if (fx.off) { counts.off++; continue; }
     let full;
-    try { full = expand(look, lookup); } catch (e) { counts.invalid++; problems.push(`${where}: ${e.message}`); continue; }
+    try { full = expand(fx, lookup); } catch (e) { counts.invalid++; problems.push(`${where}: ${e.message}`); continue; }
     for (const scene of full.scenes ?? []) {
       counts.scenes++;
       for (const { asset, where: w } of assetsOf(scene)) {
@@ -66,6 +66,6 @@ if (recipes.frozen?.db) {
   walk(recipes.frozen.db);
 }
 void db;
-console.log(`check-looks: ${counts.looks} looks (${counts.off} off), ${counts.scenes} scenes, ${counts.assets} assets · resolve ${counts.ok}, missing ${counts.missing}, on the frozen table ${counts.frozen} · invalid ${counts.invalid} · frozen table files on disk ${frozenFiles - frozenMissing} of ${frozenFiles} · known-missing since AA ${counts.knownMissing}`);
+console.log(`check-fx: ${counts.fx} fx (${counts.off} off), ${counts.scenes} scenes, ${counts.assets} assets · resolve ${counts.ok}, missing ${counts.missing}, on the frozen table ${counts.frozen} · invalid ${counts.invalid} · frozen table files on disk ${frozenFiles - frozenMissing} of ${frozenFiles} · known-missing since AA ${counts.knownMissing}`);
 if (!quiet) for (const p of problems) console.log('  ✗ ' + p);
 if (problems.length) { console.log(`FAIL: ${problems.length} problem(s)`); process.exitCode = 1; } else console.log('PASS');

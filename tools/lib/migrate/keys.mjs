@@ -1,4 +1,4 @@
-// The closed lists a migrated look is keyed against (ARCHITECTURE §3): the spells, features and
+// The closed lists a migrated fx is keyed against (ARCHITECTURE §3): the spells, features and
 // items of the installed books and the system, the base weapons, the natural attacks of the
 // installed creatures, and the world's own items. A row's label meets these lists ONCE, here, and
 // becomes explicit keys; no name rule survives into the corpus.

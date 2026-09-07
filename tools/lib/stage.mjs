@@ -1,4 +1,4 @@
-// The offline stage: enough of Foundry's canvas and Sequencer's API, in plain node, for a look (or
+// The offline stage: enough of Foundry's canvas and Sequencer's API, in plain node, for an FX (or
 // the oracle's row) to BUILD its Sequence without a table. `Sequence` here is a RECORDER: every
 // section remembers the calls made on it, so two builders can be compared call for call (the
 // render-level proof, ARCHITECTURE §6.2) and a build can be read without playing.

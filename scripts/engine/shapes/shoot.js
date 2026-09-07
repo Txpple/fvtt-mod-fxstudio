@@ -10,8 +10,8 @@ import { spotName, spotTarget, spotsFor } from '../places.js';
 export function build(seq, scene0, ctx) {
   const s = full(scene0);
   const { moment } = ctx;
-  const fromSpots = spotsFor(s.from, moment, { lookName: ctx.look.id });
-  const toSpots = spotsFor(s.to, moment, { lookName: ctx.look.id });
+  const fromSpots = spotsFor(s.from, moment, { fxName: ctx.fx.id });
+  const toSpots = spotsFor(s.to, moment, { fxName: ctx.fx.id });
   if (!fromSpots.length || !toSpots.length) return;
   // the travelling end is whichever side names the targets; the other side is one spot
   const perTarget = ['each-target', 'targets-else-source', 'both', 'impact'].includes(s.to) ? 'to' : ['each-target', 'targets-else-source', 'both', 'impact'].includes(s.from) ? 'from' : null;

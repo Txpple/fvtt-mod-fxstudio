@@ -1,7 +1,7 @@
 // MOVE: the token itself. It fades, travels (or jumps) to the destination, and arrives. The
 // destination is the one the moment already carries (a suite, a preview, a token's own movement) or
 // the spot the acting user clicks within range: a ring shows the range, the click is judged, and
-// the look plays from there.
+// the FX plays from there.
 //
 //   range feet   pick click | movement   speed   jump (true: the token is placed; false: it travels)
 //   fade {to, after, back}   after: ms before the token moves
@@ -20,7 +20,7 @@ import { destinationSpot } from '../places.js';
 
 /**
  * A move needs a destination. Without one on the moment it arms the picker and returns "waiting";
- * the render then plays the whole look once the click lands (render.js builds again with the
+ * the render then plays the whole fx once the click lands (render.js builds again with the
  * destination filled in).
  */
 export function build(seq, scene0, ctx) {

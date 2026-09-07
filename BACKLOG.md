@@ -1,5 +1,7 @@
 # fxstudio — backlog
 
+> **Vocabulary (ruled 2026-09-06).** What this document calls a *look* is an **FX** on the screens, in the code (`scripts/core/fx.js`, `api.fx`, the item flag `flags.fvtt-mod-fxstudio.fx`, the world setting `fx`) and in the recipe files (`"fx": [...]`): a picture is a **VFX**, a sound an **SFX**. A look written over the main corpus is an **override**. The earlier sections keep the word they were written with.
+
 What is parked, and why. Nothing here is owed; each line says who decides.
 
 ## Waiting on the user (from the migration report, 2026-09-06)
@@ -18,14 +20,7 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 - **The "Skill Guidance" effects** (18 on Gren) matched AA's "Guidance" effect look by substring
   and now play nothing, as ruled (no name rules). One house look
   `{ "for": ["effect:skill-guidance-…"], "like": "guidance" }` per variant, or a wider ruling.
-- **An item's own look** (four in `house.json`: Unholy Word, Necrotic Burst, First Light, Goldthorn,
-  from AA's item flags) is keyed by the item's name, so it answers any item of that name, not only
-  the one it was set on. The item pointer landed with the screens (phase 3): open the item's sheet,
-  press the wand, Change the look, tick "only this one", Save — the look is then keyed to nothing
-  and the item points at it. The four house looks stay as they are until the user re-keys them.
-
-## From phase 2 (2026-09-06)
-
+- **An item's own FX from the migration** — done 2026-09-06: the four are re-keyed as item-own (`for: []`) and `tools/bind-item-fx.mjs` points the items at them (sandbox done; prod at cutover).
 - **The frozen table holds 15 paths** (20 Sequencer entries): pictures whose loop markers differ
   between AA's copy and JB2A's own registration ("complete" intro-loop-outro nodes). Sequencer
   applies markers from the registration, so a native path would change their loop points. They
@@ -53,7 +48,7 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 
 - **Derived looks**, off by default, never owed: the seven rules in `prototypes/derive*.mjs`.
 - **Retirement** of baseline looks a rule reproduces identically. Depends on the option above.
-- **Export as a tool run** (`tools/export-looks.mjs --write`) was the phase 3 decision, reopened
+- **Export as a tool run** (`tools/export-fx.mjs --write`) was the phase 3 decision, reopened
   and replaced on 2026-09-06: the Corpus tab ships from the game (DESIGN §8), and the tool stays
   only as the offline path for a server that forbids uploads.
 - **Misc Patches' teleport patch** is carried here since 2026-09-06 (the move shape, DESIGN §8) and

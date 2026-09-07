@@ -38,7 +38,7 @@ export function build(seq, scene0, ctx) {
   if (rotate !== undefined) e.rotate(rotate);
   if (s.mask) e.mask(region);
   e.playbackRate(s.rate);
-  e.name(ctx.look.id);
+  e.name(ctx.fx.id);
   if (s.aboveLighting !== undefined) e.aboveLighting(!!s.aboveLighting);
   if (s.xray !== undefined) e.xray(!!s.xray);
   tint(e, s);

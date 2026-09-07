@@ -4,35 +4,39 @@ Visual and sound effects for dnd5e on Foundry VTT, played from what actually hap
 table. A greenfield design: Automated Animations' corpus is migrated once so the table does not
 start from zero, and none of its architecture is carried. Keeps [Sequencer](https://github.com/fantasycalendar/FoundryVTT-Sequencer) as the engine
 and JB2A and PSFX as the libraries; replaces Automated Animations by carrying its whole D&D5e
-Animations corpus over losslessly, adds the user's own looks and the outcome layers AA never had,
-and is driven through four screens that speak in sentences. It never guesses a look.
+Animations corpus over losslessly, adds the user's own FX and the outcome layers AA never had,
+and is driven through four screens that speak in sentences. It never guesses an FX.
 
 **Status: phase 3 (the screens) built, 2026-09-06, with the authoring walk and the Corpus tab
 ruled and built the same day.** FX Studio opens from the Settings sidebar (the GM's "Open FX
 Studio" button) or from the wand on any item sheet: *Look up* an ability and read what it plays
-as a sentence and why; *Create a look* in five steps — for what, start from (duplicate an existing
-look, a starter, or from scratch), the look (one line per scene: picture, colour, where, how big,
+as a sentence and why; *Create FX* in five steps — for what, start from (duplicate an existing
+FX, a starter, or from scratch), the FX (one line per scene: picture, colour, where, how big,
 what sound, the sentence read back as you go), when it plays, and save to this world, the house
-corpus or the main corpus; *Custom looks* lists what was written here and in the house corpus,
-newest first, with who wrote each; *Corpus* is where the shippable corpus is built — drafts bound
+corpus or the main corpus; *Custom* lists what was written here and in the house corpus over
+the main corpus, in two groups — for an ability, or attached to one item — with who wrote each,
+Edit, Export (one FX as a file) and Delete on every row, and Import of a file of FX; *Corpus* is where the shippable corpus is built — drafts bound
 for a corpus, one button that writes the corpus files into the module on the server and stamps a
-version, and `tools/pull-corpus.mjs` to bring them into the repo for the release; *Check* shows
-what plays nothing on each sheet and in the books, what did not resolve, and what played last.
-One item can carry a look of its own ("only this one").
+version, and `tools/pull-corpus.mjs` to bring them into the repo for the release; *Asset Library* browses
+JB2A by style and PSFX by group and sound, each variant stepped by arrows or a dropdown, the picture
+playing on a loop and the sound behind a Play button, with the Sequencer path and the file under it;
+the same browser opens from a line of Create FX to pick that line's picture or sound; *Check* reads
+the compendiums you pick, by source, and shows what plays nothing in them and what did not resolve.
+One item can carry an FX of its own ("only this one").
 Everything the screens do goes through the API, so a macro or an assistant can do the same
 (`tools/smoke-screens.mjs` and `tools/smoke-author.mjs` prove both doors). [ARCHITECTURE.md](ARCHITECTURE.md) is the
-design: a look is found by what acted and when (identity keys dnd5e already keeps — a spell's
+design: an FX is found by what acted and when (identity keys dnd5e already keeps — a spell's
 identifier, a weapon's name then its base weapon, a natural attack, a feature, an item, an
-effect), never by a name rule; a look is written as the sentence the user would say
+effect), never by a name rule; an FX is written as the sentence the user would say
 (`recipes/SCHEMA.md` is the grammar); the engine knows eight shapes and one escape hatch
 (`scripts/engine/shapes/`). The corpus is `recipes/baseline/` (the D&D5e Animations corpus
-migrated once, one file per kind, 1289 looks), `house.json` (the user's), `starters.json` (what a
-new look starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
+migrated once, one file per kind, 1289 FX), `house.json` (the user's), `starters.json` (what a
+new FX starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
 metadata, counted). The migration (`tools/migrate-aa.mjs`) is proved at the render: for every
 row, the exact Sequencer calls the new engine makes equal the calls AA's own sequence made, with
 five deliberate differences named and counted (1296 of 1296; `recipes/migration-report.md`).
-Measured on the sandbox: every look builds and every path resolves live (`tools/smoke-looks.mjs`),
-one look of every shape and moment plays through real dnd5e flows (`tools/smoke-replay.mjs`, 40 of
+Measured on the sandbox: every FX builds and every path resolves live (`tools/smoke-fx.mjs`),
+one FX of every shape and moment plays through real dnd5e flows (`tools/smoke-replay.mjs`, 40 of
 40 — a Maul of Momentum plays the maul, the Shield spell no longer bashes, a heal plays on its healing roll), and an assistant's
 round trip through the API — write, validate, read as a sentence, preview, save with provenance,
 export — is green (`tools/smoke-author.mjs`), and the screens are driven on the DOM, a real ship

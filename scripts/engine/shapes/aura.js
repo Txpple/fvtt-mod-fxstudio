@@ -10,7 +10,7 @@ import { spotsFor } from '../places.js';
 export function build(seq, scene0, ctx) {
   const s = full(scene0);
   const { moment } = ctx;
-  const spots = spotsFor(s.at, moment, { lookName: ctx.look.id }).filter((p) => p.token && !alreadyOn(p.token, moment.origin));
+  const spots = spotsFor(s.at, moment, { fxName: ctx.fx.id }).filter((p) => p.token && !alreadyOn(p.token, moment.origin));
   if (!spots.length) return;
   addSound(seq, s.sound, ctx);
   spots.forEach((p, i) => {
@@ -32,7 +32,7 @@ export function build(seq, scene0, ctx) {
     }
     if (s.pulse) e.loopProperty('alphaFilter', 'alpha', { from: s.pulse.min ?? -0.5, to: s.pulse.max ?? 0.5, duration: s.pulse.every ?? 1000, pingPong: true });
     e.playbackRate(s.rate);
-    e.name(`${ctx.look.id} ${p.token.id}`);
+    e.name(`${ctx.fx.id} ${p.token.id}`);
     timing(e, s, isLast(i, spots.length));
   });
 }

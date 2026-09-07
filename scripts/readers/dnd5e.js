@@ -10,7 +10,7 @@
 //   an area              on the template placement (the Region drawn)
 //   everything else      on the usage card
 // This is what Automated Animations did on this world by accident of its hooks; here it is one
-// table. Battle Flow's verdict hook can replace "on the attack roll" in phase 4 without any look changing.
+// table. Battle Flow's verdict hook can replace "on the attack roll" in phase 4 without any FX changing.
 //
 // WHO PLAYS. One client plays and Sequencer carries the picture to every other client: the
 // message's author for a message, the user who placed the template or created the effect otherwise;
@@ -64,8 +64,8 @@ export function subjectOfItem(item, { activity = null, ammunition = null } = {})
   });
   s.reach = !!item.system?.properties?.has?.('rch');
   s.uuid = item.uuid;
-  // one specific item's own look (the item pointer, set from the screens): its id, ahead of every key
-  const pointer = item.flags?.['fvtt-mod-fxstudio']?.look;
+  // one specific item's own FX (the item pointer, set from the screens): its id, ahead of every key
+  const pointer = item.flags?.['fvtt-mod-fxstudio']?.fx;
   if (typeof pointer === 'string' && pointer) s.pointer = pointer;
   return s;
 }

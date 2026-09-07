@@ -13,9 +13,9 @@
   },
   "licence": "MIT",
   "note": "The user's own looks: what this world changed over the baseline at migration, and everything kept from the world buffer since (tools/export-looks.mjs).",
-  "looks": 7
+  "fx": 7
  },
- "looks": [
+ "fx": [
   {
    "id": "sorcerous-burst",
    "for": [
@@ -121,9 +121,7 @@
   },
   {
    "id": "unholy-word-harrow-vane",
-   "for": [
-    "feature:holy-word"
-   ],
+   "for": [],
    "on": "use",
    "scenes": [
     {
@@ -144,13 +142,11 @@
    ],
    "by": "the migration",
    "at": "2026-09-06",
-   "note": "the item's own look (Harrow Vane / Unholy Word) (Automated Animations 7.0.22)"
+   "note": "the item's own look (Harrow Vane / Unholy Word) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
   },
   {
    "id": "necrotic-burst-harrow-vane",
-   "for": [
-    "natural:necrotic-burst"
-   ],
+   "for": [],
    "on": "use",
    "scenes": [
     {
@@ -163,13 +159,11 @@
    ],
    "by": "the migration",
    "at": "2026-09-06",
-   "note": "the item's own look (Harrow Vane / Necrotic Burst) (Automated Animations 7.0.22)"
+   "note": "the item's own look (Harrow Vane / Necrotic Burst) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
   },
   {
    "id": "first-light-thomas-a-invictus",
-   "for": [
-    "weapon:first-light"
-   ],
+   "for": [],
    "on": "use",
    "scenes": [
     {
@@ -195,13 +189,11 @@
    ],
    "by": "the migration",
    "at": "2026-09-06",
-   "note": "the item's own look (Thomas A. Invictus / First Light) (Automated Animations 7.0.22)"
+   "note": "the item's own look (Thomas A. Invictus / First Light) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
   },
   {
    "id": "goldthorn-jetten-elisedil",
-   "for": [
-    "weapon:goldthorn"
-   ],
+   "for": [],
    "on": "use",
    "scenes": [
     {
@@ -222,7 +214,7 @@
    ],
    "by": "the migration",
    "at": "2026-09-06",
-   "note": "the item's own look (Jetten Elisedil / Goldthorn) (Automated Animations 7.0.22)"
+   "note": "the item's own look (Jetten Elisedil / Goldthorn) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
   }
  ]
 }

@@ -18,9 +18,9 @@
    "Sisimshow"
   ],
   "note": "The spells of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "looks": 586
+  "fx": 586
  },
- "looks": [
+ "fx": [
   {
    "id": "flame-blade",
    "for": [

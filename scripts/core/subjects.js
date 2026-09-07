@@ -1,4 +1,4 @@
-// A SUBJECT is what acted, and its identity keys (ARCHITECTURE §3): a look is found by what the
+// A SUBJECT is what acted, and its identity keys (ARCHITECTURE §3): an FX is found by what the
 // thing IS, in the vocabulary dnd5e already keeps, and only then by what it is called. No
 // substrings, no word rules, no exclude lists — at the table a lookup is an exact map hit on one of
 // these keys, most specific first. Pure: the readers hand this module plain data.

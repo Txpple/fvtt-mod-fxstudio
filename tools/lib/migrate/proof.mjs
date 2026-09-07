@@ -1,6 +1,6 @@
 // The render-level proof (ARCHITECTURE §6.2): for every row, against a canonical moment of its
 // kind, the exact Sequencer calls the oracle makes (phase 1's port of AA) and the exact calls the
-// new engine makes from the migrated look, compared section by section. Both run on the offline
+// new engine makes from the migrated fx, compared section by section. Both run on the offline
 // stage (tools/lib/stage.mjs) with a recording Sequence.
 //
 // CANONICAL FORM — what is compared, and the named allowances (each is also in the report):
@@ -142,8 +142,8 @@ export function stageTokens() {
 /**
  * The moments a row of this menu is proved against: [{name, oracle: phase-1 moment, engine: phase-2 moment}]
  */
-export function momentsFor(row, look, T) {
-  const subject = { name: row.name, keys: look.for, reach: false };
+export function momentsFor(row, fx, T) {
+  const subject = { name: row.name, keys: fx.for, reach: false };
   const pair = (name, kind, { targets = [], hits = null, template = null, tie = null, destination = null, effect = false }) => ({
     name,
     oracle: oracleMoment(kind, { source: effect ? targets[0]?.token ?? T.caster : T.caster, targets: targets.map((t) => t.token), hits: hits ? hits.map((t) => t.token) : null, template, tieTo: tie, destination, name: row.name }),
@@ -180,25 +180,25 @@ const sortedEqual = (a, b) => a.thenDo === b.thenDo && JSON.stringify([...a.sect
 
 export function allowance(a, b, diffs, momentName) {
   const noTarget = /no target/.test(momentName);
-  if (noTarget && !b.sections.length && soundsOnly(a)) return 'a look whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)';
+  if (noTarget && !b.sections.length && soundsOnly(a)) return 'an FX whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)';
   if (noTarget && soundCount(a) > soundCount(b) && !diff(withoutSounds(a), withoutSounds(b)).length) return 'a follow-up mark with nothing to land on plays no sound (AA played its sound anyway)';
-  if (noTarget && diffs.every((d) => /the engine only \["delay",\[-?\d+\]\]$/.test(d))) return "a mark that falls back to the caster honours the look's delay (AA dropped it there)";
+  if (noTarget && diffs.every((d) => /the engine only \["delay",\[-?\d+\]\]$/.test(d))) return "a mark that falls back to the caster honours the FX's delay (AA dropped it there)";
   if (!hasWait(a) && !hasWait(b) && sortedEqual(a, b)) return 'the same pictures start in a different order with no wait between them (a shield\'s bottom halves first, then its top halves)';
   if (diffs.every((d) => /AA only \["atLocation",\[\{"x":500,"y":500\}\]\] · the engine only \["atLocation",\[\{"x":550,"y":550\}\]\]$/.test(d))) return "a bolt from inside a standing area, with none standing, leaves from the caster's centre (AA left from the token's top-left corner)";
   return null;
 }
 
 /**
- * Prove one row against its look. Returns {ok, moments: [{name, ok, diffs, allowed, files}]}
+ * Prove one row against its fx. Returns {ok, moments: [{name, ok, diffs, allowed, files}]}
  */
-export function proveRow(row, look, T, plays) {
+export function proveRow(row, fx, T, plays) {
   const out = { ok: true, moments: [] };
-  for (const m of momentsFor(row, look, T)) {
+  for (const m of momentsFor(row, fx, T)) {
     standing.length = 0;
     let a, b, err = null;
     try { a = canonical(buildRow(row, m.oracle).seq ?? { sections: [] }, plays); } catch (e) { err = `the oracle failed: ${e.message}`; }
     let ctx = null;
-    try { const r = engineBuild(look, m.engine); ctx = r.ctx; b = canonical(r.seq ?? { sections: [] }, plays); } catch (e) { err = (err ? err + '; ' : '') + `the engine failed: ${e.stack?.split('\n').slice(0, 2).join(' ') ?? e.message}`; }
+    try { const r = engineBuild(fx, m.engine); ctx = r.ctx; b = canonical(r.seq ?? { sections: [] }, plays); } catch (e) { err = (err ? err + '; ' : '') + `the engine failed: ${e.stack?.split('\n').slice(0, 2).join(' ') ?? e.message}`; }
     const diffs = err ? [err] : diff(a, b);
     const allowed = diffs.length && !err ? allowance(a, b, diffs, m.name) : null;
     if (diffs.length && !allowed) out.ok = false;

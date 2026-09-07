@@ -1,5 +1,7 @@
 # fxstudio — design notes
 
+> **Vocabulary (ruled 2026-09-06).** What this document calls a *look* is an **FX** on the screens, in the code (`scripts/core/fx.js`, `api.fx`, the item flag `flags.fvtt-mod-fxstudio.fx`, the world setting `fx`) and in the recipe files (`"fx": [...]`): a picture is a **VFX**, a sound an **SFX**. A look written over the main corpus is an **override**. The earlier sections keep the word they were written with.
+
 What was decided and measured while building, kept beside [PLAN.md](PLAN.md) (the plan) and
 [BACKLOG.md](BACKLOG.md) (what is parked and why). **§7 is phase 2, the model as built. §§2–4 and §6 describe the phase 0/1 shape —
 AA's rows, menus and option blobs, ported so the corpus could be proved to play — which
@@ -15,7 +17,7 @@ never hand-carried.
 - `recipes/house.json` — the user's own looks, MIT, committed, portable. Starts with what this
   world had changed over the preset at import: three edited preset rows and four item flags.
 - the world setting `fxstudio.looks` — the live edit buffer the screens write (phase 2);
-  `tools/export-looks.mjs` folds it into `house.json` (phase 2).
+  `tools/export-fx.mjs` folds it into `house.json` (phase 2).
 
 Resolution order: world buffer → house → baseline → nothing. A house row with `off: true` switches
 a baseline look off.
@@ -94,11 +96,11 @@ name accidents, each listed for the user to keep or drop); 34 differ; the effect
 
 ## 5. Tools
 
-Offline, seconds, no Foundry: `import-aa.mjs` (the migration and its proof), `check-looks.mjs`
+Offline, seconds, no Foundry: `import-aa.mjs` (the migration and its proof), `check-fx.mjs`
 (every path in both corpora and the private table against the libraries' registration files
 and the disk; the Check screen will run the same test live), `check-imports.mjs` (every script
 loads in node). Live, read-only: `smoke-boot.mjs`. Live suites with their own fixture:
-`smoke-looks.mjs` (every row builds, every path resolves, the party and NPC census) and
+`smoke-fx.mjs` (every row builds, every path resolves, the party and NPC census) and
 `smoke-replay.mjs` (every family through real dnd5e flows; `--watch` to compare with AA by eye).
 Sandbox operations: `sandbox-module.mjs`. See [tools/README.md](tools/README.md).
 
@@ -273,7 +275,7 @@ model, the prototype (`prototypes/fxstudio2.template.html`) the ruled shape.
 ### One window, built on the API and nothing else
 
 `scripts/ui/studio.js` is one ApplicationV2 window with five tabs — Look up, Create a look
-(`scripts/ui/create.js`), Custom looks, Corpus (`scripts/ui/corpus.js`), Check — rendered as plain DOM
+(`scripts/ui/create.js`), Overrides, Corpus (`scripts/ui/corpus.js`), Check — rendered as plain DOM
 through its own `_renderHTML`, no template engine, no Handlebars files; `scripts/ui/html.js`
 holds escaping and the swatches, `scripts/ui/sheet-button.js` the item sheet's door. Every fact
 on a screen comes from `api.*` (`census`, `sentenceFor`, `looks.list/get/save/remove`, `preview`,
@@ -287,7 +289,7 @@ sheet, and a macro or an assistant calling the API.
 
 At the phase 3 check-in the user found the way into authoring wonky and ruled the walk off a
 clickable prototype: one obvious *Create a look*, in five steps, replacing the inline editor.
-**For what** — an ability typed or picked off a sheet, or a new name with its kind. **Start
+**For what** — an ability typed (one row per ability: the main corpus, the overrides, then what sits on a sheet with no look yet; the sheet picker that stood here was ruled off the same day), or a new name with its kind. A look written over the main corpus is an *override* on the screens (the user's word, 2026-09-06); the tab that lists them is *Overrides*. **Start
 from** — *duplicate an existing look*, *a starter*, or *from scratch*: three ways to seed the
 scenes and nothing more; after that the walk is the same for every look. **The look** — one line
 per scene: the picture (a search over JB2A's registration), the family's own colours, where it
@@ -343,7 +345,7 @@ id, and any item pointer to it still holds. The running module's `module.json` i
 under it (Foundry refuses that upload, and it would be wrong anyway): the version lives in the
 record, and `tools/pull-corpus.mjs` brings `recipes/**` and the version into the repo, where git,
 the tag and the release ritual stay. A look with no ability key (one item's own) can only go to
-the house corpus, since the main corpus is filed by kind. `tools/export-looks.mjs` remains as the
+the house corpus, since the main corpus is filed by kind. `tools/export-fx.mjs` remains as the
 offline path for a world whose server forbids uploads.
 
 ### Ids, replacing, silencing
@@ -368,10 +370,92 @@ item's name are unchanged (BACKLOG).
 
 ### Check
 
-"The books" reads the PHB packs on demand (a few seconds) rather than at open. What played last
-is the ledger. The buffer tile counts what is written in this world and how much of it is bound
+Ruled by the user on 2026-09-06, after a first cut that counted the party's sheets: Check is about
+the books, not the local actors — the sheets are what Look up and Create a look already reach, and
+counting them there was noise. "The books" lists every item compendium in the world, grouped by
+the package that ships it, with its size; the user picks which to review and one button reads
+them (a few seconds a book), never at open. The tiles and the "plays nothing yet" list are then
+drawn from the books read. "Assets no look uses" walks the libraries' registration against every
+asset every look names — JB2A by style, PSFX by sound name — on demand, so the user sees what the
+libraries hold that nothing plays yet. What played last is the ledger. The buffer tile counts what is written in this world and how much of it is bound
 and not yet shipped; the house-file card and "clear what the house file already holds" went with
 the export, since Corpus ships and clears in one step.
+
+### Library (built 2026-09-06, ruled off `prototypes/fxstudio4-library.html`)
+
+The user asked for an asset browser like the JB2A site's, for pictures and for sounds, "useful for
+general browsing as well as when creating a corpus". `scripts/ui/library.js` builds a shelf once
+per window from Sequencer's own database: JB2A by style (`jb2a.<style>`, lettered), PSFX by group
+and sound (`psfx.<group>.<sound>`), each with its variants — the leaves under it that carry files,
+walked two levels down so `01 blue` and `v1 group01` both read. A dot marks what the corpus
+already uses (every path every look names, read off `assetsOf`), and "only what no look uses yet"
+is the filter Check's assets card counts; Check's card now only counts and hands over to the
+Library with that filter on. The stage plays the webm muted on a loop on a dark ground, as the
+table sees it; a sound plays through Foundry's AudioHelper, locally. Arrows on the stage and a
+stepper under it cycle the variants; the stepper's dropdown lists them. Under the stage sit the
+Sequencer path a look names and the file, each with Copy. Two doors: as the tab, *Use in a look*
+starts the walk with the asset already in line 1 (the walk accepts seeded scenes and keeps them
+when "from scratch" is confirmed on step 2) and *Preview on the map* plays it once on the selected
+token; from step 3 of the walk each line's picture and sound carry a *browse…* button that opens
+the same browser with a banner saying what it is picking for, and *Use this* writes the path into
+that line and returns to step 3. Smoke-screens §13 drives both doors.
+
+### The simplification (ruled 2026-09-06, the user: "a normal user is going to get confused")
+
+Two questions had been blurred on the screens: *where an FX lives* (the main corpus, the house
+corpus, this world) and *what it answers for* (an ability key, or one item through the pointer).
+A GM needs only the second, plus "mine versus imported"; the first is the maintainer's release
+concern. So: the walk is four steps — For what, Start from, The FX, When it plays — and ends in
+Save; every FX saves to this world, and the "Why" note and the read-back moved onto step 4.
+*Overrides* rows read the ability name, then "for any Necrotic Burst" or "Harrow Vane's Necrotic
+Burst only", then at most "not in the module yet"; no corpus words. *Corpus* is the maintainer's
+room, shown only with the client setting "show the Corpus tab" on; it is the one place house, main,
+bound and version appear, and it binds what this world wrote (the choice step 5 used to ask) and
+ships it. The four FX the migration had keyed by an item's name are re-keyed as true item-own FX
+(`for: []`) and `tools/bind-item-fx.mjs` points the items at them — on the sandbox now, on prod at
+cutover, since the pointer lives on the item in the world; the Necrotic Burst collision (two FX on
+one key, the item's own never answering) is gone. The back end matches the screens: the walk no
+longer knows `to`, the API's `fx.save` is called without it, and the old `looks` setting key is
+carried into `fx` once at ready.
+
+### The in-game pass of 2026-09-06 (eighteen items, the user's list, built on "GO")
+
+*Custom* (the tab's name again; "override" retired in screens and code alike) groups its rows into
+*For an ability* and *Attached to one item*, the second under a warning that such an FX points at
+one item in this world and may not work in another world or a main corpus; every row has Edit,
+Export and Delete. Export writes one FX as a file in the recipe files' own shape
+(`{_meta, fx: [...]}`, `foundry.utils.saveDataToFile`), with the warning in `_meta` for an
+item-attached one; Import reads such a file (or any file in that shape) into this world, or, from
+the Corpus tab, bound for the main corpus. Delete is for good (the user: "once something is deleted its gone"): `api.corpus.erase`
+takes the FX out of the world buffer and rewrites every corpus file in the module that holds its
+id, house or baseline, through the ship's own file writer; no tombstone, no Restore. The *Corpus* tab presents the main corpus as rows like Custom,
+searchable, with the maintainer's controls (drafts and binding, the ship, the record, the import)
+in one card underneath; the tiles and the flow diagram are gone. *Check* is the compendiums by
+source and what plays nothing in them; "books", the ledger card and the assets card are gone (the
+Asset Library's filter covers the last). The *Asset Library* (renamed) fits the window without
+sideways scroll, keeps the list's scroll through every step (the pane re-renders itself, never the
+window), names the FX that use a family and the variant each uses, has one Play for a sound and no
+map preview for it, and a pill for "only what no FX uses yet" in place of a checkbox Foundry
+restyled. Step 3's shapes carry a tooltip each and a legend behind "what are these?". A detached
+window (Foundry 14's pop-out) fills itself at once and follows resizes (`_onDetach`).
+
+### Preview on the map is gone (the user, 2026-09-06)
+
+"You can remove any of the view on map functionality": the button left the Look up card, the walk's
+nav and the Asset Library, with the window's token-finding and preview code behind them. The
+Asset Library's own stage and Play button are the preview now. `api.preview` stays as the API's
+door for an assistant (smoke-author exercises it); it is not reachable from a screen.
+
+### The second in-game list (2026-09-06, seven items, built on "go")
+
+The Look up card's tag says *corpus* or *custom*, never "imported" — the user does not care where
+the corpus came from — and the same word runs through the suggestion column, the walk's hint and
+the why line; *Play nothing* left the card (and its code); a *Close* on the card clears it and the
+search box. *Custom* and *Corpus* list one line per FX — the name as a link into Look up, what it
+is for, the buttons — for hundreds of rows; Custom splits into two sub-tabs, *For an ability* and
+*Attached to an item* (always one item, so "an"), with the counts on the tabs and the warning on
+the second. The import dialog is the file chooser and Import. The Asset Library's Used and Unused
+pills fill the shelf's width with the count under them.
 
 ### What the prototype had that is not built
 

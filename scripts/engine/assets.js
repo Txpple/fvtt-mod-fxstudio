@@ -94,7 +94,7 @@ export function resolveAsset(asset) {
   if (a.paths) {
     out.paths = a.paths;
     out.play = a.paths;
-    // library paths are checked against the registration; raw files are the server's to serve (check-looks checks the disk)
+    // library paths are checked against the registration; raw files are the server's to serve (check-fx checks the disk)
     const gone = d ? a.paths.filter((p) => isDbPath(p) && !d.exists(p)) : [];
     if (gone.length) { out.missing = true; out.why = `${gone.join(', ')} not in the libraries`; }
     return out;

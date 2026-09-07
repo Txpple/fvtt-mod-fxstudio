@@ -2,15 +2,15 @@
 // names (so a build can be read without playing), the sound section, sizing, timing, tint,
 // elevation and persistence — each a knob with one meaning across shapes. This directory is the
 // only place Sequencer's API is called.
-import { SOUND_DEFAULTS, withDefaults } from '../core/looks.js';
+import { SOUND_DEFAULTS, withDefaults } from '../core/fx.js';
 import { resolveAsset } from './assets.js';
 import { tokenSquares } from './places.js';
 
 export const SEQUENCE_OPTIONS = { moduleName: 'FX Studio', softFail: true };
 
 /** a fresh build context */
-export function contextFor(look, moment) {
-  return { look, moment, files: [], sounds: [], missing: [], after: null, pictures: 0, notes: [] };
+export function contextFor(fx, moment) {
+  return { fx, moment, files: [], sounds: [], missing: [], after: null, pictures: 0, notes: [] };
 }
 
 /** .file() on a section, the asset resolved, the path recorded; a missing asset is recorded and still named (softFail plays nothing) */
@@ -67,7 +67,7 @@ export function timing(section, scene, last) {
 
 export const repeats = (section, scene) => { if (scene.repeat !== undefined) section.repeats(scene.repeat, scene.every ?? 250); };
 
-/** does this token already carry a picture of this origin? (a look never doubles up on a token) */
+/** does this token already carry a picture of this origin? (an FX never doubles up on a token) */
 export const alreadyOn = (token, origin) => !!token && !!origin && Sequencer.EffectManager.getEffects({ object: token, origin }).length > 0;
 
 /** persist a picture on a token: attached, kept on the prototype, tied to the effect it stands for */

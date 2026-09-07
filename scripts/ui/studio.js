@@ -1,20 +1,22 @@
 // FX Studio — the screens (ARCHITECTURE §7, the first door), built on the API and nothing else:
-// Look up (what plays for an ability and why), Create a look (the five-step walk, ui/create.js),
-// Custom looks (what is written here and in the house corpus, newest first, who wrote each), Corpus
-// (the shippable corpus, ui/corpus.js) and Check (what plays nothing, per sheet and per book; what
-// did not resolve; what played last). Every sentence on these screens is generated from a look by
-// core/looks.js; nothing is parsed back. One window, five tabs, plain DOM: ApplicationV2 with its
+// Look up (what plays for an ability and why), Create FX (the five-step walk, ui/create.js),
+// Custom (what is written here and in the house corpus over the main corpus, in two groups, who
+// wrote each), Corpus (the shippable corpus, ui/corpus.js) and Check (the books the user picks, read
+// once and asked what plays; the libraries' assets no FX uses; what did not resolve; what played
+// last). Every sentence on these screens is generated from an FX by
+// core/fx.js; nothing is parsed back. One window, five tabs, plain DOM: ApplicationV2 with its
 // own _renderHTML, no template engine.
-import { MODULE_ID } from '../settings.js';
+import { MODULE_ID, maintaining } from '../settings.js';
 import { keyWords, parseKey, slug } from '../core/subjects.js';
-import { provenance } from '../core/looks.js';
+import { provenance } from '../core/fx.js';
 import { SOURCE_TAG, STATUS_WORDS, dot, esc, idWords, statusOf } from './html.js';
 import { onCreateChange, onCreateClick, onCreateInput, onCreateKey, renderCreate, startWalk } from './create.js';
 import { onCorpusChange, onCorpusClick, onCorpusInput, renderCorpus } from './corpus.js';
+import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const KIND_WORDS = { spell: 'a spell', weapon: 'a weapon', feature: 'a feature', item: 'an item', effect: 'an effect' };
-const TABS = [['lookup', 'Look up'], ['create', 'Create a look'], ['custom', 'Custom looks'], ['corpus', 'Corpus'], ['check', 'Check']];
+const TABS = [['lookup', 'Look up'], ['create', 'Create FX'], ['custom', 'Custom'], ['corpus', 'Corpus'], ['library', 'Asset Library'], ['check', 'Check']];
 
 const ApplicationV2 = globalThis.foundry?.applications?.api?.ApplicationV2 ?? class { constructor() {} render() {} };
 
@@ -31,25 +33,25 @@ export class Studio extends ApplicationV2 {
 
   constructor(options = {}) {
     super(options);
-    this.view = { tab: 'lookup', sheet: null, subject: null, customQuery: '', books: null, everyActor: false };
+    this.view = { tab: 'lookup', subject: null, customQuery: '', books: null, chosenBooks: new Set(), reading: false };
     this.walk = null;
     this.co = null;
     this._bound = false;
   }
 
-  /** open the window at a tab, on an item, on a key, or on a look id; tab 'create' starts the walk on it */
+  /** open the window at a tab, on an item, on a key, or on an FX id; tab 'create' starts the walk on it */
   static open({ tab = null, item = null, id = null, key = null } = {}) {
     const app = Studio.current ?? (Studio.current = new Studio());
     if (!app.entries) app.refresh();
     if (tab) app.view.tab = tab;
     if (tab === 'create') {
       if (item) startWalk(app, { subject: app.subjectFromItem(item) });
-      else if (id) startWalk(app, { lookId: id });
+      else if (id) startWalk(app, { fxId: id });
       else if (key) startWalk(app, { subject: app.subjectForKey(key) });
       else if (!app.walk) startWalk(app);
     } else if (item) app.showItem(item);
     else if (key) app.showKey(key);
-    else if (id) app.showLook(id);
+    else if (id) app.showFx(id);
     app.render({ force: true });
     if (app.rendered) app.bringToFront?.();
     return app;
@@ -69,19 +71,16 @@ export class Studio extends ApplicationV2 {
       for (const ef of row.effects) entries.push({ name: ef.name, owner: row.name, actorType: row.type, keys: ef.keys, on: 'effect', status: statusOf(ef), type: 'effect', effect: true });
     }
     const seen = new Set(entries.flatMap((e) => e.keys));
-    for (const { look, source } of a.looks.list()) {
-      for (const key of look.for ?? []) {
+    for (const { fx, source } of a.fx.list()) {
+      for (const key of fx.for ?? []) {
         if (seen.has(key)) continue;
         seen.add(key);
-        entries.push({ name: keyWords(key), key, keys: [key], on: look.on ?? 'use', owner: null, status: look.off ? 'off' : (source === 'baseline' ? 'baseline' : 'custom'), corpus: true });
+        entries.push({ name: keyWords(key), key, keys: [key], on: fx.on ?? 'use', owner: null, status: fx.off ? 'off' : (source === 'baseline' ? 'baseline' : 'custom'), corpus: true });
       }
     }
     this.entries = entries;
-    this.sheets = this.census.actors.filter((r) => r.type === 'character').map((r) => r.name);
+    this._shelf = null;
   }
-
-  /** the party's sheets, or every actor when asked */
-  sheetRows() { return this.census.actors.filter((r) => this.view.everyActor || r.type === 'character'); }
 
   // -------------------------------------------------------------------------------------------
   // subjects: what a card or a walk is about — {name, keys, pointer, uuid, owner, actor, hasPlace, on, kind, isNew}
@@ -103,30 +102,42 @@ export class Studio extends ApplicationV2 {
     if (e) return this.subjectFromEntry(e);
     return { name: idWords(p?.id ?? key), keys: [key], owner: null, hasPlace: false, on: p?.kind === 'effect' ? 'effect' : 'use', kind: p?.kind ?? 'spell' };
   }
-  subjectForLook(id) {
-    const entry = api().looks.get(id);
-    const key = entry?.look?.for?.[0];
+  subjectForFx(id) {
+    const entry = api().fx.get(id);
+    const key = entry?.fx?.for?.[0];
     if (key) return this.subjectForKey(key);
-    return { name: idWords(id), keys: [], owner: null, hasPlace: false, on: entry?.look?.on ?? 'use', kind: 'spell', lookId: id };
+    return { name: idWords(id), keys: [], owner: null, hasPlace: false, on: entry?.fx?.on ?? 'use', kind: 'spell', fxId: id };
   }
   /** a name typed that is on no sheet: a new ability, keyed by its name as the kind the user picks */
   subjectNew(name, kind = 'spell') {
     return { name, keys: [`${kind}:${slug(name)}`], owner: null, hasPlace: false, on: kind === 'effect' ? 'effect' : 'use', kind, isNew: true };
   }
 
+  /** the walk, started by another screen (the Library seeds a line) */
+  startWalk(opts) { return startWalk(this, opts); }
+
+  /** the item on a sheet whose pointer names this FX: {actor, item}, or null */
+  ownerOfFx(id) {
+    for (const row of this.census.actors) for (const it of row.items) {
+      const item = it.uuid ? fromUuidSync(it.uuid) : null;
+      if (item?.flags?.[MODULE_ID]?.fx === id) return { actor: row.name, item: item.name };
+    }
+    return null;
+  }
+
   showItem(item) { this.view.subject = this.subjectFromItem(item); this.view.tab = 'lookup'; }
   showEntry(e) { this.view.subject = this.subjectFromEntry(e); this.view.tab = 'lookup'; }
   showKey(key) { this.view.subject = this.subjectForKey(key); this.view.tab = 'lookup'; }
-  showLook(id) { this.view.subject = this.subjectForLook(id); this.view.tab = 'lookup'; }
+  showFx(id) { this.view.subject = this.subjectForFx(id); this.view.tab = 'lookup'; }
   showNew(name, kind = 'spell') { this.view.subject = this.subjectNew(name, kind); }
 
   /** what a subject plays, through the API */
   answerFor(s) {
     if (!s) return null;
     const a = api();
-    if (s.lookId && !s.keys.length) {
-      const e = a.looks.get(s.lookId);
-      return e ? { sentence: a.looks.sentence(e.original, { name: s.name }), look: e.look, original: e.original, source: e.source, key: null, why: `A look with no ability of its own yet (${SOURCE_TAG[e.source]}).` } : { sentence: 'Nothing plays yet.', why: '' };
+    if (s.fxId && !s.keys.length) {
+      const e = a.fx.get(s.fxId);
+      return e ? { sentence: a.fx.sentence(e.original, { name: s.name }), fx: e.fx, original: e.original, source: e.source, key: null, why: `An FX with no ability of its own yet (${SOURCE_TAG[e.source]}).` } : { sentence: 'Nothing plays yet.', why: '' };
     }
     const item = s.uuid ? fromUuidSync(s.uuid) : null;
     return a.sentenceFor(item ?? { name: s.name, keys: s.keys, pointer: s.pointer ?? null }, s.on, { hasPlace: s.hasPlace });
@@ -142,12 +153,13 @@ export class Studio extends ApplicationV2 {
     const t = this.view.tab;
     const tab = (id, label) => `<button type="button" role="tab" aria-selected="${t === id}" data-act="tab" data-tab="${id}">${label}</button>`;
     return `<div class="fx-wrap">
-      <header><p>Every ability on your sheets gets a look. Look one up, create one, ship the corpus.</p></header>
-      <div class="tabs" role="tablist">${TABS.map(([id, label]) => tab(id, label)).join('')}</div>
+      <header><p>Every ability on your sheets gets an FX. Look one up, create one, ship the corpus.</p></header>
+      <div class="tabs" role="tablist">${TABS.filter(([id]) => id !== 'corpus' || maintaining() || t === 'corpus').map(([id, label]) => tab(id, label)).join('')}</div>
       <section class="pane" data-pane="lookup" data-active="${t === 'lookup'}">${this.renderLookup()}</section>
       <section class="pane" data-pane="create" data-active="${t === 'create'}">${t === 'create' ? renderCreate(this) : ''}</section>
       <section class="pane" data-pane="custom" data-active="${t === 'custom'}">${t === 'custom' ? this.renderCustom() : ''}</section>
       <section class="pane" data-pane="corpus" data-active="${t === 'corpus'}">${t === 'corpus' ? renderCorpus(this) : ''}</section>
+      <section class="pane" data-pane="library" data-active="${t === 'library'}">${t === 'library' ? renderLibrary(this) : ''}</section>
       <section class="pane" data-pane="check" data-active="${t === 'check'}">${t === 'check' ? this.renderCheck() : ''}</section>
       <div class="toast" data-on="false"></div>
     </div>`;
@@ -155,7 +167,23 @@ export class Studio extends ApplicationV2 {
 
   _replaceHTML(result, content) { content.innerHTML = result; }
 
+  /** popped out (Foundry 14): fill the new window at once and follow it as it is resized */
+  async _onDetach(...args) {
+    const r = await super._onDetach?.(...args);
+    setTimeout(() => this.fitDetached(), 50);
+    return r;
+  }
+
+  fitDetached() {
+    const win = this.element?.ownerDocument?.defaultView;
+    if (!win || win === window) return;
+    const fit = () => { try { this.setPosition({ left: 0, top: 0, width: win.innerWidth, height: win.innerHeight }); } catch { /* the window is closing */ } };
+    fit();
+    if (!this._fitBound) { this._fitBound = true; win.addEventListener('resize', fit); }
+  }
+
   async _onRender() {
+    if (this.element?.ownerDocument !== document) this.fitDetached();
     if (this._bound) return;
     this._bound = true;
     const root = this.element;
@@ -177,120 +205,158 @@ export class Studio extends ApplicationV2 {
   // ---- Look up -------------------------------------------------------------------------------
   renderLookup() {
     const s = this.view.subject;
-    const sheets = this.sheets.map((n) => `<button type="button" class="pill" aria-pressed="${this.view.sheet === n}" data-act="sheet" data-sheet="${esc(n)}">${esc(n.split(' ')[0])}</button>`).join('');
-    const more = this.census.actors.length > this.sheets.length ? `<button type="button" class="pill quiet" data-act="every-actor">${this.view.everyActor ? 'the party only' : 'every actor…'}</button>` : '';
-    const others = this.view.everyActor ? this.census.actors.filter((r) => r.type !== 'character').map((r) => `<button type="button" class="pill" aria-pressed="${this.view.sheet === r.name}" data-act="sheet" data-sheet="${esc(r.name)}">${esc(r.name)}</button>`).join('') : '';
     return `<div class="stack">
       <div class="search"><input type="search" class="fx-q" placeholder="Type an ability… Fire Bolt, Goldthorn, Second Wind" aria-label="Look up an ability" autocomplete="off" value="${esc(s?.name ?? '')}"><div class="suggest" data-open="false"></div></div>
-      <div class="card"><div class="pills"><span class="lbl">or pick a sheet:</span>${sheets}${more}</div>${others ? `<div class="pills others">${others}</div>` : ''}
-        <div class="abilities">${this.renderAbilities()}</div></div>
-      ${s ? `<div class="card result">${this.renderResult()}</div>` : ''}
+      ${s ? `<div class="card result">${this.renderResult()}</div>` : '<p class="note">Type a few letters of an ability on a sheet, or a name the corpus has never heard of. To walk a whole sheet, see Check.</p>'}
     </div>`;
-  }
-
-  renderAbilities() {
-    const name = this.view.sheet;
-    if (!name) return `<span class="note">Pick a sheet to see every ability on it, coloured by what plays: ${dot('baseline')} imported · ${dot('custom')} custom · ${dot('none')} nothing yet · ${dot('off')} switched off.</span>`;
-    const row = this.census.actors.find((r) => r.name === name);
-    if (!row) return '';
-    const items = row.items.map((it) => `<button type="button" class="pill" data-act="entry" data-uuid="${esc(it.uuid)}">${dot(statusOf(it))}${esc(it.name)}</button>`).join('');
-    const effects = row.effects.map((ef, i) => `<button type="button" class="pill" data-act="effect" data-actor="${esc(row.name)}" data-i="${i}">${dot(statusOf(ef))}${esc(ef.name)} <span class="note">effect</span></button>`).join('');
-    return items + effects || '<span class="note">Nothing on this sheet can be given a look.</span>';
   }
 
   renderResult() {
     const a = api();
     const s = this.view.subject;
     const r = this.answer();
-    const status = r.off ? 'off' : r.look ? (r.source === 'baseline' ? 'baseline' : 'custom') : 'none';
-    const owners = s.keys.length ? this.entries.filter((e) => e.uuid && e.keys[0] === s.keys[0]).map((e) => e.owner) : [];
-    const where = s.owner ? `On ${esc(s.owner)}’s sheet` : owners.length ? `On ${esc([...new Set(owners)].join(', '))}’s sheet` : s.isNew ? 'Not on any sheet yet' : 'Not on a party sheet';
-    const kindLine = s.keys.length ? ` · ${esc(keyWords(s.keys.find((k) => !k.includes('/')) ?? s.keys[0]))}` : '';
-    const kinds = s.isNew ? ` · <span class="pills inline"><span class="lbl">it is</span>${Object.entries(KIND_WORDS).map(([k, w]) => `<button type="button" class="pill" aria-pressed="${s.kind === k}" data-act="new-kind" data-kind="${k}">${w}</button>`).join('')}</span>` : '';
+    const status = r.off ? 'off' : r.fx ? (r.source === 'baseline' ? 'baseline' : 'custom') : 'none';
+    const kinds = s.isNew ? `<span class="pills inline"><span class="lbl">it is</span>${Object.entries(KIND_WORDS).map(([k, w]) => `<button type="button" class="pill" aria-pressed="${s.kind === k}" data-act="new-kind" data-kind="${k}">${w}</button>`).join('')}</span>` : '';
     const id = r.original?.id;
-    const underneath = id && a.looks.get(id)?.source === 'world' && (a.corpora.house.some((h) => h.id === id) || a.corpora.baseline.some((b) => b.id === id));
+    const underneath = id && a.fx.get(id)?.source === 'world' && (a.corpora.house.some((h) => h.id === id) || a.corpora.baseline.some((b) => b.id === id));
     const canRemove = (r.source === 'world' || r.off && r.source === 'world') || (s.pointer && r.key === 'this item');
     const bound = r.original?.to ? ` <span class="tag bound">bound for ${esc(a.corpus.words[r.original.to])}</span>` : '';
     return `<h2>${esc(s.name)}<span class="status">${dot(status)}${STATUS_WORDS[status]}</span></h2>
-      <div class="owner">${where}${kindLine}${kinds}</div>
+      ${kinds ? `<div class="owner">${kinds}</div>` : ''}
       <p class="sentence">${esc(r.sentence)}</p>
       <p class="why">${esc(r.why ?? '')}${r.original ? ` <span class="note">${esc(provenance(r.original))}</span>` : ''}${bound}</p>
       <div class="actions">
-        ${r.look ? '<button type="button" class="primary" data-act="preview">Preview on the map</button>' : ''}
-        <button type="button" ${r.look ? '' : 'class="primary"'} data-act="${r.look ? 'create-from' : 'create-new'}">${r.look ? 'Create a look from this' : 'Give it a look'}</button>
-        ${r.look && s.keys.length ? '<button type="button" class="quiet" data-act="silence">Play nothing</button>' : ''}
-        ${canRemove ? `<button type="button" class="quiet" data-act="remove">${underneath || s.pointer ? 'Back to the look it had' : 'Remove this look'}</button>` : ''}
+        <button type="button" class="primary" data-act="${r.fx ? 'create-from' : 'create-new'}">${r.fx ? 'Create FX from this' : 'Give it an FX'}</button>
+        ${canRemove ? `<button type="button" class="quiet" data-act="remove">${underneath || s.pointer ? 'Back to the FX it had' : 'Remove this FX'}</button>` : ''}
+        <span class="spacer"></span><button type="button" class="quiet" data-act="close-card" aria-label="close">Close ✕</button>
       </div>`;
   }
 
-  /** the looks and starters that match a few letters, for a Start-from box */
+  /** the FX and starters that match a few letters, for a Start-from box */
   likeHits(q) {
     const a = api();
     const needle = q.trim().toLowerCase();
     const starters = [...a.index.starters.values()].map((st) => ({ id: st.id, words: `${idWords(st.id)} — ${st.note ?? ''}`, tag: 'starter' }));
-    const looks = a.looks.list().filter((e) => !e.look.off).map((e) => ({ id: e.look.id, words: idWords(e.look.id), tag: SOURCE_TAG[e.source], keys: (e.look.for ?? []).map(keyWords).join(', ') }));
-    if (!needle) return [...starters, ...looks.slice(0, 12)];
-    return [...starters, ...looks].filter((h) => h.words.toLowerCase().includes(needle) || (h.keys ?? '').toLowerCase().includes(needle)).slice(0, 12);
+    const fx = a.fx.list().filter((e) => !e.fx.off).map((e) => ({ id: e.fx.id, words: idWords(e.fx.id), tag: SOURCE_TAG[e.source], keys: (e.fx.for ?? []).map(keyWords).join(', ') }));
+    if (!needle) return [...starters, ...fx.slice(0, 12)];
+    return [...starters, ...fx].filter((h) => h.words.toLowerCase().includes(needle) || (h.keys ?? '').toLowerCase().includes(needle)).slice(0, 12);
   }
 
-  // ---- Custom looks ---------------------------------------------------------------------------
+  // ---- Custom ---------------------------------------------------------------------------------
   renderCustom() {
     const a = api();
-    const q = this.view.customQuery.trim().toLowerCase();
-    const list = a.looks.list().filter((e) => e.source !== 'baseline');
+    const V = this.view;
+    V.customKind ??= 'ability';
+    const q = V.customQuery.trim().toLowerCase();
+    const list = a.fx.list().filter((e) => e.source !== 'baseline');
     // written here first, newest first: by date, then by the order they were written (the buffer appends)
-    const order = new Map(a.looks.buffer().map((l, i) => [l.id, i]));
-    list.sort((x, y) => (x.source === 'world' ? 0 : 1) - (y.source === 'world' ? 0 : 1) || String(y.original.at ?? '').localeCompare(String(x.original.at ?? '')) || (order.get(y.look.id) ?? -1) - (order.get(x.look.id) ?? -1));
+    const order = new Map(a.fx.buffer().map((l, i) => [l.id, i]));
+    list.sort((x, y) => (x.source === 'world' ? 0 : 1) - (y.source === 'world' ? 0 : 1) || String(y.original.at ?? '').localeCompare(String(x.original.at ?? '')) || (order.get(y.fx.id) ?? -1) - (order.get(x.fx.id) ?? -1));
     const rows = list.map((e) => {
-      const name = e.look.for?.[0] ? idWords(parseKey(e.look.for[0])?.id) : undefined;
-      const sentence = a.looks.sentence(e.original, { name });
-      const keys = (e.look.for ?? []).map(keyWords).join(', ');
-      return { e, sentence, keys, text: `${e.look.id} ${keys} ${sentence} ${e.original.by ?? ''}`.toLowerCase() };
-    }).filter((r) => !q || r.text.includes(q));
-    const tagOf = (e) => (e.source !== 'world' ? '<span class="tag">house corpus</span>' : e.original.to ? `<span class="tag bound">bound for ${esc(a.corpus.words[e.original.to])}</span>` : '<span class="tag yours">draft in this world</span>');
-    const body = rows.slice(0, 300).map(({ e, sentence, keys }) => `<div class="row">
-        <span class="n">${esc(idWords(e.look.id))}${keys ? ` <span class="note">· ${esc(keys)}</span>` : ' <span class="note">· one item’s own look</span>'}</span>
-        <span class="b">${tagOf(e)}<button type="button" class="quiet" data-act="edit-look" data-id="${esc(e.look.id)}">Edit</button>${e.source === 'world' ? `<button type="button" class="quiet" data-act="remove-look" data-id="${esc(e.look.id)}">Remove</button>` : ''}</span>
-        <span class="s">${esc(sentence)}${e.original.by || e.original.note ? ` <span class="note">— ${esc(provenance(e.original))}</span>` : ''}</span></div>`).join('');
-    const { drafts, bound } = a.corpus.pending();
-    const note = drafts.length + bound.length
-      ? `${drafts.length + bound.length} look${drafts.length + bound.length === 1 ? '' : 's'} written in this world${bound.length ? `, ${bound.length} bound for a corpus and waiting on the Corpus tab to ship` : ''}.`
-      : 'Nothing is written in this world beyond what the corpus holds. Create a look to add one.';
+      const key = e.fx.for?.[0] ?? null;
+      const keys = (e.fx.for ?? []).map(keyWords).join(', ');
+      const owner = key ? null : this.ownerOfFx(e.fx.id);
+      const title = key ? idWords(parseKey(key)?.id) : owner ? owner.item : idWords(e.fx.id);
+      const scope = key ? `for any ${keys}` : owner ? `${owner.actor}’s ${owner.item}` : 'not on any sheet here';
+      return { e, title, scope, item: !key, text: `${e.fx.id} ${title} ${scope} ${e.original.by ?? ''}`.toLowerCase() };
+    });
+    const ability = rows.filter((r) => !r.item);
+    const item = rows.filter((r) => r.item);
+    const shown = (V.customKind === 'item' ? item : ability).filter((r) => !q || r.text.includes(q));
+    const tagOf = (r) => (r.e.fx.off ? '<span class="tag">switched off</span>' : r.e.source === 'world' ? '<span class="tag yours">not in the module yet</span>' : '');
+    const row = (r) => `<div class="row line"><span class="n"><button type="button" class="link" data-act="open-fx" data-id="${esc(r.e.fx.id)}">${esc(r.title)}</button> <span class="note">· ${esc(r.scope)}</span></span><span class="b">${tagOf(r)}<button type="button" class="quiet" data-act="edit-fx" data-id="${esc(r.e.fx.id)}">Edit</button><button type="button" class="quiet" data-act="export-fx" data-id="${esc(r.e.fx.id)}">Export</button><button type="button" class="quiet" data-act="delete-fx" data-id="${esc(r.e.fx.id)}">Delete</button></span></div>`;
+    const sub = (kind, label, n) => `<button type="button" role="tab" class="pill" aria-pressed="${V.customKind === kind}" data-act="custom-kind" data-kind="${kind}">${label} · ${n}</button>`;
     return `<div class="stack">
-      <input type="search" class="fx-cq" placeholder="Search custom looks…" aria-label="Search custom looks" value="${esc(this.view.customQuery)}">
-      <p class="note">${esc(note)}</p>
-      <div class="card list"><div class="sub">${rows.length} custom look${rows.length === 1 ? '' : 's'}${q ? ' matching' : ''} · written here first, newest first</div>${body || '<p class="note">No custom looks yet. Create one.</p>'}${rows.length > 300 ? '<p class="note">Showing 300. Search to narrow.</p>' : ''}</div>
+      <div class="search"><input type="search" class="fx-cq" placeholder="Search custom FX…" aria-label="Search custom FX" value="${esc(V.customQuery)}"></div>
+      <div class="actions"><div class="pills subtabs" role="tablist">${sub('ability', 'For an ability', ability.length)}${sub('item', 'Attached to an item', item.length)}</div><span class="spacer"></span><button type="button" data-act="import-fx" data-to="">Import a file…</button></div>
+      <div class="card list lines">${V.customKind === 'item' ? '<p class="note warn">Each of these is attached to an item in this world. It plays for that item only, and may not work in another world or in a main corpus.</p>' : '<p class="note">Each plays for every item that is that ability, on any sheet. Click a name to read it.</p>'}${shown.slice(0, 500).map(row).join('') || `<p class="note">${q ? 'Nothing matches.' : 'None yet. Create FX to add one, or import a file.'}</p>`}${shown.length > 500 ? '<p class="note">Showing 500. Search to narrow.</p>' : ''}</div>
     </div>`;
   }
 
+  /** one FX as a file on the local machine, in the recipe files' own shape */
+  exportFx(id) {
+    const a = api();
+    const e = a.fx.get(id);
+    if (!e) return this.toast('Nothing to export.');
+    const item = !(e.fx.for?.length);
+    const meta = { schema: 2, exported: new Date().toISOString().slice(0, 10), by: game.user.name, from: MODULE_ID, ...(item ? { warning: 'This FX is attached to one item in the world it came from. It plays for nothing until an item points at it, and may not work in another world or in a main corpus.' } : {}) };
+    const text = JSON.stringify({ _meta: meta, fx: [e.original] }, null, 1);
+    foundry.utils.saveDataToFile(text, 'application/json', `fx-${id}.json`);
+    return this.toast(`Exported ${idWords(id)}${item ? ' — attached to one item; it may not work elsewhere' : ''}.`);
+  }
+
+  /** a file of FX read from the local machine into this world, or bound for the main corpus */
+  async importFx(to) {
+    const a = api();
+    const file = await foundry.applications.api.DialogV2.prompt({
+      window: { title: to === 'baseline' ? 'Import into the main corpus' : 'Import custom FX' },
+      content: '<input type="file" name="file" accept=".json,application/json">',
+      ok: { label: 'Import', callback: (ev, button) => button.form.elements.file?.files?.[0] ?? null },
+      rejectClose: false, modal: true,
+    });
+    if (!file) return undefined;
+    let j;
+    try { j = JSON.parse(await foundry.utils.readTextFromFile(file)); } catch (e) { return this.toast(`Not a file of FX: ${e.message}`); }
+    const list = Array.isArray(j) ? j : Array.isArray(j.fx) ? j.fx : j.id ? [j] : [];
+    if (!list.length) return this.toast('No FX in that file.');
+    let saved = 0, items = 0;
+    const problems = [];
+    for (const fx of list) {
+      const r = await a.fx.save(fx, { by: fx.by ?? game.user.name, to: to === 'baseline' ? 'baseline' : undefined });
+      if (!r.ok) { problems.push(`${fx.id ?? '?'}: ${r.problems.join('; ')}`); continue; }
+      saved++;
+      if (!(fx.for?.length)) items++;
+    }
+    this.refresh();
+    await this.render();
+    const where = to === 'baseline' ? 'bound for the main corpus' : 'in this world';
+    return this.toast(`${saved} FX imported, ${where}${items ? `. ${items} attached to an item: nothing plays them until an item here points at them` : ''}${problems.length ? `. Not taken: ${problems.join(' · ')}` : ''}.`);
+  }
+
+  /** delete an FX for good: out of this world and out of the module's corpus files */
+  async deleteFx(id) {
+    const a = api();
+    const e = a.fx.get(id);
+    if (!e) return undefined;
+    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: `Delete ${idWords(id)}?` }, content: `<p>${e.source === 'world' ? 'It was written in this world.' : 'It is in the module’s corpus files on this server; they are rewritten without it.'} Once deleted it is gone.</p>`, rejectClose: false, modal: true });
+    if (!ok) return undefined;
+    let r;
+    try { r = await a.corpus.erase(id); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
+    this.refresh();
+    if (this.view.subject && this.answer()?.original?.id === id) this.view.subject = { ...this.view.subject };
+    await this.render();
+    return this.toast(`${idWords(id)} deleted${r.written.length ? ` from ${r.written.map((f) => f.split('/').pop()).join(', ')}` : ''}.`);
+  }
+
   // ---- Check ----------------------------------------------------------------------------------
+  /** every Item compendium in the world, grouped by the package that ships it */
+  bookShelf() {
+    const groups = new Map();
+    for (const p of game.packs) {
+      if (p.documentName !== 'Item') continue;
+      const m = p.metadata;
+      const pkg = m.packageType === 'world' ? 'This world' : m.packageType === 'system' ? (game.system.title ?? m.packageName) : (game.modules.get(m.packageName)?.title ?? m.packageName);
+      (groups.get(pkg) ?? groups.set(pkg, []).get(pkg)).push({ id: p.collection, name: m.label ?? p.collection, size: p.index.size });
+    }
+    return [...groups.entries()].map(([pkg, books]) => ({ pkg, books: books.sort((x, y) => x.name.localeCompare(y.name)) })).sort((x, y) => x.pkg.localeCompare(y.pkg));
+  }
+
   renderCheck() {
     const a = api();
-    const rows = this.sheetRows();
-    let imported = 0, custom = 0, none = 0, off = 0;
-    const gaps = [];
-    for (const r of rows) {
-      for (const it of r.items) {
-        const st = statusOf(it);
-        if (st === 'baseline') imported++; else if (st === 'custom') custom++; else if (st === 'off') off++; else { none++; gaps.push({ ...it, owner: r.name }); }
-      }
-    }
-    const { drafts, bound } = a.corpus.pending();
+    const V = this.view;
     const problems = a.index.problems ?? [];
-    const tiles = [['good', imported, 'abilities on the sheets play an imported look'], ['', custom, 'have a custom look'], [none ? 'warn' : 'good', none, 'play nothing yet'], ['', off, 'switched off on purpose'], [problems.length ? 'bad' : '', problems.length, 'looks that do not read'], [bound.length ? 'warn' : '', drafts.length + bound.length, `written in this world${bound.length ? ` · ${bound.length} not yet shipped` : ''}`]];
-    const byOwner = new Map();
-    for (const g of gaps) (byOwner.get(g.owner) ?? byOwner.set(g.owner, []).get(g.owner)).push(g);
-    const gapsHtml = [...byOwner.entries()].map(([owner, list]) => `<div class="sub">${esc(owner)} · ${list.length}</div><div class="abilities">${list.map((g) => `<button type="button" class="pill" data-act="entry" data-uuid="${esc(g.uuid)}" data-create="1">${dot('none')}${esc(g.name)}</button>`).join('')}</div>`).join('');
-    const recent = a.ledger.slice(0, 15).map((e) => `<div class="row"><span class="n">${esc(e.subject ?? '?')} <span class="note">· ${esc(e.when)}</span></span><span class="b"><span class="tag">${e.look ? esc(idWords(e.look)) : 'nothing'}</span></span><span class="s">${e.look ? esc(`${e.played ? 'played' : 'built, not played'} · ${SOURCE_TAG[e.source] ?? e.source}`) : esc(e.why ?? '')}${e.missing?.length ? ` <span class="bad">· missing: ${esc(e.missing.join('; '))}</span>` : ''}</span></div>`).join('');
-    const books = this.view.books;
+    const shelf = this.bookShelf().map(({ pkg, books }) => `<div class="sub">${esc(pkg)}</div><div class="pills">${books.map((b) => `<button type="button" class="pill" aria-pressed="${V.chosenBooks.has(b.id)}" data-act="book" data-book="${esc(b.id)}">${esc(b.name)} <span class="note">${b.size}</span></button>`).join('')}</div>`).join('');
+    const n = V.chosenBooks.size;
+    const books = V.books;
+    const tiles = books ? (() => { const asked = books.reduce((t, b) => t + b.asked, 0); const answered = books.reduce((t, b) => t + b.answered, 0); return [['', asked, 'abilities read'], ['good', answered, 'play an FX'], [asked - answered ? 'warn' : 'good', asked - answered, 'play nothing yet']]; })() : [];
     return `<div class="stack">
-      <div class="tiles">${tiles.map(([c, n, l]) => `<div class="tile ${c}"><div class="num">${n}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
-      <div class="card"><div class="sub">Nothing plays yet${this.view.everyActor ? ' · every actor' : ' · the party'}</div>
-        ${gaps.length ? `<p class="note">Click one to give it a look, or leave it silent on purpose.</p>${gapsHtml}` : '<p class="note">Every ability on these sheets plays something.</p>'}
-        <p class="note"><button type="button" class="quiet" data-act="every-actor">${this.view.everyActor ? 'Show the party only' : 'Show every actor'}</button></p></div>
-      ${problems.length ? `<div class="card"><div class="sub">Looks that do not read</div>${problems.map((p) => `<p class="bad">${esc(p)}</p>`).join('')}</div>` : ''}
-      <div class="card"><div class="sub">The books</div>${books ? this.renderBooks(books) : '<p class="note">See how much of the Player’s Handbook plays. It reads every spell, feat and piece of equipment in the book once, which takes a few seconds.</p><button type="button" data-act="books">Check the books</button>'}</div>
-      <div class="card list"><div class="sub">What played last</div>${recent || '<p class="note">Nothing has played since the world loaded.</p>'}</div>
+      <div class="card"><div class="sub">Compendiums</div>
+        <p class="note">Pick the compendiums to check, by source. Every spell, feat and piece of equipment in them is read once and asked what it plays, which takes a few seconds each.</p>
+        ${shelf || '<p class="note">No item compendiums in this world.</p>'}
+        <p class="note"><button type="button" data-act="books" ${n && !V.reading ? '' : 'disabled'}>${V.reading ? 'Reading…' : n ? `Check ${n} compendium${n === 1 ? '' : 's'}` : 'Pick a compendium first'}</button></p></div>
+      ${books ? `<div class="tiles">${tiles.map(([c, k, l]) => `<div class="tile ${c}"><div class="num">${k}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
+      <div class="card"><div class="sub">What plays nothing yet</div><p class="note">Click one to give it an FX, or leave it silent on purpose.</p>${this.renderBooks(books)}</div>` : ''}
+      ${problems.length ? `<div class="card"><div class="sub">Fx that do not read</div>${problems.map((p) => `<p class="bad">${esc(p)}</p>`).join('')}</div>` : ''}
     </div>`;
   }
 
@@ -300,11 +366,11 @@ export class Studio extends ApplicationV2 {
 
   async checkBooks() {
     const a = api();
-    const packs = game.packs.filter((p) => p.documentName === 'Item' && /^dnd-players-handbook\.(spells|feats|equipment)/.test(p.collection));
+    const packs = [...this.view.chosenBooks].map((id) => game.packs.get(id)).filter((p) => p?.documentName === 'Item');
     const out = [];
     for (const p of packs) {
       const docs = await p.getDocuments();
-      const row = { name: p.title ?? p.collection, asked: 0, answered: 0, nothing: [] };
+      const row = { name: p.metadata.label ?? p.collection, asked: 0, answered: 0, nothing: [] };
       for (const d of docs) {
         if (!['spell', 'feat', 'weapon', 'consumable', 'equipment', 'tool'].includes(d.type)) continue;
         const acts = d.system?.activities?.contents ?? [];
@@ -312,7 +378,7 @@ export class Studio extends ApplicationV2 {
         const hasPlace = acts.some((x) => x?.target?.template?.type);
         const r = a.resolve(a.subjects.ofItem(d, { activity: acts[0] ?? null }), 'use', { hasPlace });
         row.asked++;
-        if (r.look) row.answered++;
+        if (r.fx) row.answered++;
         else row.nothing.push({ name: d.name, key: r.subject?.keys?.find((k) => !k.includes('/')) ?? r.subject?.keys?.[0] });
       }
       out.push(row);
@@ -329,11 +395,11 @@ export class Studio extends ApplicationV2 {
     const act = b.dataset.act;
     if (act.startsWith('cw-')) return onCreateClick(this, b, act);
     if (act.startsWith('co-')) return onCorpusClick(this, b, act);
+    if (act.startsWith('lib-')) return onLibraryClick(this, b, act);
     const S = this.view;
     switch (act) {
       case 'tab': S.tab = b.dataset.tab; return this.render();
-      case 'sheet': S.sheet = S.sheet === b.dataset.sheet ? null : b.dataset.sheet; return this.render();
-      case 'every-actor': S.everyActor = !S.everyActor; return this.render();
+      case 'book': { const id = b.dataset.book; if (S.chosenBooks.has(id)) S.chosenBooks.delete(id); else S.chosenBooks.add(id); return this.render(); }
       case 'entry': { const item = fromUuidSync(b.dataset.uuid); if (!item) return undefined; if (b.dataset.create) startWalk(this, { subject: this.subjectFromItem(item) }); else this.showItem(item); return this.render(); }
       case 'effect': { const row = this.census.actors.find((r) => r.name === b.dataset.actor); const ef = row?.effects[Number(b.dataset.i)]; if (!ef) return undefined; this.showEntry({ name: ef.name, keys: ef.keys, owner: row.name, on: 'effect' }); return this.render(); }
       case 'key': startWalk(this, { subject: this.subjectForKey(b.dataset.key) }); return this.render();
@@ -342,12 +408,16 @@ export class Studio extends ApplicationV2 {
       case 'new-kind': this.showNew(S.subject.name, b.dataset.kind); return this.render();
       case 'create-new': startWalk(this, { subject: S.subject }); return this.render();
       case 'create-from': { const r = this.answer(); startWalk(this, { subject: S.subject, from: r?.original?.id ?? null }); return this.render(); }
-      case 'preview': return this.preview(this.answer()?.original, S.subject);
-      case 'silence': return this.silence();
+      case 'close-card': S.subject = null; return this.render().then(() => this.element.querySelector('.fx-q')?.focus());
       case 'remove': return this.removeCurrent();
-      case 'edit-look': startWalk(this, { lookId: b.dataset.id }); return this.render();
-      case 'remove-look': return this.removeLook(b.dataset.id);
-      case 'books': b.disabled = true; b.textContent = 'Reading the books…'; await this.checkBooks(); return this.render();
+      case 'edit-fx': startWalk(this, { fxId: b.dataset.id }); return this.render();
+      case 'remove-fx': return this.removeFx(b.dataset.id);
+      case 'delete-fx': return this.deleteFx(b.dataset.id);
+      case 'export-fx': return this.exportFx(b.dataset.id);
+      case 'custom-kind': S.customKind = b.dataset.kind; return this.render();
+      case 'open-fx': this.showFx(b.dataset.id); return this.render();
+      case 'import-fx': return this.importFx(b.dataset.to || null);
+      case 'books': S.reading = true; await this.render(); try { await this.checkBooks(); } finally { S.reading = false; } return this.render();
       default: return undefined;
     }
   }
@@ -356,7 +426,12 @@ export class Studio extends ApplicationV2 {
     const el = ev.target;
     if (el.className.includes('cw-')) return onCreateInput(this, el);
     if (el.className.includes('co-')) return onCorpusInput(this, el);
-    if (el.classList.contains('fx-q')) return this.suggest(el);
+    if (el.classList.contains('lib-q')) return onLibraryInput(this, el);
+    if (el.classList.contains('fx-q')) {
+      // the box emptied (the x, or backspaced clean): the result card goes with it
+      if (!el.value.trim() && this.view.subject) { this.view.subject = null; return this.render().then(() => this.element.querySelector('.fx-q')?.focus()); }
+      return this.suggest(el);
+    }
     if (el.classList.contains('fx-cq')) {
       this.view.customQuery = el.value;
       clearTimeout(this._cqTimer);
@@ -376,6 +451,7 @@ export class Studio extends ApplicationV2 {
     const el = ev.target;
     if (el.className.includes('cw-')) return onCreateChange(this, el);
     if (el.className.includes('co-')) return onCorpusChange(this, el);
+    if (el.className.includes('lib-')) return onLibraryChange(this, el);
     return undefined;
   }
 
@@ -395,14 +471,24 @@ export class Studio extends ApplicationV2 {
     }
   }
 
+  /** one row per ability: the corpus first (main, then this table's), then what sits on a sheet with no FX yet */
   searchHits(q) {
     const needle = q.trim().toLowerCase();
     if (!needle) return [];
     const out = [];
     this.entries.forEach((e, i) => { if (e.name.toLowerCase().includes(needle)) out.push({ e, i }); });
-    out.sort((x, y) => (x.e.owner ? 0 : 1) - (y.e.owner ? 0 : 1) || (x.e.actorType === 'character' ? 0 : 1) - (y.e.actorType === 'character' ? 0 : 1) || x.e.name.localeCompare(y.e.name));
+    const rank = (e) => (e.status === 'baseline' ? 0 : e.status === 'custom' ? 1 : e.status === 'off' ? 2 : 3);
+    out.sort((x, y) => rank(x.e) - rank(y.e) || x.e.name.localeCompare(y.e.name) || (x.e.actorType === 'character' ? 0 : 1) - (y.e.actorType === 'character' ? 0 : 1));
     const seen = new Set();
-    return out.filter(({ e }) => { const k = `${e.name}|${e.owner ?? ''}`; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 12);
+    return out.filter(({ e }) => { const k = `${e.keys.join('|')}|${e.status}`; if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 12);
+  }
+
+  /** the right-hand word on a suggestion: where the FX comes from, or whose sheet it waits on */
+  hitWhere(e) {
+    if (e.status === 'baseline') return 'corpus';
+    if (e.status === 'custom') return 'custom';
+    if (e.status === 'off') return 'switched off';
+    return e.owner ? `${e.owner} · nothing yet` : 'nothing yet';
   }
 
   suggest(input) {
@@ -410,77 +496,38 @@ export class Studio extends ApplicationV2 {
     const q = input.value.trim();
     if (!q) { box.dataset.open = 'false'; return; }
     const hits = this.searchHits(q);
-    box.innerHTML = hits.map(({ e, i }) => `<div class="hit" data-act="hit" data-i="${i}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(e.owner ?? 'in the corpus')}</span></div>`).join('')
-      + `<div class="hit" data-act="new" data-name="${esc(q)}"><span class="o">${hits.length ? 'Not one of these? ' : 'Nothing called that on a sheet. '}Give a new ability called “${esc(q)}” a look.</span></div>`;
+    box.innerHTML = hits.map(({ e, i }) => `<div class="hit" data-act="hit" data-i="${i}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(this.hitWhere(e))}</span></div>`).join('')
+      + `<div class="hit" data-act="new" data-name="${esc(q)}"><span class="o">${hits.length ? 'Not one of these? ' : 'Nothing called that on a sheet. '}Give a new ability called “${esc(q)}” an FX.</span></div>`;
     box.dataset.open = 'true';
   }
 
   // -------------------------------------------------------------------------------------------
-  // doing things: preview, silence, remove (saving is the walk's, ui/create.js)
+  // doing things: remove (saving is the walk's, ui/create.js)
   // -------------------------------------------------------------------------------------------
-  /** the token the picture plays from: the selected token, else the owner's token on this scene */
-  sourceToken(subject) {
-    const controlled = canvas.tokens?.controlled?.[0];
-    if (controlled) return controlled;
-    const actor = subject?.actor ?? (subject?.owner ? game.actors.getName(subject.owner) : null);
-    return actor?.getActiveTokens?.()[0] ?? null;
-  }
-
-  async preview(look, subject = this.view.subject) {
-    if (!look) return this.toast('Nothing to preview.');
-    const a = api();
-    const source = this.sourceToken(subject);
-    if (!source) return this.toast('Select a token on the map first (the picture plays from it).');
-    const targets = Array.from(game.user.targets);
-    const place = subject?.hasPlace ? (canvas.scene?.regions?.contents?.slice(-1)[0] ?? null) : null;
-    const r = await a.preview(look, { source, targets, place, on: subject?.on ?? null });
-    if (!r.ok) return this.toast(r.problems.join(' '));
-    if (r.entry?.played) return this.toast(`Playing on ${source.name}${targets.length ? ` at ${targets.map((t) => t.name).join(', ')}` : ''}.`);
-    if (/destination/.test(r.entry?.why ?? '')) return this.toast('Click the spot on the map it should go to.');
-    if (subject?.hasPlace && !place) return this.toast('This look plays on a placed template: place one on the map, then preview.');
-    return this.toast(r.entry?.why ? `Nothing played: ${r.entry.why}` : 'Nothing played.');
-  }
-
-  async silence() {
-    const a = api();
-    const s = this.view.subject;
-    const key = s.keys.find((k) => !k.includes('/')) ?? s.keys[0];
-    const p = parseKey(key);
-    const id = p?.id ?? slug(s.name);
-    const existing = a.looks.get(id);
-    const taken = existing && !(existing.original?.for ?? []).includes(key);
-    const look = { id: taken ? `${p?.kind ?? 'look'}-${id}` : id, for: existing && !taken ? [...new Set([...(existing.original?.for ?? []), key])] : [key], off: true, note: `switched off for ${s.name}` };
-    const r = await a.looks.save(look, { by: game.user.name });
-    if (!r.ok) return this.toast(r.problems.join(' '));
-    this.refresh();
-    await this.render();
-    return this.toast(`${s.name} now plays nothing.`);
-  }
-
   async removeCurrent() {
     const a = api();
     const s = this.view.subject;
     const r = this.answer();
-    const id = r?.original?.id ?? (r?.off ? a.looks.buffer().find((l) => l.off && (l.for ?? []).some((k) => s.keys.includes(k)))?.id : null);
+    const id = r?.original?.id ?? (r?.off ? a.fx.buffer().find((l) => l.off && (l.for ?? []).some((k) => s.keys.includes(k)))?.id : null);
     const item = s.uuid ? fromUuidSync(s.uuid) : null;
-    if (item && s.pointer) await item.unsetFlag(MODULE_ID, 'look');
-    if (id && a.looks.get(id)?.source === 'world') await a.looks.remove(id);
+    if (item && s.pointer) await item.unsetFlag(MODULE_ID, 'fx');
+    if (id && a.fx.get(id)?.source === 'world') await a.fx.remove(id);
     this.refresh();
     if (item) this.showItem(item);
     await this.render();
-    return this.toast(`${s.name} is back to the look it had.`);
+    return this.toast(`${s.name} is back to the FX it had.`);
   }
 
-  async removeLook(id) {
+  async removeFx(id) {
     const a = api();
-    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: 'Remove this look?' }, content: `<p>${esc(idWords(id))} goes back to the look it had before it was written here, or to nothing.</p>`, rejectClose: false });
+    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: 'Remove this FX?' }, content: `<p>${esc(idWords(id))} goes back to the FX it had before it was written here, or to nothing.</p>`, rejectClose: false });
     if (!ok) return undefined;
-    await a.looks.remove(id);
+    await a.fx.remove(id);
     this.refresh();
     await this.render();
     return this.toast(`${idWords(id)} removed.`);
   }
 }
 
-// an open window follows the corpus: a look saved through the API from elsewhere (a macro, an assistant) shows at once
+// an open window follows the corpus: an FX saved through the API from elsewhere (a macro, an assistant) shows at once
 Hooks.on('fxstudio.rebuilt', () => { const app = Studio.current; if (app?.rendered) { app.refresh(); app.render(); } });

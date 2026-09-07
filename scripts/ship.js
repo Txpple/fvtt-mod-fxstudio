@@ -1,12 +1,12 @@
-// Shipping the corpus from the game (DESIGN §8, ruled 2026-09-06). A look written in this world is
-// a draft until it is bound for a corpus (`to: house | baseline`, core/looks.js). Ship folds every
-// bound look into its corpus file inside the module's own folder on the server (Foundry lets a GM
+// Shipping the corpus from the game (DESIGN §8, ruled 2026-09-06). An FX written in this world is
+// a draft until it is bound for a corpus (`to: house | baseline`, core/fx.js). Ship folds every
+// bound FX into its corpus file inside the module's own folder on the server (Foundry lets a GM
 // upload files), adds a line with the version to the shipping record (recipes/shipped.json) and
-// takes the shipped looks out of the world buffer: from then on they
-// come from the corpus like every other look. The repo pulls those files back with
+// takes the shipped fx out of the world buffer: from then on they
+// come from the corpus like every other fx. The repo pulls those files back with
 // tools/pull-corpus.mjs; git, the tag and the release stay there. Nothing here is a rule about
-// looks: it moves files and keeps the record.
-import { MODULE_ID, getWorldLooks, setWorldLooks } from './settings.js';
+// fx: it moves files and keeps the record.
+import { MODULE_ID, getWorldFx, setWorldFx } from './settings.js';
 import { parseKey } from './core/subjects.js';
 
 /** the baseline file a key's kind belongs in */
@@ -37,33 +37,58 @@ export async function writeModuleFile(path, data) {
   return r.path;
 }
 
-/** the corpus file a look bound for the baseline belongs in, by the kind of its first key; null when it has none */
-export function baselineFile(look) {
-  const kind = parseKey(look?.for?.[0] ?? '')?.kind;
+/** the corpus file an FX bound for the baseline belongs in, by the kind of its first key; null when it has none */
+export function baselineFile(fx) {
+  const kind = parseKey(fx?.for?.[0] ?? '')?.kind;
   const f = KIND_FILES[kind];
   return f ? `recipes/baseline/${f}.json` : null;
 }
-export const fileFor = (look) => (look.to === 'baseline' ? baselineFile(look) : look.to === 'house' ? HOUSE_FILE : null);
+export const fileFor = (fx) => (fx.to === 'baseline' ? baselineFile(fx) : fx.to === 'house' ? HOUSE_FILE : null);
 
-/** what is written in this world: the drafts, and the looks bound for a corpus with the file each goes to */
+/**
+ * Erase an FX for good: out of the world buffer, and out of every corpus file in the module that
+ * holds its id (the house file, the baseline file of its kind). Nothing marks the place: once
+ * something is deleted it is gone (the user, 2026-09-06). Returns the files rewritten.
+ */
+export async function erase(id, { corpora = null } = {}) {
+  const files = new Set();
+  if (corpora?.house?.some((l) => l.id === id)) files.add(HOUSE_FILE);
+  for (const l of corpora?.baseline ?? []) if (l.id === id) { const f = baselineFile(l); if (f) files.add(f); }
+  const written = [];
+  for (const file of files) {
+    const json = await readModuleFile(file);
+    const before = (json.fx ?? []).length;
+    json.fx = (json.fx ?? []).filter((l) => l.id !== id);
+    if (json.fx.length === before) continue;
+    json._meta = { ...(json._meta ?? {}), fx: json.fx.length, erased: today() };
+    await writeModuleFile(file, json);
+    written.push(file);
+  }
+  const buffer = getWorldFx();
+  const inBuffer = buffer.some((l) => l.id === id);
+  if (inBuffer) await setWorldFx(buffer.filter((l) => l.id !== id));
+  return { ok: written.length > 0 || inBuffer, written, fromBuffer: inBuffer };
+}
+
+/** what is written in this world: the drafts, and the FX bound for a corpus with the file each goes to */
 export function pending() {
-  const buffer = getWorldLooks();
+  const buffer = getWorldFx();
   return {
     drafts: buffer.filter((l) => !l.to),
-    bound: buffer.filter((l) => l.to).map((l) => ({ look: l, to: l.to, file: fileFor(l) })),
+    bound: buffer.filter((l) => l.to).map((l) => ({ fx: l, to: l.to, file: fileFor(l) })),
   };
 }
 
 /** bind a draft for a corpus (`to`), or make it a draft again (`to` empty) */
 export async function stage(id, to) {
-  const buffer = getWorldLooks();
-  const look = buffer.find((l) => l.id === id);
-  if (!look) return { ok: false, problems: [`no look "${id}" is written in this world`] };
+  const buffer = getWorldFx();
+  const fx = buffer.find((l) => l.id === id);
+  if (!fx) return { ok: false, problems: [`no FX "${id}" is written in this world`] };
   if (to && !TO_WORDS[to]) return { ok: false, problems: [`"${to}" is not a corpus (house or baseline)`] };
-  if (to === 'baseline' && !baselineFile(look)) return { ok: false, problems: ['a look with no ability of its own belongs in the house corpus'] };
-  if (to) look.to = to; else delete look.to;
-  await setWorldLooks(buffer);
-  return { ok: true, look };
+  if (to === 'baseline' && !baselineFile(fx)) return { ok: false, problems: ['an FX with no ability of its own belongs in the house corpus'] };
+  if (to) fx.to = to; else delete fx.to;
+  await setWorldFx(buffer);
+  return { ok: true, fx };
 }
 
 /** the version numbers a ship can stamp next: a fix (patch) or something people will notice (minor) */
@@ -73,31 +98,31 @@ export function nextVersions(current) {
 }
 
 /**
- * Ship: every bound look into its corpus file, the version stamped, the record kept, the buffer
- * relieved of what shipped. Returns {ok, version, previous, written: [{file, looks}], record}.
+ * Ship: every bound FX into its corpus file, the version stamped, the record kept, the buffer
+ * relieved of what shipped. Returns {ok, version, previous, written: [{file, fx}], record}.
  */
 export async function ship({ version = null, note = '', by = null } = {}) {
   const { bound } = pending();
   if (!bound.length) return { ok: false, problems: ['nothing is bound for a corpus yet'] };
   const byFile = new Map();
-  for (const b of bound) (byFile.get(b.file) ?? byFile.set(b.file, []).get(b.file)).push(b.look);
+  for (const b of bound) (byFile.get(b.file) ?? byFile.set(b.file, []).get(b.file)).push(b.fx);
   const written = [];
-  for (const [file, looks] of byFile) {
+  for (const [file, fx] of byFile) {
     const json = await readModuleFile(file);
-    const ids = new Set(looks.map((l) => l.id));
-    const clean = looks.map(({ to, ...l }) => l);
-    json.looks = [...(json.looks ?? []).filter((l) => !ids.has(l.id)), ...clean];
-    json._meta = { ...(json._meta ?? {}), looks: json.looks.length, shipped: today(), ...(version ? { version } : {}) };
+    const ids = new Set(fx.map((l) => l.id));
+    const clean = fx.map(({ to, ...l }) => l);
+    json.fx = [...(json.fx ?? []).filter((l) => !ids.has(l.id)), ...clean];
+    json._meta = { ...(json._meta ?? {}), fx: json.fx.length, shipped: today(), ...(version ? { version } : {}) };
     await writeModuleFile(file, json);
-    written.push({ file, looks: looks.map((l) => l.id) });
+    written.push({ file, fx: fx.map((l) => l.id) });
   }
   // the version lives in the record, not in module.json: the running module's manifest is never
   // rewritten under it (Foundry refuses that upload anyway); tools/pull-corpus.mjs stamps the repo's
   const record = await readModuleFile(RECORD_FILE).catch(() => ({ shipped: [] }));
   const previous = record.shipped?.[0]?.version ?? game.modules.get(MODULE_ID)?.version ?? '0.0.0';
-  const entry = { version: version ?? previous, at: today(), by, note, looks: bound.map((b) => ({ id: b.look.id, to: b.to })) };
+  const entry = { version: version ?? previous, at: today(), by, note, fx: bound.map((b) => ({ id: b.fx.id, to: b.to })) };
   record.shipped = [entry, ...(record.shipped ?? [])];
   await writeModuleFile(RECORD_FILE, record);
-  await setWorldLooks(getWorldLooks().filter((l) => !l.to));
+  await setWorldFx(getWorldFx().filter((l) => !l.to));
   return { ok: true, version: entry.version, previous, written, record: entry };
 }

@@ -11,7 +11,7 @@ export function build(seq, scene0, ctx) {
   const s = full(scene0);
   const { moment } = ctx;
   const source = moment.source;
-  const targets = spotsFor(s.to, moment, { lookName: ctx.look.id });
+  const targets = spotsFor(s.to, moment, { fxName: ctx.fx.id });
   if (!source || !targets.length) return;
   const size = (source.w / canvas.grid.size) * s.size.tokenWidths;
   const reachBonus = moment.subject?.reach ? 1 : 0;

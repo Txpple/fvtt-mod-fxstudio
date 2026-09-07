@@ -1,7 +1,7 @@
 {
   "id": "fvtt-mod-fxstudio",
   "title": "FX Studio",
-  "description": "House visual and sound effects for dnd5e, played from what actually happened at the table. Keeps Sequencer as the engine and JB2A and PSFX as the libraries; carries the whole D&D5e Animations corpus over losslessly as its baseline, adds the user's own looks on top, and never guesses a look. No patching, no sockets, no libWrapper.",
+  "description": "House visual and sound effects for dnd5e, played from what actually happened at the table. Keeps Sequencer as the engine and JB2A and PSFX as the libraries; carries the whole D&D5e Animations corpus over losslessly as its baseline, adds the user's own FX on top, and never guesses an FX. No patching, no sockets, no libWrapper.",
   "version": "0.1.0",
   "authors": [
     {

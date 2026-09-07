@@ -129,3 +129,94 @@
 .fxstudio .flow .box { border: 1px solid var(--fx-line); border-radius: 10px; padding: 8px 10px; font-size: 13px; background: var(--fx-panel2); }
 .fxstudio .flow .box .l { color: var(--fx-muted); font-size: 11.5px; }
 .fxstudio .flow .arrow { color: var(--fx-faint); font-size: 16px; }
+/* the Library */
+.fxstudio .picking { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--fx-accent-soft); border: 1px solid var(--fx-accent); border-radius: 10px; padding: 8px 12px; margin-bottom: 12px; }
+.fxstudio .picking .spacer { flex: 1; }
+.fxstudio .picking b { font-weight: 600; }
+.fxstudio .lib { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 14px; align-items: start; }
+.fxstudio .lib > * { min-width: 0; }
+.fxstudio .lib .viewer { padding: 12px; }
+.fxstudio .shelf { display: grid; gap: 8px; }
+.fxstudio .shelf .switch { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--fx-line); border-radius: 8px; overflow: hidden; }
+.fxstudio .fx-wrap .shelf .switch button { border: 0; border-radius: 0; background: transparent; color: var(--fx-muted); padding: 7px 6px; font-size: 12.5px; }
+.fxstudio .shelf .switch button[aria-pressed="true"] { background: var(--fx-accent-soft); color: var(--fx-text); font-weight: 500; }
+.fxstudio .shelf .list { max-height: 420px; overflow: auto; border: 1px solid var(--fx-line); border-radius: 10px; background: var(--fx-panel); }
+.fxstudio .shelf .letter { position: sticky; top: 0; background: var(--fx-panel2); color: var(--fx-muted); font-size: 11.5px; letter-spacing: .08em; font-weight: 600; padding: 4px 12px; border-bottom: 1px solid var(--fx-line2); z-index: 1; }
+.fxstudio .fx-wrap .shelf .list button.row { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; border: 0; border-radius: 0; background: transparent; padding: 6px 12px; font-size: 13.5px; }
+.fxstudio .shelf .list button.row:hover { background: var(--fx-panel2); }
+.fxstudio .shelf .list button.row[aria-current="true"] { background: var(--fx-accent-soft); color: var(--fx-text); }
+.fxstudio .shelf .list .row .n { flex: 1; }
+.fxstudio .shelf .list .row .c { color: var(--fx-faint); font-size: 12px; font-variant-numeric: tabular-nums; }
+.fxstudio .shelf .count { color: var(--fx-muted); font-size: 12.5px; }
+.fxstudio .stage { background: #101218; color: #e8e4da; border-radius: 12px; position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; max-height: 280px; width: 100%; overflow: hidden; border: 1px solid #262a36; }
+.fxstudio .stage .stage-video { width: 100%; height: 100%; object-fit: contain; display: block; border: 0; }
+.fxstudio .stage .caption { position: absolute; left: 14px; bottom: 10px; text-shadow: 0 1px 3px rgba(0, 0, 0, .8); }
+.fxstudio .stage .name { font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+.fxstudio .stage .v { color: rgba(232, 228, 218, .7); font-size: 13px; }
+.fxstudio .stage .chip { position: absolute; top: 10px; right: 12px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: rgba(232, 228, 218, .7); border: 1px solid #262a36; border-radius: 999px; padding: 2px 8px; }
+.fxstudio .fx-wrap .stage button.arrow { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: 0; color: rgba(232, 228, 218, .65); font-size: 26px; padding: 8px 12px; line-height: 1; z-index: 1; }
+.fxstudio .fx-wrap .stage button.arrow:hover { color: #e8e4da; box-shadow: none; }
+.fxstudio .stage .arrow.l { left: 4px; } .fxstudio .stage .arrow.r { right: 4px; }
+.fxstudio .stage .frame { text-align: center; padding: 20px; }
+.fxstudio .stage .frame.sound { width: min(300px, 60%); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(224, 160, 74, .45), rgba(224, 160, 74, .1) 55%, transparent 72%); display: grid; place-items: center; align-content: center; }
+.fxstudio .fx-wrap .stage button.play { width: 60px; height: 60px; border-radius: 50%; background: var(--fx-accent); color: var(--fx-accent-ink); border: 0; font-size: 22px; display: grid; place-items: center; padding: 0; margin: 0 auto 6px; }
+.fxstudio .stepper { display: grid; grid-template-columns: auto 1fr auto; margin-top: 10px; border: 1px solid var(--fx-line); border-radius: 8px; overflow: hidden; }
+.fxstudio .fx-wrap .stepper button { border: 0; border-radius: 0; }
+.fxstudio .fx-wrap .stepper select { border: 0; border-radius: 0; border-left: 1px solid var(--fx-line); border-right: 1px solid var(--fx-line); text-align: center; }
+.fxstudio .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.fxstudio .path label { display: block; font-size: 12px; color: var(--fx-muted); margin-bottom: 4px; }
+.fxstudio .path .box { display: flex; align-items: center; gap: 8px; background: var(--fx-panel2); border: 1px solid var(--fx-line2); border-radius: 8px; padding: 6px 10px; }
+.fxstudio .path code { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--fx-text); }
+.fxstudio .path .box:hover code { overflow: auto; text-overflow: clip; }
+.fxstudio .fx-wrap .path .box button { padding: 3px 9px; font-size: 12px; }
+.fxstudio .lib-actions { margin-top: 12px; align-items: center; }
+.fxstudio .fx-wrap button.link { display: inline; background: none; border: 0; padding: 0; margin: 0; color: var(--fx-accent); cursor: pointer; font-size: inherit; line-height: inherit; width: auto; }
+.fxstudio .faint { color: var(--fx-faint); }
+.fxstudio .actions .spacer { flex: 1; }
+.fxstudio .note.warn { color: var(--fx-warn); }
+.fxstudio .legend { margin-top: 8px; padding: 8px 12px; background: var(--fx-panel2); border-radius: 8px; }
+.fxstudio .legend .row { display: grid; grid-template-columns: 90px 1fr; gap: 10px; padding: 4px 0; border: 0; font-size: 12.5px; }
+.fxstudio .legend .row .s { grid-column: auto; }
+.fxstudio .lib-actions .spacer { flex: 1; }
+.fxstudio .fx-wrap .scene .knobs button.browse { padding: 4px 8px; font-size: 12.5px; }
+@media (max-width: 720px) { .fxstudio .lib, .fxstudio .paths { grid-template-columns: 1fr; } }
+.fxstudio .paths > *, .fxstudio .path .box, .fxstudio .stepper > *, .fxstudio .lib .viewer > *, .fxstudio .lib-actions > * { min-width: 0; }
+.fxstudio .fx-wrap .stepper select { min-width: 0; text-overflow: ellipsis; }
+.fxstudio .lib-actions .note { min-width: 0; overflow-wrap: anywhere; }
+/* the shelf ends where the viewer ends: the viewer sets the row, the list fills the shelf and scrolls */
+.fxstudio .lib { align-items: stretch; }
+.fxstudio .shelf { display: flex; flex-direction: column; gap: 8px; height: 0; min-height: 100%; }
+.fxstudio .shelf .list { flex: 1 1 0; min-height: 120px; max-height: none; }
+/* where an asset is used: a fixed box, one line per variant, scrolls when long */
+.fxstudio .uses { margin-top: 12px; height: 96px; overflow: auto; background: var(--fx-panel2); border-radius: 8px; padding: 6px 10px; font-size: 12.5px; }
+.fxstudio .uses .sub { margin: 2px 0 4px; }
+.fxstudio .uses .use { display: grid; grid-template-columns: 110px 1fr; gap: 8px; padding: 2px 0; color: var(--fx-muted); }
+.fxstudio .uses .use .v { color: var(--fx-text); }
+.fxstudio .uses .use[data-now="true"] .v { color: var(--fx-accent); font-weight: 600; }
+.fxstudio .shelf .pills .count { margin-left: auto; }
+/* the Asset Library fills the window: what fits at the default size is the minimum; taller windows
+   give the stage and the list the room (2026-09-06) */
+.application.fxstudio .fxstudio-content { display: flex; flex-direction: column; }
+.fxstudio .fx-wrap { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+.fxstudio .pane[data-active="true"] { display: block; flex: 0 0 auto; }
+.fxstudio .pane[data-pane="library"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.fxstudio .lib { flex: 1 1 auto; min-height: 0; grid-template-rows: minmax(0, 1fr); }
+.fxstudio .shelf { height: 100%; min-height: 0; }
+.fxstudio .lib .viewer { display: flex; flex-direction: column; min-height: 0; }
+.fxstudio .stage { flex: 1 1 auto; min-height: 220px; max-height: none; aspect-ratio: auto; }
+.fxstudio .stage .stage-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.fxstudio .stepper, .fxstudio .paths, .fxstudio .uses, .fxstudio .lib-actions { flex: 0 0 auto; }
+.fxstudio .toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); margin: 0; }
+.application.fxstudio .fxstudio-content { position: relative; }
+.fxstudio .fx-wrap { padding-bottom: 14px; }
+/* one-line rows for long lists (Custom, Corpus) */
+.fxstudio .lines .row.line { grid-template-columns: 1fr auto; padding: 5px 0; align-items: center; }
+.fxstudio .lines .row.line .n { font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .lines .row.line .n .link { font-weight: 500; color: var(--fx-text); }
+.fxstudio .lines .row.line .n .link:hover { color: var(--fx-accent); }
+.fxstudio .fx-wrap .lines .row.line .b button { padding: 2px 8px; font-size: 12px; }
+.fxstudio .subtabs .pill { padding: 5px 13px; font-size: 13px; }
+/* the Used and Unused pills fill the shelf's width; the count sits under them, right */
+.fxstudio .shelf .pills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.fxstudio .shelf .pills .pill { justify-content: center; }
+.fxstudio .shelf .pills .count { grid-column: 1 / -1; text-align: right; margin: 0; }

@@ -1,48 +1,48 @@
-// The corpus: looks indexed by (subject key, moment kind) across the layers, later wins
-// (world buffer → house → baseline), plus the starters looks inherit from. Resolution is an exact
-// map hit on the first of a subject's keys that has a look; nothing is derived from a name.
+// The corpus: fx indexed by (subject key, moment kind) across the layers, later wins
+// (world buffer → house → baseline), plus the starters fx inherit from. Resolution is an exact
+// map hit on the first of a subject's keys that has an FX; nothing is derived from a name.
 // Pure: the tools run the very same lookup offline that the module runs at the table.
-import { expand, validate, withDefaults } from './looks.js';
+import { expand, validate, withDefaults } from './fx.js';
 
 /** the layers in the order they win */
 export const LAYERS = ['world', 'house', 'baseline'];
 
 /**
- * @param corpora  {baseline: [look…], house: [look…], world: [look…], starters: [look…]}
- * @returns an index {byId, byKey: Map<"key|on", [{look, source}…]>, starters: Map, problems: [sentences]}
+ * @param corpora  {baseline: [fx…], house: [fx…], world: [fx…], starters: [fx…]}
+ * @returns an index {byId, byKey: Map<"key|on", [{fx, source}…]>, starters: Map, problems: [sentences]}
  */
 export function buildIndex({ baseline = [], house = [], world = [], starters = [] } = {}) {
   const problems = [];
   const starterMap = new Map();
   for (const s of starters) if (s?.id) starterMap.set(`starter:${s.id}`, { ...s, id: `starter:${s.id}` });
-  // by id, later wins: a house look with a baseline look's id replaces it
+  // by id, later wins: a house fx with a baseline fx's id replaces it
   const raw = new Map();
   const sourceOf = new Map();
-  for (const [source, looks] of [['baseline', baseline], ['house', house], ['world', world]]) {
-    for (const look of looks) {
-      if (!look?.id) { problems.push(`${source}: a look with no id`); continue; }
-      raw.set(look.id, look);
-      sourceOf.set(look.id, source);
+  for (const [source, list] of [['baseline', baseline], ['house', house], ['world', world]]) {
+    for (const fx of list) {
+      if (!fx?.id) { problems.push(`${source}: an FX with no id`); continue; }
+      raw.set(fx.id, fx);
+      sourceOf.set(fx.id, source);
     }
   }
   const ids = new Set([...raw.keys(), ...starterMap.keys()]);
   const lookup = (id) => raw.get(id) ?? starterMap.get(id) ?? null;
   const byId = new Map();
-  for (const [id, look] of raw) {
-    const errs = validate(look, { ids });
+  for (const [id, fx] of raw) {
+    const errs = validate(fx, { ids });
     if (errs.length) { problems.push(`${sourceOf.get(id)} "${id}": ${errs.join('; ')}`); continue; }
     try {
-      const expanded = look.off ? { ...look } : expand(look, lookup);
-      byId.set(id, { look: expanded, original: look, source: sourceOf.get(id) });
+      const expanded = fx.off ? { ...fx } : expand(fx, lookup);
+      byId.set(id, { fx: expanded, original: fx, source: sourceOf.get(id) });
     } catch (e) { problems.push(`${sourceOf.get(id)} "${id}": ${e.message}`); }
   }
   // by key and kind, the later layer first
   const byKey = new Map();
   const rank = (source) => LAYERS.indexOf(source);
   for (const entry of byId.values()) {
-    const { look } = entry;
-    for (const key of look.for ?? []) {
-      const on = look.off && !look.on ? '*' : look.on;
+    const { fx } = entry;
+    for (const key of fx.for ?? []) {
+      const on = fx.off && !fx.on ? '*' : fx.on;
       const k = `${key}|${on}`;
       (byKey.get(k) ?? byKey.set(k, []).get(k)).push(entry);
     }
@@ -51,49 +51,49 @@ export function buildIndex({ baseline = [], house = [], world = [], starters = [
   return { byId, byKey, starters: starterMap, problems, counts: { baseline: baseline.length, house: house.length, world: world.length, starters: starters.length } };
 }
 
-/** does the look need what the moment has? A look with a scene at the template needs a placed template. */
-export function needsPlace(look) {
-  return (look.scenes ?? []).some((s) => { const f = withDefaults(s); return f.shape === 'fill' || f.at === 'template' || f.to === 'template' || f.from === 'template'; });
+/** does the FX need what the moment has? An FX with a scene at the template needs a placed template. */
+export function needsPlace(fx) {
+  return (fx.scenes ?? []).some((s) => { const f = withDefaults(s); return f.shape === 'fill' || f.at === 'template' || f.to === 'template' || f.from === 'template'; });
 }
 
 /**
- * The look that answers: the first key with a look for this moment kind; among those, one that uses
- * the placed template when the moment has one, else one that does not; a house look that is `off`
- * silences the key. Returns {look, key, source} or {look: null, why}.
+ * The FX that answers: the first key with an FX for this moment kind; among those, one that uses
+ * the placed template when the moment has one, else one that does not; a house fx that is `off`
+ * silences the key. Returns {fx, key, source} or {fx: null, why}.
  * @param index   from buildIndex
  * @param keys    the subject's keys, most specific first
  * @param on      the moment kind
- * @param opts    {hasPlace: the moment carries a placed template; pointer: the look id one specific item names (its own look, ahead of every key)}
+ * @param opts    {hasPlace: the moment carries a placed template; pointer: the FX id one specific item names (its own FX, ahead of every key)}
  */
 export function resolve(index, keys, on, { hasPlace = false, pointer = null } = {}) {
   if (pointer) {
     const own = index.byId.get(pointer);
-    if (own && (own.look.off || own.look.on === on)) {
-      if (own.look.off) return { look: null, key: 'this item', source: own.source, why: `this item's own look "${pointer}" is switched off` };
-      return { look: own.look, key: 'this item', source: own.source, original: own.original, pointer };
+    if (own && (own.fx.off || own.fx.on === on)) {
+      if (own.fx.off) return { fx: null, key: 'this item', source: own.source, why: `this item's own FX "${pointer}" is switched off` };
+      return { fx: own.fx, key: 'this item', source: own.source, original: own.original, pointer };
     }
   }
   for (const key of keys ?? []) {
     const candidates = [...(index.byKey.get(`${key}|${on}`) ?? []), ...(index.byKey.get(`${key}|*`) ?? [])];
     if (!candidates.length) continue;
-    // the winning layer's own answer first: an off look there silences the key
+    // the winning layer's own answer first: an off fx there silences the key
     const top = candidates[0];
-    if (top.look.off) return { look: null, key, source: top.source, why: `"${key}" is switched off by ${top.source} "${top.look.id}"` };
-    const fits = candidates.filter((c) => !c.look.off && needsPlace(c.look) === hasPlace);
-    const pick = fits[0] ?? candidates.find((c) => !c.look.off);
+    if (top.fx.off) return { fx: null, key, source: top.source, why: `"${key}" is switched off by ${top.source} "${top.fx.id}"` };
+    const fits = candidates.filter((c) => !c.fx.off && needsPlace(c.fx) === hasPlace);
+    const pick = fits[0] ?? candidates.find((c) => !c.fx.off);
     if (!pick) continue;
-    return { look: pick.look, key, source: pick.source, original: pick.original };
+    return { fx: pick.fx, key, source: pick.source, original: pick.original };
   }
-  return { look: null, why: keys?.length ? `no look for ${keys.join(', ')}` : 'the subject has no keys' };
+  return { fx: null, why: keys?.length ? `no FX for ${keys.join(', ')}` : 'the subject has no keys' };
 }
 
-/** every look, later layer winning per id, for the screens and the census */
-export function allLooks(index) {
+/** every FX, later layer winning per id, for the screens and the census */
+export function allFx(index) {
   return [...index.byId.values()];
 }
 
-/** every look that answers a key on any moment kind (the Look up card's "why") */
-export function looksFor(index, key) {
+/** every FX that answers a key on any moment kind (the Look up card's "why") */
+export function fxFor(index, key) {
   const out = [];
   for (const [k, list] of index.byKey) if (k.startsWith(`${key}|`)) for (const e of list) out.push({ ...e, on: k.split('|')[1] });
   return out;

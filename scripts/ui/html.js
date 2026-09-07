@@ -11,20 +11,20 @@ const HEX = {
 export const swatch = (colour) => (colour && HEX[colour] ? `<span class="sw" style="background:${HEX[colour]}"></span>` : '');
 export const colourWords = (colour) => String(colour ?? '').replace(/_/g, ' ');
 
-/** the words for where a look came from */
-export const SOURCE_TAG = { world: 'written here', house: 'house file', baseline: 'imported' };
+/** the words for where an FX came from */
+export const SOURCE_TAG = { world: 'written here', house: 'house file', baseline: 'corpus' };
 
 /** the status of an ability, for the dot and the words: custom | baseline | none | off */
-export function statusOf({ look, source, off }) {
+export function statusOf({ fx, source, off }) {
   if (off) return 'off';
-  if (!look) return 'none';
+  if (!fx) return 'none';
   return source === 'baseline' ? 'baseline' : 'custom';
 }
-export const STATUS_WORDS = { custom: 'custom look', baseline: 'imported look', none: 'nothing yet', off: 'switched off' };
+export const STATUS_WORDS = { custom: 'custom', baseline: 'corpus', none: 'nothing yet', off: 'switched off' };
 
 export const dot = (status) => `<span class="dot ${status}"></span>`;
 
-/** the title words for a look id: "sharran-step" → "Sharran Step" */
+/** the title words for an FX id: "sharran-step" → "Sharran Step" */
 export const idWords = (id) => String(id ?? '').replace(/^starter:/, '').replace(/-/g, ' ').replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
 /** the moment words in a list: "when used", "while the effect stands" */

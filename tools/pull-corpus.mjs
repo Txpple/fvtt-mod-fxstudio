@@ -2,13 +2,13 @@
 // files and the version into the module's own folder on the server; this brings them here, where
 // git, the tag and the release live. Reads the sandbox's module folder by default.
 //
-//   node tools/pull-corpus.mjs                 # what differs between the module on the sandbox and the repo, as looks
+//   node tools/pull-corpus.mjs                 # what differs between the module on the sandbox and the repo, as fx
 //   node tools/pull-corpus.mjs --write         # copy recipes/** in; take the shipped version into module.json (and its download URL)
 //   node tools/pull-corpus.mjs --from <dir>    # another module folder (a prod copy fetched by hand)
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { DATA, REPO } from './lib/env.mjs';
-import { provenance } from '../scripts/core/looks.js';
+import { provenance } from '../scripts/core/fx.js';
 
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write');
@@ -19,7 +19,7 @@ if (!existsSync(join(FROM, 'recipes'))) { console.error(`no recipes folder under
 const walk = (dir, out = []) => { for (const n of readdirSync(dir)) { const p = join(dir, n); if (statSync(p).isDirectory()) walk(p, out); else out.push(p); } return out; };
 const rel = (p, base) => relative(base, p).replace(/\\/g, '/');
 const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : null);
-const looksOf = (text) => { try { const j = JSON.parse(text); return Array.isArray(j.looks) ? j.looks : null; } catch { return null; } };
+const fxOf = (text) => { try { const j = JSON.parse(text); return Array.isArray(j.fx) ? j.fx : null; } catch { return null; } };
 
 // only what a ship writes travels this way (the docs and the licence go the other way, with the deploy)
 const SHIPPED = (r) => r === 'recipes/house.json' || r === 'recipes/shipped.json' || /^recipes\/baseline\/[a-z]+\.json$/.test(r);
@@ -34,8 +34,8 @@ for (const src of walk(join(FROM, 'recipes'))) {
   if (theirs === ours) continue;
   changed++;
   pending.push([src, dst]);
-  const a = looksOf(theirs);
-  const b = ours ? looksOf(ours) : [];
+  const a = fxOf(theirs);
+  const b = ours ? fxOf(ours) : [];
   if (a && b) {
     const mine = new Map(b.map((l) => [l.id, JSON.stringify(l)]));
     const added = a.filter((l) => !mine.has(l.id));

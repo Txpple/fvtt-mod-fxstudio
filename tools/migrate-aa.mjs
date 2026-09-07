@@ -1,15 +1,15 @@
 // The migration: Automated Animations' corpus in, AA's practices out (ARCHITECTURE §6). Reads
 // phase 1's lossless rows (tools/lib/oracle/, written by import-aa.mjs from AA's own data), keys
-// every row by identity against the closed lists, turns every row into a look in the grammar of
-// core/looks.js with every AA option mapped onto a knob, points every asset at the libraries' own
+// every row by identity against the closed lists, turns every row into an FX in the grammar of
+// core/fx.js with every AA option mapped onto a knob, points every asset at the libraries' own
 // paths where the same files play the same way (the frozen table is what is left), PROVES at the
 // render that the engine tells Sequencer what AA told it (tools/lib/migrate/proof.mjs), runs the
-// census in the new keys, and writes the baseline per kind, the house looks, the frozen table and
+// census in the new keys, and writes the baseline per kind, the house FX, the frozen table and
 // the report. Offline; seconds.
 //
 //   node tools/migrate-aa.mjs            # everything, write nothing (report at dist/migration-report.md)
 //   node tools/migrate-aa.mjs --write    # also write recipes/baseline/*.json, house.json, aa-assets.json, migration-report.md
-//   node tools/migrate-aa.mjs --show <row label>   # print the look and the proof for one row
+//   node tools/migrate-aa.mjs --show <row label>   # print the FX and the proof for one row
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { MODULES, RECIPES, REPO, moduleVersion, worldDb } from './lib/env.mjs';
@@ -20,9 +20,9 @@ import { rows as oracleRows } from './lib/oracle/index.mjs';
 import { buildIndex as oracleIndex, lookup as oracleLookup } from './lib/oracle/corpus.js';
 import { buildLists } from './lib/migrate/keys.mjs';
 import { makeNativiser } from './lib/migrate/nativise.mjs';
-import { idFor, rowToLook } from './lib/migrate/rows.mjs';
+import { idFor, rowToFx } from './lib/migrate/rows.mjs';
 import { makePlays, proveRow, stageTokens } from './lib/migrate/proof.mjs';
-import { validate, sentence } from '../scripts/core/looks.js';
+import { validate, sentence } from '../scripts/core/fx.js';
 import { buildIndex, needsPlace, resolve } from '../scripts/core/corpus.js';
 import { slug, subjectOfItemData, keysFor } from '../scripts/core/subjects.js';
 import { useDatabase } from '../scripts/engine/assets.js';
@@ -93,12 +93,12 @@ function keysForRow(row) {
 }
 
 // ---------------------------------------------------------------------------------------------
-// 3 · looks — every row a look, in AA's own precedence (exact-match rows first, then its menu order)
+// 3 · fx — every row an FX, in AA's own precedence (exact-match rows first, then its menu order)
 // ---------------------------------------------------------------------------------------------
-say('3 · looks');
+say('3 · fx');
 const nativiser = makeNativiser({ jb2a, twin: twin.db });
 const taken = new Set();
-const looks = []; // {look, row, notes, source}
+const baselineFx = []; // {fx, row, notes, source}
 const notesByRow = [];
 const ordered = [...baselineRows].sort((a, b) => (a.match === 'exact' ? 0 : 1) - (b.match === 'exact' ? 0 : 1) || MENU_ORDER.indexOf(a.menu) - MENU_ORDER.indexOf(b.menu));
 const idOfRow = new Map();
@@ -107,52 +107,52 @@ for (const row of ordered) {
   idOfRow.set(row, id);
   const keys = keysForRow(row);
   const on = row.menu === 'aefx' ? 'effect' : 'use';
-  const { look, notes } = rowToLook(row, nativiser, { id, keys, on });
-  look.by = 'the migration';
-  look.at = today;
-  look.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
-  looks.push({ look, row, notes, source: 'baseline' });
+  const { fx, notes } = rowToFx(row, nativiser, { id, keys, on });
+  fx.by = 'the migration';
+  fx.at = today;
+  fx.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
+  baselineFx.push({ fx, row, notes, source: 'baseline' });
   if (notes.length) notesByRow.push(`${row.name} [${row.menu}]: ${notes.join('; ')}`);
 }
-// the house rows: a changed baseline row keeps its id (and replaces it); an item's own look is keyed like its name and named for its owner
-const houseLooks = [];
+// the house rows: a changed baseline row keeps its id (and replaces it); an item's own FX is keyed like its name and named for its owner
+const houseFx = [];
 for (const row of houseRows) {
-  const twinRow = baselineRows.find((b) => b.name === row.name && b.menu === row.menu && !(row.note ?? '').includes("the item's own look"));
+  const twinRow = baselineRows.find((b) => b.name === row.name && b.menu === row.menu && !(row.note ?? '').includes("the item's own FX"));
   let id;
-  if (row.off) { id = idOfRow.get(twinRow) ?? idFor(row.name, row.menu, taken); houseLooks.push({ look: { id, for: keysForRow(row), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
+  if (row.off) { id = idOfRow.get(twinRow) ?? idFor(row.name, row.menu, taken); houseFx.push({ fx: { id, for: keysForRow(row), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
   if (twinRow) id = idOfRow.get(twinRow);
   else { const owner = /\(([^/]+) \/ /.exec(row.note ?? '')?.[1]; id = idFor(owner ? `${row.name} ${owner}` : row.name, row.menu, taken); }
   const keys = keysForRow(row);
-  const { look, notes } = rowToLook(row, nativiser, { id, keys, on: row.menu === 'aefx' ? 'effect' : 'use' });
-  look.by = 'the migration';
-  look.at = today;
-  look.note = `${row.note ?? 'this world'} (Automated Animations ${versions.aa})`;
-  houseLooks.push({ look, row, notes, source: 'house' });
+  const { fx, notes } = rowToFx(row, nativiser, { id, keys, on: row.menu === 'aefx' ? 'effect' : 'use' });
+  fx.by = 'the migration';
+  fx.at = today;
+  fx.note = `${row.note ?? 'this world'} (Automated Animations ${versions.aa})`;
+  houseFx.push({ fx, row, notes, source: 'house' });
   if (notes.length) notesByRow.push(`house ${row.name} [${row.menu}]: ${notes.join('; ')}`);
 }
-say(`   ${looks.length} baseline looks, ${houseLooks.length} house looks · keys: by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects}, in three kinds (no list holds the name) ${keyed.threeKinds}`);
+say(`   ${baselineFx.length} baseline FX, ${houseFx.length} house FX · keys: by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects}, in three kinds (no list holds the name) ${keyed.threeKinds}`);
 const ns = nativiser.stats;
 say(`   assets: ${ns.paths} AA paths → native exact ${ns.exact}, as JB2A leaves ${ns.leaves}, as JB2A range nodes ${ns.ranges}, as raw files ${ns.files} (AA's stretch metadata carried on ${ns.templateCarried}) · frozen ${ns.frozen} (markers ${ns.markersFrozen}, by-distance ${ns.rangeFrozen}, missing ${ns.missingNode})`);
 
-// a key several baseline looks claim goes to the one with the longest label, as AA's search took the longest label contained in a name;
+// a key several baseline FX claim goes to the one with the longest label, as AA's search took the longest label contained in a name;
 // the shorter labels lose the key (an equal length keeps both, and the first in AA's order answers — listed as shadowed)
 const claims = new Map();
-for (const e of looks) for (const key of e.look.for) (claims.get(`${key}|${e.look.on}`) ?? claims.set(`${key}|${e.look.on}`, []).get(`${key}|${e.look.on}`)).push(e);
+for (const e of baselineFx) for (const key of e.fx.for) (claims.get(`${key}|${e.fx.on}`) ?? claims.set(`${key}|${e.fx.on}`, []).get(`${key}|${e.fx.on}`)).push(e);
 const ceded = [];
 for (const [k, list] of claims) {
   if (list.length < 2) continue;
   const longest = Math.max(...list.map((e) => e.row.name.trim().length));
-  for (const e of list) if (e.row.name.trim().length < longest) { const key = k.split('|')[0]; e.look.for = e.look.for.filter((x) => x !== key); ceded.push(`${key}: "${e.row.name}" cedes to ${list.filter((x) => x.row.name.trim().length === longest).map((x) => `"${x.row.name}"`).join(', ')}`); }
+  for (const e of list) if (e.row.name.trim().length < longest) { const key = k.split('|')[0]; e.fx.for = e.fx.for.filter((x) => x !== key); ceded.push(`${key}: "${e.row.name}" cedes to ${list.filter((x) => x.row.name.trim().length === longest).map((x) => `"${x.row.name}"`).join(', ')}`); }
 }
-for (const e of looks) if (!e.look.for.length) { e.look.for = [`${e.row.menu === 'aefx' ? 'effect' : 'weapon'}:${slug(e.row.name)}`]; }
+for (const e of baselineFx) if (!e.fx.for.length) { e.fx.for = [`${e.row.menu === 'aefx' ? 'effect' : 'weapon'}:${slug(e.row.name)}`]; }
 say(`   keys ceded to a longer label, as under AA: ${ceded.length}`);
 
-// every look validates
-const allLooks = [...looks, ...houseLooks];
-const ids = new Set(allLooks.map((l) => l.look.id));
+// every FX validates
+const allFx = [...baselineFx, ...houseFx];
+const ids = new Set(allFx.map((l) => l.fx.id));
 let invalid = 0;
-for (const { look, row } of allLooks) { const p = validate(look, { ids }); if (p.length) { invalid++; if (invalid <= 10) console.error(`   ✗ "${row.name}" [${row.menu}] → ${look.id}: ${p.join('; ')}`); } }
-if (invalid) fail(`${invalid} look(s) do not validate`); else say(`   every look validates`);
+for (const { fx, row } of allFx) { const p = validate(fx, { ids }); if (p.length) { invalid++; if (invalid <= 10) console.error(`   ✗ "${row.name}" [${row.menu}] → ${fx.id}: ${p.join('; ')}`); } }
+if (invalid) fail(`${invalid} fx(s) do not validate`); else say(`   every FX validates`);
 
 // ---------------------------------------------------------------------------------------------
 // 4 · prove — at the render, row by row, against the canonical moments
@@ -163,35 +163,35 @@ useDatabase(stageDb);
 const plays = makePlays(dbs);
 const T = stageTokens();
 const proof = { rows: 0, ok: 0, failed: [], moments: 0, momentsOk: 0, momentsExact: 0, allowed: new Map(), missingAssets: new Map() };
-for (const { look, row } of allLooks) {
-  if (look.off) continue;
+for (const { fx, row } of allFx) {
+  if (fx.off) continue;
   if (SHOW && row.name !== SHOW) continue;
   proof.rows++;
-  const r = proveRow(row, look, T, plays);
+  const r = proveRow(row, fx, T, plays);
   proof.moments += r.moments.length;
   proof.momentsOk += r.moments.filter((m) => m.ok).length;
   proof.momentsExact += r.moments.filter((m) => m.exact).length;
   for (const m of r.moments) if (m.allowed) proof.allowed.set(m.allowed, (proof.allowed.get(m.allowed) ?? 0) + 1);
   for (const m of r.moments) for (const miss of m.missing) proof.missingAssets.set(miss, (proof.missingAssets.get(miss) ?? 0) + 1);
-  if (r.ok) proof.ok++; else proof.failed.push({ name: `${row.name} [${row.menu}] → ${look.id}`, moments: r.moments.filter((m) => !m.ok) });
-  if (SHOW) { console.log(JSON.stringify(look, null, 1)); console.log(sentence(look)); for (const m of r.moments) { console.log(`   ${m.ok ? '✓' : '✗'} ${m.name}: ${m.files.join(', ')}${m.sounds.length ? ' + ' + m.sounds.join(', ') : ''}`); for (const d of m.diffs) console.log(`      ${d}`); } }
+  if (r.ok) proof.ok++; else proof.failed.push({ name: `${row.name} [${row.menu}] → ${fx.id}`, moments: r.moments.filter((m) => !m.ok) });
+  if (SHOW) { console.log(JSON.stringify(fx, null, 1)); console.log(sentence(fx)); for (const m of r.moments) { console.log(`   ${m.ok ? '✓' : '✗'} ${m.name}: ${m.files.join(', ')}${m.sounds.length ? ' + ' + m.sounds.join(', ') : ''}`); for (const d of m.diffs) console.log(`      ${d}`); } }
 }
-say(`   ${proof.ok} of ${proof.rows} looks equal at the render (${proof.momentsExact} of ${proof.moments} moments exactly, ${proof.momentsOk - proof.momentsExact} by a named allowance) · failed ${proof.failed.length}`);
+say(`   ${proof.ok} of ${proof.rows} fx equal at the render (${proof.momentsExact} of ${proof.moments} moments exactly, ${proof.momentsOk - proof.momentsExact} by a named allowance) · failed ${proof.failed.length}`);
 for (const [name, n] of proof.allowed) say(`   · ${n}× ${name}`);
-if (proof.failed.length) { for (const f of proof.failed.slice(0, args.includes('--all') ? 999 : 12)) { console.error(`   ✗ ${f.name}`); for (const m of f.moments.slice(0, 2)) for (const d of m.diffs.slice(0, 3)) console.error(`      ${m.name}: ${d}`); } fail(`the render-level proof failed on ${proof.failed.length} look(s)`); }
+if (proof.failed.length) { for (const f of proof.failed.slice(0, args.includes('--all') ? 999 : 12)) { console.error(`   ✗ ${f.name}`); for (const m of f.moments.slice(0, 2)) for (const d of m.diffs.slice(0, 3)) console.error(`      ${m.name}: ${d}`); } fail(`the render-level proof failed on ${proof.failed.length} fx(s)`); }
 if (SHOW) process.exit(proof.failed.length ? 1 : 0);
 
 // ---------------------------------------------------------------------------------------------
 // 5 · census — what changes for the user, in the new keys
 // ---------------------------------------------------------------------------------------------
 say('5 · census');
-const index = buildIndex({ baseline: looks.map((l) => l.look), house: houseLooks.map((l) => l.look) });
+const index = buildIndex({ baseline: baselineFx.map((l) => l.fx), house: houseFx.map((l) => l.fx) });
 for (const p of index.problems) console.error('   index: ' + p);
 const oldIndex = oracleIndex({ baseline: baselineRows, house: houseRows });
 const census = { asked: 0, same: 0, changed: [], gained: [], lost: [], byKind: {}, npc: { attacks: 0, actors: 0, exact: 0, base: 0, natural: 0, none: 0, samples: { base: [], natural: [], none: [] } }, party: [] };
 const TYPES = ['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool'];
 const shadowed = [];
-for (const [k, list] of index.byKey) if (list.length > 1) { const [on] = k.split('|').slice(1); const first = list[0]; const rest = list.slice(1).filter((e) => e.source === first.source && needsPlace(e.look) === needsPlace(first.look)); if (rest.length) shadowed.push(`${k.split('|')[0]} (${on}): "${first.look.id}" answers; ${rest.map((e) => `"${e.look.id}"`).join(', ')} never will`); }
+for (const [k, list] of index.byKey) if (list.length > 1) { const [on] = k.split('|').slice(1); const first = list[0]; const rest = list.slice(1).filter((e) => e.source === first.source && needsPlace(e.fx) === needsPlace(first.fx)); if (rest.length) shadowed.push(`${k.split('|')[0]} (${on}): "${first.fx.id}" answers; ${rest.map((e) => `"${e.fx.id}"`).join(', ')} never will`); }
 const PCS = Object.values(worldActors).filter((a) => a.type === 'character' && !/^BF Test/.test(a.name));
 const seen = new Set();
 for (const [actorId, list] of Object.entries(worldItems)) {
@@ -209,15 +209,15 @@ for (const [actorId, list] of Object.entries(worldItems)) {
     if (seen.has(key)) continue;
     seen.add(key);
     census.asked++;
-    const nowName = now.look ? `${now.look.id} (${now.key})` : null;
+    const nowName = now.fx ? `${now.fx.id} (${now.key})` : null;
     const beforeName = before ? `${before.row.name} [${before.row.menu}]` : null;
     const beforeId = before ? idOfRow.get(baselineRows.find((b) => b === before.row)) ?? slug(before.row.name) : null;
-    const same = (!now.look && !before) || (now.look && before && (now.look.id === beforeId || now.look.id.startsWith(beforeId + '-') || slug(before.row.name) === now.look.id.replace(/-(swing|bolt|mark|area|aura|preset|effect)(-\d+)?$/, '')));
+    const same = (!now.fx && !before) || (now.fx && before && (now.fx.id === beforeId || now.fx.id.startsWith(beforeId + '-') || slug(before.row.name) === now.fx.id.replace(/-(swing|bolt|mark|area|aura|preset|effect)(-\d+)?$/, '')));
     const line = `${actor.name} (${actor.type}) / ${it.name} [${it.type}] · keys ${subject.keys.join(', ')} · was ${beforeName ?? 'nothing'} · now ${nowName ?? 'nothing'}`;
-    if (same) census.same++; else if (now.look && !before) census.gained.push(line); else if (!now.look && before) census.lost.push(line); else census.changed.push(line);
+    if (same) census.same++; else if (now.fx && !before) census.gained.push(line); else if (!now.fx && before) census.lost.push(line); else census.changed.push(line);
     if (actor.type === 'npc' && it.type === 'weapon' && acts.some((a) => a.type === 'attack')) {
       census.npc.attacks++;
-      if (!now.look) { census.npc.none++; if (census.npc.samples.none.length < 14 && !census.npc.samples.none.includes(it.name)) census.npc.samples.none.push(it.name); }
+      if (!now.fx) { census.npc.none++; if (census.npc.samples.none.length < 14 && !census.npc.samples.none.includes(it.name)) census.npc.samples.none.push(it.name); }
       else if (now.key.startsWith('natural:')) { census.npc.natural++; if (census.npc.samples.natural.length < 10) census.npc.samples.natural.push(`${it.name} → ${now.key}`); }
       else if (now.key === subject.keys[0] || now.key === subject.keys[1]) census.npc.exact++;
       else { census.npc.base++; if (census.npc.samples.base.length < 10) census.npc.samples.base.push(`${it.name} → ${now.key}`); }
@@ -233,7 +233,7 @@ for (const a of PCS) {
     const acts = Object.values(it.system.activities);
     const subject = subjectOfItemData({ name: it.name, type: it.type, system: it.system, activityType: acts[0]?.type ?? null });
     const hasPlace = acts.some((x) => x?.target?.template?.type);
-    if (resolve(index, subject.keys, 'use', { hasPlace }).look) plays++; else miss.push(`${it.name} [${it.type}]`);
+    if (resolve(index, subject.keys, 'use', { hasPlace }).fx) plays++; else miss.push(`${it.name} [${it.type}]`);
   }
   census.party.push({ actor: a.name, items, plays, miss });
 }
@@ -242,17 +242,17 @@ const effectCensus = { names: 0, plays: 0, nothing: [] };
 for (const name of lists.world.effects) {
   effectCensus.names++;
   const r = resolve(index, keysFor({ kind: 'effect', name }), 'effect');
-  if (r.look) effectCensus.plays++; else effectCensus.nothing.push(name);
+  if (r.fx) effectCensus.plays++; else effectCensus.nothing.push(name);
 }
 say(`   ${census.asked} abilities on the world's actors: same answer ${census.same} · changed ${census.changed.length} · now play (were nothing) ${census.gained.length} · play nothing now (were playing) ${census.lost.length}`);
 say(`   NPC attacks ${census.npc.attacks}: by their own name ${census.npc.exact} · by base weapon ${census.npc.base} · by natural attack ${census.npc.natural} · nothing ${census.npc.none}`);
-say(`   effects: ${effectCensus.plays} of ${effectCensus.names} names have a look · looks that can never answer (shadowed by a same-key look) ${shadowed.length}`);
+say(`   effects: ${effectCensus.plays} of ${effectCensus.names} names have an FX · FX that can never answer (shadowed by a same-key fx) ${shadowed.length}`);
 
 // ---------------------------------------------------------------------------------------------
 // 6 · report and write
 // ---------------------------------------------------------------------------------------------
 const frozen = nativiser.frozenTable();
-R(`# Migration report — Automated Animations → FX Studio looks`);
+R(`# Migration report — Automated Animations → FX Studio fx`);
 R();
 R(`Run ${today} from phase 1's lossless rows (Automated Animations ${versions.aa}, D&D5e Animations ${versions.dnd5eAnimations}) against JB2A ${versions.jb2a}, PSFX ${versions.psfx}, Sequencer ${versions.sequencer}, dnd5e ${versions.dnd5e}. Regenerate with \`node tools/migrate-aa.mjs --write\`.`);
 R();
@@ -261,7 +261,7 @@ R();
 R(`| Measure | Count |`);
 R(`| --- | --- |`);
 R(`| Rows in (baseline / house) | ${baselineRows.length} / ${houseRows.length} |`);
-R(`| Looks out (baseline / house) | ${looks.length} / ${houseLooks.length} |`);
+R(`| Fx out (baseline / house) | ${baselineFx.length} / ${houseFx.length} |`);
 R(`| · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | ${keyed.byList} |`);
 R(`| · family rows expanded against the base weapons, the natural attacks and the world's weapons | ${keyed.expanded} |`);
 R(`| · effect rows, keyed by the effect's name | ${keyed.effects} |`);
@@ -275,13 +275,13 @@ R(`| · now the raw files AA picked out of a larger set | ${ns.files} |`);
 R(`| · AA's stretch metadata carried on the scene (\`template\`) | ${ns.templateCarried} |`);
 R(`| **· still on the frozen table (the measurement; goal zero)** | **${ns.frozen}** (loop markers differ ${ns.markersFrozen}, picked by distance ${ns.rangeFrozen}, no such node ${ns.missingNode}) |`);
 R(`| Frozen table entries shipped | ${frozen.entries} |`);
-R(`| **Render-level proof: looks equal to AA's own sequence** | **${proof.ok} of ${proof.rows}** (${proof.momentsExact} of ${proof.moments} moments exactly, ${proof.momentsOk - proof.momentsExact} by a named allowance below) |`);
+R(`| **Render-level proof: fx equal to AA's own sequence** | **${proof.ok} of ${proof.rows}** (${proof.momentsExact} of ${proof.moments} moments exactly, ${proof.momentsOk - proof.momentsExact} by a named allowance below) |`);
 R(`| Abilities on the world's actors | ${census.asked} |`);
 R(`| · same answer as under AA | ${census.same} |`);
-R(`| · a different look now | ${census.changed.length} |`);
+R(`| · a different fx now | ${census.changed.length} |`);
 R(`| · play now, played nothing under AA | ${census.gained.length} |`);
 R(`| · play nothing now, played under AA | ${census.lost.length} |`);
-R(`| Looks that can never answer (a same-key look of the same layer comes first) | ${shadowed.length} |`);
+R(`| Fx that can never answer (a same-key fx of the same layer comes first) | ${shadowed.length} |`);
 R();
 R(`## What the proof allows, by name`);
 R();
@@ -300,13 +300,13 @@ R();
 if (notesByRow.length) { R(`## Rows translated with a note (${notesByRow.length})`); R(); for (const n of notesByRow) R(`- ${n}`); R(); }
 R(`## The family rows, expanded (${expansions.length})`);
 R();
-R(`Each of Automated Animations' weapon and creature-attack rows matched a word inside a name. Here each is expanded once, against the base weapons (dnd5e's list), the natural attacks of the installed creatures, and the world's own weapons, and the keys are written down. Read what each word would and would not have caught; a wanted catch that is missing is one house look away.`);
+R(`Each of Automated Animations' weapon and creature-attack rows matched a word inside a name. Here each is expanded once, against the base weapons (dnd5e's list), the natural attacks of the installed creatures, and the world's own weapons, and the keys are written down. Read what each word would and would not have caught; a wanted catch that is missing is one house fx away.`);
 R();
 for (const e of expansions) R(`- **${e.label}** [${e.menu}] → ${e.keys.join(', ')}${e.from.length ? `\n  - ${e.from.join('\n  - ')}` : ''}`);
 R();
 R(`## Caught by a weapon word under AA, not carried (${notCarried.length} words)`);
 R();
-R(`Automated Animations' weapon and creature-attack rows matched their word inside any name — a feat, a wand, a spell. Those catches are accidents of the word and are not carried: a weapon look never answers a spell, a feature or an item. Each is one house look away if it was wanted ("like the Burst look, for feature:spellfire-burst").`);
+R(`Automated Animations' weapon and creature-attack rows matched their word inside any name — a feat, a wand, a spell. Those catches are accidents of the word and are not carried: a weapon fx never answers a spell, a feature or an item. Each is one house fx away if it was wanted ("like the Burst fx, for feature:spellfire-burst").`);
 R();
 for (const n of notCarried) R(`- **${n.label}** [${n.menu}]: ${n.caught.join('; ')}`);
 R();
@@ -322,9 +322,9 @@ R(`Keyed as a spell, a feature and an item of that name, since neither the books
 R();
 for (const n of threeKinds) R(`- ${n}`);
 R();
-R(`## Looks that can never answer (${shadowed.length})`);
+R(`## Fx that can never answer (${shadowed.length})`);
 R();
-R(`Two looks in the same layer answer the same key for the same kind of moment; the first (AA's own precedence: its exact-match rows, then its menu order) answers, as it did under AA. Listed so nothing is lost silently.`);
+R(`Two fx in the same layer answer the same key for the same kind of moment; the first (AA's own precedence: its exact-match rows, then its menu order) answers, as it did under AA. Listed so nothing is lost silently.`);
 R();
 for (const s of shadowed) R(`- ${s}`);
 R();
@@ -339,7 +339,7 @@ R(`## The census in the new keys — what changes for the user`);
 R();
 R(`Every ability on the world's actors, keyed by identity and resolved against the new corpus, beside what Automated Animations' name search answered.`);
 R();
-R(`### A different look now (${census.changed.length})`); R();
+R(`### A different fx now (${census.changed.length})`); R();
 for (const l of census.changed) R(`- ${l}`);
 R(); R(`### Play now, played nothing under AA (${census.gained.length})`); R();
 for (const l of census.gained) R(`- ${l}`);
@@ -356,25 +356,25 @@ R();
 R(`### Nothing plays yet — the party's sheets`); R();
 for (const p of census.party) R(`- **${p.actor}** (${p.plays} of ${p.items} play; ${p.miss.length} nothing): ${p.miss.join('; ') || '—'}`);
 R();
-R(`### Effects on the world's actors (${effectCensus.names} names, ${effectCensus.plays} with a look)`); R();
+R(`### Effects on the world's actors (${effectCensus.names} names, ${effectCensus.plays} with an FX)`); R();
 for (const n of effectCensus.nothing) R(`- ${n}: nothing`);
 R();
 
 const KIND_FILE = { spell: 'spells', weapon: 'weapons', natural: 'natural', feature: 'features', item: 'items', effect: 'effects' };
 const files = Object.fromEntries(Object.values(KIND_FILE).map((f) => [f, []]));
-for (const { look } of looks) { const kind = look.for[0]?.split(':')[0]; files[KIND_FILE[kind] ?? 'items'].push(look); }
+for (const { fx } of baselineFx) { const kind = fx.for[0]?.split(':')[0]; files[KIND_FILE[kind] ?? 'items'].push(fx); }
 const reportPath = WRITE ? join(RECIPES, 'migration-report.md') : join(REPO, 'dist', 'migration-report.md');
 mkdirSync(join(REPO, 'dist'), { recursive: true });
 if (WRITE) {
   mkdirSync(join(RECIPES, 'baseline'), { recursive: true });
   const meta = (extra) => ({ schema: 2, generated: today, tool: 'tools/migrate-aa.mjs', sources: versions, ...extra });
   for (const [name, list] of Object.entries(files)) {
-    writeFileSync(join(RECIPES, 'baseline', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, looks: list.length }), looks: list }, null, 1));
+    writeFileSync(join(RECIPES, 'baseline', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
   }
-  writeFileSync(join(RECIPES, 'house.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own looks: what this world changed over the baseline at migration, and everything kept from the world buffer since (tools/export-looks.mjs).", looks: houseLooks.length }), looks: houseLooks.map((l) => l.look) }, null, 1));
+  writeFileSync(join(RECIPES, 'house.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the baseline at migration, and everything kept from the world buffer since (tools/export-fx.mjs).", fx: houseFx.length }), fx: houseFx.map((l) => l.fx) }, null, 1));
   writeFileSync(join(RECIPES, 'aa-assets.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'What the migration could not point at the libraries\' own paths: AA\'s own Sequencer entries for these, verbatim with their metadata, registered as fxstudio.aa. Counted, meant to reach zero.', entries: frozen.entries, paths: frozen.paths.length, missingFiles: twin.meta?.missingFiles ?? [] }), db: frozen.db }));
   writeFileSync(reportPath, report.join('\n'));
-  say(`6 · wrote recipes/baseline/{${Object.entries(files).map(([k, v]) => `${k} ${v.length}`).join(', ')}}, recipes/house.json (${houseLooks.length}), recipes/aa-assets.json (${frozen.entries} entries), recipes/migration-report.md`);
+  say(`6 · wrote recipes/baseline/{${Object.entries(files).map(([k, v]) => `${k} ${v.length}`).join(', ')}}, recipes/house.json (${houseFx.length}), recipes/aa-assets.json (${frozen.entries} entries), recipes/migration-report.md`);
 } else {
   writeFileSync(reportPath, report.join('\n'));
   say(`6 · dry run: report at dist/migration-report.md (pass --write to write the recipes)`);

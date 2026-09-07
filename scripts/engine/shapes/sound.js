@@ -1,5 +1,5 @@
 // SOUND: a sound on its own — a scene of nothing but sound. (A picture scene carries its own
-// `sound`, played as the scene starts; this shape is for a look that is only a sound, or a sound
+// `sound`, played as the scene starts; this shape is for an FX that is only a sound, or a sound
 // between pictures.)
 //
 //   asset   volume   delay   start (ms into the file)   repeat   every   wait

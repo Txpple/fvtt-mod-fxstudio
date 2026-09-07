@@ -1,5 +1,7 @@
 # fxstudio — the architecture (ruled 2026-09-06)
 
+> **Vocabulary (ruled 2026-09-06).** What this document calls a *look* is an **FX** on the screens, in the code (`scripts/core/fx.js`, `api.fx`, the item flag `flags.fvtt-mod-fxstudio.fx`, the world setting `fx`) and in the recipe files (`"fx": [...]`): a picture is a **VFX**, a sound an **SFX**. A look written over the main corpus is an **override**. The earlier sections keep the word they were written with.
+
 **Why this document exists.** Phase 1 proved the corpus can play: every one of Automated
 Animations' 1289 rows plays through FX Studio with the same files, sound and options, measured
 (DESIGN §6). It proved it by porting AA's own model — rows keyed by name, AA's menus, AA's option
@@ -319,7 +321,7 @@ cannot read.
 3. **The files and tools**, offline, for an assistant working from the repo: `recipes/SCHEMA.md`
    is the grammar with every default; `tools/assets.mjs "misty step"` searches the libraries'
    own registration (families, variants, colours, sizes, sounds) so a path is looked up, never
-   guessed; `tools/check-looks.mjs` validates a look file the way the API does; `tools/census.mjs`
+   guessed; `tools/check-fx.mjs` validates a look file the way the API does; `tools/census.mjs`
    lists what has no look, per sheet and compendium, as text or data; `tools/preview.mjs <look>`
    plays a look on the sandbox fixture so the result can be seen (and captured) before it is
    proposed. An assistant's round trip is: census → pick a subject → pick a starter → find the
@@ -345,16 +347,16 @@ reads fifty sentences and keeps the ones that read right.
 | Tool | Kind | What it proves |
 | --- | --- | --- |
 | `migrate-aa.mjs` | one-time | AA's corpus into looks, the family expansions, the oracle proof (§6.2), the asset nativisation count (§6.3), the census, the report |
-| `check-looks.mjs` | offline, seconds | every look validates; every asset resolves against the libraries' registration and the disk |
+| `check-fx.mjs` | offline, seconds | every look validates; every asset resolves against the libraries' registration and the disk |
 | `check-imports.mjs`, `check-layers.mjs` | offline | every module loads; every import points down the layer order |
 | `census.mjs` | offline or live | every subject in the world and the compendia → which look answers, what plays nothing |
 | `assets.mjs` | offline | the catalogue search |
-| `smoke-looks.mjs` | live | every look builds on the sandbox against a synthetic moment and every path resolves live |
+| `smoke-fx.mjs` | live | every look builds on the sandbox against a synthetic moment and every path resolves live |
 | `smoke-replay.mjs` | live | one look of every shape and moment through real dnd5e flows |
 | `smoke-author.mjs` | live | the assistant's round trip: a look written as data, validated, previewed, saved, read back as a sentence, exported |
 | `preview.mjs` | live | plays a look on the fixture for a person or an assistant to see |
 | `check-legacy.mjs` | offline | no Automated Animations vocabulary in `scripts/` or `recipes/` (§0's mechanical half) |
-| `export-looks.mjs` | offline | the world buffer as sentences with who wrote them; `--write` folds it into `house.json` |
+| `export-fx.mjs` | offline | the world buffer as sentences with who wrote them; `--write` folds it into `house.json` |
 
 All of these exist as of phase 2 (2026-09-06); tools/README.md is the reference.
 

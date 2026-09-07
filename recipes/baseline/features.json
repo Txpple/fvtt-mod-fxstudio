@@ -18,9 +18,9 @@
    "Sisimshow"
   ],
   "note": "The features of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "looks": 277
+  "fx": 277
  },
- "looks": [
+ "fx": [
   {
    "id": "rage",
    "for": [

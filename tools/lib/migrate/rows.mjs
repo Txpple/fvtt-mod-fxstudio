@@ -1,11 +1,11 @@
-// A phase-1 row (Automated Animations' entry, losslessly read) → a look in the grammar of
-// scripts/core/looks.js. The mapping table, one line per AA option, is this file; the report
+// A phase-1 row (Automated Animations' entry, losslessly read) → an FX in the grammar of
+// scripts/core/fx.js. The mapping table, one line per AA option, is this file; the report
 // prints it so a reader can see where every value went. AA's concepts (menus, playOn, isRadius,
 // shield flags, "complete" loops, the last-of-all-targets wait) end here as values on scenes.
 //
-// The scene defaults the engine reads (DEFAULTS in core/looks.js) equal AA's own defaults, so a
+// The scene defaults the engine reads (DEFAULTS in core/fx.js) equal AA's own defaults, so a
 // knob is written only where AA's value differs from them; the render-level proof checks the result.
-import { DEFAULTS, SOUND_DEFAULTS } from '../../../scripts/core/looks.js';
+import { DEFAULTS, SOUND_DEFAULTS } from '../../../scripts/core/fx.js';
 import { slug } from '../../../scripts/core/subjects.js';
 
 const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -52,9 +52,9 @@ const AT_OF = { source: 'source', default: 'targets-else-source', target: 'each-
  * @param row       a phase-1 row
  * @param assetFor  (aaPath) → {asset, how, note} from the nativiser
  * @param opts      {id, keys, on}
- * @returns {look, notes: [sentences about what was translated with a difference]}
+ * @returns {fx, notes: [sentences about what was translated with a difference]}
  */
-export function rowToLook(row, nativiser, { id, keys, on }) {
+export function rowToFx(row, nativiser, { id, keys, on }) {
   const { assetFor, firstFile } = nativiser;
   const notes = [];
   const scenes = [];
@@ -99,7 +99,7 @@ export function rowToLook(row, nativiser, { id, keys, on }) {
   if (row.soundOnly) {
     const s = row.soundOnly;
     scenes.push(trim({ shape: 'sound', asset: s.file, volume: s.volume, delay: s.delay, start: s.startTime, repeat: s.repeat, every: s.repeatDelay }));
-    return { look: finish(), notes };
+    return { fx: finish(), notes };
   }
 
   switch (primary?.preset) {
@@ -188,7 +188,7 @@ export function rowToLook(row, nativiser, { id, keys, on }) {
       if (d.end?.aa || d.end?.file) { const o = d.end.options; parts.push(trim({ shape: 'mark', at: 'destination', asset: assetOf(d.end, 'end'), delay: o.delay, ...elevationOf(o, 'always'), size: { tokenWidths: 1.5 * o.size }, opacity: o.opacity, fadeIn: o.fadeIn, fadeOut: o.fadeOut, rate: o.playbackRate, mask: o.isMasked || undefined, zIndex: 0 })); }
       if (snd) { if (parts.length) parts[0].sound = snd; else parts.push({ shape: 'sound', ...snd }); }
       const o = d.options;
-      const move = { shape: 'move', range: o.range, speed: o.speed, jump: !!o.teleport, after: o.delayMove, pick: 'click', ...(o.checkCollision ? {} : { seen: false }) }; // AA's Check Collision was the user's own "walls matter" per look: it is now "a space you can see" (the default); off means the spot need not be seen
+      const move = { shape: 'move', range: o.range, speed: o.speed, jump: !!o.teleport, after: o.delayMove, pick: 'click', ...(o.checkCollision ? {} : { seen: false }) }; // AA's Check Collision was the user's own "walls matter" per fx: it is now "a space you can see" (the default); off means the spot need not be seen
       if (o.alpha < 1) move.fade = { to: o.alpha, after: o.delayFade, back: o.delayReturn };
       if (o.hideFromPlayers || o.measureType !== 'alternating') notes.push('move: the range ring is always shown to everyone and measured alternating; AA had switches for both (no row used them)');
       scenes.push(...parts, trim(move));
@@ -233,15 +233,15 @@ export function rowToLook(row, nativiser, { id, keys, on }) {
   }
 
   function finish() {
-    const look = { id, for: keys, on, scenes: scenes.map(clean) };
-    return look;
+    const fx = { id, for: keys, on, scenes: scenes.map(clean) };
+    return fx;
   }
-  return { look: finish(), notes };
+  return { fx: finish(), notes };
 }
 
 /** the id a row gets: its slug, made unique by its menu when a same-named row came first */
 export function idFor(label, menu, taken) {
-  const base = slug(label) || 'look';
+  const base = slug(label) || 'fx';
   const suffix = { melee: 'swing', range: 'bolt', ontoken: 'mark', templatefx: 'area', aura: 'aura', preset: 'preset', aefx: 'effect' }[menu] ?? menu;
   let id = base;
   if (taken.has(id)) id = `${base}-${suffix}`;

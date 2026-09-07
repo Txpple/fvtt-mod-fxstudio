@@ -248,8 +248,8 @@ for (const f of flagged) {
   const row = convertEntry(entry);
   const base = lookup(baselineIndexOnly, f.item.name, { on: fl.menu === 'aefx' ? 'effect' : 'use' });
   const strip = (r) => { const c = JSON.parse(JSON.stringify(r)); delete c.note; return c; };
-  if (base && eq(strip(base.row), strip(row))) { split.flagsDropped.push(`${where}: the item's own look equals the baseline row "${base.row.name}" once the 3D-only fields are dropped`); continue; }
-  row.note = `the item's own look (${where})`;
+  if (base && eq(strip(base.row), strip(row))) { split.flagsDropped.push(`${where}: the item's own FX equals the baseline row "${base.row.name}" once the 3D-only fields are dropped`); continue; }
+  row.note = `the item's own FX (${where})`;
   houseRows.push(row);
   split.flagsKept.push(`${where} → "${row.name}" [${row.menu}]`);
 }
@@ -429,7 +429,7 @@ for (const a of PCS) {
   }
   nothing.push({ actor: a.name, miss });
 }
-say(`   party: ${partyPlays} of ${partyItems} abilities have a look; ${partyItems - partyPlays} play nothing`);
+say(`   party: ${partyPlays} of ${partyItems} abilities have an FX; ${partyItems - partyPlays} play nothing`);
 
 // ---------------------------------------------------------------------------------------------
 // 6 · report and write
@@ -449,7 +449,7 @@ R(`| World rows under AA | ${countRows(world)} |`);
 R(`| World rows identical to the preset | ${split.same} |`);
 R(`| Modified here (house rows) | ${split.modified.length} |`);
 R(`| Made here (house rows) | ${split.userMade.length} |`);
-R(`| Removed here (house rows that switch a look off) | ${split.deleted.length} |`);
+R(`| Removed here (house rows that switch an FX off) | ${split.deleted.length} |`);
 R(`| Item flags kept as house rows | ${split.flagsKept.length} |`);
 R(`| Item flags that add nothing | ${split.flagsDropped.length} |`);
 R(`| House rows | ${houseRows.length} |`);
@@ -526,7 +526,7 @@ for (const s of census.effects.differ) R(`- ${s}`);
 R();
 R(`## Nothing plays yet — the party's sheets`);
 R();
-R(`${partyPlays} of ${partyItems} abilities with an activity have a look. These do not, and play nothing until given one:`);
+R(`${partyPlays} of ${partyItems} abilities with an activity have an FX. These do not, and play nothing until given one:`);
 R();
 for (const { actor, miss } of nothing) R(`- **${actor}** (${miss.length}): ${miss.join('; ') || '—'}`);
 R();
@@ -536,7 +536,7 @@ const reportPath = join(ORACLE, 'import-report.md');
 if (WRITE) {
   const meta = (extra) => ({ generated: today, tool: 'tools/import-aa.mjs', sources: versions, ...extra });
   writeFileSync(join(ORACLE, 'baseline-rows.json'), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: 'The D&D5e Animations preset converted row for row, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.', rows: presetRows.length }), rows: presetRows }, null, 1));
-  writeFileSync(join(ORACLE, 'house-rows.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own looks: what this world changed over the baseline at import, and everything built since.", rows: houseRows.length }), rows: houseRows }, null, 1));
+  writeFileSync(join(ORACLE, 'house-rows.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the baseline at import, and everything built since.", rows: houseRows.length }), rows: houseRows }, null, 1));
   writeFileSync(join(ORACLE, 'aa-database.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'The subset of AA\'s private Sequencer table the corpus plays, verbatim with its metadata, registered as fxstudio.aa so every baseline row resolves to the same Sequencer entry it did under AA.', aaVersion: versions.aa, nodes: aaNeeded.size, entries: twinLeaves.size, missingFiles: twinMissing }), db: twinDb }));
   writeFileSync(reportPath, report.join('\n'));
   say(`6 · wrote tools/lib/oracle/baseline-rows.json (${presetRows.length}), house-rows.json (${houseRows.length}), aa-database.json, import-report.md`);

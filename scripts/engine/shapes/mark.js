@@ -1,7 +1,7 @@
 // MARK: a static picture at a place — on a token (sized to it or as a radius), at the template, at
 // the chosen spot, where the last picture landed. Once, or persistent (attached, kept on the token's
 // prototype, tied to the effect it stands for). A token that already carries a picture of this
-// origin is left alone: a look never doubles up.
+// origin is left alone: an FX never doubles up.
 //
 //   at source | each-target | targets-else-source | both | template | destination | impact
 //   size {tokenWidths} | {radius, plusToken} | {squares} | {fit: "object", scale}
@@ -14,7 +14,7 @@ export function build(seq, scene0, ctx) {
   const s = full(scene0);
   const { moment } = ctx;
   const persistent = s.persist !== 'none';
-  let spots = spotsFor(s.at, moment, { lookName: ctx.look.id });
+  let spots = spotsFor(s.at, moment, { fxName: ctx.fx.id });
   spots = spots.filter((p) => !(p.token && alreadyOn(p.token, moment.origin)) && !(s.onMiss === 'skip' && p.hit === false));
   if (!spots.length) return;
   addSound(seq, s.sound, ctx);
@@ -45,7 +45,7 @@ export function build(seq, scene0, ctx) {
     if (s.aboveLighting) e.aboveLighting(true);
     if (s.anchor) e.anchor(s.anchor);
     e.playbackRate(s.rate);
-    if (p.token) e.name(`${ctx.look.id} ${p.token.id}`);
+    if (p.token) e.name(`${ctx.fx.id} ${p.token.id}`);
     timing(e, s, isLast(i, spots.length));
   });
 }

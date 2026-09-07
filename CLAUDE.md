@@ -14,25 +14,14 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-06): phase 3 (the screens) is built and green on the sandbox — `scripts/ui/`
-(one window, ApplicationV2 on plain DOM, built on the API: Look up, Create a look — the five-step
-walk ruled off `prototypes/fxstudio3-create.html`, Custom looks, Corpus — the shippable corpus
-built from the game, `scripts/ship.js` writing the corpus files into the module on the server and
-`tools/pull-corpus.mjs` bringing them into the repo, Check), the item-sheet button, the settings
-button, the item pointer `flags.fvtt-mod-fxstudio.look`; `tools/smoke-screens.mjs` drives it on
-the DOM, a real ship included (54 of 54; DESIGN §8). The debug pass of the same day fixed heals
-(dnd5e flags a heal's roll `healing`) and carried Misc Patches' teleport patch into the move shape
-(`displace`, the spot judged by `seen`/`unoccupied`; smoke-replay 45 of 45). Phase 2 (the model) the same day — ARCHITECTURE.md
-as ruled: `scripts/core/` (moments, subjects with identity keys, the look grammar, the corpus),
-`scripts/readers/dnd5e.js`, `scripts/engine/` (eight shapes and the escape hatch, places, assets,
-the renderer), `scripts/api.js` (the authoring API); the corpus migrated to `recipes/baseline/`
-per kind with a render-level proof (1296 of 1296; `recipes/migration-report.md`); phase 1's
-presets and rows retired to `tools/lib/oracle/`. The four live suites and the offline checks are
-green (tools/README.md). **Phase 3 is at its check-in: the user does the exit by hand ("Sharran
-Step, like Misty Step but black" added in-game unaided, from the Settings button or an item
-sheet's wand) and says go for phase 4 (outcomes and moments, PLAN §6); nothing of phase 4 starts
-before that word.** The sandbox runs FX Studio alone (AA and D&D5e Animations switched off there on 2026-09-06 with
-`tools/sandbox-module.mjs`; prod still runs AA).** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
+**Status (end of 2026-09-06): phase 3 (the screens) built and iterated in-game with the user, all
+green on the sandbox and UNCOMMITTED at the session's end (commit on the user's word first).** The
+vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens); the
+walk is four steps ending in Save; the tabs are Look up, Create FX, Custom (two sub-tabs), Corpus
+(maintainers only, behind a client setting), Asset Library, Check. Delete is for good
+(`api.corpus.erase`). `tools/smoke-screens.mjs` is 72 of 72; DESIGN §8 records every ruling of the
+day in order. The user iterates by sending screenshots and comments, asking to aggregate and hold
+until "go"; nothing of phase 4 (outcomes and moments, PLAN §6) starts before that word. Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
 improvements in scope), then the architecture, the measured facts, the lossless AA import with its
 parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
@@ -59,6 +48,7 @@ the user's word, never on a handoff or a plan.
 - **UI questions get a clickable prototype first** (an HTML artifact); the user rules off it,
   then says go. The ruled prototype's source is `prototypes/fxstudio2.template.html` and the
   live artifact was https://claude.ai/code/artifact/33a2e286-f1fe-4358-a407-16e7ef0ea316.
+- **Vocabulary (2026-09-06).** An *FX* is what the corpus holds and what plays: a *VFX* is the picture, an *SFX* the sound, an *override* is the user's FX over the main corpus. The word "look" is retired everywhere (screens, code, recipes, tools); if the UI changes, the back end changes with it — the user wants no drift between the two.
 - **Plain language, signal over detail.** Summaries in sentences; parked work is never presented
   as owed work. No JSON in anything a non-technical GM sees.
 - **A named ability in the user's ask illustrates a class.** "Sharran Step like Misty Step but
@@ -89,10 +79,10 @@ the user's word, never on a handoff or a plan.
   there without the user's word. Both worlds share ids, so a `get-world-info` tells them apart
   only by Foundry version and who is connected. `disconnect-bridge` before a suite or a restart:
   one connected user blocks the restart.
-- **The suites here** are `tools/smoke-looks.mjs` (every look builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
+- **The suites here** are `tools/smoke-fx.mjs` (every FX builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
   `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
   compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
-  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs` and `check-legacy.mjs` after any edit under `scripts/`; `check-looks.mjs` after any edit under `recipes/`.
+  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs` and `check-legacy.mjs` after any edit under `scripts/`; `check-fx.mjs` after any edit under `recipes/`.
   ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
   before measuring anything from it (the suite's `moveTo`).
 - **Suites** go in `tools/` and use the MCP repo's Foundry client

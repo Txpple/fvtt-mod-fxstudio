@@ -45,7 +45,7 @@ export function tokenSquares(token) {
   return Math.max(td.width * td.texture.scaleX, td.height * td.texture.scaleY) / ((td.ring?.enabled && td.ring?.subject?.scale) || 1);
 }
 
-/** a random point inside this look's standing area picture (named after the look), else the source token */
+/** a random point inside this FX's standing area picture (named after the FX), else the source token */
 export function insideArea(moment, name) {
   const standing = Sequencer.EffectManager.getEffects({ sceneId: canvas.scene.id, name })[0];
   if (!standing) return { token: moment.source };
@@ -69,10 +69,10 @@ export function destinationSpot(moment) {
 }
 
 /**
- * The spots a place word names for this moment. `lookName` is the look's id (for `area`).
+ * The spots a place word names for this moment. `fxName` is the FX's id (for `area`).
  * @returns [{token?, region?, point?, name?, hit}]
  */
-export function spotsFor(word, moment, { lookName = null } = {}) {
+export function spotsFor(word, moment, { fxName = null } = {}) {
   const targets = (moment.targets ?? []).map((t) => ({ token: t.token, hit: wasHit(moment, t.token) }));
   const source = moment.source ? [{ token: moment.source, hit: true }] : [];
   switch (word) {
@@ -83,7 +83,7 @@ export function spotsFor(word, moment, { lookName = null } = {}) {
     case 'template': return moment.place ? [{ region: moment.place, hit: true }] : [];
     case 'destination': { const d = destinationSpot(moment); return d ? [{ ...d, hit: true }] : []; }
     case 'impact': return targets.map((t) => ({ ...t, name: spotName(t.token) }));
-    case 'area': return [{ ...insideArea(moment, lookName), hit: true }];
+    case 'area': return [{ ...insideArea(moment, fxName), hit: true }];
     default: return [];
   }
 }
