@@ -700,7 +700,7 @@ had, or delete it and re-home the wand button. Also open: **Delay means two thin
 long before" normally, but `waitUntilFinished(delay)` when *wait for it to finish* is ticked
 (`engine/common.js`), which the one label does not say.
 
-## 9. The UI revamp — steps 1 to 4 (2026-09-07, off `HANDOFF.md`)
+## 9. The UI revamp — steps 1 to 5 (2026-09-07, off `HANDOFF.md`)
 
 The brief is `HANDOFF.md` at the root, written from a read of the code; its screens are
 `prototypes/fxstudio6-proposal.html`. §Rules holds five acceptance criteria (R1 every control has a
@@ -888,21 +888,103 @@ Measured: `smoke-screens` **132 of 132** — sixteen new, including the band gri
 Move, the equal band heights, the equal-height rail and inspector, the strip's shared scale, the
 estimate marking, the two delays on real migrated data, and band 1 on one line.
 
+### Step 5 — one FX tab, and the search in the header (built 2026-09-07)
+
+`renderCorpus` and `renderCustom` built near-identical row lists that differed by a filter on
+`e.source`. **Where an FX lives is a property, not navigation** — it was already a tag
+(`SOURCE_TAG`) on every row of both. The two tabs are now one, and **the six tabs are three**:
+
+| | |
+| --- | --- |
+| **FX** | every FX in one list — `scripts/ui/fxtab.js` |
+| **Assets** | the Asset Library, renamed; step 6 rebuilds it |
+| **Coverage** | Audit with the Maintain card, renamed; step 7 rebuilds it |
+
+**The FX sheet is a pane, not a tab.** It is opened *on* an FX and its Back returns to wherever it
+was opened from — which is what it already did; it never needed a place in the tab strip. While it
+is up the **FX** pill is the one marked current, because that is where you are. The old tab names
+still land where they meant to (`WAS` in `ui/studio.js`), so `api.open({tab: 'audit'})` from a macro
+or an older tool opens Coverage.
+
+**The tab is three columns and one scroll region** (R4, R5): 190px facets · the rows · the **300px
+detail pane**, and the rows are the only thing that scrolls. Measured: `grid-template-columns` is
+three tracks, the pane is 300px, nothing spills sideways, and neither the facet column nor the pane
+has a scrollbar at the default size.
+
+**The list is grouped Draft → House → Stock**, which is resolution order — later wins. The thing you
+changed most recently is at the top, and the ordering teaches the layering model without a word of
+explanation. Drafts are newest first (by date, then by the order the buffer appends); House and
+Stock are by name.
+
+**A row** is one 44px line whatever is selected (R3, measured): the name with `+N keys` and
+`· Item Hook` where they apply, the **generated sentence** ellipsised under it, the layer tag (or
+**Off**), and the shape tags (*Mark ·2*, *Move*). It is **not** the key list — printing forty keys is
+what made Abyssal Strike unreadable. No raw key appears anywhere on the tab (checked: no `spell:`
+in the list's text).
+
+**The facets are all data the window already had**, at permanent addresses with their counts, and a
+facet with nothing behind it is **greyed where it stands** rather than dropped (R1): *Lives in*
+(`source`), *Kind* (`parseKey().kind` — all nine, so a kind never moves), and *Only* — **On my
+actors** (`census()`), **Item Hooks** (`!fx.for.length`), **Switched off** (`fx.off`) and **Broken
+assets** (`assets.exists()` over `assetsOf(scene)`, the same check `tools/check-fx.mjs` runs, on
+screen for the first time). They stack, and *Clear* says how many are on. There is no *Based on
+another FX* facet: nothing is based on anything (see *No shortcuts* above).
+
+**The detail pane** is the component R5 asks for — same width, same position, its own action grid at
+the foot — and it is also **what the Look up card used to be**. It carries the name (the door to the
+FX's sheet, read-only, which is what Stock's *View* was), the layer and Off tags, the `why` line
+(`Global Hook · Misty Step (spell) · House`), the id and provenance, the sentence in a fixed
+four-line box, the sequence as up to four stills with their lines, and six actions:
+**Edit · ▶ Play · Ships as · Duplicate · Export · Delete**. When the search asks about an ability
+nothing answers, the same pane says *Nothing plays*, why, and offers **Create FX** — the Look up
+card's other half, in the same frame.
+
+**The search moved into the window header** and answers on every tab. It does two jobs with one box:
+the dropdown answers *what plays for this ability* (and selects the FX that answers it, or shows the
+nothing-plays pane), and the letters **narrow the list** as you type. Asking from outside — the wand
+on an item sheet, `api.open({item})` — fills the box with what was asked, so the window says what it
+was asked; picking a row does not, because the list must not move out from under the click.
+
+**Staging is on the row's own pane**, not only at the foot of Maintain: one *Ships as* control with
+three states — *Draft only*, *Staged: House*, *Staged: Stock* — greyed in place on a House or Stock
+FX with the reason, since only a Draft is staged. The Maintain card is unchanged and now sits on
+Coverage, which is where you press Ship.
+
+**The window opens at 1080px** (it was 860). The tab is three columns; at 860 nothing rearranges —
+the middle column just narrows and the sentence ellipsises — but 1080 is the width the screens were
+ruled at, and it is what the FX tab wants.
+
+**Also here:** the catalogue (every FX's sentence, shapes and keys) is read **once per corpus
+rebuild** rather than once per keystroke, and so is the broken-asset set; `refresh()` drops a
+selection whose FX has been deleted for good; Save selects what it wrote, so Back lands on it.
+
+**One deviation, stated.** The mockup draws *Stage: House* as a button in the action grid. Both
+stagings and unstaging have to be reachable from here, and three buttons do not fit six cells, so
+the cell is **one select at one address** carrying the three states in the vocabulary the Maintain
+card already uses (*Staged: House*). It is the only select in the grid.
+
+Measured: `smoke-screens` **144 of 144** — twenty-two new, including the three tabs and the absence
+of the four they replaced, the header search doing both jobs, the grouping in resolution order, the
+row shape, the facet counts adding up to the corpus, a zero facet disabled, the facets stacking, one
+scroll region, the 300px pane, the six actions, staging from the pane, and a Stock FX that cannot be
+staged saying so where it stands.
+
 ### The rulings of the day
 
 | Question | Ruling |
 | --- | --- |
 | Shortcuts (`like`/`with`) | **Gone from the grammar.** Every FX states its scenes in full; a variant is a copy. |
 | Is `off` worth a whole sheet? | **Leave it a mode of the sheet.** Revisit when step 5 rebuilds the row. |
-| Merge Stock FX and House FX (step 5) | **Yes.** Where an FX lives is a property, not navigation. Not built yet. |
-| The Look up tab | **Fold its search into the window header and drop the tab.** Tabs become FX · Assets · Coverage. Not built yet. |
+| Merge Stock FX and House FX (step 5) | **Yes.** Where an FX lives is a property, not navigation. **Built** — see step 5 above. |
+| The Look up tab | **Fold its search into the window header and drop the tab.** Tabs become FX · Assets · Coverage. **Built** — the card became the FX tab's detail pane. |
 
 ### Measured on the sandbox, 2026-09-07
 
-After step 4: `smoke-screens` **132 of 132**, `smoke-author` **15 of 15** (its round trip written as
+After step 5: `smoke-screens` **144 of 144**, `smoke-author` **15 of 15** (its round trip written as
 a copy, with a check that editing what an FX was copied from leaves the copy alone), `smoke-fx`
 **1293 build**, `smoke-replay` **45 of 45**, `check-fx` 1306 fx / 3207 assets / 0 invalid, and
-`check-imports`, `check-layers`, `check-legacy` green. (At step 3 the screens stood at 116 of 116.)
+`check-imports` (30 modules), `check-layers` (67 imports) and `check-legacy` green. (The screens
+stood at 116 of 116 after step 3 and 132 of 132 after step 4.)
 
 ### Noted in passing, not fixed
 

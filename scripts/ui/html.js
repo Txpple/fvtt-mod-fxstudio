@@ -31,6 +31,9 @@ export const HOOK_WORDS = { global: 'Global Hook', item: 'Item Hook' };
 /** the type of a new ability */
 export const KIND_WORDS = { spell: 'Spell', weapon: 'Weapon', feature: 'Feature', item: 'Item', effect: 'Effect' };
 
+/** the same kinds as a facet on the FX tab: what a list of them is called */
+export const KIND_PLURAL = { spell: 'Spells', weapon: 'Weapons', natural: 'Natural', feature: 'Features', item: 'Items', effect: 'Effects', status: 'Statuses', damage: 'Damage', event: 'Events' };
+
 export const dot = (status) => `<span class="dot ${status}"></span>`;
 
 /** the title words for an FX id: "sharran-step" → "Sharran Step" */

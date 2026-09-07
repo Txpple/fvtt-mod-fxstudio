@@ -27,7 +27,7 @@
 .fxstudio .fx-wrap input, .fxstudio .fx-wrap select { font: inherit; color: var(--fx-text); background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 8px 12px; width: 100%; height: auto; }
 .fxstudio .fx-wrap input:focus, .fxstudio .fx-wrap select:focus { outline: none; border-color: var(--fx-accent); box-shadow: 0 0 0 3px var(--fx-accent-soft); }
 .fxstudio .fx-wrap select option { color: var(--fx-text); background: var(--fx-panel); }
-.fxstudio .tabs { display: flex; gap: 6px; margin: 12px 0 16px; flex-wrap: wrap; }
+.fxstudio .tabs { display: flex; gap: 6px; margin: 12px 0 16px; flex-wrap: nowrap; }
 .fxstudio .tabs button { border-radius: 999px; padding: 6px 15px; color: var(--fx-muted); background: transparent; border-color: transparent; }
 .fxstudio .tabs button[aria-selected="true"] { background: var(--fx-panel); color: var(--fx-text); border-color: var(--fx-line); font-weight: 500; }
 .fxstudio .pane { display: none; }
@@ -146,7 +146,7 @@
 .fxstudio .actions .spacer { flex: 1; }
 .fxstudio .note.warn { color: var(--fx-warn); }
 .fxstudio .lib-actions .spacer { flex: 1; }
-@media (max-width: 720px) { .fxstudio .lib, .fxstudio .paths { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .fxstudio .lib, .fxstudio .paths, .fxstudio .fxtab { grid-template-columns: 1fr; } }
 .fxstudio .paths > *, .fxstudio .path .box, .fxstudio .stepper > *, .fxstudio .lib .viewer > *, .fxstudio .lib-actions > * { min-width: 0; }
 .fxstudio .fx-wrap .stepper select { min-width: 0; text-overflow: ellipsis; }
 .fxstudio .lib-actions .note { min-width: 0; overflow-wrap: anywhere; }
@@ -168,7 +168,7 @@
 .application.fxstudio .fxstudio-content { display: flex; flex-direction: column; }
 .fxstudio .fx-wrap { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
 .fxstudio .pane[data-active="true"] { display: block; flex: 0 0 auto; }
-.fxstudio .pane[data-pane="library"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.fxstudio .pane[data-pane="assets"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
 .fxstudio .lib { flex: 1 1 auto; min-height: 0; grid-template-rows: minmax(0, 1fr); }
 .fxstudio .shelf { height: 100%; min-height: 0; }
 .fxstudio .lib .viewer { display: flex; flex-direction: column; min-height: 0; }
@@ -307,3 +307,59 @@
 /* the Sequence header carries Play all; every Play keeps its place and greys with its reason */
 .fxstudio .sechead { display: flex; align-items: baseline; gap: 12px; }
 .fxstudio .fx-wrap .sechead button.play { margin-left: auto; padding: 4px 10px; font-size: 12.5px; }
+
+/* the window header: one search, on every tab, which answers in the pane and narrows the list
+   (step 5, 2026-09-07 — the Look up tab folded into it) */
+.fxstudio .fx-head { display: grid; grid-template-columns: minmax(0, 380px); margin-bottom: 2px; }
+.fxstudio .search.head input { font-size: 13.5px; padding: 7px 12px; }
+
+/* the FX tab: facets | rows | the 300px detail pane, one scroll region (R4, R5) */
+.fxstudio .pane[data-pane="fx"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.fxstudio .fxtab { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 190px minmax(0, 1fr) 300px; grid-template-rows: minmax(0, 1fr); gap: var(--fx-gutter); align-items: stretch; }
+.fxstudio .fxtab > * { min-width: 0; }
+/* the facet column: every facet at a permanent address, its count beside it, greyed at zero (R1) */
+.fxstudio .facets { display: flex; flex-direction: column; gap: 8px; min-height: 0; overflow: hidden auto; }
+.fxstudio .facets .fgroup { display: grid; gap: 1px; }
+.fxstudio .facets .sub { margin: 0 0 2px; }
+.fxstudio .fx-wrap .facets button.frow { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; height: 24px; padding: 0 9px; text-align: left; font-size: 12.5px; background: transparent; border-color: transparent; }
+.fxstudio .facets .frow:hover { background: var(--fx-panel2); }
+.fxstudio .facets .frow[aria-pressed="true"] { background: var(--fx-accent-soft); border-color: var(--fx-accent); }
+.fxstudio .facets .frow .w { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .facets .frow .c { color: var(--fx-faint); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.fxstudio .fx-wrap .facets button.clear { margin-top: auto; font-size: 12.5px; padding: 5px 10px; }
+/* the list: the one thing on this screen that scrolls */
+.fxstudio .fxlist { display: flex; flex-direction: column; min-height: 0; padding: 10px 12px; }
+.fxstudio .fxlist .listhead { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
+.fxstudio .fxlist .listhead .sub { margin: 0; }
+.fxstudio .fxlist .listhead .spacer { flex: 1; }
+.fxstudio .fx-wrap .fxlist .listhead button { padding: 4px 11px; font-size: 12.5px; }
+.fxstudio .fxlist .rows { flex: 1 1 auto; min-height: 0; overflow: auto; margin-top: 8px; }
+.fxstudio .fxlist .grouphead { position: sticky; top: 0; z-index: 1; background: var(--fx-panel2); color: var(--fx-muted); font: 600 11px/1 'IBM Plex Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-bottom: 1px solid var(--fx-line2); }
+/* one row, one height, whatever is selected: selection is colour only (R3) */
+.fxstudio .fxlist .row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 8px; height: calc(var(--fx-row) + var(--fx-gutter)); border-bottom: 1px solid var(--fx-line2); padding-right: 6px; }
+.fxstudio .fxlist .row[data-now="true"] { background: var(--fx-accent-soft); }
+.fxstudio .fx-wrap .fxlist .row button.pickbtn { display: grid; gap: 1px; align-content: center; width: 100%; min-width: 0; height: 100%; text-align: left; background: transparent; border: 0; border-radius: 0; padding: 0 0 0 10px; }
+.fxstudio .fxlist .row .n { font-size: 13px; font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .fxlist .row .s { font-size: 11.5px; color: var(--fx-muted); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .fxlist .row .shapes { display: flex; gap: 4px; flex: 0 0 auto; }
+.fxstudio .fxlist .row .tag.shape { color: var(--fx-faint); }
+/* the detail pane: the same component, the same width, the same place on every tab (R5) */
+.fxstudio .detail { display: flex; flex-direction: column; gap: 7px; min-height: 0; overflow: hidden; padding: 12px 14px; }
+.fxstudio .detail .dhead { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.fxstudio .fx-wrap .detail .dhead button.nm { font-size: 16px; color: var(--fx-text); text-align: left; }
+.fxstudio .fx-wrap .detail .dhead button.nm:hover { color: var(--fx-accent); }
+.fxstudio .detail .dhead .nm { font-size: 16px; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .detail .dhead .tag { flex: 0 0 auto; }
+.fxstudio .detail .whyline { margin: 0; }
+.fxstudio .detail .dbox { background: var(--fx-panel2); border-radius: var(--fx-radius); padding: 8px 10px; flex: 0 0 auto; }
+.fxstudio .detail .dbox .sub { margin: 0 0 4px; }
+.fxstudio .detail .dsentence { font-size: 12.5px; line-height: 1.5; height: calc(4 * 1.5 * 12.5px); overflow: hidden; }
+.fxstudio .detail .slist { height: 96px; overflow: hidden; display: grid; align-content: start; gap: 2px; }
+.fxstudio .detail .sc { display: flex; align-items: center; gap: 7px; height: 22px; }
+.fxstudio .detail .sc .n { font-size: 12px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .thumb.small { width: 20px; height: 20px; border-radius: 4px; }
+.fxstudio .detail .kinds { margin: 0; }
+/* the action grid: six cells at permanent addresses, greyed in place with the reason (R1) */
+.fxstudio .agrid { margin-top: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.fxstudio .agrid.one { grid-template-columns: minmax(0, 1fr); }
+.fxstudio .fx-wrap .agrid button, .fxstudio .fx-wrap .agrid select { padding: 6px 8px; font-size: 12.5px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; height: 32px; }

@@ -1,5 +1,6 @@
-// The item-sheet button: an "FX Studio" control on every dnd5e item sheet, for the GM, that opens
-// Look up on that very item (so the item pointer can be set on it). Two doors on the same sheet:
+// The item-sheet button: an "FX Studio" control on every dnd5e item sheet, for the GM, that asks
+// the window what plays for that very item — the header search answers it and the FX tab's detail
+// pane shows it (step 5, 2026-09-07), so the item pointer can still be set on it. Two doors:
 // a visible button in the header next to the close button (the markup dnd5e uses for its own
 // copy-uuid button), and an entry in the sheet's controls dropdown, which Foundry 14 fills through
 // `getHeaderControls<ClassName>` for every class in the sheet's chain (ItemSheet5e is dnd5e's).

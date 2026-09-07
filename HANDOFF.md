@@ -164,11 +164,20 @@ place (R1).
 
 ---
 
-**Stop here and check in. Do not start step 5 in the same pass.**
+**Stop here and check in. Do not start the next step in the same pass.**
 
 ---
 
-## Step 5 — One FX tab
+## Step 5 — One FX tab — **BUILT 2026-09-07** (DESIGN §9)
+
+> Built as written below. The tabs are **FX · Assets · Coverage** and the FX sheet is a pane with no
+> tab of its own (opened on an FX; Back returns where it came from; the FX pill is the current one
+> while it is up). The old tab names still land where they meant to, so `api.open({tab: 'audit'})`
+> opens Coverage. One deviation is stated in DESIGN §9: *Stage: House* is one **select** at one
+> address (*Draft only* · *Staged: House* · *Staged: Stock*) rather than a button, because both
+> stagings and unstaging have to be reachable and three buttons do not fit six cells. The window's
+> default width went 860 → 1080, the width the screens were ruled at. `smoke-screens` 144 of 144.
+
 
 `renderCorpus` and `renderCustom` build near-identical row lists differing by a filter on
 `e.source`. Where an FX lives is a property (already a tag via `SOURCE_TAG`), not navigation.

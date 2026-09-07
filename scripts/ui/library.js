@@ -205,7 +205,7 @@ export function renderLibrary(app) {
 
 /** re-render the pane alone, keeping the list where it was scrolled */
 function rerender(app) {
-  const pane = app.element?.querySelector('[data-pane="library"]');
+  const pane = app.element?.querySelector('[data-pane="assets"]');
   if (!pane) return app.render();
   const list = pane.querySelector('.shelf .list');
   const top = list?.scrollTop ?? 0;
@@ -263,7 +263,7 @@ export async function onLibraryClick(app, b, act) {
     }
     case 'lib-pick-use': { const pick = L.pick; if (pick && applyPick(app, pick, viewPath(L, v))) { L.pick = null; app.view.tab = 'editor'; app.toast(`Scene ${pick.i + 1}: ${it.name}${viewLabel(L, v) ? ` ${viewLabel(L, v)}` : ''}.`); } return app.render(); }
     case 'lib-pick-back': L.pick = null; app.view.tab = 'editor'; return app.render();
-    case 'lib-open-unused': L.only = 'unused'; L.sel = null; app.view.tab = 'library'; return app.render();
+    case 'lib-open-unused': L.only = 'unused'; L.sel = null; app.view.tab = 'assets'; return app.render();
     default: return undefined;
   }
 }
@@ -299,5 +299,5 @@ export function openPicker(app, i, slot, path = null, view = false) {
   L.vi = 0;
   L.fi = null;
   if (path) focusPath(app, path);
-  app.view.tab = 'library';
+  app.view.tab = 'assets';
 }

@@ -1,42 +1,20 @@
-// The Corpus tab (DESIGN §8; reshaped on the user's word 2026-09-06): Stock itself, read as rows
-// like Custom — the ability, what it plays, searchable — for whoever maintains it. The
-// maintainer's controls sit in one small card at the foot of Audit: the drafts this world wrote and where
+// The maintainer's card (DESIGN §8; the Stock list it sat beside was merged into the one FX tab at
+// step 5, 2026-09-07). It is one card at the top of Coverage: the drafts this world wrote and where
 // each is staged (House or Stock), the ship (the corpus files written into the module on this
 // server, a version stamped, a line in the record), what shipped before; and the import of a file
-// of FX straight into Stock. The repo pulls the files back with tools/pull-corpus.mjs. Built on
-// api.corpus and api.fx and nothing else. Labels are terms (ruled 2026-09-06).
+// of FX straight into Stock. Staging is also on every FX's own detail pane now (ui/fxtab.js) — this
+// card is where you see all of it at once and press Ship. The repo pulls the files back with
+// tools/pull-corpus.mjs. Built on api.corpus and api.fx and nothing else. Labels are terms.
 import { MODULE_ID } from '../settings.js';
-import { keyLabel, parseKey } from '../core/subjects.js';
+import { parseKey } from '../core/subjects.js';
 import { HOOK_WORDS, SOURCE_TAG, esc, idWords } from './html.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
-const PAGE = 500;
 
-/** the maintainer's state on the window, shared by the Stock list and the Maintain card (Audit) */
-const corpusState = (app) => (app.co ??= { version: null, note: '', q: '', show: PAGE });
+/** the maintainer's state on the window */
+const corpusState = (app) => (app.co ??= { version: null, note: '' });
 
-export function renderCorpus(app) {
-  const a = api();
-  const co = corpusState(app);
-  const q = co.q.trim().toLowerCase();
-  const stock = a.fx.list().filter((e) => e.source === 'stock');
-  const rows = stock.map((e) => {
-    const key = e.fx.for?.[0] ?? null;
-    const name = key ? idWords(parseKey(key)?.id) : idWords(e.fx.id);
-    const keys = (e.fx.for ?? []).map(keyLabel).join(', ');
-    const sentence = a.fx.sentence(e.original, { name });
-    return { e, name, keys, sentence, text: `${e.fx.id} ${name} ${keys} ${sentence}`.toLowerCase() };
-  }).filter((r) => !q || r.text.includes(q)).sort((x, y) => x.name.localeCompare(y.name));
-  const shown = Math.min(co.show, rows.length);
-  const body = rows.slice(0, shown).map(({ e, name, keys }) => `<div class="row line"><span class="n"><button type="button" class="link" data-act="open-fx" data-id="${esc(e.fx.id)}">${esc(name)}</button>${keys ? ` <span class="note">· ${esc(keys)}</span>` : ''}</span><span class="b"><button type="button" class="quiet" data-act="open-fx" data-id="${esc(e.fx.id)}">View</button><button type="button" class="quiet" data-act="delete-fx" data-id="${esc(e.fx.id)}">Delete</button></span></div>`).join('');
-  const more = rows.length > shown ? `<p class="note more"><button type="button" class="link" data-act="co-more">Load more</button> · ${rows.length - shown} more</p>` : '';
-  return `<div class="stack">
-    <div class="search"><input type="search" class="co-q" placeholder="Search" aria-label="Search Stock" value="${esc(co.q)}"></div>
-    <div class="card list lines"><div class="sub">${SOURCE_TAG.stock} · ${rows.length}${q ? ` of ${stock.length}` : ''} FX</div>${body || '<p class="note">No match.</p>'}${more}</div>
-  </div>`;
-}
-
-/** the maintainer's card: the drafts, staging, the ship, the record, the import (on Audit) */
+/** the maintainer's card: the drafts, staging, the ship, the record, the import (on Coverage) */
 export function renderMaintain(app) {
   const a = api();
   const co = corpusState(app);
@@ -73,7 +51,6 @@ export function renderMaintain(app) {
 
 export async function onCorpusClick(app, b, act) {
   const a = api();
-  if (act === 'co-more') { corpusState(app).show += PAGE; return app.render(); }
   if (act === 'co-stage') {
     const r = await a.corpus.stage(b.dataset.id, b.dataset.to || null);
     if (!r.ok) return app.toast(r.problems.join(' '));
@@ -100,19 +77,6 @@ export async function onCorpusClick(app, b, act) {
 export function onCorpusInput(app, el) {
   if (!app.co) return;
   if (el.classList.contains('co-note')) app.co.note = el.value;
-  if (el.classList.contains('co-q')) {
-    app.co.q = el.value;
-    app.co.show = PAGE;
-    clearTimeout(app._coTimer);
-    app._coTimer = setTimeout(() => {
-      const pane = app.element.querySelector('[data-pane="stock"]');
-      if (!pane) return;
-      pane.innerHTML = renderCorpus(app);
-      const q = pane.querySelector('.co-q');
-      q?.focus();
-      q?.setSelectionRange(q.value.length, q.value.length);
-    }, 250);
-  }
 }
 
 export function onCorpusChange(app, el) {

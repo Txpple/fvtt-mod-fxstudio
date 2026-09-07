@@ -1,6 +1,6 @@
 // The FX sheet: one screen per FX, the same whether it is read or changed. It opens from a row on
-// Stock FX or House FX, from "Used in" on the Asset Library, from the Look up card, from Check, and
-// from New FX. An Edit switch is the guard: off, the sheet is read-only and offers Duplicate,
+// the FX tab, from its detail pane's Edit, from "Used in" on Assets, from Coverage, and from New FX.
+// It is a pane, not a tab (step 5): Back returns to wherever it was opened from. An Edit switch is the guard: off, the sheet is read-only and offers Duplicate,
 // Export and Delete (or Revert, when a Draft sits over Stock or House); on, every control unlocks
 // and the buttons are Cancel and Save. Save always writes a Draft (the world buffer) through the
 // API — Stock and House files are never touched here.
@@ -74,7 +74,7 @@ export const bareKey = (subject) => subject?.keys?.find((k) => !k.includes('/'))
  */
 export function openSheet(app, { id = null, subject = null, from = null, scenes = null, edit = false } = {}) {
   const a = api();
-  const s = { id: null, source: null, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, onlyThis: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'house') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', pick: 0, band: 'picture' };
+  const s = { id: null, source: null, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, onlyThis: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', pick: 0, band: 'picture' };
   const e = id ? a.fx.get(id) : null;
   if (e) {
     s.id = id; s.source = e.source; s.original = e.original;
@@ -172,7 +172,7 @@ const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.
 export function renderSheet(app) {
   const a = api();
   const s = app.sheet;
-  if (!s) return `<div class="stack"><div class="card"><div class="sub">FX Editor</div><p class="note">No FX open. Pick one from Stock FX or House FX, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button></div></div></div>`;
+  if (!s) return `<div class="stack"><div class="card"><div class="sub">FX Editor</div><p class="note">No FX open. Pick one on the FX tab, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button></div></div></div>`;
   const edit = s.edit;
   const fx = safeDraft(app);
   const problems = edit ? problemsOf(app) : [];
@@ -239,16 +239,19 @@ function sentenceHtml(app, fx, name) {
 // --- Play (HANDOFF step 2): api.preview, on the selected token, saving nothing ------------------
 const assetUrl = (file) => (globalThis.foundry?.utils?.getRoute ? foundry.utils.getRoute(file) : `/${file}`);
 
-/** why Play cannot run right now, in words, or null when it can; the control is greyed, never removed */
-function playWhy(app, scene = null) {
-  const s = app.sheet;
-  const list = scene ? [scene] : s.scenes.map((x) => x.scene);
-  if (s.off) return 'switched off';
-  if (!list.length) return 'no scenes';
+/**
+ * Why Play cannot run right now, in words, or null when it can. One rule, in one place: the sheet's
+ * Play all, its per-scene ▶ and the FX tab's Play all read it, and every one of them greys WHERE IT
+ * STANDS with the reason in its label rather than disappearing (R1).
+ */
+export function playWhyOf(scenes, off = false) {
+  if (off) return 'switched off';
+  if (!scenes.length) return 'no scenes';
   if (!canvas?.tokens?.controlled?.length) return 'select a token';
-  if (needsPlace({ scenes: list }) && !canvas.regions?.controlled?.length) return 'select a placed template';
+  if (needsPlace({ scenes }) && !canvas.regions?.controlled?.length) return 'select a placed template';
   return null;
 }
+const playWhy = (app, scene = null) => playWhyOf(scene ? [scene] : app.sheet.scenes.map((x) => x.scene), app.sheet.off);
 
 /** ▶ Play all, in the Sequence header */
 function playAll(app) {
@@ -266,7 +269,8 @@ function thumbFile(scene) {
 }
 
 const isVideo = (file) => /\.(webm|mp4|m4v)$/i.test(file);
-function thumbHtml(scene, cls = 'thumb') {
+/** a still of what a scene plays, for the rail and for the FX tab's detail pane */
+export function thumbHtml(scene, cls = 'thumb') {
   const file = thumbFile(scene);
   if (!file) return `<span class="${cls} none"></span>`;
   return isVideo(file)
@@ -730,7 +734,7 @@ export function hydrateSheet(app) {
  * Play an FX once on the selected token through the API, saving nothing. Says what happened: a
  * move with no destination arms the canvas click and plays from there (render.js).
  */
-async function playPreview(app, fx, what) {
+export async function previewFx(app, fx, what) {
   const a = api();
   const source = canvas?.tokens?.controlled?.[0] ?? null;
   if (!source) return app.toast('Select a token to play from.');
@@ -769,8 +773,8 @@ export async function onSheetClick(app, b, act) {
   const i = Number(b.dataset.i);
   const x = s.scenes[i];
   switch (act) {
-    case 'sh-back': { if (!(await leaveSheet(app))) return undefined; app.view.tab = s.cameFrom ?? 'house'; break; }
-    case 'sh-cancel': { if (s.id) openSheet(app, { id: s.id, subject: s.subject }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'house'; } app.toast('Changes dropped.'); break; }
+    case 'sh-back': { if (!(await leaveSheet(app))) return undefined; app.view.tab = s.cameFrom ?? 'fx'; break; }
+    case 'sh-cancel': { if (s.id) openSheet(app, { id: s.id, subject: s.subject }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; } app.toast('Changes dropped.'); break; }
     case 'sh-save': return saveSheet(app);
     case 'sh-dup': { openSheet(app, { subject: s.subject, from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Add its hook, then Save.`); break; }
     case 'sh-export': return app.exportFx(s.id);
@@ -778,7 +782,7 @@ export async function onSheetClick(app, b, act) {
       const under = s.source === 'world' && (a.corpora.house.some((h) => h.id === s.id) || a.corpora.stock.some((b2) => b2.id === s.id));
       if (under) { await app.removeFx(s.id); openSheet(app, { id: s.id }); break; }
       await app.deleteFx(s.id);
-      if (!a.fx.get(s.id)) { app.sheet = null; app.view.tab = s.cameFrom ?? 'house'; }
+      if (!a.fx.get(s.id)) { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
       break;
     }
     case 'sh-key-del': s.keys = s.keys.filter((k) => k !== b.dataset.key); s.newKeys = s.newKeys.filter((k) => k !== b.dataset.key); break;
@@ -791,10 +795,10 @@ export async function onSheetClick(app, b, act) {
     case 'sh-pick': s.pick = i; if (s.band === 'shape' && !shapeCells(s.scenes[i]?.scene.shape).length) s.band = 'picture'; break;
     case 'sh-band': s.band = b.dataset.band; break;
     // --- Play (HANDOFF step 2) ---
-    case 'sh-play': { const fx = safeDraft(app); if (!fx) return app.toast('Nothing to play yet.'); return playPreview(app, fx, sheetName(app)); }
+    case 'sh-play': { const fx = safeDraft(app); if (!fx) return app.toast('Nothing to play yet.'); return previewFx(app, fx, sheetName(app)); }
     case 'sh-play-scene': {
       if (!x) return undefined;
-      return playPreview(app, { id: 'preview', on: s.on, scenes: [clone(x.scene)] }, `scene ${i + 1}`);
+      return previewFx(app, { id: 'preview', on: s.on, scenes: [clone(x.scene)] }, `scene ${i + 1}`);
     }
     case 'sh-off': s.off = b.dataset.v === 'true'; break;
     case 'sh-on': s.on = b.dataset.on; break;
@@ -988,6 +992,8 @@ async function saveSheet(app) {
   if (s.onlyThis && item) await item.setFlag(MODULE_ID, 'fx', fx.id);
   else if (item && sub.pointer === fx.id && !s.onlyThis) await item.unsetFlag(MODULE_ID, 'fx');
   app.refresh();
+  // what was saved is what the FX tab's pane is on, so Back lands on it
+  app.view.fxSel = fx.id;
   const name = sheetName(app);
   const pick = s.pick;
   const band = s.band;
