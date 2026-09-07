@@ -183,10 +183,8 @@ second grammar: the sentence is generated from the look, never parsed back.
 | `id` | unique across the corpora; a house look with a stock look's id replaces it |
 | `for` | the subject keys it answers (§3); empty for a starter |
 | `on` | the moment kind (§2) |
-| `like` | inherit everything not stated from another look or a starter (`starter:bolt`) — the variant workflow |
-| `with` | overrides applied to every scene of the inherited look: `colour`, `sound`, `size`, `opacity` — "like Misty Step but black" is `like: misty-step, with: {colour: black}` |
 | `off` | a house look that silences a stock look |
-| `scenes` | the pictures, in start order |
+| `scenes` | the pictures, in start order — always this look's own; no look points at another (see *No shortcuts*) |
 | `by`, `at`, `note` | provenance: who wrote it (a user, an assistant, the migration), when, and why in a sentence |
 
 ### 4.2 The scene
@@ -330,9 +328,15 @@ cannot read.
 **Starters.** `recipes/starters.json` holds one abstract look per shape and per common intent — a
 bolt to the target, a swing, a mark on the target, a mark on yourself, a burst on an area, a fill
 of an area, an aura, a beam, a teleport — with sensible sizes and timings. Every new look is a
-starter or an existing look plus a subject, an asset and a colour. That is the whole authoring
-model for ninety percent of looks, and it is one line: `{for: [spell:sharran-step], like:
-misty-step, with: {colour: black}}`.
+starter or an existing look COPIED, then given a subject, an asset and a colour. A stencil, not a
+reference: what is stamped out belongs to the new look and nothing can reach back into it.
+
+**No shortcuts (ruled 2026-09-07).** No look points at another one, and none inherits. "Sharran
+Step is Misty Step in black" means the whole of Misty Step written out again with the colour
+changed. The grammar had `like` and `with` for this and they are gone: a pointer can leave an
+orphan, and one look silently changing what a different look plays is not something a person can
+see on the screen in front of them. The cost is accepted — a variant is longer to write, and
+improving what it was copied from does not improve it.
 
 **Provenance and review.** Every look records `by` (a user's name, an assistant's name, or the
 migration), `at`, and a `note` in a sentence. The Custom looks screen shows the newest first with

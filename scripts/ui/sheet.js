@@ -9,8 +9,13 @@
 // Sequence (one row per scene, in fixed rows of labelled knobs, the plain-English line under each —
 // kept on the user's word — with wait, lasts and delay), Note. The draft is a plain fx in the
 // grammar (core/fx.js); nothing is parsed from words.
+//
+// EVERY FX IS A FULL COPY (ruled 2026-09-07): no FX points at another one, so nothing here has to
+// show, guard or preserve a reference. "Copy from" and Duplicate stamp the scenes out and the new
+// FX owns them; changing it changes nothing else, and nothing it came from can orphan it.
 import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
+import { needsPlace } from '../core/corpus.js';
 import { KNOBS, PLACES, PLACE_WORDS, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
 import { HOOK_WORDS, KIND_WORDS, ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
 import { openPicker } from './library.js';
@@ -57,7 +62,7 @@ export function openSheet(app, { id = null, subject = null, from = null, scenes 
   if (e) {
     s.id = id; s.source = e.source; s.original = e.original;
     s.keys = [...(e.original.for ?? [])];
-    s.on = e.original.on ?? e.fx.on ?? 'use';
+    s.on = e.original.on ?? 'use';
     s.off = !!e.original.off;
     s.note = e.original.note ?? '';
     s.scenes = seedFrom(id);
@@ -77,12 +82,9 @@ export function openSheet(app, { id = null, subject = null, from = null, scenes 
   return s;
 }
 
-/** the rows an FX (or a starter) expands to */
+/** the rows an FX (or a starter) holds, copied: what a new FX is stamped out of */
 function seedFrom(id) {
-  try {
-    const ex = api().fx.expand({ id: 'draft', like: id });
-    return (ex.scenes ?? []).map((scene) => ({ scene: clone(scene), scale: 1 }));
-  } catch { return []; }
+  try { return api().fx.scenesOf(id).map((scene) => ({ scene, scale: 1 })); } catch { return []; }
 }
 
 /** the FX the sheet describes, ready to validate or save */
@@ -104,7 +106,9 @@ export function draftFx(app) {
       if (existing && !s.keys.some((k) => (existing.original?.for ?? []).includes(k))) id = `${p?.kind ?? 'fx'}-${id}`;
     }
   }
-  const scenes = s.scenes.map(({ scene, scale }) => {
+  const note = s.note.trim() || (s.from ? `copied from ${idWords(s.from)}` : s.original?.note ?? '');
+  const fx = { id, for: s.onlyThis ? [] : [...s.keys], on: s.on };
+  fx.scenes = s.scenes.map(({ scene, scale }) => {
     const out = clone(scene);
     if (scale !== 1) {
       const size = clone(withDefaults(scene).size ?? null);
@@ -117,8 +121,6 @@ export function draftFx(app) {
     if (canMiss(scene)) { if (s.onMiss === 'skip') out.onMiss = 'skip'; else if (out.onMiss === 'skip') delete out.onMiss; }
     return out;
   });
-  const note = s.note.trim() || (s.from ? `like ${idWords(s.from)}` : s.original?.note ?? '');
-  const fx = { id, for: s.onlyThis ? [] : [...s.keys], on: s.on, scenes };
   if (note) fx.note = note;
   if (s.off) fx.off = true;
   return fx;
@@ -187,9 +189,38 @@ export function renderSheet(app) {
     ${sentence ? `<div class="preview"><div class="sub">What plays</div><b>${esc(sentence)}</b></div>` : ''}
     ${banner}${problem}
     <div class="section"><div class="sub">Hook</div>${renderHook(app)}</div>
-    <div class="section"><div class="sub">Sequence</div>${renderSequence(app)}</div>
-    <div class="section"><div class="sub">Note</div><input type="text" class="sh-note knob" value="${esc(s.note)}" placeholder="${esc(s.from ? `like ${idWords(s.from)}` : 'Why this FX, for whoever reads it later')}" ${edit ? '' : 'disabled'}></div>
+    <div class="section"><div class="sechead"><div class="sub">Sequence</div>${playAll(app)}</div>${renderSequence(app)}</div>
+    <div class="section"><div class="sub">Note</div><input type="text" class="sh-note knob" value="${esc(s.note)}" placeholder="${esc(s.from ? `copied from ${idWords(s.from)}` : 'Why this FX, for whoever reads it later')}" ${edit ? '' : 'disabled'}></div>
   </div>`;
+}
+
+// --- Play (HANDOFF step 2): api.preview, on the selected token, saving nothing ------------------
+const assetUrl = (file) => (globalThis.foundry?.utils?.getRoute ? foundry.utils.getRoute(file) : `/${file}`);
+
+/** why Play cannot run right now, in words, or null when it can; the control is greyed, never removed */
+function playWhy(app, scene = null) {
+  const s = app.sheet;
+  const list = scene ? [scene] : s.scenes.map((x) => x.scene);
+  if (s.off) return 'switched off';
+  if (!list.length) return 'no scenes';
+  if (!canvas?.tokens?.controlled?.length) return 'select a token';
+  if (needsPlace({ scenes: list }) && !canvas.regions?.controlled?.length) return 'select a placed template';
+  return null;
+}
+
+/** ▶ Play all, in the Sequence header */
+function playAll(app) {
+  const why = playWhy(app);
+  return `<button type="button" class="quiet play" data-act="sh-play" data-tooltip="${esc(why ?? 'Play the whole FX on the selected token. Nothing is saved.')}" ${why ? 'disabled' : ''}>▶ Play all${why ? ` · ${esc(why)}` : ''}</button>`;
+}
+
+/** the first file behind a scene's picture, for its thumbnail */
+function thumbFile(scene) {
+  if (!hasPicture(scene) || !scene.asset) return null;
+  const a = api();
+  const r = a.assets.resolve(scene.asset);
+  if (r.missing) return null;
+  return r.file ?? (r.path ? a.assets.database()?.files(r.path)?.[0] ?? null : null);
 }
 
 function renderHook(app) {
@@ -218,13 +249,14 @@ function sceneRow(app, { scene, scale }, i) {
   const a = api();
   const s = app.sheet;
   const sc = withDefaults(scene);
-  const dis = s.edit ? '' : 'disabled';
+  const locked = !s.edit;
+  const dis = locked ? 'disabled' : '';
   const f = [];
   // a picture or a sound the scene names: the whole path in words (the variant, not just the family),
   // typed against the library when the sheet is unlocked, a link to it in the Asset Library when it is not
   const slotField = (col, label, slot, klass, path, empty) => {
     const shown = pathWords(path ?? '') || empty;
-    return field(col, label, s.edit
+    return field(col, label, !locked
       ? `<span class="search"><input type="text" class="${klass}" data-i="${i}" value="${esc(pathWords(path ?? ''))}" placeholder="${label}" aria-label="${label}" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">Browse</button>`
       : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">${esc(shown)}</button>`);
   };
@@ -245,7 +277,7 @@ function sceneRow(app, { scene, scale }, i) {
     const op = Math.round((sc.opacity ?? 1) * 100);
     f.push(field('opacity', 'Opacity', `<input type="number" class="cw-opacity" data-i="${i}" value="${op}" min="0" max="100" step="5" aria-label="Opacity (%)" ${dis}><span class="suffix">%</span>`));
     const tint = scene.tint?.colour ?? '';
-    f.push(field('tint', 'Tint', s.edit
+    f.push(field('tint', 'Tint', !locked
       ? `<input type="color" class="cw-tint" data-i="${i}" value="${esc(tint || '#ffffff')}" aria-label="Tint">${tint ? `<button type="button" class="quiet" data-act="cw-tint-off" data-i="${i}" data-tooltip="No tint" aria-label="No tint">✕</button>` : '<span class="suffix">none</span>'}`
       : (tint ? `<span class="swatch" style="background:${esc(tint)}"></span><span class="suffix">${esc(tint)}</span>` : '<span class="suffix">none</span>')));
   }
@@ -254,7 +286,7 @@ function sceneRow(app, { scene, scale }, i) {
     const has = !!scene.sound?.asset;
     const r = has ? a.assets.resolve(scene.sound.asset) : null;
     const words = has ? (pathWords(r.path ?? '') || (r.file ? r.file.split('/').pop() : '') || (r.paths ? `one of ${r.paths.length}` : 'SFX')) : 'No SFX';
-    f.push(field('sfx', 'SFX', s.edit
+    f.push(field('sfx', 'SFX', !locked
       ? `<select class="cw-sound" data-i="${i}" aria-label="SFX"><option value="keep" selected>${esc(words)}</option>${has ? '<option value="none">No SFX</option>' : ''}</select><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" data-tooltip="Asset Library">Browse</button>`
       : (has ? `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="sound" data-tooltip="Asset Library">${esc(words)}</button>` : '<span class="suffix">No SFX</span>')));
   }
@@ -282,8 +314,17 @@ function sceneRow(app, { scene, scale }, i) {
   const row2 = SECOND.map((c) => f.find((x) => colOf(x) === c)).filter(Boolean);
   const row3 = THIRD.map((c) => f.find((x) => colOf(x) === c)).filter(Boolean);
   const kind = KIND_OF_SHAPE(scene.shape);
-  const tools = s.edit ? `<div class="tools"><button type="button" class="quiet" data-act="cw-up" data-i="${i}" aria-label="Up" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" class="quiet" data-act="cw-down" data-i="${i}" aria-label="Down" ${i === s.scenes.length - 1 ? 'disabled' : ''}>↓</button><button type="button" class="quiet drop" data-act="cw-drop" data-i="${i}" aria-label="Remove scene">✕</button></div>` : '<div class="tools"></div>';
-  return `<div class="scene" data-kind="${kind}"><span class="num">${i + 1}</span><div><div class="kind">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${KIND_TITLE[kind] ? ` · ${KIND_TITLE[kind]}` : ''}</div><div class="knobs"><div class="kr">${row1.join('')}</div><div class="kr">${row2.join('')}</div>${row3.length ? `<div class="kr">${row3.join('')}</div>` : ''}</div></div>${tools}<div class="line">${esc(sceneWords(scene))}</div></div>`;
+  // Play is always on the row, greyed with its reason when it cannot run (R1); the reorder tools
+  // only when this FX owns its scenes
+  const why = playWhy(app, scene);
+  const last = s.scenes.length - 1;
+  const play = `<button type="button" class="quiet play" data-act="sh-play-scene" data-i="${i}" data-tooltip="${esc(why ?? `Play scene ${i + 1} now. Nothing is saved.`)}" aria-label="Play scene ${i + 1}" ${why ? 'disabled' : ''}>▶</button>`;
+  const tools = `<div class="tools">${play}${locked ? '' : `<button type="button" class="quiet" data-act="cw-up" data-i="${i}" aria-label="Up" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" class="quiet" data-act="cw-down" data-i="${i}" aria-label="Down" ${i === last ? 'disabled' : ''}>↓</button><button type="button" class="quiet drop" data-act="cw-drop" data-i="${i}" aria-label="Remove scene">✕</button>`}</div>`;
+  const file = thumbFile(scene);
+  const thumb = !file ? '<span class="thumb none"></span>'
+    : /\.(webm|mp4|m4v)$/i.test(file) ? `<video class="thumb" src="${esc(assetUrl(file))}#t=0.1" preload="metadata" muted playsinline></video>`
+      : `<img class="thumb" src="${esc(assetUrl(file))}" alt="">`;
+  return `<div class="scene" data-kind="${kind}"><div class="idx"><span class="num">${i + 1}</span>${thumb}</div><div><div class="kind">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${KIND_TITLE[kind] ? ` · ${KIND_TITLE[kind]}` : ''}</div><div class="knobs"><div class="kr">${row1.join('')}</div><div class="kr">${row2.join('')}</div>${row3.length ? `<div class="kr">${row3.join('')}</div>` : ''}</div></div>${tools}<div class="line">${esc(sceneWords(scene))}</div></div>`;
 }
 
 function renderSequence(app) {
@@ -297,6 +338,25 @@ function renderSequence(app) {
 // -----------------------------------------------------------------------------------------------
 // events (the window routes every act that starts with sh- or cw- here)
 // -----------------------------------------------------------------------------------------------
+/**
+ * Play an FX once on the selected token through the API, saving nothing. Says what happened: a
+ * move with no destination arms the canvas click and plays from there (render.js).
+ */
+async function playPreview(app, fx, what) {
+  const a = api();
+  const source = canvas?.tokens?.controlled?.[0] ?? null;
+  if (!source) return app.toast('Select a token to play from.');
+  const place = canvas.regions?.controlled?.[0]?.document ?? null;
+  let r;
+  try { r = await a.preview(fx, { source, targets: [...(game.user.targets ?? [])], place }); }
+  catch (e) { return app.toast(`Could not play it: ${e.message}`); }
+  if (!r.ok) return app.toast(r.problems.join(' '));
+  if (r.entry?.played) return app.toast(`Playing ${what}. Nothing was saved.`);
+  // a move with no destination is not a failure: the canvas is armed and the FX plays from the click
+  if (/destination click/.test(r.entry?.why ?? '')) return app.toast(`Click a spot on the canvas to play ${what}.`);
+  return app.toast(`Nothing played: ${r.entry?.why ?? 'nothing to play'}.`);
+}
+
 /** the library path one slot of a scene names, or null */
 function slotPath(s, i, slot) {
   const a = api();
@@ -333,14 +393,22 @@ export async function onSheetClick(app, b, act) {
     case 'sh-key-new': { const k = `spell:${slug(b.dataset.name)}`; if (!s.keys.includes(k)) { s.keys.push(k); s.newKeys.push(k); } if (!s.subject) s.subject = app.subjectNew(b.dataset.name); s.keyQuery = ''; s.onlyThis = false; break; }
     case 'sh-kind': { const last = s.newKeys[s.newKeys.length - 1]; const p = parseKey(last); if (!p) break; const k = `${b.dataset.kind}:${p.id}`; s.keys = s.keys.map((x) => (x === last ? k : x)); s.newKeys = s.newKeys.map((x) => (x === last ? k : x)); if (s.subject?.isNew) s.subject = app.subjectNew(s.subject.name, b.dataset.kind); s.on = b.dataset.kind === 'effect' ? 'effect' : s.on; break; }
     case 'sh-only': s.onlyThis = !s.onlyThis; break;
+    // --- Play (HANDOFF step 2) ---
+    case 'sh-play': { const fx = safeDraft(app); if (!fx) return app.toast('Nothing to play yet.'); return playPreview(app, fx, sheetName(app)); }
+    case 'sh-play-scene': {
+      const x = s.scenes[i];
+      if (!x) return undefined;
+      return playPreview(app, { id: 'preview', on: s.on, scenes: [clone(x.scene)] }, `scene ${i + 1}`);
+    }
     case 'sh-off': s.off = b.dataset.v === 'true'; break;
     case 'sh-on': s.on = b.dataset.on; break;
     case 'sh-miss': s.onMiss = b.dataset.v; break;
     case 'sh-like-hit': s.from = b.dataset.id; s.scenes = seedFrom(b.dataset.id); break;
     case 'cw-add': {
-      const ex = a.fx.expand({ id: 'draft', like: STARTER_OF_SHAPE[b.dataset.shape] });
-      const scene = (ex.scenes ?? []).find((sc) => sc.shape === b.dataset.shape) ?? ex.scenes?.[0];
-      if (scene) s.scenes.push({ scene: clone(scene), scale: 1 });
+      // the starter is a stencil: its scene is stamped out and the FX owns the copy
+      const stencil = a.fx.scenesOf(STARTER_OF_SHAPE[b.dataset.shape]);
+      const scene = stencil.find((sc) => sc.shape === b.dataset.shape) ?? stencil[0];
+      if (scene) s.scenes.push({ scene, scale: 1 });
       break;
     }
     case 'cw-drop': s.scenes.splice(i, 1); break;

@@ -42,11 +42,9 @@ the world buffer, then `house.json`, then the stock — later wins per FX id, an
 | --- | --- | --- |
 | `id` | yes | lower-case letters, digits and dashes; unique across the corpora. A house FX with a stock FX's id replaces it. |
 | `for` | yes (may be empty for a starter) | the subject keys it answers, see *Keys*. An FX answers the first key of a subject's list that has an FX. |
-| `on` | yes unless `like` | the moment kind: `use` (an ability used — the attack roll for attacks, the damage roll for saves and heals, the template placement for areas, the card for the rest) or `effect` (an active effect created or switched on). |
-| `like` | no | inherit everything not stated from another FX (its id) or a starter (`starter:bolt`). A chain is allowed. |
-| `with` | no | overrides applied after inheriting: `asset` (the first picture's asset), `colour` (every picture's colour), `sound` (a path, a sound object, or `null` to silence), `opacity`, `scale` (multiplies every size). |
+| `on` | yes | the moment kind: `use` (an ability used — the attack roll for attacks, the damage roll for saves and heals, the template placement for areas, the card for the rest) or `effect` (an active effect created or switched on). |
 | `off` | no | `true`: this FX silences its `for` keys — they play nothing. Needs no scenes. |
-| `scenes` | yes unless `like` | the pictures and sounds, in start order. |
+| `scenes` | yes | the pictures and sounds, in start order. Always this FX's own — see *No shortcuts* below. |
 | `by`, `at`, `note` | no | provenance: who wrote it (a name, an assistant, "the migration"), the ISO date, and why in a sentence. |
 | `to` | no, world FX only | `house` or `stock`: the corpus an FX written in this world is bound for. The Corpus tab's ship writes it into that corpus file (a stock look into the file of its first key's kind) and drops the field. |
 
@@ -172,9 +170,9 @@ every FX can use is always better than a custom scene one FX uses.
 ## Writing an FX: the assistant's round trip
 
 1. `node tools/census.mjs` — what plays nothing, per sheet, with each subject's keys.
-2. Pick a starter (`starters.json`) or an existing FX to be `like`.
+2. Pick a starter (`starters.json`) or an existing FX to copy the scenes of (`api.fx.scenesOf(id)`, or read the file).
 3. `node tools/assets.mjs "misty step"` — the libraries' own families, variants and colours; a path is looked up, never guessed.
-4. Write the FX as data. The whole authoring model for most FX is one line: `{ "id": "sharran-step", "for": ["spell:sharran-step"], "like": "misty-step", "with": { "colour": "dark_black" } }`.
+4. Write the FX as data, in full. A variant is a COPY: "Sharran Step is Misty Step in black" means Misty Step's scenes written out again with the colour changed — `{ "id": "sharran-step", "for": ["spell:sharran-step"], "on": "use", "scenes": [ …Misty Step's scenes, in dark_black… ] }`. Longer to write, and it stands on its own.
 5. `node tools/check-fx.mjs <file>` — every problem in a sentence; every asset against the registration and the disk.
 6. `node tools/preview.mjs <file or FX id>` — plays it on the sandbox fixture.
 7. Propose it: in the game through `api.FX.save(FX, {by})` (into the world buffer, with provenance; a person exports it to `house.json`), or as a change to `house.json` in a pull request.

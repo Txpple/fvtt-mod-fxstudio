@@ -11,7 +11,7 @@
 import { existsSync } from 'node:fs';
 import { ROOTS } from './lib/env.mjs';
 import { readFxFile, readRecipes, useLibraries } from './lib/recipes.mjs';
-import { assetsOf, expand, sentence, validate } from '../scripts/core/fx.js';
+import { assetsOf, sentence, validate } from '../scripts/core/fx.js';
 import { resolveAsset } from '../scripts/engine/assets.js';
 
 const args = process.argv.slice(2);
@@ -23,9 +23,6 @@ const recipes = readRecipes();
 const { db } = await useLibraries(recipes);
 const known = new Set(recipes.frozen?.meta?.missingFiles ?? []); // files AA's table names that this JB2A build lacks: silent under AA too
 const sets = file ? [['file', readFxFile(file)]] : [['stock', recipes.stock], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
-const ids = new Set([...recipes.stock, ...recipes.house].map((l) => l.id).concat(recipes.starters.map((s) => `starter:${s.id}`)));
-if (file) for (const l of sets[0][1]) if (l?.id) ids.add(l.id);
-const lookup = (id) => [...recipes.stock, ...recipes.house].find((l) => l.id === id) ?? recipes.starters.map((s) => ({ ...s, id: `starter:${s.id}` })).find((s) => s.id === id) ?? (file ? sets[0][1].find((l) => l.id === id) : null) ?? null;
 
 const problems = [];
 const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0 };
@@ -33,12 +30,10 @@ for (const [source, list] of sets) {
   for (const fx of list) {
     counts.fx++;
     const where = `${source} "${fx?.id}"`;
-    const errs = validate(fx, { ids });
+    const errs = validate(fx);
     if (errs.length) { counts.invalid++; problems.push(`${where}: ${errs.join('; ')}`); continue; }
     if (fx.off) { counts.off++; continue; }
-    let full;
-    try { full = expand(fx, lookup); } catch (e) { counts.invalid++; problems.push(`${where}: ${e.message}`); continue; }
-    for (const scene of full.scenes ?? []) {
+    for (const scene of fx.scenes ?? []) {
       counts.scenes++;
       for (const { asset, where: w } of assetsOf(scene)) {
         counts.assets++;

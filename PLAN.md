@@ -166,9 +166,10 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   stock row. The **world layer** (`fxstudio.looks`, one world setting) is the live edit
   buffer the screens write; `tools/export-fx.mjs` folds it into `house.json` so it is
   versioned and readable by an assistant. `recipes/colours.json` holds the outcome layers'
-  colour defaults. An optional item pointer `flags.fvtt-mod-fxstudio.look` names a look. A row is
-  `{name, like?, fx: [{preset, file, sound?, options?}...]}`; `like` inherits everything not
-  stated, and a sentence in the UI is a row with one layer. Rows are keyed by item name and
+  colour defaults. An optional item pointer `flags.fvtt-mod-fxstudio.look` names a look. A row was `{name, like?, fx: [{preset, file, sound?, options?}...]}` — **superseded**: that shape
+  was AA's, replaced by the grammar in [ARCHITECTURE.md](ARCHITECTURE.md) §4 (§0.7), and the `like`
+  shortcut in it was ruled out entirely on 2026-09-07 (DESIGN §9): every FX states its scenes in
+  full and none points at another. Rows are keyed by item name and
   reference library paths only, never a document id, so both corpora are portable to any world
   with the same libraries.
 - **UI** (ApplicationV2, plain DOM, exactly the ruled prototype): **Look up** (sentence, why,

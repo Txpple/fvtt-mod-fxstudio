@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { RECIPES, worldDb } from './lib/env.mjs';
 import { readSettings, snapshot } from './lib/leveldb.mjs';
 import { readRecipes, indexRecipes } from './lib/recipes.mjs';
-import { expand, provenance, sentence, validate } from '../scripts/core/fx.js';
+import { provenance, sentence, validate } from '../scripts/core/fx.js';
 
 const WRITE = process.argv.includes('--write');
 const settings = await readSettings(snapshot(worldDb('settings')));
@@ -19,15 +19,13 @@ const buffer = raw ? JSON.parse(raw) : [];
 if (!Array.isArray(buffer) || !buffer.length) { console.log('the world buffer is empty; nothing to export'); process.exit(0); }
 const recipes = readRecipes();
 const index = indexRecipes(recipes, buffer);
-const lookup = (id) => index.byId.get(id)?.fx ?? index.starters.get(id) ?? null;
-const ids = new Set([...index.byId.keys(), ...index.starters.keys()]);
 let bad = 0;
 console.log(`the world buffer holds ${buffer.length} fx(s):`);
 for (const fx of buffer) {
-  const errs = validate(fx, { ids });
+  const errs = validate(fx);
   if (errs.length) { bad++; console.log(`  ✗ ${fx.id}: ${errs.join('; ')}`); continue; }
   const replaces = recipes.house.some((l) => l.id === fx.id) ? ' (replaces the house fx of that id)' : recipes.stock.some((l) => l.id === fx.id) ? ' (replaces the stock fx of that id)' : '';
-  console.log(`  · ${sentence(fx.off ? fx : expand(fx, lookup))}${replaces}`);
+  console.log(`  · ${sentence(fx)}${replaces}`);
   console.log(`    ${provenance(fx)}`);
 }
 if (bad) { console.log(`FAIL: ${bad} fx(s) do not validate; fix them in the game first`); process.exit(1); }

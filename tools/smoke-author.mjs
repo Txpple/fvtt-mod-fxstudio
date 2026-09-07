@@ -1,8 +1,9 @@
-// The assistant's round trip (ARCHITECTURE §7), live on the sandbox: an FX written as data, like
-// an existing fx but black; validated; read back as a sentence; previewed on the fixture without
-// saving; saved to the world buffer with provenance; resolved for a new ability by its key; played
-// from the real usage card; listed by the offline export as a sentence; then removed. Builds and
-// tears down its own fixture; leaves the world buffer as it found it.
+// The assistant's round trip (ARCHITECTURE §7), live on the sandbox: a VARIANT written as data —
+// the scenes of an existing FX COPIED and one thing changed, standing on its own, because no FX
+// ever points at another one (ruled 2026-09-07); validated; read back as a sentence; previewed on
+// the fixture without saving; saved to the world buffer with provenance; resolved for a new ability
+// by its key; played from the real usage card; listed by the offline export as a sentence; then
+// removed. Builds and tears down its own fixture; leaves the world buffer as it found it.
 //
 //   node tools/smoke-author.mjs
 import { execFileSync } from 'node:child_process';
@@ -23,17 +24,23 @@ try {
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const caster = canvas.tokens.get(fx.casterTokenId);
     const before = api.fx.buffer();
-    const draft = { id: 'sharran-step', for: ['spell:sharran-step'], like: 'misty-step', with: { colour: 'dark_black' }, note: 'like Misty Step but black' };
+    // a variant is a copy: take Misty Step's scenes and paint them black. Nothing points anywhere.
+    const scenes = api.fx.scenesOf('misty-step');
+    for (const sc of scenes) if (sc.asset?.path) sc.asset = { path: sc.asset.path.replace(/\.[a-z_]+$/, '.dark_black') };
+    const draft = { id: 'sharran-step', for: ['spell:sharran-step'], on: 'use', scenes, note: 'Misty Step in black' };
     let tmp = null;
     try {
       // 1 · validate, as data
       const problems = api.fx.validate(draft);
       ok('§1 the FX validates', problems.length === 0, problems.join('; '));
+      ok('§1 the variant stands on its own: every scene written out, nothing pointing anywhere', draft.scenes.length >= 2 && !draft.like && !draft.with, `${draft.scenes.length} scenes`);
       const bad = api.fx.validate({ ...draft, scenes: [{ shape: 'swing' }] });
       ok('§1 a wrong shape is named in a sentence', bad.some((p) => /shape "swing" is not one of/.test(p)), bad.join('; '));
+      const shortcut = api.fx.validate({ id: 'shortcut', for: ['spell:x'], like: 'misty-step' });
+      ok('§1 a shortcut is refused, and told what to write instead', shortcut.some((p) => /"like" is not part of the grammar/.test(p) && /states its scenes in full/.test(p)), shortcut.join('; '));
       // 2 · the sentence
       const s = api.fx.sentence(draft);
-      ok('§2 the sentence reads the inherited fx in black', /dark black/.test(s) && !/blue/.test(s) && /mark/.test(s) && /chosen spot/.test(s), s);
+      ok('§2 the sentence reads the copied fx in black', /dark black/.test(s) && !/blue/.test(s) && /mark/.test(s) && /chosen spot/.test(s), s);
       // 3 · preview without saving
       const pre = await api.preview(draft, { source: caster, targets: [], destination: { x: 850, y: 850 } });
       await sleep(1500);
@@ -56,6 +63,14 @@ try {
       // 6 · listed as newest first among the custom fx, with who wrote it
       const mine = api.fx.list().filter((l) => l.source === 'world');
       ok('§6 the Custom fx list holds it with its author', mine.some((l) => l.fx.id === 'sharran-step' && l.original.by === 'Tester Assistant'), `${mine.length} world fx(s)`);
+      // 6b · the copy is its own: editing what it came from leaves it alone (no orphans, ruled 2026-09-07)
+      const parent = api.fx.get('misty-step');
+      const before6 = JSON.stringify(api.fx.get('sharran-step').fx.scenes);
+      const edited = { ...JSON.parse(JSON.stringify(parent.original)), note: 'edited by the suite' };
+      for (const sc of edited.scenes ?? []) if (sc.asset?.path) sc.asset = { path: sc.asset.path.replace(/\.[a-z_]+$/, '.green') };
+      await api.fx.save(edited, { by: 'Tester Assistant' });
+      ok('§6 changing what it was copied from does not change it', JSON.stringify(api.fx.get('sharran-step').fx.scenes) === before6 && /green/.test(api.fx.sentence(api.fx.get('misty-step').fx)), `${api.fx.sentence(api.fx.get('sharran-step').fx).slice(0, 70)}`);
+      await api.fx.remove('misty-step');
     } finally {
       if (tmp) await tmp.delete().catch(() => null);
     }

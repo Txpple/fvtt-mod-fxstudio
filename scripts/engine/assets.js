@@ -1,7 +1,7 @@
 // Assets: a scene's {path | paths | file | family+colour} against the libraries' own registration
 // (Sequencer's database at the table; the same registration files offline through the tools'
 // database shim). Answers "what plays", "does this exist", "which colours does this family have", and
-// swaps a colour in for `with: {colour}`. Nothing here knows Automated Animations' table.
+// swaps a colour in when an asset names one. Nothing here knows Automated Animations' table.
 //
 // The database is reached through one small interface so the tools can hand in the registration
 // files and the module hands in Sequencer.Database:
@@ -74,7 +74,7 @@ export function recoloured(asset, colour) {
 
 /**
  * What a scene's asset resolves to for the engine: {path | paths | file, template?} and whether it exists.
- * A `colour` on the asset swaps it in first (the `with: {colour}` of a variant).
+ * A `colour` on the asset swaps it in first.
  */
 export function resolveAsset(asset) {
   let a = normalise(asset);

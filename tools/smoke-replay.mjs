@@ -192,7 +192,7 @@ try {
           await lower(wallId); wallId = await raise(20);
           e = await play({ x: destX + 10, y: cy + 10 });
           ok('§9 a sight-blocking wall between: refused ("a space you can see"), the token where it was, the ledger says why', !e.played && /space you can see/.test(e.why ?? '') && caster.document.x === cx, `${e.why} · at ${caster.document.x}`);
-          const noSight = api.fx.expand({ id: 'replay-no-sight', like: 'misty-step' });
+          const noSight = { id: 'replay-no-sight', for: [], on: 'use', scenes: api.fx.scenesOf('misty-step') };
           for (const sc of noSight.scenes) if (sc.shape === 'move') sc.seen = false;
           e = await play({ x: destX + 10, y: cy + 10 }, { fx: noSight });
           ok('§9 an FX whose spot need not be seen (Dimension Door\'s words) crosses the sight wall', e.played && caster.document.x === destX, `${e.why || 'played'} · at ${caster.document.x}`);

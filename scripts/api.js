@@ -2,7 +2,7 @@
 // — a macro, a bridge, an assistant at the table — writes an FX as data, validates it, reads it
 // back as a sentence, previews it on chosen tokens, saves it to the world buffer with provenance,
 // and asks what plays nothing. The screens (phase 3) are built on this, so it is always complete.
-import { expand, sentence, validate, provenance } from './core/fx.js';
+import { sentence, validate, provenance } from './core/fx.js';
 import { LAYER_WORDS, allFx, fxFor, resolve } from './core/corpus.js';
 import { keyLabel, keysFor, keyWords } from './core/subjects.js';
 import { build, ledger, play, resolveMoment } from './engine/render.js';
@@ -15,17 +15,21 @@ import { TO_WORDS, stockFile, nextVersions, pending, ship, stage, erase } from '
  * @param state  {get index, corpora: {stock, house, starters, shipped}, rebuild(), reload()}
  */
 export function makeApi(state) {
-  const ids = () => new Set([...state.index.byId.keys(), ...state.index.starters.keys()]);
   const sameFx = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   const lookup = (id) => state.index.byId.get(id)?.fx ?? state.index.starters.get(id) ?? null;
+  const copy = (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v)));
 
   const fx = {
     /** problems with an FX, in sentences; an empty list means it is well formed */
-    validate: (fx) => validate(fx, { ids: ids() }),
-    /** the FX with `like` and `with` filled in */
-    expand: (fx) => expand(fx, lookup),
-    /** the sentence for an FX (expanded first when it inherits) */
-    sentence: (fx, opts) => sentence(fx?.like ? expand(fx, lookup) : fx, opts),
+    validate: (fx) => validate(fx),
+    /**
+     * The scenes an FX or a starter holds, as a fresh copy to build a new FX out of. This is how a
+     * variant is made: the scenes are COPIED and then changed. No FX ever points at another one
+     * (ruled 2026-09-07), so nothing here resolves a reference.
+     */
+    scenesOf: (id) => copy(lookup(id)?.scenes ?? []),
+    /** the sentence for an FX */
+    sentence: (fx, opts) => sentence(fx, opts),
     provenance,
     /** every FX the corpus holds, later layer winning per id: [{fx, original, source}] */
     list: () => allFx(state.index),
@@ -41,7 +45,7 @@ export function makeApi(state) {
      * draft that plays in this world only. Nothing reaches the corpus files until Corpus ships.
      */
     save: async (fx, { by = null, note = null, to = undefined } = {}) => {
-      const problems = validate(fx, { ids: ids() });
+      const problems = validate(fx);
       if (problems.length) return { ok: false, problems, fx };
       const stamped = { ...fx, by: by ?? fx.by ?? game.user?.name ?? 'someone', at: fx.at ?? new Date().toISOString().slice(0, 10) };
       if (note) stamped.note = note;
@@ -51,7 +55,7 @@ export function makeApi(state) {
       buffer.push(stamped);
       await setWorldFx(buffer);
       state.rebuild();
-      return { ok: true, problems: [], fx: stamped, sentence: sentence(expand(stamped, lookup)) };
+      return { ok: true, problems: [], fx: stamped, sentence: sentence(stamped) };
     },
     /** take an FX out of the world buffer (a house or stock fx of that id shows through again) */
     remove: async (id) => {
@@ -129,13 +133,13 @@ export function makeApi(state) {
   };
 
   /**
-   * Play an FX once on chosen tokens without saving it. `fx` may inherit (`like`).
+   * Play an FX once on chosen tokens without saving it.
    * @param opts {source: Token, targets: [Token], place: Region, destination: {x, y}, on}
    */
   const preview = async (fx, { source = null, targets = [], place = null, destination = null, on = null } = {}) => {
-    const problems = validate(fx, { ids: ids() });
+    const problems = validate(fx);
     if (problems.length) return { ok: false, problems };
-    const expanded = expand(fx, lookup);
+    const expanded = copy(fx);
     const src = source ?? canvas.tokens.controlled[0] ?? null;
     const tgts = targets.length ? targets : Array.from(game.user.targets);
     if (!src) return { ok: false, problems: ['no source token: select one or pass {source}'] };

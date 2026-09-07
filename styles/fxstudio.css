@@ -255,3 +255,11 @@
 .fxstudio .sheet .copy { margin-top: 4px; }
 .fxstudio .sheet .preview .sub { margin: 0 0 4px; }
 
+/* the Sequence header carries Play all; every Play keeps its place and greys with its reason */
+.fxstudio .sechead { display: flex; align-items: baseline; gap: 12px; }
+.fxstudio .fx-wrap .sechead button.play { margin-left: auto; padding: 4px 10px; font-size: 12.5px; }
+.fxstudio .fx-wrap .scene .tools button.play { color: var(--fx-accent); }
+/* the scene's index column: its number, and a still of what plays */
+.fxstudio .scene .idx { display: grid; gap: 6px; justify-items: center; }
+.fxstudio .scene .thumb { width: 34px; height: 34px; border-radius: 6px; object-fit: cover; display: block; background: #101218; border: 1px solid var(--fx-line); }
+.fxstudio .scene .thumb.none { background: var(--fx-panel2); }

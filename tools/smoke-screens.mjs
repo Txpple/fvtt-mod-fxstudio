@@ -123,7 +123,8 @@ try {
       await sleep(500);
       const saved = api.fx.buffer().find((l) => l.id === 'sharran-step');
       if (saved) made.push(saved.id);
-      ok('§4 Save writes the FX to the world buffer with its scenes, a draft, with provenance', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && !saved.to && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /like Misty Step/.test(saved.note), JSON.stringify(saved ?? null).slice(0, 300));
+      ok('§4 Save writes the FX to the world buffer with its scenes, a draft, with provenance', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && !saved.to && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /copied from Misty Step/.test(saved.note), JSON.stringify(saved ?? null).slice(0, 300));
+      ok('§4 what Copy from wrote is a full copy, standing on its own: no shortcut of any kind', saved && saved.like === undefined && saved.with === undefined, `like ${saved?.like} · with ${JSON.stringify(saved?.with)}`);
       ok('§4 the sheet stays open, locked, tagged Draft, with the sentence', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'false' && /Draft/.test(text('.sheet h2')) && /dark black/.test(text('.sheet .preview')) && !!$('[data-act="sh-dup"]') && /Delete/.test(text('[data-act="sh-delete"]')), `${text('.sheet h2')} | ${text('[data-act="sh-delete"]')}`);
       ok('§4 locked: the knobs are read-only and the tools are hidden', $$('.scene .knobs select').every((x) => x.disabled) && !$('[data-act="cw-drop"]'), '');
       ok('§4 locked: the same bar, Save and Cancel greyed instead, nothing moved', $$('.lockbar button').length === 7 && $('[data-act="sh-save"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === true && $('[data-act="sh-dup"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
@@ -326,6 +327,29 @@ try {
       ok('§13 the tint clears again', !/tinted/.test(text('.sheet .preview')), '');
       app.sheet = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
       ok('§13 the sheet is dropped, nothing saved', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
+
+      // 14 · Play: the sheet plays through api.preview and saves nothing (HANDOFF step 2)
+      app = api.open({ tab: 'editor', id: 'misty-step' });
+      await sleep(500);
+      canvas.tokens.releaseAll();
+      await app.render(); await sleep(250);
+      ok('§14 with no token selected Play keeps its place, greyed, and says why', $('[data-act="sh-play"]')?.disabled === true && /select a token/.test(text('[data-act="sh-play"]')) && $$('[data-act="sh-play-scene"]').length === $$('.scene').length && $$('[data-act="sh-play-scene"]').every((b) => b.disabled), text('[data-act="sh-play"]'));
+      caster.control({ releaseOthers: true });
+      await app.render(); await sleep(250);
+      ok('§14 with a token selected both Play controls come alive', $('[data-act="sh-play"]')?.disabled === false && text('[data-act="sh-play"]').trim() === '▶ Play all' && $$('[data-act="sh-play-scene"]').every((b) => !b.disabled), text('[data-act="sh-play"]'));
+      ok('§14 every scene carries a still of what it plays', $$('.scene .thumb').length === $$('.scene').length && $$('.scene video.thumb, .scene img.thumb').length >= 1, `${$$('.scene .thumb').length} thumbs of ${$$('.scene').length} scenes`);
+      const buf14 = api.fx.buffer().length;
+      await click($$('[data-act="sh-play-scene"]')[0]);
+      await sleep(1200);
+      const e14 = api.ledger[0];
+      ok('§14 the row ▶ plays that one scene through the preview, and saves nothing', e14?.fx === 'preview' && e14.played && String(e14.id).startsWith('preview-') && api.fx.buffer().length === buf14, `${e14?.fx} · played ${e14?.played} · ${(e14?.files ?? []).join(', ').slice(0, 70)}`);
+      await click('[data-act="sh-play"]');
+      await sleep(1200);
+      const e14b = api.ledger[0];
+      ok('§14 ▶ Play all plays the whole FX, still saving nothing', e14b?.fx === 'misty-step' && String(e14b.id).startsWith('preview-') && api.fx.buffer().length === buf14, `${e14b?.fx} · played ${e14b?.played} · ${e14b?.why ?? ''}`);
+      Sequencer.EffectManager.endEffects({ name: 'fxstudio-move-range' });
+      canvas.app.stage.removeAllListeners?.('pointerdown');
+      app.sheet = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
 
       // 10 · the item sheet's button
       const sheet = misty.sheet;

@@ -14,12 +14,12 @@ What is parked, and why. Nothing here is owed; each line says who decides.
   can never answer, the fifteen paths still on the frozen table, and the census in the new keys
   (596 of 603 abilities on the world's actors answer as under AA; Maul of Momentum now plays; the
   Shield spell no longer bashes; the four word-accidents play nothing). Anything wanted back is one
-  house look away: `{ "id": "spellfire-burst", "for": ["feature:spellfire-burst"], "like": "burst" }`.
+  house look away: the `burst` starter's scenes copied and keyed to `feature:spellfire-burst`.
 - **56 abilities on the party's sheets play nothing** (the report's last section, per sheet). Each
   is a starter or an existing look plus a key; the screens (phase 3) or the API write them.
 - **The "Skill Guidance" effects** (18 on Gren) matched AA's "Guidance" effect look by substring
-  and now play nothing, as ruled (no name rules). One house look
-  `{ "for": ["effect:skill-guidance-…"], "like": "guidance" }` per variant, or a wider ruling.
+  and now play nothing, as ruled (no name rules). One house look per variant — the
+  `guidance` look's scenes copied and keyed to `effect:skill-guidance-…` — or a wider ruling.
 - **An item's own FX from the migration** — done 2026-09-06: the four are re-keyed as item-own (`for: []`) and `tools/bind-item-fx.mjs` points the items at them (sandbox done; prod at cutover).
 - **The frozen table holds 15 paths** (20 Sequencer entries): pictures whose loop markers differ
   between AA's copy and JB2A's own registration ("complete" intro-loop-outro nodes). Sequencer
@@ -86,9 +86,7 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 - Phase 3 is built. Parked from it (DESIGN §8): the prototype's *Automatic* tab (its rules are
   the parked derivation; phase 4 gives the tab the outcome layers' switches instead); "play nothing
   for one item only" (an off look needs a key; one item's silence is a look with no scenes, not yet
-  offered); editing a look scene by scene in the window (the editor changes what `like` and `with`
-  can say — a starter or a look, a colour, a sound, a size; anything deeper is the API or the file,
-  by design); the migration's technical notes on the seven house looks show as written.
+  offered); the migration's technical notes on the seven house looks show as written.
 - Phase 4: the core reader (statuses, combat, movement) and the outcome FX, on dnd5e and core alone.
 - **Battle Flow's hooks (ruled backlog 2026-09-06: "yes battleflow is backlog").** The moments that
   exist only in Battle Flow's rules — Riposte, a held Shield, a maneuver die spent, a shield paid,

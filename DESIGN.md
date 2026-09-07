@@ -302,8 +302,9 @@ nothing: `onMiss` on the scenes that can miss), which key it answers (a pill per
 the main corpus (see *The corpus* below), with a note. The draft is a plain look with scenes from
 the first step (`ui/create.js` `draftLook`); nothing is parsed from words; Preview on the map plays
 it from any step past the second. The prototype's `like` + `with` one-liner is gone from the
-screens: a look the walk saves carries its scenes, because the walk edits scenes. The API still
-takes `like` + `with` (an assistant's one-liner), and the corpus files keep theirs.
+screens: a look the walk saves carries its scenes, because the walk edits scenes. *(The API kept
+`like` + `with` at this point; on 2026-09-07 they were removed from the grammar altogether — DESIGN
+§9. Every FX states its scenes in full.)*
 
 ### The move is a teleport, judged by the words (2026-09-06)
 
@@ -351,9 +352,8 @@ offline path for a world whose server forbids uploads.
 ### Ids, replacing, silencing
 
 A new look's id is the key's own id (`sharran-step`). Changing a look that already carries that id
-(Fire Bolt from the stock) cannot be `like: fire-bolt` under the same id — a circle — so the
-window saves a copy with the changes applied, under the same id, keeping every key the replaced
-look answered (a Sword look answers three weapons; changing it for one keeps the other two).
+(Fire Bolt from the stock) saves a copy with the changes applied, under the same id, keeping every
+key the replaced look answered (a Sword look answers three weapons; changing it for one keeps the other two).
 A key whose natural id is taken by a look for something else gets a kind-prefixed id
 (`weapon-shield` beside `shield`). *Play nothing* writes an `off` look for the key (and, when the
 key's look carried more keys, for all of them, since it replaces by id). *Back to the look it had*
@@ -663,8 +663,9 @@ nine shapes at 860 and 700 px — the same rows, no sideways scroll.
 **The Colour dropdown is gone (the user, after measuring).** It only rewrote the last segment of
 the path — the thing the VFX field shows and the Asset Library picks — and **no row in the corpus
 carries an asset `colour` key: 0 of 1296** (the 79 that mention "colour" are all `tint.colour`, the
-hex tint). A variant is chosen in one place now: Browse → the variant → Use. `with: {colour}` and
-`api.assets.recoloured` stay for data and macros; nothing on screen claims to do it any more.
+hex tint). A variant is chosen in one place now: Browse → the variant → Use. `api.assets.recoloured` stays for data and macros
+(`with: {colour}` went with the rest of the shortcut grammar on 2026-09-07, DESIGN §9); nothing on
+screen claims to do it any more.
 
 **The knobs the sentence spoke with nothing to change them.** A measurement of every scene key in
 the corpus against the sheet found six: `repeat` ("3 times", 53 scenes), `below` ("under the
@@ -698,3 +699,90 @@ and Revert), so the choice is to fold its search into the window header, give it
 had, or delete it and re-home the wand button. Also open: **Delay means two things** — "wait this
 long before" normally, but `waitUntilFinished(delay)` when *wait for it to finish* is ticked
 (`engine/common.js`), which the one label does not say.
+
+## 9. The UI revamp — steps 1 and 2 (2026-09-07, off `HANDOFF.md`)
+
+The brief is `HANDOFF.md` at the root, written from a read of the code; its screens are
+`prototypes/fxstudio6-proposal.html`. §Rules holds five acceptance criteria (R1 every control has a
+permanent address · R2 nothing wraps · R3 selection never changes layout · R4 one scroll region ·
+R5 one grid) and seven steps. The user's word was: **steps 1 and 2 only, then stop.** Steps 3–7 are
+not started, and nothing of the layout moved.
+
+### No shortcuts (the user, 2026-09-07) — the ruling that replaced step 1
+
+Step 1 as briefed was "stop destroying `like`": the sheet expanded an inheriting FX into flat
+scenes on open and Save wrote the copy back, so an FX written as *"same as Misty Step but black"*
+could not survive the screens. It was built that way, shown to the user, and **the premise was
+ruled out**:
+
+> *"I don't want a Sharran Step that inherits from Misty Step with like a pointer. I just want
+> flush and fill copies. That really overcomplicates things. … we can't have shortcuts because it
+> can leave orphans."*
+
+So `like` and `with` are **gone from the grammar**, not merely from the screens. Every FX states
+its scenes in full and none points at another. "Sharran Step is Misty Step in black" means the
+whole of Misty Step written out again with the colour changed, standing on its own.
+
+**Why the drift happened, recorded so it does not repeat.** The Sharran Step example runs through
+`ARCHITECTURE.md`, `SCHEMA.md` and the standing rules in `CLAUDE.md`, and it was always the user's
+words for *the variant workflow* — copy this one and change one thing. Somewhere in the design
+documents it hardened into a *pointer* and then into "the whole authoring model for most FX is one
+line". That was drift, never a ruling, and it has been cleaned out of every document.
+
+**What it costs, accepted.** A variant is longer to write, and improving what one was copied from
+does not improve it — each copy is edited on its own. Against that: nothing can be orphaned, and
+one FX can never silently change what a different FX plays.
+
+**What came out.**
+
+| Where | What went |
+| --- | --- |
+| `core/fx.js` | `like`, `with`, `expand()`, `applyWith()`, `recolour()`, and `validate`'s `ids` option. `on` and `scenes` are now always required. An FX naming `like` or `with` is refused **in a sentence that says what to write instead**, rather than read half-way. |
+| `core/corpus.js` | `buildIndex` no longer expands; what plays is what was written (a copy of it, so a screen cannot reach into the corpus). |
+| `api.js` | `fx.expand` is gone. **`fx.scenesOf(id)`** replaces it — the scenes an FX or a starter holds, as a fresh copy to build a new FX out of. That is what the seeding always wanted; `expand({like: id})` was a trick. |
+| `ui/sheet.js` | the inheritance bar, the greyed scene knobs, *Break the link* and the `with` controls — all of it, built and removed the same day. Add and *Copy from* stamp a starter's or an FX's scenes out; a duplicate's note reads *copied from X*, not *like X*. |
+| `ui/library.js` | the picker's FX-wide slot. |
+| docs | `SCHEMA.md`, `ARCHITECTURE.md` §4 and the starters note, `PLAN.md`'s superseded row shape, `BACKLOG.md`'s two one-liners, and the earlier DESIGN entries that referred to them. |
+
+**The starters are unaffected**, and it is worth being clear why: `recipes/starters.json` is a set
+of **stencils** the screens stamp a fresh scene out of when you press an Add pill. Nothing in a
+corpus ever refers to one. That was true before and is true now — the only change is that the
+stamping goes through `fx.scenesOf` instead of pretending to be inheritance.
+
+**Nothing in the corpus was touched.** `like`/`with` appeared **0 times in the 1296 FX the corpora
+hold** (1289 stock, 7 house, 10 starters), so the grammar lost a feature no FX used, and all 1306
+still validate and build.
+
+### Step 2 — Play (built, and kept)
+
+`api.preview(fx, {source, targets, place})` validates and plays without saving, and the sheet never
+called it. Now **▶ Play all** sits in the Sequence header and **▶** on every scene row, both
+through the API, both saving nothing. The source is the selected token, the targets are the user's
+own, and a selected Region is passed as the placed template. Every reason a Play cannot run is in
+the label, greyed in place (R1): *select a token*, *select a placed template*, *switched off*, *no
+scenes*. A move with no destination is not a failure — the canvas is armed and the FX plays from
+the click, so the toast says *Click a spot on the canvas* rather than *nothing played*. Each scene
+row also carries a still of what it plays (`preload="metadata"`, frame `#t=0.1`) from the same
+route `ui/library.js` uses. The looping video in an inspector waits for step 4: there is no
+inspector yet.
+
+### The rulings of the day
+
+| Question | Ruling |
+| --- | --- |
+| Shortcuts (`like`/`with`) | **Gone from the grammar.** Every FX states its scenes in full; a variant is a copy. |
+| Is `off` worth a whole sheet? | **Leave it a mode of the sheet.** Revisit when step 5 rebuilds the row. |
+| Merge Stock FX and House FX (step 5) | **Yes.** Where an FX lives is a property, not navigation. Not built yet. |
+| The Look up tab | **Fold its search into the window header and drop the tab.** Tabs become FX · Assets · Coverage. Not built yet. |
+
+### Measured on the sandbox, 2026-09-07
+
+`smoke-screens`, `smoke-author` (its round trip rewritten as a copy, with a check that editing what
+an FX was copied from leaves the copy alone), `smoke-fx`, `smoke-replay`, `check-fx` and the three
+offline checks. Numbers in the check-in.
+
+### Noted in passing, not fixed
+
+`draftFx` emits `scenes` on an `off` FX, which needs none (`validate` returns early for it), so a
+switched-off FX carries dead scenes in the buffer. Small, and it belongs with the `off` ruling above
+when step 5 rebuilds the row.

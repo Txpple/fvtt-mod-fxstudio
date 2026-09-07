@@ -1,8 +1,9 @@
 // The corpus: fx indexed by (subject key, moment kind) across the layers, later wins
-// (world buffer → house → stock), plus the starters fx inherit from. Resolution is an exact
+// (world buffer → house → stock), plus the starters the screens stamp
+// a fresh scene out of (nothing in a corpus ever refers to one). Resolution is an exact
 // map hit on the first of a subject's keys that has an FX; nothing is derived from a name.
 // Pure: the tools run the very same lookup offline that the module runs at the table.
-import { expand, validate, withDefaults } from './fx.js';
+import { validate, withDefaults } from './fx.js';
 
 /** the layers in the order they win */
 export const LAYERS = ['world', 'house', 'stock'];
@@ -27,16 +28,13 @@ export function buildIndex({ stock = [], house = [], world = [], starters = [] }
       sourceOf.set(fx.id, source);
     }
   }
-  const ids = new Set([...raw.keys(), ...starterMap.keys()]);
-  const lookup = (id) => raw.get(id) ?? starterMap.get(id) ?? null;
   const byId = new Map();
+  // every FX states itself in full (no shortcuts, ruled 2026-09-07), so what plays is what was
+  // written; the copy is kept so a screen editing it cannot reach into the corpus
   for (const [id, fx] of raw) {
-    const errs = validate(fx, { ids });
+    const errs = validate(fx);
     if (errs.length) { problems.push(`${sourceOf.get(id)} "${id}": ${errs.join('; ')}`); continue; }
-    try {
-      const expanded = fx.off ? { ...fx } : expand(fx, lookup);
-      byId.set(id, { fx: expanded, original: fx, source: sourceOf.get(id) });
-    } catch (e) { problems.push(`${sourceOf.get(id)} "${id}": ${e.message}`); }
+    byId.set(id, { fx: JSON.parse(JSON.stringify(fx)), original: fx, source: sourceOf.get(id) });
   }
   // by key and kind, the later layer first
   const byKey = new Map();

@@ -1,17 +1,22 @@
 // A LOOK is the sentence the user would say, as data (ARCHITECTURE §4). One grammar for the
-// screens, the API, the files and an assistant: this module holds it, checks it, expands `like`
-// and `with`, and turns an FX back into its sentence. The sentence is generated from the FX
-// and never parsed back. Pure: no Foundry, no Sequencer.
+// screens, the API, the files and an assistant: this module holds it, checks it, and turns an FX
+// back into its sentence. The sentence is generated from the FX and never parsed back. Pure: no
+// Foundry, no Sequencer.
+//
+// EVERY FX STATES ITSELF IN FULL. There are no shortcuts: no FX points at another one, and none
+// inherits (ruled 2026-09-07 — a pointer can leave an orphan, and one FX changing what a different
+// FX plays is not something a person can see on the screen in front of them). A variant is a COPY:
+// "Sharran Step is Misty Step in black" means the whole of Misty Step written out again with the
+// colour changed, standing on its own. The starters (`recipes/starters.json`) are stencils the
+// screens stamp a fresh scene out of, never anything an FX refers to.
 //
 // A LOOK
-//   { id, for: [keys], on, like?, with?, off?, scenes: [scene…], by?, at?, note? }
+//   { id, for: [keys], on, off?, scenes: [scene…], by?, at?, note? }
 //   id      unique across the corpora; a house fx with a stock fx's id replaces it
 //   for     the subject keys it answers (core/subjects.js); empty for a starter
 //   on      the moment kind it answers (core/moments.js WHEN)
-//   like    inherit everything not stated from another fx (its id) or a starter ("starter:bolt")
-//   with    overrides applied to every scene of what was inherited: {colour, sound, opacity, scale}
 //   off     a house fx that silences whatever answered before it (its `for` keys play nothing)
-//   scenes  the pictures and sounds, in start order
+//   scenes  the pictures and sounds, in start order — always stated, always this FX's own
 //   by, at, note   who wrote it (a name, an assistant, "the migration"), when (ISO date), why
 //   to      an FX written in this world only: the corpus it is staged for (house | stock) until shipped
 //
@@ -166,10 +171,8 @@ function sceneProblems(scene, i, fx) {
 /**
  * Every problem with an FX, in sentences. An empty list means the FX is well formed (whether its
  * assets exist is the engine's and the check tool's question, not this one).
- * @param fx
- * @param opts {ids: Set of known fx and starter ids, for `like`}
  */
-export function validate(fx, { ids = null } = {}) {
+export function validate(fx) {
   const out = [];
   if (!isObj(fx)) return ['an FX must be an object'];
   if (typeof fx.id !== 'string' || !/^[a-z0-9][a-z0-9-]*$/.test(fx.id)) out.push(`the id "${fx.id}" must be lower-case letters, digits and dashes`);
@@ -183,76 +186,16 @@ export function validate(fx, { ids = null } = {}) {
     if (!fx.for?.length) out.push('an "off" fx needs the keys it silences in "for"');
     return out;
   }
-  if (fx.like !== undefined) {
-    if (typeof fx.like !== 'string') out.push('"like" must name an FX or a starter');
-    else if (ids && !ids.has(fx.like)) out.push(`"like" names "${fx.like}", which is not an FX or a starter`);
-  } else {
-    if (fx.on === undefined) out.push('says nothing about when it plays ("on")');
-    if (!Array.isArray(fx.scenes) || !fx.scenes.length) out.push('has no scenes');
-  }
-  if (fx.with !== undefined) {
-    if (!isObj(fx.with)) out.push('"with" must be {asset?, colour?, sound?, opacity?, scale?}');
-    else {
-      for (const k of Object.keys(fx.with)) if (!['asset', 'colour', 'sound', 'opacity', 'scale'].includes(k)) out.push(`"with" does not know "${k}" (asset, colour, sound, opacity, scale)`);
-      if (fx.with.asset !== undefined) out.push(...assetProblems(fx.with.asset, 'with.asset'));
-    }
-  }
+  if (fx.on === undefined) out.push('says nothing about when it plays ("on")');
+  if (!Array.isArray(fx.scenes) || !fx.scenes.length) out.push('has no scenes');
+  // the shortcuts are gone (2026-09-07): an FX that points at another one is named in a sentence
+  // that says what to write instead, so an old file or an assistant is told rather than half-read
+  if (fx.like !== undefined) out.push(`"like" is not part of the grammar: an FX states its scenes in full. Copy the scenes of "${fx.like}" into this FX and change what differs.`);
+  if (fx.with !== undefined) out.push('"with" is not part of the grammar: state the change on the scene it belongs to.');
   if (Array.isArray(fx.scenes)) fx.scenes.forEach((s, i) => out.push(...sceneProblems(s, i, fx)));
-  for (const k of Object.keys(fx)) if (!['id', 'for', 'on', 'like', 'with', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source'].includes(k)) out.push(`an FX does not have a "${k}"`);
+  // "like" and "with" are named above in their own sentence; they are not just unknown words
+  for (const k of Object.keys(fx)) if (!['id', 'for', 'on', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source', 'like', 'with'].includes(k)) out.push(`an FX does not have a "${k}"`);
   return out;
-}
-
-// ---------------------------------------------------------------------------------------------
-// like / with
-// ---------------------------------------------------------------------------------------------
-const clone = (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v)));
-
-/** an asset with a colour swapped in (the engine checks the family has it) */
-export function recolour(asset, colour) {
-  if (!colour) return asset;
-  const a = typeof asset === 'string' ? { path: asset } : { ...asset };
-  a.colour = colour;
-  return a;
-}
-
-/**
- * The FX with everything it inherits filled in: `like` (a chain, a starter at its root) and then
- * `with` applied to every scene. `lookup(id)` returns the FX or starter an id names.
- */
-export function expand(fx, lookup, depth = 0) {
-  if (!fx?.like) return applyWith(clone(fx));
-  if (depth > 8) throw new Error(`"${fx.id}" inherits in a circle`);
-  const base = lookup(fx.like);
-  if (!base) throw new Error(`"${fx.id}" is like "${fx.like}", which does not exist`);
-  const parent = expand(base, lookup, depth + 1);
-  const out = { ...clone(parent), ...clone(fx) };
-  delete out.like;
-  if (!fx.scenes) out.scenes = clone(parent.scenes);
-  if (fx.for === undefined) out.for = clone(parent.for) ?? [];
-  if (parent.id?.startsWith('starter:') || !parent.for?.length) { /* a starter's emptiness is not inherited as an answer */ }
-  out.inherited = fx.like;
-  return applyWith(out);
-}
-
-function applyWith(fx) {
-  const w = fx?.with;
-  if (!w || !fx.scenes) return fx;
-  let soundPlaced = false;
-  const pictures = fx.scenes.filter((s) => s.asset && s.shape !== 'sound');
-  for (const s of fx.scenes) {
-    // the asset goes on the first picture (a starter's stand-in); the colour on every picture
-    if (w.asset !== undefined && s === pictures[0]) s.asset = typeof w.asset === 'string' ? (w.asset.includes('/') ? { file: w.asset } : { path: w.asset }) : { ...w.asset };
-    if (w.colour && s.asset) s.asset = recolour(s.asset, w.colour);
-    if (w.opacity !== undefined && s.shape !== 'sound' && s.shape !== 'move' && s.shape !== 'custom') s.opacity = w.opacity;
-    if (w.scale !== undefined && s.size) {
-      for (const k of ['tokenWidths', 'radius', 'squares']) if (s.size[k] !== undefined) s.size[k] *= w.scale;
-      if (s.size.fit) s.size.scale = { x: (s.size.scale?.x ?? 1) * w.scale, y: (s.size.scale?.y ?? 1) * w.scale };
-    }
-    if (w.sound !== undefined && s.sound) { s.sound = w.sound === null ? undefined : { ...s.sound, ...(typeof w.sound === 'string' ? { asset: w.sound } : w.sound) }; if (s.sound === undefined) delete s.sound; soundPlaced = true; }
-  }
-  if (w.sound && !soundPlaced) { const first = fx.scenes.find((s) => s.shape !== 'sound' && s.shape !== 'custom'); if (first) first.sound = typeof w.sound === 'string' ? { asset: w.sound } : { ...w.sound }; }
-  delete fx.with;
-  return fx;
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -364,7 +307,7 @@ export function sceneWords(scene) {
 /**
  * The sentence for an FX: "Fire Bolt · when used · a bolt (JB2A fire bolt, orange) shoots from the
  * caster to each target and flies past on a miss · with sound (PSFX fire bolt)." — the sound clause mirrors the VFX form (the user, 2026-09-06)
- * @param fx   an expanded fx (no `like` left)
+ * @param fx   an fx, as written
  * @param opts   {name: what to call it (the subject's name); short: no provenance}
  */
 export function sentence(fx, { name = null } = {}) {
