@@ -1,15 +1,15 @@
 # fxstudio — the plan
 
-> **Vocabulary (ruled 2026-09-06).** What this document calls a *look* is an **FX** on the screens, in the code (`scripts/core/fx.js`, `api.fx`, the item flag `flags.fvtt-mod-fxstudio.fx`, the world setting `fx`) and in the recipe files (`"fx": [...]`): a picture is a **VFX**, a sound an **SFX**. A look written over the main corpus is an **override**. The earlier sections keep the word they were written with.
+> **Vocabulary (ruled 2026-09-06).** What this document calls a *look* is an **FX** on the screens, in the code (`scripts/core/fx.js`, `api.fx`, the item flag `flags.fvtt-mod-fxstudio.fx`, the world setting `fx`) and in the recipe files (`"fx": [...]`): a picture is a **VFX**, a sound an **SFX**. A look written over the main corpus is an **override**. The earlier sections keep the word they were written with. **Later the same day:** the screens are a tool, not prose — labels are terms; the corpus that came in the box is **Stock** (was *baseline*, renamed end to end), the user's file **House**, this world's buffer a **Draft**; an FX keyed to an ability is a **Global Hook**, one pinned to an item an **Item Hook**; a draft is *staged* (was *bound*) for House or Stock. The generated sentences (the FX's own, each scene's line) are kept on purpose. DESIGN §8 *A tool, not prose*.
 
 **Status: phase 3 (the screens) built and green on the sandbox, 2026-09-06 — the four screens on
 the look grammar in one window (`scripts/ui/`), the item-sheet button, the item pointer; the exit
-in §6 met by a DOM-driven suite (`tools/smoke-screens.mjs`, 32 of 32) and left for the user to do
+in §6 met by a DOM-driven suite (`tools/smoke-screens.mjs`, 73 of 73 after the vocabulary pass of 2026-09-06, DESIGN §8) and left for the user to do
 by hand. Phase 2 (the model) was built the same day — ARCHITECTURE.md as
 ruled: identity keys, the look grammar (`recipes/SCHEMA.md`), the eight shapes and the escape
 hatch, the dnd5e reader on the new moments, the migration with its render-level proof (1296 of
 1296 looks equal to AA's own sequence, five deliberate differences named and counted), the
-baseline per kind, the starters, the authoring API and tools; phase 1's presets retired to the
+stock per kind, the starters, the authoring API and tools; phase 1's presets retired to the
 oracle and deleted from `scripts/`; no AA vocabulary left (`tools/check-legacy.mjs`). The exit
 measurements are in §6. Phase 4 (outcomes and moments) starts on the user's word; alongside it the user reads
 `recipes/migration-report.md` and [BACKLOG.md](BACKLOG.md).** Phase 1 (lossless replay) was built
@@ -23,12 +23,12 @@ decided while building is in [DESIGN.md](DESIGN.md). Each phase ends at a check-
 
 ## 0. Decisions locked (the user's, 2026-09-06)
 
-1. **The baseline corpus is the D&D5e Animations corpus, kept whole.** Every row it holds is
+1. **The stock corpus is the D&D5e Animations corpus, kept whole.** Every row it holds is
    carried over. Nothing is retired to a rule.
 2. **Zero loss.** The migration is complete only when every row plays through fxstudio with the
    same files, the same sound, and the same options it had under AA. This is measured, not
    judged (§4 step 4, §6 phase 1 exit).
-3. **The baseline ships in this repo, attributed and licensed.** `recipes/baseline.json` is a
+3. **The stock ships in this repo, attributed and licensed.** `recipes/stock.json` is a
    separate work under GPL-3 with attribution to D&D5e Animations 3.3.0 by MrVauxs and Sisimshow;
    the module's code stays MIT. A new campaign needs neither AA nor D&D5e Animations installed:
    the module carries its own pictures.
@@ -64,7 +64,7 @@ survive in `scripts/`. Ruled by the user 2026-09-06 after the first evening on p
 A sister module beside Battle Flow that plays visual and sound effects for what happens at the
 table. It keeps **Sequencer** as the engine and **JB2A** and **PSFX** (Patreon builds of both) as
 the libraries, and it replaces **Automated Animations** and **D&D5e Animations** by carrying
-their whole corpus over losslessly as its baseline. A house list of the user's own looks sits on
+their whole corpus over losslessly as its stock. A house list of the user's own looks sits on
 top and overrides by exact name. It plays from the chat log once the dice are known, so a miss
 looks like a miss, and it adds the outcome layers and Battle Flow moments AA never had. What
 has no look plays nothing, visibly listed, until the user gives it one. Non-technical GMs use it
@@ -91,7 +91,7 @@ Battle Flow's repo memory holds the detail; the numbers that shape the design:
 | AA menu types the corpus uses | melee, range, on-token (23 families), template (circle, ray, cone, square), presets (teleportation 28, projectile-to-template 13, dual-attach 3, thunderwave 2), active-effect 183 |
 | Converted definition size vs AA's world-setting blob | 381 KB vs 3676 KB |
 | AA lookup per item use vs an exact-name map | ~2.8 ms vs ~3 µs |
-| Sound paths unresolved on prod's PSFX Patreon 0.17.0 | 28 of 1212 (paths the Patreon build regrouped; re-pointed in the baseline at import) |
+| Sound paths unresolved on prod's PSFX Patreon 0.17.0 | 28 of 1212 (paths the Patreon build regrouped; re-pointed in the stock at import) |
 | JB2A library on this install | 209 styles, 10052 database paths, 9.7 GB |
 
 Two AA behaviours are wrong by design and are fixed: substring name matching ("(free casting)"
@@ -121,7 +121,7 @@ JB2A + PSFX ──register paths──► Sequencer.Database
           │                                                    │
           └────────────► fxstudio: reader ──► resolver ──► presets ──► Sequencer
                                               │
-                    house (repo + world setting) ┘ baseline (repo, GPL) ┘
+                    house (repo + world setting) ┘ stock (repo, GPL) ┘
 ```
 
 - **Reader.** Turns a moment into a plain record: who, what item, which targets, which were hit,
@@ -130,7 +130,7 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   and each target's hit or miss); Battle Flow's moments come from a small set of hooks Battle
   Flow will emit at its resolve points (see §5). Template placement and effect create/delete are
   document hooks, not messages.
-- **Resolver.** Exact item name in the house corpus → else exact name in the baseline → else
+- **Resolver.** Exact item name in the house corpus → else exact name in the stock → else
   nothing, and the Check screen lists it. Generic creature attacks (Bite, Claw, Slam) match by
   whole word, never substring. The activity's own name is never consulted unless a look asks for
   it. The matching census at import (§4 step 5) shows what this changes against AA before it
@@ -139,7 +139,7 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   damage colour; a miss flies past) · On a failed save (a mark) · Conditions (an icon while it
   lasts). Colour defaults per damage type and per school are data, editable on the Automatic
   screen.
-- **Presets.** One per AA menu type the corpus uses, so a baseline row replays exactly: swing
+- **Presets.** One per AA menu type the corpus uses, so a stock row replays exactly: swing
   (melee), projectile (range), on-token, template (circle, ray, cone, square), teleport,
   projectile-to-template, dual-attach, thunderwave, active-effect loop (persistent, tied to the
   effect document). Each accepts the four AA layers (primary, secondary, source, target), a
@@ -156,14 +156,14 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   own file and mirror. Persistent effects (a Shield loop, an aura) are `.persist()`ed with the
   document's uuid as origin and `.tieToDocuments()`ed so deletion removes them. No sockets of our
   own.
-- **Data, two corpora, later wins.** (1) `recipes/baseline.json`: the **baseline corpus**, the
+- **Data, two corpora, later wins.** (1) `recipes/stock.json`: the **stock corpus**, the
   D&D5e Animations 3.3.0 preset converted row-for-row from the module's own `autorec.json`,
-  committed to this repo under GPL-3 with attribution (`recipes/BASELINE-LICENSE`), read-only,
+  committed to this repo under GPL-3 with attribution (`recipes/STOCK-LICENSE`), read-only,
   regenerable by the import tool. (2) `recipes/house.json`: the **house corpus**, the user's own
   looks, committed, MIT, portable across campaigns ("house", not "campaign": it is the DM's corpus
   across games, and it is where everything AA never had gets built). It starts with the four
   preset edits and the six item-flag looks the import finds on prod, each as an override of a
-  baseline row. The **world layer** (`fxstudio.looks`, one world setting) is the live edit
+  stock row. The **world layer** (`fxstudio.looks`, one world setting) is the live edit
   buffer the screens write; `tools/export-fx.mjs` folds it into `house.json` so it is
   versioned and readable by an assistant. `recipes/colours.json` holds the outcome layers'
   colour defaults. An optional item pointer `flags.fvtt-mod-fxstudio.look` names a look. A row is
@@ -175,7 +175,7 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   what happens after; a sheet's abilities as coloured dots, grey for "nothing yet") · **Change
   the look** (start from, colour, sound; a sentence previews; Save writes the world layer) ·
   **Automatic** (the outcome layers as switches; colour defaults) · **Custom looks** (sentences,
-  yours first, the baseline's after) · **Check** (counts; the "nothing plays yet" list; paths
+  yours first, the stock's after) · **Check** (counts; the "nothing plays yet" list; paths
   that do not resolve; the matching census). An **FX** header button on item sheets shows the
   same Look up card for that item.
 - **Validation.** `tools/check-fx.mjs` runs offline against the libraries' own registration
@@ -203,9 +203,9 @@ Flow on this module or the reverse: either works alone.
    sound paths PSFX 0.17.0 regrouped are re-pointed to their new location and listed in the
    report.
 3. **Split** by diffing the world against the preset file, matched by label per menu. Rows equal
-   to the preset are the **baseline**; rows that differ, rows the preset lacks, preset rows the
+   to the preset are the **stock**; rows that differ, rows the preset lacks, preset rows the
    world deleted, and the item flags are the **house** layer, each written as an override of
-   the baseline row it came from (measured on prod 2026-09-05 after the stray "U" and "Ne" rows
+   the stock row it came from (measured on prod 2026-09-05 after the stray "U" and "Ne" rows
    were removed and the accidentally deleted Slowed row was restored: 1289 rows, of which four
    modified — Eldritch Blast sound-only, Sorcerous Burst as a yellow-blue Guiding Bolt, Misty
    Step in blue, Necrotic Burst's 3D-only change which drops out — and none deleted; plus the
@@ -222,9 +222,9 @@ Flow on this module or the reverse: either works alone.
 6. **Report**: rows per menu, the house layer, every re-pointed sound, every raw path, the
    matching census, and the "nothing plays" list (abilities on the party's sheets with no row).
 
-⚠ **Licence.** D&D5e Animations is GPL-3. The import **tool** is ours, MIT. The **baseline** it
-produces is a derived work of the preset and ships in `recipes/baseline.json` under GPL-3 as a
-separate work, with `recipes/BASELINE-LICENSE` (the GPL-3 text) and a `_meta` header naming the
+⚠ **Licence.** D&D5e Animations is GPL-3. The import **tool** is ours, MIT. The **stock** it
+produces is a derived work of the preset and ships in `recipes/stock.json` under GPL-3 as a
+separate work, with `recipes/STOCK-LICENSE` (the GPL-3 text) and a `_meta` header naming the
 source, version and authors; README carries the same attribution. The module's code and house
 corpus stay MIT. AA's sequence code is MIT and may be vendored with attribution. Sequencer is
 used through its public API only.
@@ -248,9 +248,9 @@ the rest follow [ARCHITECTURE.md](ARCHITECTURE.md). The screens still come befor
 
 | Phase | Builds | Exit |
 | --- | --- | --- |
-| **0 · Foundation** (½ day) — **built 2026-09-06** | repo skeleton with `module.json` requiring Sequencer; the row format; `check-looks`; `import-aa` with its parity proof, matching census and report; `baseline.json` and `house.json` written and committed with their licences; plus, found while building, the private Sequencer table (`aa-database.json`, DESIGN §3) because AA's metadata differs from JB2A's for 1178 layers | **measured:** parity 1289 of 1289 on the sandbox copy of prod's data; `check-looks` green (4435 paths, 0 missing); the module boots on the sandbox and resolves; the census and the "nothing plays" list are in `recipes/import-report.md` **for the user to read** |
-| **1 · Lossless replay** (2 days) — **built 2026-09-06** | reader for dnd5e messages and template/effect hooks; resolver (house → baseline → nothing); every corpus preset: swing, projectile, on-token, template ×4, teleport, projectile-to-template, dual-attach, thunderwave, active-effect loop; attacks play knowing hit or miss; the ledger and the `play` switch | **measured:** `smoke-replay` 35 of 35 (one row of every menu type and family through real dnd5e flows, AA still on beside it); `smoke-looks` green (1292 rows build live, every path resolves; the party's sheets all build); parity still 1289 of 1289 after the twin grew the thunderwave and dual-attach nodes. **Left for the user:** watch it side by side (`node tools/smoke-replay.mjs --watch 4000` from a second client on the sandbox) and call them the same |
-| **2 · The model** (≈3 days) — **built 2026-09-06** | ARCHITECTURE §§2–8: the moment and subject vocabularies with identity keys (`scripts/core/`); the look grammar and `recipes/SCHEMA.md`; the eight shapes and the escape hatch, places, assets and the renderer (`scripts/engine/`); the dnd5e reader on the new moments (`scripts/readers/`); `tools/migrate-aa.mjs` with the family expansion against the closed lists, the render-level oracle proof and the asset nativisation; the baseline per kind; the starters; the authoring API (`looks.validate/sentence/save/remove`, `preview`, `census`, `resolve`, `sentenceFor`, `assets`) and the tools (`assets`, `census`, `check-looks`, `check-layers`, `check-legacy`, `export-looks`, `preview`); phase 1's presets and rows moved to `tools/lib/oracle/` and deleted from `scripts/` | **measured:** the proof equal for 1296 of 1296 looks (3208 of 3329 moments exactly, 121 by five named allowances, each counted in `recipes/migration-report.md`); 15 paths still on the frozen table (loop markers differ; from 555); the census in the new keys: 596 of 603 abilities on the world's actors answer as under AA, Maul of Momentum now plays, the Shield spell and four word-accidents play nothing, all listed for the user; `smoke-looks` (1293 looks build, every path resolves), `smoke-replay` (37 of 37) and `smoke-author` (12 of 12) green; `check-legacy` finds no AA vocabulary in `scripts/` or `recipes/`. **Left for the user:** read the report and BACKLOG.md; rule the 15 frozen paths and the four not-carried word catches; say go for phase 3 |
+| **0 · Foundation** (½ day) — **built 2026-09-06** | repo skeleton with `module.json` requiring Sequencer; the row format; `check-looks`; `import-aa` with its parity proof, matching census and report; `stock.json` and `house.json` written and committed with their licences; plus, found while building, the private Sequencer table (`aa-database.json`, DESIGN §3) because AA's metadata differs from JB2A's for 1178 layers | **measured:** parity 1289 of 1289 on the sandbox copy of prod's data; `check-looks` green (4435 paths, 0 missing); the module boots on the sandbox and resolves; the census and the "nothing plays" list are in `recipes/import-report.md` **for the user to read** |
+| **1 · Lossless replay** (2 days) — **built 2026-09-06** | reader for dnd5e messages and template/effect hooks; resolver (house → stock → nothing); every corpus preset: swing, projectile, on-token, template ×4, teleport, projectile-to-template, dual-attach, thunderwave, active-effect loop; attacks play knowing hit or miss; the ledger and the `play` switch | **measured:** `smoke-replay` 35 of 35 (one row of every menu type and family through real dnd5e flows, AA still on beside it); `smoke-looks` green (1292 rows build live, every path resolves; the party's sheets all build); parity still 1289 of 1289 after the twin grew the thunderwave and dual-attach nodes. **Left for the user:** watch it side by side (`node tools/smoke-replay.mjs --watch 4000` from a second client on the sandbox) and call them the same |
+| **2 · The model** (≈3 days) — **built 2026-09-06** | ARCHITECTURE §§2–8: the moment and subject vocabularies with identity keys (`scripts/core/`); the look grammar and `recipes/SCHEMA.md`; the eight shapes and the escape hatch, places, assets and the renderer (`scripts/engine/`); the dnd5e reader on the new moments (`scripts/readers/`); `tools/migrate-aa.mjs` with the family expansion against the closed lists, the render-level oracle proof and the asset nativisation; the stock per kind; the starters; the authoring API (`looks.validate/sentence/save/remove`, `preview`, `census`, `resolve`, `sentenceFor`, `assets`) and the tools (`assets`, `census`, `check-looks`, `check-layers`, `check-legacy`, `export-looks`, `preview`); phase 1's presets and rows moved to `tools/lib/oracle/` and deleted from `scripts/` | **measured:** the proof equal for 1296 of 1296 looks (3208 of 3329 moments exactly, 121 by five named allowances, each counted in `recipes/migration-report.md`); 15 paths still on the frozen table (loop markers differ; from 555); the census in the new keys: 596 of 603 abilities on the world's actors answer as under AA, Maul of Momentum now plays, the Shield spell and four word-accidents play nothing, all listed for the user; `smoke-looks` (1293 looks build, every path resolves), `smoke-replay` (37 of 37) and `smoke-author` (12 of 12) green; `check-legacy` finds no AA vocabulary in `scripts/` or `recipes/`. **Left for the user:** read the report and BACKLOG.md; rule the 15 frozen paths and the four not-carried word catches; say go for phase 3 |
 | **3 · The screens** (1–2 days) — **built 2026-09-06** | the four screens as ruled, on the look grammar, in one window (`scripts/ui/studio.js`, ApplicationV2 on plain DOM, no template engine, built on the API and nothing else): *Look up* (an ability typed, one suggestion per ability; its sentence, why, who wrote it; Preview on the map; Play nothing; back to the look it had), *Change the look* (the editor inside Look up: Start from a look or a starter, the family's own colours, a sound found in PSFX or none, a size, which key it answers, "only this one" for one item, a note; the draft read back as the sentence before Save), *Overrides* (called Custom looks until the user's word on 2026-09-06; written here first, newest first, who wrote each; search; Edit; Remove) and *Check* (reshaped the same day on the user's word — the local actors were noise: the compendiums the user picks, read on demand, with tiles and the nothing-yet list drawn from them; the JB2A styles and PSFX sounds no look uses, counted and handed to the Library; looks that do not read; what played last from the ledger), plus a *Library* tab the same day (asked for in-game, ruled off `prototypes/fxstudio4-library.html`: JB2A by style and PSFX by group and sound, variants stepped, the webm looping and the sound behind Play, the Sequencer path and file with Copy; the same browser is the picker inside step 3 of the walk; DESIGN §8); the item-sheet FX button (a header button and a controls-dropdown entry on every dnd5e item sheet, GM only) and the settings button; the item pointer `flags.fvtt-mod-fxstudio.look` read by the reader and honoured by the resolver ahead of every key; `api.open`, `api.looks.exported/clearExported`; the export stays a tool (DESIGN §8) | **measured:** `tools/smoke-screens.mjs` drives the window on the DOM: Misty Step read as a sentence with its why; "Sharran Step" typed, found on the sheet, given a look like Misty Step but dark black through the pickers, saved as the one-line look with provenance, read back identically by the screen and the API, listed first on Custom looks with the author, counted on Check; one item's own look set and taken back; a look switched off and back on; the sheet button found and opening the window on its item (32 of 32); the other suites still green (smoke-boot, smoke-looks, smoke-replay 37 of 37, smoke-author 12 of 12); every offline check green. **Debug pass 2026-09-06:** heals played nothing at the table (dnd5e flags a heal's roll `healing`, not `damage`; the reader now reads both as the damage-roll moment; smoke-replay §14, 40 of 40). **The user's workflow feedback at the check-in (2026-09-06), ruled off `prototypes/fxstudio3-create.html` and built the same day:** the inline editor is replaced by *Create a look*, a five-step walk (for what; start from — duplicate an existing look, a starter, from scratch; the look, one line per scene with picture, colour, place, size and sound; when it plays, with the outcomes shown as phase 4; save to — this world, the house corpus or the main corpus), and a *Corpus* tab where the shippable corpus is built from the game: drafts bound for a corpus, the ship writing the corpus files into the module on the server with the version in the shipping record, `tools/pull-corpus.mjs` bringing them into the repo (DESIGN §8). `tools/smoke-screens.mjs` 54 of 54, including a real ship and restore on the sandbox. **Misc Patches' teleport patch moved here the same day** (the user: "now that fx studio is ours"): the move shape teleports with Foundry's `displace` and judges the spot by the words (`seen`, `unoccupied`; DESIGN §8), AA's Check Collision retired from the grammar; smoke-replay §9 grew four checks (45 of 45). **Left for the user:** do the exit by hand — add "Sharran Step, like Misty Step but black" in-game unaided and watch it play; say go for phase 4 |
 | **4 · Outcomes and moments** (1–2 days) | Battle Flow's hooks (its own commit) and the core reader (statuses, combat, movement); the outcome looks in `outcomes.json`: hit flash by damage type, miss, save mark, condition icons, damage applied; the Automatic screen's switches as `off` on those looks | Riposte, a held Shield, a failed save, Fire Shield and an aura all play; suite extended |
 | **5 · Cutover** (½ day + a week's watch) | AA and D&D5e Animations off on the sandbox (done 2026-09-06 for the user's look), then prod on the user's word | prod parity check; no AA hook fires; uninstall after a week of play |
@@ -280,7 +280,7 @@ a phase follows the suite: every preset gets a section before the next preset st
   they land in the preset's family for 122 of 341 rowed spells. The user ruled no guessing
   (§0.5). The rule tests stay in `prototypes/derive*.mjs`. If ever wanted, they become switches
   on the Automatic screen with live counts, filling only abilities with no row.
-- **Parked — retirement.** Dropping baseline rows a rule reproduces identically, to shrink the
+- **Parked — retirement.** Dropping stock rows a rule reproduces identically, to shrink the
   corpus. Depends on the option above; measured, never judged.
 
 ## 8. Inputs kept from the investigation

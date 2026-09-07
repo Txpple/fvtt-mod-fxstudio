@@ -1,32 +1,32 @@
-// The Create-a-fx walk (DESIGN §8, ruled 2026-09-06 off prototypes/fxstudio3-create.html): five
-// steps — for what, start from, the FX, when it plays, save to — built on the API. The draft is
+// The Create FX walk (DESIGN §8, ruled 2026-09-06 off prototypes/fxstudio3-create.html): four
+// steps — Ability, Source, Scenes, Trigger — ending in Save, built on the API. The draft is
 // a plain fx in the grammar (core/fx.js); every step reads it back as the sentence; nothing is
-// parsed from words. "Duplicate an existing fx", "a starter" and "from scratch" are three ways to
-// seed the scenes and nothing more: after that the walk is the same for every FX.
+// parsed from words. Duplicate, Starter and Blank are three ways to seed the scenes and nothing
+// more: after that the walk is the same for every FX. Labels are terms; the sentence under each
+// scene and the preview are the plain-English explanation the user asked to keep.
 import { MODULE_ID } from '../settings.js';
-import { keyWords, parseKey, slug } from '../core/subjects.js';
+import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { PLACES, PLACE_WORDS, pathWords, sceneWords, withDefaults } from '../core/fx.js';
-import { ON_WORDS, colourWords, dot, esc, idWords, statusOf } from './html.js';
+import { HOOK_WORDS, KIND_WORDS, ON_WORDS, SOURCE_TAG, colourWords, dot, esc, idWords, statusOf } from './html.js';
 import { openPicker } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
-export const STEPS = ['For what', 'Start from', 'The FX', 'When it plays'];
-const KIND_WORDS = { spell: 'a spell', weapon: 'a weapon', feature: 'a feature', item: 'an item', effect: 'an effect' };
-const SCALES = [[0.5, 'half size'], [0.75, 'a little smaller'], [1, 'as it comes'], [1.5, 'a little bigger'], [2, 'twice the size']];
+export const STEPS = ['Ability', 'Source', 'Scenes', 'Trigger'];
+const SCALES = [[0.5, '50%'], [0.75, '75%'], [1, '100%'], [1.5, '150%'], [2, '200%']];
 const STARTER_OF_SHAPE = { strike: 'starter:swing', shoot: 'starter:bolt', mark: 'starter:mark', fill: 'starter:fill', aura: 'starter:aura', beam: 'starter:beam', move: 'starter:teleport', sound: 'starter:sound' };
-const SHAPE_WORDS = { strike: 'a swing', shoot: 'a bolt', mark: 'a mark', fill: 'a fill', aura: 'an aura', beam: 'a beam', move: 'a move', sound: 'a sound' };
-/** what each shape does, in a sentence: the tooltip on its pill and the legend under them */
+const SHAPE_WORDS = { strike: 'Swing', shoot: 'Bolt', mark: 'Mark', fill: 'Fill', aura: 'Aura', beam: 'Beam', move: 'Move', sound: 'Sound' };
+/** what each shape does, in plain words: the tooltip on its pill and the legend under them */
 const SHAPE_HELP = {
-  strike: 'A swing: a melee attack played on the target, like a sword arc. For weapons and claws.',
-  shoot: 'A bolt: something flies from the caster to each target. Fire Bolt, an arrow, Guiding Bolt.',
-  mark: 'A mark: a VFX placed on one spot or one token, once. A burst on the caster, a glyph on the target.',
-  fill: 'A fill: the whole area of a placed template is covered, for as long as it stands. Fireball, Web, Grease.',
-  aura: 'An aura: a VFX that stays around a token and moves with it until the effect ends. Shield of Faith, Spirit Guardians.',
-  beam: 'A beam: a line held from the caster to the target while it lasts. Lightning Bolt, a ray.',
-  move: 'A move: the caster fades and reappears at the chosen spot. Misty Step and every teleport.',
-  sound: 'A sound: an SFX on its own, with no VFX. Use it for a scene that is only heard.',
+  strike: 'A melee attack played on the target, like a sword arc. For weapons and claws.',
+  shoot: 'Something flies from the caster to each target. Fire Bolt, an arrow, Guiding Bolt.',
+  mark: 'A VFX placed on one spot or one token, once. A burst on the caster, a glyph on the target.',
+  fill: 'The whole area of a placed template is covered, for as long as it stands. Fireball, Web, Grease.',
+  aura: 'A VFX that stays around a token and moves with it until the effect ends. Shield of Faith, Spirit Guardians.',
+  beam: 'A line held from the caster to the target while it lasts. Lightning Bolt, a ray.',
+  move: 'The caster fades and reappears at the chosen spot. Misty Step and every teleport.',
+  sound: 'An SFX on its own, with no VFX.',
 };
-const OUTCOMES = ['on a hit', 'on a miss', 'on a failed save', 'when damage lands'];
+const OUTCOMES = ['Hit', 'Miss', 'Failed save', 'Damage'];
 const canMiss = (scene) => ['strike', 'shoot', 'mark'].includes(scene.shape);
 const hasPicture = (scene) => !['sound', 'move', 'custom'].includes(scene.shape);
 const clone = (v) => JSON.parse(JSON.stringify(v));
@@ -52,7 +52,7 @@ export function startWalk(app, { subject = null, from = null, fxId = null, scene
   if (w.step === 3) seed(w);
   if (scenes?.length) { w.start = 'scratch'; w.from = null; w.scenes = scenes.map((scene) => ({ scene: clone(scene), scale: 1 })); }
   app.walk = w;
-  app.view.tab = 'create';
+  app.view.tab = 'editor';
   return w;
 }
 
@@ -134,12 +134,12 @@ function step1(app, w) {
   let hint = '';
   if (s) {
     const r = app.answerFor(s);
-    const has = r?.fx ? `already has an FX (<b>${esc(idWords(r.original?.id ?? r.fx.id))}</b>, ${r.source === 'baseline' ? 'in the corpus' : 'custom'}); the new one replaces it for ${esc(s.name)}` : `${dot('none')}plays nothing yet`;
+    const has = r?.fx ? `Has FX: <b>${esc(idWords(r.original?.id ?? r.fx.id))}</b> (${SOURCE_TAG[r.source] ?? r.source}) · will be replaced` : `${dot('none')}No FX`;
     hint = `<div class="hint"><span><b>${esc(s.name)}</b> · ${has}</span></div>`;
   }
-  const kinds = s?.isNew ? `<div class="pills" style="margin-top:10px"><span class="lbl">it is</span>${Object.entries(KIND_WORDS).map(([k, wd]) => `<button type="button" class="pill" aria-pressed="${s.kind === k}" data-act="cw-kind" data-kind="${k}">${wd}</button>`).join('')}</div>` : '';
-  return `<h3>What is this FX for?</h3><p class="note lead">An ability on a sheet, or one the corpus has never heard of yet.</p>
-    <div class="search"><input type="search" class="fx-q cw-q" placeholder="Type an ability… Fire Bolt, Goldthorn, Second Wind" aria-label="What is this FX for" autocomplete="off" value="${esc(s?.name ?? '')}"><div class="suggest" data-open="false"></div></div>
+  const kinds = s?.isNew ? `<div class="pills" style="margin-top:10px"><span class="lbl">Type</span>${Object.entries(KIND_WORDS).map(([k, wd]) => `<button type="button" class="pill" aria-pressed="${s.kind === k}" data-act="cw-kind" data-kind="${k}">${wd}</button>`).join('')}</div>` : '';
+  return `<h3>Ability</h3>
+    <div class="search"><input type="search" class="fx-q cw-q" placeholder="Search abilities" aria-label="Ability" autocomplete="off" value="${esc(s?.name ?? '')}"><div class="suggest" data-open="false"></div></div>
     ${hint}${kinds}`;
 }
 
@@ -148,13 +148,13 @@ function step2(app, w) {
   const s = w.subject;
   const r = app.answerFor(s);
   const choice = (id, title, sub) => `<button type="button" class="choice" aria-pressed="${w.start === id}" data-act="cw-start" data-start="${id}"><b>${title}</b><span>${sub}</span></button>`;
-  const dup = w.start === 'dup' ? `<div class="field search"><label>Which fx?</label><input type="text" class="cw-like" value="${esc(w.from ? idWords(w.from) : '')}" placeholder="an FX… Misty Step, Fire Bolt" autocomplete="off"><div class="suggest" data-open="false"></div></div>` : '';
-  const starters = w.start === 'starter' ? `<div class="pills" style="margin-top:12px"><span class="lbl">which one?</span>${a.fx.starters().map((st) => `<button type="button" class="pill" aria-pressed="${w.from === st.id}" data-act="cw-from" data-id="${esc(st.id)}" title="${esc(st.note ?? '')}">${esc(idWords(st.id))}</button>`).join('')}</div>${w.from?.startsWith('starter:') ? `<p class="note" style="margin-top:6px">${esc(a.index.starters.get(w.from)?.note ?? '')}</p>` : ''}` : '';
-  return `<h3>Start from</h3><p class="note lead">${r?.fx ? `${esc(s.name)} already has an FX. Duplicate it and change what you like, or start elsewhere.` : 'Most fx are a small change to one that exists.'}</p>
+  const dup = w.start === 'dup' ? `<div class="field search"><label>FX</label><input type="text" class="cw-like" value="${esc(w.from ? idWords(w.from) : '')}" placeholder="Search FX" autocomplete="off"><div class="suggest" data-open="false"></div></div>` : '';
+  const starters = w.start === 'starter' ? `<div class="pills" style="margin-top:12px"><span class="lbl">Starter</span>${a.fx.starters().map((st) => `<button type="button" class="pill" aria-pressed="${w.from === st.id}" data-act="cw-from" data-id="${esc(st.id)}" title="${esc(st.note ?? '')}">${esc(idWords(st.id))}</button>`).join('')}</div>${w.from?.startsWith('starter:') ? `<p class="note" style="margin-top:6px">${esc(a.index.starters.get(w.from)?.note ?? '')}</p>` : ''}` : '';
+  return `<h3>Source</h3>
     <div class="choices">
-      ${choice('dup', 'Duplicate an existing fx', 'Pick any FX in the corpus and work from there. Misty Step but black is two clicks.')}
-      ${choice('starter', 'A starter', 'One plain shape — a bolt, a swing, a mark, an aura — with its colours and a sound to choose.')}
-      ${choice('scratch', 'From scratch', 'An empty fx. Add scenes one at a time: what plays, where, how big, with what sound.')}
+      ${choice('dup', 'Duplicate', r?.fx ? `Copy ${esc(s.name)}'s FX, or any other` : 'Copy an existing FX')}
+      ${choice('starter', 'Starter', 'One shape, pick colour and sound')}
+      ${choice('scratch', 'Blank', 'Add scenes yourself')}
     </div>${dup}${starters}`;
 }
 
@@ -171,39 +171,40 @@ function sceneRow(app, w, { scene, scale }, i) {
     const colours = family ? a.assets.colours(family) : [];
     const worn = path.split('.').pop();
     const colour = colours.includes(worn) ? worn : '';
-    knobs.push(`<span class="search"><input type="text" class="cw-asset" data-i="${i}" value="${esc(pathWords(family ?? path) || (scene.asset?.file ? scene.asset.file.split('/').pop() : ''))}" placeholder="a picture… fire bolt, healing, mist" aria-label="picture" autocomplete="off"><div class="suggest" data-open="false"></div></span>`);
-    knobs.push(`<button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="asset" title="browse the pictures">browse…</button>`);
-    knobs.push(`<select class="cw-colour" data-i="${i}" aria-label="colour" ${colours.length ? '' : 'disabled'}>${colours.length ? colours.map((c) => `<option value="${esc(c)}"${c === colour ? ' selected' : ''}>${esc(colourWords(c))}</option>`).join('') : '<option value="">one colour</option>'}</select>`);
+    knobs.push(`<span class="search"><input type="text" class="cw-asset" data-i="${i}" value="${esc(pathWords(family ?? path) || (scene.asset?.file ? scene.asset.file.split('/').pop() : ''))}" placeholder="VFX" aria-label="VFX" autocomplete="off"><div class="suggest" data-open="false"></div></span>`);
+    knobs.push(`<button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="asset" title="Asset Library">Browse</button>`);
+    knobs.push(`<select class="cw-colour" data-i="${i}" aria-label="Colour" ${colours.length ? '' : 'disabled'}>${colours.length ? colours.map((c) => `<option value="${esc(c)}"${c === colour ? ' selected' : ''}>${esc(colourWords(c))}</option>`).join('') : '<option value="">One colour</option>'}</select>`);
   }
   if (scene.shape === 'sound') {
     const res = a.assets.resolve(scene.asset);
-    knobs.push(`<span class="search"><input type="text" class="cw-sound-q" data-i="${i}" value="${esc(pathWords(res.path ?? ''))}" placeholder="fire, sword, heal, teleport…" aria-label="sound" autocomplete="off"><div class="suggest" data-open="false"></div></span>`);
-    knobs.push(`<button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="browse the sounds">browse…</button>`);
+    knobs.push(`<span class="search"><input type="text" class="cw-sound-q" data-i="${i}" value="${esc(pathWords(res.path ?? ''))}" placeholder="SFX" aria-label="SFX" autocomplete="off"><div class="suggest" data-open="false"></div></span>`);
+    knobs.push(`<button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="Asset Library">Browse</button>`);
   }
-  if (['strike', 'shoot', 'beam'].includes(scene.shape)) knobs.push(`<select class="cw-place" data-i="${i}" data-k="to" aria-label="to">${placeOptions(s.to)}</select>`);
-  else if (['mark', 'aura'].includes(scene.shape)) knobs.push(`<select class="cw-place" data-i="${i}" data-k="at" aria-label="where">${placeOptions(s.at)}</select>`);
-  if (s.size) knobs.push(`<select class="cw-size" data-i="${i}" aria-label="size">${SCALES.map(([v, wd]) => `<option value="${v}"${Number(scale) === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`);
+  if (['strike', 'shoot', 'beam'].includes(scene.shape)) knobs.push(`<select class="cw-place" data-i="${i}" data-k="to" aria-label="To">${placeOptions(s.to)}</select>`);
+  else if (['mark', 'aura'].includes(scene.shape)) knobs.push(`<select class="cw-place" data-i="${i}" data-k="at" aria-label="At">${placeOptions(s.at)}</select>`);
+  if (s.size) knobs.push(`<select class="cw-size" data-i="${i}" aria-label="Size">${SCALES.map(([v, wd]) => `<option value="${v}"${Number(scale) === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`);
   if (scene.shape === 'move') {
     const spot = s.seen && s.unoccupied ? 'seen-unoccupied' : s.seen ? 'seen' : s.unoccupied ? 'unoccupied' : 'any';
-    knobs.push(`<select class="cw-spot" data-i="${i}" aria-label="the spot">${[['seen-unoccupied', 'to an unoccupied space they can see'], ['unoccupied', 'to an unoccupied space, seen or not'], ['seen', 'to a space they can see'], ['any', 'to any space']].map(([v, wd]) => `<option value="${v}"${spot === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`);
-    knobs.push(`<input type="number" class="cw-range" data-i="${i}" value="${esc(String(s.range ?? 30))}" min="5" step="5" aria-label="range in feet" style="width:80px" title="range in feet">`);
+    knobs.push(`<select class="cw-spot" data-i="${i}" aria-label="Spot">${[['seen-unoccupied', 'to an unoccupied space they can see'], ['unoccupied', 'to an unoccupied space, seen or not'], ['seen', 'to a space they can see'], ['any', 'to any space']].map(([v, wd]) => `<option value="${v}"${spot === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`);
+    knobs.push(`<label class="unit" title="Range (ft)"><input type="number" class="cw-range" data-i="${i}" value="${esc(String(s.range ?? 30))}" min="5" step="5" aria-label="Range (ft)">ft</label>`);
   }
   if (scene.shape !== 'sound' && scene.shape !== 'custom') {
     const has = !!scene.sound?.asset;
     const finding = w.finding === i;
-    knobs.push(`<select class="cw-sound" data-i="${i}" aria-label="sound"><option value="keep"${finding ? '' : ' selected'}>${has ? `with ${esc(pathWords(a.assets.resolve(scene.sound.asset).path ?? ''))}` : 'no sound'}</option>${has ? '<option value="none">no sound</option>' : ''}<option value="find"${finding ? ' selected' : ''}>another sound…</option></select>`);
-    if (finding) knobs.push(`<span class="search"><input type="text" class="cw-sound-q" data-i="${i}" placeholder="fire, sword, heal, teleport…" aria-label="find a sound" autocomplete="off"><div class="suggest" data-open="false"></div></span>`);
-    knobs.push(`<button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="browse the sounds">browse…</button>`);
+    knobs.push(`<select class="cw-sound" data-i="${i}" aria-label="SFX"><option value="keep"${finding ? '' : ' selected'}>${has ? esc(pathWords(a.assets.resolve(scene.sound.asset).path ?? '')) : 'No SFX'}</option>${has ? '<option value="none">No SFX</option>' : ''}<option value="find"${finding ? ' selected' : ''}>Find SFX…</option></select>`);
+    if (finding) knobs.push(`<span class="search"><input type="text" class="cw-sound-q" data-i="${i}" placeholder="SFX" aria-label="SFX" autocomplete="off"><div class="suggest" data-open="false"></div></span>`);
+    knobs.push(`<button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="Asset Library">Browse</button>`);
   }
-  return `<div class="scene"><div class="shape">${esc(scene.shape)}</div><div class="knobs">${knobs.join('')}</div><button type="button" class="quiet drop" data-act="cw-drop" data-i="${i}" aria-label="remove this scene">✕</button><div class="line">${esc(sceneWords(scene))}</div></div>`;
+  if (scene.shape !== 'custom') knobs.push(`<label class="unit" title="Delay (ms)">Delay <input type="number" class="cw-delay" data-i="${i}" value="${esc(String(scene.delay ?? 0))}" min="0" step="50" aria-label="Delay (ms)">ms</label>`);
+  return `<div class="scene"><div class="shape">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}</div><div class="knobs">${knobs.join('')}</div><button type="button" class="quiet drop" data-act="cw-drop" data-i="${i}" aria-label="Remove scene">✕</button><div class="line">${esc(sceneWords(scene))}</div></div>`;
 }
 
 function step3(app, w) {
   const rows = w.scenes.map((x, i) => sceneRow(app, w, x, i)).join('');
-  const lead = `${w.start === 'dup' && w.from ? `A copy of ${esc(idWords(w.from))}. ` : w.start === 'starter' && w.from ? `${esc(idWords(w.from))} to begin with. ` : ''}Each line is one scene: what plays, in what colour, where, how big, with what sound. The sentence underneath is what the module will say about it.`;
-  return `<h3>The FX</h3><p class="note lead">${lead}</p>
-    <div class="scenes">${rows || '<p class="note">No scenes yet. Add one below.</p>'}</div>
-    <div class="pills" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--fx-line2)"><span class="lbl">add a scene:</span>${Object.entries(SHAPE_WORDS).map(([sh, wd]) => `<button type="button" class="pill" data-act="cw-add" data-shape="${sh}" data-tooltip="${esc(SHAPE_HELP[sh])}" title="${esc(SHAPE_HELP[sh])}">${wd}</button>`).join('')}<button type="button" class="quiet" data-act="cw-shapes" aria-expanded="${!!w.shapesOpen}">what are these?</button></div>
+  const lead = w.from && w.start !== 'scratch' ? `<p class="note lead">Copy of ${esc(idWords(w.from))}</p>` : '';
+  return `<h3>Scenes</h3>${lead}
+    <div class="scenes">${rows || '<p class="note">No scenes. Add one below.</p>'}</div>
+    <div class="pills" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--fx-line2)"><span class="lbl">Add</span>${Object.entries(SHAPE_WORDS).map(([sh, wd]) => `<button type="button" class="pill" data-act="cw-add" data-shape="${sh}" data-tooltip="${esc(SHAPE_HELP[sh])}" title="${esc(SHAPE_HELP[sh])}">${wd}</button>`).join('')}<button type="button" class="quiet" data-act="cw-shapes" aria-expanded="${!!w.shapesOpen}">Shapes</button></div>
     ${w.shapesOpen ? `<div class="legend">${Object.entries(SHAPE_HELP).map(([sh, help]) => `<div class="row"><span class="n">${esc(SHAPE_WORDS[sh])}</span><span class="s">${esc(help)}</span></div>`).join('')}</div>` : ''}
     <div class="preview">${sentenceOf(app)}</div>`;
 }
@@ -212,18 +213,17 @@ function step4(app, w) {
   const s = w.subject;
   const on = Object.entries(ON_WORDS).map(([k, wd]) => `<button type="button" class="pill" aria-pressed="${w.on === k}" data-act="cw-on" data-on="${k}">${wd}</button>`).join('');
   const outcomes = OUTCOMES.map((o) => `<button type="button" class="pill" disabled>${o}</button>`).join('');
-  const miss = w.scenes.some((x) => canMiss(x.scene)) ? `<div class="sub">on a miss</div><div class="pills"><button type="button" class="pill" aria-pressed="${w.onMiss === 'play'}" data-act="cw-miss" data-v="play">still plays, as a miss</button><button type="button" class="pill" aria-pressed="${w.onMiss === 'skip'}" data-act="cw-miss" data-v="skip">plays nothing</button></div>` : '';
+  const miss = w.scenes.some((x) => canMiss(x.scene)) ? `<div class="sub">On miss</div><div class="pills"><button type="button" class="pill" aria-pressed="${w.onMiss === 'play'}" data-act="cw-miss" data-v="play">Play</button><button type="button" class="pill" aria-pressed="${w.onMiss === 'skip'}" data-act="cw-miss" data-v="skip">Skip</button></div>` : '';
   const bare = (s?.keys ?? []).filter((k) => !k.includes('/'));
-  const keys = bare.map((k) => `<button type="button" class="pill" aria-pressed="${!w.onlyThis && w.key === k}" data-act="cw-key" data-key="${esc(k)}">${esc(keyWords(k))}</button>`).join('');
-  const only = s?.uuid && s?.owner ? `<button type="button" class="pill" aria-pressed="${w.onlyThis}" data-act="cw-only">only this one, on ${esc(s.owner.split(' ')[0])}’s sheet</button>` : '';
-  return `<h3>When it plays</h3><p class="note lead">The moment the FX answers, and who it answers for.</p>
-    <div class="sub">the moment</div><div class="pills">${on}</div>
-    <div class="sub">the outcome<span class="soon">phase 4</span></div><div class="pills">${outcomes}</div>
-    <p class="note" style="margin-top:6px">Until phase 4 an FX plays at the moment above whatever happens. The outcomes — a hit flash, a miss, a failed save — come with it.</p>
+  const keys = bare.map((k) => `<button type="button" class="pill" aria-pressed="${!w.onlyThis && w.key === k}" data-act="cw-key" data-key="${esc(k)}">${HOOK_WORDS.global}: ${esc(keyLabel(k))}</button>`).join('');
+  const only = s?.uuid && s?.owner ? `<button type="button" class="pill" aria-pressed="${w.onlyThis}" data-act="cw-only">${HOOK_WORDS.item}: ${esc(s.owner)} · ${esc(s.name)}</button>` : '';
+  return `<h3>Trigger</h3>
+    <div class="sub">Moment</div><div class="pills">${on}</div>
+    <div class="sub">Outcome<span class="soon">phase 4</span></div><div class="pills">${outcomes}</div>
     ${miss}
-    ${keys || only ? `<div class="sub">answers for</div><div class="pills">${keys}${only}</div>` : ''}
-    <div class="field"><label>Why (a note for whoever reads this later)</label><input type="text" class="cw-note" value="${esc(w.note)}" placeholder="${esc(noteOf(app))}"></div>
-    <div class="preview"><div class="sub" style="margin:0 0 6px">what will be saved</div>${sentenceOf(app)}<p class="note" style="margin:6px 0 0">By ${esc(game.user.name)}, today. It plays here at once${w.onlyThis ? ` for that one ${esc(s?.name ?? 'item')}` : ''}.</p></div>`;
+    ${keys || only ? `<div class="sub">Hook</div><div class="pills">${keys}${only}</div>` : ''}
+    <div class="field"><label>Note</label><input type="text" class="cw-note" value="${esc(w.note)}" placeholder="${esc(noteOf(app))}"></div>
+    <div class="preview"><div class="sub" style="margin:0 0 6px">Preview</div>${sentenceOf(app)}${w.onlyThis ? `<p class="note" style="margin:6px 0 0">${HOOK_WORDS.item}: ${esc(s?.name ?? 'item')}</p>` : ''}</div>`;
 }
 
 /** the note the draft would carry if the user writes none */
@@ -289,21 +289,21 @@ export function onCreateInput(app, el) {
     if (!q) return open('');
     const hits = app.searchHits(q);
     return open(hits.map(({ e, i }) => `<div class="hit" data-act="cw-hit" data-i="${i}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(app.hitWhere(e))}</span></div>`).join('')
-      + `<div class="hit" data-act="cw-new" data-name="${esc(q)}"><span class="o">${hits.length ? 'Not one of these? ' : 'Nothing called that on a sheet. '}A new ability called “${esc(q)}”.</span></div>`);
+      + `<div class="hit" data-act="cw-new" data-name="${esc(q)}"><span class="o">New ability: “${esc(q)}”</span></div>`);
   }
   if (el.classList.contains('cw-like')) {
     const hits = app.likeHits(q).filter((h) => h.tag !== 'starter');
-    return open(hits.map((h) => `<div class="hit" data-act="cw-like-hit" data-id="${esc(h.id)}"><span>${esc(h.words)}${h.keys ? ` <span class="note">· ${esc(h.keys.slice(0, 60))}</span>` : ''}</span><span class="o">${esc(h.tag)}</span></div>`).join('') || '<div class="hit"><span class="o">No FX called that. Type a few letters of its name.</span></div>');
+    return open(hits.map((h) => `<div class="hit" data-act="cw-like-hit" data-id="${esc(h.id)}"><span>${esc(h.words)}${h.keys ? ` <span class="note">· ${esc(h.keys.slice(0, 60))}</span>` : ''}</span><span class="o">${esc(h.tag)}</span></div>`).join('') || '<div class="hit"><span class="o">No match</span></div>');
   }
   if (el.classList.contains('cw-asset')) {
     if (q.length < 2) return open('');
     const hits = a.assets.search(q, { roots: ['jb2a'], limit: 30 });
-    return open(hits.map((h) => `<div class="hit" data-act="cw-asset-hit" data-i="${el.dataset.i}" data-path="${esc(h.colours.length ? `${h.path}.${h.colours[0]}` : h.path)}"><span>${esc(pathWords(h.path))}</span><span class="o">${h.colours.length ? `${h.colours.length} colour${h.colours.length === 1 ? '' : 's'}` : 'one'}</span></div>`).join('') || '<div class="hit"><span class="o">No picture with that in its name.</span></div>');
+    return open(hits.map((h) => `<div class="hit" data-act="cw-asset-hit" data-i="${el.dataset.i}" data-path="${esc(h.colours.length ? `${h.path}.${h.colours[0]}` : h.path)}"><span>${esc(pathWords(h.path))}</span><span class="o">${h.colours.length ? `${h.colours.length} colour${h.colours.length === 1 ? '' : 's'}` : '1 colour'}</span></div>`).join('') || '<div class="hit"><span class="o">No match</span></div>');
   }
   if (el.classList.contains('cw-sound-q')) {
     if (q.length < 2) return open('');
     const hits = a.assets.search(q, { roots: ['psfx'], limit: 30 });
-    return open(hits.map((h) => `<div class="hit" data-act="cw-sound-hit" data-i="${el.dataset.i}" data-path="${esc(h.path)}"><span>${esc(pathWords(h.path))}</span><span class="o">${h.colours.length ? `one of ${h.colours.length}` : 'sound'}</span></div>`).join('') || '<div class="hit"><span class="o">No sound with that in its name.</span></div>');
+    return open(hits.map((h) => `<div class="hit" data-act="cw-sound-hit" data-i="${el.dataset.i}" data-path="${esc(h.path)}"><span>${esc(pathWords(h.path))}</span><span class="o">${h.colours.length ? `${h.colours.length} variants` : 'SFX'}</span></div>`).join('') || '<div class="hit"><span class="o">No match</span></div>');
   }
   if (el.classList.contains('cw-note')) { w.note = el.value; }
 }
@@ -324,6 +324,7 @@ export function onCreateChange(app, el) {
     return app.render();
   }
   if (el.classList.contains('cw-range') && x) { const n = Number(el.value); if (n > 0) { if (n === 30) delete x.scene.range; else x.scene.range = n; } return app.render(); }
+  if (el.classList.contains('cw-delay') && x) { const n = Math.max(0, Math.round(Number(el.value) || 0)); if (n) x.scene.delay = n; else delete x.scene.delay; return app.render(); }
   if (el.classList.contains('cw-sound') && x) {
     if (el.value === 'none') { delete x.scene.sound; w.finding = null; }
     else if (el.value === 'find') w.finding = Number(el.dataset.i);
@@ -372,5 +373,5 @@ async function saveWalk(app) {
   app.refresh();
   if (item) app.showItem(item); else { app.view.subject = s; app.view.tab = 'lookup'; }
   await app.render();
-  return app.toast(`Saved. ${s.name} plays it now.`);
+  return app.toast(`Saved: ${s.name}.`);
 }

@@ -3,7 +3,7 @@
 // (ARCHITECTURE §6.2). It builds AA's Sequence for a row against a phase-1 moment on the offline
 // stage. Nothing in scripts/ imports this; it is the proof's independent side and then history.
 //
-//   rows()                    the phase-1 rows: {baseline: [row…], house: [row…]} (import-aa.mjs wrote them)
+//   rows()                    the phase-1 rows: {stock: [row…], house: [row…]} (import-aa.mjs wrote them)
 //   oracleMoment(kind, …)     a phase-1 moment from stage tokens
 //   buildRow(row, moment)     {seq, ctx} — the recording Sequence AA's port makes
 import { readFileSync } from 'node:fs';
@@ -15,7 +15,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 
 export function rows() {
   const read = (f) => JSON.parse(readFileSync(join(HERE, f), 'utf8'));
-  return { baseline: read('baseline-rows.json').rows, house: read('house-rows.json').rows, twin: read('aa-database.json') };
+  return { stock: read('stock-rows.json').rows, house: read('house-rows.json').rows, twin: read('aa-database.json') };
 }
 
 /**

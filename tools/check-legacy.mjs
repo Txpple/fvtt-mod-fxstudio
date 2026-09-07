@@ -17,7 +17,7 @@ walk(join(REPO, 'recipes'));
 let problems = 0;
 for (const f of files) {
   const rel = relative(REPO, f).replace(/\\/g, '/');
-  if (rel === 'recipes/migration-report.md' || rel === 'recipes/BASELINE-LICENSE') continue;
+  if (rel === 'recipes/migration-report.md' || rel === 'recipes/STOCK-LICENSE') continue;
   const lines = readFileSync(f, 'utf8').split(/\r?\n/);
   lines.forEach((line, i) => {
     const m = re.exec(line);

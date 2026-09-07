@@ -1,24 +1,26 @@
 // The corpus: fx indexed by (subject key, moment kind) across the layers, later wins
-// (world buffer → house → baseline), plus the starters fx inherit from. Resolution is an exact
+// (world buffer → house → stock), plus the starters fx inherit from. Resolution is an exact
 // map hit on the first of a subject's keys that has an FX; nothing is derived from a name.
 // Pure: the tools run the very same lookup offline that the module runs at the table.
 import { expand, validate, withDefaults } from './fx.js';
 
 /** the layers in the order they win */
-export const LAYERS = ['world', 'house', 'baseline'];
+export const LAYERS = ['world', 'house', 'stock'];
+/** the term for each layer on a screen: the world buffer is a Draft, the files are House and Stock */
+export const LAYER_WORDS = { world: 'Draft', house: 'House', stock: 'Stock' };
 
 /**
- * @param corpora  {baseline: [fx…], house: [fx…], world: [fx…], starters: [fx…]}
+ * @param corpora  {stock: [fx…], house: [fx…], world: [fx…], starters: [fx…]}
  * @returns an index {byId, byKey: Map<"key|on", [{fx, source}…]>, starters: Map, problems: [sentences]}
  */
-export function buildIndex({ baseline = [], house = [], world = [], starters = [] } = {}) {
+export function buildIndex({ stock = [], house = [], world = [], starters = [] } = {}) {
   const problems = [];
   const starterMap = new Map();
   for (const s of starters) if (s?.id) starterMap.set(`starter:${s.id}`, { ...s, id: `starter:${s.id}` });
-  // by id, later wins: a house fx with a baseline fx's id replaces it
+  // by id, later wins: a house fx with a stock fx's id replaces it
   const raw = new Map();
   const sourceOf = new Map();
-  for (const [source, list] of [['baseline', baseline], ['house', house], ['world', world]]) {
+  for (const [source, list] of [['stock', stock], ['house', house], ['world', world]]) {
     for (const fx of list) {
       if (!fx?.id) { problems.push(`${source}: an FX with no id`); continue; }
       raw.set(fx.id, fx);
@@ -48,7 +50,7 @@ export function buildIndex({ baseline = [], house = [], world = [], starters = [
     }
   }
   for (const list of byKey.values()) list.sort((a, b) => rank(a.source) - rank(b.source));
-  return { byId, byKey, starters: starterMap, problems, counts: { baseline: baseline.length, house: house.length, world: world.length, starters: starters.length } };
+  return { byId, byKey, starters: starterMap, problems, counts: { stock: stock.length, house: house.length, world: world.length, starters: starters.length } };
 }
 
 /** does the FX need what the moment has? An FX with a scene at the template needs a placed template. */
@@ -69,7 +71,7 @@ export function resolve(index, keys, on, { hasPlace = false, pointer = null } = 
   if (pointer) {
     const own = index.byId.get(pointer);
     if (own && (own.fx.off || own.fx.on === on)) {
-      if (own.fx.off) return { fx: null, key: 'this item', source: own.source, why: `this item's own FX "${pointer}" is switched off` };
+      if (own.fx.off) return { fx: null, off: true, key: 'this item', source: own.source, why: `this item's own FX "${pointer}" is switched off` };
       return { fx: own.fx, key: 'this item', source: own.source, original: own.original, pointer };
     }
   }
@@ -78,7 +80,7 @@ export function resolve(index, keys, on, { hasPlace = false, pointer = null } = 
     if (!candidates.length) continue;
     // the winning layer's own answer first: an off fx there silences the key
     const top = candidates[0];
-    if (top.fx.off) return { fx: null, key, source: top.source, why: `"${key}" is switched off by ${top.source} "${top.fx.id}"` };
+    if (top.fx.off) return { fx: null, off: true, key, source: top.source, why: `"${key}" is switched off by ${top.source} "${top.fx.id}"` };
     const fits = candidates.filter((c) => !c.fx.off && needsPlace(c.fx) === hasPlace);
     const pick = fits[0] ?? candidates.find((c) => !c.fx.off);
     if (!pick) continue;

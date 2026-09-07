@@ -26,7 +26,7 @@ console.log(`the world buffer holds ${buffer.length} fx(s):`);
 for (const fx of buffer) {
   const errs = validate(fx, { ids });
   if (errs.length) { bad++; console.log(`  ✗ ${fx.id}: ${errs.join('; ')}`); continue; }
-  const replaces = recipes.house.some((l) => l.id === fx.id) ? ' (replaces the house fx of that id)' : recipes.baseline.some((l) => l.id === fx.id) ? ' (replaces the baseline fx of that id)' : '';
+  const replaces = recipes.house.some((l) => l.id === fx.id) ? ' (replaces the house fx of that id)' : recipes.stock.some((l) => l.id === fx.id) ? ' (replaces the stock fx of that id)' : '';
   console.log(`  · ${sentence(fx.off ? fx : expand(fx, lookup))}${replaces}`);
   console.log(`    ${provenance(fx)}`);
 }

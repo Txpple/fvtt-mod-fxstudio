@@ -10,7 +10,7 @@
    "sequencer": "4.2.3"
   },
   "licence": "MIT",
-  "note": "The user's own looks: what this world changed over the baseline at import, and everything built since.",
+  "note": "The user's own looks: what this world changed over the stock at import, and everything built since.",
   "rows": 7
  },
  "rows": [

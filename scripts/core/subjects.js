@@ -138,4 +138,12 @@ export function keyWords(key) {
   }
 }
 
+/** a key as a label on a screen: "Fire Bolt (spell)", "Maul (weapon)", "Bite (natural)", "Blinded (status)" */
+export function keyLabel(key) {
+  const p = parseKey(key);
+  if (!p) return String(key);
+  const act = p.activity ? ` · ${p.activity}` : '';
+  return `${titleCase(p.id.replace(/-/g, ' '))} (${p.kind}${act})`;
+}
+
 export const titleCase = (s) => String(s ?? '').replace(/\b[a-z]/g, (c) => c.toUpperCase());

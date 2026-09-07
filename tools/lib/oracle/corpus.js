@@ -1,4 +1,4 @@
-// The corpus: rows keyed by ability name, two layers (baseline, house) plus the world's live edit
+// The corpus: rows keyed by ability name, two layers (stock, house) plus the world's live edit
 // buffer, later wins. Pure: no Foundry globals, so the tools run the very same lookup offline that
 // the module runs at the table (that is what makes the parity proof a proof).
 //
@@ -11,7 +11,7 @@
 //               inside the ability's name (the generic weapon and creature rows: "Longsword +1",
 //               "Bite (wolf form)"). Never a bare substring.
 //   exclude     names containing any of these terms do not match (carried from AA's excluded terms)
-//   off         a house row that switches the baseline's row off: the ability plays nothing
+//   off         a house row that switches the stock's row off: the ability plays nothing
 //   fx          the layers, in play order: {preset, video, file, aa, sound, options}
 //               preset   melee-swing | projectile | on-token | template | aura | secondary | source | target
 //                        | teleport | projectile-to-template | dual-attach | thunderwave
@@ -30,7 +30,7 @@
 //   on "template" (a template placed)  as "use", but a melee/range/ontoken hit is replaced by the
 //                 templatefx row of the same name, or nothing
 //   on "effect"   (an active effect created)  aefx rows only
-//   house beats baseline; the world buffer beats both; an exact match beats a word match.
+//   house beats stock; the world buffer beats both; an exact match beats a word match.
 
 export const USE_MENUS = ['melee', 'range', 'ontoken', 'templatefx', 'aura', 'preset'];
 
@@ -39,7 +39,7 @@ export const norm = (s) => (s ?? '').replace(/\s+/g, ' ').trim().toLowerCase();
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** @returns an index: {layers: [{source, rows, exact: Map<norm name, row[]>, word: [{re, row}]}]} */
-export function buildIndex({ baseline = [], house = [], world = [] } = {}) {
+export function buildIndex({ stock = [], house = [], world = [] } = {}) {
   const layer = (source, rows) => {
     const exact = new Map();
     const word = [];
@@ -54,8 +54,8 @@ export function buildIndex({ baseline = [], house = [], world = [] } = {}) {
     }
     return { source, rows, exact, word };
   };
-  // later wins: world, then house, then baseline
-  return { layers: [layer('world', world), layer('house', house), layer('baseline', baseline)] };
+  // later wins: world, then house, then stock
+  return { layers: [layer('world', world), layer('house', house), layer('stock', stock)] };
 }
 
 function excluded(row, name) {

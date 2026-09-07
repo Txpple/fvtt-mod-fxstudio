@@ -4,11 +4,11 @@
 // core/fx.js with every AA option mapped onto a knob, points every asset at the libraries' own
 // paths where the same files play the same way (the frozen table is what is left), PROVES at the
 // render that the engine tells Sequencer what AA told it (tools/lib/migrate/proof.mjs), runs the
-// census in the new keys, and writes the baseline per kind, the house FX, the frozen table and
+// census in the new keys, and writes the stock per kind, the house FX, the frozen table and
 // the report. Offline; seconds.
 //
 //   node tools/migrate-aa.mjs            # everything, write nothing (report at dist/migration-report.md)
-//   node tools/migrate-aa.mjs --write    # also write recipes/baseline/*.json, house.json, aa-assets.json, migration-report.md
+//   node tools/migrate-aa.mjs --write    # also write recipes/stock/*.json, house.json, aa-assets.json, migration-report.md
 //   node tools/migrate-aa.mjs --show <row label>   # print the FX and the proof for one row
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -43,11 +43,11 @@ const today = new Date().toISOString().slice(0, 10);
 // ---------------------------------------------------------------------------------------------
 say('1 · read');
 const versions = { aa: moduleVersion(MODULES.aa), dnd5eAnimations: moduleVersion(MODULES.dnd5eAnimations), jb2a: moduleVersion(MODULES.jb2a), psfx: moduleVersion(MODULES.psfx), sequencer: moduleVersion(MODULES.sequencer), dnd5e: moduleVersion(MODULES.dnd5e) };
-const { baseline: baselineRows, house: houseRows, twin } = oracleRows();
+const { stock: stockRows, house: houseRows, twin } = oracleRows();
 const jb2a = await loadJb2a();
 const psfx = await loadPsfx();
 const dbs = { jb2a, psfx, fxstudio: twin.db };
-say(`   rows: baseline ${baselineRows.length}, house ${houseRows.length} · libraries: jb2a ${versions.jb2a}, psfx ${versions.psfx}, the frozen twin ${leafPaths(twin.db, 'fxstudio').size} entries`);
+say(`   rows: stock ${stockRows.length}, house ${houseRows.length} · libraries: jb2a ${versions.jb2a}, psfx ${versions.psfx}, the frozen twin ${leafPaths(twin.db, 'fxstudio').size} entries`);
 const { actors: worldActors, items: worldItems, effects: worldEffects } = await readActors(snapshot(worldDb('actors')));
 const lists = await buildLists({ worldActors, worldItems, worldEffects });
 say(`   closed lists: spells ${lists.spells.size} · features ${lists.features.size} · items ${lists.items.size} · weapons ${lists.weapons.size} · natural attacks ${lists.natural.size} · world items ${lists.world.items.length}${lists.stats.skipped.length ? ` · packs not installed: ${lists.stats.skipped.join(', ')}` : ''}`);
@@ -98,9 +98,9 @@ function keysForRow(row) {
 say('3 · fx');
 const nativiser = makeNativiser({ jb2a, twin: twin.db });
 const taken = new Set();
-const baselineFx = []; // {fx, row, notes, source}
+const stockFx = []; // {fx, row, notes, source}
 const notesByRow = [];
-const ordered = [...baselineRows].sort((a, b) => (a.match === 'exact' ? 0 : 1) - (b.match === 'exact' ? 0 : 1) || MENU_ORDER.indexOf(a.menu) - MENU_ORDER.indexOf(b.menu));
+const ordered = [...stockRows].sort((a, b) => (a.match === 'exact' ? 0 : 1) - (b.match === 'exact' ? 0 : 1) || MENU_ORDER.indexOf(a.menu) - MENU_ORDER.indexOf(b.menu));
 const idOfRow = new Map();
 for (const row of ordered) {
   const id = idFor(row.name, row.menu, taken);
@@ -111,13 +111,13 @@ for (const row of ordered) {
   fx.by = 'the migration';
   fx.at = today;
   fx.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
-  baselineFx.push({ fx, row, notes, source: 'baseline' });
+  stockFx.push({ fx, row, notes, source: 'stock' });
   if (notes.length) notesByRow.push(`${row.name} [${row.menu}]: ${notes.join('; ')}`);
 }
-// the house rows: a changed baseline row keeps its id (and replaces it); an item's own FX is keyed like its name and named for its owner
+// the house rows: a changed stock row keeps its id (and replaces it); an item's own FX is keyed like its name and named for its owner
 const houseFx = [];
 for (const row of houseRows) {
-  const twinRow = baselineRows.find((b) => b.name === row.name && b.menu === row.menu && !(row.note ?? '').includes("the item's own FX"));
+  const twinRow = stockRows.find((b) => b.name === row.name && b.menu === row.menu && !(row.note ?? '').includes("the item's own FX"));
   let id;
   if (row.off) { id = idOfRow.get(twinRow) ?? idFor(row.name, row.menu, taken); houseFx.push({ fx: { id, for: keysForRow(row), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
   if (twinRow) id = idOfRow.get(twinRow);
@@ -130,25 +130,25 @@ for (const row of houseRows) {
   houseFx.push({ fx, row, notes, source: 'house' });
   if (notes.length) notesByRow.push(`house ${row.name} [${row.menu}]: ${notes.join('; ')}`);
 }
-say(`   ${baselineFx.length} baseline FX, ${houseFx.length} house FX · keys: by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects}, in three kinds (no list holds the name) ${keyed.threeKinds}`);
+say(`   ${stockFx.length} stock FX, ${houseFx.length} house FX · keys: by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects}, in three kinds (no list holds the name) ${keyed.threeKinds}`);
 const ns = nativiser.stats;
 say(`   assets: ${ns.paths} AA paths → native exact ${ns.exact}, as JB2A leaves ${ns.leaves}, as JB2A range nodes ${ns.ranges}, as raw files ${ns.files} (AA's stretch metadata carried on ${ns.templateCarried}) · frozen ${ns.frozen} (markers ${ns.markersFrozen}, by-distance ${ns.rangeFrozen}, missing ${ns.missingNode})`);
 
-// a key several baseline FX claim goes to the one with the longest label, as AA's search took the longest label contained in a name;
+// a key several stock FX claim goes to the one with the longest label, as AA's search took the longest label contained in a name;
 // the shorter labels lose the key (an equal length keeps both, and the first in AA's order answers — listed as shadowed)
 const claims = new Map();
-for (const e of baselineFx) for (const key of e.fx.for) (claims.get(`${key}|${e.fx.on}`) ?? claims.set(`${key}|${e.fx.on}`, []).get(`${key}|${e.fx.on}`)).push(e);
+for (const e of stockFx) for (const key of e.fx.for) (claims.get(`${key}|${e.fx.on}`) ?? claims.set(`${key}|${e.fx.on}`, []).get(`${key}|${e.fx.on}`)).push(e);
 const ceded = [];
 for (const [k, list] of claims) {
   if (list.length < 2) continue;
   const longest = Math.max(...list.map((e) => e.row.name.trim().length));
   for (const e of list) if (e.row.name.trim().length < longest) { const key = k.split('|')[0]; e.fx.for = e.fx.for.filter((x) => x !== key); ceded.push(`${key}: "${e.row.name}" cedes to ${list.filter((x) => x.row.name.trim().length === longest).map((x) => `"${x.row.name}"`).join(', ')}`); }
 }
-for (const e of baselineFx) if (!e.fx.for.length) { e.fx.for = [`${e.row.menu === 'aefx' ? 'effect' : 'weapon'}:${slug(e.row.name)}`]; }
+for (const e of stockFx) if (!e.fx.for.length) { e.fx.for = [`${e.row.menu === 'aefx' ? 'effect' : 'weapon'}:${slug(e.row.name)}`]; }
 say(`   keys ceded to a longer label, as under AA: ${ceded.length}`);
 
 // every FX validates
-const allFx = [...baselineFx, ...houseFx];
+const allFx = [...stockFx, ...houseFx];
 const ids = new Set(allFx.map((l) => l.fx.id));
 let invalid = 0;
 for (const { fx, row } of allFx) { const p = validate(fx, { ids }); if (p.length) { invalid++; if (invalid <= 10) console.error(`   ✗ "${row.name}" [${row.menu}] → ${fx.id}: ${p.join('; ')}`); } }
@@ -185,9 +185,9 @@ if (SHOW) process.exit(proof.failed.length ? 1 : 0);
 // 5 · census — what changes for the user, in the new keys
 // ---------------------------------------------------------------------------------------------
 say('5 · census');
-const index = buildIndex({ baseline: baselineFx.map((l) => l.fx), house: houseFx.map((l) => l.fx) });
+const index = buildIndex({ stock: stockFx.map((l) => l.fx), house: houseFx.map((l) => l.fx) });
 for (const p of index.problems) console.error('   index: ' + p);
-const oldIndex = oracleIndex({ baseline: baselineRows, house: houseRows });
+const oldIndex = oracleIndex({ stock: stockRows, house: houseRows });
 const census = { asked: 0, same: 0, changed: [], gained: [], lost: [], byKind: {}, npc: { attacks: 0, actors: 0, exact: 0, base: 0, natural: 0, none: 0, samples: { base: [], natural: [], none: [] } }, party: [] };
 const TYPES = ['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool'];
 const shadowed = [];
@@ -211,7 +211,7 @@ for (const [actorId, list] of Object.entries(worldItems)) {
     census.asked++;
     const nowName = now.fx ? `${now.fx.id} (${now.key})` : null;
     const beforeName = before ? `${before.row.name} [${before.row.menu}]` : null;
-    const beforeId = before ? idOfRow.get(baselineRows.find((b) => b === before.row)) ?? slug(before.row.name) : null;
+    const beforeId = before ? idOfRow.get(stockRows.find((b) => b === before.row)) ?? slug(before.row.name) : null;
     const same = (!now.fx && !before) || (now.fx && before && (now.fx.id === beforeId || now.fx.id.startsWith(beforeId + '-') || slug(before.row.name) === now.fx.id.replace(/-(swing|bolt|mark|area|aura|preset|effect)(-\d+)?$/, '')));
     const line = `${actor.name} (${actor.type}) / ${it.name} [${it.type}] · keys ${subject.keys.join(', ')} · was ${beforeName ?? 'nothing'} · now ${nowName ?? 'nothing'}`;
     if (same) census.same++; else if (now.fx && !before) census.gained.push(line); else if (!now.fx && before) census.lost.push(line); else census.changed.push(line);
@@ -260,8 +260,8 @@ R(`## Numbers`);
 R();
 R(`| Measure | Count |`);
 R(`| --- | --- |`);
-R(`| Rows in (baseline / house) | ${baselineRows.length} / ${houseRows.length} |`);
-R(`| Fx out (baseline / house) | ${baselineFx.length} / ${houseFx.length} |`);
+R(`| Rows in (stock / house) | ${stockRows.length} / ${houseRows.length} |`);
+R(`| Fx out (stock / house) | ${stockFx.length} / ${houseFx.length} |`);
 R(`| · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | ${keyed.byList} |`);
 R(`| · family rows expanded against the base weapons, the natural attacks and the world's weapons | ${keyed.expanded} |`);
 R(`| · effect rows, keyed by the effect's name | ${keyed.effects} |`);
@@ -362,19 +362,19 @@ R();
 
 const KIND_FILE = { spell: 'spells', weapon: 'weapons', natural: 'natural', feature: 'features', item: 'items', effect: 'effects' };
 const files = Object.fromEntries(Object.values(KIND_FILE).map((f) => [f, []]));
-for (const { fx } of baselineFx) { const kind = fx.for[0]?.split(':')[0]; files[KIND_FILE[kind] ?? 'items'].push(fx); }
+for (const { fx } of stockFx) { const kind = fx.for[0]?.split(':')[0]; files[KIND_FILE[kind] ?? 'items'].push(fx); }
 const reportPath = WRITE ? join(RECIPES, 'migration-report.md') : join(REPO, 'dist', 'migration-report.md');
 mkdirSync(join(REPO, 'dist'), { recursive: true });
 if (WRITE) {
-  mkdirSync(join(RECIPES, 'baseline'), { recursive: true });
+  mkdirSync(join(RECIPES, 'stock'), { recursive: true });
   const meta = (extra) => ({ schema: 2, generated: today, tool: 'tools/migrate-aa.mjs', sources: versions, ...extra });
   for (const [name, list] of Object.entries(files)) {
-    writeFileSync(join(RECIPES, 'baseline', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
+    writeFileSync(join(RECIPES, 'stock', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see STOCK-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
   }
-  writeFileSync(join(RECIPES, 'house.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the baseline at migration, and everything kept from the world buffer since (tools/export-fx.mjs).", fx: houseFx.length }), fx: houseFx.map((l) => l.fx) }, null, 1));
+  writeFileSync(join(RECIPES, 'house.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the stock at migration, and everything kept from the world buffer since (tools/export-fx.mjs).", fx: houseFx.length }), fx: houseFx.map((l) => l.fx) }, null, 1));
   writeFileSync(join(RECIPES, 'aa-assets.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'What the migration could not point at the libraries\' own paths: AA\'s own Sequencer entries for these, verbatim with their metadata, registered as fxstudio.aa. Counted, meant to reach zero.', entries: frozen.entries, paths: frozen.paths.length, missingFiles: twin.meta?.missingFiles ?? [] }), db: frozen.db }));
   writeFileSync(reportPath, report.join('\n'));
-  say(`6 · wrote recipes/baseline/{${Object.entries(files).map(([k, v]) => `${k} ${v.length}`).join(', ')}}, recipes/house.json (${houseFx.length}), recipes/aa-assets.json (${frozen.entries} entries), recipes/migration-report.md`);
+  say(`6 · wrote recipes/stock/{${Object.entries(files).map(([k, v]) => `${k} ${v.length}`).join(', ')}}, recipes/house.json (${houseFx.length}), recipes/aa-assets.json (${frozen.entries} entries), recipes/migration-report.md`);
 } else {
   writeFileSync(reportPath, report.join('\n'));
   say(`6 · dry run: report at dist/migration-report.md (pass --write to write the recipes)`);

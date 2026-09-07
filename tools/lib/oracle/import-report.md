@@ -6,7 +6,7 @@ Run 2026-09-06 against the world `the-broken-heart-of-greenrest` snapshot (AA 7.
 
 | Measure | Count |
 | --- | --- |
-| Preset rows (the baseline) | 1289 |
+| Preset rows (the stock) | 1289 |
 | · melee | 120 |
 | · range | 159 |
 | · ontoken | 562 |
@@ -54,7 +54,7 @@ Run 2026-09-06 against the world `the-broken-heart-of-greenrest` snapshot (AA 7.
 - **First Light** [melee]: the item's own look (Thomas A. Invictus / First Light)
 - **Goldthorn** [melee]: the item's own look (Jetten Elisedil / Goldthorn)
 
-Item flags that add nothing over the baseline:
+Item flags that add nothing over the stock:
 
 - Eldritch Blast [range]: differs from the preset only in fields fxstudio does not carry (soundOnly.sound.enable)
 
@@ -95,7 +95,7 @@ Under AA these rows can never play for their own name because a shorter or earli
 
 ## Why the private table
 
-AA registers its own copy of the JB2A files with its own Sequencer metadata (templates, markers). The native `jb2a.*` paths carry JB2A's metadata, which differs for 1182 layers; playing those through the native path would change how Sequencer stretches and times them. The module therefore registers AA's subset verbatim as `fxstudio.aa` and the baseline plays through it. Examples:
+AA registers its own copy of the JB2A files with its own Sequencer metadata (templates, markers). The native `jb2a.*` paths carry JB2A's metadata, which differs for 1182 layers; playing those through the native path would change how Sequencer stretches and times them. The module therefore registers AA's subset verbatim as `fxstudio.aa` and the stock plays through it. Examples:
 
 - autoanimations.melee.generic.slashing.03.orange → jb2a.melee_generic.slash.01.orange: {"template":[100,0,0]} vs {"metadata":{"name":"Melee - Generic"},"template":[200,300,300]}
 - autoanimations.melee.weapon.sword.fire.red → jb2a.sword.melee.fire.red: {"template":[100,0,0]} vs {"metadata":{"name":"Sword"},"template":[200,300,300]}

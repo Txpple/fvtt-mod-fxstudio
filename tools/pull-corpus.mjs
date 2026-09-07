@@ -22,7 +22,7 @@ const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : null);
 const fxOf = (text) => { try { const j = JSON.parse(text); return Array.isArray(j.fx) ? j.fx : null; } catch { return null; } };
 
 // only what a ship writes travels this way (the docs and the licence go the other way, with the deploy)
-const SHIPPED = (r) => r === 'recipes/house.json' || r === 'recipes/shipped.json' || /^recipes\/baseline\/[a-z]+\.json$/.test(r);
+const SHIPPED = (r) => r === 'recipes/house.json' || r === 'recipes/shipped.json' || /^recipes\/stock\/[a-z]+\.json$/.test(r);
 let changed = 0;
 const pending = [];
 for (const src of walk(join(FROM, 'recipes'))) {

@@ -1,4 +1,4 @@
 node_modules/
 dist/
-# The investigation's scratch conversion (superseded by recipes/baseline.json, which IS committed under GPL-3)
+# The investigation's scratch conversion (superseded by recipes/stock.json, which IS committed under GPL-3)
 prototypes/fx-recipes.json

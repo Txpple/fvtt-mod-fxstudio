@@ -3,16 +3,16 @@
 // back as a sentence, previews it on chosen tokens, saves it to the world buffer with provenance,
 // and asks what plays nothing. The screens (phase 3) are built on this, so it is always complete.
 import { expand, sentence, validate, provenance } from './core/fx.js';
-import { allFx, fxFor, resolve } from './core/corpus.js';
-import { keysFor, keyWords } from './core/subjects.js';
+import { LAYER_WORDS, allFx, fxFor, resolve } from './core/corpus.js';
+import { keyLabel, keysFor, keyWords } from './core/subjects.js';
 import { build, ledger, play, resolveMoment } from './engine/render.js';
 import { coloursOf, database, familyOf, recoloured, resolveAsset, search } from './engine/assets.js';
 import { readEffect, readMessage, readRegion, subjectOfEffect, subjectOfItem } from './readers/dnd5e.js';
 import { MODULE_ID, getWorldFx, setWorldFx } from './settings.js';
-import { TO_WORDS, baselineFile, nextVersions, pending, ship, stage, erase } from './ship.js';
+import { TO_WORDS, stockFile, nextVersions, pending, ship, stage, erase } from './ship.js';
 
 /**
- * @param state  {get index, corpora: {baseline, house, starters, shipped}, rebuild(), reload()}
+ * @param state  {get index, corpora: {stock, house, starters, shipped}, rebuild(), reload()}
  */
 export function makeApi(state) {
   const ids = () => new Set([...state.index.byId.keys(), ...state.index.starters.keys()]);
@@ -37,7 +37,7 @@ export function makeApi(state) {
     buffer: () => getWorldFx(),
     /**
      * Save an FX to the world buffer with provenance (replacing one with the same id). Returns
-     * {ok, problems, fx}. `to` binds it for a corpus (house | baseline); without it the FX is a
+     * {ok, problems, fx}. `to` binds it for a corpus (house | stock); without it the FX is a
      * draft that plays in this world only. Nothing reaches the corpus files until Corpus ships.
      */
     save: async (fx, { by = null, note = null, to = undefined } = {}) => {
@@ -46,14 +46,14 @@ export function makeApi(state) {
       const stamped = { ...fx, by: by ?? fx.by ?? game.user?.name ?? 'someone', at: fx.at ?? new Date().toISOString().slice(0, 10) };
       if (note) stamped.note = note;
       if (to) stamped.to = to; else if (to === null) delete stamped.to;
-      if (stamped.to === 'baseline' && !baselineFile(stamped)) return { ok: false, problems: ['an FX with no ability of its own belongs in the house corpus, not the main one'], fx };
+      if (stamped.to === 'stock' && !stockFile(stamped)) return { ok: false, problems: ['an Item Hook (no ability key) can be staged for House, not Stock'], fx };
       const buffer = getWorldFx().filter((l) => l.id !== stamped.id);
       buffer.push(stamped);
       await setWorldFx(buffer);
       state.rebuild();
       return { ok: true, problems: [], fx: stamped, sentence: sentence(expand(stamped, lookup)) };
     },
-    /** take an FX out of the world buffer (a house or baseline fx of that id shows through again) */
+    /** take an FX out of the world buffer (a house or stock fx of that id shows through again) */
     remove: async (id) => {
       const buffer = getWorldFx();
       const next = buffer.filter((l) => l.id !== id);
@@ -74,19 +74,19 @@ export function makeApi(state) {
     },
   };
 
-  /** the corpus: what is written here and where it is bound, binding, shipping, the record */
+  /** the corpus: what is written here and where it is staged, staging, shipping, the record */
   const cmpVersion = (a, b) => { const x = String(a).split('.').map(Number); const y = String(b).split('.').map(Number); for (let i = 0; i < 3; i++) if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) - (y[i] ?? 0); return 0; };
   const corpus = {
     pending,
     stage: async (id, to) => { const r = await stage(id, to); if (r.ok) state.rebuild(); return r; },
-    /** ship every bound FX into the module's corpus files, stamp the version, keep the record, read the corpora again */
+    /** ship every staged FX into the module's corpus files, stamp the version, keep the record, read the corpora again */
     ship: async ({ version = null, note = '' } = {}) => {
       const r = await ship({ version, note, by: game.user?.name ?? null });
       if (r.ok) await state.reload();
       return r;
     },
     /** may this FX go to the main corpus? (it needs an ability key to pick its file) */
-    canBaseline: (fx) => !!baselineFile(fx),
+    canStock: (fx) => !!stockFile(fx),
     /** delete an FX for good: the world buffer and the module's corpus files, then the corpora read again */
     erase: async (id) => { const r = await erase(id, { corpora: state.corpora }); if (r.written.length) await state.reload(); else state.rebuild(); return r; },
     shipped: () => state.corpora.shipped ?? [],
@@ -102,6 +102,7 @@ export function makeApi(state) {
     ofEffect: (effect) => subjectOfEffect(effect),
     keysFor,
     keyWords,
+    keyLabel,
   };
 
   /** the FX a subject (or an item) resolves to for a moment kind: {fx, key, source} or {fx: null, why} */
@@ -114,16 +115,17 @@ export function makeApi(state) {
   const sentenceFor = (item, on = 'use', { hasPlace = false } = {}) => {
     const r = resolveFor(item, on, { hasPlace });
     const name = item?.name ?? r.subject?.name ?? null;
-    if (!r.fx) return { sentence: 'Nothing plays yet.', why: whyNothing(r, name), subject: r.subject, key: r.key ?? null, source: r.source ?? null, off: /switched off/.test(r.why ?? '') };
-    return { sentence: sentence(r.fx, { name }), fx: r.fx, original: r.original ?? null, key: r.key, source: r.source, why: whyFx(r, name), subject: r.subject };
+    if (!r.fx) return { sentence: 'Nothing plays.', why: whyNothing(r), subject: r.subject, key: r.key ?? null, source: r.source ?? null, off: !!r.off };
+    return { sentence: sentence(r.fx, { name }), fx: r.fx, original: r.original ?? null, key: r.key, source: r.source, why: whyFx(r), subject: r.subject };
   };
-  const SOURCE_WORDS = { world: 'an FX written in this world', house: 'the house file', baseline: 'the corpus' };
-  const whyFx = (r, name) => r.pointer ? `This ${name ?? 'item'} has an FX of its own (${SOURCE_WORDS[r.source] ?? r.source}).` : `${name ?? 'It'} is ${keyWords(r.key)}, and ${SOURCE_WORDS[r.source] ?? r.source} has an FX for that.`;
-  const whyNothing = (r, name) => {
-    if (/switched off/.test(r.why ?? '')) return `${name ?? 'It'} was switched off on purpose (${SOURCE_WORDS[r.source] ?? r.source}); it plays nothing until you give it an FX again.`;
+  // the "why" as terms: the hook that answered and the layer it lives in (Draft · House · Stock)
+  const layer = (r) => LAYER_WORDS[r.source] ?? r.source;
+  const whyFx = (r) => r.pointer ? `Item Hook · ${layer(r)}` : `Global Hook · ${keyLabel(r.key)} · ${layer(r)}`;
+  const whyNothing = (r) => {
+    if (r.off) return `Off · ${layer(r)}`;
     const keys = r.subject?.keys ?? [];
-    if (!keys.length) return 'Nothing here can be given an FX.';
-    return `No FX answers ${keys.map(keyWords).join(', or ')}. Give it one below.`;
+    if (!keys.length) return 'No keys';
+    return `No FX for ${keys.map(keyLabel).join(', ')}`;
   };
 
   /**
@@ -173,7 +175,7 @@ export function makeApi(state) {
     return out;
   };
 
-  /** open the screens: {tab: 'lookup' | 'create' | 'custom' | 'corpus' | 'check', item: an Item to look up, id: an FX id (Look up, or the walk when tab is 'create'), key} */
+  /** open the screens: {tab: 'stock' | 'house' | 'editor' | 'library' | 'audit' | 'lookup', item: an Item to look up, id: an FX id (Look up, or the walk when tab is 'create'), key} */
   const open = (opts = {}) => state.open?.(opts) ?? null;
 
   const assets = {

@@ -14,8 +14,8 @@ export const SETTINGS = {
 
 export function registerSettings() {
   game.settings.register(MODULE_ID, SETTINGS.fx, {
-    name: 'FX Studio fx (world buffer)',
-    hint: 'The FX written in this world through the FX Studio screens or its API, before they are folded into the house corpus.',
+    name: 'Drafts',
+    hint: 'The FX written in this world (the screens or the API), before they ship into House or Stock.',
     scope: 'world',
     config: false,
     type: Array,
@@ -24,23 +24,23 @@ export function registerSettings() {
   // the buffer's key before 2026-09-06 ("looks"); read once and carried over, then left empty
   game.settings.register(MODULE_ID, SETTINGS.legacyBuffer, { scope: 'world', config: false, type: Array, default: [] });
   game.settings.register(MODULE_ID, SETTINGS.maintainer, {
-    name: 'FX Studio: show the Corpus tab',
-    hint: 'For whoever maintains the FX corpus: binds what was written in this world for the house or main corpus and ships it into the module. A table that only uses the module never needs it.',
+    name: 'Corpus tab (maintainers)',
+    hint: 'Stage drafts for House or Stock and ship them into the module. Not needed to play FX.',
     scope: 'client',
     config: true,
     type: Boolean,
     default: false,
   });
   game.settings.register(MODULE_ID, SETTINGS.play, {
-    name: 'FX Studio plays effects',
-    hint: 'Off: the module still loads its corpus and answers the screens, but plays nothing. Use it to compare with Automated Animations one at a time.',
+    name: 'Play FX',
+    hint: 'Off: the screens still work, nothing plays. For comparing with Automated Animations.',
     scope: 'world',
     config: true,
     type: Boolean,
     default: true,
   });
   game.settings.register(MODULE_ID, SETTINGS.log, {
-    name: 'FX Studio logs what it plays to the console',
+    name: 'Console log',
     hint: 'One line per moment: what happened, which FX answered, which files played.',
     scope: 'client',
     config: true,
@@ -52,7 +52,9 @@ export function registerSettings() {
 export function getWorldFx() {
   try {
     const v = game.settings.get(MODULE_ID, SETTINGS.fx);
-    return Array.isArray(v) ? v : [];
+    if (!Array.isArray(v)) return [];
+    // the corpus was called "baseline" before 2026-09-06; a draft staged for it reads as Stock
+    return v.map((l) => (l?.to === 'baseline' ? { ...l, to: 'stock' } : l));
   } catch {
     return [];
   }

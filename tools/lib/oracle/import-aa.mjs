@@ -2,13 +2,13 @@
 // world's LevelDB, the D&D5e Animations preset file, and the libraries' own registration files.
 //
 //   node tools/lib/oracle/import-aa.mjs                 # convert, split, prove, census, report; write nothing
-//   node tools/lib/oracle/import-aa.mjs --write         # also write recipes/{baseline,house,aa-database}.json
+//   node tools/lib/oracle/import-aa.mjs --write         # also write recipes/{stock,house,aa-database}.json
 //   node tools/lib/oracle/import-aa.mjs --psfx-free <psfx_sequencer.js of the free build>   # for re-pointing sounds
 //
 // Steps, each measured and printed:
 //   1 read      the preset file, the seven aaAutorec-* world settings, every flags.autoanimations on items
 //   2 convert   every entry to a row, losslessly (tools/lib/aa-port.mjs is AA's own reading of an entry)
-//   3 split     rows equal to the preset are the baseline; what differs, is missing, or is an item flag
+//   3 split     rows equal to the preset are the stock; what differs, is missing, or is an item flag
 //               is the house layer
 //   4 prove     for every world entry, what AA would play for its label == what fxstudio resolves:
 //               same file set (through the private twin AND the jb2a twin), same sound, same options.
@@ -237,8 +237,8 @@ for (const m of MENUS) {
   }
   for (const [k, list] of byLabel) for (let i = seen.get(k) ?? 0; i < list.length; i++) { split.deleted.push(list[i]); houseRows.push({ name: list[i].label, menu: m, off: true, note: 'removed in this world' }); }
 }
-// item flags → house rows, unless they equal the baseline row of that name
-const baselineIndexOnly = buildIndex({ baseline: presetRows });
+// item flags → house rows, unless they equal the stock row of that name
+const stockIndexOnly = buildIndex({ stock: presetRows });
 for (const f of flagged) {
   const fl = f.flags;
   const where = `${f.actor?.name ?? '?'} / ${f.item.name}`;
@@ -246,9 +246,9 @@ for (const f of flagged) {
   if (!fl.isCustomized) continue;
   const entry = { ...fl, label: f.item.name, menu: fl.menu };
   const row = convertEntry(entry);
-  const base = lookup(baselineIndexOnly, f.item.name, { on: fl.menu === 'aefx' ? 'effect' : 'use' });
+  const base = lookup(stockIndexOnly, f.item.name, { on: fl.menu === 'aefx' ? 'effect' : 'use' });
   const strip = (r) => { const c = JSON.parse(JSON.stringify(r)); delete c.note; return c; };
-  if (base && eq(strip(base.row), strip(row))) { split.flagsDropped.push(`${where}: the item's own FX equals the baseline row "${base.row.name}" once the 3D-only fields are dropped`); continue; }
+  if (base && eq(strip(base.row), strip(row))) { split.flagsDropped.push(`${where}: the item's own FX equals the stock row "${base.row.name}" once the 3D-only fields are dropped`); continue; }
   row.note = `the item's own FX (${where})`;
   houseRows.push(row);
   split.flagsKept.push(`${where} → "${row.name}" [${row.menu}]`);
@@ -282,7 +282,7 @@ say(`   private twin: ${aaNeeded.size} variant nodes, ${twinLeaves.size} entries
 // 4 · prove
 // ---------------------------------------------------------------------------------------------
 say('4 · prove');
-const index = buildIndex({ baseline: presetRows, house: houseRows });
+const index = buildIndex({ stock: presetRows, house: houseRows });
 const twinRoot = twinDb;
 const filesAt = (db, path) => { const n = nodeAt(db, path); return n === undefined ? null : filesUnder(n); };
 const basenames = (files) => (files ? files.map((f) => basename(f)).sort() : null);
@@ -443,7 +443,7 @@ R(`## Numbers`);
 R();
 R(`| Measure | Count |`);
 R(`| --- | --- |`);
-R(`| Preset rows (the baseline) | ${presetRows.length} |`);
+R(`| Preset rows (the stock) | ${presetRows.length} |`);
 for (const m of MENUS) R(`| · ${m} | ${preset[m].length} |`);
 R(`| World rows under AA | ${countRows(world)} |`);
 R(`| World rows identical to the preset | ${split.same} |`);
@@ -478,7 +478,7 @@ R();
 R(`## The house layer`);
 R();
 for (const r of houseRows) R(`- **${r.name}** [${r.menu}]${r.off ? ' — off' : ''}: ${r.note ?? ''}`);
-if (split.flagsDropped.length) { R(); R(`Item flags that add nothing over the baseline:`); R(); for (const s of split.flagsDropped) R(`- ${s}`); }
+if (split.flagsDropped.length) { R(); R(`Item flags that add nothing over the stock:`); R(); for (const s of split.flagsDropped) R(`- ${s}`); }
 R();
 R(`## Re-pointed sounds`);
 R();
@@ -494,7 +494,7 @@ for (const s of twinless) R(`- ${s}`);
 if (fallbacks.length) { R(); R(`## Paths AA replaced with its first entry`); R(); for (const s of fallbacks) R(`- ${s}`); }
 if (missingFiles.length || twinMissing.length) { R(); R(`## Paths that do not exist on this install`); R(); R(`Carried as they are, marked, and silent — as they were under AA.`); R(); for (const s of missingFiles) R(`- ${s}`); for (const s of twinMissing) R(`- AA's table names \`${s}\``); }
 if (proof.shadowed.length) { R(); R(`## Shadowed labels`); R(); R(`Under AA these rows can never play for their own name because a shorter or earlier label wins the substring search; fxstudio matches whole names, so the row's own name now reaches it.`); R(); for (const s of proof.shadowed) R(`- ${s}`); }
-if (proof.metaDiffExamples.length) { R(); R(`## Why the private table`); R(); R(`AA registers its own copy of the JB2A files with its own Sequencer metadata (templates, markers). The native \`jb2a.*\` paths carry JB2A's metadata, which differs for ${proof.metaDiff} layers; playing those through the native path would change how Sequencer stretches and times them. The module therefore registers AA's subset verbatim as \`fxstudio.aa\` and the baseline plays through it. Examples:`); R(); for (const s of proof.metaDiffExamples) R(`- ${s}`); }
+if (proof.metaDiffExamples.length) { R(); R(`## Why the private table`); R(); R(`AA registers its own copy of the JB2A files with its own Sequencer metadata (templates, markers). The native \`jb2a.*\` paths carry JB2A's metadata, which differs for ${proof.metaDiff} layers; playing those through the native path would change how Sequencer stretches and times them. The module therefore registers AA's subset verbatim as \`fxstudio.aa\` and the stock plays through it. Examples:`); R(); for (const s of proof.metaDiffExamples) R(`- ${s}`); }
 R();
 R(`## Matching census`);
 R();
@@ -535,11 +535,11 @@ mkdirSync(ORACLE, { recursive: true });
 const reportPath = join(ORACLE, 'import-report.md');
 if (WRITE) {
   const meta = (extra) => ({ generated: today, tool: 'tools/import-aa.mjs', sources: versions, ...extra });
-  writeFileSync(join(ORACLE, 'baseline-rows.json'), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see BASELINE-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: 'The D&D5e Animations preset converted row for row, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.', rows: presetRows.length }), rows: presetRows }, null, 1));
-  writeFileSync(join(ORACLE, 'house-rows.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the baseline at import, and everything built since.", rows: houseRows.length }), rows: houseRows }, null, 1));
-  writeFileSync(join(ORACLE, 'aa-database.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'The subset of AA\'s private Sequencer table the corpus plays, verbatim with its metadata, registered as fxstudio.aa so every baseline row resolves to the same Sequencer entry it did under AA.', aaVersion: versions.aa, nodes: aaNeeded.size, entries: twinLeaves.size, missingFiles: twinMissing }), db: twinDb }));
+  writeFileSync(join(ORACLE, 'stock-rows.json'), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see STOCK-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: 'The D&D5e Animations preset converted row for row, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.', rows: presetRows.length }), rows: presetRows }, null, 1));
+  writeFileSync(join(ORACLE, 'house-rows.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the stock at import, and everything built since.", rows: houseRows.length }), rows: houseRows }, null, 1));
+  writeFileSync(join(ORACLE, 'aa-database.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'The subset of AA\'s private Sequencer table the corpus plays, verbatim with its metadata, registered as fxstudio.aa so every stock row resolves to the same Sequencer entry it did under AA.', aaVersion: versions.aa, nodes: aaNeeded.size, entries: twinLeaves.size, missingFiles: twinMissing }), db: twinDb }));
   writeFileSync(reportPath, report.join('\n'));
-  say(`6 · wrote tools/lib/oracle/baseline-rows.json (${presetRows.length}), house-rows.json (${houseRows.length}), aa-database.json, import-report.md`);
+  say(`6 · wrote tools/lib/oracle/stock-rows.json (${presetRows.length}), house-rows.json (${houseRows.length}), aa-database.json, import-report.md`);
 } else {
   const p = join(REPO, 'dist', 'import-report.md');
   mkdirSync(join(REPO, 'dist'), { recursive: true });

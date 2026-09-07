@@ -12,7 +12,7 @@
    "dnd5e": null
   },
   "licence": "MIT",
-  "note": "The user's own looks: what this world changed over the baseline at migration, and everything kept from the world buffer since (tools/export-looks.mjs).",
+  "note": "The user's own looks: what this world changed over the stock at migration, and everything kept from the world buffer since (tools/export-looks.mjs).",
   "fx": 7
  },
  "fx": [

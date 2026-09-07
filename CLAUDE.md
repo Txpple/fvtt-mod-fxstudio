@@ -3,7 +3,7 @@
 **What this is.** A house Foundry VTT module that plays visual and sound effects for dnd5e from
 what happened at the table. It keeps Sequencer as the engine and JB2A + PSFX as the libraries,
 and replaces Automated Animations (AA) and the D&D5e Animations preset by carrying their whole
-corpus over losslessly as its baseline, with the user's own looks in a house corpus on top, the
+corpus over losslessly as its stock, with the user's own looks in a house corpus on top, the
 outcome layers AA never had, and four screens that speak in sentences. It never guesses a look:
 an ability with no row plays nothing until the user gives it one. **It is a greenfield opportunity
 to do it right: AA was written before Foundry 14 and before assistants, and its architecture is not
@@ -16,13 +16,17 @@ socketlib, MIT.
 
 **Status (end of 2026-09-06): phase 3 (the screens) built and iterated in-game with the user, all
 green on the sandbox and UNCOMMITTED at the session's end (commit on the user's word first).** The
-vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens); the
-walk is four steps ending in Save; the tabs are Look up, Create FX, Custom (two sub-tabs), Corpus
-(maintainers only, behind a client setting), Asset Library, Check. Delete is for good
-(`api.corpus.erase`). `tools/smoke-screens.mjs` is 72 of 72; DESIGN §8 records every ruling of the
+vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens), and
+since the evening's pass **terms, not sentences** (DESIGN §8 *A tool, not prose*): Stock / House /
+Draft for where an FX lives (baseline renamed stock end to end), Global Hook / Item Hook for its
+reach, staged not bound; the FX's own sentence and each scene's line are kept on purpose; the
+walk is four steps (Ability, Source, Scenes, Trigger) ending in Save; the tabs are, in order, Stock FX (maintainers only, behind a client setting), House FX
+(two sub-tabs, Global Hook and Item Hook), FX Editor, Asset Library, Audit, Look up (last; another
+pass on it is coming). Delete is for good
+(`api.corpus.erase`). `tools/smoke-screens.mjs` is 73 of 73; DESIGN §8 records every ruling of the
 day in order. The user iterates by sending screenshots and comments, asking to aggregate and hold
 until "go"; nothing of phase 4 (outcomes and moments, PLAN §6) starts before that word. Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
-baseline, zero loss measured, GPL baseline shipped with attribution, house corpus, no guessing,
+stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,
 improvements in scope), then the architecture, the measured facts, the lossless AA import with its
 parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
 each. [DESIGN.md](DESIGN.md) holds what was decided while building (the row, the private Sequencer
@@ -115,12 +119,12 @@ the user's prod window. Prod parity is a measurement: `deploy-house-module.mjs f
 
 ## Licence rule (measured 2026-09-05)
 
-D&D5e Animations is **GPL-3**. The user ruled (2026-09-06) that its whole corpus is the baseline,
-carried over with **zero loss**, and ships in this repo: `recipes/baseline.json` is a separate work
-under GPL-3 with `recipes/BASELINE-LICENSE` and attribution to MrVauxs and Sisimshow (D&D5e
+D&D5e Animations is **GPL-3**. The user ruled (2026-09-06) that its whole corpus is the stock,
+carried over with **zero loss**, and ships in this repo: `recipes/stock.json` is a separate work
+under GPL-3 with `recipes/STOCK-LICENSE` and attribution to MrVauxs and Sisimshow (D&D5e
 Animations 3.3.0); the code, rules and the user's own `recipes/house.json` stay MIT. Nothing in the
-baseline is retired to a rule, and there are no rules in scope: the derivation rules the
-investigation tested are parked, off, never owed (PLAN §7). Two corpora, later wins: baseline →
+stock is retired to a rule, and there are no rules in scope: the derivation rules the
+investigation tested are parked, off, never owed (PLAN §7). Two corpora, later wins: stock →
 house (+ the world setting as the live edit buffer). See PLAN §0, §3.1, §4.
 AA's Sequencer chains are MIT and may be vendored with attribution. Sequencer is used through its
 public API only — presets, custom sections, our own database namespace — never patched.

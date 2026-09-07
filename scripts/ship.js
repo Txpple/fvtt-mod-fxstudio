@@ -1,6 +1,6 @@
 // Shipping the corpus from the game (DESIGN §8, ruled 2026-09-06). An FX written in this world is
-// a draft until it is bound for a corpus (`to: house | baseline`, core/fx.js). Ship folds every
-// bound FX into its corpus file inside the module's own folder on the server (Foundry lets a GM
+// a draft until it is staged for a corpus (`to: house | stock`, core/fx.js). Ship folds every
+// staged FX into its corpus file inside the module's own folder on the server (Foundry lets a GM
 // upload files), adds a line with the version to the shipping record (recipes/shipped.json) and
 // takes the shipped fx out of the world buffer: from then on they
 // come from the corpus like every other fx. The repo pulls those files back with
@@ -9,9 +9,9 @@
 import { MODULE_ID, getWorldFx, setWorldFx } from './settings.js';
 import { parseKey } from './core/subjects.js';
 
-/** the baseline file a key's kind belongs in */
+/** the stock file a key's kind belongs in */
 export const KIND_FILES = { spell: 'spells', weapon: 'weapons', natural: 'natural', feature: 'features', item: 'items', effect: 'effects' };
-export const TO_WORDS = { house: 'the house corpus', baseline: 'the main corpus' };
+export const TO_WORDS = { house: 'House', stock: 'Stock' };
 export const HOUSE_FILE = 'recipes/house.json';
 export const RECORD_FILE = 'recipes/shipped.json';
 
@@ -37,23 +37,23 @@ export async function writeModuleFile(path, data) {
   return r.path;
 }
 
-/** the corpus file an FX bound for the baseline belongs in, by the kind of its first key; null when it has none */
-export function baselineFile(fx) {
+/** the corpus file an FX staged for Stock belongs in, by the kind of its first key; null when it has none */
+export function stockFile(fx) {
   const kind = parseKey(fx?.for?.[0] ?? '')?.kind;
   const f = KIND_FILES[kind];
-  return f ? `recipes/baseline/${f}.json` : null;
+  return f ? `recipes/stock/${f}.json` : null;
 }
-export const fileFor = (fx) => (fx.to === 'baseline' ? baselineFile(fx) : fx.to === 'house' ? HOUSE_FILE : null);
+export const fileFor = (fx) => (fx.to === 'stock' ? stockFile(fx) : fx.to === 'house' ? HOUSE_FILE : null);
 
 /**
  * Erase an FX for good: out of the world buffer, and out of every corpus file in the module that
- * holds its id (the house file, the baseline file of its kind). Nothing marks the place: once
+ * holds its id (the house file, the stock file of its kind). Nothing marks the place: once
  * something is deleted it is gone (the user, 2026-09-06). Returns the files rewritten.
  */
 export async function erase(id, { corpora = null } = {}) {
   const files = new Set();
   if (corpora?.house?.some((l) => l.id === id)) files.add(HOUSE_FILE);
-  for (const l of corpora?.baseline ?? []) if (l.id === id) { const f = baselineFile(l); if (f) files.add(f); }
+  for (const l of corpora?.stock ?? []) if (l.id === id) { const f = stockFile(l); if (f) files.add(f); }
   const written = [];
   for (const file of files) {
     const json = await readModuleFile(file);
@@ -70,22 +70,22 @@ export async function erase(id, { corpora = null } = {}) {
   return { ok: written.length > 0 || inBuffer, written, fromBuffer: inBuffer };
 }
 
-/** what is written in this world: the drafts, and the FX bound for a corpus with the file each goes to */
+/** what is written in this world: the drafts, and the FX staged for a corpus with the file each goes to */
 export function pending() {
   const buffer = getWorldFx();
   return {
     drafts: buffer.filter((l) => !l.to),
-    bound: buffer.filter((l) => l.to).map((l) => ({ fx: l, to: l.to, file: fileFor(l) })),
+    staged: buffer.filter((l) => l.to).map((l) => ({ fx: l, to: l.to, file: fileFor(l) })),
   };
 }
 
-/** bind a draft for a corpus (`to`), or make it a draft again (`to` empty) */
+/** stage a draft for a corpus (`to`), or make it a draft again (`to` empty) */
 export async function stage(id, to) {
   const buffer = getWorldFx();
   const fx = buffer.find((l) => l.id === id);
-  if (!fx) return { ok: false, problems: [`no FX "${id}" is written in this world`] };
-  if (to && !TO_WORDS[to]) return { ok: false, problems: [`"${to}" is not a corpus (house or baseline)`] };
-  if (to === 'baseline' && !baselineFile(fx)) return { ok: false, problems: ['an FX with no ability of its own belongs in the house corpus'] };
+  if (!fx) return { ok: false, problems: [`no draft "${id}" in this world`] };
+  if (to && !TO_WORDS[to]) return { ok: false, problems: [`"${to}" is not a corpus (house or stock)`] };
+  if (to === 'stock' && !stockFile(fx)) return { ok: false, problems: ['an Item Hook (no ability key) can be staged for House, not Stock'] };
   if (to) fx.to = to; else delete fx.to;
   await setWorldFx(buffer);
   return { ok: true, fx };
@@ -98,14 +98,14 @@ export function nextVersions(current) {
 }
 
 /**
- * Ship: every bound FX into its corpus file, the version stamped, the record kept, the buffer
+ * Ship: every staged FX into its corpus file, the version stamped, the record kept, the buffer
  * relieved of what shipped. Returns {ok, version, previous, written: [{file, fx}], record}.
  */
 export async function ship({ version = null, note = '', by = null } = {}) {
-  const { bound } = pending();
-  if (!bound.length) return { ok: false, problems: ['nothing is bound for a corpus yet'] };
+  const { staged } = pending();
+  if (!staged.length) return { ok: false, problems: ["nothing is staged yet"] };
   const byFile = new Map();
-  for (const b of bound) (byFile.get(b.file) ?? byFile.set(b.file, []).get(b.file)).push(b.fx);
+  for (const b of staged) (byFile.get(b.file) ?? byFile.set(b.file, []).get(b.file)).push(b.fx);
   const written = [];
   for (const [file, fx] of byFile) {
     const json = await readModuleFile(file);
@@ -120,7 +120,7 @@ export async function ship({ version = null, note = '', by = null } = {}) {
   // rewritten under it (Foundry refuses that upload anyway); tools/pull-corpus.mjs stamps the repo's
   const record = await readModuleFile(RECORD_FILE).catch(() => ({ shipped: [] }));
   const previous = record.shipped?.[0]?.version ?? game.modules.get(MODULE_ID)?.version ?? '0.0.0';
-  const entry = { version: version ?? previous, at: today(), by, note, fx: bound.map((b) => ({ id: b.fx.id, to: b.to })) };
+  const entry = { version: version ?? previous, at: today(), by, note, fx: staged.map((b) => ({ id: b.fx.id, to: b.to })) };
   record.shipped = [entry, ...(record.shipped ?? [])];
   await writeModuleFile(RECORD_FILE, record);
   await setWorldFx(getWorldFx().filter((l) => !l.to));

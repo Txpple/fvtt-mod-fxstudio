@@ -47,7 +47,7 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 ## Parked options (the user's, PLAN §7)
 
 - **Derived looks**, off by default, never owed: the seven rules in `prototypes/derive*.mjs`.
-- **Retirement** of baseline looks a rule reproduces identically. Depends on the option above.
+- **Retirement** of stock looks a rule reproduces identically. Depends on the option above.
 - **Export as a tool run** (`tools/export-fx.mjs --write`) was the phase 3 decision, reopened
   and replaced on 2026-09-06: the Corpus tab ships from the game (DESIGN §8), and the tool stays
   only as the offline path for a server that forbids uploads.

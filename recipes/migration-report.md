@@ -6,8 +6,8 @@ Run 2026-09-06 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e 
 
 | Measure | Count |
 | --- | --- |
-| Rows in (baseline / house) | 1289 / 7 |
-| Looks out (baseline / house) | 1289 / 7 |
+| Rows in (stock / house) | 1289 / 7 |
+| Looks out (stock / house) | 1289 / 7 |
 | · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | 694 |
 | · family rows expanded against the base weapons, the natural attacks and the world's weapons | 224 |
 | · effect rows, keyed by the effect's name | 184 |

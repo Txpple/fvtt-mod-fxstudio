@@ -4,7 +4,7 @@
 // catches a library regrouping its paths. Run after any library update and on any FX file
 // before it is proposed.
 //
-//   node tools/check-fx.mjs                # every recipe: the baseline per kind, the house, the starters
+//   node tools/check-fx.mjs                # every recipe: the stock per kind, the house, the starters
 //   node tools/check-fx.mjs <file.json>    # an FX file (a list, {fx: [...]}, or one FX) against the recipes
 //   node tools/check-fx.mjs --quiet        # counts only
 //   node tools/check-fx.mjs --sentences    # print every FX's sentence as well
@@ -22,10 +22,10 @@ const file = args.find((a) => !a.startsWith('--'));
 const recipes = readRecipes();
 const { db } = await useLibraries(recipes);
 const known = new Set(recipes.frozen?.meta?.missingFiles ?? []); // files AA's table names that this JB2A build lacks: silent under AA too
-const sets = file ? [['file', readFxFile(file)]] : [['baseline', recipes.baseline], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
-const ids = new Set([...recipes.baseline, ...recipes.house].map((l) => l.id).concat(recipes.starters.map((s) => `starter:${s.id}`)));
+const sets = file ? [['file', readFxFile(file)]] : [['stock', recipes.stock], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
+const ids = new Set([...recipes.stock, ...recipes.house].map((l) => l.id).concat(recipes.starters.map((s) => `starter:${s.id}`)));
 if (file) for (const l of sets[0][1]) if (l?.id) ids.add(l.id);
-const lookup = (id) => [...recipes.baseline, ...recipes.house].find((l) => l.id === id) ?? recipes.starters.map((s) => ({ ...s, id: `starter:${s.id}` })).find((s) => s.id === id) ?? (file ? sets[0][1].find((l) => l.id === id) : null) ?? null;
+const lookup = (id) => [...recipes.stock, ...recipes.house].find((l) => l.id === id) ?? recipes.starters.map((s) => ({ ...s, id: `starter:${s.id}` })).find((s) => s.id === id) ?? (file ? sets[0][1].find((l) => l.id === id) : null) ?? null;
 
 const problems = [];
 const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0 };

@@ -5,31 +5,32 @@ table. A greenfield design: Automated Animations' corpus is migrated once so the
 start from zero, and none of its architecture is carried. Keeps [Sequencer](https://github.com/fantasycalendar/FoundryVTT-Sequencer) as the engine
 and JB2A and PSFX as the libraries; replaces Automated Animations by carrying its whole D&D5e
 Animations corpus over losslessly, adds the user's own FX and the outcome layers AA never had,
-and is driven through four screens that speak in sentences. It never guesses an FX.
+and is driven through one window of six tabs — Stock FX, House FX, FX Editor, Asset Library, Audit, Look up — terms and labels around one generated sentence per FX. It never guesses an FX.
 
 **Status: phase 3 (the screens) built, 2026-09-06, with the authoring walk and the Corpus tab
 ruled and built the same day.** FX Studio opens from the Settings sidebar (the GM's "Open FX
 Studio" button) or from the wand on any item sheet: *Look up* an ability and read what it plays
-as a sentence and why; *Create FX* in five steps — for what, start from (duplicate an existing
-FX, a starter, or from scratch), the FX (one line per scene: picture, colour, where, how big,
-what sound, the sentence read back as you go), when it plays, and save to this world, the house
-corpus or the main corpus; *Custom* lists what was written here and in the house corpus over
-the main corpus, in two groups — for an ability, or attached to one item — with who wrote each,
-Edit, Export (one FX as a file) and Delete on every row, and Import of a file of FX; *Corpus* is where the shippable corpus is built — drafts bound
-for a corpus, one button that writes the corpus files into the module on the server and stamps a
-version, and `tools/pull-corpus.mjs` to bring them into the repo for the release; *Asset Library* browses
+as a sentence, with the hook that answered and where it lives (Stock, House or Draft); *Create
+FX* in four steps — Ability, Source (Duplicate, Starter, Blank), Scenes (one row per scene: VFX,
+colour, place, size, SFX, delay, the plain-English line under each and the sentence read back
+as you go), Trigger (moment, on miss, Global Hook or Item Hook, a note) — and Save; *Custom*
+lists the FX written over Stock in two sub-tabs, *Global Hook* and *Item Hook*, with Edit,
+Export and Delete on every row and Import; *Corpus* (maintainers) is where the shippable corpus
+is built — drafts staged for House or Stock, one Ship button that writes the corpus files into
+the module on the server and stamps a version, and `tools/pull-corpus.mjs` to bring them into
+the repo for the release; *Asset Library* browses
 JB2A by style and PSFX by group and sound, each variant stepped by arrows or a dropdown, the picture
 playing on a loop and the sound behind a Play button, with the Sequencer path and the file under it;
-the same browser opens from a line of Create FX to pick that line's picture or sound; *Check* reads
+the same browser opens from a scene of Create FX to pick that scene's VFX or SFX; *Check* reads
 the compendiums you pick, by source, and shows what plays nothing in them and what did not resolve.
-One item can carry an FX of its own ("only this one").
+One item can carry an FX of its own (an Item Hook).
 Everything the screens do goes through the API, so a macro or an assistant can do the same
 (`tools/smoke-screens.mjs` and `tools/smoke-author.mjs` prove both doors). [ARCHITECTURE.md](ARCHITECTURE.md) is the
 design: an FX is found by what acted and when (identity keys dnd5e already keeps — a spell's
 identifier, a weapon's name then its base weapon, a natural attack, a feature, an item, an
 effect), never by a name rule; an FX is written as the sentence the user would say
 (`recipes/SCHEMA.md` is the grammar); the engine knows eight shapes and one escape hatch
-(`scripts/engine/shapes/`). The corpus is `recipes/baseline/` (the D&D5e Animations corpus
+(`scripts/engine/shapes/`). The corpus is `recipes/stock/` (the D&D5e Animations corpus
 migrated once, one file per kind, 1289 FX), `house.json` (the user's), `starters.json` (what a
 new FX starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
 metadata, counted). The migration (`tools/migrate-aa.mjs`) is proved at the render: for every
@@ -48,9 +49,9 @@ decided while building, [BACKLOG.md](BACKLOG.md) for what is parked, and the mig
 what the user reads before cutover. `prototypes/` holds the investigation's scripts and the
 clickable prototype the screens were ruled on.
 
-**Licence.** The code is MIT. `recipes/baseline/*.json` is a derived work of
+**Licence.** The code is MIT. `recipes/stock/*.json` is a derived work of
 [D&D5e Animations](https://github.com/MrVauxs/dnd5e-animations) 3.3.0 by MrVauxs and Sisimshow and is
-licensed GPL-3 (see `recipes/BASELINE-LICENSE`); it is carried over whole so nothing that played under
+licensed GPL-3 (see `recipes/STOCK-LICENSE`); it is carried over whole so nothing that played under
 Automated Animations is lost.
 
 Sister of [Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) and

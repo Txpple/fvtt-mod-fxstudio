@@ -5,7 +5,7 @@
 //
 // A LOOK
 //   { id, for: [keys], on, like?, with?, off?, scenes: [scene…], by?, at?, note? }
-//   id      unique across the corpora; a house fx with a baseline fx's id replaces it
+//   id      unique across the corpora; a house fx with a stock fx's id replaces it
 //   for     the subject keys it answers (core/subjects.js); empty for a starter
 //   on      the moment kind it answers (core/moments.js WHEN)
 //   like    inherit everything not stated from another fx (its id) or a starter ("starter:bolt")
@@ -13,7 +13,7 @@
 //   off     a house fx that silences whatever answered before it (its `for` keys play nothing)
 //   scenes  the pictures and sounds, in start order
 //   by, at, note   who wrote it (a name, an assistant, "the migration"), when (ISO date), why
-//   to      an FX written in this world only: the corpus it is bound for (house | baseline) until shipped
+//   to      an FX written in this world only: the corpus it is staged for (house | stock) until shipped
 //
 // A SCENE — every knob is named for what it does and means the same thing in every shape
 //   shape    strike | shoot | mark | fill | aura | beam | move | sound | custom
@@ -48,7 +48,7 @@ export const ON_MISS = ['fly-past', 'play', 'skip'];
 export const PICK = ['click', 'movement'];
 export const SIZE_KINDS = ['tokenWidths', 'radius', 'squares', 'fit'];
 export const FIT = ['shape', 'object'];
-export const TO = ['house', 'baseline'];
+export const TO = ['house', 'stock'];
 
 /** the knobs each shape reads; anything else on a scene is a problem the validator names */
 const COMMON = ['shape', 'asset', 'sound', 'delay', 'wait', 'repeat', 'every', 'rate', 'fadeIn', 'fadeOut', 'opacity', 'tint', 'below', 'elevation', 'zIndex', 'anchor', 'note'];
@@ -178,7 +178,7 @@ export function validate(fx, { ids = null } = {}) {
     else for (const k of fx.for) if (!isKey(k)) out.push(`"${k}" is not a subject key (kind:id, e.g. spell:fire-bolt or weapon:maul)`);
   }
   if (fx.on !== undefined && !WHEN.includes(fx.on)) out.push(`"on" must be one of ${WHEN.join(', ')}`);
-  if (fx.to !== undefined && !TO.includes(fx.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus an FX written here is bound for)`);
+  if (fx.to !== undefined && !TO.includes(fx.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus a draft is staged for)`);
   if (fx.off) {
     if (!fx.for?.length) out.push('an "off" fx needs the keys it silences in "for"');
     return out;
@@ -390,13 +390,12 @@ export function sentence(fx, { name = null } = {}) {
 
 const titleWords = (s) => String(s).replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
-/** the provenance in words: "written by the migration on 2026-09-06: D&D5e Animations 3.3.0" */
+/** the provenance as a line: "by the migration · 2026-09-06 · D&D5e Animations 3.3.0" */
 export function provenance(fx) {
   if (!fx) return '';
   const parts = [];
   if (fx.by) parts.push(`by ${fx.by}`);
-  if (fx.at) parts.push(`on ${fx.at}`);
-  let s = parts.length ? `written ${parts.join(' ')}` : '';
-  if (fx.note) s += `${s ? ': ' : ''}${fx.note}`;
-  return s;
+  if (fx.at) parts.push(fx.at);
+  if (fx.note) parts.push(fx.note);
+  return parts.join(' · ');
 }

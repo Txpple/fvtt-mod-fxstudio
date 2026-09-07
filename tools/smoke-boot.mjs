@@ -41,8 +41,8 @@ try {
       ['Maul of Momentum plays the maul fx by its base weapon', /^maul \(/.test(live.probes.maulOfMomentum ?? ''), live.probes.maulOfMomentum],
       ['the Shield spell plays nothing', live.probes.shieldSpell === null, String(live.probes.shieldSpell)],
       ['the Shield effect plays the shield fx', /^shield \(/.test(live.probes.shieldEffect ?? ''), live.probes.shieldEffect],
-      ['a Bite plays the bite fx', /\(baseline, natural:bite\)/.test(live.probes.bite ?? ''), live.probes.bite],
-      ['the baseline count matches the recipes', live.counts.baseline === recipes.baseline.length, `${live.counts.baseline} vs ${recipes.baseline.length}`],
+      ['a Bite plays the bite fx', /\(stock, natural:bite\)/.test(live.probes.bite ?? ''), live.probes.bite],
+      ['the stock count matches the recipes', live.counts.stock === recipes.stock.length, `${live.counts.stock} vs ${recipes.stock.length}`],
       ['no index problems', live.problems.length === 0, `${live.problems.length}`],
     ];
     let failed = 0;

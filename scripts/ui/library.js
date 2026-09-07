@@ -12,7 +12,7 @@ import { esc, idWords } from './html.js';
 const api = () => game.modules.get(MODULE_ID).api;
 const FEET = /^\d+ft$/;
 const words = (s) => String(s).replace(/[_-]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-const LIB_WORDS = { jb2a: ['VFX · JB2A', 'styles', 'VFX'], psfx: ['SFX · PSFX', 'sounds', 'SFX'] };
+const LIB_WORDS = { jb2a: ['VFX · JB2A'], psfx: ['SFX · PSFX'] };
 
 /** the Library's view state on the window; `pick` is set by the walk: {i, slot: 'asset' | 'sound'} */
 export function libraryState(app) {
@@ -99,20 +99,19 @@ function current(app) {
 
 export function renderLibrary(app) {
   const { L, all, rows, it, v } = current(app);
-  const [, unit, thing] = LIB_WORDS[L.lib];
   const groups = new Map();
   for (const r of rows) (groups.get(r.group) ?? groups.set(r.group, []).get(r.group)).push(r);
-  const list = [...groups.entries()].map(([g, items]) => `<div class="letter">${esc(g)}</div>${items.map((r) => `<button type="button" class="row" data-act="lib-sel" data-id="${esc(r.id)}" aria-current="${r.id === L.sel}"><span class="dot ${r.used ? 'baseline' : 'none'}"></span><span class="n">${esc(r.name)}</span><span class="c">${r.variants.length}</span></button>`).join('')}`).join('');
+  const list = [...groups.entries()].map(([g, items]) => `<div class="letter">${esc(g)}</div>${items.map((r) => `<button type="button" class="row" data-act="lib-sel" data-id="${esc(r.id)}" aria-current="${r.id === L.sel}"><span class="dot ${r.used ? 'stock' : 'none'}"></span><span class="n">${esc(r.name)}</span><span class="c">${r.variants.length}</span></button>`).join('')}`).join('');
   const pick = L.pick;
   const subjectName = app.walk?.subject?.name ?? 'the FX';
-  const banner = pick ? `<div class="picking"><span>Picking the <b>${pick.slot === 'sound' ? 'SFX' : 'VFX'}</b> for line ${pick.i + 1} of <b>${esc(subjectName)}</b> · step 3, The FX</span><span class="spacer"></span><button type="button" class="quiet" data-act="lib-pick-back">Back to the FX</button><button type="button" class="primary" data-act="lib-pick-use" ${v ? '' : 'disabled'}>Use this ${pick.slot === 'sound' ? 'SFX' : 'VFX'}</button></div>` : '';
+  const banner = pick ? `<div class="picking"><span><b>${pick.slot === 'sound' ? 'SFX' : 'VFX'}</b> for <b>${esc(subjectName)}</b> · scene ${pick.i + 1}</span><span class="spacer"></span><button type="button" class="quiet" data-act="lib-pick-back">Back</button><button type="button" class="primary" data-act="lib-pick-use" ${v ? '' : 'disabled'}>Use</button></div>` : '';
   let stage;
-  if (!it) stage = '<div class="frame"><div class="name">Nothing matches</div></div>';
+  if (!it) stage = '<div class="frame"><div class="name">No match</div></div>';
   else if (L.lib === 'jb2a') stage = `${v?.file ? `<video class="stage-video" src="${esc(url(v.file))}" autoplay loop muted playsinline></video>` : ''}<div class="caption"><div class="name">${esc(it.name)}</div><div class="v">${esc(words(v?.label ?? ''))}</div></div><span class="chip">loops</span>`;
   else stage = `<div class="frame sound"><button type="button" class="play" data-act="lib-play" aria-label="play">▶</button><div class="name">${esc(it.name)}</div><div class="v">${esc(words(v?.label ?? ''))}</div></div>`;
   const arrows = it && it.variants.length > 1 ? `<button type="button" class="arrow l" data-act="lib-prev" aria-label="previous variant">‹</button><button type="button" class="arrow r" data-act="lib-next" aria-label="next variant">›</button>` : '';
   const paths = it ? `<div class="paths">
-      <div class="path"><label>Sequencer path · what an FX names</label><div class="box"><code class="lib-dbpath">${esc(v?.path ?? it.id)}</code><button type="button" data-act="lib-copy" data-text="${esc(v?.path ?? it.id)}">Copy</button></div></div>
+      <div class="path"><label>Sequencer path</label><div class="box"><code class="lib-dbpath">${esc(v?.path ?? it.id)}</code><button type="button" data-act="lib-copy" data-text="${esc(v?.path ?? it.id)}">Copy</button></div></div>
       <div class="path"><label>File</label><div class="box"><code class="lib-file">${esc(v?.file ?? '')}</code><button type="button" data-act="lib-copy" data-text="${esc(v?.file ?? '')}">Copy</button></div></div>
     </div>` : '';
   // where it is used: one line per variant, the FX that name it; the current variant marked
@@ -122,22 +121,21 @@ export function renderLibrary(app) {
   const nUsers = [...byVariant.values()].reduce((t, l) => t + l.length, 0);
   if (it) {
     const cur = words(v?.label ?? '');
-    usedBy = `<div class="uses lib-users"><div class="sub">${nUsers ? `In ${nUsers} FX` : `No FX uses this ${thing} yet`}</div>${[...byVariant.entries()].sort((x, y) => (x[0] === cur ? -1 : y[0] === cur ? 1 : x[0].localeCompare(y[0]))).map(([variant, list]) => `<div class="use" data-now="${variant === cur}"><span class="v">${esc(variant || 'as it comes')}</span><span class="who">${list.map((u) => `<button type="button" class="link" data-act="lib-open-fx" data-id="${esc(u.id)}">${esc(u.name)}</button>`).join(', ')}</span></div>`).join('')}</div>`;
+    usedBy = `<div class="uses lib-users"><div class="sub">${nUsers ? `Used in ${nUsers} FX` : 'Unused'}</div>${[...byVariant.entries()].sort((x, y) => (x[0] === cur ? -1 : y[0] === cur ? 1 : x[0].localeCompare(y[0]))).map(([variant, list]) => `<div class="use" data-now="${variant === cur}"><span class="v">${esc(variant || 'Default')}</span><span class="who">${list.map((u) => `<button type="button" class="link" data-act="lib-open-fx" data-id="${esc(u.id)}">${esc(u.name)}</button>`).join(', ')}</span></div>`).join('')}</div>`;
   }
-  const inFx = (x) => { const n = byVariant.get(words(x.label))?.length ?? 0; return n ? ` · in ${n} FX` : ''; };
+  const inFx = (x) => { const n = byVariant.get(words(x.label))?.length ?? 0; return n ? ` · ${n} FX` : ''; };
   const stepper = it ? `<div class="stepper"><button type="button" data-act="lib-prev" aria-label="previous variant" ${it.variants.length > 1 ? '' : 'disabled'}>‹</button><select class="lib-variant" aria-label="variant">${it.variants.map((x, i) => `<option value="${i}"${i === L.vi ? ' selected' : ''}>${esc(words(x.label) || it.name)} · ${i + 1} of ${it.variants.length}${inFx(x)}</option>`).join('')}</select><button type="button" data-act="lib-next" aria-label="next variant" ${it.variants.length > 1 ? '' : 'disabled'}>›</button></div>` : '';
-  const actions = it ? `<div class="actions lib-actions"><span class="spacer"></span>${pick ? '' : `<button type="button" class="primary" data-act="lib-use">Use in an FX</button>`}</div>` : '';
+  const actions = it ? `<div class="actions lib-actions"><span class="spacer"></span>${pick ? '' : `<button type="button" class="primary" data-act="lib-use">Use</button>`}</div>` : '';
   return `${banner}<div class="lib">
     <div class="shelf">
       <div class="switch">${Object.entries(LIB_WORDS).map(([lib, [label]]) => `<button type="button" data-act="lib-switch" data-lib="${lib}" aria-pressed="${L.lib === lib}">${label}</button>`).join('')}</div>
-      <input type="search" class="lib-q" placeholder="Search the library…" aria-label="Search the library" autocomplete="off" value="${esc(L.q)}">
-      <div class="pills"><button type="button" class="pill lib-used" data-act="lib-only" data-only="used" aria-pressed="${L.only === 'used'}"><span class="dot baseline"></span>used · ${all.filter((r) => r.used).length}</button><button type="button" class="pill lib-unused" data-act="lib-only" data-only="unused" aria-pressed="${L.only === 'unused'}"><span class="dot none"></span>unused · ${all.filter((r) => !r.used).length}</button><span class="count">${rows.length} of ${all.length} ${unit}</span></div>
-      <div class="list">${list || '<p class="note" style="padding:10px 12px">Nothing matches.</p>'}</div>
+      <input type="search" class="lib-q" placeholder="Search" aria-label="Search the library" autocomplete="off" value="${esc(L.q)}">
+      <div class="pills"><button type="button" class="pill lib-used" data-act="lib-only" data-only="used" aria-pressed="${L.only === 'used'}"><span class="dot stock"></span>Used · ${all.filter((r) => r.used).length}</button><button type="button" class="pill lib-unused" data-act="lib-only" data-only="unused" aria-pressed="${L.only === 'unused'}"><span class="dot none"></span>Unused · ${all.filter((r) => !r.used).length}</button></div>
+      <div class="list">${list || '<p class="note" style="padding:10px 12px">No match.</p>'}</div>
     </div>
     <div class="card viewer">
       <div class="stage${L.lib === 'psfx' ? ' is-sound' : ''}">${arrows}${stage}</div>
       ${stepper}${paths}${usedBy}${actions}
-      ${!it ? `<p class="note">No ${thing} matches. Clear the search or the filter.</p>` : ''}
     </div>
   </div>`;
 }
@@ -195,11 +193,11 @@ export async function onLibraryClick(app, b, act) {
     case 'lib-use': {
       if (!v) return undefined;
       const w = app.startWalk({ scenes: [seedFx(L, v).scenes[0]] });
-      if (w) app.toast(`${it.name} is in line 1. Say what the FX is for.`);
+      if (w) app.toast(`Scene 1: ${it.name}. Pick an ability.`);
       return app.render();
     }
-    case 'lib-pick-use': { const pick = L.pick; if (pick && applyPick(app, pick, v)) { L.pick = null; app.view.tab = 'create'; app.toast(`Line ${pick.i + 1} now plays ${it.name}${v.label ? ` ${words(v.label)}` : ''}.`); } return app.render(); }
-    case 'lib-pick-back': L.pick = null; app.view.tab = 'create'; return app.render();
+    case 'lib-pick-use': { const pick = L.pick; if (pick && applyPick(app, pick, v)) { L.pick = null; app.view.tab = 'editor'; app.toast(`Scene ${pick.i + 1}: ${it.name}${v.label ? ` ${words(v.label)}` : ''}.`); } return app.render(); }
+    case 'lib-pick-back': L.pick = null; app.view.tab = 'editor'; return app.render();
     case 'lib-open-unused': L.only = 'unused'; L.sel = null; app.view.tab = 'library'; return app.render();
     default: return undefined;
   }
