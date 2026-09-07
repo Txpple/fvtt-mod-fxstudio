@@ -81,6 +81,15 @@ What is parked, and why. Nothing here is owed; each line says who decides.
   slashless file. Re-keying them `"path"` in `recipes/stock/*.json` is a one-pass tool and a
   measurable diff; parked for the user's word.
 
+## Found while building the revamp (2026-09-07)
+
+- **Four knobs can be read and cleared on the FX sheet but not written: `thrown`, `return`,
+  `breathe`, `pulse`** (step 4, DESIGN §9). Each has its address in the shape band and shows what it
+  holds in words, with ✕ to clear it; writing one needs a picker slot the sheet cannot ask for
+  without touching the `openPicker`/`applyPick` contract, and **step 6 owns that contract**. In the
+  whole corpus `thrown` is used 19 times and the other three not at all, so nothing is unreachable
+  that anyone reaches. Do it with step 6, or leave it: the file is the other door.
+
 ## Later phases (PLAN §6)
 
 - Phase 3 is built. Parked from it (DESIGN §8): the prototype's *Automatic* tab (its rules are

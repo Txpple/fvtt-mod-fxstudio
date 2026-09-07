@@ -11,7 +11,7 @@ import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { provenance } from '../core/fx.js';
 import { HOOK_WORDS, KIND_WORDS, SOURCE_TAG, STATUS_WORDS, dot, esc, idWords, statusOf } from './html.js';
-import { leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
+import { hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
 import { onCorpusChange, onCorpusClick, onCorpusInput, renderCorpus, renderMaintain } from './corpus.js';
 import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
@@ -192,6 +192,8 @@ export class Studio extends ApplicationV2 {
 
   async _onRender() {
     if (this.element?.ownerDocument !== document) this.fitDetached();
+    // the sheet's overlap strip needs the pictures' own lengths, which only the browser knows
+    if (this.view.tab === 'editor' && this.sheet) hydrateSheet(this);
     if (this._bound) return;
     this._bound = true;
     const root = this.element;

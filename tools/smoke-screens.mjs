@@ -36,6 +36,10 @@ try {
     // the Library's path and file boxes are read-only fields (2026-09-07): their value is the text
     const val = (sel) => ($(sel)?.value ?? '').trim();
     const stepNow = () => Number($('.step[data-state="now"]')?.dataset.step ?? 0);
+    // the sheet is a rail and an inspector (HANDOFF step 4): pick a scene, then a band of knobs
+    const pick = async (n) => click($$('.rail .pickbtn')[n]);
+    const band = async (b) => click(`[data-act="sh-band"][data-band="${b}"]`);
+    const cells = (b) => [...$$(`.inspector[data-band="${b}"] .knobs .f`)].map((x) => x.className.replace('f f-', '').replace(' wide', ''));
     // the module's files on the server, read fresh and written back (what Corpus does, for the restore)
     const readFile = async (p) => (await fetch(`modules/${MOD}/${p}?t=${Date.now()}`, { cache: 'no-store' })).text();
     const writeFile = async (p, textValue) => { const FP = foundry.applications.apps.FilePicker.implementation; const parts = p.split('/'); const name = parts.pop(); return FP.upload('data', [`modules/${MOD}`, ...parts].join('/'), new File([textValue], name, { type: 'application/json' }), {}, { notify: false }); };
@@ -74,20 +78,22 @@ try {
 
       // 3 · the sheet: Create FX opens a new sheet unlocked, hooked to Sharran Step; Copy from seeds it
       await click('[data-act="create-new"]');
-      ok('§3 Create FX opens the FX Editor on a new sheet, unlocked, hooked to the spell', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Global Hook: Sharran Step \(spell\)/.test(text('.sheet .grid2')) && /New/.test(text('.sheet h2')), `tab ${$('[role=tab][aria-selected="true"]')?.dataset.tab} · ${text('.sheet h2')}`);
+      ok('§3 Create FX opens the FX Editor on a new sheet, unlocked, hooked to the spell', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Sharran Step \(spell\)/.test(text('.hookstrip')) && /New/.test(text('.sheet h2')), `tab ${$('[role=tab][aria-selected="true"]')?.dataset.tab} · ${text('.sheet h2')}`);
       ok('§3 Save waits: no scenes yet, the problem is named', $('[data-act="sh-save"]')?.disabled === true && !!$('.sheet .problem'), text('.sheet .problem'));
       ok('§3 an empty sequence offers Copy from and Add', !!$('.sh-like') && $$('[data-act="cw-add"]').length === 8, `${$$('[data-act="cw-add"]').length} shapes`);
       await type('.sh-like', 'misty step');
       const like = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
       ok('§3 Copy from offers the Misty Step FX', !!like, $$('.suggest .hit').map((h) => h.dataset.id).join(', '));
       await click(like);
-      ok('§3 the sequence holds Misty Step\'s scenes, numbered, one plain-English line each', $$('.scene').length >= 2 && $$('.scene .num').map((n) => n.textContent).join('') === [...Array($$('.scene').length)].map((_, k) => k + 1).join('') && $$('.scene .line').every((l) => l.textContent.length > 10), `${$$('.scene').length} scenes`);
-      ok('§3 the rows are typed and striped by kind: VFX, VFX, Move', $$('.scene').map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move', $$('.scene').map((r) => r.dataset.kind).join(','));
-      ok('§3 the knobs sit in labelled fields', $$('.scene .f .l').length >= 8 && /VFX/.test(text('.scene .f-vfx .l')) && /Delay/.test(text('.scene .f-delay .l')), `${$$('.scene .f .l').length} fields`);
-      ok('§3 no colour knob on a scene: the VFX field names the variant and Browse is the door', !$('.cw-colour') && $$('[data-act="cw-browse"][data-slot="asset"]').length === 2 && /misty step 01/i.test($('.scene .f-vfx input')?.value ?? ''), $('.scene .f-vfx input')?.value ?? '');
-      // paint both marks black through the Library: Browse → the dark black variant → Use
+      const rail = () => $$('.rail .row');
+      ok('§3 the rail holds Misty Step\'s scenes, numbered, one row each, the selected one in the inspector', rail().length >= 2 && rail().map((r) => r.querySelector('.num').textContent).join('') === [...Array(rail().length)].map((_, k) => k + 1).join('') && $('.inspector .line').textContent.length > 10, `${rail().length} scenes · ${text('.inspector .line')}`);
+      ok('§3 the rail rows are typed and striped by kind: VFX, VFX, Move', rail().map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move', rail().map((r) => r.dataset.kind).join(','));
+      ok('§3 the knobs sit in labelled fields in the Picture band', $$('.inspector .f .l').length === 8 && /VFX/.test(text('.inspector .f-vfx .l')) && $('.inspector')?.dataset.band === 'picture', `${$$('.inspector .f .l').length} fields · band ${$('.inspector')?.dataset.band}`);
+      ok('§3 no colour knob on a scene: the VFX field names the variant and Browse is the door', !$('.cw-colour') && $$('[data-act="cw-browse"][data-slot="asset"]').length === 1 && /misty step 01/i.test($('.inspector .f-vfx input')?.value ?? ''), $('.inspector .f-vfx input')?.value ?? '');
+      // paint both marks black through the Library: pick the scene, Browse → the dark black variant → Use
       const blacken = async (n) => {
-        await click($$('[data-act="cw-browse"][data-slot="asset"]')[n]);
+        await pick(n);
+        await click('[data-act="cw-browse"][data-slot="asset"]');
         const sel = $('.lib-variant');
         // the family holds every number and colour (01 Blue, 01 Dark Black, 02 Blue…): keep this
         // scene's own number and take its dark black
@@ -98,24 +104,36 @@ try {
       };
       await blacken(0);
       await blacken(1);
-      ok('§3 Browse → the dark black variant → Use paints a scene without a colour knob', /dark black/.test($('.scene .f-vfx input')?.value ?? ''), $('.scene .f-vfx input')?.value ?? '');
+      ok('§3 Browse → the dark black variant → Use paints a scene without a colour knob', /dark black/.test($('.inspector .f-vfx input')?.value ?? ''), $('.inspector .f-vfx input')?.value ?? '');
       ok('§3 the draft reads back as the sentence, in black, before anything is saved', /dark black/.test(text('.sheet .preview')) && /Sharran Step · when used/.test(text('.sheet .preview')) && !/blue/.test(text('.sheet .preview')), text('.sheet .preview'));
-      await choose($$('.cw-delay')[1], '750');
-      ok('§3 the Delay field on scene 2 is read back in its line and the preview', $$('.cw-delay')[1]?.value === '750' && /after 750 ms/.test($$('.scene .line')[1]?.textContent ?? '') && /after 750 ms/.test(text('.sheet .preview')), `${$$('.cw-delay').map((d) => d.value).join(',')} · ${$$('.scene .line')[1]?.textContent}`);
-      await choose($$('.cw-delay')[1], '500');
-      const wait0 = $$('.cw-wait')[0];
-      wait0.checked = true; wait0.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
-      ok('§3 Then · wait for it to finish on scene 1 turns the sentence\'s "and" into "then"', /, then a mark/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
-      const wait0b = $$('.cw-wait')[0]; wait0b.checked = false; wait0b.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
-      ok('§3 Lasts sits on every row and is live only on the marks (R1)', $$('.cw-persist').length === $$('.scene').length && $$('.cw-persist').filter((x) => !x.disabled).length === 2 && $('.scene[data-kind="move"] .f-lasts')?.dataset.na === 'true', `${$$('.cw-persist').filter((x) => !x.disabled).length} live of ${$$('.cw-persist').length}`);
-      await click($$('[data-act="cw-down"]')[0]);
-      ok('§3 the arrows reorder: scene 1 moved down', $$('.scene').map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move' && /misty step 02/.test($$('.scene .line')[0]?.textContent ?? ''), $$('.scene .line')[0]?.textContent);
-      await click($$('[data-act="cw-up"]')[1]);
-      ok('§3 and back up', /misty step 01/.test($$('.scene .line')[0]?.textContent ?? ''), $$('.scene .line')[0]?.textContent);
+      // the two delays are named apart (HANDOFF step 4): Wait before is `delay`, Hold next is `wait`
+      await pick(1); await band('timing');
+      ok('§3 the Timing band names the two delays apart: Wait before and Hold next', /WAIT BEFORE/i.test(text('.inspector .f-delay .l')) && /HOLD NEXT/i.test(text('.inspector .f-hold .l')) && !!$('.cw-delay') && !!$('.cw-hold'), `${text('.inspector .f-delay .l')} · ${text('.inspector .f-hold .l')}`);
+      await choose('.cw-delay', '750');
+      ok('§3 Wait before on scene 2 is read back in its line and the preview', $('.cw-delay')?.value === '750' && /after 750 ms/.test(text('.inspector .line')) && /after 750 ms/.test(text('.sheet .preview')), `${$('.cw-delay')?.value} · ${text('.inspector .line')}`);
+      await choose('.cw-delay', '500');
+      await pick(0); await band('timing');
+      const hold0 = $('.cw-hold');
+      hold0.checked = true; hold0.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
+      ok('§3 Hold next on scene 1 turns the sentence\'s "and" into "then"', /, then a mark/.test(text('.sheet .preview')) && $('.cw-holdms')?.disabled === false, text('.sheet .preview').slice(0, 160));
+      const hold0b = $('.cw-hold'); hold0b.checked = false; hold0b.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
+      // R1 in the bands: Timing is the same eight cells for a mark and for a move, live where the shape reads them
+      const timingMark = cells('timing');
+      const marksPersist = !$('.f-lasts')?.dataset.na;
+      await pick(2); await band('timing');
+      ok('§3 Lasts keeps its place in the Timing band and is live only on the marks (R1)', timingMark.join(',') === cells('timing').join(',') && marksPersist && $('.inspector .f-lasts')?.dataset.na === 'true' && $('.cw-persist')?.disabled === true, `${timingMark.join(',')} | move greys ${[...$$('.inspector .f[data-na="true"]')].map((x) => x.className.replace('f f-', '')).join(',')}`);
+      await pick(0);
+      await click('[data-act="cw-down"]');
+      await pick(0);
+      ok('§3 the arrows reorder: scene 1 moved down', rail().map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move' && /misty step 02/.test(text('.inspector .line')), text('.inspector .line'));
+      await pick(1);
+      await click('[data-act="cw-up"]');
+      ok('§3 and back up, and the inspector follows the scene it moved', /misty step 01/.test(text('.inspector .line')) && $('.rail .pickbtn')?.getAttribute('aria-current') === 'true', text('.inspector .line'));
       ok('§3 nothing has been saved yet', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
 
       // 4 · the hook block and Save
-      ok('§4 the Hook block: On use pressed, On pressed, no outcomes until phase 4', $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false' && text('[data-act="sh-off"][data-v="false"]') === 'On' && !/phase 4/.test(text('.sheet .grid2')), text('.sheet .grid2').replace(/\s+/g, ' ').slice(0, 100));
+      ok('§4 the Hook strip is one row of four: Answers · Reach · Moment · State', $$('.hookstrip .hcol').length === 4 && [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · ') === 'Answers · Reach · Moment · State' && $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false' && !/phase 4/.test(text('.hookstrip')), [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · '));
+      ok('§4 Reach offers both hooks with Global Hook pressed, since this sheet came from an item', $('.hookstrip [data-act="sh-global"]')?.getAttribute('aria-pressed') === 'true' && $('.hookstrip [data-act="sh-only"]')?.getAttribute('aria-pressed') === 'false' && /FX Test Caster · Sharran Step/.test(text('.hookstrip')), text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' '));
       ok('§4 the bar is static: every control is there, greyed where the mode does not offer it', $$('.lockbar button').length === 7 && !!$('[data-act="sh-new"]') && $('[data-act="sh-dup"]')?.disabled === true && $('[data-act="sh-export"]')?.disabled === true && $('[data-act="sh-delete"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
       ok('§4 the id is shown, derived from the ability', text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       ok('§4 Save is enabled now the sequence has scenes', $('[data-act="sh-save"]')?.disabled === false && !$('.sheet .problem'), text('.sheet .problem'));
@@ -126,7 +144,7 @@ try {
       ok('§4 Save writes the FX to the world buffer with its scenes, a draft, with provenance', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && !saved.to && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /copied from Misty Step/.test(saved.note), JSON.stringify(saved ?? null).slice(0, 300));
       ok('§4 what Copy from wrote is a full copy, standing on its own: no shortcut of any kind', saved && saved.like === undefined && saved.with === undefined, `like ${saved?.like} · with ${JSON.stringify(saved?.with)}`);
       ok('§4 the sheet stays open, locked, tagged Draft, with the sentence', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'false' && /Draft/.test(text('.sheet h2')) && /dark black/.test(text('.sheet .preview')) && !!$('[data-act="sh-dup"]') && /Delete/.test(text('[data-act="sh-delete"]')), `${text('.sheet h2')} | ${text('[data-act="sh-delete"]')}`);
-      ok('§4 locked: the knobs are read-only and the tools are hidden', $$('.scene .knobs select').every((x) => x.disabled) && !$('[data-act="cw-drop"]'), '');
+      ok('§4 locked: the knobs are read-only and the tools are hidden', $$('.inspector .knobs select').every((x) => x.disabled) && !$('[data-act="cw-drop"]'), '');
       ok('§4 locked: the same bar, Save and Cancel greyed instead, nothing moved', $$('.lockbar button').length === 7 && $('[data-act="sh-save"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === true && $('[data-act="sh-dup"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
       ok('§4 the spell resolves to it from the world layer', api.resolve(tmp).fx?.id === 'sharran-step' && api.resolve(tmp).source === 'world', api.resolve(tmp).source);
       const r4 = api.sentenceFor(tmp);
@@ -204,7 +222,8 @@ try {
       // the guard: a locked sheet's Cancel drops changes; Delete on a plain draft is Delete
       await click('[data-act="open-sheet"]');
       const sw2 = $('.sh-edit'); sw2.checked = true; sw2.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
-      await choose($$('.cw-delay')[1], '900');
+      await pick(1); await band('timing');
+      await choose('.cw-delay', '900');
       ok('§7 a change unlocks Save', /after 900 ms/.test(text('.sheet .preview')) && $('[data-act="sh-save"]')?.disabled === false, '');
       await click('[data-act="sh-cancel"]');
       ok('§7 Cancel drops the change and locks the sheet again', $('.sheet')?.dataset.edit === 'false' && /after 500 ms/.test(text('.sheet .preview')) && api.fx.buffer().find((l) => l.id === 'sharran-step')?.scenes?.[1]?.delay === 500, text('.sheet .preview').slice(0, 120));
@@ -295,7 +314,7 @@ try {
       await click('[data-act="open-sheet"]');
       const sw3 = $('.sh-edit'); sw3.checked = true; sw3.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§13 the sheet is unlocked with a Browse button on the first VFX', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="cw-browse"][data-slot="asset"]'), '');
-      const has13 = $('.sheet .scene .f-vfx input')?.value ?? '';
+      const has13 = $('.sheet .inspector .f-vfx input')?.value ?? '';
       ok('§13 the VFX field names the variant, not just the family', /misty step 01/i.test(has13), has13.replace(/\s+/g, ' ').slice(0, 80));
       await click('[data-act="cw-browse"][data-slot="asset"]');
       ok('§13 Browse opens the Asset Library as the picker, saying what it picks for', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'library' && /VFX for Misty Step · scene 1/.test(text('.picking')), text('.picking'));
@@ -304,34 +323,58 @@ try {
       await click('[data-act="lib-pick-use"]');
       ok('§13 Use returns to the sheet with the scene playing it', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && /arcane hand/i.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
       ok('§13 editing Misty Step (House) says Save writes a Draft over it', /Draft/.test(text('.sheet .banner')), text('.sheet .banner'));
-      // the same door for the SFX slot: Browse lands on the sound the scene carries, Use writes it back
+      // the same door for the SFX slot, in the Sound band: Browse lands on the sound the scene carries
+      await band('sound');
       await click('[data-act="cw-browse"][data-slot="sound"]');
       ok('§13 Browse for SFX opens on the sound the scene names', /^psfx\./.test(val('.lib-dbpath')) && /SFX for Misty Step/.test(text('.picking')), `${val('.lib-dbpath')} · ${text('.picking').slice(0, 40)}`);
       await click($$('[data-act="lib-sel"]').find((r) => r.dataset.id === 'psfx.weapon-swooshes.light'));
       const sfx13 = val('.lib-dbpath');
       await click('[data-act="lib-pick-use"]');
       ok('§13 Use writes the SFX back into the scene, and the sentence says so', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && /weapon-swooshes light/.test(text('.sheet .preview')) && api.assets.resolve(app.sheet.scenes[0].scene.sound.asset).path === sfx13, `${sfx13} | ${text('.sheet .preview').slice(-90)}`);
-      const kr13 = (n) => [...$$('.scene')[n].querySelectorAll('.kr')].map((r) => [...r.querySelectorAll('.f')].map((x) => x.className.replace('f f-', '')).join(','));
-      const GRID13 = 'vfx,place,size,opacity|tint,below,sfx,lasts|delay,wait,times,every|rate,spot,range,fade';
-      ok('§13 every scene is the same grid: sixteen cells at permanent addresses, four to a row (R1)', $$('.scene').every((_, n) => kr13(n).join('|') === GRID13), kr13(0).join(' | '));
-      const na13 = (n) => [...$$('.scene')[n].querySelectorAll('.f[data-na="true"]')].map((x) => x.className.replace('f f-', ''));
-      ok('§13 a Move row and a Mark row are that same grid with different cells live', !na13(0).includes('vfx') && na13(0).includes('spot') && na13(0).includes('range') && na13(2).includes('vfx') && !na13(2).includes('spot'), `mark greys ${na13(0).join(',')} · move greys ${na13(2).join(',')}`);
-      ok('§13 a greyed cell is switched off, not merely faded', $$('.scene .f[data-na="true"]').length > 0 && $$('.scene .f[data-na="true"]').every((c) => [...c.querySelectorAll('input, select, button')].every((x) => x.disabled)), `${$$('.scene .f[data-na="true"]').length} greyed cells`);
-      ok('§13 nothing wraps: a knob row is four proportional columns (R2)', $$('.scene .kr').every((r) => getComputedStyle(r).display === 'grid' && getComputedStyle(r).gridTemplateColumns.split(' ').length === 4), getComputedStyle($('.scene .kr')).gridTemplateColumns);
+      ok('§13 the SFX cell carries Browse and ✕, and no select to hide a door behind', !$('.cw-sound') && !!$('[data-act="cw-browse"][data-slot="sound"]') && !!$('[data-act="cw-sound-off"]') && $('.inspector .f-sfx')?.classList.contains('wide'), text('.inspector .f-sfx').replace(/\s+/g, ' '));
+      // R1 in the bands (HANDOFF step 4): the same eight addresses in one order, for every shape
+      const BANDS13 = {
+        picture: 'vfx,place,size,opacity,tint,below,mirror,scatter',
+        timing: 'delay,times,every,rate,fadein,fadeout,lasts,hold',
+        sound: 'sfx,volume,start,sdelay,stimes,severy,spacer',
+        placement: 'rotate,anchor,elevation,zindex,mask,attach,abovelight,xray',
+      };
+      const grids13 = [];
+      const heights13 = [];
+      for (const b of Object.keys(BANDS13)) {
+        for (const n of [0, 2]) {
+          await pick(n); await band(b);
+          grids13.push(`${b}/${n}:${cells(b).join(',')}`);
+          heights13.push(Math.round($('.inspector .knobs').getBoundingClientRect().height));
+        }
+      }
+      const wrong13 = grids13.filter((g) => g.split(':')[1] !== BANDS13[g.split('/')[0]]);
+      ok('§13 every band is the same eight cells in one order, for a Mark and for a Move (R1)', !wrong13.length, wrong13.length ? wrong13.join(' | ') : grids13[0]);
+      ok('§13 the inspector frame never resizes: every band is the same height (R3)', new Set(heights13).size === 1, heights13.join(','));
+      const na13 = () => [...$$('.inspector .f[data-na="true"]')].map((x) => x.className.replace('f f-', '').replace(' wide', ''));
+      await pick(0); await band('picture'); const naMark13 = na13();
+      await pick(2); await band('picture'); const naMove13 = na13();
+      ok('§13 a Move scene and a Mark scene are that same grid with different cells live', !naMark13.includes('vfx') && naMark13.includes('scatter') && naMove13.includes('vfx') && naMove13.includes('size'), `mark greys ${naMark13.join(',')} · move greys ${naMove13.join(',')}`);
+      await band('shape');
+      ok('§13 the shape band is the shape\'s own knobs, and is named for it', cells('shape').join(',') === 'range,spot,jump,fade,pick,speed,after,spacer' && /Move/.test(text('[data-act="sh-band"][data-band="shape"]')), cells('shape').join(','));
+      ok('§13 a greyed cell is switched off, not merely faded', $$('.inspector .f[data-na="true"]').length > 0 && $$('.inspector .f[data-na="true"]').every((c) => [...c.querySelectorAll('input, select, button')].every((x) => x.disabled)), `${$$('.inspector .f[data-na="true"]').length} greyed cells`);
+      ok('§13 nothing wraps: a band is four proportional columns (R2)', getComputedStyle($('.inspector .knobs')).display === 'grid' && getComputedStyle($('.inspector .knobs')).gridTemplateColumns.split(' ').length === 4, getComputedStyle($('.inspector .knobs')).gridTemplateColumns);
       ok('§13 the Add pills carry tooltips', $$('[data-act="cw-add"]').every((b) => (b.dataset.tooltip ?? '').length > 20), '');
-      ok('§13 the SFX select has no Find SFX: Browse is the only door', $$('.cw-sound option').every((o) => o.value !== 'find'), $$('.cw-sound option').map((o) => o.value).join(', '));
+      await pick(0); await band('picture');
       await choose('.cw-opacity', '50');
       ok('§13 Opacity is a knob and the sentence reads it back', /at 50% opacity/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 140));
       const tintEl = $('.cw-tint');
       tintEl.value = '#ff0000'; tintEl.dispatchEvent(new Event('change', { bubbles: true })); await sleep(200);
       ok('§13 Tint is a colour picker and the sentence reads it back', /tinted #ff0000/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
       // the knobs the sentence used to speak with nothing to change them (2026-09-07)
+      await band('timing');
       await choose('.cw-times', '3');
-      ok('§13 Times repeats the scene, the sentence counts it, and Every comes alive in place', /3 times/.test(text('.sheet .preview')) && $('.scene .f-every')?.dataset.na !== 'true' && $('.cw-every')?.disabled === false, text('.sheet .preview').slice(-110));
+      ok('§13 Times repeats the scene, the sentence counts it, and Every comes alive in place', /3 times/.test(text('.sheet .preview')) && $('.inspector .f-every')?.dataset.na !== 'true' && $('.cw-every')?.disabled === false, text('.sheet .preview').slice(-110));
       await choose('.cw-times', '1');
       await choose('.cw-rate', '0.5');
       ok('§13 Speed is read back', /0\.5× speed/.test(text('.sheet .preview')), text('.sheet .preview').slice(-110));
       await choose('.cw-rate', '1');
+      await band('picture');
       const below13 = $('.cw-below'); below13.checked = true; below13.dispatchEvent(new Event('change', { bubbles: true })); await sleep(200);
       ok('§13 Under the tokens is read back', /under the tokens/.test(text('.sheet .preview')), text('.sheet .preview').slice(-110));
       below13.checked = false; below13.dispatchEvent(new Event('change', { bubbles: true })); await sleep(200);
@@ -345,11 +388,29 @@ try {
       await sleep(500);
       canvas.tokens.releaseAll();
       await app.render(); await sleep(250);
-      ok('§14 with no token selected Play keeps its place, greyed, and says why', $('[data-act="sh-play"]')?.disabled === true && /select a token/.test(text('[data-act="sh-play"]')) && $$('[data-act="sh-play-scene"]').length === $$('.scene').length && $$('[data-act="sh-play-scene"]').every((b) => b.disabled), text('[data-act="sh-play"]'));
+      ok('§14 with no token selected Play keeps its place, greyed, and says why', $('[data-act="sh-play"]')?.disabled === true && /select a token/.test(text('[data-act="sh-play"]')) && $$('[data-act="sh-play-scene"]').length === $$('.rail .row').length && $$('[data-act="sh-play-scene"]').every((b) => b.disabled), text('[data-act="sh-play"]'));
       caster.control({ releaseOthers: true });
       await app.render(); await sleep(250);
       ok('§14 with a token selected both Play controls come alive', $('[data-act="sh-play"]')?.disabled === false && text('[data-act="sh-play"]').trim() === '▶ Play all' && $$('[data-act="sh-play-scene"]').every((b) => !b.disabled), text('[data-act="sh-play"]'));
-      ok('§14 every scene carries a still of what it plays', $$('.scene .thumb').length === $$('.scene').length && $$('.scene video.thumb, .scene img.thumb').length >= 1, `${$$('.scene .thumb').length} thumbs of ${$$('.scene').length} scenes`);
+      ok('§14 every rail row carries a still of what it plays', $$('.rail .thumb').length === $$('.rail .row').length && $$('.rail video.thumb, .rail img.thumb').length >= 1, `${$$('.rail .thumb').length} thumbs of ${$$('.rail .row').length} scenes`);
+      // band 1: the action bar stopped wrapping (noted after step 3, fixed here)
+      const content14 = app.element.querySelector('.fxstudio-content');
+      const bar14 = Math.round($('.lockbar').getBoundingClientRect().height);
+      ok('§14 band 1 is one line: eight controls, no wrap, and the sheet does not scroll sideways', getComputedStyle($('.lockbar')).flexWrap === 'nowrap' && bar14 < 40 && $$('.lockbar button').length + $$('.lockbar .switch').length === 8 && content14.scrollWidth <= content14.clientWidth + 1, `bar ${bar14}px · ${content14.scrollWidth} vs ${content14.clientWidth}`);
+      ok('§14 the rail and the inspector are one band: 288px and the rest, the same height', Math.round($('.railside').getBoundingClientRect().width) === 288 && Math.abs($('.railside').getBoundingClientRect().height - $('.inspector').getBoundingClientRect().height) <= 1, `${Math.round($('.railside').getBoundingClientRect().width)}px · ${Math.round($('.railside').getBoundingClientRect().height)} vs ${Math.round($('.inspector').getBoundingClientRect().height)}`);
+      const box14 = $('.sentence-box');
+      ok('§14 the sentence sits in a fixed two-line box that never grows', getComputedStyle(box14).overflow === 'hidden' && Math.abs(box14.getBoundingClientRect().height - 2 * 1.55 * 15) < 2, `${Math.round(box14.getBoundingClientRect().height)}px`);
+      // the overlap strip (HANDOFF step 4): one bar per scene, all on one ms scale
+      const bars14 = $$('.strip .bar');
+      const left14 = bars14.map((b) => Math.round(b.getBoundingClientRect().left));
+      ok('§14 the overlap strip draws one bar per scene, on one shared scale', bars14.length === $$('.rail .row').length && $$('.strip .lane').length === bars14.length && /ms$/.test(text('.strip .axis')), `${bars14.length} bars · ${text('.strip .axis')}`);
+      ok('§14 a scene that waits before it starts is drawn further along than one that does not', new Set(left14).size > 1 && left14[1] > left14[0], left14.join(','));
+      ok('§14 a length the file has not told us yet is drawn as an estimate, not as a fact', bars14.every((b) => b.dataset.est === 'true' || b.dataset.est === 'false') && bars14.every((b) => /starts at \d+ ms/.test(b.dataset.tooltip ?? '')), bars14.map((b) => b.dataset.est).join(','));
+      const geom14 = $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',');
+      await click($$('.rail .pickbtn')[1]);
+      ok('§14 picking a scene in the rail changes colour, never layout (R3)', $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',') === geom14 && $('.rail .row[data-now="true"]') === $$('.rail .row')[1] && $('.inspector .ihead .num')?.textContent === '2', `${geom14} · now ${[...$$('.rail .row')].findIndex((r) => r.dataset.now === 'true')}`);
+      ok('§14 the sentence marks the clause of the scene the inspector is on', !!$('.sentence-box mark') && text('.inspector .line').includes(text('.sentence-box mark')), text('.sentence-box mark'));
+      await click($$('.rail .pickbtn')[0]);
       const buf14 = api.fx.buffer().length;
       await click($$('[data-act="sh-play-scene"]')[0]);
       await sleep(1200);
@@ -361,6 +422,20 @@ try {
       ok('§14 ▶ Play all plays the whole FX, still saving nothing', e14b?.fx === 'misty-step' && String(e14b.id).startsWith('preview-') && api.fx.buffer().length === buf14, `${e14b?.fx} · played ${e14b?.played} · ${e14b?.why ?? ''}`);
       Sequencer.EffectManager.endEffects({ name: 'fxstudio-move-range' });
       canvas.app.stage.removeAllListeners?.('pointerdown');
+      app.sheet = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
+      // the two delays, on an FX the migration wrote with the hold's offset in `delay` (stock: shield)
+      api.open({ tab: 'editor', id: 'shield' });
+      await sleep(500);
+      await pick(0); await band('timing');
+      const held14 = app.sheet.scenes.map((x) => JSON.stringify({ delay: x.scene.delay, wait: x.scene.wait }));
+      ok('§14 a hold whose offset was written as a delay is read as one thing: Hold next −500 ms, Wait before 0', $('.cw-hold')?.checked === true && $('.cw-holdms')?.value === '-500' && $('.cw-delay')?.value === '0' && held14[0] === '{"wait":-500}', held14.join(' · '));
+      ok('§14 and it plays the same: the sentence no longer says "after −500 ms" about a hold', !/after -\d+ ms/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 150));
+      app.sheet = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
+      // a blank sheet: Reach keeps its place with no item to pin to, greyed and saying why (R1)
+      api.open({ tab: 'editor' });
+      await sleep(400);
+      ok('§14 with no item to pin to, Reach is greyed in place with the reason, never dropped', $$('.hookstrip .hcol').length === 4 && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'Item Hook' && ($('.hookstrip .pill[data-na="true"]')?.dataset.tooltip ?? '').length > 20, text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' '));
+      ok('§14 a blank sheet says so and offers no rail', !$('.rail .row') && /No scenes yet/.test(text('.inspector')), text('.inspector').replace(/\s+/g, ' ').slice(0, 80));
       app.sheet = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
 
       // 10 · the item sheet's button

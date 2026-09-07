@@ -700,13 +700,14 @@ had, or delete it and re-home the wand button. Also open: **Delay means two thin
 long before" normally, but `waitUntilFinished(delay)` when *wait for it to finish* is ticked
 (`engine/common.js`), which the one label does not say.
 
-## 9. The UI revamp — steps 1 and 2 (2026-09-07, off `HANDOFF.md`)
+## 9. The UI revamp — steps 1 to 4 (2026-09-07, off `HANDOFF.md`)
 
 The brief is `HANDOFF.md` at the root, written from a read of the code; its screens are
 `prototypes/fxstudio6-proposal.html`. §Rules holds five acceptance criteria (R1 every control has a
 permanent address · R2 nothing wraps · R3 selection never changes layout · R4 one scroll region ·
-R5 one grid) and seven steps. The user's word was: **steps 1 and 2 only, then stop.** Steps 3–7 are
-not started, and nothing of the layout moved.
+R5 one grid) and seven steps. The screens are illustration; **the Rules are the spec**, because an
+agent handed a mockup reproduces its pixels and invents its own answers wherever it is silent. Steps
+1–4 are settled (1 superseded, 2–4 built); **steps 5, 6 and 7 are not started.**
 
 ### No shortcuts (the user, 2026-09-07) — the ruling that replaced step 1
 
@@ -816,6 +817,77 @@ and inherits the string's min-content width, which is what made the path row pus
 Measured: `smoke-screens` **116 of 116** — five of them new and all four rules above proved by the
 brief's own checks, including the computed `grid-template-columns` and the rect comparison.
 
+### Step 4 — the sheet as a rail and an inspector (built)
+
+The sheet was one long scroll of scene rows, each carrying all sixteen knobs. It is now **five
+bands**, and only the inspector's contents ever change:
+
+| | Band | What it is |
+| --- | --- | --- |
+| 1 | Identity + action bar | the name and its tags on one line with the eight controls; under it one monospace line: the hook, the id, the provenance |
+| 2 | Sentence | a fixed two-line box (47px, `overflow: hidden`); the selected scene's own clause is `<mark>`ed inside it |
+| 3 | Hook strip | one row, four columns: **Answers · Reach · Moment · State** |
+| 4 | Sequence | the 288px rail and the overlap strip | the inspector, the two columns the same height |
+| 5 | Note | one row |
+
+There is no band for inheritance. Nothing inherits (see *No shortcuts* above), so the brief's band 2
+does not exist and the five above are the whole sheet.
+
+**The rail.** One row per scene at a fixed 44px (`--fx-row` + `--fx-gutter`): its number, a still of
+what it plays, "Shape · place", **when it starts**, and ▶. Selection paints the row and swaps the
+inspector; every other row's rect is unchanged (R3, measured).
+
+**The overlap strip** is the thing the old sheet could not show at all: one bar per scene, all on
+one ms scale, so *what plays while what* is visible. The rule is the engine's own
+(`engine/common.js` `timing`): a scene that holds the sequence makes the next start when it has
+finished, plus or minus its offset; a scene that does not hold starts alongside the one before it,
+after its own Wait before. **A picture's own length is not in the grammar**, so it is measured from
+the file the browser has already loaded for the still (`hydrateSheet`, once per file, one debounced
+redraw) and drawn hatched and marked *about* until the answer comes back. The sheet never states a
+duration it has not been told.
+
+**The inspector** holds one scene in a frame that never resizes: five band tabs — **Picture ·
+Timing · Sound · Placement · ⟨the shape's own⟩** — each the same 4×2 grid of eight cells, measured
+at 102px in every band. Which cells are live still comes **from `KNOBS` in core/fx.js and nothing
+else**; what a shape does not read is greyed and switched off where it stands (R1). The shape band
+is the only one whose contents differ by shape — that is what it is for — and it is padded with
+spacers to the same eight, so the frame holds. Twenty knobs that had no address at all now have one:
+Mirror, Scatter, Fade in, Fade out, Rotate (degrees or by position), Anchor, Elevation, Draw order,
+Mask, Attach, Above lighting, Through walls, On miss (per scene, where it belongs — it was one
+switch for the whole FX), Follow, Face, Clear template, Chosen by, Travel speed, Before moving, and
+the sound's own Volume, Start at, wait, times and every.
+
+**The two delays are named apart** — the user's parked question, closed. `delay` is **Wait before**;
+`wait` is **Hold next**, with its offset in the same cell. They were one word doing two jobs because
+the engine folds a holding scene's `delay` into `waitUntilFinished(delay)`; 68 stock scenes are
+written that way, most with a *negative* delay, which only ever made sense as the hold's offset (and
+which the sentence used to read out as "after −1000 ms"). Neither the engine nor the files were
+changed: the sheet **normalises as it loads** — `{wait: true, delay: −1000}` becomes `{wait: −1000}`,
+which reaches `waitUntilFinished` identically — and writes it back only if the user saves. Proved on
+stock `shield` in the suite.
+
+**Size says what the grammar says.** The 50–200% multiplier is gone with the `scale` it multiplied:
+the field edits `size.tokenWidths` / `radius` / `squares` / `fit.scale` directly and carries the
+unit — *2.25 tokens wide*, *3 squares around*, *× the shape*. The field said 100% while the sentence
+said "2.25 token wide" about the same number.
+
+**Also here:** every problem is shown, not `problems[0]`, and one that names a scene is the button
+that goes to it; **`off` collapses the Sequence band** to one line (and `draftFx` no longer emits
+dead scenes on an off FX — the noted item from step 3, fixed); Reach keeps its place with no item to
+pin to, greyed with the reason, which is where step 7's Item Hook gap will land; and **band 1 stopped
+wrapping** — the lockbar is `flex-wrap: nowrap` with eight controls measured on one 28px line, the
+other thing noted after step 3.
+
+**Two deviations, stated.** (1) The Answers cell wraps: an FX may answer forty keys, and truncating
+what a person is editing is worse than a band that grows — read-only it is capped at six pills and a
+`+N more`, so the sheet is fixed-height whenever it is being read. (2) `thrown`, `return`, `breathe`
+and `pulse` have addresses and can be read and cleared, but not written, from the sheet: writing one
+needs a picker slot, and step 6 owns the picker contract (BACKLOG).
+
+Measured: `smoke-screens` **132 of 132** — sixteen new, including the band grids for a Mark and a
+Move, the equal band heights, the equal-height rail and inspector, the strip's shared scale, the
+estimate marking, the two delays on real migrated data, and band 1 on one line.
+
 ### The rulings of the day
 
 | Question | Ruling |
@@ -827,13 +899,14 @@ brief's own checks, including the computed `grid-template-columns` and the rect 
 
 ### Measured on the sandbox, 2026-09-07
 
-`smoke-screens` **116 of 116**, `smoke-author` **15 of 15** (its round trip rewritten as a copy,
-with a check that editing what an FX was copied from leaves the copy alone), `smoke-fx` 1293 build,
-`smoke-replay` 45 of 45, `check-fx` 1306 fx / 3207 assets / 0 invalid, and `check-imports`,
-`check-layers`, `check-legacy` green.
+After step 4: `smoke-screens` **132 of 132**, `smoke-author` **15 of 15** (its round trip written as
+a copy, with a check that editing what an FX was copied from leaves the copy alone), `smoke-fx`
+**1293 build**, `smoke-replay` **45 of 45**, `check-fx` 1306 fx / 3207 assets / 0 invalid, and
+`check-imports`, `check-layers`, `check-legacy` green. (At step 3 the screens stood at 116 of 116.)
 
 ### Noted in passing, not fixed
 
-`draftFx` emits `scenes` on an `off` FX, which needs none (`validate` returns early for it), so a
-switched-off FX carries dead scenes in the buffer. Small, and it belongs with the `off` ruling above
-when step 5 rebuilds the row.
+Both of the things noted after step 3 — `draftFx` emitting dead scenes on an `off` FX, and the
+lockbar wrapping — were fixed by step 4. What is left standing is the second deviation above:
+`thrown`, `return`, `breathe` and `pulse` can be read and cleared from the sheet but not written,
+because writing one needs a picker slot and step 6 owns the picker contract (BACKLOG).

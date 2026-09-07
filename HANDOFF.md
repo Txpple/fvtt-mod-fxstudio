@@ -109,7 +109,15 @@ is the one screen with no picture and no playback.
 
 ---
 
-## Step 4 — The sheet: rail and inspector, with band tabs
+## Step 4 — The sheet: rail and inspector, with band tabs — **BUILT 2026-09-07** (DESIGN §9)
+
+> Built as written below, minus band 2 (there is no inheritance). All four fixes landed: the two
+> delays are named apart and a hold whose offset was written as `delay` is normalised as the sheet
+> loads it; Size shows the grammar's unit; every problem is listed, each one the button to the scene
+> it names; `off` collapses the Sequence band. Two deviations are stated in DESIGN §9 (the Answers
+> cell wraps when an FX answers many abilities; `thrown` / `return` / `breathe` / `pulse` can be read
+> and cleared but not written, because writing one needs a picker slot and step 6 owns that
+> contract). `smoke-screens` 132 of 132.
 
 Six bands top to bottom, each a constant height. Only the inspector's contents ever change.
 
@@ -156,6 +164,10 @@ place (R1).
 
 ---
 
+**Stop here and check in. Do not start step 5 in the same pass.**
+
+---
+
 ## Step 5 — One FX tab
 
 `renderCorpus` and `renderCustom` build near-identical row lists differing by a filter on
@@ -164,7 +176,8 @@ place (R1).
 - One list of all FX, grouped **Draft → House → Stock** (resolution order, later wins).
 - Facet column, all from data already computed: Lives in (`source`) · Kind (`parseKey().kind`) ·
   On my actors (`census()`) · Item Hooks (`!fx.for.length`) · Switched off (`fx.off`) ·
-  Based on another FX (`fx.like`) · Broken assets (`assets.exists()` over `assetsOf(scene)`).
+  Broken assets (`assets.exists()` over `assetsOf(scene)`). (No "based on another FX" facet:
+  nothing is based on anything — see Step 1.)
 - Row: name + "+N keys" · the generated sentence, ellipsised · layer tag · shape tags.
   **Not** the full key list — that is what makes Abyssal Strike unreadable today.
 - Fixed 300px detail pane, shared with Assets and Coverage: name, id, `why`, provenance,
