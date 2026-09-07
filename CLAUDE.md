@@ -15,12 +15,11 @@ same author, same conventions — plain ES modules, no build step, no patching, 
 socketlib, MIT.
 
 **Status (end of 2026-09-06): phase 3 (the screens) built and iterated in-game with the user, all
-green on the sandbox. Committed up to 2571f69 (the vocabulary pass and the tab rename). UNCOMMITTED
-and deployed to the sandbox, waiting on the user's in-game test and their word to commit: the FX
-sheet (`scripts/ui/sheet.js`, the wizard `create.js` deleted, DESIGN §8 *The FX sheet*), the
-sentence's sound clause `with sound (PSFX x)`, the Battle Flow backlog ruling (PLAN §5, BACKLOG),
-and `prototypes/fxstudio5-editor.html`. The user tests in a new session; iterate off screenshots,
-hold until "go".** The
+green on the sandbox, committed and pushed through 1d32ea6 (the vocabulary pass, the tab rename,
+the FX sheet that replaced the wizard — `scripts/ui/sheet.js`, DESIGN §8 *The FX sheet* — the
+sentence's sound clause `with sound (PSFX x)`, Battle Flow ruled backlog for phase 4). NEXT: the
+user tests the sheet in-game in a new session; iterate off screenshots, hold until "go"; the Look
+up tab still awaits its own pass.** The
 vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens), and
 since the evening's pass **terms, not sentences** (DESIGN §8 *A tool, not prose*): Stock / House /
 Draft for where an FX lives (baseline renamed stock end to end), Global Hook / Item Hook for its
