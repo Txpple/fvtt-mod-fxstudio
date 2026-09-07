@@ -80,5 +80,11 @@ What is parked, and why. Nothing here is owed; each line says who decides.
   offered); editing a look scene by scene in the window (the editor changes what `like` and `with`
   can say — a starter or a look, a colour, a sound, a size; anything deeper is the API or the file,
   by design); the migration's technical notes on the seven house looks show as written.
-- Phase 4: Battle Flow's hooks, the core reader (statuses, combat, movement), the outcome looks.
+- Phase 4: the core reader (statuses, combat, movement) and the outcome FX, on dnd5e and core alone.
+- **Battle Flow's hooks (ruled backlog 2026-09-06: "yes battleflow is backlog").** The moments that
+  exist only in Battle Flow's rules — Riposte, a held Shield, a maneuver die spent, a shield paid,
+  a fold, emanation members gained or lost — need Battle Flow to emit public hooks with plain
+  payloads at its resolve points (its own commission, in its repo; no dependency, no setting, no
+  flag shape; fxstudio never reads its internal flags). Parked until the user wants those moments
+  to play; until then those abilities play nothing, per the no-guessing rule. PLAN §5.
 - Phase 5: cutover.

@@ -48,7 +48,7 @@ try {
       ok('§1 the window opens with its five tabs in order, Look up last (Stock FX waits behind the maintainer switch)', app?.rendered && $$('[role=tab]').length === 5 && /^House FX ?FX Editor ?Asset Library ?Audit ?Look up/.test(text('.tabs')) && /Look up/.test(text('.tabs')), `${$$('[role=tab]').map((t) => t.textContent).join(', ')}`);
       ok('§1 Look up shows Misty Step as a sentence, and why', /Misty Step · when used/.test(text('.sentence')) && /Global Hook · Misty Step \(spell\) · (Stock|House)/.test(text('.why')), `${text('.sentence')} | ${text('.why')}`);
       ok('§1 the card carries no sheet line, only the title and the sentence', !$('.result .owner'), text('.result .owner') || 'none');
-      ok('§1 the card offers Duplicate', /Duplicate/.test(text('.actions')), text('.actions'));
+      ok('§1 the card offers Open FX', /Open FX/.test(text('.actions')), text('.actions'));
 
       // 2 · a spell the corpus has never heard of
       [tmp] = await caster.actor.createEmbeddedDocuments('Item', [{ name: 'Sharran Step', type: 'spell', system: { level: 2, school: 'con', activities: { dnd5eactivity000: { type: 'utility', _id: 'dnd5eactivity000' } } } }]);
@@ -70,41 +70,52 @@ try {
       await type('.fx-q', 'Sharran');
       await click($$('.suggest .hit').find((h) => /Sharran Step/.test(h.textContent)));
 
-      // 3 · the walk: for what (done), start from, the FX
+      // 3 · the sheet: Create FX opens a new sheet unlocked, hooked to Sharran Step; Copy from seeds it
       await click('[data-act="create-new"]');
-      ok('§3 Create FX opens the walk on step 2, step 1 already answered', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && stepNow() === 2 && $('.step[data-state="done"]')?.dataset.step === '1', `tab ${$('[role=tab][aria-selected="true"]')?.dataset.tab}, step ${stepNow()}`);
-      ok('§3 step 2 offers duplicate, a starter and from scratch', $$('[data-act="cw-start"]').length === 3 && /Duplicate/.test(text('.choices')) && /Blank/.test(text('.choices')), text('.choices').slice(0, 120));
-      ok('§3 Next waits until a start is chosen', $('[data-act="cw-next"]')?.disabled === true, '');
-      await click('[data-act="cw-start"][data-start="dup"]');
-      await type('.cw-like', 'misty step');
+      ok('§3 Create FX opens the FX Editor on a new sheet, unlocked, hooked to the spell', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Global Hook: Sharran Step \(spell\)/.test(text('.sheet .grid2')) && /New/.test(text('.sheet h2')), `tab ${$('[role=tab][aria-selected="true"]')?.dataset.tab} · ${text('.sheet h2')}`);
+      ok('§3 Save waits: no scenes yet, the problem is named', $('[data-act="sh-save"]')?.disabled === true && !!$('.sheet .problem'), text('.sheet .problem'));
+      ok('§3 an empty sequence offers Copy from and Add', !!$('.sh-like') && $$('[data-act="cw-add"]').length === 8, `${$$('[data-act="cw-add"]').length} shapes`);
+      await type('.sh-like', 'misty step');
       const like = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
-      ok('§3 the Which-fx box offers the Misty Step fx', !!like, $$('.suggest .hit').map((h) => h.dataset.id).join(', '));
+      ok('§3 Copy from offers the Misty Step FX', !!like, $$('.suggest .hit').map((h) => h.dataset.id).join(', '));
       await click(like);
-      await click('[data-act="cw-next"]');
-      ok('§3 step 3 shows Misty Step\'s scenes, one line each, seeded from the copy', stepNow() === 3 && $$('.scene').length >= 2 && /Copy of Misty Step/.test(text('.walk .lead')), `${$$('.scene').length} scenes · ${text('.walk .lead').slice(0, 60)}`);
+      ok('§3 the sequence holds Misty Step\'s scenes, numbered, one plain-English line each', $$('.scene').length >= 2 && $$('.scene .num').map((n) => n.textContent).join('') === [...Array($$('.scene').length)].map((_, k) => k + 1).join('') && $$('.scene .line').every((l) => l.textContent.length > 10), `${$$('.scene').length} scenes`);
+      ok('§3 the rows are typed and striped by kind: VFX, VFX, Move', $$('.scene').map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move', $$('.scene').map((r) => r.dataset.kind).join(','));
+      ok('§3 the knobs sit in labelled fields', $$('.scene .f .l').length >= 8 && /VFX/.test(text('.scene .f-vfx .l')) && /Delay/.test(text('.scene .f-delay .l')), `${$$('.scene .f .l').length} fields`);
       const colours = $$('.cw-colour')[0] ? [...$$('.cw-colour')[0].options].map((o) => o.value) : [];
       ok('§3 each scene\'s colour picker lists its family\'s own colours, dark black among them', colours.includes('dark_black') && colours.includes('blue'), colours.join(', '));
-      for (let i = 0; i < 6; i++) { const sel = $$('.cw-colour').find((s) => s.value !== 'dark_black' && [...s.options].some((o) => o.value === 'dark_black')); if (!sel) break; await choose(sel, 'dark_black'); }
-      ok('§3 the draft reads back as the sentence, in black, before anything is saved', /dark black/.test(text('.walk .preview')) && /Sharran Step · when used/.test(text('.walk .preview')) && !/blue/.test(text('.walk .preview')), text('.walk .preview'));
+      for (let k = 0; k < 6; k++) { const sel = $$('.cw-colour').find((x) => x.value !== 'dark_black' && [...x.options].some((o) => o.value === 'dark_black')); if (!sel) break; await choose(sel, 'dark_black'); }
+      ok('§3 the draft reads back as the sentence, in black, before anything is saved', /dark black/.test(text('.sheet .preview')) && /Sharran Step · when used/.test(text('.sheet .preview')) && !/blue/.test(text('.sheet .preview')), text('.sheet .preview'));
       await choose($$('.cw-delay')[1], '750');
-      ok('§3 the Delay field on scene 2 is read back in its line and the preview', $$('.cw-delay')[1]?.value === '750' && /after 750 ms/.test($$('.scene .line')[1]?.textContent ?? '') && /after 750 ms/.test(text('.walk .preview')), `${$$('.cw-delay').map((d) => d.value).join(',')} · ${$$('.scene .line')[1]?.textContent}`);
+      ok('§3 the Delay field on scene 2 is read back in its line and the preview', $$('.cw-delay')[1]?.value === '750' && /after 750 ms/.test($$('.scene .line')[1]?.textContent ?? '') && /after 750 ms/.test(text('.sheet .preview')), `${$$('.cw-delay').map((d) => d.value).join(',')} · ${$$('.scene .line')[1]?.textContent}`);
       await choose($$('.cw-delay')[1], '500');
+      const wait0 = $$('.cw-wait')[0];
+      wait0.checked = true; wait0.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
+      ok('§3 Then · wait for it to finish on scene 1 turns the sentence\'s "and" into "then"', /, then a mark/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
+      const wait0b = $$('.cw-wait')[0]; wait0b.checked = false; wait0b.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
+      ok('§3 Lasts is offered on the marks, not on the move', $$('.cw-persist').length === 2 && !$('.scene[data-kind="move"] .cw-persist'), `${$$('.cw-persist').length}`);
+      await click($$('[data-act="cw-down"]')[0]);
+      ok('§3 the arrows reorder: scene 1 moved down', $$('.scene').map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move' && /misty step 02/.test($$('.scene .line')[0]?.textContent ?? ''), $$('.scene .line')[0]?.textContent);
+      await click($$('[data-act="cw-up"]')[1]);
+      ok('§3 and back up', /misty step 01/.test($$('.scene .line')[0]?.textContent ?? ''), $$('.scene .line')[0]?.textContent);
       ok('§3 nothing has been saved yet', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
 
-      // 4 · when it plays, save to
-      await click('[data-act="cw-next"]');
-      ok('§4 step 4 answers for the spell Sharran Step, when used', stepNow() === 4 && /Sharran Step/.test(text('[data-act="cw-key"][aria-pressed="true"]')) && $('[data-act="cw-on"][aria-pressed="true"]')?.dataset.on === 'use', `${text('[data-act="cw-key"][aria-pressed="true"]')}`);
-      ok('§4 the outcomes are shown as phase 4, not offered yet', /phase 4/.test(text('.walk')) && $$('.walk .pills button:disabled').length >= 4, '');
-      ok('§4 what will be saved is read back on step 4, before Save', /dark black/.test(text('.walk .preview')) && /Preview/.test(text('.walk .preview')) && !!$('[data-act="cw-save"]'), text('.walk .preview').slice(0, 200));
-      await click('[data-act="cw-save"]');
+      // 4 · the hook block and Save
+      ok('§4 the Hook block: On use pressed, Plays pressed, the outcomes waiting on phase 4', $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false' && /phase 4/.test(text('.sheet .grid2')) && $$('.sheet .grid2 button:disabled').length >= 4, '');
+      ok('§4 the id is shown, derived from the ability', text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
+      ok('§4 Save is enabled now the sequence has scenes', $('[data-act="sh-save"]')?.disabled === false && !$('.sheet .problem'), text('.sheet .problem'));
+      await click('[data-act="sh-save"]');
       await sleep(500);
       const saved = api.fx.buffer().find((l) => l.id === 'sharran-step');
       if (saved) made.push(saved.id);
-      ok('§4 Save writes the FX to the world buffer with its scenes, a draft, with provenance', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && !saved.to && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /like Misty Step/.test(saved.note), JSON.stringify(saved).slice(0, 300));
-      ok('§4 the window lands on Look up with the custom FX', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'lookup' && /Custom/.test(text('.status')) && /dark black/.test(text('.sentence')) && /Draft/.test(text('.why')), `${text('.status')} | ${text('.sentence')} | ${text('.why')}`);
+      ok('§4 Save writes the FX to the world buffer with its scenes, a draft, with provenance', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && !saved.to && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /like Misty Step/.test(saved.note), JSON.stringify(saved ?? null).slice(0, 300));
+      ok('§4 the sheet stays open, locked, tagged Draft, with the sentence', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'false' && /Draft/.test(text('.sheet h2')) && /dark black/.test(text('.sheet .sentence')) && !!$('[data-act="sh-dup"]') && /Delete/.test(text('[data-act="sh-delete"]')), `${text('.sheet h2')} | ${text('[data-act="sh-delete"]')}`);
+      ok('§4 locked: the knobs are read-only and the tools are hidden', $$('.scene .knobs select').every((x) => x.disabled) && !$('[data-act="cw-drop"]'), '');
       ok('§4 the spell resolves to it from the world layer', api.resolve(tmp).fx?.id === 'sharran-step' && api.resolve(tmp).source === 'world', api.resolve(tmp).source);
       const r4 = api.sentenceFor(tmp);
-      ok('§4 the API reads the same sentence the screen shows', r4.sentence === text('.sentence'), `${r4.sentence} | ${text('.sentence')}`);
+      ok('§4 the API reads the same sentence the sheet shows', r4.sentence === text('.sheet .sentence'), `${r4.sentence} | ${text('.sheet .sentence')}`);
+      await click('[data-act="sh-back"]');
+      ok('§4 Back returns to where the sheet was opened from: Look up, on the card', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'lookup' && /Custom/.test(text('.status')) && /Draft/.test(text('.why')), `${text('.status')} | ${text('.why')}`);
 
       // 5 · Custom lists it, newest first, with who wrote it
       await click('[data-tab="house"]');
@@ -137,32 +148,42 @@ try {
       await sleep(300);
       ok('§6 staged again for the ship later', api.fx.buffer().find((l) => l.id === 'sharran-step')?.to === 'house', '');
 
-      // 7 · one item's own FX, through the walk (from the card, duplicating the FX it has)
+      // 7 · one item's own FX, through the sheet (Open FX from the card, unlock, Item Hook, Save)
       api.open({ item: tmp });
       await sleep(300);
-      await click('[data-act="create-from"]');
-      ok('§7 Duplicate opens the walk on step 3 with the FX copied', stepNow() === 3 && $$('.scene').length >= 2 && /Copy of Sharran Step/.test(text('.walk .lead')), `step ${stepNow()} · ${text('.walk .lead').slice(0, 40)}`);
-      await click('[data-act="cw-next"]');
-      const only = $('[data-act="cw-only"]');
-      ok('§7 step 4 offers an Item Hook for an item on a sheet', !!only && /Item Hook/.test(only.textContent), only?.textContent);
+      await click('[data-act="open-sheet"]');
+      ok('§7 Open FX opens the sheet on the spell\'s FX, locked', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && $('.sheet')?.dataset.edit === 'false' && text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
+      const sw = $('.sh-edit'); sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
+      ok('§7 the Edit switch unlocks the sheet: Save and Cancel appear, the tools too', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="sh-save"]') && !!$('[data-act="sh-cancel"]') && !!$('[data-act="cw-drop"]'), '');
+      const only = $('[data-act="sh-only"]');
+      ok('§7 the Hook block offers an Item Hook for an item on a sheet', !!only && /Item Hook/.test(only.textContent), only?.textContent);
       await click(only);
-      ok('§7 with the Item Hook the preview says so', /Item Hook: Sharran Step/.test(text('.walk .preview')), text('.walk .preview').slice(-120));
-      await click('[data-act="cw-save"]');
+      ok('§7 with the Item Hook the sheet says so and the id is the item\'s own', /Item Hook/.test(text('.sheet h2')) && text('.sheet code.id') === 'sharran-step-fx-test-caster', `${text('.sheet h2')} · ${text('.sheet code.id')}`);
+      await click('[data-act="sh-save"]');
       await sleep(500);
       const own = api.fx.buffer().find((l) => l.id === 'sharran-step-fx-test-caster');
       if (own) made.push(own.id);
       const flag = tmp.getFlag(MOD, 'fx');
-      ok('§7 the item now points at an FX of its own, keyed to nothing, a draft in this world', own && own.for?.length === 0 && !own.to && flag === own.id, `flag ${flag} · ${JSON.stringify(own).slice(0, 200)}`);
+      ok('§7 the item now points at an FX of its own, keyed to nothing, a draft in this world', own && own.for?.length === 0 && !own.to && flag === own.id, `flag ${flag} · ${JSON.stringify(own ?? null).slice(0, 200)}`);
       const r7 = api.sentenceFor(tmp);
       ok('§7 the item plays its own FX ahead of the spell\'s, and says so', r7.fx?.id === own?.id && /Item Hook/.test(r7.why), `${r7.sentence} | ${r7.why}`);
       const other = await caster.actor.createEmbeddedDocuments('Item', [{ name: 'Sharran Step', type: 'spell', system: { level: 2, school: 'con' } }]);
       const r7b = api.sentenceFor(other[0]);
       ok('§7 another copy of the spell still plays the spell\'s fx', r7b.fx?.id === 'sharran-step' && /dark black/.test(r7b.sentence), r7b.sentence);
       await other[0].delete();
+      api.open({ item: tmp });
+      await sleep(300);
       ok('§7 the card offers Revert, and no Play nothing', /Revert/.test(text('.actions')) && !$('[data-act="silence"]'), text('.actions'));
       await click('[data-act="remove"]');
       await sleep(400);
       ok('§7 back: the pointer is gone and the spell\'s fx answers again', !tmp.getFlag(MOD, 'fx') && !api.fx.buffer().some((l) => l.id === own?.id) && api.resolve(tmp).fx?.id === 'sharran-step', api.resolve(tmp).fx?.id);
+      // the guard: a locked sheet's Cancel drops changes; Delete on a plain draft is Delete
+      await click('[data-act="open-sheet"]');
+      const sw2 = $('.sh-edit'); sw2.checked = true; sw2.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
+      await choose($$('.cw-delay')[1], '900');
+      ok('§7 a change unlocks Save', /after 900 ms/.test(text('.sheet .preview')) && $('[data-act="sh-save"]')?.disabled === false, '');
+      await click('[data-act="sh-cancel"]');
+      ok('§7 Cancel drops the change and locks the sheet again', $('.sheet')?.dataset.edit === 'false' && /after 500 ms/.test(text('.sheet .sentence')) && api.fx.buffer().find((l) => l.id === 'sharran-step')?.scenes?.[1]?.delay === 500, text('.sheet .sentence').slice(0, 120));
 
       // 9 · the ship: the corpus files and the version written into the module on this server, then restored
       api.open({ tab: 'stock' });
@@ -227,22 +248,22 @@ try {
       await click('[data-act="lib-only"][data-only="used"]');
       ok('§13 the Used pill shows the rest', $$('[data-act="lib-sel"]').length === allSounds - unusedN, `${$$('[data-act="lib-sel"]').length}`);
       await click('[data-act="lib-only"][data-only="used"]');
-      // the picker door: a line of the walk opens the Library, Use this writes the path into that line
+      // the picker door: a scene of the sheet opens the Library, Use writes the path into that scene
       await click('[data-tab="lookup"]');
       await type('.fx-q', 'Misty Step');
       await click($$('.suggest .hit').find((h) => /Misty Step/.test(h.textContent)));
-      await click('[data-act="create-from"]');
-      ok('§13 Duplicate is on step 3 with a Browse button on the first VFX', stepNow() === 3 && !!$('[data-act="cw-browse"][data-slot="asset"]'), `step ${stepNow()}`);
+      await click('[data-act="open-sheet"]');
+      const sw3 = $('.sh-edit'); sw3.checked = true; sw3.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
+      ok('§13 the sheet is unlocked with a Browse button on the first VFX', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="cw-browse"][data-slot="asset"]'), '');
       await click('[data-act="cw-browse"][data-slot="asset"]');
       ok('§13 Browse opens the Asset Library as the picker, saying what it picks for', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'library' && /VFX for Misty Step · scene 1/.test(text('.picking')), text('.picking'));
       await click($$('[data-act="lib-sel"]').find((r) => r.dataset.id === 'jb2a.arcane_hand'));
       await click('[data-act="lib-pick-use"]');
-      ok('§13 Use returns to step 3 with the scene playing it', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && stepNow() === 3 && /arcane hand/i.test(text('.walk .preview')), text('.walk .preview').slice(0, 160));
-      ok('§13 the shapes carry tooltips and a legend on request', $$('[data-act="cw-add"]').every((b) => (b.dataset.tooltip ?? '').length > 20), '');
-      await click('[data-act="cw-shapes"]');
-      ok('§13 Shapes opens the legend', $$('.legend .row').length === 8, `${$$('.legend .row').length} rows`);
-      app.walk = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
-      ok('§13 the walk is dropped, nothing saved', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
+      ok('§13 Use returns to the sheet with the scene playing it', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && /arcane hand/i.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
+      ok('§13 editing Misty Step (House) says Save writes a Draft over it', /Draft/.test(text('.sheet .banner')), text('.sheet .banner'));
+      ok('§13 the Add pills carry tooltips', $$('[data-act="cw-add"]').every((b) => (b.dataset.tooltip ?? '').length > 20), '');
+      app.sheet = null; app.view.tab = 'lookup'; await app.render(); await sleep(200);
+      ok('§13 the sheet is dropped, nothing saved', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
 
       // 10 · the item sheet's button
       const sheet = misty.sheet;
@@ -258,6 +279,8 @@ try {
       app = api.open({});
       ok('§10 the button opens the window on that item', app?.rendered && /Misty Step/.test(text('.result h2')), text('.result h2'));
       await sheet.close();
+    } catch (err) {
+      results.push({ name: 'THROW', pass: false, detail: String(err.stack ?? err).slice(0, 600) });
     } finally {
       for (const id of made) if (api.fx.buffer().some((l) => l.id === id)) await api.fx.remove(id).catch(() => null);
       await game.settings.set(MOD, 'maintainer', false).catch(() => null);

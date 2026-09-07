@@ -1,0 +1,344 @@
+<title>FX Studio: FX Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root{
+  --ground:#f4f3ef; --panel:#ffffff; --panel2:#f7f6f2; --line:#dcdad2; --line2:#eae8e1;
+  --text:#1f2128; --muted:#666a75; --faint:#9a9da8;
+  --accent:#1f8f88; --accent-ink:#ffffff; --accent-soft:#e3f2f0;
+  --good:#3f9a48; --warn:#b8862a; --bad:#c9524f; --shadow:0 8px 24px rgba(20,24,40,.10);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --ground:#15161b; --panel:#1c1e25; --panel2:#22252e; --line:#2e313c; --line2:#272a33;
+  --text:#e8e4da; --muted:#a0a2ad; --faint:#6b6e7a;
+  --accent:#5fc4bd; --accent-ink:#0f1d1c; --accent-soft:#1f3634;
+  --good:#6fbf73; --warn:#e0a04a; --bad:#e06c6c; --shadow:0 8px 24px rgba(0,0,0,.45); } }
+:root[data-theme="dark"]{
+  --ground:#15161b; --panel:#1c1e25; --panel2:#22252e; --line:#2e313c; --line2:#272a33;
+  --text:#e8e4da; --muted:#a0a2ad; --faint:#6b6e7a;
+  --accent:#5fc4bd; --accent-ink:#0f1d1c; --accent-soft:#1f3634;
+  --good:#6fbf73; --warn:#e0a04a; --bad:#e06c6c; --shadow:0 8px 24px rgba(0,0,0,.45); }
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--text);font:15.5px/1.5 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+code{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--muted)}
+button{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
+button.quiet{background:transparent;border-color:transparent;color:var(--muted)} button.quiet:hover{color:var(--text);background:var(--panel2)}
+button.danger{color:var(--bad)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,select{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.wrap{max-width:1040px;margin:0 auto;padding:22px 20px 60px}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+header h1{margin:0;font-size:24px;font-weight:600;letter-spacing:-.01em}
+header p{margin:0;color:var(--muted)}
+.tabs{display:flex;gap:6px;margin:18px 0 22px;flex-wrap:wrap}
+.tabs button{border-radius:999px;padding:8px 16px;color:var(--muted);background:transparent;border-color:transparent}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--text);border-color:var(--line);font-weight:500}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.note{color:var(--muted);font-size:13.5px}
+.pane{display:none}.pane[data-active="true"]{display:block}
+.pill{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 12px;font-size:13.5px;cursor:pointer}
+.pill[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--text)}
+.pills{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{font-size:12px;letter-spacing:.04em;border-radius:999px;padding:2px 9px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.draft{border-color:var(--warn);color:var(--warn)} .tag.house{border-color:var(--accent);color:var(--accent)}
+.sub{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 8px}
+.row{display:flex;align-items:center;gap:10px;padding:9px 4px;border-top:1px solid var(--line2)}
+.row:first-of-type{border-top:0}
+.row .n{flex:1;min-width:0}
+.row .link{background:none;border:0;padding:0;color:var(--text);font-weight:500;cursor:pointer}
+.row .link:hover{color:var(--accent)}
+.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+.search{position:relative;flex:1}
+.search input{width:100%}
+/* the sheet */
+.sheet-head{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.sheet-head h2{margin:0;font-size:22px;font-weight:600;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sheet-head .sentence{margin:6px 0 0;color:var(--text)}
+.sheet-head .prov{margin:4px 0 0;color:var(--faint);font-size:13px}
+.lockbar{display:flex;align-items:center;gap:8px;margin-left:auto}
+.switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;font-weight:500}
+.switch input{appearance:none;width:38px;height:22px;border-radius:999px;background:var(--line);position:relative;margin:0;cursor:pointer;border:0;padding:0}
+.switch input::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--panel);transition:left .15s}
+.switch input:checked{background:var(--accent)} .switch input:checked::after{left:19px}
+.banner{display:none;background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;padding:8px 12px;font-size:13.5px;margin-top:12px}
+.banner[data-on="true"]{display:block}
+.section{margin-top:18px;padding-top:16px;border-top:1px solid var(--line2)}
+.grid2{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;align-items:center}
+.grid2 .lbl{color:var(--muted);font-size:13.5px}
+/* the sequence rows */
+.seq{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:40px 1fr auto;gap:8px 12px;align-items:start;border:1px solid var(--line);border-left:5px solid var(--k);border-radius:10px;padding:12px 14px;background:var(--panel)}
+.step[data-kind="vfx"]{--k:var(--accent)} .step[data-kind="sfx"]{--k:var(--warn)} .step[data-kind="move"]{--k:var(--good)}
+.step .num{width:28px;height:28px;border-radius:50%;background:var(--k);color:var(--accent-ink);display:grid;place-items:center;font:600 13px "IBM Plex Mono",monospace}
+.step .kind{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--k);font-weight:600;margin-bottom:8px}
+.step .knobs{display:grid;grid-template-columns:minmax(180px,2fr) 120px 170px 84px 170px 96px;gap:8px 10px;align-items:end}
+.step .f{display:grid;gap:3px;min-width:0}
+.step .f .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.step .f .c{display:flex;gap:4px;align-items:center;min-width:0}
+.step .f .c>input,.step .f .c>select{padding:5px 8px;font-size:12.5px;width:100%;min-width:0}
+.step .f .c .suffix{color:var(--muted);font-size:12.5px}
+.step .f .c button{padding:5px 8px;font-size:12.5px;white-space:nowrap}
+.step .f-vfx{grid-column:1}.step .f-colour{grid-column:2}.step .f-place{grid-column:3}.step .f-size{grid-column:4}.step .f-sfx{grid-column:5}.step .f-delay{grid-column:6}
+.step .f-spot{grid-column:2/5}.step .f-range{grid-column:5}
+@media (max-width:900px){.step .knobs{grid-template-columns:1fr 1fr 1fr}.step .f{grid-column:auto !important}.step .f-vfx,.step .f-spot{grid-column:1/-1 !important}}
+.step .line{grid-column:2/4;color:var(--muted);font-size:13.5px}
+.step .tools{display:flex;gap:2px}
+.step .tools button{padding:4px 8px}
+.sheet[data-edit="false"] .step .knobs input,.sheet[data-edit="false"] .step .knobs select,.sheet[data-edit="false"] .knob{pointer-events:none;background:transparent;border-color:transparent;padding-left:0}
+.sheet[data-edit="false"] .step .f .c button{display:none}
+.sheet[data-edit="false"] .step .tools,.sheet[data-edit="false"] .add,.sheet[data-edit="false"] .editonly{display:none}
+.sheet[data-edit="false"] .pill{pointer-events:none} .sheet[data-edit="false"] .pill:not([aria-pressed="true"]){display:none}
+.add{margin-top:10px}
+.preview{margin-top:14px;background:var(--panel2);border-radius:10px;padding:10px 12px}
+.preview b{font-weight:600}
+/* the new-fx dialog */
+.dim{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:9}
+.dim[data-on="true"]{display:flex}
+.dialog{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px;width:min(520px,92vw)}
+.dialog h3{margin:0 0 12px;font-size:18px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{text-align:left;padding:12px 14px;display:grid;gap:2px}
+.choice[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.choice b{font-weight:600}.choice span{color:var(--muted);font-size:13px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:var(--ground);padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast[data-on="true"]{opacity:1}
+.walk{display:grid;gap:6px;margin:0 0 14px;color:var(--muted);font-size:13.5px}
+kbd{font:12px "IBM Plex Mono",monospace;border:1px solid var(--line);border-radius:5px;padding:1px 6px;background:var(--panel2)}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}.choices{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+<header><h1>FX Studio</h1><p>Prototype: one FX sheet to view and edit, the wizard retired.</p></header>
+<p class="walk">Try it: open <b>Misty Step</b> from House FX, flip <b>Edit</b>, change a colour or the delay, watch the line and the sentence follow, <b>Save</b>. Then open <b>Fire Bolt</b> (a Stock FX) and flip Edit to see the override banner. <b>New FX</b> shows the two ways in. Only House FX and FX Editor are live here.</p>
+
+<div class="tabs" role="tablist">
+  <button role="tab" aria-selected="false" data-tab="stock">Stock FX</button>
+  <button role="tab" aria-selected="true" data-tab="house">House FX</button>
+  <button role="tab" aria-selected="false" data-tab="editor">FX Editor</button>
+  <button role="tab" aria-selected="false" disabled>Asset Library</button>
+  <button role="tab" aria-selected="false" disabled>Audit</button>
+  <button role="tab" aria-selected="false" disabled>Look up</button>
+</div>
+
+<!-- House FX -->
+<section class="pane" data-pane="house" data-active="true">
+  <div class="actions" style="margin-bottom:12px">
+    <div class="search"><input type="search" placeholder="Search" aria-label="Search House FX"></div>
+    <div class="pills"><button class="pill" aria-pressed="true">Global Hook · 3</button><button class="pill" aria-pressed="false">Item Hook · 1</button></div>
+    <button data-act="new">New FX</button>
+  </div>
+  <div class="card" id="house-list"></div>
+</section>
+
+<!-- Stock FX (rows only, for the link) -->
+<section class="pane" data-pane="stock">
+  <div class="actions" style="margin-bottom:12px"><div class="search"><input type="search" placeholder="Search" aria-label="Search Stock FX"></div></div>
+  <div class="card"><p class="sub">Stock · 1289 FX</p><div id="stock-list"></div><p class="note" style="margin-top:8px">… and 1286 more. Each name opens its sheet.</p></div>
+</section>
+
+<!-- FX Editor: the sheet -->
+<section class="pane" data-pane="editor">
+  <div id="empty" class="card"><p class="sub">FX Editor</p><p class="note" style="margin:0">No FX open. Pick one from Stock FX or House FX, or <button class="quiet" data-act="new" style="padding:2px 8px">New FX</button>.</p></div>
+  <div class="card sheet" id="sheet" data-edit="false" hidden>
+    <div class="sheet-head">
+      <div style="flex:1;min-width:260px">
+        <h2><span id="s-name"></span><span class="tag" id="s-tag"></span><span class="tag" id="s-hooktag"></span></h2>
+        <p class="sentence" id="s-sentence"></p>
+        <p class="prov" id="s-prov"></p>
+      </div>
+      <div class="lockbar">
+        <button class="quiet" data-act="back">‹ Back</button>
+        <span class="editonly-off" id="view-actions"><button data-act="dup">Duplicate</button> <button class="quiet" data-act="export">Export</button> <button class="quiet danger" data-act="delete">Delete</button></span>
+        <label class="switch"><input type="checkbox" id="edit-toggle" aria-label="Edit"> Edit</label>
+        <span class="editonly"><button class="quiet" data-act="cancel">Cancel</button> <button class="primary" data-act="save">Save</button></span>
+      </div>
+    </div>
+    <div class="banner" id="override-banner">Editing a Stock FX. Save writes a <b>Draft</b> that overrides it; Stock itself is never changed.</div>
+
+    <div class="section">
+      <p class="sub">Hook</p>
+      <div class="grid2">
+        <span class="lbl">Answers</span>
+        <div class="pills" id="s-hook">
+          <button class="pill" aria-pressed="true" data-hook="global">Global Hook: <span id="s-key"></span></button>
+          <button class="pill" aria-pressed="false" data-hook="item">Item Hook: FX Test Caster · <span id="s-key2"></span></button>
+        </div>
+        <span class="lbl editonly">Ability</span>
+        <div class="search editonly"><input type="search" id="s-ability" placeholder="Search abilities" aria-label="Ability"></div>
+        <span class="lbl">Moment</span>
+        <div class="pills"><button class="pill" aria-pressed="true">On use</button><button class="pill" aria-pressed="false">While active</button></div>
+        <span class="lbl">On miss</span>
+        <div class="pills"><button class="pill" aria-pressed="true">Play</button><button class="pill" aria-pressed="false">Skip</button></div>
+        <span class="lbl">Outcome</span>
+        <div class="pills"><button class="pill" aria-pressed="false" disabled>Hit</button><button class="pill" aria-pressed="false" disabled>Miss</button><button class="pill" aria-pressed="false" disabled>Failed save</button><button class="pill" aria-pressed="false" disabled>Damage</button><span class="note">phase 4</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="sub">Sequence</p>
+      <div class="seq" id="s-seq"></div>
+      <div class="pills add"><span class="note">Add</span>
+        <button class="pill" data-add="mark">Mark</button><button class="pill" data-add="shoot">Bolt</button><button class="pill" data-add="strike">Swing</button><button class="pill" data-add="fill">Fill</button><button class="pill" data-add="aura">Aura</button><button class="pill" data-add="beam">Beam</button><button class="pill" data-add="move">Move</button><button class="pill" data-add="sound">Sound</button>
+      </div>
+      <div class="preview"><p class="sub" style="margin-bottom:4px">Preview</p><b id="s-preview"></b></div>
+    </div>
+
+    <div class="section">
+      <p class="sub">Note</p>
+      <input type="text" id="s-note" class="knob" style="width:100%" placeholder="Why this FX, for whoever reads it later">
+    </div>
+  </div>
+</section>
+
+<!-- New FX dialog -->
+<div class="dim" id="dim">
+  <div class="dialog" role="dialog" aria-label="New FX">
+    <h3>New FX</h3>
+    <div class="choices">
+      <button class="choice" aria-pressed="true" data-new="blank"><b>Blank</b><span>An empty sheet. Add to the sequence yourself.</span></button>
+      <button class="choice" aria-pressed="false" data-new="dup"><b>Duplicate</b><span>Start from a copy of an existing FX.</span></button>
+    </div>
+    <div class="search" id="dup-search" style="margin-top:12px;display:none"><input type="search" placeholder="Search FX… Misty Step, Fire Bolt" aria-label="FX to copy"></div>
+    <div class="actions" style="margin-top:16px"><span class="spacer"></span><button class="quiet" data-act="dialog-close">Cancel</button><button class="primary" data-act="dialog-ok">Open sheet</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" data-on="false"></div>
+</div>
+
+<script>
+const FX = {
+  'misty-step': { name:'Misty Step', key:'Misty Step (spell)', source:'house', by:'Matthew', at:'2026-09-06', note:'like Stock, but the second mark waits',
+    seq:[ {shape:'mark', vfx:'JB2A misty step 01', colour:'blue', at:'the caster', size:'100%', sfx:'PSFX misty-step v1', delay:0},
+          {shape:'mark', vfx:'JB2A misty step 02', colour:'blue', at:'the chosen spot', size:'100%', sfx:'', delay:500},
+          {shape:'move', spot:'to an unoccupied space they can see', range:30, delay:0} ] },
+  'sharran-step': { name:'Sharran Step', key:'Sharran Step (spell)', source:'world', by:'Matthew', at:'2026-09-06', note:'like Misty Step',
+    seq:[ {shape:'mark', vfx:'JB2A misty step 01', colour:'dark black', at:'the caster', size:'100%', sfx:'PSFX misty-step v1', delay:0},
+          {shape:'mark', vfx:'JB2A misty step 02', colour:'dark black', at:'the chosen spot', size:'100%', sfx:'', delay:500},
+          {shape:'move', spot:'to an unoccupied space they can see', range:30, delay:0} ] },
+  'necrotic-burst': { name:'Necrotic Burst', key:'Necrotic Burst (natural)', source:'world', by:'Matthew', at:'2026-09-06', note:'',
+    seq:[ {shape:'mark', vfx:'JB2A energy strand', colour:'dark purple', at:'each target', size:'150%', sfx:'PSFX generic burst', delay:0} ] },
+  'fire-bolt': { name:'Fire Bolt', key:'Fire Bolt (spell)', source:'stock', by:'the migration', at:'2026-09-06', note:'D&D5e Animations 3.3.0',
+    seq:[ {shape:'shoot', vfx:'JB2A fire bolt', colour:'orange', to:'each target', size:'100%', sfx:'PSFX fire bolt', delay:0} ] },
+  'magic-missile': { name:'Magic Missile', key:'Magic Missile (spell)', source:'stock', by:'the migration', at:'2026-09-06', note:'D&D5e Animations 3.3.0',
+    seq:[ {shape:'shoot', vfx:'JB2A magic missile', colour:'purple', to:'each target', size:'100%', sfx:'PSFX magic missile', delay:0} ] },
+};
+const TAG = { world:['Draft','draft'], house:['House','house'], stock:['Stock',''] };
+const COLOURS = ['blue','dark black','dark purple','orange','purple','green','red'];
+const PLACES = ['the caster','each target','the chosen spot','the template'];
+const KIND = { mark:'Mark · VFX', shoot:'Bolt · VFX', strike:'Swing · VFX', fill:'Fill · VFX', aura:'Aura · VFX', beam:'Beam · VFX', move:'Move', sound:'Sound · SFX' };
+const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+let open = null, draft = null, cameFrom = 'house';
+
+const line = (s) => {
+  const sz = s.size && s.size !== '100%' ? `, ${s.size}` : '';
+  const d = s.delay ? `, after ${s.delay} ms` : '';
+  switch (s.shape) {
+    case 'mark': return `a mark (${s.vfx} ${s.colour}) on ${s.at}${sz}${d}`;
+    case 'shoot': return `a bolt (${s.vfx} ${s.colour}) shoots from the caster to ${s.to}${d}`;
+    case 'strike': return `a swing (${s.vfx} ${s.colour}) at ${s.to}${d}`;
+    case 'fill': return `the area fills with ${s.vfx} ${s.colour}${d}`;
+    case 'aura': return `an aura (${s.vfx} ${s.colour}) around ${s.at}${sz}${d}`;
+    case 'beam': return `a beam (${s.vfx} ${s.colour}) from the caster to ${s.to}${d}`;
+    case 'move': return `the caster fades and appears at the chosen spot within ${s.range} feet, ${s.spot.replace(/^to /, '')}${d}`;
+    case 'sound': return `sound (${s.sfx || '…'})${d}`;
+  }
+};
+const sentence = (f) => {
+  const parts = f.seq.map(line);
+  const sounds = [...new Set(f.seq.filter((s) => s.sfx && s.shape !== 'sound').map((s) => `(${s.sfx})`))];
+  return `${f.name} · when used · ${parts.join(', and ')}${sounds.length ? ' · with sound ' + sounds.join(' and ') : ''}.`;
+};
+
+function renderLists() {
+  const row = (id) => { const f = FX[id]; const [w, c] = TAG[f.source]; return `<div class="row"><span class="n"><button class="link" data-open="${id}">${f.name}</button> <span class="note">· ${f.key}</span></span>${c ? `<span class="tag ${c}">${w}</span>` : ''}<button class="quiet" data-open="${id}" data-edit="1">Edit</button><button class="quiet">Export</button><button class="quiet">Delete</button></div>`; };
+  $('#house-list').innerHTML = ['sharran-step', 'necrotic-burst', 'misty-step'].map(row).join('');
+  $('#stock-list').innerHTML = ['fire-bolt', 'magic-missile'].map(row).join('');
+}
+
+function showTab(id) { $$('[role=tab]').forEach((t) => t.setAttribute('aria-selected', t.dataset.tab === id)); $$('.pane').forEach((p) => p.dataset.active = p.dataset.pane === id); }
+
+function openSheet(id, edit = false) {
+  open = id; draft = JSON.parse(JSON.stringify(FX[id]));
+  $('#empty').hidden = true; $('#sheet').hidden = false;
+  $('#edit-toggle').checked = edit; setEdit(edit);
+  renderSheet();
+  showTab('editor');
+}
+function setEdit(on) {
+  $('#sheet').dataset.edit = on;
+  $('#view-actions').style.display = on ? 'none' : '';
+  $('#override-banner').dataset.on = on && draft.source === 'stock';
+}
+function renderSheet() {
+  const f = draft; const [w, c] = TAG[f.source];
+  $('#s-name').textContent = f.name;
+  $('#s-tag').textContent = w; $('#s-tag').className = `tag ${c}`;
+  $('#s-hooktag').textContent = 'Global Hook';
+  $('#s-sentence').textContent = sentence(f);
+  $('#s-prov').textContent = `by ${f.by} · ${f.at}${f.note ? ' · ' + f.note : ''}`;
+  $('#s-key').textContent = f.key; $('#s-key2').textContent = f.name; $('#s-ability').value = f.name; $('#s-note').value = f.note;
+  const opt = (list, cur) => list.map((x) => `<option${x === cur ? ' selected' : ''}>${x}</option>`).join('');
+  $('#s-seq').innerHTML = f.seq.map((s, i) => {
+    const f = (col, label, ctrl) => `<div class="f f-${col}"><span class="l">${label}</span><div class="c">${ctrl}</div></div>`;
+    const knobs = [];
+    if (s.shape !== 'move' && s.shape !== 'sound') {
+      knobs.push(f('vfx', 'VFX', `<input type="text" value="${s.vfx}" aria-label="VFX" data-k="vfx" data-i="${i}"><button class="quiet">Browse</button>`));
+      knobs.push(f('colour', 'Colour', `<select data-k="colour" data-i="${i}" aria-label="Colour">${opt(COLOURS, s.colour)}</select>`));
+    }
+    if (s.shape === 'mark' || s.shape === 'aura') knobs.push(f('place', 'At', `<select data-k="at" data-i="${i}" aria-label="At">${opt(PLACES, s.at)}</select>`));
+    if (s.shape === 'shoot' || s.shape === 'strike' || s.shape === 'beam') knobs.push(f('place', 'To', `<select data-k="to" data-i="${i}" aria-label="To">${opt(PLACES, s.to)}</select>`));
+    if (s.size) knobs.push(f('size', 'Size', `<select data-k="size" data-i="${i}" aria-label="Size">${opt(['50%', '75%', '100%', '150%', '200%'], s.size)}</select>`));
+    if (s.shape === 'move') {
+      knobs.push(f('spot', 'Spot', `<select data-k="spot" data-i="${i}" aria-label="Spot">${opt(['to an unoccupied space they can see', 'to an unoccupied space, seen or not', 'to a space they can see', 'to any space'], s.spot)}</select>`));
+      knobs.push(f('range', 'Range', `<input type="number" value="${s.range}" data-k="range" data-i="${i}" aria-label="Range (ft)"><span class="suffix">ft</span>`));
+    }
+    if (s.shape === 'sound') knobs.push(f('vfx', 'SFX', `<input type="text" value="${s.sfx}" placeholder="SFX" aria-label="SFX" data-k="sfx" data-i="${i}"><button class="quiet">Browse</button>`));
+    else if (s.shape !== 'move') knobs.push(f('sfx', 'SFX', `<select data-k="sfx" data-i="${i}" aria-label="SFX">${opt([s.sfx || 'No SFX', ...(s.sfx ? ['No SFX'] : []), 'Find SFX…'], s.sfx || 'No SFX')}</select>`));
+    knobs.push(f('delay', 'Delay', `<input type="number" value="${s.delay}" min="0" step="50" data-k="delay" data-i="${i}" aria-label="Delay (ms)"><span class="suffix">ms</span>`));
+    return `<div class="step" data-kind="${s.shape === 'sound' ? 'sfx' : s.shape === 'move' ? 'move' : 'vfx'}"><span class="num">${i + 1}</span><div><div class="kind">${KIND[s.shape]}</div><div class="knobs">${knobs.join('')}</div></div><div class="tools"><button class="quiet" data-mv="-1" data-i="${i}" aria-label="Up" ${i === 0 ? 'disabled' : ''}>↑</button><button class="quiet" data-mv="1" data-i="${i}" aria-label="Down" ${i === f.seq.length - 1 ? 'disabled' : ''}>↓</button><button class="quiet" data-del="${i}" aria-label="Remove">✕</button></div><div class="line">${line(s)}</div></div>`;
+  }).join('');
+  $('#s-preview').textContent = sentence(f);
+}
+function toast(m) { const t = $('#toast'); t.textContent = m; t.dataset.on = 'true'; clearTimeout(t._x); t._x = setTimeout(() => t.dataset.on = 'false', 2600); }
+
+document.addEventListener('click', (ev) => {
+  const b = ev.target.closest('button'); if (!b) return;
+  if (b.dataset.tab) { showTab(b.dataset.tab); return; }
+  if (b.dataset.open) { cameFrom = $('[role=tab][aria-selected="true"]').dataset.tab; openSheet(b.dataset.open, !!b.dataset.edit); return; }
+  if (b.dataset.act === 'new') { $('#dim').dataset.on = 'true'; return; }
+  if (b.dataset.act === 'dialog-close') { $('#dim').dataset.on = 'false'; return; }
+  if (b.dataset.new) { $$('.choice').forEach((c) => c.setAttribute('aria-pressed', c === b)); $('#dup-search').style.display = b.dataset.new === 'dup' ? '' : 'none'; return; }
+  if (b.dataset.act === 'dialog-ok') {
+    $('#dim').dataset.on = 'false';
+    const dup = $('.choice[aria-pressed="true"]').dataset.new === 'dup';
+    FX['new-fx'] = dup ? { ...JSON.parse(JSON.stringify(FX['misty-step'])), name: 'New FX', key: '— pick an ability —', source: 'world', by: 'Matthew', at: 'today', note: 'like Misty Step' } : { name: 'New FX', key: '— pick an ability —', source: 'world', by: 'Matthew', at: 'today', note: '', seq: [] };
+    cameFrom = 'house'; openSheet('new-fx', true); return;
+  }
+  if (b.dataset.act === 'back') { $('#sheet').hidden = true; $('#empty').hidden = false; showTab(cameFrom); return; }
+  if (b.dataset.act === 'cancel') { draft = JSON.parse(JSON.stringify(FX[open])); $('#edit-toggle').checked = false; setEdit(false); renderSheet(); toast('Changes dropped.'); return; }
+  if (b.dataset.act === 'save') {
+    if (draft.source === 'stock') { draft.source = 'world'; draft.by = 'Matthew'; draft.at = 'today'; }
+    if (draft.source === 'house') { draft.source = 'world'; }
+    FX[open] = JSON.parse(JSON.stringify(draft)); $('#edit-toggle').checked = false; setEdit(false); renderSheet(); renderLists(); toast(`Saved: ${draft.name} (Draft).`); return;
+  }
+  if (b.dataset.act === 'dup') { FX['dup'] = { ...JSON.parse(JSON.stringify(FX[open])), name: `${FX[open].name} copy`, source: 'world', by: 'Matthew', at: 'today', note: `like ${FX[open].name}` }; openSheet('dup', true); toast('Copy open. Pick its ability, then Save.'); return; }
+  if (b.dataset.act === 'export') { toast(`Exported: ${draft.name}.`); return; }
+  if (b.dataset.act === 'delete') { toast('Delete asks first, then deletes for good.'); return; }
+  if (b.dataset.add) { const sh = b.dataset.add; draft.seq.push(sh === 'move' ? { shape: 'move', spot: 'to an unoccupied space they can see', range: 30, delay: 0 } : sh === 'sound' ? { shape: 'sound', sfx: '', delay: 0 } : { shape: sh, vfx: 'JB2A …', colour: 'blue', at: 'the caster', to: 'each target', size: '100%', sfx: '', delay: 0 }); renderSheet(); return; }
+  if (b.dataset.del !== undefined) { draft.seq.splice(Number(b.dataset.del), 1); renderSheet(); return; }
+  if (b.dataset.mv) { const i = Number(b.dataset.i), j = i + Number(b.dataset.mv); [draft.seq[i], draft.seq[j]] = [draft.seq[j], draft.seq[i]]; renderSheet(); return; }
+  if (b.dataset.hook) { $$('#s-hook .pill').forEach((p) => p.setAttribute('aria-pressed', p === b)); $('#s-hooktag').textContent = b.dataset.hook === 'item' ? 'Item Hook' : 'Global Hook'; return; }
+  if (b.classList.contains('pill') && b.parentElement.classList.contains('pills') && !b.disabled && $('#sheet').dataset.edit === 'true') { [...b.parentElement.children].forEach((p) => p.tagName === 'BUTTON' && p.setAttribute('aria-pressed', p === b)); }
+});
+document.addEventListener('change', (ev) => {
+  const el = ev.target;
+  if (el.id === 'edit-toggle') { setEdit(el.checked); return; }
+  if (el.dataset.k !== undefined && draft) { const s = draft.seq[Number(el.dataset.i)]; let v = el.value; if (el.dataset.k === 'sfx' && v === 'No SFX') v = ''; if (el.dataset.k === 'delay' || el.dataset.k === 'range') v = Number(v) || 0; s[el.dataset.k] = v; renderSheet(); }
+  if (el.id === 's-note' && draft) draft.note = el.value;
+  if (el.id === 's-ability' && draft) { draft.name = el.value || draft.name; draft.key = `${el.value} (spell)`; renderSheet(); }
+});
+renderLists();
+</script>

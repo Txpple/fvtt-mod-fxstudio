@@ -500,6 +500,52 @@ that order, Look up kept for now and put last because another pass will change i
 follow the names (`stock`, `house`, `editor`, `library`, `audit`, `lookup`; `api.open({tab})`).
 Built the same evening, 73 of 73.
 
+### The FX sheet (ruled 2026-09-06 off `prototypes/fxstudio5-editor.html`, built the same evening)
+
+The user, off the Ability step of the walk: "the fx editor is super confusing and the wizard
+doesnt work well with how this has evolved" — step 1 and 2 should merge, "scenes makes no
+sense", Trigger could not be reached; clicking an FX anywhere should land on one easy screen to
+view and edit, with a guard so nothing is edited by accident; Duplicate and Blank make sense,
+Starter "is just weird". The proposal, ruled off the prototype and its three iterations (rows
+made distinct by a stripe and a numbered badge per kind; the knobs as labelled fields in fixed
+columns so nothing drifts with the window's width): **one sheet per FX**, `scripts/ui/sheet.js`,
+the walk (`create.js`) deleted.
+
+The sheet opens from a name or Edit on Stock FX or House FX, from *Used in* on the Asset
+Library, from *Open FX* or *Create FX* on the Look up card, from a No-FX pill on Audit, and from
+*New FX* on House FX (a blank sheet; its empty Sequence offers *Copy from*, which is Duplicate
+by another door; Starter is gone — Add seeds a row from the starter of that shape, so nothing is
+lost). The FX Editor tab is the open sheet, with Back to the tab it came from. The header is
+the name, the tags (Stock / House / Draft, Global Hook / Item Hook, Off), the id in mono (what
+macros, the API and the files speak), the sentence, the provenance. The **Edit switch** is the
+guard: off, the sheet is read-only and offers Duplicate, Export and Delete — or *Revert to
+Stock* / *Revert to House* when a Draft sits over one, since that is what happens; on, every
+control unlocks and the buttons are Cancel and Save. Save is disabled while the API's validator
+names a problem (shown by the button), asks nothing, and always writes a Draft: editing Stock or
+House shows a banner saying so, and the file is never touched. Leaving an unlocked sheet with
+changes — another tab, another FX, the window closing — asks first.
+
+Three blocks. **Hook**: every key the FX answers as a pill (more than one: Misty Step answers
+the spell and the feature), removable, with an add-ability search whose "New ability" offers
+the Type pills (Spell, Weapon, Feature, Item, Effect); the Item Hook pill when the sheet was
+opened from an item on a sheet (its id becomes the ability's plus the owner's, the Global Hook
+untouched); State (Plays / Off — an off FX is shown honestly and can be switched back on);
+Moment; On miss; the outcomes waiting on phase 4. **Sequence** (the word ruled over Scenes):
+one row per scene, numbered and striped by kind (VFX teal, SFX amber, Move green), the knobs in
+fixed columns — VFX, Colour, At/To, Size, SFX, Lasts (once / while the effect lasts / while the
+template stands / until removed), Delay (ms), Then · wait for it to finish (the grammar's `wait`,
+"then" in the sentence) — up, down and remove, Add pills with tooltips, the plain-English line
+under each row and the Preview sentence, both kept on the user's word. **Note**: one line.
+
+Measured: `tools/smoke-screens.mjs` 84 of 84 (a new sheet hooked and seeded by Copy from; the
+fields, the stripes, the delay, wait, lasts and reorder read back; Save then the locked sheet;
+Open FX → Edit → Item Hook → Save; Cancel dropping a change; the picker door from an unlocked
+sheet; the override banner on a House FX). The other suites and the offline checks green. One
+platform fact found while building: `a ?? b || c` is a SyntaxError in Chrome (the spec forbids
+mixing `??` with `||` unparenthesised) though `node --check` let it through — the module failed
+to load until the parentheses went in; `tools/smoke-boot.mjs` says "the module has no api: did
+it load?" when that happens.
+
 ### What the prototype had that is not built
 
 The *Automatic* tab was the derivation rules, parked by PLAN §7; phase 4 gives that tab the outcome

@@ -15,15 +15,20 @@ same author, same conventions — plain ES modules, no build step, no patching, 
 socketlib, MIT.
 
 **Status (end of 2026-09-06): phase 3 (the screens) built and iterated in-game with the user, all
-green on the sandbox and UNCOMMITTED at the session's end (commit on the user's word first).** The
+green on the sandbox. Committed up to 2571f69 (the vocabulary pass and the tab rename). UNCOMMITTED
+and deployed to the sandbox, waiting on the user's in-game test and their word to commit: the FX
+sheet (`scripts/ui/sheet.js`, the wizard `create.js` deleted, DESIGN §8 *The FX sheet*), the
+sentence's sound clause `with sound (PSFX x)`, the Battle Flow backlog ruling (PLAN §5, BACKLOG),
+and `prototypes/fxstudio5-editor.html`. The user tests in a new session; iterate off screenshots,
+hold until "go".** The
 vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens), and
 since the evening's pass **terms, not sentences** (DESIGN §8 *A tool, not prose*): Stock / House /
 Draft for where an FX lives (baseline renamed stock end to end), Global Hook / Item Hook for its
 reach, staged not bound; the FX's own sentence and each scene's line are kept on purpose; the
-walk is four steps (Ability, Source, Scenes, Trigger) ending in Save; the tabs are, in order, Stock FX (maintainers only, behind a client setting), House FX
+wizard is gone: the FX Editor is ONE SHEET per FX with an Edit switch as the guard, Hook / Sequence / Note blocks, Save always a Draft (DESIGN §8 *The FX sheet*); the tabs are, in order, Stock FX (maintainers only, behind a client setting), House FX
 (two sub-tabs, Global Hook and Item Hook), FX Editor, Asset Library, Audit, Look up (last; another
 pass on it is coming). Delete is for good
-(`api.corpus.erase`). `tools/smoke-screens.mjs` is 73 of 73; DESIGN §8 records every ruling of the
+(`api.corpus.erase`). `tools/smoke-screens.mjs` is 84 of 84; DESIGN §8 records every ruling of the
 day in order. The user iterates by sending screenshots and comments, asking to aggregate and hold
 until "go"; nothing of phase 4 (outcomes and moments, PLAN §6) starts before that word. Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,

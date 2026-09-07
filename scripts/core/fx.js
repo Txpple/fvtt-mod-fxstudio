@@ -288,7 +288,7 @@ export function pathWords(path) {
   const rest = parts.slice(1).map((p) => p.replace(/_/g, ' ')).join(' ');
   return `${lib} ${rest}`.trim();
 }
-const soundWords = (s) => (s?.asset ? `with the ${assetWords(s.asset)} sound` : '');
+const soundWords = (s) => (s?.asset ? `with sound (${assetWords(s.asset)})` : '');
 const persistWords = { effect: 'for as long as the effect stands', template: 'for as long as the template stands', 'until-removed': 'until it is removed', none: '' };
 const sizeWords = (size) => {
   if (!size) return '';
@@ -355,7 +355,7 @@ export function sceneWords(scene) {
       const spot = s.seen && s.unoccupied ? ', an unoccupied space they can see' : s.seen ? ', a space they can see' : s.unoccupied ? ', an unoccupied space' : '';
       return tail(`the caster ${s.fade ? 'fades and ' : ''}${s.jump ? 'appears' : 'travels'} at the chosen spot${s.range ? ` within ${s.range} feet` : ''}${spot}${s.pick === 'movement' ? ', read from the token\'s own move' : ''}`);
     }
-    case 'sound': return `the ${a} sound`;
+    case 'sound': return `sound (${a})`;
     case 'custom': return 'a custom effect';
     default: return `(${s.shape})`;
   }
@@ -363,7 +363,7 @@ export function sceneWords(scene) {
 
 /**
  * The sentence for an FX: "Fire Bolt · when used · a bolt (JB2A fire bolt, orange) shoots from the
- * caster to each target and flies past on a miss · with the PSFX fire bolt sound."
+ * caster to each target and flies past on a miss · with sound (PSFX fire bolt)." — the sound clause mirrors the VFX form (the user, 2026-09-06)
  * @param fx   an expanded fx (no `like` left)
  * @param opts   {name: what to call it (the subject's name); short: no provenance}
  */
@@ -376,15 +376,15 @@ export function sentence(fx, { name = null } = {}) {
   const clauses = [];
   const sounds = [];
   scenes.forEach((s, i) => {
-    if (s.shape === 'sound') { sounds.push(`the ${assetWords(s.asset)} sound`); return; }
+    if (s.shape === 'sound') { sounds.push(`(${assetWords(s.asset)})`); return; }
     const words = sceneWords(s);
     const prev = scenes[i - 1];
     const joiner = i === 0 ? '' : prev?.wait ? 'then ' : 'and ';
     clauses.push(joiner + words);
-    if (s.sound?.asset) sounds.push(soundWords(s.sound).replace(/^with /, ''));
+    if (s.sound?.asset) sounds.push(soundWords(s.sound).replace(/^with sound /, ''));
   });
   let body = clauses.join(', ');
-  if (sounds.length) body += ` · with ${[...new Set(sounds)].join(' and ')}`;
+  if (sounds.length) body += ` · with sound ${[...new Set(sounds)].join(' and ')}`;
   return `${titleWords(head)} · ${when} · ${body}.`;
 }
 

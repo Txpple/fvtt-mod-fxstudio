@@ -175,7 +175,7 @@ export function makeApi(state) {
     return out;
   };
 
-  /** open the screens: {tab: 'stock' | 'house' | 'editor' | 'library' | 'audit' | 'lookup', item: an Item to look up, id: an FX id (Look up, or the walk when tab is 'create'), key} */
+  /** open the screens: {tab: 'stock' | 'house' | 'editor' | 'library' | 'audit' | 'lookup', item: an Item to look up, id: an FX id (Look up, or the sheet when tab is 'create'), key} */
   const open = (opts = {}) => state.open?.(opts) ?? null;
 
   const assets = {

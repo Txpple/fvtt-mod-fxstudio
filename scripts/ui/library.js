@@ -8,13 +8,14 @@
 import { MODULE_ID } from '../settings.js';
 import { assetsOf } from '../core/fx.js';
 import { esc, idWords } from './html.js';
+import { leaveSheet, openSheet } from './sheet.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const FEET = /^\d+ft$/;
 const words = (s) => String(s).replace(/[_-]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 const LIB_WORDS = { jb2a: ['VFX · JB2A'], psfx: ['SFX · PSFX'] };
 
-/** the Library's view state on the window; `pick` is set by the walk: {i, slot: 'asset' | 'sound'} */
+/** the Library's view state on the window; `pick` is set by the sheet: {i, slot: 'asset' | 'sound'} */
 export function libraryState(app) {
   app.view.library ??= { lib: 'jb2a', q: '', only: null, sel: null, vi: 0, pick: null };
   return app.view.library;
@@ -103,7 +104,7 @@ export function renderLibrary(app) {
   for (const r of rows) (groups.get(r.group) ?? groups.set(r.group, []).get(r.group)).push(r);
   const list = [...groups.entries()].map(([g, items]) => `<div class="letter">${esc(g)}</div>${items.map((r) => `<button type="button" class="row" data-act="lib-sel" data-id="${esc(r.id)}" aria-current="${r.id === L.sel}"><span class="dot ${r.used ? 'stock' : 'none'}"></span><span class="n">${esc(r.name)}</span><span class="c">${r.variants.length}</span></button>`).join('')}`).join('');
   const pick = L.pick;
-  const subjectName = app.walk?.subject?.name ?? 'the FX';
+  const subjectName = app.sheet?.subject?.name ?? (app.sheet?.keys?.[0] ? idWords(app.sheet.keys[0].split(':').slice(1).join(':')) : 'the FX');
   const banner = pick ? `<div class="picking"><span><b>${pick.slot === 'sound' ? 'SFX' : 'VFX'}</b> for <b>${esc(subjectName)}</b> · scene ${pick.i + 1}</span><span class="spacer"></span><button type="button" class="quiet" data-act="lib-pick-back">Back</button><button type="button" class="primary" data-act="lib-pick-use" ${v ? '' : 'disabled'}>Use</button></div>` : '';
   let stage;
   if (!it) stage = '<div class="frame"><div class="name">No match</div></div>';
@@ -170,9 +171,9 @@ async function playSound(app, v) {
   } catch (e) { app.toast(`Could not play it: ${e.message}`); }
 }
 
-/** the walk's line takes the current variant: its VFX, or its SFX */
+/** the sheet's scene takes the current variant: its VFX, or its SFX */
 function applyPick(app, pick, v) {
-  const x = app.walk?.scenes?.[pick.i];
+  const x = app.sheet?.scenes?.[pick.i];
   if (!x || !v) return false;
   if (pick.slot === 'sound') { if (x.scene.shape === 'sound') x.scene.asset = { path: v.path }; else x.scene.sound = { ...(x.scene.sound ?? {}), asset: v.path }; }
   else x.scene.asset = { path: v.path };
@@ -189,11 +190,12 @@ export async function onLibraryClick(app, b, act) {
     case 'lib-only': L.only = L.only === b.dataset.only ? null : b.dataset.only; L.sel = null; return rerender(app);
     case 'lib-play': return playSound(app, v);
     case 'lib-copy': { try { await (game.clipboard?.copyPlainText ? game.clipboard.copyPlainText(b.dataset.text) : navigator.clipboard.writeText(b.dataset.text)); app.toast('Copied.'); } catch { app.toast('Could not copy.'); } return undefined; }
-    case 'lib-open-fx': app.showFx(b.dataset.id); return app.render();
+    case 'lib-open-fx': { if (!(await leaveSheet(app))) return undefined; openSheet(app, { id: b.dataset.id }); return app.render(); }
     case 'lib-use': {
       if (!v) return undefined;
-      const w = app.startWalk({ scenes: [seedFx(L, v).scenes[0]] });
-      if (w) app.toast(`Scene 1: ${it.name}. Pick an ability.`);
+      if (!(await leaveSheet(app))) return undefined;
+      openSheet(app, { scenes: [seedFx(L, v).scenes[0]] });
+      app.toast(`Scene 1: ${it.name}. Add its hook.`);
       return app.render();
     }
     case 'lib-pick-use': { const pick = L.pick; if (pick && applyPick(app, pick, v)) { L.pick = null; app.view.tab = 'editor'; app.toast(`Scene ${pick.i + 1}: ${it.name}${v.label ? ` ${words(v.label)}` : ''}.`); } return app.render(); }
@@ -223,7 +225,7 @@ export function onLibraryChange(app, el) {
   return undefined;
 }
 
-/** the walk opens the Library to pick a line's VFX or SFX */
+/** the sheet opens the Library to pick a scene's VFX or SFX */
 export function openPicker(app, i, slot) {
   const L = libraryState(app);
   L.pick = { i, slot };
