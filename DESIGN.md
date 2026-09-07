@@ -560,3 +560,72 @@ offline checks are green after the change. Two platform facts found while
 building: ApplicationV2 reserves `state` on the instance (the window's view state is `view`), and
 dnd5e's sheets put every header control into a dropdown, so the sheet button is both a header
 button (dnd5e's own copy-uuid markup) and a dropdown entry.
+
+### The bug-testing pass (2026-09-07, the user's list of seventeen, ruled and built the same day)
+
+The user drove the screens in-game and sent seventeen things. All of them are built; the words
+below are the rulings, in the order they were given.
+
+**The Asset Library.** The *Used in* lines were dead text; they are buttons now, and clicking one
+loads that exact path in the viewer — the variant it belongs to, and, when the path names one file
+inside a variant (`…light.v1.group01.0`), that file: the stage plays it, the Sequencer path box
+shows it, and *Use* hands that path on. A path shallower than any variant (`…light.v1`) selects the
+first variant under it. Fixing this uncovered a latent bug: the panel keyed its lines by the
+*display label* (`V1.Group01`) while the viewer's own label is `V1 Group01`, so no line was ever
+marked as the current one and the dropdown never showed `· N FX` for a nested variant. Everything
+is keyed by path now (`usersOf` returns `Map<path, [FX]>`), and a variant's count includes the FX
+that name one file inside it.
+
+**One deep-link, three doors.** `focusPath(app, path)` points the Library at a library path — its
+library, family, variant and file — clearing any filter in the way. The used-in lines come through
+it (above), *Browse* on a scene row opens the Library **on what that row already names** instead of
+at the top of the list, and on a locked sheet the VFX and SFX values are themselves links that open
+the Library there with a *Back* (the picking banner, without *Use*). While the sheet is unlocked the
+value stays a typing box — it is also the search — and Browse is the door.
+
+**The scene row.** The VFX field showed the *family*; it shows the whole path in words now, as the
+SFX field always did, so picking another variant of the same family visibly changes something. *Find
+SFX…* is gone from the SFX select, and the inline Find SFX row with it: Browse covers it, and the
+option had a trap — choosing it dropped the sound that was there. **Opacity** and **Tint** (a colour
+picker with a clear) are knobs at last; the model always carried them and the sentence always read
+them back. The knobs were laid out in fixed labelled columns, which held a column open for every
+field a shape does not have — a hole between Colour and Size on a Fill, half a row of nothing on a
+Move. They pack left and wrap now (flex, not grid): measured on the sandbox, every one of the nine
+shapes has no gap wider than the 10px column gap, on every line.
+
+**The sheet.** The header's id, sentence and by-line collided; they are set with the Preview's
+line-height and measure, and each has its own line (measured: no overlap). The action bar reflowed
+when Edit flipped — buttons appearing and disappearing under the cursor. It is static now: `‹ Back ·
+New FX · Duplicate · Export · Delete/Revert · [Edit] · Cancel · Save`, always seven, whatever the
+mode does not offer greyed out. **New FX** joined it because a sheet with an FX open had no way to
+start another. The empty FX Editor read like a broken paragraph; it is one card and one button, like
+every other tab. The **Outcome** row (Hit / Miss / Failed save / Damage, greyed, "phase 4") is off
+the sheet: outcomes come back when phase 4 is built, not as furniture.
+
+**The lists.** *Showing 500. Search to narrow.* is replaced by **Load more**, which brings in the
+next 500 and says how many are left, on Stock FX and House FX both. A Stock row offers **View**, not
+Edit — stock opens read-only and the Edit switch is the guard, so the button says what it does.
+
+**The Maintain card moved to Audit.** The user did not want it under the Stock FX list. It is the
+same card (drafts, staging, the ship, the record, Import to Stock), still behind the maintainer
+setting, at the foot of Audit. `api.open({tab: 'audit'})` is where a maintainer goes now.
+
+**Found while testing, not asked for.** 502 of the 634 assets the migration keyed as `"file"` are
+really library paths (no slash in them). They play — Sequencer takes a path where a file is asked
+for — but the screens treat them as raw files: no Colour dropdown, and until `slotPath` was widened
+to accept a slashless file, no deep-link either. Re-keying them `"path"` in the corpus is parked for
+the user's word (BACKLOG).
+
+Measured: `tools/smoke-screens.mjs` 100 of 100 (the used-line deep-link and its file index; Load
+more; View; the Maintain card on Audit; the static bar in both modes; the VFX field's variant;
+Browse landing on the scene's own VFX and its own SFX, and Use writing both back; no Find SFX;
+Opacity and Tint read back in the sentence; no outcomes). `smoke-fx` 1294, `smoke-author` 12 of 12,
+`smoke-replay` 45 of 45, `check-fx` and the three offline checks green.
+
+One harness fact, paid for in a long hunt: a TypeError thrown inside the page function of
+`f.evaluate` **crashes the renderer** rather than rejecting the call, and the suite then hangs until
+the watchdog — the symptom is `[foundry] page not ready — reconnecting` and no results at all. It
+was `$$('…')` written as `$('…')`: a `$$` inside a `String.replace` replacement is an escape for a
+literal `$`, so a patch script silently halved every selector it wrote. `FX_TRACE=1` on any suite
+now prints `PAGE CRASH`, page errors and page console errors (`tools/lib/foundry.mjs`), which is how
+it was finally cornered.

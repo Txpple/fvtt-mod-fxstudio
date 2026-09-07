@@ -72,6 +72,15 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 - **The PSFX free build** (0.16.0) is only needed to re-point regrouped sounds; every sound in the
   corpus resolves on this install without it.
 
+## Found while bug testing (2026-09-07)
+
+- **502 migrated assets are keyed `"file"` when they are library paths** (of 634 with that key:
+  `{"file": "jb2a.scorched_earth.black"}`, no slash in it). They play — Sequencer takes a path
+  where a file is asked for — but the screens read them as raw files: no Colour dropdown on the
+  scene row, and the deep-link into the Asset Library only works because `slotPath` now accepts a
+  slashless file. Re-keying them `"path"` in `recipes/stock/*.json` is a one-pass tool and a
+  measurable diff; parked for the user's word.
+
 ## Later phases (PLAN §6)
 
 - Phase 3 is built. Parked from it (DESIGN §8): the prototype's *Automatic* tab (its rules are

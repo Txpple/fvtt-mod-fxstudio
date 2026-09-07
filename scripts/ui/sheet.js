@@ -32,7 +32,6 @@ const SHAPE_HELP = {
   move: 'The caster fades and reappears at the chosen spot. Misty Step and every teleport.',
   sound: 'An SFX on its own, with no VFX.',
 };
-const OUTCOMES = ['Hit', 'Miss', 'Failed save', 'Damage'];
 const PERSIST_WORDS = { none: 'Once', effect: 'While the effect lasts', template: 'While the template stands', 'until-removed': 'Until removed' };
 const canMiss = (scene) => ['strike', 'shoot', 'mark'].includes(scene.shape);
 const hasPicture = (scene) => !['sound', 'move', 'custom'].includes(scene.shape);
@@ -148,7 +147,7 @@ const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.
 export function renderSheet(app) {
   const a = api();
   const s = app.sheet;
-  if (!s) return `<div class="card"><div class="sub">FX Editor</div><p class="note">No FX open. Pick one from Stock FX or House FX, or <button type="button" class="quiet inline" data-act="sh-new">New FX</button>.</p></div>`;
+  if (!s) return `<div class="stack"><div class="card"><div class="sub">FX Editor</div><p class="note">No FX open. Pick one from Stock FX or House FX, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button></div></div></div>`;
   const edit = s.edit;
   const fx = safeDraft(app);
   const problems = edit ? problemsOf(app) : [];
@@ -162,11 +161,17 @@ export function renderSheet(app) {
   const sentence = fx ? a.fx.sentence(fx, { name }) : '';
   const prov = s.original ? provenance(s.original) : '';
   const deleteWord = under ? `Revert to ${SOURCE_TAG[under]}` : 'Delete';
+  // the bar never reflows: every control keeps its place, and what the mode does not offer is greyed
+  const onSaved = !edit && !!s.id;
   const lockbar = `<div class="lockbar">
       <button type="button" class="quiet" data-act="sh-back">‹ Back</button>
-      ${!edit && s.id ? `<button type="button" data-act="sh-dup">Duplicate</button><button type="button" class="quiet" data-act="sh-export">Export</button><button type="button" class="quiet danger" data-act="sh-delete">${deleteWord}</button>` : ''}
+      <button type="button" class="quiet" data-act="sh-new">New FX</button>
+      <button type="button" data-act="sh-dup" ${onSaved ? '' : 'disabled'}>Duplicate</button>
+      <button type="button" class="quiet" data-act="sh-export" ${onSaved ? '' : 'disabled'}>Export</button>
+      <button type="button" class="quiet danger" data-act="sh-delete" ${onSaved ? '' : 'disabled'}>${deleteWord}</button>
       <label class="switch"><input type="checkbox" class="sh-edit" aria-label="Edit" ${edit ? 'checked' : ''}> Edit</label>
-      ${edit ? `<button type="button" class="quiet" data-act="sh-cancel">Cancel</button><button type="button" class="primary" data-act="sh-save" ${problems.length ? 'disabled' : ''}>Save</button>` : ''}
+      <button type="button" class="quiet" data-act="sh-cancel" ${edit ? '' : 'disabled'}>Cancel</button>
+      <button type="button" class="primary" data-act="sh-save" ${edit && !problems.length ? '' : 'disabled'}>Save</button>
     </div>`;
   const banner = edit && (s.source === 'stock' || s.source === 'house') ? `<div class="banner">Editing ${SOURCE_TAG[s.source]}. Save writes a <b>Draft</b> that overrides it; ${SOURCE_TAG[s.source]} itself is not changed.</div>` : '';
   const problem = edit && problems.length ? `<p class="bad problem">${esc(problems[0])}</p>` : '';
@@ -203,7 +208,6 @@ function renderHook(app) {
     <span class="lbl">State</span><div class="pills">${pills([[false, 'Plays'], [true, 'Off']], s.off, 'sh-off', 'v')}</div>
     <span class="lbl">Moment</span><div class="pills">${pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')}</div>
     ${s.scenes.some((x) => canMiss(x.scene)) ? `<span class="lbl">On miss</span><div class="pills">${pills([['play', 'Play'], ['skip', 'Skip']], s.onMiss, 'sh-miss', 'v')}</div>` : ''}
-    <span class="lbl">Outcome</span><div class="pills">${OUTCOMES.map((o) => `<button type="button" class="pill" disabled>${o}</button>`).join('')}<span class="soon">phase 4</span></div>
   </div>`;
 }
 
@@ -216,6 +220,14 @@ function sceneRow(app, { scene, scale }, i) {
   const sc = withDefaults(scene);
   const dis = s.edit ? '' : 'disabled';
   const f = [];
+  // a picture or a sound the scene names: the whole path in words (the variant, not just the family),
+  // typed against the library when the sheet is unlocked, a link to it in the Asset Library when it is not
+  const slotField = (col, label, slot, klass, path, empty) => {
+    const shown = pathWords(path ?? '') || empty;
+    return field(col, label, s.edit
+      ? `<span class="search"><input type="text" class="${klass}" data-i="${i}" value="${esc(pathWords(path ?? ''))}" placeholder="${label}" aria-label="${label}" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="${slot}" title="Asset Library">Browse</button>`
+      : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="${slot}" title="Asset Library">${esc(shown)}</button>`);
+  };
   if (hasPicture(scene)) {
     const res = a.assets.resolve(scene.asset);
     const path = res.path ?? '';
@@ -223,13 +235,10 @@ function sceneRow(app, { scene, scale }, i) {
     const colours = family ? a.assets.colours(family) : [];
     const worn = path.split('.').pop();
     const colour = colours.includes(worn) ? worn : '';
-    f.push(field('vfx', 'VFX', `<span class="search"><input type="text" class="cw-asset" data-i="${i}" value="${esc(pathWords(family ?? path) || (scene.asset?.file ? scene.asset.file.split('/').pop() : ''))}" placeholder="VFX" aria-label="VFX" autocomplete="off" ${dis}><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="asset" title="Asset Library">Browse</button>`));
+    f.push(slotField('vfx', 'VFX', 'asset', 'cw-asset', path || (scene.asset?.file ?? ''), 'No VFX'));
     f.push(field('colour', 'Colour', `<select class="cw-colour" data-i="${i}" aria-label="Colour" ${colours.length && s.edit ? '' : 'disabled'}>${colours.length ? colours.map((c) => `<option value="${esc(c)}"${c === colour ? ' selected' : ''}>${esc(colourWords(c))}</option>`).join('') : '<option value="">One colour</option>'}</select>`));
   }
-  if (scene.shape === 'sound') {
-    const res = a.assets.resolve(scene.asset);
-    f.push(field('vfx', 'SFX', `<span class="search"><input type="text" class="cw-sound-q" data-i="${i}" value="${esc(pathWords(res.path ?? ''))}" placeholder="SFX" aria-label="SFX" autocomplete="off" ${dis}><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="Asset Library">Browse</button>`));
-  }
+  if (scene.shape === 'sound') f.push(slotField('vfx', 'SFX', 'sound', 'cw-sound-q', a.assets.resolve(scene.asset).path ?? '', 'No SFX'));
   if (['strike', 'shoot', 'beam'].includes(scene.shape)) f.push(field('place', 'To', `<select class="cw-place" data-i="${i}" data-k="to" aria-label="To" ${dis}>${placeOptions(sc.to)}</select>`));
   else if (['mark', 'aura'].includes(scene.shape)) f.push(field('place', 'At', `<select class="cw-place" data-i="${i}" data-k="at" aria-label="At" ${dis}>${placeOptions(sc.at)}</select>`));
   if (sc.size) f.push(field('size', 'Size', `<select class="cw-size" data-i="${i}" aria-label="Size" ${dis}>${SCALES.map(([v, wd]) => `<option value="${v}"${Number(scale) === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`));
@@ -238,11 +247,21 @@ function sceneRow(app, { scene, scale }, i) {
     f.push(field('spot', 'Spot', `<select class="cw-spot" data-i="${i}" aria-label="Spot" ${dis}>${[['seen-unoccupied', 'to an unoccupied space they can see'], ['unoccupied', 'to an unoccupied space, seen or not'], ['seen', 'to a space they can see'], ['any', 'to any space']].map(([v, wd]) => `<option value="${v}"${spot === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`));
     f.push(field('range', 'Range', `<input type="number" class="cw-range" data-i="${i}" value="${esc(String(sc.range ?? 30))}" min="5" step="5" aria-label="Range (ft)" ${dis}><span class="suffix">ft</span>`));
   }
+  if (hasPicture(scene)) {
+    const op = Math.round((sc.opacity ?? 1) * 100);
+    f.push(field('opacity', 'Opacity', `<input type="number" class="cw-opacity" data-i="${i}" value="${op}" min="0" max="100" step="5" aria-label="Opacity (%)" ${dis}><span class="suffix">%</span>`));
+    const tint = scene.tint?.colour ?? '';
+    f.push(field('tint', 'Tint', s.edit
+      ? `<input type="color" class="cw-tint" data-i="${i}" value="${esc(tint || '#ffffff')}" aria-label="Tint">${tint ? `<button type="button" class="quiet" data-act="cw-tint-off" data-i="${i}" title="No tint" aria-label="No tint">✕</button>` : '<span class="suffix">none</span>'}`
+      : (tint ? `<span class="swatch" style="background:${esc(tint)}"></span><span class="suffix">${esc(tint)}</span>` : '<span class="suffix">none</span>')));
+  }
+  // the SFX a picture scene carries; Browse is the only door (Find SFX retired 2026-09-07)
   if (scene.shape !== 'sound' && scene.shape !== 'custom' && scene.shape !== 'move') {
     const has = !!scene.sound?.asset;
-    const finding = s.finding === i;
-    f.push(field('sfx', 'SFX', `<select class="cw-sound" data-i="${i}" aria-label="SFX" ${dis}><option value="keep"${finding ? '' : ' selected'}>${has ? esc(pathWords(a.assets.resolve(scene.sound.asset).path ?? '')) : 'No SFX'}</option>${has ? '<option value="none">No SFX</option>' : ''}<option value="find"${finding ? ' selected' : ''}>Find SFX…</option></select><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="Asset Library">Browse</button>`));
-    if (finding) f.push(field('sfxq', 'Find SFX', `<span class="search"><input type="text" class="cw-sound-q" data-i="${i}" placeholder="SFX" aria-label="Find SFX" autocomplete="off"><div class="suggest" data-open="false"></div></span>`));
+    const words = has ? pathWords(a.assets.resolve(scene.sound.asset).path ?? '') : 'No SFX';
+    f.push(field('sfx', 'SFX', s.edit
+      ? `<select class="cw-sound" data-i="${i}" aria-label="SFX"><option value="keep" selected>${esc(words)}</option>${has ? '<option value="none">No SFX</option>' : ''}</select><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="Asset Library">Browse</button>`
+      : (has ? `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="sound" title="Asset Library">${esc(words)}</button>` : '<span class="suffix">No SFX</span>')));
   }
   if (canPersist(scene)) f.push(field('lasts', 'Lasts', `<select class="cw-persist" data-i="${i}" aria-label="Lasts" ${dis}>${Object.entries(PERSIST_WORDS).map(([v, w]) => `<option value="${v}"${(sc.persist ?? 'none') === v ? ' selected' : ''}>${w}</option>`).join('')}</select>`));
   if (scene.shape !== 'custom') {
@@ -268,6 +287,18 @@ function renderSequence(app) {
 // -----------------------------------------------------------------------------------------------
 // events (the window routes every act that starts with sh- or cw- here)
 // -----------------------------------------------------------------------------------------------
+/** the library path one slot of a scene names, or null */
+function slotPath(s, i, slot) {
+  const a = api();
+  const x = s.scenes[i];
+  if (!x) return null;
+  const asset = slot === 'sound' ? (x.scene.shape === 'sound' ? x.scene.asset : x.scene.sound?.asset) : x.scene.asset;
+  if (!asset) return null;
+  const r = a.assets.resolve(asset);
+  // some migrated rows keep a library path under "file"; a slashless file is a path
+  return r.path ?? (typeof r.file === "string" && !r.file.includes("/") ? r.file : null);
+}
+
 export async function onSheetClick(app, b, act) {
   const a = api();
   if (act === 'sh-new') { if (!(await leaveSheet(app))) return undefined; openSheet(app, {}); return app.render(); }
@@ -305,12 +336,13 @@ export async function onSheetClick(app, b, act) {
     case 'cw-drop': s.scenes.splice(i, 1); break;
     case 'cw-up': if (i > 0) [s.scenes[i - 1], s.scenes[i]] = [s.scenes[i], s.scenes[i - 1]]; break;
     case 'cw-down': if (i < s.scenes.length - 1) [s.scenes[i + 1], s.scenes[i]] = [s.scenes[i], s.scenes[i + 1]]; break;
-    case 'cw-browse': if (!s.edit) return undefined; openPicker(app, i, b.dataset.slot); break;
+    case 'cw-browse': if (!s.edit) return undefined; openPicker(app, i, b.dataset.slot, slotPath(s, i, b.dataset.slot)); break;
+    case 'cw-show': openPicker(app, i, b.dataset.slot, slotPath(s, i, b.dataset.slot), true); break;
+    case 'cw-tint-off': { const x = s.scenes[i]; if (x) delete x.scene.tint; break; }
     case 'cw-asset-hit': { const x = s.scenes[i]; if (x) x.scene.asset = { path: b.dataset.path }; break; }
     case 'cw-sound-hit': {
       const x = s.scenes[i];
       if (x) { if (x.scene.shape === 'sound') x.scene.asset = { path: b.dataset.path }; else x.scene.sound = { ...(x.scene.sound ?? {}), asset: b.dataset.path }; }
-      s.finding = null;
       break;
     }
     default: return undefined;
@@ -372,12 +404,13 @@ export function onSheetChange(app, el) {
   if (el.classList.contains('cw-delay') && x) { const n = Math.max(0, Math.round(Number(el.value) || 0)); if (n) x.scene.delay = n; else delete x.scene.delay; return app.render(); }
   if (el.classList.contains('cw-wait') && x) { if (el.checked) x.scene.wait = true; else delete x.scene.wait; return app.render(); }
   if (el.classList.contains('cw-persist') && x) { if (el.value === 'none') delete x.scene.persist; else x.scene.persist = el.value; return app.render(); }
-  if (el.classList.contains('cw-sound') && x) {
-    if (el.value === 'none') { delete x.scene.sound; s.finding = null; }
-    else if (el.value === 'find') s.finding = Number(el.dataset.i);
-    else s.finding = null;
+  if (el.classList.contains('cw-sound') && x) { if (el.value === 'none') delete x.scene.sound; return app.render(); }
+  if (el.classList.contains('cw-opacity') && x) {
+    const n = Math.min(100, Math.max(0, Math.round(Number(el.value) || 0)));
+    if (n === 100) delete x.scene.opacity; else x.scene.opacity = n / 100;
     return app.render();
   }
+  if (el.classList.contains('cw-tint') && x) { x.scene.tint = { ...(x.scene.tint ?? {}), colour: el.value }; return app.render(); }
   return undefined;
 }
 

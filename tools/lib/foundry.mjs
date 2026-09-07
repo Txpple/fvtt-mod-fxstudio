@@ -30,6 +30,13 @@ export async function connectSandbox({ tag = 'fxstudio', watchdogMs = 180_000 } 
   await f.connect();
   const who = await f.evaluate(() => ({ user: game.user.name, gm: game.user.isGM, world: game.world.id, users: game.users.filter((u) => u.active).map((u) => u.name) }), null);
   console.log(`[${tag}] connected as ${who.user} (gm ${who.gm}) to ${who.world}; active users: ${who.users.join(', ')}`);
+  if (process.env.FX_TRACE) {
+    const p = f.page;
+    p?.on('crash', () => console.error('[trace] PAGE CRASH'));
+    p?.on('close', () => console.error('[trace] PAGE CLOSED'));
+    p?.on('pageerror', (e) => console.error('[trace] pageerror: ' + String(e.message).slice(0, 300)));
+    p?.on('console', (m) => { if (m.type() === 'error') console.error('[trace] console: ' + m.text().slice(0, 300)); });
+  }
   const dispose = async () => { clearTimeout(watchdog); await Promise.race([f.dispose(), new Promise((r) => setTimeout(r, 15_000))]); };
   return { f, env, dispose };
 }

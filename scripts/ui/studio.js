@@ -12,7 +12,7 @@ import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { provenance } from '../core/fx.js';
 import { HOOK_WORDS, KIND_WORDS, SOURCE_TAG, STATUS_WORDS, dot, esc, idWords, statusOf } from './html.js';
 import { leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
-import { onCorpusChange, onCorpusClick, onCorpusInput, renderCorpus } from './corpus.js';
+import { onCorpusChange, onCorpusClick, onCorpusInput, renderCorpus, renderMaintain } from './corpus.js';
 import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -33,7 +33,7 @@ export class Studio extends ApplicationV2 {
 
   constructor(options = {}) {
     super(options);
-    this.view = { tab: 'lookup', subject: null, customQuery: '', books: null, chosenBooks: new Set(), reading: false };
+    this.view = { tab: 'lookup', subject: null, customQuery: '', customShow: 500, books: null, chosenBooks: new Set(), reading: false };
     this.sheet = null;
     this.co = null;
     this._bound = false;
@@ -271,13 +271,15 @@ export class Studio extends ApplicationV2 {
     const global = rows.filter((r) => !r.item);
     const item = rows.filter((r) => r.item);
     const shown = (V.customKind === 'item' ? item : global).filter((r) => !q || r.text.includes(q));
+    V.customShow ??= 500;
+    const page = Math.min(V.customShow, shown.length);
     const tagOf = (r) => (r.e.fx.off ? `<span class="tag">${STATUS_WORDS.off}</span>` : r.e.source === 'world' ? `<span class="tag yours">${SOURCE_TAG.world}</span>` : '');
     const row = (r) => `<div class="row line"><span class="n"><button type="button" class="link" data-act="open-fx" data-id="${esc(r.e.fx.id)}">${esc(r.title)}</button> <span class="note">· ${esc(r.scope)}</span></span><span class="b">${tagOf(r)}<button type="button" class="quiet" data-act="edit-fx" data-id="${esc(r.e.fx.id)}">Edit</button><button type="button" class="quiet" data-act="export-fx" data-id="${esc(r.e.fx.id)}">Export</button><button type="button" class="quiet" data-act="delete-fx" data-id="${esc(r.e.fx.id)}">Delete</button></span></div>`;
     const sub = (kind, n) => `<button type="button" role="tab" class="pill" aria-pressed="${V.customKind === kind}" data-act="custom-kind" data-kind="${kind}">${HOOK_WORDS[kind]} · ${n}</button>`;
     return `<div class="stack">
       <div class="search"><input type="search" class="fx-cq" placeholder="Search" aria-label="Search custom FX" value="${esc(V.customQuery)}"></div>
       <div class="actions"><div class="pills subtabs" role="tablist">${sub('global', global.length)}${sub('item', item.length)}</div><span class="spacer"></span><button type="button" data-act="import-fx" data-to="">Import</button><button type="button" class="primary" data-act="sh-new">New FX</button></div>
-      <div class="card list lines">${V.customKind === 'item' ? '<p class="note warn">Item Hooks play for one item only.</p>' : ''}${shown.slice(0, 500).map(row).join('') || `<p class="note">${q ? 'No match.' : 'None.'}</p>`}${shown.length > 500 ? '<p class="note">Showing 500. Search to narrow.</p>' : ''}</div>
+      <div class="card list lines">${V.customKind === 'item' ? '<p class="note warn">Item Hooks play for one item only.</p>' : ''}${shown.slice(0, page).map(row).join('') || `<p class="note">${q ? 'No match.' : 'None.'}</p>`}${shown.length > page ? `<p class="note more"><button type="button" class="link" data-act="house-more">Load more</button> · ${shown.length - page} more</p>` : ''}</div>
     </div>`;
   }
 
@@ -363,6 +365,7 @@ export class Studio extends ApplicationV2 {
       ${books ? `<div class="tiles">${tiles.map(([c, k, l]) => `<div class="tile ${c}"><div class="num">${k}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
       <div class="card"><div class="sub">No FX</div>${this.renderBooks(books)}</div>` : ''}
       ${problems.length ? `<div class="card"><div class="sub">Errors</div>${problems.map((p) => `<p class="bad">${esc(p)}</p>`).join('')}</div>` : ''}
+      ${maintaining() ? renderMaintain(this) : ''}
     </div>`;
   }
 
@@ -422,7 +425,8 @@ export class Studio extends ApplicationV2 {
       case 'remove-fx': return this.removeFx(b.dataset.id);
       case 'delete-fx': return this.deleteFx(b.dataset.id);
       case 'export-fx': return this.exportFx(b.dataset.id);
-      case 'custom-kind': S.customKind = b.dataset.kind; return this.render();
+      case 'custom-kind': S.customKind = b.dataset.kind; S.customShow = 500; return this.render();
+      case 'house-more': S.customShow = (S.customShow ?? 500) + 500; return this.render();
       case 'open-fx': openSheet(this, { id: b.dataset.id }); return this.render();
       case 'import-fx': return this.importFx(b.dataset.to || null);
       case 'books': S.reading = true; await this.render(); try { await this.checkBooks(); } finally { S.reading = false; } return this.render();
@@ -442,6 +446,7 @@ export class Studio extends ApplicationV2 {
     }
     if (el.classList.contains('fx-cq')) {
       this.view.customQuery = el.value;
+      this.view.customShow = 500;
       clearTimeout(this._cqTimer);
       this._cqTimer = setTimeout(() => {
         const pane = this.element.querySelector('[data-pane="house"]');

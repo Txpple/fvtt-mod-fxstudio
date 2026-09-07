@@ -7,25 +7,28 @@ and JB2A and PSFX as the libraries; replaces Automated Animations by carrying it
 Animations corpus over losslessly, adds the user's own FX and the outcome layers AA never had,
 and is driven through one window of six tabs — Stock FX, House FX, FX Editor, Asset Library, Audit, Look up — terms and labels around one generated sentence per FX. It never guesses an FX.
 
-**Status: phase 3 (the screens) built, 2026-09-06, with the authoring walk and the Corpus tab
-ruled and built the same day.** FX Studio opens from the Settings sidebar (the GM's "Open FX
+**Status: phase 3 (the screens) built, 2026-09-06; the FX sheet and a bug-testing pass of
+seventeen rulings from the table, 2026-09-07 (DESIGN §8).** FX Studio opens from the Settings sidebar (the GM's "Open FX
 Studio" button) or from the wand on any item sheet: *Look up* an ability and read what it plays
 as a sentence, with the hook that answered and where it lives (Stock, House or Draft); the *FX
 Editor* is one sheet per FX, the same whether you read it or change it — an Edit switch is the
-guard (off: Duplicate, Export, Delete or Revert; on: Cancel, Save), the Hook block (one or more
-abilities, or one item; Plays or Off; the moment; on miss), the Sequence (one row per scene in
-fixed labelled columns — VFX, colour, place, size, SFX, lasts, delay, wait — with the
-plain-English line under each and the sentence read back as you go), a Note; Save always writes
-a Draft, so Stock and House are never changed by accident; New FX is a blank sheet with Copy
-from; *House FX* lists the FX written over Stock in two sub-tabs, *Global Hook* and *Item
+guard, and the action bar is the same in both modes with what does not apply greyed out (Back,
+New FX, Duplicate, Export, Delete or Revert, Edit, Cancel, Save); the Hook block (one or more
+abilities, or one item; Plays or Off; the moment; on miss), the Sequence (one row per scene, its
+knobs packed left and labelled — VFX, colour, place, size, opacity, tint, SFX, lasts, delay,
+wait — with the plain-English line under each and the sentence read back as you go), a Note;
+Save always writes a Draft, so Stock and House are never changed by accident; New FX is a blank
+sheet with Copy from; *House FX* lists the FX written over Stock in two sub-tabs, *Global Hook* and *Item
 Hook*, each name opening its sheet, with Edit, Export and Delete on every row and Import;
-*Stock FX* (maintainers) lists Stock the same way and is where the shippable corpus is built —
-drafts staged for House or Stock, one Ship button that writes the corpus files into the module
-on the server and stamps a version, and `tools/pull-corpus.mjs` to bring them into the repo for
-the release; *Asset Library* browses
+*Stock FX* (maintainers) lists Stock the same way, read-only (View), a page at a time with Load
+more; the maintainer's card sits at the foot of *Audit* — drafts staged for House or Stock, one
+Ship button that writes the corpus files into the module on the server and stamps a version, and
+`tools/pull-corpus.mjs` to bring them into the repo for the release; *Asset Library* browses
 JB2A by style and PSFX by group and sound, each variant stepped by arrows or a dropdown, the picture
 playing on a loop and the sound behind a Play button, with the Sequencer path and the file under it;
-the same browser opens from a scene of the sheet to pick that scene's VFX or SFX, and every FX that uses an asset opens its sheet from there; *Audit* reads
+the same browser opens from a scene of the sheet to pick that scene's VFX or SFX — on what that
+scene names already — every FX that uses an asset opens its sheet from there, and each line of
+*Used in* loads that exact path (down to one file inside a variant) in the viewer; *Audit* reads
 the compendiums you pick, by source, and shows what plays nothing in them and what did not resolve.
 One item can carry an FX of its own (an Item Hook).
 Everything the screens do goes through the API, so a macro or an assistant can do the same

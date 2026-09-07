@@ -14,20 +14,22 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (end of 2026-09-06): phase 3 (the screens) built and iterated in-game with the user, all
-green on the sandbox, committed and pushed through 1d32ea6 (the vocabulary pass, the tab rename,
+**Status (2026-09-07): phase 3 built and bug-tested in-game with the user — a list of seventeen
+rulings built the same day (DESIGN §8 *The bug-testing pass*), all green on the sandbox
+(screens 100 of 100). Earlier: pushed through 1d32ea6 (the vocabulary pass, the tab rename,
 the FX sheet that replaced the wizard — `scripts/ui/sheet.js`, DESIGN §8 *The FX sheet* — the
-sentence's sound clause `with sound (PSFX x)`, Battle Flow ruled backlog for phase 4). NEXT: the
-user tests the sheet in-game in a new session; iterate off screenshots, hold until "go"; the Look
-up tab still awaits its own pass.** The
+sentence's sound clause `with sound (PSFX x)`, Battle Flow ruled backlog for phase 4). NEXT: the user
+tests the seventeen in-game; iterate off screenshots, hold until "go". The Look up tab still awaits
+its own pass, and 502 migrated assets keyed "file" that are really library paths wait on a word
+(BACKLOG).** The
 vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens), and
 since the evening's pass **terms, not sentences** (DESIGN §8 *A tool, not prose*): Stock / House /
 Draft for where an FX lives (baseline renamed stock end to end), Global Hook / Item Hook for its
 reach, staged not bound; the FX's own sentence and each scene's line are kept on purpose; the
-wizard is gone: the FX Editor is ONE SHEET per FX with an Edit switch as the guard, Hook / Sequence / Note blocks, Save always a Draft (DESIGN §8 *The FX sheet*); the tabs are, in order, Stock FX (maintainers only, behind a client setting), House FX
+wizard is gone: the FX Editor is ONE SHEET per FX with an Edit switch as the guard, Hook / Sequence / Note blocks, Save always a Draft (DESIGN §8 *The FX sheet*); the tabs are, in order, Stock FX (maintainers only, behind a client setting; read-only, Load more, the Maintain card now at the foot of Audit), House FX
 (two sub-tabs, Global Hook and Item Hook), FX Editor, Asset Library, Audit, Look up (last; another
 pass on it is coming). Delete is for good
-(`api.corpus.erase`). `tools/smoke-screens.mjs` is 84 of 84; DESIGN §8 records every ruling of the
+(`api.corpus.erase`). `tools/smoke-screens.mjs` is 100 of 100 (`FX_TRACE=1` traces a page crash); DESIGN §8 records every ruling of the
 day in order. The user iterates by sending screenshots and comments, asking to aggregate and hold
 until "go"; nothing of phase 4 (outcomes and moments, PLAN §6) starts before that word. Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,
