@@ -481,7 +481,7 @@ sizes are percentages; sub-heads are *Moment*, *Outcome*, *On miss* (Play / Skip
 *Note*, *Preview*; the Corpus tab's maintainer card says *Stage: House*, *Stage: Stock*,
 *Unstage*, *Ship 1.2.3*; the Asset Library says *Used in N FX*, *Unused*, *Default*, *Use*, and
 the count line under the pills is gone; Check's tiles are *Abilities*, *With FX*, *No FX*; the
-settings are *Drafts*, *Corpus tab (maintainers)*, *Play FX*, *Console log*. Keys in lists are
+settings are *Drafts*, *Play FX*, *Console log* (the maintainer gate went on 2026-09-07). Keys in lists are
 labels (`Fire Bolt (spell)`, `Maul (weapon)`, `core/subjects.js keyLabel`) — the sentence keeps
 its own long forms. "Line" became "scene" everywhere the walk and the picker speak.
 
@@ -629,3 +629,72 @@ was `$$('…')` written as `$('…')`: a `$$` inside a `String.replace` replacem
 literal `$`, so a patch script silently halved every selector it wrote. `FX_TRACE=1` on any suite
 now prints `PAGE CRASH`, page errors and page console errors (`tools/lib/foundry.mjs`), which is how
 it was finally cornered.
+
+### The second bug-testing pass (2026-09-07, ten more rulings)
+
+**The Asset Library.** The Sequencer path and the File are read-only fields, not text with a
+scrollbar that slid in on hover and shifted the line under the cursor: a cursor goes in them and
+walks the whole path, Copy still copies. Every link in *Used in* is the same colour (the text
+colour, underlined on hover) with a tooltip saying what it does — "Load … above", "Open … in the
+FX Editor" — and the list keeps one order (by path) instead of pulling the current line to the top,
+which moved the row out from under the cursor as it was clicked. The line in the viewer is marked
+by weight now, not by colour.
+
+**The sheet says its sentence once.** The loose sentence in the header was the Preview again, and
+the action bar squeezed it into half the width. It is gone; the box moved up under the name and the
+id, relabelled **What plays** (the user: "what plays is fine"), full width in both modes. Measured
+across stock/house/new × locked/unlocked × 860 and 700 px: nothing overflows the pane sideways, the
+sentence spans 96–97% of the header, and there is exactly one of it.
+
+**State is On / Off** (it read *Plays* / Off). The "No hook yet" note sits beside the pills instead
+of being pushed to the far right by the search box.
+
+**The scene row is three fixed rows** (ruled after the packing pass of the morning made fields jump
+between lines as the window changed width — the user: "dont have them move about on window resize
+where they jump from higher to lower"):
+
+1. the picture — VFX, where, size, opacity, tint, under the tokens
+2. how long it lasts, with the **SFX at the far right** (the user's pick of the two offered)
+3. the timing — delay, times, every, speed, and *wait for it to finish* when a scene follows
+
+The rows never reflow: fields shrink with the window and no field ever changes row. Measured on all
+nine shapes at 860 and 700 px — the same rows, no sideways scroll.
+
+**The Colour dropdown is gone (the user, after measuring).** It only rewrote the last segment of
+the path — the thing the VFX field shows and the Asset Library picks — and **no row in the corpus
+carries an asset `colour` key: 0 of 1296** (the 79 that mention "colour" are all `tint.colour`, the
+hex tint). A variant is chosen in one place now: Browse → the variant → Use. `with: {colour}` and
+`api.assets.recoloured` stay for data and macros; nothing on screen claims to do it any more.
+
+**The knobs the sentence spoke with nothing to change them.** A measurement of every scene key in
+the corpus against the sheet found six: `repeat` ("3 times", 53 scenes), `below` ("under the
+tokens", 183), `rate` ("at 0.5× speed", 76), `fade` (a Move's "fades and", 29), `thrown` (19) and
+`clearTemplate` (1). The first four are knobs now — **Times** and **Every**, **Speed**, **Under the
+tokens**, **Fade** — gated by `KNOBS[shape]`, so no shape is offered one it cannot carry. The other
+two are per-shape oddities left in the file. A second class stays deliberately deep, carried and
+never spoken: `elevation` (442), `sound.delay` (268), `sound.start` (205), `zIndex` (161),
+`fadeOut` (119), `sound.volume` (88), `mask` (65), `anchor` (44), `fadeIn` (42), `rotate` (30),
+`mirror` (20), `attach`, `follow`, `scatter`, `xray` — the file and the API own those, and nothing
+on screen pretends otherwise.
+
+**One tooltip, not two.** The Add pills carried a `data-tooltip` *and* a native `title`, so Foundry
+drew its box and the browser drew another beside it. Everything in the screens is `data-tooltip`
+now, which is what the rest of Foundry uses.
+
+**The corpus gate is gone.** The *Corpus tab (maintainers)* client setting is removed from
+`settings.js`, from the tabs and from the suite: **Stock FX is always there** and the Maintain card
+always sits at the foot of Audit. With Stock read-only (View) and Save always writing a Draft,
+there was nothing left for the gate to protect.
+
+Fixed in passing: a scene whose sound is kept as a raw file or as a list of paths showed a **blank**
+SFX box (it asked for `pathWords(path)` and a file has no path).
+
+Measured: `smoke-screens` 106 of 106, `smoke-fx` 1293, `smoke-author` 12 of 12, `smoke-replay` 45 of
+45, `check-fx` and the three offline checks green.
+
+**Open, deferred by the user:** the *Look up* tab — it is the only resolver view (why an FX
+answered, the item sheet's wand button, searching an ability the corpus has never heard of, Remove
+and Revert), so the choice is to fold its search into the window header, give it the pass it never
+had, or delete it and re-home the wand button. Also open: **Delay means two things** — "wait this
+long before" normally, but `waitUntilFinished(delay)` when *wait for it to finish* is ticked
+(`engine/common.js`), which the one label does not say.

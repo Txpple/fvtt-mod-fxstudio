@@ -6,13 +6,13 @@
 // buttons are Cancel and Save. Save always writes a Draft (the world buffer) through the API —
 // Stock and House files are never touched here. Three blocks: Hook (what it answers, one or
 // more keys, or one item; plays or off; the moment; on miss; the outcomes waiting on phase 4),
-// Sequence (one row per scene, in fixed labelled columns, the plain-English line under each —
+// Sequence (one row per scene, in fixed rows of labelled knobs, the plain-English line under each —
 // kept on the user's word — with wait, lasts and delay), Note. The draft is a plain fx in the
 // grammar (core/fx.js); nothing is parsed from words.
 import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
-import { PLACES, PLACE_WORDS, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
-import { HOOK_WORDS, KIND_WORDS, ON_WORDS, SOURCE_TAG, colourWords, dot, esc, idWords } from './html.js';
+import { KNOBS, PLACES, PLACE_WORDS, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
+import { HOOK_WORDS, KIND_WORDS, ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
 import { openPicker } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -180,11 +180,11 @@ export function renderSheet(app) {
       <div class="sheet-title">
         <h2>${esc(name)}${tags}</h2>
         <code class="id">${esc(fx?.id ?? s.id ?? '')}</code>
-        <p class="sentence">${esc(sentence)}</p>
         ${prov ? `<p class="prov">${esc(prov)}</p>` : ''}
       </div>
       ${lockbar}
     </div>
+    ${sentence ? `<div class="preview"><div class="sub">What plays</div><b>${esc(sentence)}</b></div>` : ''}
     ${banner}${problem}
     <div class="section"><div class="sub">Hook</div>${renderHook(app)}</div>
     <div class="section"><div class="sub">Sequence</div>${renderSequence(app)}</div>
@@ -203,9 +203,9 @@ function renderHook(app) {
   const kinds = edit && lastNew && s.keys.includes(lastNew) ? `<div class="pills"><span class="lbl">Type of ${esc(idWords(parseKey(lastNew)?.id))}</span>${Object.entries(KIND_WORDS).map(([k, w]) => `<button type="button" class="pill" aria-pressed="${parseKey(lastNew)?.kind === k}" data-act="sh-kind" data-kind="${k}">${w}</button>`).join('')}</div>` : '';
   const pills = (list, cur, act, attr) => list.map(([v, w]) => `<button type="button" class="pill" aria-pressed="${cur === v}" data-act="${act}" data-${attr}="${v}">${w}</button>`).join('');
   return `<div class="grid2">
-    <span class="lbl">Answers</span><div class="pills wrap">${keyPills}${item}${addKey}${!s.keys.length && !item ? '<span class="note">No hook yet</span>' : ''}</div>
+    <span class="lbl">Answers</span><div class="pills wrap">${keyPills}${item}${!s.keys.length && !item ? '<span class="note">No hook yet</span>' : ''}${addKey}</div>
     ${kinds ? `<span class="lbl"></span>${kinds}` : ''}
-    <span class="lbl">State</span><div class="pills">${pills([[false, 'Plays'], [true, 'Off']], s.off, 'sh-off', 'v')}</div>
+    <span class="lbl">State</span><div class="pills">${pills([[false, 'On'], [true, 'Off']], s.off, 'sh-off', 'v')}</div>
     <span class="lbl">Moment</span><div class="pills">${pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')}</div>
     ${s.scenes.some((x) => canMiss(x.scene)) ? `<span class="lbl">On miss</span><div class="pills">${pills([['play', 'Play'], ['skip', 'Skip']], s.onMiss, 'sh-miss', 'v')}</div>` : ''}
   </div>`;
@@ -225,18 +225,12 @@ function sceneRow(app, { scene, scale }, i) {
   const slotField = (col, label, slot, klass, path, empty) => {
     const shown = pathWords(path ?? '') || empty;
     return field(col, label, s.edit
-      ? `<span class="search"><input type="text" class="${klass}" data-i="${i}" value="${esc(pathWords(path ?? ''))}" placeholder="${label}" aria-label="${label}" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="${slot}" title="Asset Library">Browse</button>`
-      : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="${slot}" title="Asset Library">${esc(shown)}</button>`);
+      ? `<span class="search"><input type="text" class="${klass}" data-i="${i}" value="${esc(pathWords(path ?? ''))}" placeholder="${label}" aria-label="${label}" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">Browse</button>`
+      : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">${esc(shown)}</button>`);
   };
   if (hasPicture(scene)) {
-    const res = a.assets.resolve(scene.asset);
-    const path = res.path ?? '';
-    const family = path ? a.assets.familyOf(path) : null;
-    const colours = family ? a.assets.colours(family) : [];
-    const worn = path.split('.').pop();
-    const colour = colours.includes(worn) ? worn : '';
+    const path = a.assets.resolve(scene.asset).path ?? '';
     f.push(slotField('vfx', 'VFX', 'asset', 'cw-asset', path || (scene.asset?.file ?? ''), 'No VFX'));
-    f.push(field('colour', 'Colour', `<select class="cw-colour" data-i="${i}" aria-label="Colour" ${colours.length && s.edit ? '' : 'disabled'}>${colours.length ? colours.map((c) => `<option value="${esc(c)}"${c === colour ? ' selected' : ''}>${esc(colourWords(c))}</option>`).join('') : '<option value="">One colour</option>'}</select>`));
   }
   if (scene.shape === 'sound') f.push(slotField('vfx', 'SFX', 'sound', 'cw-sound-q', a.assets.resolve(scene.asset).path ?? '', 'No SFX'));
   if (['strike', 'shoot', 'beam'].includes(scene.shape)) f.push(field('place', 'To', `<select class="cw-place" data-i="${i}" data-k="to" aria-label="To" ${dis}>${placeOptions(sc.to)}</select>`));
@@ -252,36 +246,52 @@ function sceneRow(app, { scene, scale }, i) {
     f.push(field('opacity', 'Opacity', `<input type="number" class="cw-opacity" data-i="${i}" value="${op}" min="0" max="100" step="5" aria-label="Opacity (%)" ${dis}><span class="suffix">%</span>`));
     const tint = scene.tint?.colour ?? '';
     f.push(field('tint', 'Tint', s.edit
-      ? `<input type="color" class="cw-tint" data-i="${i}" value="${esc(tint || '#ffffff')}" aria-label="Tint">${tint ? `<button type="button" class="quiet" data-act="cw-tint-off" data-i="${i}" title="No tint" aria-label="No tint">✕</button>` : '<span class="suffix">none</span>'}`
+      ? `<input type="color" class="cw-tint" data-i="${i}" value="${esc(tint || '#ffffff')}" aria-label="Tint">${tint ? `<button type="button" class="quiet" data-act="cw-tint-off" data-i="${i}" data-tooltip="No tint" aria-label="No tint">✕</button>` : '<span class="suffix">none</span>'}`
       : (tint ? `<span class="swatch" style="background:${esc(tint)}"></span><span class="suffix">${esc(tint)}</span>` : '<span class="suffix">none</span>')));
   }
   // the SFX a picture scene carries; Browse is the only door (Find SFX retired 2026-09-07)
   if (scene.shape !== 'sound' && scene.shape !== 'custom' && scene.shape !== 'move') {
     const has = !!scene.sound?.asset;
-    const words = has ? pathWords(a.assets.resolve(scene.sound.asset).path ?? '') : 'No SFX';
+    const r = has ? a.assets.resolve(scene.sound.asset) : null;
+    const words = has ? (pathWords(r.path ?? '') || (r.file ? r.file.split('/').pop() : '') || (r.paths ? `one of ${r.paths.length}` : 'SFX')) : 'No SFX';
     f.push(field('sfx', 'SFX', s.edit
-      ? `<select class="cw-sound" data-i="${i}" aria-label="SFX"><option value="keep" selected>${esc(words)}</option>${has ? '<option value="none">No SFX</option>' : ''}</select><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" title="Asset Library">Browse</button>`
-      : (has ? `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="sound" title="Asset Library">${esc(words)}</button>` : '<span class="suffix">No SFX</span>')));
+      ? `<select class="cw-sound" data-i="${i}" aria-label="SFX"><option value="keep" selected>${esc(words)}</option>${has ? '<option value="none">No SFX</option>' : ''}</select><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" data-tooltip="Asset Library">Browse</button>`
+      : (has ? `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="sound" data-tooltip="Asset Library">${esc(words)}</button>` : '<span class="suffix">No SFX</span>')));
   }
+  const may = (k) => (KNOBS[scene.shape] ?? []).includes(k);
+  if (may('below')) f.push(field('below', 'Depth', `<label class="check"><input type="checkbox" class="cw-below" data-i="${i}" ${scene.below ? 'checked' : ''} ${dis}> under the tokens</label>`));
+  if (may('fade')) f.push(field('fade', 'Fade', `<label class="check"><input type="checkbox" class="cw-fade" data-i="${i}" ${scene.fade ? 'checked' : ''} ${dis}> fades out and in</label>`));
+  if (may('repeat')) {
+    const times = sc.repeat ?? 1;
+    f.push(field('times', 'Times', `<input type="number" class="cw-times" data-i="${i}" value="${times}" min="1" step="1" aria-label="Times" ${dis}>`));
+    if (times > 1) f.push(field('every', 'Every', `<input type="number" class="cw-every" data-i="${i}" value="${sc.every ?? 250}" min="0" step="50" aria-label="Every (ms)" ${dis}><span class="suffix">ms</span>`));
+  }
+  if (may('rate')) f.push(field('rate', 'Speed', `<input type="number" class="cw-rate" data-i="${i}" value="${sc.rate ?? 1}" min="0.1" step="0.25" aria-label="Speed" ${dis}><span class="suffix">×</span>`));
   if (canPersist(scene)) f.push(field('lasts', 'Lasts', `<select class="cw-persist" data-i="${i}" aria-label="Lasts" ${dis}>${Object.entries(PERSIST_WORDS).map(([v, w]) => `<option value="${v}"${(sc.persist ?? 'none') === v ? ' selected' : ''}>${w}</option>`).join('')}</select>`));
   if (scene.shape !== 'custom') {
     f.push(field('delay', 'Delay', `<input type="number" class="cw-delay" data-i="${i}" value="${esc(String(scene.delay ?? 0))}" min="0" step="50" aria-label="Delay (ms)" ${dis}><span class="suffix">ms</span>`));
     if (i < s.scenes.length - 1) f.push(field('wait', 'Then', `<label class="check"><input type="checkbox" class="cw-wait" data-i="${i}" ${scene.wait ? 'checked' : ''} ${dis}> wait for it to finish</label>`));
   }
+  // fixed rows: the picture (VFX, where, size, opacity, tint); then how long it lasts with the SFX
+  // far right; then the timing — the delay and "wait for it to finish" when a scene follows.
+  // A field never moves between the rows on a resize.
+  const SECOND = ['lasts', 'sfx'];
+  const THIRD = ['delay', 'times', 'every', 'rate', 'wait'];
+  const colOf = (html) => html.match(/class="f f-([a-z]+)"/)?.[1] ?? '';
+  const row1 = f.filter((x) => !SECOND.includes(colOf(x)) && !THIRD.includes(colOf(x)));
+  const row2 = SECOND.map((c) => f.find((x) => colOf(x) === c)).filter(Boolean);
+  const row3 = THIRD.map((c) => f.find((x) => colOf(x) === c)).filter(Boolean);
   const kind = KIND_OF_SHAPE(scene.shape);
   const tools = s.edit ? `<div class="tools"><button type="button" class="quiet" data-act="cw-up" data-i="${i}" aria-label="Up" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" class="quiet" data-act="cw-down" data-i="${i}" aria-label="Down" ${i === s.scenes.length - 1 ? 'disabled' : ''}>↓</button><button type="button" class="quiet drop" data-act="cw-drop" data-i="${i}" aria-label="Remove scene">✕</button></div>` : '<div class="tools"></div>';
-  return `<div class="scene" data-kind="${kind}"><span class="num">${i + 1}</span><div><div class="kind">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${KIND_TITLE[kind] ? ` · ${KIND_TITLE[kind]}` : ''}</div><div class="knobs">${f.join('')}</div></div>${tools}<div class="line">${esc(sceneWords(scene))}</div></div>`;
+  return `<div class="scene" data-kind="${kind}"><span class="num">${i + 1}</span><div><div class="kind">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${KIND_TITLE[kind] ? ` · ${KIND_TITLE[kind]}` : ''}</div><div class="knobs"><div class="kr">${row1.join('')}</div><div class="kr">${row2.join('')}</div>${row3.length ? `<div class="kr">${row3.join('')}</div>` : ''}</div></div>${tools}<div class="line">${esc(sceneWords(scene))}</div></div>`;
 }
 
 function renderSequence(app) {
-  const a = api();
   const s = app.sheet;
   const rows = s.scenes.map((x, i) => sceneRow(app, x, i)).join('');
   const copy = s.edit && !s.scenes.length ? `<div class="field search copy"><label>Copy from</label><input type="text" class="sh-like" placeholder="Search FX… Misty Step, Fire Bolt" autocomplete="off"><div class="suggest" data-open="false"></div></div>` : '';
-  const add = s.edit ? `<div class="pills add"><span class="lbl">Add</span>${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" class="pill" data-act="cw-add" data-shape="${sh}" data-tooltip="${esc(SHAPE_HELP[sh])}" title="${esc(SHAPE_HELP[sh])}">${wd}</button>`).join('')}</div>` : '';
-  const fx = safeDraft(app);
-  const preview = fx ? `<div class="preview"><div class="sub">Preview</div><b>${esc(a.fx.sentence(fx, { name: sheetName(app) }))}</b></div>` : '';
-  return `<div class="scenes">${rows || (s.edit ? '' : '<p class="note">No scenes.</p>')}</div>${copy}${add}${preview}`;
+  const add = s.edit ? `<div class="pills add"><span class="lbl">Add</span>${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" class="pill" data-act="cw-add" data-shape="${sh}" data-tooltip="${esc(SHAPE_HELP[sh])}">${wd}</button>`).join('')}</div>` : '';
+  return `<div class="scenes">${rows || (s.edit ? '' : '<p class="note">No scenes.</p>')}</div>${copy}${add}`;
 }
 
 // -----------------------------------------------------------------------------------------------
@@ -390,7 +400,6 @@ export function onSheetChange(app, el) {
     s.edit = true; s.snapshot = JSON.stringify(safeDraft(app)); return app.render();
   }
   const x = s.scenes[Number(el.dataset.i)];
-  if (el.classList.contains('cw-colour') && x) { const r = a.assets.recoloured(x.scene.asset, el.value); if (!r.problem) x.scene.asset = { path: r.path }; return app.render(); }
   if (el.classList.contains('cw-place') && x) { x.scene[el.dataset.k] = el.value; return app.render(); }
   if (el.classList.contains('cw-size') && x) { x.scale = Number(el.value) || 1; return app.render(); }
   if (el.classList.contains('cw-spot') && x) {
@@ -402,6 +411,15 @@ export function onSheetChange(app, el) {
   }
   if (el.classList.contains('cw-range') && x) { const n = Number(el.value); if (n > 0) { if (n === 30) delete x.scene.range; else x.scene.range = n; } return app.render(); }
   if (el.classList.contains('cw-delay') && x) { const n = Math.max(0, Math.round(Number(el.value) || 0)); if (n) x.scene.delay = n; else delete x.scene.delay; return app.render(); }
+  if (el.classList.contains('cw-below') && x) { if (el.checked) x.scene.below = true; else delete x.scene.below; return app.render(); }
+  if (el.classList.contains('cw-fade') && x) { if (el.checked) x.scene.fade = true; else delete x.scene.fade; return app.render(); }
+  if (el.classList.contains('cw-times') && x) {
+    const n = Math.max(1, Math.round(Number(el.value) || 1));
+    if (n > 1) x.scene.repeat = n; else { delete x.scene.repeat; delete x.scene.every; }
+    return app.render();
+  }
+  if (el.classList.contains('cw-every') && x) { const n = Math.max(0, Math.round(Number(el.value) || 0)); if (n) x.scene.every = n; else delete x.scene.every; return app.render(); }
+  if (el.classList.contains('cw-rate') && x) { const n = Number(el.value); if (n > 0 && n !== 1) x.scene.rate = n; else delete x.scene.rate; return app.render(); }
   if (el.classList.contains('cw-wait') && x) { if (el.checked) x.scene.wait = true; else delete x.scene.wait; return app.render(); }
   if (el.classList.contains('cw-persist') && x) { if (el.value === 'none') delete x.scene.persist; else x.scene.persist = el.value; return app.render(); }
   if (el.classList.contains('cw-sound') && x) { if (el.value === 'none') delete x.scene.sound; return app.render(); }

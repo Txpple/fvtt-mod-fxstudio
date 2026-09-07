@@ -134,8 +134,8 @@
 .fxstudio .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
 .fxstudio .path label { display: block; font-size: 12px; color: var(--fx-muted); margin-bottom: 4px; }
 .fxstudio .path .box { display: flex; align-items: center; gap: 8px; background: var(--fx-panel2); border: 1px solid var(--fx-line2); border-radius: 8px; padding: 6px 10px; }
-.fxstudio .path code { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--fx-text); }
-.fxstudio .path .box:hover code { overflow: auto; text-overflow: clip; }
+.fxstudio .path input { flex: 1; min-width: 0; background: transparent; border: 0; padding: 0; margin: 0; color: var(--fx-text); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; text-overflow: ellipsis; }
+.fxstudio .path input:focus { outline: none; text-overflow: clip; }
 .fxstudio .fx-wrap .path .box button { padding: 3px 9px; font-size: 12px; }
 .fxstudio .lib-actions { margin-top: 12px; align-items: center; }
 .fxstudio .fx-wrap button.link { display: inline; background: none; border: 0; padding: 0; margin: 0; color: var(--fx-accent); cursor: pointer; font-size: inherit; line-height: inherit; width: auto; }
@@ -157,8 +157,9 @@
 .fxstudio .uses .use { display: grid; grid-template-columns: 110px 1fr; gap: 8px; padding: 2px 0; color: var(--fx-muted); }
 .fxstudio .uses .use .v { color: var(--fx-text); text-align: left; overflow-wrap: anywhere; }
 .fxstudio .fx-wrap .uses .use button.v { display: block; width: 100%; }
-.fxstudio .uses .use .v:hover { color: var(--fx-accent); text-decoration: underline; }
-.fxstudio .uses .use[data-now="true"] .v { color: var(--fx-accent); font-weight: 600; }
+.fxstudio .fx-wrap .uses .use button.link { color: var(--fx-text); }
+.fxstudio .fx-wrap .uses .use button.link:hover { text-decoration: underline; }
+.fxstudio .uses .use[data-now="true"] .v { font-weight: 700; }
 /* the Asset Library fills the window: what fits at the default size is the minimum; taller windows
    give the stage and the list the room (2026-09-06) */
 .application.fxstudio .fxstudio-content { display: flex; flex-direction: column; }
@@ -192,8 +193,9 @@
 .fxstudio .sheet-title { flex: 1; min-width: 260px; }
 .fxstudio .sheet-title h2 { margin: 0; font-size: 20px; font-weight: 600; border: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .fxstudio .sheet-title code.id { display: block; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; line-height: 1.6; color: var(--fx-muted); margin: 4px 0 0; }
-.fxstudio .sheet-title .sentence { margin: 10px 0 0; line-height: 1.55; max-width: 92ch; }
-.fxstudio .sheet-title .prov { margin: 8px 0 0; line-height: 1.5; color: var(--fx-muted); font-size: 12.5px; }
+.fxstudio .sheet-title .prov { margin: 6px 0 0; line-height: 1.5; color: var(--fx-muted); font-size: 12.5px; }
+.fxstudio .sheet > .preview { margin: 14px 0 0; }
+.fxstudio .sheet > .preview b { font-size: 15px; line-height: 1.55; font-weight: 600; display: block; }
 .fxstudio .lockbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-left: auto; }
 .fxstudio .switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; font-weight: 500; }
 .fxstudio .switch input { appearance: none; width: 38px; height: 22px; border-radius: 999px; background: var(--fx-line); position: relative; margin: 0; cursor: pointer; border: 0; padding: 0; }
@@ -220,8 +222,10 @@
 .fxstudio .scene[data-kind="move"] { --k: var(--fx-good); }
 .fxstudio .scene .num { width: 26px; height: 26px; border-radius: 50%; background: var(--k, var(--fx-line)); color: var(--fx-accent-ink); display: grid; place-items: center; font: 600 12.5px ui-monospace, Menlo, Consolas, monospace; }
 .fxstudio .scene .kind { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--k, var(--fx-muted)); font-weight: 600; margin-bottom: 6px; }
-.fxstudio .scene .knobs { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: flex-end; }
-.fxstudio .scene .f { display: grid; gap: 3px; min-width: 0; flex: 0 0 auto; }
+.fxstudio .scene .knobs { display: grid; gap: 8px 0; }
+.fxstudio .scene .kr { display: flex; flex-wrap: nowrap; gap: 10px; align-items: flex-end; min-width: 0; }
+.fxstudio .scene .kr:empty { display: none; }
+.fxstudio .scene .f { display: grid; gap: 3px; min-width: 0; flex: 0 1 auto; }
 .fxstudio .scene .f .l { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; }
 .fxstudio .scene .f .c { display: flex; gap: 4px; align-items: center; min-width: 0; }
 .fxstudio .scene .f .c > input, .fxstudio .scene .f .c > select, .fxstudio .scene .f .c .search { width: 100%; min-width: 0; }
@@ -230,10 +234,13 @@
 .fxstudio .scene .f .c .suffix { color: var(--fx-muted); font-size: 12.5px; }
 .fxstudio .fx-wrap .scene .f .c button.browse { padding: 4px 8px; font-size: 12px; white-space: nowrap; }
 .fxstudio .scene .f .c label.check { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--fx-muted); white-space: nowrap; }
-.fxstudio .scene .f-vfx { flex: 1 1 230px; max-width: 460px; } .fxstudio .scene .f-colour { flex: 0 0 118px; } .fxstudio .scene .f-place { flex: 0 0 160px; }
-.fxstudio .scene .f-size { flex: 0 0 86px; } .fxstudio .scene .f-opacity { flex: 0 0 92px; } .fxstudio .scene .f-tint { flex: 0 0 110px; }
-.fxstudio .scene .f-sfx { flex: 0 1 240px; } .fxstudio .scene .f-lasts { flex: 0 1 220px; } .fxstudio .scene .f-delay { flex: 0 0 100px; }
-.fxstudio .scene .f-spot { flex: 1 1 280px; max-width: 420px; } .fxstudio .scene .f-range { flex: 0 0 92px; } .fxstudio .scene .f-wait { flex: 0 0 auto; }
+.fxstudio .scene .f-vfx { flex: 1 1 200px; } .fxstudio .scene .f-place { flex: 0 1 160px; }
+.fxstudio .scene .f-size { flex: 0 1 88px; } .fxstudio .scene .f-opacity { flex: 0 1 92px; } .fxstudio .scene .f-tint { flex: 0 1 104px; }
+.fxstudio .scene .f-times { flex: 0 1 78px; } .fxstudio .scene .f-every { flex: 0 1 96px; } .fxstudio .scene .f-rate { flex: 0 1 88px; }
+.fxstudio .scene .f-below, .fxstudio .scene .f-fade { flex: 0 1 auto; }
+.fxstudio .scene .f-lasts { flex: 0 1 220px; } .fxstudio .scene .f-delay { flex: 0 1 100px; } .fxstudio .scene .f-wait { flex: 0 1 auto; }
+.fxstudio .scene .f-sfx { flex: 0 1 260px; margin-left: auto; }
+.fxstudio .scene .f-spot { flex: 1 1 260px; } .fxstudio .scene .f-range { flex: 0 1 92px; }
 .fxstudio .scene .f .c input[type="color"] { width: 34px; height: 26px; padding: 1px; flex: 0 0 auto; }
 .fxstudio .scene .f .c .swatch { width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--fx-line); flex: 0 0 auto; }
 .fxstudio .scene .f .c button.link.asset { text-align: left; overflow-wrap: anywhere; }
@@ -247,4 +254,4 @@
 .fxstudio .sheet .add { margin-top: 10px; }
 .fxstudio .sheet .copy { margin-top: 4px; }
 .fxstudio .sheet .preview .sub { margin: 0 0 4px; }
-@media (max-width: 900px) { .fxstudio .scene .f-vfx, .fxstudio .scene .f-spot { flex: 1 1 100%; max-width: none; } }
+

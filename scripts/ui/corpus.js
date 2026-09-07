@@ -1,6 +1,6 @@
 // The Corpus tab (DESIGN §8; reshaped on the user's word 2026-09-06): Stock itself, read as rows
 // like Custom — the ability, what it plays, searchable — for whoever maintains it. The
-// maintainer's controls sit in one small card underneath: the drafts this world wrote and where
+// maintainer's controls sit in one small card at the foot of Audit: the drafts this world wrote and where
 // each is staged (House or Stock), the ship (the corpus files written into the module on this
 // server, a version stamped, a line in the record), what shipped before; and the import of a file
 // of FX straight into Stock. The repo pulls the files back with tools/pull-corpus.mjs. Built on

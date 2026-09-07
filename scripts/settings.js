@@ -9,7 +9,6 @@ export const SETTINGS = {
   legacyBuffer: 'looks',
   play: 'play',
   log: 'log',
-  maintainer: 'maintainer',
 };
 
 export function registerSettings() {
@@ -23,14 +22,6 @@ export function registerSettings() {
   });
   // the buffer's key before 2026-09-06 ("looks"); read once and carried over, then left empty
   game.settings.register(MODULE_ID, SETTINGS.legacyBuffer, { scope: 'world', config: false, type: Array, default: [] });
-  game.settings.register(MODULE_ID, SETTINGS.maintainer, {
-    name: 'Corpus tab (maintainers)',
-    hint: 'Stage drafts for House or Stock and ship them into the module. Not needed to play FX.',
-    scope: 'client',
-    config: true,
-    type: Boolean,
-    default: false,
-  });
   game.settings.register(MODULE_ID, SETTINGS.play, {
     name: 'Play FX',
     hint: 'Off: the screens still work, nothing plays. For comparing with Automated Animations.',
@@ -77,6 +68,5 @@ export async function carryOverLegacyBuffer() {
   } catch { return 0; }
 }
 
-export const maintaining = () => { try { return game.settings.get(MODULE_ID, SETTINGS.maintainer) === true; } catch { return false; } };
 export const playing = () => { try { return game.settings.get(MODULE_ID, SETTINGS.play) !== false; } catch { return true; } };
 export const logging = () => { try { return game.settings.get(MODULE_ID, SETTINGS.log) === true; } catch { return false; } };

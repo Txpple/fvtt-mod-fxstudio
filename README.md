@@ -14,13 +14,14 @@ as a sentence, with the hook that answered and where it lives (Stock, House or D
 Editor* is one sheet per FX, the same whether you read it or change it — an Edit switch is the
 guard, and the action bar is the same in both modes with what does not apply greyed out (Back,
 New FX, Duplicate, Export, Delete or Revert, Edit, Cancel, Save); the Hook block (one or more
-abilities, or one item; Plays or Off; the moment; on miss), the Sequence (one row per scene, its
-knobs packed left and labelled — VFX, colour, place, size, opacity, tint, SFX, lasts, delay,
-wait — with the plain-English line under each and the sentence read back as you go), a Note;
+abilities, or one item; On or Off; the moment; on miss), the Sequence (one row per scene in three
+fixed rows that never reflow — the picture: VFX, where, size, opacity, tint, under the tokens; how
+long it lasts with the SFX at the far right; then the timing: delay, times, every, speed and wait
+— with the plain-English line under each and the sentence read back as you go), a Note;
 Save always writes a Draft, so Stock and House are never changed by accident; New FX is a blank
 sheet with Copy from; *House FX* lists the FX written over Stock in two sub-tabs, *Global Hook* and *Item
 Hook*, each name opening its sheet, with Edit, Export and Delete on every row and Import;
-*Stock FX* (maintainers) lists Stock the same way, read-only (View), a page at a time with Load
+*Stock FX* lists Stock the same way, read-only (View), a page at a time with Load
 more; the maintainer's card sits at the foot of *Audit* — drafts staged for House or Stock, one
 Ship button that writes the corpus files into the module on the server and stamps a version, and
 `tools/pull-corpus.mjs` to bring them into the repo for the release; *Asset Library* browses

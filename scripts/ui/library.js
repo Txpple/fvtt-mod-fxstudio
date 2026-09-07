@@ -166,9 +166,10 @@ export function renderLibrary(app) {
   else if (L.lib === 'jb2a') stage = `${vFile ? `<video class="stage-video" src="${esc(url(vFile))}" autoplay loop muted playsinline></video>` : ''}<div class="caption"><div class="name">${esc(it.name)}</div><div class="v">${esc(vLabel)}</div></div><span class="chip">loops</span>`;
   else stage = `<div class="frame sound"><button type="button" class="play" data-act="lib-play" aria-label="play">▶</button><div class="name">${esc(it.name)}</div><div class="v">${esc(vLabel)}</div></div>`;
   const arrows = it && it.variants.length > 1 ? `<button type="button" class="arrow l" data-act="lib-prev" aria-label="previous variant">‹</button><button type="button" class="arrow r" data-act="lib-next" aria-label="next variant">›</button>` : '';
+  const readOnly = (cls, label, value) => `<div class="path"><label>${label}</label><div class="box"><input type="text" class="${cls}" value="${esc(value)}" readonly spellcheck="false" aria-label="${label}" data-tooltip="${esc(value)}"><button type="button" data-act="lib-copy" data-text="${esc(value)}">Copy</button></div></div>`;
   const paths = it ? `<div class="paths">
-      <div class="path"><label>Sequencer path</label><div class="box"><code class="lib-dbpath">${esc(vPath || it.id)}</code><button type="button" data-act="lib-copy" data-text="${esc(vPath || it.id)}">Copy</button></div></div>
-      <div class="path"><label>File</label><div class="box"><code class="lib-file">${esc(vFile)}</code><button type="button" data-act="lib-copy" data-text="${esc(vFile)}">Copy</button></div></div>
+      ${readOnly('lib-dbpath', 'Sequencer path', vPath || it.id)}
+      ${readOnly('lib-file', 'File', vFile)}
     </div>` : '';
   // where it is used: one line per path the FX name — clicking it loads that exact thing above
   let usedBy = '';
@@ -177,7 +178,7 @@ export function renderLibrary(app) {
   if (it) {
     const cur = vPath.toLowerCase();
     const label = (path) => (path === it.id.toLowerCase() ? 'Default' : words(path.slice(it.id.length + 1)));
-    usedBy = `<div class="uses lib-users"><div class="sub">${nUsers ? `Used in ${nUsers} FX` : 'Unused'}</div>${[...byPath.entries()].sort((x, y) => (x[0] === cur ? -1 : y[0] === cur ? 1 : x[0].localeCompare(y[0]))).map(([path, list]) => `<div class="use" data-now="${path === cur}"><button type="button" class="v link" data-act="lib-goto" data-path="${esc(path)}" title="Load it above">${esc(label(path))}</button><span class="who">${list.map((u) => `<button type="button" class="link" data-act="lib-open-fx" data-id="${esc(u.id)}">${esc(u.name)}</button>`).join(', ')}</span></div>`).join('')}</div>`;
+    usedBy = `<div class="uses lib-users"><div class="sub">${nUsers ? `Used in ${nUsers} FX` : 'Unused'}</div>${[...byPath.entries()].sort((x, y) => x[0].localeCompare(y[0])).map(([path, list]) => `<div class="use" data-now="${path === cur}"><button type="button" class="v link" data-act="lib-goto" data-path="${esc(path)}" data-tooltip="Load ${esc(path)} above">${esc(label(path))}</button><span class="who">${list.map((u) => `<button type="button" class="link" data-act="lib-open-fx" data-id="${esc(u.id)}" data-tooltip="Open ${esc(u.name)} in the FX Editor">${esc(u.name)}</button>`).join(', ')}</span></div>`).join('')}</div>`;
   }
   // an FX counts towards a variant when it names it, or one file inside it
   const inFx = (x) => {
