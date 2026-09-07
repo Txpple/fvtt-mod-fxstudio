@@ -40,7 +40,6 @@ const SHAPE_HELP = {
 const PERSIST_WORDS = { none: 'Once', effect: 'While the effect lasts', template: 'While the template stands', 'until-removed': 'Until removed' };
 const canMiss = (scene) => ['strike', 'shoot', 'mark'].includes(scene.shape);
 const hasPicture = (scene) => !['sound', 'move', 'custom'].includes(scene.shape);
-const canPersist = (scene) => ['mark', 'fill', 'aura', 'beam'].includes(scene.shape);
 const clone = (v) => JSON.parse(JSON.stringify(v));
 const round = (n) => Math.round(n * 100) / 100;
 
@@ -243,76 +242,101 @@ function renderHook(app) {
 }
 
 const placeOptions = (current) => PLACES.filter((p) => !['impact', 'area'].includes(p) || p === current).map((p) => `<option value="${p}"${p === current ? ' selected' : ''}>${esc(PLACE_WORDS[p])}</option>`).join('');
-const field = (col, label, ctrl) => `<div class="f f-${col}"><span class="l">${label}</span><div class="c">${ctrl}</div></div>`;
+/** one cell. `na` greys it and switches it off IN PLACE; a cell is never dropped (R1). */
+const field = (col, label, ctrl, na = false) => `<div class="f f-${col}"${na ? ' data-na="true"' : ''}><span class="l">${label}</span><div class="c">${ctrl}</div></div>`;
+
+/**
+ * The sixteen cells of a scene row at their permanent addresses, four to a row (R1, R2). Which
+ * cells a shape reads is taken from KNOBS (core/fx.js) and from nothing else — there is no table
+ * here to fall out of step with the grammar. A cell the shape does not read, or that means nothing
+ * yet (Every with Times 1, Then on the last scene), is greyed and switched off where it stands, so
+ * a Move row and a Mark row are the same grid with different cells live, and nothing reflows.
+ */
+const CELL_ROWS = [
+  ['vfx', 'place', 'size', 'opacity'],
+  ['tint', 'below', 'sfx', 'lasts'],
+  ['delay', 'wait', 'times', 'every'],
+  ['rate', 'spot', 'range', 'fade'],
+];
 
 function sceneRow(app, { scene, scale }, i) {
   const a = api();
   const s = app.sheet;
   const sc = withDefaults(scene);
   const locked = !s.edit;
-  const dis = locked ? 'disabled' : '';
-  const f = [];
-  // a picture or a sound the scene names: the whole path in words (the variant, not just the family),
-  // typed against the library when the sheet is unlocked, a link to it in the Asset Library when it is not
-  const slotField = (col, label, slot, klass, path, empty) => {
-    const shown = pathWords(path ?? '') || empty;
-    return field(col, label, !locked
-      ? `<span class="search"><input type="text" class="${klass}" data-i="${i}" value="${esc(pathWords(path ?? ''))}" placeholder="${label}" aria-label="${label}" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">Browse</button>`
-      : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">${esc(shown)}</button>`);
-  };
-  if (hasPicture(scene)) {
-    const path = a.assets.resolve(scene.asset).path ?? '';
-    f.push(slotField('vfx', 'VFX', 'asset', 'cw-asset', path || (scene.asset?.file ?? ''), 'No VFX'));
+  const may = (k) => (KNOBS[scene.shape] ?? []).includes(k);
+  const cell = {};
+  // `on` is whether this shape reads the knob at all; `locked` is whether the sheet is being edited
+  const dis = (on) => (!on || locked ? 'disabled' : '');
+  const naDis = (on) => (on ? '' : 'disabled');
+  const put = (col, on, label, ctrl) => { cell[col] = field(col, label, ctrl, !on); };
+
+  // VFX — the picture. For a sound scene the same cell holds its sound: that is what it names.
+  const isSound = scene.shape === 'sound';
+  const onAsset = may('asset');
+  {
+    const label = isSound ? 'SFX' : 'VFX';
+    const slot = isSound ? 'sound' : 'asset';
+    const r = onAsset && scene.asset ? a.assets.resolve(scene.asset) : null;
+    const path = r ? (r.path ?? (typeof r.file === 'string' ? r.file : '')) : '';
+    const shown = pathWords(path) || (isSound ? 'No SFX' : 'No VFX');
+    put('vfx', onAsset, label, !locked && onAsset
+      ? `<span class="search"><input type="text" class="${isSound ? 'cw-sound-q' : 'cw-asset'}" data-i="${i}" value="${esc(pathWords(path))}" placeholder="${label}" aria-label="${label}" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library">Browse</button>`
+      : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="${slot}" data-tooltip="Asset Library" ${naDis(onAsset)}>${esc(shown)}</button>`);
   }
-  if (scene.shape === 'sound') f.push(slotField('vfx', 'SFX', 'sound', 'cw-sound-q', a.assets.resolve(scene.asset).path ?? '', 'No SFX'));
-  if (['strike', 'shoot', 'beam'].includes(scene.shape)) f.push(field('place', 'To', `<select class="cw-place" data-i="${i}" data-k="to" aria-label="To" ${dis}>${placeOptions(sc.to)}</select>`));
-  else if (['mark', 'aura'].includes(scene.shape)) f.push(field('place', 'At', `<select class="cw-place" data-i="${i}" data-k="at" aria-label="At" ${dis}>${placeOptions(sc.at)}</select>`));
-  if (sc.size) f.push(field('size', 'Size', `<select class="cw-size" data-i="${i}" aria-label="Size" ${dis}>${SCALES.map(([v, wd]) => `<option value="${v}"${Number(scale) === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`));
-  if (scene.shape === 'move') {
-    const spot = sc.seen && sc.unoccupied ? 'seen-unoccupied' : sc.seen ? 'seen' : sc.unoccupied ? 'unoccupied' : 'any';
-    f.push(field('spot', 'Spot', `<select class="cw-spot" data-i="${i}" aria-label="Spot" ${dis}>${[['seen-unoccupied', 'to an unoccupied space they can see'], ['unoccupied', 'to an unoccupied space, seen or not'], ['seen', 'to a space they can see'], ['any', 'to any space']].map(([v, wd]) => `<option value="${v}"${spot === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`));
-    f.push(field('range', 'Range', `<input type="number" class="cw-range" data-i="${i}" value="${esc(String(sc.range ?? 30))}" min="5" step="5" aria-label="Range (ft)" ${dis}><span class="suffix">ft</span>`));
-  }
-  if (hasPicture(scene)) {
-    const op = Math.round((sc.opacity ?? 1) * 100);
-    f.push(field('opacity', 'Opacity', `<input type="number" class="cw-opacity" data-i="${i}" value="${op}" min="0" max="100" step="5" aria-label="Opacity (%)" ${dis}><span class="suffix">%</span>`));
-    const tint = scene.tint?.colour ?? '';
-    f.push(field('tint', 'Tint', !locked
-      ? `<input type="color" class="cw-tint" data-i="${i}" value="${esc(tint || '#ffffff')}" aria-label="Tint">${tint ? `<button type="button" class="quiet" data-act="cw-tint-off" data-i="${i}" data-tooltip="No tint" aria-label="No tint">✕</button>` : '<span class="suffix">none</span>'}`
-      : (tint ? `<span class="swatch" style="background:${esc(tint)}"></span><span class="suffix">${esc(tint)}</span>` : '<span class="suffix">none</span>')));
-  }
-  // the SFX a picture scene carries; Browse is the only door (Find SFX retired 2026-09-07)
-  if (scene.shape !== 'sound' && scene.shape !== 'custom' && scene.shape !== 'move') {
+  // At / To — where it goes. A fill is always at the template, so its cell is greyed like the rest.
+  const travels = ['strike', 'shoot', 'beam'].includes(scene.shape);
+  const stays = ['mark', 'aura'].includes(scene.shape);
+  const onPlace = travels || stays;
+  put('place', onPlace, travels ? 'To' : stays ? 'At' : 'At / To',
+    `<select class="cw-place" data-i="${i}" data-k="${travels ? 'to' : 'at'}" aria-label="${travels ? 'To' : 'At'}" ${dis(onPlace)}>${placeOptions(travels ? sc.to : sc.at)}</select>`);
+  const onSize = may('size') && !!sc.size;
+  put('size', onSize, 'Size', `<select class="cw-size" data-i="${i}" aria-label="Size" ${dis(onSize)}>${SCALES.map(([v, wd]) => `<option value="${v}"${Number(scale) === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`);
+  const onOpacity = may('opacity');
+  put('opacity', onOpacity, 'Opacity', `<input type="number" class="cw-opacity" data-i="${i}" value="${Math.round((sc.opacity ?? 1) * 100)}" min="0" max="100" step="5" aria-label="Opacity (%)" ${dis(onOpacity)}><span class="suffix">%</span>`);
+
+  const onTint = may('tint');
+  const tint = scene.tint?.colour ?? '';
+  put('tint', onTint, 'Tint', !locked && onTint
+    ? `<input type="color" class="cw-tint" data-i="${i}" value="${esc(tint || '#ffffff')}" aria-label="Tint">${tint ? `<button type="button" class="quiet" data-act="cw-tint-off" data-i="${i}" data-tooltip="No tint" aria-label="No tint">✕</button>` : '<span class="suffix">none</span>'}`
+    : (tint ? `<span class="swatch" style="background:${esc(tint)}"></span><span class="suffix">${esc(tint)}</span>` : '<span class="suffix">none</span>'));
+  const onBelow = may('below');
+  put('below', onBelow, 'Depth', `<label class="check"><input type="checkbox" class="cw-below" data-i="${i}" ${scene.below ? 'checked' : ''} ${dis(onBelow)}> under the tokens</label>`);
+  // the SFX a scene carries; Browse is the only door (Find SFX retired 2026-09-07)
+  const onSfx = may('sound') && !isSound;
+  {
     const has = !!scene.sound?.asset;
     const r = has ? a.assets.resolve(scene.sound.asset) : null;
     const words = has ? (pathWords(r.path ?? '') || (r.file ? r.file.split('/').pop() : '') || (r.paths ? `one of ${r.paths.length}` : 'SFX')) : 'No SFX';
-    f.push(field('sfx', 'SFX', !locked
+    put('sfx', onSfx, 'SFX', !locked && onSfx
       ? `<select class="cw-sound" data-i="${i}" aria-label="SFX"><option value="keep" selected>${esc(words)}</option>${has ? '<option value="none">No SFX</option>' : ''}</select><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="sound" data-tooltip="Asset Library">Browse</button>`
-      : (has ? `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="sound" data-tooltip="Asset Library">${esc(words)}</button>` : '<span class="suffix">No SFX</span>')));
+      : (has ? `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="sound" data-tooltip="Asset Library" ${naDis(onSfx)}>${esc(words)}</button>` : '<span class="suffix">No SFX</span>'));
   }
-  const may = (k) => (KNOBS[scene.shape] ?? []).includes(k);
-  if (may('below')) f.push(field('below', 'Depth', `<label class="check"><input type="checkbox" class="cw-below" data-i="${i}" ${scene.below ? 'checked' : ''} ${dis}> under the tokens</label>`));
-  if (may('fade')) f.push(field('fade', 'Fade', `<label class="check"><input type="checkbox" class="cw-fade" data-i="${i}" ${scene.fade ? 'checked' : ''} ${dis}> fades out and in</label>`));
-  if (may('repeat')) {
-    const times = sc.repeat ?? 1;
-    f.push(field('times', 'Times', `<input type="number" class="cw-times" data-i="${i}" value="${times}" min="1" step="1" aria-label="Times" ${dis}>`));
-    if (times > 1) f.push(field('every', 'Every', `<input type="number" class="cw-every" data-i="${i}" value="${sc.every ?? 250}" min="0" step="50" aria-label="Every (ms)" ${dis}><span class="suffix">ms</span>`));
-  }
-  if (may('rate')) f.push(field('rate', 'Speed', `<input type="number" class="cw-rate" data-i="${i}" value="${sc.rate ?? 1}" min="0.1" step="0.25" aria-label="Speed" ${dis}><span class="suffix">×</span>`));
-  if (canPersist(scene)) f.push(field('lasts', 'Lasts', `<select class="cw-persist" data-i="${i}" aria-label="Lasts" ${dis}>${Object.entries(PERSIST_WORDS).map(([v, w]) => `<option value="${v}"${(sc.persist ?? 'none') === v ? ' selected' : ''}>${w}</option>`).join('')}</select>`));
-  if (scene.shape !== 'custom') {
-    f.push(field('delay', 'Delay', `<input type="number" class="cw-delay" data-i="${i}" value="${esc(String(scene.delay ?? 0))}" min="0" step="50" aria-label="Delay (ms)" ${dis}><span class="suffix">ms</span>`));
-    if (i < s.scenes.length - 1) f.push(field('wait', 'Then', `<label class="check"><input type="checkbox" class="cw-wait" data-i="${i}" ${scene.wait ? 'checked' : ''} ${dis}> wait for it to finish</label>`));
-  }
-  // fixed rows: the picture (VFX, where, size, opacity, tint); then how long it lasts with the SFX
-  // far right; then the timing — the delay and "wait for it to finish" when a scene follows.
-  // A field never moves between the rows on a resize.
-  const SECOND = ['lasts', 'sfx'];
-  const THIRD = ['delay', 'times', 'every', 'rate', 'wait'];
-  const colOf = (html) => html.match(/class="f f-([a-z]+)"/)?.[1] ?? '';
-  const row1 = f.filter((x) => !SECOND.includes(colOf(x)) && !THIRD.includes(colOf(x)));
-  const row2 = SECOND.map((c) => f.find((x) => colOf(x) === c)).filter(Boolean);
-  const row3 = THIRD.map((c) => f.find((x) => colOf(x) === c)).filter(Boolean);
+  const onLasts = may('persist');
+  put('lasts', onLasts, 'Lasts', `<select class="cw-persist" data-i="${i}" aria-label="Lasts" ${dis(onLasts)}>${Object.entries(PERSIST_WORDS).map(([v, w]) => `<option value="${v}"${(sc.persist ?? 'none') === v ? ' selected' : ''}>${w}</option>`).join('')}</select>`);
+
+  const onDelay = may('delay');
+  put('delay', onDelay, 'Delay', `<input type="number" class="cw-delay" data-i="${i}" value="${esc(String(scene.delay ?? 0))}" min="0" step="50" aria-label="Delay (ms)" ${dis(onDelay)}><span class="suffix">ms</span>`);
+  // Then means nothing on the last scene: greyed where it stands rather than dropped
+  const onWait = may('wait') && i < s.scenes.length - 1;
+  put('wait', onWait, 'Then', `<label class="check"><input type="checkbox" class="cw-wait" data-i="${i}" ${scene.wait ? 'checked' : ''} ${dis(onWait)}> wait for it to finish</label>`);
+  const times = sc.repeat ?? 1;
+  const onTimes = may('repeat');
+  put('times', onTimes, 'Times', `<input type="number" class="cw-times" data-i="${i}" value="${times}" min="1" step="1" aria-label="Times" ${dis(onTimes)}>`);
+  const onEvery = may('every') && times > 1;
+  put('every', onEvery, 'Every', `<input type="number" class="cw-every" data-i="${i}" value="${sc.every ?? 250}" min="0" step="50" aria-label="Every (ms)" ${dis(onEvery)}><span class="suffix">ms</span>`);
+
+  const onRate = may('rate');
+  put('rate', onRate, 'Speed', `<input type="number" class="cw-rate" data-i="${i}" value="${sc.rate ?? 1}" min="0.1" step="0.25" aria-label="Speed" ${dis(onRate)}><span class="suffix">×</span>`);
+  const onSpot = may('seen') || may('unoccupied');
+  const spot = sc.seen && sc.unoccupied ? 'seen-unoccupied' : sc.seen ? 'seen' : sc.unoccupied ? 'unoccupied' : 'any';
+  put('spot', onSpot, 'Spot', `<select class="cw-spot" data-i="${i}" aria-label="Spot" ${dis(onSpot)}>${[['seen-unoccupied', 'to an unoccupied space they can see'], ['unoccupied', 'to an unoccupied space, seen or not'], ['seen', 'to a space they can see'], ['any', 'to any space']].map(([v, wd]) => `<option value="${v}"${spot === v ? ' selected' : ''}>${wd}</option>`).join('')}</select>`);
+  const onRange = may('range');
+  put('range', onRange, 'Range', `<input type="number" class="cw-range" data-i="${i}" value="${esc(String(sc.range ?? 30))}" min="5" step="5" aria-label="Range (ft)" ${dis(onRange)}><span class="suffix">ft</span>`);
+  const onFade = may('fade');
+  put('fade', onFade, 'Fade', `<label class="check"><input type="checkbox" class="cw-fade" data-i="${i}" ${scene.fade ? 'checked' : ''} ${dis(onFade)}> fades out and in</label>`);
+
+  const knobs = CELL_ROWS.map((row) => `<div class="kr">${row.map((c) => cell[c]).join('')}</div>`).join('');
   const kind = KIND_OF_SHAPE(scene.shape);
   // Play is always on the row, greyed with its reason when it cannot run (R1); the reorder tools
   // only when this FX owns its scenes
@@ -324,7 +348,7 @@ function sceneRow(app, { scene, scale }, i) {
   const thumb = !file ? '<span class="thumb none"></span>'
     : /\.(webm|mp4|m4v)$/i.test(file) ? `<video class="thumb" src="${esc(assetUrl(file))}#t=0.1" preload="metadata" muted playsinline></video>`
       : `<img class="thumb" src="${esc(assetUrl(file))}" alt="">`;
-  return `<div class="scene" data-kind="${kind}"><div class="idx"><span class="num">${i + 1}</span>${thumb}</div><div><div class="kind">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${KIND_TITLE[kind] ? ` · ${KIND_TITLE[kind]}` : ''}</div><div class="knobs"><div class="kr">${row1.join('')}</div><div class="kr">${row2.join('')}</div>${row3.length ? `<div class="kr">${row3.join('')}</div>` : ''}</div></div>${tools}<div class="line">${esc(sceneWords(scene))}</div></div>`;
+  return `<div class="scene" data-kind="${kind}"><div class="idx"><span class="num">${i + 1}</span>${thumb}</div><div><div class="kind">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${KIND_TITLE[kind] ? ` · ${KIND_TITLE[kind]}` : ''}</div><div class="knobs">${knobs}</div></div>${tools}<div class="line">${esc(sceneWords(scene))}</div></div>`;
 }
 
 function renderSequence(app) {

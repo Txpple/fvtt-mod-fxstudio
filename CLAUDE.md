@@ -27,9 +27,15 @@ nothing was touched; all 1306 still validate. The revamp is running off [HANDOFF
 per scene through `api.preview`, saving nothing, greyed with their reason when they cannot run
 (*select a token*, *select a placed template*), a still per scene row; a move with no destination
 says *Click a spot on the canvas*. Step 1 as briefed ("stop destroying `like`") was built and then
-REMOVED by this ruling. NEXT: the user rules whether to carry on into steps 3–7 (layout primitives,
-the rail-and-inspector sheet, one FX tab, Assets, Coverage) — nothing of them is started, and no
-layout has moved. Three more rulings settled for good (DESIGN §9): `off` **stays a mode of the
+REMOVED by this ruling. **Step 3 (layout primitives) is BUILT too:** all four checkable rules hold,
+each proved by its own stated check — one gutter/row/radius on the window, a knob row is
+`repeat(4, minmax(0, 1fr))` with all thirteen `flex: 0 1 <px>` rules deleted (R2), every scene row
+is the SAME sixteen cells in one order with the rest greyed and disabled in place from `KNOBS`
+alone (R1), shelf rows are one height and selection changes colour only (R3), and every grid holding
+a long string uses `minmax(0, 1fr)`. **NEXT: steps 4–7, none started** — the sheet as rail and
+inspector (it carries the two-Delay fix), one FX tab, Assets, Coverage. **Read
+[NEXT-SESSION.md](NEXT-SESSION.md) first: it is the handoff, and it says where the two design docs
+are wrong.** Three more rulings settled for good (DESIGN §9): `off` **stays a mode of the
 sheet**; Stock FX and House FX **will merge** into one FX tab (step 5); the Look up tab's search
 **folds into the window header and the tab goes** (step 5). Earlier: phase 3 built and bug-tested in-game with the user over two passes — the
 first seventeen rulings, then ten more the same day (DESIGN §8 *The bug-testing pass* and *The
@@ -47,7 +53,7 @@ reach, staged not bound; the FX's own sentence and each scene's line are kept on
 wizard is gone: the FX Editor is ONE SHEET per FX with an Edit switch as the guard, Hook / Sequence / Note blocks, Save always a Draft (DESIGN §8 *The FX sheet*); the tabs are, in order, Stock FX (always shown since 2026-09-07 — the maintainer gate is gone; read-only with View and Load more, its Maintain card at the foot of Audit), House FX
 (two sub-tabs, Global Hook and Item Hook), FX Editor, Asset Library, Audit, Look up (last; another
 pass on it is coming). Delete is for good
-(`api.corpus.erase`). `tools/smoke-screens.mjs` is 123 of 123 (`FX_TRACE=1` traces a page crash); DESIGN §8 records every ruling of the
+(`api.corpus.erase`). `tools/smoke-screens.mjs` is 116 of 116 (`FX_TRACE=1` traces a page crash); DESIGN §8 records every ruling of the
 day in order and §9 the revamp. The user iterates by sending screenshots and comments, asking to aggregate and hold
 until "go"; nothing of phase 4 (outcomes and moments, PLAN §6) starts before that word. **The
 revamp runs one or two steps at a time and stops at a check-in:** a mockup handed to an agent gets

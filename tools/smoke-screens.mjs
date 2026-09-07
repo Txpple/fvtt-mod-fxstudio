@@ -107,7 +107,7 @@ try {
       wait0.checked = true; wait0.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
       ok('§3 Then · wait for it to finish on scene 1 turns the sentence\'s "and" into "then"', /, then a mark/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
       const wait0b = $$('.cw-wait')[0]; wait0b.checked = false; wait0b.dispatchEvent(new Event('change', { bubbles: true })); await sleep(250);
-      ok('§3 Lasts is offered on the marks, not on the move', $$('.cw-persist').length === 2 && !$('.scene[data-kind="move"] .cw-persist'), `${$$('.cw-persist').length}`);
+      ok('§3 Lasts sits on every row and is live only on the marks (R1)', $$('.cw-persist').length === $$('.scene').length && $$('.cw-persist').filter((x) => !x.disabled).length === 2 && $('.scene[data-kind="move"] .f-lasts')?.dataset.na === 'true', `${$$('.cw-persist').filter((x) => !x.disabled).length} live of ${$$('.cw-persist').length}`);
       await click($$('[data-act="cw-down"]')[0]);
       ok('§3 the arrows reorder: scene 1 moved down', $$('.scene').map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move' && /misty step 02/.test($$('.scene .line')[0]?.textContent ?? ''), $$('.scene .line')[0]?.textContent);
       await click($$('[data-act="cw-up"]')[1]);
@@ -258,6 +258,13 @@ try {
       ok('§13 a style plays its webm on a loop, muted, and shows the Sequencer path', !!video && video.loop && video.muted && /\.webm$/.test(video.getAttribute('src') ?? '') && val('.lib-dbpath') === 'jb2a.arcane_hand.blue', `${video?.getAttribute('src')} · ${val('.lib-dbpath')}`);
       const content = app.element.querySelector('.fxstudio-content');
       ok('§13 the stage fits the window: nothing scrolls sideways', content.scrollWidth <= content.clientWidth + 1, `${content.scrollWidth} vs ${content.clientWidth}`);
+      // R3: selecting a row changes its colour and nothing else — every other row stays where it is
+      const rects13 = () => $$('.shelf .list button.row').slice(0, 14).map((r) => { const b = r.getBoundingClientRect(); return `${Math.round(b.top)}/${Math.round(b.height)}`; }).join(',');
+      const geom13 = rects13();
+      await click($$('[data-act="lib-sel"]')[3]);
+      const moved13 = rects13() !== geom13;
+      await click($$('[data-act="lib-sel"]').find((r) => r.dataset.id === 'jb2a.arcane_hand'));
+      ok('§13 selecting a row changes its colour, never the layout (R3)', !moved13 && rects13() === geom13, moved13 ? `${geom13.slice(0, 70)} -> ${rects13().slice(0, 70)}` : 'every row unmoved');
       $('.shelf .list').scrollTop = 300; await sleep(50);
       await click('[data-act="lib-next"]');
       ok('§13 the arrow steps to the next variant, the dropdown follows, and the list keeps its scroll', val('.lib-dbpath') !== 'jb2a.arcane_hand.blue' && $('.lib-variant')?.value === '1' && $('.shelf .list').scrollTop === 300, `${val('.lib-dbpath')} · ${$('.lib-variant')?.value} · scroll ${$('.shelf .list').scrollTop}`);
@@ -305,7 +312,12 @@ try {
       await click('[data-act="lib-pick-use"]');
       ok('§13 Use writes the SFX back into the scene, and the sentence says so', $('[role=tab][aria-selected="true"]')?.dataset.tab === 'editor' && /weapon-swooshes light/.test(text('.sheet .preview')) && api.assets.resolve(app.sheet.scenes[0].scene.sound.asset).path === sfx13, `${sfx13} | ${text('.sheet .preview').slice(-90)}`);
       const kr13 = (n) => [...$$('.scene')[n].querySelectorAll('.kr')].map((r) => [...r.querySelectorAll('.f')].map((x) => x.className.replace('f f-', '')).join(','));
-      ok('§13 the knobs sit in fixed rows: the picture, lasts with the SFX last, then the timing', kr13(0).length === 3 && /sfx$/.test(kr13(0)[1]) && /^delay,.*wait$/.test(kr13(0)[2]) && /^delay/.test(kr13($$('.scene').length - 1)[2]), kr13(0).join(' | '));
+      const GRID13 = 'vfx,place,size,opacity|tint,below,sfx,lasts|delay,wait,times,every|rate,spot,range,fade';
+      ok('§13 every scene is the same grid: sixteen cells at permanent addresses, four to a row (R1)', $$('.scene').every((_, n) => kr13(n).join('|') === GRID13), kr13(0).join(' | '));
+      const na13 = (n) => [...$$('.scene')[n].querySelectorAll('.f[data-na="true"]')].map((x) => x.className.replace('f f-', ''));
+      ok('§13 a Move row and a Mark row are that same grid with different cells live', !na13(0).includes('vfx') && na13(0).includes('spot') && na13(0).includes('range') && na13(2).includes('vfx') && !na13(2).includes('spot'), `mark greys ${na13(0).join(',')} · move greys ${na13(2).join(',')}`);
+      ok('§13 a greyed cell is switched off, not merely faded', $$('.scene .f[data-na="true"]').length > 0 && $$('.scene .f[data-na="true"]').every((c) => [...c.querySelectorAll('input, select, button')].every((x) => x.disabled)), `${$$('.scene .f[data-na="true"]').length} greyed cells`);
+      ok('§13 nothing wraps: a knob row is four proportional columns (R2)', $$('.scene .kr').every((r) => getComputedStyle(r).display === 'grid' && getComputedStyle(r).gridTemplateColumns.split(' ').length === 4), getComputedStyle($('.scene .kr')).gridTemplateColumns);
       ok('§13 the Add pills carry tooltips', $$('[data-act="cw-add"]').every((b) => (b.dataset.tooltip ?? '').length > 20), '');
       ok('§13 the SFX select has no Find SFX: Browse is the only door', $$('.cw-sound option').every((o) => o.value !== 'find'), $$('.cw-sound option').map((o) => o.value).join(', '));
       await choose('.cw-opacity', '50');
@@ -315,7 +327,7 @@ try {
       ok('§13 Tint is a colour picker and the sentence reads it back', /tinted #ff0000/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
       // the knobs the sentence used to speak with nothing to change them (2026-09-07)
       await choose('.cw-times', '3');
-      ok('§13 Times repeats the scene and the sentence counts it', /3 times/.test(text('.sheet .preview')) && !!$('.cw-every'), text('.sheet .preview').slice(-110));
+      ok('§13 Times repeats the scene, the sentence counts it, and Every comes alive in place', /3 times/.test(text('.sheet .preview')) && $('.scene .f-every')?.dataset.na !== 'true' && $('.cw-every')?.disabled === false, text('.sheet .preview').slice(-110));
       await choose('.cw-times', '1');
       await choose('.cw-rate', '0.5');
       ok('§13 Speed is read back', /0\.5× speed/.test(text('.sheet .preview')), text('.sheet .preview').slice(-110));

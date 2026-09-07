@@ -766,6 +766,56 @@ row also carries a still of what it plays (`preload="metadata"`, frame `#t=0.1`)
 route `ui/library.js` uses. The looping video in an inspector waits for step 4: there is no
 inspector yet.
 
+### Step 3 — Layout primitives (built)
+
+The four rules that can be checked without judgement now hold, each proved by its own stated check.
+
+**R5, one grid.** `--fx-gutter: 10px`, `--fx-row: 34px`, `--fx-radius: 10px` on
+`.application.fxstudio`, and every panel and control radius in the module reads the last of them
+(8px, 10px and 12px were three radii for one job). Small shapes keep their own: a 10px radius on a
+34px thumbnail is a circle, and a pill's 999px is a shape, not a radius. **`--fx-col` is not
+declared** — nothing places a panel on a 12-column grid until steps 5–7 do, and declaring a
+property no rule uses is the machinery-for-a-case-that-has-not-occurred tell.
+
+**R2, nothing wraps.** A knob row was `display: flex; flex-wrap: nowrap` with thirteen
+`flex: 0 1 <px>` basis rules deciding which cells fell off the end. It is now
+`grid-template-columns: repeat(4, minmax(0, 1fr))` and all thirteen are deleted: the grid at 860px
+is the grid at 1900px, narrower and never rearranged. *Check (the brief's own): grep `flex-wrap`
+and `flex: 0 1` under `.scene`, `.knobs`, `.kr`, `.lib`, `.grid2` — nothing.* The `flex-wrap` that
+remains is on genuinely variable-length lists (the tab strip, pill lists, the action bar, the
+title's tag row); forcing those to one line overflows, which is a worse R2 failure than wrapping.
+The lockbar is fixed at eight controls and *should* stop wrapping, but the room for that comes with
+step 4's band 1 — noted, not done.
+
+**R1, a permanent address.** The scene row was a `f.push()` per applicable knob, so a Move row and
+a Mark row were different grids and a field moved when a knob appeared. It is now **sixteen cells
+in one fixed order, four to a row**:
+
+| | | | |
+| --- | --- | --- | --- |
+| VFX | At / To | Size | Opacity |
+| Tint | Depth | SFX | Lasts |
+| Delay | Then | Times | Every |
+| Speed | Spot | Range | Fade |
+
+Which cells a shape reads comes **from `KNOBS` in core/fx.js and from nothing else** — there is no
+table in the UI to fall out of step with the grammar. A cell the shape does not read, or that means
+nothing yet (Every while Times is 1; Then on the last scene), is greyed **and switched off** where
+it stands: `[data-na="true"] { opacity: .38; pointer-events: none }` plus `disabled` on what is
+inside it, so it cannot be read as live. A sound scene's own asset sits in the VFX cell labelled
+SFX, because that is the knob it is.
+
+**R3, selection never changes layout.** Every shelf row is `height: var(--fx-row)`; selection
+changes background and border only. *Check (the brief's own): select each row in turn and every
+other row's `getBoundingClientRect()` is unchanged* — measured in the suite, not asserted by eye.
+
+**The spill fix.** Every grid holding a long string — the Asset Library's path row, Used-in, the
+Hook block, the FX lists, the flow — uses `minmax(0, 1fr)`, not `1fr`. `1fr` is `minmax(auto, 1fr)`
+and inherits the string's min-content width, which is what made the path row push the window wide.
+
+Measured: `smoke-screens` **116 of 116** — five of them new and all four rules above proved by the
+brief's own checks, including the computed `grid-template-columns` and the rect comparison.
+
 ### The rulings of the day
 
 | Question | Ruling |
@@ -777,9 +827,10 @@ inspector yet.
 
 ### Measured on the sandbox, 2026-09-07
 
-`smoke-screens`, `smoke-author` (its round trip rewritten as a copy, with a check that editing what
-an FX was copied from leaves the copy alone), `smoke-fx`, `smoke-replay`, `check-fx` and the three
-offline checks. Numbers in the check-in.
+`smoke-screens` **116 of 116**, `smoke-author` **15 of 15** (its round trip rewritten as a copy,
+with a check that editing what an FX was copied from leaves the copy alone), `smoke-fx` 1293 build,
+`smoke-replay` 45 of 45, `check-fx` 1306 fx / 3207 assets / 0 invalid, and `check-imports`,
+`check-layers`, `check-legacy` green.
 
 ### Noted in passing, not fixed
 

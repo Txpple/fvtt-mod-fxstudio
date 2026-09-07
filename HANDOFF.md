@@ -92,7 +92,7 @@ is the one screen with no picture and no playback.
 
 ---
 
-## Step 3 — Layout primitives
+## Step 3 — Layout primitives — **BUILT 2026-09-07** (DESIGN §9)
 
 - Custom properties on `.application.fxstudio`: `--fx-col`, `--fx-gutter`, `--fx-row`,
   `--fx-radius`.
@@ -116,13 +116,13 @@ Six bands top to bottom, each a constant height. Only the inspector's contents e
 1. **Identity + action bar.** Name, layer tag, hook tag; the `why` line
    (`Global Hook · Misty Step (spell) · House` from `resolveFor`) plus id and provenance on
    one monospace line. Action bar as today, all eight controls always present.
-2. **Inheritance bar** (step 1), when `like` is set.
+2. ~~**Inheritance bar** (step 1), when `like` is set.~~ **GONE — there is no inheritance. This band does not exist; the five bands below are the whole sheet.**
 3. **Sentence.** Fixed two-line box, `overflow:hidden`. `api.fx.sentence(draftFx())`.
    The clause for the selected scene is highlighted.
 4. **Hook strip.** One row, four fixed columns: Answers · Reach · Moment · State.
    No wrapping. On miss moves into the shape band (it is a scene knob, not a hook knob).
 5. **Sequence.** `288px` rail | inspector, equal height.
-   - Rail rows are a fixed 44px: index, thumbnail, "Shape · place", "Nms · inherited/N overrides", `▶`.
+   - Rail rows are a fixed 44px: index, thumbnail, "Shape · place", "Nms", `▶`. (No "inherited/N overrides": nothing inherits.)
    - Below the rail, a fixed overlap strip: one bar per scene on a shared ms scale, computed
      from `delay` / `wait` / duration. This is the thing the current sheet cannot show at all.
    - Inspector is a fixed frame with band tabs: **Picture · Timing · Sound · Placement · &lt;Shape&gt;**.
