@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 25
+  "fx": 26
  },
  "fx": [
   {
@@ -42,6 +42,46 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Ink\" (ontoken)"
+  },
+  {
+   "id": "bomb",
+   "for": [
+    "item:bomb"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.throw.bomb.01.black"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.explosion.orange"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-1.mp3",
+      "delay": 2500
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Bomb\" (range)"
   },
   {
    "id": "burnt-othur-fumes",

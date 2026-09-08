@@ -66,7 +66,13 @@ const ownOnly = [];
 function keysForRow(row) {
   const label = row.name.trim();
   const own = slug(label);
-  if (row.menu === 'aefx') { keyed.effects++; return [`effect:${own}`]; }
+  if (row.menu === 'aefx') {
+    // an ActiveEffect is not an item, so no item list can hold one — it meets the effects the books
+    // and this world hold (lists.hasEffect). Before 2026-09-08 this returned its key unchecked.
+    if (!lists.hasEffect(label)) { keyed.noEvidence++; noEvidence.push({ label, menu: row.menu }); return []; }
+    keyed.effects++;
+    return [`effect:${own}`];
+  }
   const out = [];
   const add = (k) => { if (k && !out.includes(k)) out.push(k); };
   if (row.match === 'word') {
@@ -79,8 +85,11 @@ function keysForRow(row) {
     if (nc.length) notCarried.push({ label, menu: row.menu, caught: nc });
     for (const k of kinds) add(`${k.kind}:${k.id}`);
     for (const e of ex) add(`${e.kind}:${e.id}`);
-    if (!kinds.length && !ex.length) { add(row.menu === 'range' ? `weapon:${own}` : `weapon:${own}`); add(`natural:${own}`); }
-    else if (!kinds.some((k) => k.id === own) && !ex.some((e) => e.id === own)) { add(`weapon:${own}`); add(`natural:${own}`); }
+    // A family row used to be given `weapon:<its own word>` and `natural:<its own word>` whatever
+    // the lists said — "Blade" got weapon:blade and natural:blade with nothing named Blade anywhere.
+    // That is the same guess the user ruled out for the other path, and it went with it
+    // (2026-09-08): a word that expands to nothing is not carried.
+    if (!out.length) { keyed.noEvidence++; noEvidence.push({ label, menu: row.menu }); return []; }
     keyed.expanded++;
     expansions.push({ label, menu: row.menu, keys: out, from: [...kinds.map((k) => `${k.kind}:${k.id} (${k.from})`), ...ex.map((e) => `${e.kind}:${e.id} ← ${e.name} (${e.from})`)] });
     return out;

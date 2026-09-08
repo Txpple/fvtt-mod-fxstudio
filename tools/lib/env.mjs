@@ -31,6 +31,7 @@ export const MODULES = {
   mm: `${DATA}/modules/dnd-monster-manual`,
   dmg: `${DATA}/modules/dnd-dungeon-masters-guide`,
   ravenloft: `${DATA}/modules/dnd-ravenloft-horrors-within`,
+  faerun: `${DATA}/modules/dnd-heroes-faerun`,
 };
 
 export const worldDb = (name) => `${DATA}/worlds/${WORLD}/data/${name}`;

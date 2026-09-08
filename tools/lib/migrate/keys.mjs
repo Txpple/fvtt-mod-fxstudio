@@ -4,7 +4,7 @@
 // becomes explicit keys; no name rule survives into the corpus.
 import { existsSync } from 'node:fs';
 import { MODULES } from '../env.mjs';
-import { packDir, readActors, readPackItems, snapshot } from '../leveldb.mjs';
+import { packDir, readActors, readPackEffectNames, readPackItems, snapshot } from '../leveldb.mjs';
 import { BASE_WEAPONS, BASE_WEAPON_NAMES, CREATURE_PACKS, LIST_PACKS } from '../dnd5e.mjs';
 import { nameForms, slug } from '../../../scripts/core/subjects.js';
 
@@ -18,15 +18,18 @@ export const wordRule = (label) => new RegExp(`(^|[^a-z0-9])${escapeRe(label.tri
  *   weapons                Map<slug(name), {name, baseItem, from}> (equipment weapons with a base item)
  *   natural                Map<slug(name), {name, count, creatures: [names…]}> (natural weapons on creatures)
  *   world                  {items: [{name, type, baseItem, natural, actor}], effects: [names]}
+ *   effects                Set<slug(name)> — every ActiveEffect the books and this world hold
  */
 export async function buildLists({ worldActors, worldItems, worldEffects }) {
   const spells = new Map(), features = new Map(), items = new Map(), weapons = new Map(), natural = new Map();
+  const effects = new Set();
   const stats = { packs: [], skipped: [] };
   const put = (map, name, extra) => { const k = slug(name); if (!k) return; if (!map.has(k)) map.set(k, { name, ...extra }); };
   for (const [mod, pack, kind] of LIST_PACKS) {
     const dir = MODULES[mod] ? packDir(MODULES[mod], pack) : null;
     if (!dir) { stats.skipped.push(`${mod}/${pack}`); continue; }
-    const docs = await readPackItems(snapshot(dir, `${mod}-${pack}`));
+    const snap = snapshot(dir, `${mod}-${pack}`);
+    const docs = await readPackItems(snap);
     let n = 0;
     for (const it of docs) {
       n++;
@@ -39,13 +42,15 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
         put(items, it.name, { identifier, kind: 'weapon', from: `${mod}/${pack}` });
       } else if (['consumable', 'equipment', 'tool', 'loot', 'container'].includes(it.type)) put(items, it.name, { identifier, kind: 'item', from: `${mod}/${pack}` });
     }
+    for (const name of await readPackEffectNames(snap)) effects.add(slug(name));
     stats.packs.push(`${mod}/${pack}: ${n}`);
   }
   // the natural attacks: every natural weapon on every creature in the installed books
   for (const [mod, pack] of CREATURE_PACKS) {
     const dir = MODULES[mod] ? packDir(MODULES[mod], pack) : null;
     if (!dir) { stats.skipped.push(`${mod}/${pack}`); continue; }
-    const { actors, items: byActor } = await readActors(snapshot(dir, `${mod}-${pack}-actors`));
+    const snap = snapshot(dir, `${mod}-${pack}-actors`);
+    const { actors, items: byActor } = await readActors(snap);
     let n = 0;
     for (const [actorId, list] of Object.entries(byActor)) {
       for (const it of list) {
@@ -57,6 +62,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
         if (e.creatures.length < 6 && actors[actorId]?.name && !e.creatures.includes(actors[actorId].name)) e.creatures.push(actors[actorId].name);
       }
     }
+    for (const name of await readPackEffectNames(snap)) effects.add(slug(name));
     stats.packs.push(`${mod}/${pack}: ${n} natural attacks`);
   }
   // the world's own items
@@ -68,7 +74,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
       world.items.push({ name: it.name, type: it.type, identifier: it.system?.identifier || null, baseItem: it.system?.type?.baseItem || null, natural: it.type === 'weapon' && it.system?.type?.value === 'natural', actor: actor?.name ?? actorId, actorType: actor?.type ?? '?' });
     }
   }
-  for (const list of Object.values(worldEffects ?? {})) for (const ef of list) if (ef.name && !world.effects.includes(ef.name)) world.effects.push(ef.name);
+  for (const list of Object.values(worldEffects ?? {})) for (const ef of list) if (ef.name) { if (!world.effects.includes(ef.name)) world.effects.push(ef.name); effects.add(slug(ef.name)); }
 
   /** which kinds a label is, by the lists: [{kind, id, from}] — the identifier where the list has one */
   function kindsOfName(label, { only = null } = {}) {
@@ -123,7 +129,10 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
     return { keys: out, notCarried: [...new Set(notCarried)] };
   }
 
-  return { spells, features, items, weapons, natural, world, kindsOfName, expandWord, stats };
+  /** does an ActiveEffect of this name exist in the books or in this world? */
+  const hasEffect = (label) => nameForms(label).some((form) => effects.has(slug(form)));
+
+  return { spells, features, items, weapons, natural, effects, world, kindsOfName, expandWord, hasEffect, stats };
 }
 
 export const packExists = (mod, pack) => !!(MODULES[mod] && existsSync(`${MODULES[mod]}/packs/${pack}`));

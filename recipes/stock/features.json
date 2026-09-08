@@ -18,9 +18,33 @@
    "Sisimshow"
   ],
   "note": "The features of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 305
+  "fx": 306
  },
  "fx": [
+  {
+   "id": "light-mark",
+   "for": [
+    "feature:light"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "file": "jb2a.markers.light.complete.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Light\" (ontoken)"
+  },
   {
    "id": "rage",
    "for": [
@@ -1099,7 +1123,7 @@
    "note": "D&D5e Animations 3.3.0: \"Arcane Recovery\" (ontoken)"
   },
   {
-   "id": "arcane-ward-mark",
+   "id": "arcane-ward",
    "for": [
     "feature:arcane-ward"
    ],

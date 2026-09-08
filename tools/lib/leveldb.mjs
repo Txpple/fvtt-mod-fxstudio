@@ -64,4 +64,18 @@ export async function readPackItems(dir) {
   return out;
 }
 
+/**
+ * Every ActiveEffect NAME a pack holds — on its items, on its actors, and on its actors' items.
+ * An effect is not an item, so no item list can hold one; this is what an `effect:` key meets.
+ */
+export async function readPackEffectNames(dir) {
+  const out = [];
+  for (const [k, v] of await readAll(dir)) {
+    if (!k.includes('.effects!')) continue;
+    const name = JSON.parse(v)?.name;
+    if (name) out.push(name);
+  }
+  return out;
+}
+
 export const packDir = (moduleDir, pack) => (existsSync(`${moduleDir}/packs/${pack}`) ? `${moduleDir}/packs/${pack}` : null);

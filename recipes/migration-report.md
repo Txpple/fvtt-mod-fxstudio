@@ -7,21 +7,21 @@ Run 2026-09-08 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e 
 | Measure | Count |
 | --- | --- |
 | Rows in (stock / house) | 1289 / 7 |
-| Fx out (stock / house) | 1554 / 7 |
-| · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | 694 |
-| · family rows expanded against the base weapons, the natural attacks and the world's weapons | 224 |
-| · effect rows, keyed by the effect's name | 184 |
-| · names no list holds — NOT carried, see the exceptions below | 194 |
-| · weapon words that also caught a spell, a feat or an item under AA (listed, not carried) | 26 |
-| AA paths | 496 |
-| · now the libraries' own path with the same files and structure | 19 |
-| · now a list of the libraries' own leaves | 352 |
-| · now the libraries' own by-distance nodes (a variant at random, then the distance, as AA picked) | 83 |
-| · now the raw files AA picked out of a larger set | 32 |
-| · AA's stretch metadata carried on the scene (`template`) | 69 |
+| Fx out (stock / house) | 1286 / 7 |
+| · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | 706 |
+| · family rows expanded against the base weapons, the natural attacks and the world's weapons | 146 |
+| · effect rows, keyed by the effect's name | 93 |
+| · names no list holds — NOT carried, see the exceptions below | 351 |
+| · weapon words that also caught a spell, a feat or an item under AA (listed, not carried) | 27 |
+| AA paths | 449 |
+| · now the libraries' own path with the same files and structure | 17 |
+| · now a list of the libraries' own leaves | 326 |
+| · now the libraries' own by-distance nodes (a variant at random, then the distance, as AA picked) | 66 |
+| · now the raw files AA picked out of a larger set | 30 |
+| · AA's stretch metadata carried on the scene (`template`) | 63 |
 | **· still on the frozen table (the measurement; goal zero)** | **10** (loop markers differ 10, picked by distance 0, no such node 0) |
 | Frozen table entries shipped | 15 |
-| **Render-level proof: fx equal to AA's own sequence** | **1561 of 1561** (4480 of 4591 moments exactly, 111 by a named allowance below) |
+| **Render-level proof: fx equal to AA's own sequence** | **1293 of 1293** (3737 of 3848 moments exactly, 111 by a named allowance below) |
 | Abilities on the world's actors | 736 |
 | · same answer as under AA | 694 |
 | · a different fx now | 31 |
@@ -47,22 +47,15 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - the hundred-millisecond pause before every animation (AA's "global delay" world setting) is gone; the reader's own half-second wait for a Region to be drawn stays
 - the range ring of a move is shown to everyone and measured alternating; AA's switches for hiding it and measuring equidistant were used by no row
 
-## Rows translated with a note (402)
+## Rows translated with a note (298)
 
-- Antennae [melee] → weapon:antennae: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Antennae [melee] → natural:antennae: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Axe [melee] → natural:mercurial-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Axe [melee] → weapon:frost-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Axe [melee] → weapon:berserker-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → weapon:executioners-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Axe [melee] → weapon:pact-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Axe [melee] → weapon:axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Axe [melee] → natural:axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Bash [melee] → natural:shield-bash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bash [melee] → weapon:bash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bash [melee] → natural:bash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Baton [melee] → natural:bejeweled-baton: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Baton [melee] → weapon:baton: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Baton [melee] → natural:baton: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Beak [melee] → natural:beak: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Beak [melee] → natural:beaks: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Beak [melee] → natural:sharpened-beak: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -84,19 +77,9 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Blade [melee] → weapon:sun-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Blade [melee] → weapon:dragon-tooth-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Blade [melee] → weapon:dread-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Blade [melee] → weapon:blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Blade [melee] → natural:blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bone [melee] → weapon:bone: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bone [melee] → natural:bone: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Bone Whip [melee] → natural:bone-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Brutal Strike [melee] → weapon:brutal-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Brutal Strike [melee] → natural:brutal-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Butterfly [melee] → weapon:butterfly: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Butterfly [melee] → natural:butterfly: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Chain [melee] → weapon:chain: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Chain [melee] → natural:chain: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Charge [melee] → weapon:charge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Charge [melee] → natural:charge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:claws: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:devilish-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -125,12 +108,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Club [melee] → weapon:vicious-club: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Club [melee] → weapon:club-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Club [melee] → weapon:club-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Cutlass [melee] → weapon:cutlass: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Cutlass [melee] → natural:cutlass: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Elemental Strike [melee] → weapon:elemental-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Elemental Strike [melee] → natural:elemental-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Falchion [melee] → weapon:falchion: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Falchion [melee] → natural:falchion: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Fist [melee] → natural:fist: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Fist [melee] → natural:rotting-fist: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Fist [melee] → natural:clenched-fist: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -141,15 +118,9 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Flail [melee] → weapon:flail-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Flail [melee] → weapon:flail-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Flail [melee] → weapon:elemental-flail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Flurry of Blows [melee] → weapon:flurry-of-blows: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Flurry of Blows [melee] → natural:flurry-of-blows: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Force-Empowered Rend [melee] → weapon:force-empowered-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Force-Empowered Rend [melee] → natural:force-empowered-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Foreleg [melee] → natural:foreleg: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Fork [melee] → natural:searing-fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Fork [melee] → weapon:infernal-fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Fork [melee] → weapon:fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Fork [melee] → natural:fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Gear [melee] → natural:gear: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Glaive [melee] → weapon:glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Glaive [melee] → weapon:abyssal-glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -162,8 +133,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Gore [melee] → natural:brutal-gore: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Gore [melee] → natural:gore-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Gouge [melee] → natural:gouge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Grapple [melee] → weapon:grapple: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Grapple [melee] → natural:grapple: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Grave Strike [melee] → natural:grave-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Grave Strike [melee] → natural:grave-strike-vampire-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Greataxe [melee] → weapon:greataxe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -200,25 +169,15 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Halberd [melee] → weapon:halberd-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Halberd [melee] → weapon:vicious-halberd: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Halberd [melee] → weapon:halberd-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Hoof [melee] → weapon:hoof: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Hoof [melee] → natural:hoof: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Hook [melee] → natural:hook: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Hooves [melee] → natural:hooves: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Horn [melee] → natural:horn: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Horn [melee] → natural:radiant-horn: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Horn [melee] → natural:horns: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Interception [melee] → weapon:interception: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Interception [melee] → natural:interception: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Katana [melee] → weapon:katana: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Katana [melee] → natural:katana: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Katar [melee] → weapon:katar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Katar [melee] → natural:katar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Lash [melee] → natural:vine-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Lash [melee] → natural:aquatic-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Lash [melee] → natural:caustic-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Lash [melee] → natural:tentacle-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Lash [melee] → weapon:lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Lash [melee] → natural:lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → natural:radiant-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → natural:radiant-mace-defender-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -229,55 +188,28 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Mace [melee] → weapon:vicious-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:mace-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:mace-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Machete [melee] → weapon:machete: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Machete [melee] → natural:machete: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Martial Arts [melee] → weapon:martial-arts: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Martial Arts [melee] → natural:martial-arts: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → weapon:maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → natural:earthen-maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → weapon:maul-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → weapon:vicious-maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → weapon:maul-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → weapon:maul-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nagamaki [melee] → weapon:nagamaki: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nagamaki [melee] → natural:nagamaki: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Naginata [melee] → weapon:naginata: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Naginata [melee] → natural:naginata: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nodachi [melee] → weapon:nodachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nodachi [melee] → natural:nodachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nunchaku [melee] → weapon:nunchaku: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nunchaku [melee] → natural:nunchaku: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Odachi [melee] → weapon:odachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Odachi [melee] → natural:odachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Open Hand Technique [melee] → weapon:open-hand-technique: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Open Hand Technique [melee] → natural:open-hand-technique: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pan [melee] → weapon:pan: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pan [melee] → natural:pan: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Parry [melee] → weapon:parry: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Parry [melee] → natural:parry: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:warpick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:war-pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:war-pick-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:vicious-war-pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:war-pick-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:war-pick-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pick [melee] → weapon:pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pick [melee] → natural:pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pincer [melee] → natural:pincer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Primal Savagery [melee] → weapon:primal-savagery: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Primal Savagery [melee] → natural:primal-savagery: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pseudopod [melee] → natural:pseudopod: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pseudopod [melee] → natural:dissolving-pseudopod: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Punch [melee] → weapon:punch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Punch [melee] → natural:punch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Quarterstaff [melee] → weapon:quarterstaff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Quarterstaff [melee] → weapon:quarterstaff-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Quarterstaff [melee] → weapon:quarterstaff-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Quarterstaff [melee] → weapon:vicious-quarterstaff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Quarterstaff [melee] → weapon:quarterstaff-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Quivering Palm [melee] → weapon:quivering-palm: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Quivering Palm [melee] → natural:quivering-palm: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rake [melee] → natural:rake: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Ram [melee] → weapon:ram: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Ram [melee] → natural:ram: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rapier [melee] → weapon:rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rapier [melee] → weapon:dancing-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -300,8 +232,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Rend [melee] → natural:rend-bear-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rend [melee] → natural:rend-dire-wolf-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rend [melee] → natural:mind-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Retaliation [melee] → weapon:retaliation: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Retaliation [melee] → natural:retaliation: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scimitar [melee] → weapon:scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scimitar [melee] → weapon:frost-brand-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scimitar [melee] → weapon:scimitar-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -320,10 +250,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Scratch [melee] → natural:scratch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scythe [melee] → natural:dread-scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scythe [melee] → natural:necrotic-scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Scythe [melee] → weapon:scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Scythe [melee] → natural:scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shield [melee] → weapon:shield: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shield [melee] → natural:shield: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Shortsword [melee] → weapon:shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Shortsword [melee] → weapon:vicious-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Shortsword [melee] → weapon:nine-lives-stealer-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -339,8 +265,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Shortsword [melee] → weapon:giant-slayer-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Shortsword [melee] → weapon:shortsword-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Shortsword [melee] → weapon:seras-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shove [melee] → weapon:shove: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shove [melee] → natural:shove: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Sickle [melee] → weapon:sickle: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Sickle [melee] → natural:ritual-sickle: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Sickle [melee] → weapon:vicious-sickle: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -357,24 +281,17 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Slash [melee] → natural:darkflame-slash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Snake Hair [melee] → natural:snake-hair: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Spike [melee] → natural:tail-spike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Spike [melee] → weapon:spike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Spike [melee] → natural:spike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stab [melee] → weapon:stab: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stab [melee] → natural:stab: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → weapon:staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → natural:vine-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → natural:bog-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → natural:chaos-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → natural:pincer-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → weapon:wooden-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → weapon:enspelled-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → weapon:forest-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → weapon:wind-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Staff [melee] → weapon:vesper-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Steel Wind Strike [melee] → weapon:steel-wind-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Steel Wind Strike [melee] → natural:steel-wind-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Stick [melee] → natural:hex-stick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stick [melee] → weapon:stick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stick [melee] → natural:stick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Sting [melee] → natural:sting: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Sting [melee] → natural:infernal-sting: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Sting [melee] → natural:sting-bite-in-beast-form: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -395,29 +312,12 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Strike [melee] → natural:fiery-strike-devil-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Strike [melee] → natural:death-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Strike [melee] → weapon:unarmed-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Strike [melee] → weapon:strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Strike [melee] → natural:strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stunning Strike [melee] → weapon:stunning-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stunning Strike [melee] → natural:stunning-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tachi [melee] → weapon:tachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tachi [melee] → natural:tachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Tail [melee] → natural:tail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Talon [melee] → natural:talons: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Talon [melee] → weapon:talon: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Talon [melee] → natural:talon: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tanto [melee] → weapon:tanto: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tanto [melee] → natural:tanto: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tonfa [melee] → weapon:tonfa: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tonfa [melee] → natural:tonfa: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Trample [melee] → weapon:trample: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Trample [melee] → natural:trample: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Talon [melee] → weapon:sylvan-talon: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Tusk [melee] → natural:tusk: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Tusk [melee] → natural:tusk-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Tusk [melee] → natural:tusks-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Unarmed [melee] → weapon:unarmed: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Unarmed [melee] → natural:unarmed: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wakizashi [melee] → weapon:wakizashi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wakizashi [melee] → natural:wakizashi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Warhammer [melee] → weapon:warhammer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Warhammer [melee] → weapon:warhammer-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Warhammer [melee] → weapon:vicious-warhammer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -430,10 +330,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Whip [melee] → weapon:whip-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Whip [melee] → weapon:vicious-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Whip [melee] → weapon:mercurial-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wing [melee] → weapon:wing: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wing [melee] → natural:wing: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wrench [melee] → weapon:wrench: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wrench [melee] → natural:wrench: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Blade Barrier [ontoken] → spell:blade-barrier: mark: loop markers differ (AA null, JB2A {"loop":{"start":700,"end":3333}})
 - Blade Ward [ontoken] → spell:blade-ward: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
 - Contact Other Plane [ontoken] → spell:contact-other-plane: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
@@ -452,33 +348,33 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Weight of Years [ontoken] → feature:weight-of-years: mark: loop markers differ (AA {"loop":{"start":2033,"end":7000},"forcedEnd":7933}, JB2A {"loop":{"start":2033,"end":7000}})
 - house Goldthorn [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 
-## The family rows, expanded (224)
+## The family rows, expanded (146)
 
 Each of Automated Animations' weapon and creature-attack rows matched a word inside a name. Here each is expanded once, against the base weapons (dnd5e's list), the natural attacks of the installed creatures, and the world's own weapons, and the keys are written down. Read what each word would and would not have caught; a wanted catch that is missing is one house fx away.
 
-- **Antennae** [melee] → weapon:antennae, natural:antennae
 - **Arcane Sword** [melee] → natural:arcane-sword
   - natural:arcane-sword (1 creatures)
   - natural:arcane-sword ← Arcane Sword (1 creatures (Helmed Horror))
-- **Axe** [melee] → natural:mercurial-axe, weapon:frost-axe, weapon:berserker-axe, weapon:pact-axe, weapon:axe, natural:axe
+- **Axe** [melee] → natural:mercurial-axe, weapon:frost-axe, weapon:berserker-axe, weapon:executioners-axe, weapon:pact-axe
   - natural:mercurial-axe ← Mercurial Axe (1 creatures (Nycaloth))
   - weapon:frost-axe ← Frost Axe (dnd5e/monsterfeatures24)
   - weapon:berserker-axe ← Berserker Axe (dnd5e/equipment24)
+  - weapon:executioners-axe ← Executioner's Axe (dmg/equipment)
   - weapon:pact-axe ← Pact Axe (mm/features)
-- **Bash** [melee] → natural:shield-bash, weapon:bash, natural:bash
+- **Bash** [melee] → natural:shield-bash
   - natural:shield-bash ← Shield Bash (1 creatures (Gladiator))
-- **Baton** [melee] → natural:bejeweled-baton, weapon:baton, natural:baton
-  - natural:bejeweled-baton ← Bejeweled Baton (1 creatures (Performer Legend))
+- **Baton** [melee] → natural:bejeweled-baton
+  - natural:bejeweled-baton ← Bejeweled Baton (2 creatures (Performer Legend))
 - **Beak** [melee] → natural:beak, natural:beaks, natural:sharpened-beak, natural:beak-raven-or-hybrid-form-only
-  - natural:beak (28 creatures)
-  - natural:beak ← Beak (28 creatures (Axe Beak, Blood Hawk, Grell))
+  - natural:beak (30 creatures)
+  - natural:beak ← Beak (30 creatures (Axe Beak, Blood Hawk, Grell))
   - natural:beaks ← Beaks (3 creatures (Swarm of Ravens))
   - natural:sharpened-beak ← Sharpened Beak (1 creatures (Giant Axe Beak))
   - natural:beak-raven-or-hybrid-form-only ← Beak (Raven or Hybrid Form Only) (1 creatures (Wereraven))
 - **Beard** [melee] → natural:beard
   - natural:beard (3 creatures)
   - natural:beard ← Beard (3 creatures (Bearded Devil))
-- **Blade** [melee] → natural:heated-blade, natural:lightning-blade, natural:storm-blade, natural:chaos-blade, natural:clockwork-blade, natural:psi-blade, natural:beheading-blade, natural:whirling-blades, natural:dread-blade, natural:force-blade, weapon:psychic-blade, weapon:pact-blade, weapon:luck-blade, weapon:sun-blade, weapon:dragon-tooth-blade, weapon:dread-blade, weapon:shadow-blade, weapon:blade, natural:blade
+- **Blade** [melee] → natural:heated-blade, natural:lightning-blade, natural:storm-blade, natural:chaos-blade, natural:clockwork-blade, natural:psi-blade, natural:beheading-blade, natural:whirling-blades, natural:dread-blade, natural:force-blade, weapon:psychic-blade, weapon:pact-blade, weapon:luck-blade, weapon:sun-blade, weapon:dragon-tooth-blade, weapon:dread-blade, weapon:shadow-blade
   - natural:heated-blade ← Heated Blade (2 creatures (Efreeti))
   - natural:lightning-blade ← Lightning Blade (2 creatures (Balor))
   - natural:storm-blade ← Storm Blade (2 creatures (Djinni))
@@ -496,26 +392,22 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:dragon-tooth-blade ← Dragon-Tooth Blade (mm/features)
   - weapon:dread-blade ← Dread Blade (mm/features)
   - weapon:shadow-blade ← Shadow Blade (mm/features)
-- **Bone** [melee] → weapon:bone, natural:bone
 - **Bone Whip** [melee] → natural:bone-whip
   - natural:bone-whip (2 creatures)
   - natural:bone-whip ← Bone Whip (2 creatures (Gnoll Pack Lord, Kuo-toa Monitor))
-- **Brutal Strike** [melee] → weapon:brutal-strike, natural:brutal-strike
-- **Butterfly** [melee] → weapon:butterfly, natural:butterfly
 - **Chain** [melee] → weapon:chain, natural:chain
   - weapon:chain (dnd5e/monsterfeatures24)
   - natural:chain (1 creatures)
   - natural:chain ← Chain (1 creatures (Chain Devil))
   - weapon:chain ← Chain (dnd5e/monsterfeatures24)
-- **Charge** [melee] → weapon:charge, natural:charge
 - **Claw** [melee] → natural:claw, natural:claws, natural:devilish-claw, natural:banishing-claw, natural:chaos-claw, natural:elemental-claw, natural:fearsome-claw, natural:injecting-claw, natural:mutating-claw, natural:spectral-claw, natural:umbral-claw, natural:claws-hybrid-form-only, natural:claw-oni-form-only, natural:claw-fiend-form-only, natural:claw-bear-or-hybrid-form-only, natural:claws-hag-form-only, natural:claw-tiger-or-hybrid-form-only, natural:claws-yugoloth-only, natural:rotting-claw-putrid-only, natural:rotting-claw, natural:eldritch-claw
-  - natural:claw (127 creatures)
-  - natural:claw ← Claw (127 creatures (Abominable Yeti, Bone Devil, Brown Bear))
+  - natural:claw (128 creatures)
+  - natural:claw ← Claw (128 creatures (Abominable Yeti, Bone Devil, Brown Bear))
   - natural:claws ← Claws (34 creatures (Allosaurus, Barbed Devil, Mezzoloth))
   - natural:devilish-claw ← Devilish Claw (2 creatures (Pit Fiend))
-  - natural:banishing-claw ← Banishing Claw (1 creatures (Arcanaloth))
+  - natural:banishing-claw ← Banishing Claw (2 creatures (Arcanaloth))
   - natural:chaos-claw ← Chaos Claw (1 creatures (Gray Slaad))
-  - natural:elemental-claw ← Elemental Claw (1 creatures (Elemental Cultist))
+  - natural:elemental-claw ← Elemental Claw (2 creatures (Elemental Cultist))
   - natural:fearsome-claw ← Fearsome Claw (1 creatures (Scarecrow))
   - natural:injecting-claw ← Injecting Claw (1 creatures (Red Slaad))
   - natural:mutating-claw ← Mutating Claw (1 creatures (Blue Slaad))
@@ -540,7 +432,6 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:vicious-club ← Vicious Club (dnd5e/items)
   - weapon:club-1 ← Club +1 (dnd5e/items)
   - weapon:club-2 ← Club +2 (dnd5e/items)
-- **Cutlass** [melee] → weapon:cutlass, natural:cutlass
 - **Dagger** [melee] → weapon:dagger, weapon:umbral-dagger, weapon:dagger-1, weapon:vicious-dagger, weapon:dagger-2, weapon:dagger-3, weapon:1-dagger
   - weapon:dagger (the base weapons)
   - weapon:dagger ← Dagger (the base weapons)
@@ -550,13 +441,10 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:dagger-2 ← Dagger +2 (dnd5e/items)
   - weapon:dagger-3 ← Dagger +3 (dnd5e/items)
   - weapon:1-dagger ← +1 Dagger (the world (Jetten Elisedil))
-- **Deflect** [melee] → weapon:deflect, natural:deflect
-- **Elemental Strike** [melee] → weapon:elemental-strike, natural:elemental-strike
-- **Falchion** [melee] → weapon:falchion, natural:falchion
 - **Fist** [melee] → natural:fist, natural:rotting-fist, natural:clenched-fist
-  - natural:fist (10 creatures)
-  - natural:fist ← Fist (10 creatures (Ape, Giant Ape, Shield Guardian))
-  - natural:rotting-fist ← Rotting Fist (6 creatures (Mummy, Mummy Lord))
+  - natural:fist (11 creatures)
+  - natural:fist ← Fist (11 creatures (Ape, Giant Ape, Shield Guardian))
+  - natural:rotting-fist ← Rotting Fist (7 creatures (Mummy, Mummy Lord))
   - natural:clenched-fist ← Clenched Fist (1 creatures (Arcane Hand))
 - **Flail** [melee] → weapon:flail, natural:bone-flail, weapon:flail-1, weapon:vicious-flail, weapon:flail-3, weapon:flail-2, weapon:elemental-flail
   - weapon:flail (the base weapons)
@@ -567,12 +455,10 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:flail-3 ← Flail +3 (dnd5e/items)
   - weapon:flail-2 ← Flail +2 (dnd5e/items)
   - weapon:elemental-flail ← Elemental Flail (mm/features)
-- **Flurry of Blows** [melee] → weapon:flurry-of-blows, natural:flurry-of-blows
-- **Force-Empowered Rend** [melee] → weapon:force-empowered-rend, natural:force-empowered-rend
 - **Foreleg** [melee] → natural:foreleg
   - natural:foreleg (2 creatures)
   - natural:foreleg ← Foreleg (2 creatures (Drider))
-- **Fork** [melee] → natural:searing-fork, weapon:infernal-fork, weapon:fork, natural:fork
+- **Fork** [melee] → natural:searing-fork, weapon:infernal-fork
   - natural:searing-fork ← Searing Fork (2 creatures (Horned Devil))
   - weapon:infernal-fork ← Infernal Fork (mm/features)
 - **Gear** [melee] → natural:gear
@@ -595,10 +481,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Gouge** [melee] → natural:gouge
   - natural:gouge (2 creatures)
   - natural:gouge ← Gouge (2 creatures (Giant Vulture))
-- **Grapple** [melee] → weapon:grapple, natural:grapple
 - **Grave Strike** [melee] → natural:grave-strike, natural:grave-strike-vampire-form-only
-  - natural:grave-strike (1 creatures)
-  - natural:grave-strike ← Grave Strike (1 creatures (Vampire Umbral Lord))
+  - natural:grave-strike (2 creatures)
+  - natural:grave-strike ← Grave Strike (2 creatures (Vampire Umbral Lord))
   - natural:grave-strike-vampire-form-only ← Grave Strike (Vampire Form Only) (2 creatures (Vampire))
 - **Greataxe** [melee] → weapon:greataxe, weapon:greataxe-3, weapon:greataxe-2, weapon:giant-slayer-greataxe, weapon:vicious-greataxe, weapon:greataxe-1, weapon:berserker-greataxe
   - weapon:greataxe (the base weapons)
@@ -645,7 +530,7 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:halberd-3 ← Halberd +3 (dnd5e/items)
   - weapon:vicious-halberd ← Vicious Halberd (dnd5e/items)
   - weapon:halberd-1 ← Halberd +1 (dnd5e/items)
-- **Hammer** [melee] → weapon:lighthammer, natural:burning-hammer, weapon:light-hammer, weapon:vicious-light-hammer, weapon:light-hammer-2, weapon:light-hammer-3, weapon:light-hammer-1, weapon:hammer, natural:hammer
+- **Hammer** [melee] → weapon:lighthammer, natural:burning-hammer, weapon:light-hammer, weapon:vicious-light-hammer, weapon:light-hammer-2, weapon:light-hammer-3, weapon:light-hammer-1
   - weapon:lighthammer ← Light Hammer (the base weapons)
   - natural:burning-hammer ← Burning Hammer (2 creatures (Azer Sentinel))
   - weapon:light-hammer ← Light Hammer (phb/equipment)
@@ -665,22 +550,18 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Harpoon** [melee] → natural:harpoon
   - natural:harpoon (2 creatures)
   - natural:harpoon ← Harpoon (2 creatures (Merrow))
-- **Hoof** [melee] → weapon:hoof, natural:hoof
 - **Hook** [melee] → natural:hook
   - natural:hook (1 creatures)
   - natural:hook ← Hook (1 creatures (Hook Horror))
 - **Hooves** [melee] → natural:hooves
-  - natural:hooves (44 creatures)
-  - natural:hooves ← Hooves (44 creatures (Draft Horse, Mule, Nightmare))
+  - natural:hooves (45 creatures)
+  - natural:hooves ← Hooves (45 creatures (Draft Horse, Mule, Nightmare))
 - **Horn** [melee] → natural:horn, natural:radiant-horn, natural:horns
   - natural:horn (1 creatures)
   - natural:radiant-horn ← Radiant Horn (2 creatures (Unicorn))
   - natural:horn ← Horn (1 creatures (Unicorn))
   - natural:horns ← Horns (2 creatures (Tarrasque, Chimera))
-- **Interception** [melee] → weapon:interception, natural:interception
-- **Katana** [melee] → weapon:katana, natural:katana
-- **Katar** [melee] → weapon:katar, natural:katar
-- **Knife** [melee] → natural:sculpting-knife, weapon:knife, natural:knife
+- **Knife** [melee] → natural:sculpting-knife
   - natural:sculpting-knife ← Sculpting Knife (1 creatures (Waxwork))
 - **Lance** [melee] → weapon:lance, natural:psionic-lance, weapon:lance-2, weapon:lance-1, weapon:vicious-lance, weapon:lance-3
   - weapon:lance (the base weapons)
@@ -690,12 +571,11 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:lance-1 ← Lance +1 (dnd5e/items)
   - weapon:vicious-lance ← Vicious Lance (dnd5e/items)
   - weapon:lance-3 ← Lance +3 (dnd5e/items)
-- **Lasersword** [melee] → weapon:lasersword, natural:lasersword
-- **Lash** [melee] → natural:vine-lash, natural:aquatic-lash, natural:caustic-lash, natural:tentacle-lash, weapon:lash, natural:lash
+- **Lash** [melee] → natural:vine-lash, natural:aquatic-lash, natural:caustic-lash, natural:tentacle-lash
   - natural:vine-lash ← Vine Lash (2 creatures (Dryad))
   - natural:aquatic-lash ← Aquatic Lash (1 creatures (Marid))
   - natural:caustic-lash ← Caustic Lash (1 creatures (Yochlol))
-  - natural:tentacle-lash ← Tentacle Lash (1 creatures (Aberrant Cultist))
+  - natural:tentacle-lash ← Tentacle Lash (2 creatures (Aberrant Cultist))
 - **Longsword** [melee] → weapon:longsword, weapon:nine-lives-stealer-longsword, weapon:longsword-3, weapon:vorpal-longsword, weapon:longsword-1, weapon:frost-brand-longsword, weapon:dragon-slayer-longsword, weapon:luck-blade-longsword, weapon:longsword-2, weapon:holy-avenger-longsword, weapon:flame-tongue-longsword, weapon:vicious-longsword, weapon:dancing-longsword, weapon:defender-longsword, weapon:giant-slayer-longsword
   - weapon:longsword (the base weapons)
   - weapon:longsword ← Longsword (the base weapons)
@@ -725,12 +605,10 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:vicious-mace ← Vicious Mace (dnd5e/items)
   - weapon:mace-1 ← Mace +1 (dnd5e/items)
   - weapon:mace-2 ← Mace +2 (dnd5e/items)
-- **Machete** [melee] → weapon:machete, natural:machete
-- **Martial Arts** [melee] → weapon:martial-arts, natural:martial-arts
 - **Maul** [melee] → weapon:maul, natural:earthen-maul, weapon:maul-2, weapon:vicious-maul, weapon:maul-1, weapon:maul-3
   - weapon:maul (the base weapons)
   - weapon:maul ← Maul (the base weapons)
-  - natural:earthen-maul ← Earthen Maul (2 creatures (Dao, Lizardfolk Sovereign))
+  - natural:earthen-maul ← Earthen Maul (4 creatures (Dao, Lizardfolk Sovereign))
   - weapon:maul-2 ← Maul +2 (dnd5e/items)
   - weapon:vicious-maul ← Vicious Maul (dnd5e/items)
   - weapon:maul-1 ← Maul +1 (dnd5e/items)
@@ -742,15 +620,7 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:morningstar-1 ← Morningstar +1 (dnd5e/items)
   - weapon:vicious-morningstar ← Vicious Morningstar (dnd5e/items)
   - weapon:morningstar-3 ← Morningstar +3 (dnd5e/items)
-- **Nagamaki** [melee] → weapon:nagamaki, natural:nagamaki
-- **Naginata** [melee] → weapon:naginata, natural:naginata
-- **Nodachi** [melee] → weapon:nodachi, natural:nodachi
-- **Nunchaku** [melee] → weapon:nunchaku, natural:nunchaku
-- **Odachi** [melee] → weapon:odachi, natural:odachi
-- **Open Hand Technique** [melee] → weapon:open-hand-technique, natural:open-hand-technique
-- **Pan** [melee] → weapon:pan, natural:pan
-- **Parry** [melee] → weapon:parry, natural:parry
-- **Pick** [melee] → weapon:warpick, weapon:war-pick, weapon:war-pick-2, weapon:vicious-war-pick, weapon:war-pick-1, weapon:war-pick-3, weapon:pick, natural:pick
+- **Pick** [melee] → weapon:warpick, weapon:war-pick, weapon:war-pick-2, weapon:vicious-war-pick, weapon:war-pick-1, weapon:war-pick-3
   - weapon:warpick ← War Pick (the base weapons)
   - weapon:war-pick ← War Pick (phb/equipment)
   - weapon:war-pick-2 ← War Pick +2 (dnd5e/items)
@@ -767,12 +637,10 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Pincer** [melee] → natural:pincer
   - natural:pincer (8 creatures)
   - natural:pincer ← Pincer (8 creatures (Chuul, Glabrezu, Mi-Go))
-- **Primal Savagery** [melee] → weapon:primal-savagery, natural:primal-savagery
 - **Pseudopod** [melee] → natural:pseudopod, natural:dissolving-pseudopod
-  - natural:pseudopod (15 creatures)
+  - natural:pseudopod (16 creatures)
   - natural:dissolving-pseudopod ← Dissolving Pseudopod (2 creatures (Black Pudding))
-  - natural:pseudopod ← Pseudopod (15 creatures (Blob of Annihilation, Gelatinous Cube, Gray Ooze))
-- **Punch** [melee] → weapon:punch, natural:punch
+  - natural:pseudopod ← Pseudopod (16 creatures (Blob of Annihilation, Gelatinous Cube, Gray Ooze))
 - **Quarterstaff** [melee] → weapon:quarterstaff, weapon:quarterstaff-2, weapon:quarterstaff-3, weapon:vicious-quarterstaff, weapon:quarterstaff-1
   - weapon:quarterstaff (the base weapons)
   - weapon:quarterstaff ← Quarterstaff (the base weapons)
@@ -780,13 +648,14 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:quarterstaff-3 ← Quarterstaff +3 (dnd5e/items)
   - weapon:vicious-quarterstaff ← Vicious Quarterstaff (dnd5e/items)
   - weapon:quarterstaff-1 ← Quarterstaff +1 (dnd5e/items)
-- **Quivering Palm** [melee] → weapon:quivering-palm, natural:quivering-palm
 - **Rake** [melee] → natural:rake
   - natural:rake (3 creatures)
   - natural:rake ← Rake (3 creatures (Awakened Shrub))
-- **Ram** [melee] → natural:ram
+- **Ram** [melee] → weapon:ram, natural:ram
+  - weapon:ram (dmg/equipment)
   - natural:ram (20 creatures)
   - natural:ram ← Ram (20 creatures (Chimera, Deer, Elk))
+  - weapon:ram ← Ram (dmg/equipment)
 - **Rapier** [melee] → weapon:rapier, weapon:dancing-rapier, weapon:flame-tongue-rapier, weapon:giant-slayer-rapier, weapon:nine-lives-stealer-rapier, weapon:rapier-1, weapon:dragon-slayer-rapier, weapon:rapier-3, weapon:defender-rapier, weapon:frost-brand-rapier, weapon:vicious-rapier, weapon:holy-avenger-rapier, weapon:luck-blade-rapier, weapon:rapier-2, weapon:insectile-rapier
   - weapon:rapier (the base weapons)
   - weapon:rapier ← Rapier (the base weapons)
@@ -808,13 +677,12 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:ravage (1 creatures)
   - natural:ravage ← Ravage (1 creatures (Primeval Owlbear))
 - **Rend** [melee] → natural:rend, natural:rend-jackal-or-hybrid-form-only, natural:rend-bear-or-hybrid-form-only, natural:rend-dire-wolf-or-hybrid-form-only, natural:mind-rend
-  - natural:rend (128 creatures)
-  - natural:rend ← Rend (128 creatures (Adult Black Dragon, Adult Blue Dragon, Adult Brass Dragon))
+  - natural:rend (130 creatures)
+  - natural:rend ← Rend (130 creatures (Adult Black Dragon, Adult Blue Dragon, Adult Brass Dragon))
   - natural:rend-jackal-or-hybrid-form-only ← Rend (Jackal or Hybrid Form Only) (1 creatures (Jackalwere))
   - natural:rend-bear-or-hybrid-form-only ← Rend (Bear or Hybrid Form Only) (2 creatures (Werebear))
   - natural:rend-dire-wolf-or-hybrid-form-only ← Rend (Dire Wolf or Hybrid Form Only) (1 creatures (Loup Garou))
   - natural:mind-rend ← Mind Rend (1 creatures (Mist Horror))
-- **Retaliation** [melee] → weapon:retaliation, natural:retaliation
 - **Scimitar** [melee] → weapon:scimitar, weapon:frost-brand-scimitar, weapon:scimitar-3, weapon:nine-lives-stealer-scimitar, weapon:luck-blade-scimitar, weapon:vicious-scimitar, weapon:vorpal-scimitar, weapon:defender-scimitar, weapon:holy-avenger-scimitar, weapon:scimitar-1, weapon:scimitar-2, weapon:giant-slayer-scimitar, weapon:dragon-slayer-scimitar, weapon:dancing-scimitar, weapon:flame-tongue-scimitar
   - weapon:scimitar (the base weapons)
   - weapon:scimitar ← Scimitar (the base weapons)
@@ -835,10 +703,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Scratch** [melee] → natural:scratch
   - natural:scratch (10 creatures)
   - natural:scratch ← Scratch (10 creatures (Cat, Wererat, Weretiger))
-- **Scythe** [melee] → natural:dread-scythe, natural:necrotic-scythe, weapon:scythe, natural:scythe
-  - natural:dread-scythe ← Dread Scythe (1 creatures (Death Cultist))
+- **Scythe** [melee] → natural:dread-scythe, natural:necrotic-scythe
+  - natural:dread-scythe ← Dread Scythe (2 creatures (Death Cultist))
   - natural:necrotic-scythe ← Necrotic Scythe (the world (Cadoc, the Guardian))
-- **Shield** [melee] → weapon:shield, natural:shield
 - **Shortsword** [melee] → weapon:shortsword, weapon:vicious-shortsword, weapon:nine-lives-stealer-shortsword, weapon:frost-brand-shortsword, weapon:dragon-slayer-shortsword, weapon:flame-tongue-shortsword, weapon:shortsword-2, weapon:holy-avenger-shortsword, weapon:defender-shortsword, weapon:luck-blade-shortsword, weapon:shortsword-1, weapon:dancing-shortsword, weapon:giant-slayer-shortsword, weapon:shortsword-3, weapon:seras-shortsword
   - weapon:shortsword (the base weapons)
   - weapon:shortsword ← Shortsword (the base weapons)
@@ -856,7 +723,6 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:giant-slayer-shortsword ← Giant Slayer Shortsword (dnd5e/items)
   - weapon:shortsword-3 ← Shortsword +3 (dnd5e/items)
   - weapon:seras-shortsword ← Sera's Shortsword (the world (Mother Wend))
-- **Shove** [melee] → weapon:shove, natural:shove
 - **Sickle** [melee] → weapon:sickle, natural:ritual-sickle, weapon:vicious-sickle, weapon:sickle-3, weapon:sickle-1, weapon:sickle-2
   - weapon:sickle (the base weapons)
   - weapon:sickle ← Sickle (the base weapons)
@@ -866,12 +732,12 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:sickle-1 ← Sickle +1 (dnd5e/items)
   - weapon:sickle-2 ← Sickle +2 (dnd5e/items)
 - **Slam** [melee] → natural:slam, natural:thunderous-slam, natural:avalanche-slam, natural:object-slam, natural:rotting-slam, natural:slam-human-or-hybrid-form-only
-  - natural:slam (58 creatures)
-  - natural:slam ← Slam (58 creatures (Animated Armor, Animated Broom, Awakened Tree))
+  - natural:slam (62 creatures)
+  - natural:slam ← Slam (62 creatures (Animated Armor, Animated Broom, Awakened Tree))
   - natural:thunderous-slam ← Thunderous Slam (2 creatures (Air Elemental))
   - natural:avalanche-slam ← Avalanche Slam (2 creatures (Animated Boulder, Galeb Duhr))
-  - natural:object-slam ← Object Slam (3 creatures (Haunting Revenant, Poltergeist, Wilfred Godefroy))
-  - natural:rotting-slam ← Rotting Slam (1 creatures (Violet Fungus Necrohulk))
+  - natural:object-slam ← Object Slam (5 creatures (Haunting Revenant, Poltergeist, Wilfred Godefroy))
+  - natural:rotting-slam ← Rotting Slam (2 creatures (Violet Fungus Necrohulk))
   - natural:slam-human-or-hybrid-form-only ← Slam (Human or Hybrid Form Only) (1 creatures (Jackalwere))
 - **Slash** [melee] → natural:slash, natural:darkflame-slash
   - natural:slash (2 creatures)
@@ -891,10 +757,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:spear-2 ← Spear +2 (dnd5e/items)
   - weapon:spear-1 ← Spear +1 (dnd5e/items)
   - weapon:vicious-spear ← Vicious Spear (dnd5e/items)
-- **Spike** [melee] → natural:tail-spike, weapon:spike, natural:spike
+- **Spike** [melee] → natural:tail-spike
   - natural:tail-spike ← Tail Spike (3 creatures (Manticore))
-- **Stab** [melee] → weapon:stab, natural:stab
-- **Staff** [melee] → weapon:staff, natural:vine-staff, natural:bog-staff, natural:chaos-staff, natural:pincer-staff, weapon:wooden-staff, weapon:forest-staff, weapon:wind-staff, weapon:vesper-staff
+- **Staff** [melee] → weapon:staff, natural:vine-staff, natural:bog-staff, natural:chaos-staff, natural:pincer-staff, weapon:wooden-staff, weapon:enspelled-staff, weapon:forest-staff, weapon:wind-staff, weapon:vesper-staff
   - weapon:staff (phb/equipment)
   - natural:vine-staff ← Vine Staff (2 creatures (Druid))
   - natural:bog-staff ← Bog Staff (2 creatures (Bullywug Bog Sage))
@@ -902,11 +767,11 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:pincer-staff ← Pincer Staff (1 creatures (Kuo-toa Whip))
   - weapon:staff ← Staff (phb/equipment)
   - weapon:wooden-staff ← Wooden staff (phb/equipment)
+  - weapon:enspelled-staff ← Enspelled Staff (dmg/equipment)
   - weapon:forest-staff ← Forest Staff (mm/features)
   - weapon:wind-staff ← Wind Staff (mm/features)
   - weapon:vesper-staff ← Vesper Staff (the world (Harrow Vane))
-- **Steel Wind Strike** [melee] → weapon:steel-wind-strike, natural:steel-wind-strike
-- **Stick** [melee] → natural:hex-stick, weapon:stick, natural:stick
+- **Stick** [melee] → natural:hex-stick
   - natural:hex-stick ← Hex Stick (1 creatures (Goblin Hexer))
 - **Sting** [melee] → natural:sting, natural:infernal-sting, natural:sting-bite-in-beast-form
   - natural:sting (17 creatures)
@@ -920,12 +785,12 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Stomp** [melee] → natural:stomp
   - natural:stomp (3 creatures)
   - natural:stomp ← Stomp (3 creatures (Mammoth, Triceratops, Elephant))
-- **Strike** [melee] → natural:unarmed-strike, natural:abyssal-strike, natural:beguiling-strike, natural:draconic-strike, natural:grave-strike, natural:otherworldly-strike, natural:psi-strike, natural:shadow-strike, natural:grave-strike-vampire-form-only, natural:lightning-strike, natural:unarmed-strike-vampire-form-only, natural:beasts-strike, natural:fiery-strike, natural:fiery-strike-devil-only, natural:death-strike, weapon:unarmed-strike, weapon:strike, natural:strike
+- **Strike** [melee] → natural:unarmed-strike, natural:abyssal-strike, natural:beguiling-strike, natural:draconic-strike, natural:grave-strike, natural:otherworldly-strike, natural:psi-strike, natural:shadow-strike, natural:grave-strike-vampire-form-only, natural:lightning-strike, natural:unarmed-strike-vampire-form-only, natural:beasts-strike, natural:fiery-strike, natural:fiery-strike-devil-only, natural:death-strike, weapon:unarmed-strike
   - natural:unarmed-strike ← Unarmed Strike (10 creatures (Merric, Perrin, Barbarian))
   - natural:abyssal-strike ← Abyssal Strike (1 creatures (Gnoll Demoniac))
   - natural:beguiling-strike ← Beguiling Strike (1 creatures (Noble Prodigy))
   - natural:draconic-strike ← Draconic Strike (1 creatures (Githyanki Dracomancer))
-  - natural:grave-strike ← Grave Strike (1 creatures (Vampire Umbral Lord))
+  - natural:grave-strike ← Grave Strike (2 creatures (Vampire Umbral Lord))
   - natural:otherworldly-strike ← Otherworldly Strike (1 creatures (Empyrean Iota))
   - natural:psi-strike ← Psi Strike (2 creatures (Githzerai Monk, Githzerai Zerth))
   - natural:shadow-strike ← Shadow Strike (1 creatures (Vampire Nightbringer))
@@ -937,10 +802,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:fiery-strike-devil-only ← Fiery Strike (Devil Only) (1 creatures (Fiendish Spirit))
   - natural:death-strike ← Death Strike (1 creatures (Strahd von Zarovich))
   - weapon:unarmed-strike ← Unarmed Strike (dnd5e/items)
-- **Stunning Strike** [melee] → weapon:stunning-strike, natural:stunning-strike
-- **Sword** [melee] → natural:flying-sword, natural:necrotic-sword, natural:needle-sword, natural:arcane-sword, natural:silver-sword, weapon:flame-sword, weapon:radiant-sword, weapon:storm-sword, weapon:withering-sword, weapon:dancing-sword, weapon:vorpal-sword, weapon:sword, natural:sword
+- **Sword** [melee] → natural:flying-sword, natural:necrotic-sword, natural:needle-sword, natural:arcane-sword, natural:silver-sword, weapon:flame-sword, weapon:radiant-sword, weapon:storm-sword, weapon:withering-sword, weapon:dancing-sword, weapon:vorpal-sword, weapon:moon-touched-sword
   - natural:flying-sword ← Flying Sword (2 creatures (Solar))
-  - natural:necrotic-sword ← Necrotic Sword (2 creatures (Wight))
+  - natural:necrotic-sword ← Necrotic Sword (3 creatures (Wight))
   - natural:needle-sword ← Needle Sword (3 creatures (Sprite))
   - natural:arcane-sword ← Arcane Sword (1 creatures (Helmed Horror))
   - natural:silver-sword ← Silver Sword (1 creatures (Githyanki Knight))
@@ -950,15 +814,13 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:withering-sword ← Withering Sword (dnd5e/monsterfeatures24)
   - weapon:dancing-sword ← Dancing Sword (dnd5e/equipment24)
   - weapon:vorpal-sword ← Vorpal Sword (dnd5e/equipment24)
-- **Tachi** [melee] → weapon:tachi, natural:tachi
+  - weapon:moon-touched-sword ← Moon-Touched Sword (dmg/equipment)
 - **Tail** [melee] → natural:tail
-  - natural:tail (47 creatures)
-  - natural:tail ← Tail (47 creatures (Ankylosaurus, Barbed Devil, Cloaker))
-- **Talon** [melee] → natural:talons, weapon:talon, natural:talon
+  - natural:tail (49 creatures)
+  - natural:tail ← Tail (49 creatures (Ankylosaurus, Barbed Devil, Cloaker))
+- **Talon** [melee] → natural:talons, weapon:sylvan-talon
   - natural:talons ← Talons (24 creatures (Aarakocra Skirmisher, Cockatrice Regent, Eagle))
-- **Tanto** [melee] → weapon:tanto, natural:tanto
-- **Tonfa** [melee] → weapon:tonfa, natural:tonfa
-- **Trample** [melee] → weapon:trample, natural:trample
+  - weapon:sylvan-talon ← Sylvan Talon (dmg/equipment)
 - **Trident** [melee] → weapon:trident, weapon:trident-2, weapon:vicious-trident, weapon:trident-1, weapon:trident-3, weapon:flame-trident, weapon:mercurial-trident
   - weapon:trident (the base weapons)
   - weapon:trident ← Trident (the base weapons)
@@ -973,14 +835,12 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:tusk ← Tusk (2 creatures (Giant Boar, Boar))
   - natural:tusk-boar-or-hybrid-form-only ← Tusk (Boar or Hybrid Form Only) (2 creatures (Wereboar))
   - natural:tusks-boar-or-hybrid-form-only ← Tusks (Boar or Hybrid Form Only) (1 creatures (Wereboar))
-- **Unarmed** [melee] → weapon:unarmed, natural:unarmed
 - **Unarmed Strike** [melee] → weapon:unarmed-strike, natural:unarmed-strike, natural:unarmed-strike-vampire-form-only
   - weapon:unarmed-strike (dnd5e/items)
   - natural:unarmed-strike (10 creatures)
   - natural:unarmed-strike ← Unarmed Strike (10 creatures (Merric, Perrin, Barbarian))
   - natural:unarmed-strike-vampire-form-only ← Unarmed Strike (Vampire Form Only) (1 creatures (Vampire))
   - weapon:unarmed-strike ← Unarmed Strike (dnd5e/items)
-- **Wakizashi** [melee] → weapon:wakizashi, natural:wakizashi
 - **War Pick** [melee] → weapon:warpick, weapon:war-pick, weapon:war-pick-2, weapon:vicious-war-pick, weapon:war-pick-1, weapon:war-pick-3
   - weapon:warpick (the base weapons)
   - weapon:war-pick (phb/equipment)
@@ -1007,22 +867,16 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:whip-1 ← Whip +1 (dnd5e/items)
   - weapon:vicious-whip ← Vicious Whip (dnd5e/items)
   - weapon:mercurial-whip ← Mercurial Whip (mm/features)
-- **Wing** [melee] → weapon:wing, natural:wing
-- **Wrench** [melee] → weapon:wrench, natural:wrench
-- **Yari** [melee] → weapon:yari, natural:yari
-- **Yklwa** [melee] → weapon:yklwa, natural:yklwa
 - **Acid Arrow** [range] → spell:acid-arrow
   - spell:acid-arrow (dnd5e/spells24)
-- **Alchemist's** [range] → weapon:alchemists, natural:alchemists
-- **Antagonize** [range] → weapon:antagonize, natural:antagonize
-- **Antimatter Rifle** [range] → weapon:antimatter-rifle, natural:antimatter-rifle
+- **Antimatter Rifle** [range] → weapon:antimatter-rifle
+  - weapon:antimatter-rifle (dmg/equipment)
+  - weapon:antimatter-rifle ← Antimatter Rifle (dmg/equipment)
 - **Antipathy/Sympathy** [range] → spell:antipathy-sympathy
   - spell:antipathy-sympathy (phb/spells)
 - **Aquatic Burst** [range] → natural:aquatic-burst
   - natural:aquatic-burst (1 creatures)
   - natural:aquatic-burst ← Aquatic Burst (1 creatures (Merfolk Wavebender))
-- **Arcane Firearm** [range] → weapon:arcane-firearm, natural:arcane-firearm
-- **Automatic** [range] → weapon:automatic, natural:automatic
 - **Awakened Mind** [range] → feature:awakened-mind
   - feature:awakened-mind (phb/classes)
 - **Befuddlement** [range] → spell:befuddlement
@@ -1039,15 +893,15 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:blowgun-1 ← Blowgun +1 (dnd5e/items)
   - weapon:blowgun-2 ← Blowgun +2 (dnd5e/items)
   - weapon:vicious-blowgun ← Vicious Blowgun (dnd5e/items)
-- **Bomb** [range] → weapon:bomb, natural:bomb
+- **Bomb** [range] → item:bomb
+  - item:bomb (dmg/equipment)
 - **Bone Bow** [range] → weapon:bone-bow
   - weapon:bone-bow (dnd5e/monsterfeatures24)
   - weapon:bone-bow ← Bone Bow (dnd5e/monsterfeatures24)
-- **Boomerang** [range] → weapon:boomerang, natural:boomerang
 - **Boulder** [range] → natural:boulder
   - natural:boulder (2 creatures)
   - natural:boulder ← Boulder (2 creatures (Stone Giant))
-- **Bow** [range] → natural:enchanting-bow, natural:radiant-bow, natural:radiant-bow-avenger-only, weapon:bone-bow, weapon:great-bow, weapon:necrotic-bow, weapon:energy-bow, weapon:bow, natural:bow
+- **Bow** [range] → natural:enchanting-bow, natural:radiant-bow, natural:radiant-bow-avenger-only, weapon:bone-bow, weapon:great-bow, weapon:necrotic-bow, weapon:energy-bow
   - natural:enchanting-bow ← Enchanting Bow (3 creatures (Sprite))
   - natural:radiant-bow ← Radiant Bow (1 creatures (Avenger Spirit))
   - natural:radiant-bow-avenger-only ← Radiant Bow (Avenger Only) (1 creatures (Celestial Spirit))
@@ -1057,25 +911,21 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:energy-bow ← Energy Bow (dnd5e/equipment24)
 - **Burnt Othur Fumes** [range] → item:burnt-othur-fumes
   - item:burnt-othur-fumes (dnd5e/equipment24)
-- **Burst** [range] → natural:arcane-burst, natural:eldritch-burst, natural:poison-burst, natural:thorn-burst, natural:aquatic-burst, natural:earth-burst, natural:elemental-burst, natural:fiendish-burst, natural:flame-burst, natural:necrotic-burst, natural:radiant-burst, natural:poison-burst-yuan-ti-form-only, natural:negative-energy-burst, natural:disrupting-burst, weapon:burst, natural:burst
+- **Burst** [range] → natural:arcane-burst, natural:eldritch-burst, natural:poison-burst, natural:thorn-burst, natural:aquatic-burst, natural:earth-burst, natural:elemental-burst, natural:fiendish-burst, natural:flame-burst, natural:necrotic-burst, natural:radiant-burst, natural:poison-burst-yuan-ti-form-only, natural:negative-energy-burst, natural:disrupting-burst
   - natural:arcane-burst ← Arcane Burst (6 creatures (Archmage, Mage, Mage Apprentice))
   - natural:eldritch-burst ← Eldritch Burst (3 creatures (Lich, Azalin Rex))
   - natural:poison-burst ← Poison Burst (2 creatures (Drider))
   - natural:thorn-burst ← Thorn Burst (2 creatures (Dryad))
   - natural:aquatic-burst ← Aquatic Burst (1 creatures (Merfolk Wavebender))
-  - natural:earth-burst ← Earth Burst (2 creatures (Dao, Lizardfolk Geomancer))
+  - natural:earth-burst ← Earth Burst (3 creatures (Dao, Lizardfolk Geomancer))
   - natural:elemental-burst ← Elemental Burst (1 creatures (Elemental Cataclysm))
-  - natural:fiendish-burst ← Fiendish Burst (1 creatures (Arcanaloth))
+  - natural:fiendish-burst ← Fiendish Burst (2 creatures (Arcanaloth))
   - natural:flame-burst ← Flame Burst (1 creatures (Azer Pyromancer))
   - natural:necrotic-burst ← Necrotic Burst (3 creatures (Demilich, Necrichor, Saidra d’Honaire))
-  - natural:radiant-burst ← Radiant Burst (2 creatures (Archpriest, Mist Wanderer))
+  - natural:radiant-burst ← Radiant Burst (3 creatures (Archpriest, Mist Wanderer))
   - natural:poison-burst-yuan-ti-form-only ← Poison Burst (Yuan-ti Form Only) (1 creatures (Yuan-ti Malison (Type 3)))
   - natural:negative-energy-burst ← Negative Energy Burst (1 creatures (Ankhtepot))
   - natural:disrupting-burst ← Disrupting Burst (1 creatures (Brain in a Jar))
-- **Catapult** [range] → weapon:catapult, natural:catapult
-- **Catapult Munition** [range] → weapon:catapult-munition, natural:catapult-munition
-- **Chakram** [range] → weapon:chakram, natural:chakram
-- **Charm Ray** [range] → weapon:charm-ray, natural:charm-ray
 - **Chatkcha** [range] → natural:chatkcha
   - natural:chatkcha (1 creatures)
   - natural:chatkcha ← Chatkcha (1 creatures (Thri-kreen Marauder))
@@ -1085,7 +935,7 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - feature:consume-life (dnd5e/monsterfeatures)
 - **Cordon of Arrows** [range] → spell:cordon-of-arrows
   - spell:cordon-of-arrows (phb/spells)
-- **Crossbow** [range] → weapon:handcrossbow, weapon:heavycrossbow, weapon:lightcrossbow, weapon:hand-crossbow, weapon:heavy-crossbow, weapon:light-crossbow, weapon:hand-crossbow-2, weapon:heavy-crossbow-2, weapon:vicious-heavy-crossbow, weapon:vicious-hand-crossbow, weapon:hand-crossbow-1, weapon:heavy-crossbow-3, weapon:vicious-light-crossbow, weapon:light-crossbow-3, weapon:heavy-crossbow-1, weapon:light-crossbow-1, weapon:hand-crossbow-3, weapon:light-crossbow-2, weapon:marns-light-crossbow, weapon:crossbow, natural:crossbow
+- **Crossbow** [range] → weapon:handcrossbow, weapon:heavycrossbow, weapon:lightcrossbow, weapon:hand-crossbow, weapon:heavy-crossbow, weapon:light-crossbow, weapon:hand-crossbow-2, weapon:heavy-crossbow-2, weapon:vicious-heavy-crossbow, weapon:vicious-hand-crossbow, weapon:hand-crossbow-1, weapon:heavy-crossbow-3, weapon:vicious-light-crossbow, weapon:light-crossbow-3, weapon:heavy-crossbow-1, weapon:light-crossbow-1, weapon:hand-crossbow-3, weapon:light-crossbow-2, weapon:marns-light-crossbow
   - weapon:handcrossbow ← Hand Crossbow (the base weapons)
   - weapon:heavycrossbow ← Heavy Crossbow (the base weapons)
   - weapon:lightcrossbow ← Light Crossbow (the base weapons)
@@ -1118,25 +968,19 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - feature:dominate-mind (dnd5e/monsterfeatures24)
 - **Draining Kiss** [range] → feature:draining-kiss
   - feature:draining-kiss (dnd5e/monsterfeatures)
-- **Dynamite** [range] → weapon:dynamite, natural:dynamite
 - **Earth Burst** [range] → natural:earth-burst
-  - natural:earth-burst (2 creatures)
-  - natural:earth-burst ← Earth Burst (2 creatures (Dao, Lizardfolk Geomancer))
+  - natural:earth-burst (3 creatures)
+  - natural:earth-burst ← Earth Burst (3 creatures (Dao, Lizardfolk Geomancer))
 - **Energy Drain** [range] → feature:energy-drain
   - feature:energy-drain (mm/features)
-- **Enervation Ray** [range] → weapon:enervation-ray, natural:enervation-ray
 - **Essence of Ether** [range] → item:essence-of-ether
   - item:essence-of-ether (dnd5e/equipment24)
-- **Fragmentation Grenade** [range] → weapon:fragmentation-grenade, natural:fragmentation-grenade
 - **Gear Flinger** [range] → natural:gear-flinger
   - natural:gear-flinger (1 creatures)
   - natural:gear-flinger ← Gear Flinger (1 creatures (Modron Monodrone))
-- **Gear Launcher** [range] → weapon:gear-launcher, natural:gear-launcher
-- **Gnomengarde Grenade** [range] → weapon:gnomengarde-grenade, natural:gnomengarde-grenade
-- **Grave Bolt** [range] → weapon:grave-bolt, natural:grave-bolt
-- **Grenade** [range] → weapon:grenade, natural:grenade
-- **Grenade Launcher** [range] → weapon:grenade-launcher, natural:grenade-launcher
-- **Gun** [range] → weapon:gun, natural:gun
+- **Grenade Launcher** [range] → weapon:grenade-launcher
+  - weapon:grenade-launcher (dmg/equipment)
+  - weapon:grenade-launcher ← Grenade Launcher (dmg/equipment)
 - **Hail of Bark** [range] → natural:hail-of-bark
   - natural:hail-of-bark (2 creatures)
   - natural:hail-of-bark ← Hail of Bark (2 creatures (Treant))
@@ -1153,15 +997,11 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:javelin-1 ← Javelin +1 (dnd5e/items)
   - weapon:vicious-javelin ← Vicious Javelin (dnd5e/items)
   - weapon:wind-javelin ← Wind Javelin (mm/features)
-- **Jim's Glowing Coin** [range] → weapon:jims-glowing-coin, natural:jims-glowing-coin
-- **Kunai** [range] → weapon:kunai, natural:kunai
-- **Laser** [range] → weapon:laser, natural:laser
 - **Life Drain** [range] → feature:life-drain, natural:life-drain
   - feature:life-drain (dnd5e/monsterfeatures24)
   - natural:life-drain (3 creatures)
   - natural:life-drain ← Life Drain (3 creatures (Wraith, Specter, Wight))
-- **Life Transference** [range] → weapon:life-transference, natural:life-transference
-- **Lob** [range] → natural:wax-lob, weapon:trash-lob, weapon:lob, natural:lob
+- **Lob** [range] → natural:wax-lob, weapon:trash-lob
   - natural:wax-lob ← Wax Lob (1 creatures (Waxwork))
   - weapon:trash-lob ← Trash Lob (dnd5e/monsterfeatures24)
 - **Longbow** [range] → weapon:longbow, weapon:longbow-3, weapon:longbow-1, weapon:longbow-2, weapon:vicious-longbow, weapon:seras-longbow
@@ -1172,7 +1012,6 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:longbow-2 ← Longbow +2 (dnd5e/items)
   - weapon:vicious-longbow ← Vicious Longbow (dnd5e/items)
   - weapon:seras-longbow ← Sera's Longbow (the world (Selma))
-- **Magic Stone** [range] → weapon:magic-stone, natural:magic-stone
 - **Malice** [range] → item:malice
   - item:malice (dnd5e/equipment24)
 - **Maze** [range] → spell:maze
@@ -1183,7 +1022,6 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - spell:mind-sliver (phb/spells)
 - **Mind Spike** [range] → spell:mind-spike
   - spell:mind-spike (phb/spells)
-- **Missile** [range] → weapon:missile, natural:missile
 - **Modify Memory** [range] → spell:modify-memory
   - spell:modify-memory (phb/spells)
 - **Mud Breath** [range] → feature:mud-breath
@@ -1191,19 +1029,20 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Musket** [range] → weapon:musket
   - weapon:musket (the base weapons)
   - weapon:musket ← Musket (the base weapons)
-- **Needle** [range] → natural:silver-needle, weapon:needles, weapon:needle, natural:needle
+- **Needle** [range] → natural:silver-needle, weapon:needles
   - natural:silver-needle ← Silver Needle (1 creatures (Carrionette))
   - weapon:needles ← Needles (mm/features)
-- **Negative Energy Flood** [range] → weapon:negative-energy-flood, natural:negative-energy-flood
-- **Pistol** [range] → weapon:pistol
+- **Pistol** [range] → weapon:pistol, weapon:laser-pistol, weapon:semiautomatic-pistol
   - weapon:pistol (the base weapons)
   - weapon:pistol ← Pistol (the base weapons)
+  - weapon:laser-pistol ← Laser Pistol (dmg/equipment)
+  - weapon:semiautomatic-pistol ← Semiautomatic Pistol (dmg/equipment)
 - **Planar Binding** [range] → spell:planar-binding
   - spell:planar-binding (phb/spells)
 - **Poison Ray** [range] → natural:poison-ray, natural:poison-ray-yuan-ti-form-only
   - natural:poison-ray (3 creatures)
   - natural:poison-ray ← Poison Ray (3 creatures (Medusa, Yuan-ti Infiltrator))
-  - natural:poison-ray-yuan-ti-form-only ← Poison Ray  (Yuan-ti Form Only) (1 creatures (Yuan-ti Malison (Type 1)))
+  - natural:poison-ray-yuan-ti-form-only ← Poison Ray  (Yuan-ti Form Only) (2 creatures (Yuan-ti Malison (Type 1)))
 - **Poison Spray** [range] → spell:poison-spray, feature:poison-spray
   - spell:poison-spray (phb/spells)
   - feature:poison-spray (mm/features)
@@ -1212,16 +1051,21 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Proboscis** [range] → natural:proboscis
   - natural:proboscis (4 creatures)
   - natural:proboscis ← Proboscis (4 creatures (Chasme, Stirge, Strigoi))
-- **Psychic Scream** [range] → weapon:psychic-scream, natural:psychic-scream
 - **Ray of Enfeeblement** [range] → spell:ray-of-enfeeblement
   - spell:ray-of-enfeeblement (phb/spells)
 - **Rend Mind** [range] → feature:rend-mind
   - feature:rend-mind (phb/classes)
 - **Restore Balance** [range] → feature:restore-balance
   - feature:restore-balance (phb/classes)
-- **Revolver** [range] → weapon:revolver, natural:revolver
-- **Rifle** [range] → natural:hunting-rifle, weapon:rifle, natural:rifle
+- **Revolver** [range] → weapon:revolver
+  - weapon:revolver (dmg/equipment)
+  - weapon:revolver ← Revolver (dmg/equipment)
+- **Rifle** [range] → natural:hunting-rifle, weapon:antimatter-rifle, weapon:automatic-rifle, weapon:hunting-rifle, weapon:laser-rifle
   - natural:hunting-rifle ← Hunting Rifle (1 creatures (Wilfred Godefroy))
+  - weapon:antimatter-rifle ← Antimatter Rifle (dmg/equipment)
+  - weapon:automatic-rifle ← Automatic Rifle (dmg/equipment)
+  - weapon:hunting-rifle ← Hunting Rifle (dmg/equipment)
+  - weapon:laser-rifle ← Laser Rifle (dmg/equipment)
 - **Rock** [range] → natural:rock
   - natural:rock (5 creatures)
   - natural:rock ← Rock (5 creatures (Ape, Cyclops Sentry, Giant Ape))
@@ -1235,9 +1079,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:shortbow-3 ← Shortbow +3 (dnd5e/items)
   - weapon:shortbow-1 ← Shortbow +1 (dnd5e/items)
   - weapon:shortbow-2 ← Shortbow +2 (dnd5e/items)
-- **Shotgun** [range] → weapon:shotgun, natural:shotgun
-- **Shuriken** [range] → weapon:shuriken, natural:shuriken
-- **Siege Boulder** [range] → weapon:siege-boulder, natural:siege-boulder
+- **Shotgun** [range] → weapon:shotgun
+  - weapon:shotgun (dmg/equipment)
+  - weapon:shotgun ← Shotgun (dmg/equipment)
 - **Sling** [range] → weapon:sling, weapon:sling-1, weapon:sling-2, weapon:sling-3, weapon:vicious-sling
   - weapon:sling (the base weapons)
   - weapon:sling ← Sling (the base weapons)
@@ -1245,11 +1089,8 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:sling-2 ← Sling +2 (dnd5e/items)
   - weapon:sling-3 ← Sling +3 (dnd5e/items)
   - weapon:vicious-sling ← Vicious Sling (dnd5e/items)
-- **Smoke Grenade** [range] → weapon:smoke-grenade, natural:smoke-grenade
-- **Snow Ball** [range] → weapon:snow-ball, natural:snow-ball
 - **Sorcerous Burst** [range] → spell:sorcerous-burst
   - spell:sorcerous-burst (phb/spells)
-- **Soul Cage** [range] → weapon:soul-cage, natural:soul-cage
 - **Stench Spray** [range] → feature:stench-spray
   - feature:stench-spray (mm/features)
 - **Sun Blade** [range] → weapon:sun-blade
@@ -1258,14 +1099,13 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Surge** [range] → natural:surge
   - natural:surge (1 creatures)
   - natural:surge ← Surge (1 creatures (Water Weird))
-- **Tasha's Mind Whip** [range] → weapon:tashas-mind-whip, natural:tashas-mind-whip
 - **Telepathic Bond** [range] → spell:telepathic-bond, feature:telepathic-bond
   - spell:telepathic-bond (dnd5e/spells24)
   - feature:telepathic-bond (dnd5e/monsterfeatures)
 - **Telepathic Speech** [range] → feature:telepathic-speech
   - feature:telepathic-speech (phb/classes)
-- **Thorn** [range] → weapon:thorn, natural:thorn
-- **Wardaway** [range] → weapon:wardaway, natural:wardaway
+- **Wardaway** [range] → spell:wardaway
+  - spell:wardaway (faerun/options)
 - **Watery Rebuke** [range] → feature:watery-rebuke
   - feature:watery-rebuke (mm/features)
 - **Web** [range] → spell:web, feature:web
@@ -1278,7 +1118,7 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:goldthorn (the world (Jetten Elisedil))
   - weapon:goldthorn ← Goldthorn (the world (Jetten Elisedil))
 
-## Caught by a weapon word under AA, not carried (26 words)
+## Caught by a weapon word under AA, not carried (27 words)
 
 Automated Animations' weapon and creature-attack rows matched their word inside any name — a feat, a wand, a spell. Those catches are accidents of the word and are not carried: a weapon fx never answers a spell, a feature or an item. Each is one house fx away if it was wanted ("like the Burst fx, for feature:spellfire-burst").
 
@@ -1287,7 +1127,8 @@ Automated Animations' weapon and creature-attack rows matched their word inside 
 - **Dagger** [melee]: Cloud of Daggers [spell] (phb/spells)
 - **Horn** [melee]: Horn [tool] on Mother Wend
 - **Knife** [melee]: Ice Knife [spell] on Skeletal Mage; Ice Knife [spell] (phb/spells)
-- **Shield** [melee]: Shield [spell] on Gren Greenmantle; Shield [equipment] on BF Test Attacker; Shield [equipment] on BF Test Victim; Shield [equipment] on Mother Wend; Sentinel Shield [equipment] on Mother Wend; Shield [spell] on Skeletal Mage; Shield [equipment] on Hobgoblin Warrior; Shield [equipment] on Sharran Enforcer; +1 Shield [equipment] on Thomas A. Invictus; Shield [spell] on BF Test Shielder; Fire Shield [spell] (phb/spells)
+- **Lance** [melee]: Laeral's Silver Lance [spell] (faerun/options)
+- **Shield** [melee]: Shield [spell] on Gren Greenmantle; Shield [equipment] on BF Test Attacker; Shield [equipment] on BF Test Victim; Shield [equipment] on Mother Wend; Sentinel Shield [equipment] on Mother Wend; Shield [spell] on Skeletal Mage; Shield [equipment] on Hobgoblin Warrior; Shield [equipment] on Sharran Enforcer; +1 Shield [equipment] on Thomas A. Invictus; Shield [spell] on BF Test Shielder; Fire Shield [spell] (phb/spells); Cacophonic Shield [spell] (faerun/options)
 - **Spike** [melee]: Mind Spike [spell] (phb/spells)
 - **Strike** [melee]: Flame Strike [spell] on Harrow Vane; True Strike [spell] on Sharran Acolyte; Cunning Strike [feat] on BF Test Rogue; Devious Strikes [feat] on BF Test Rogue; Improved Cunning Strike [feat] on BF Test Rogue; Ensnaring Strike [spell] (phb/spells); Flame Strike [spell] (phb/spells); Steel Wind Strike [spell] (phb/spells); True Strike [spell] (phb/spells)
 - **Sword** [melee]: Mordenkainen's Sword [spell] (phb/spells); Arcane Sword [spell] (dnd5e/spells24)
@@ -1314,7 +1155,7 @@ Automated Animations' weapon and creature-attack rows matched their word inside 
 Where two rows claimed one key, the longer label keeps it, as Automated Animations' search took the longest label contained in a name.
 
 
-## EXCEPTION · rows no list holds, NOT carried (194)
+## EXCEPTION · rows no list holds, NOT carried (351)
 
 Neither the books, the base weapons, the creature attacks nor this world hold an ability of this name, so there is no evidence of what kind it is. The first migration keyed each of these as a spell, a feature AND an item — the one place the corpus guessed. **The user ruled that out (2026-09-08): these rows are not carried.** Each is one FX away if it turns out to be wanted: open the Editor, name the ability, and copy the scenes of whatever it should look like.
 
@@ -1324,26 +1165,107 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Heal-disabled | ontoken |
 | Starlight Step | preset |
 | Thunder Step | preset |
+| Abjuration Ward | aefx |
+| Arcane Ward | aefx |
+| Armor of Agathys | aefx |
+| Concentrating: Blur | aefx |
+| Fire Shield | aefx |
+| Antennae | melee |
+| Bone | melee |
+| Brutal Strike | melee |
+| Butterfly | melee |
+| Charge | melee |
+| Cutlass | melee |
+| Deflect | melee |
+| Elemental Strike | melee |
+| Falchion | melee |
+| Flurry of Blows | melee |
+| Force-Empowered Rend | melee |
+| Grapple | melee |
+| Hoof | melee |
+| Interception | melee |
+| Katana | melee |
+| Katar | melee |
+| Lasersword | melee |
+| Machete | melee |
+| Martial Arts | melee |
+| Nagamaki | melee |
+| Naginata | melee |
+| Nodachi | melee |
+| Nunchaku | melee |
+| Odachi | melee |
+| Open Hand Technique | melee |
+| Pan | melee |
+| Parry | melee |
+| Primal Savagery | melee |
+| Punch | melee |
+| Quivering Palm | melee |
+| Retaliation | melee |
+| Shield | melee |
+| Shove | melee |
+| Stab | melee |
+| Steel Wind Strike | melee |
+| Stunning Strike | melee |
+| Tachi | melee |
+| Tanto | melee |
+| Tonfa | melee |
+| Trample | melee |
+| Unarmed | melee |
+| Wakizashi | melee |
+| Wing | melee |
+| Wrench | melee |
+| Yari | melee |
+| Yklwa | melee |
+| Alchemist's | range |
+| Antagonize | range |
+| Arcane Firearm | range |
+| Automatic | range |
 | Beam | range |
+| Boomerang | range |
+| Catapult | range |
+| Catapult Munition | range |
+| Chakram | range |
 | Chaos Bolt | range |
+| Charm Ray | range |
 | Confusion Ray | range |
 | Danse Macabre | range |
 | Death Ray | range |
 | Disintegration Ray | range |
+| Dynamite | range |
 | Enemies Abound | range |
+| Enervation Ray | range |
 | Fear Ray | range |
 | Force Ballista | range |
-| Holy Star of Mystra | range |
+| Fragmentation Grenade | range |
+| Gear Launcher | range |
+| Gnomengarde Grenade | range |
+| Grave Bolt | range |
+| Grenade | range |
+| Gun | range |
+| Jim's Glowing Coin | range |
+| Kunai | range |
+| Laser | range |
+| Life Transference | range |
 | Lightning Launcher | range |
 | Lightning Lure | range |
+| Magic Stone | range |
+| Missile | range |
+| Negative Energy Flood | range |
 | Paralyzing Ray | range |
 | Petrification Ray | range |
+| Psychic Scream | range |
 | Ray | range |
+| Shuriken | range |
+| Siege Boulder | range |
 | Sleep Ray | range |
 | Slowing Ray | range |
-| Spellfire Flare | range |
+| Smoke Grenade | range |
+| Snow Ball | range |
+| Soul Cage | range |
 | Spittle | range |
+| Tasha's Mind Whip | range |
 | Telekinetic Ray | range |
+| Thorn | range |
 | Thunder Gauntlet | range |
 | Wounding Ray | range |
 | Absorb Elements | ontoken |
@@ -1353,9 +1275,7 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Arcane Jolt | ontoken |
 | Armor Model | ontoken |
 | Ashardalon's Stride | ontoken |
-| Backlash | ontoken |
 | Beast Bond | ontoken |
-| Blade of Disaster | ontoken |
 | Booming Blade | ontoken |
 | Borrowed Knowledge | ontoken |
 | Bubbling Cauldron | ontoken |
@@ -1364,7 +1284,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Ceremony | ontoken |
 | Chemical Mastery | ontoken |
 | Concentration Check: | ontoken |
-| Conjure Constructs | ontoken |
 | Control | ontoken |
 | Create Homunculus | ontoken |
 | Create Magen | ontoken |
@@ -1372,7 +1291,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Crown of Stars | ontoken |
 | Defense Roll | ontoken |
 | Defensive Field | ontoken |
-| Deryan's Helpful Homunculi | ontoken |
 | Dream of the Blue Veil | ontoken |
 | Drow Poison | ontoken |
 | Druid Grove | ontoken |
@@ -1380,7 +1298,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Earthbind | ontoken |
 | Eldritch Cannon | ontoken |
 | Elemental Bane | ontoken |
-| Elminster's Effulgent Spheres | ontoken |
 | Encode Thoughts | ontoken |
 | Experimental Elixir | ontoken |
 | Find Greater Steed | ontoken |
@@ -1428,7 +1345,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Shadow of Moil | ontoken |
 | Shape Water | ontoken |
 | Silvery Barbs | ontoken |
-| Simbul's Synostodweomer | ontoken |
 | Skill Empowerment | ontoken |
 | Skywrite | ontoken |
 | Slime | ontoken |
@@ -1445,7 +1361,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Summon Lesser Demon | ontoken |
 | Summon Shadowspawn | ontoken |
 | Sword Burst | ontoken |
-| Syluné's Viper | ontoken |
 | Tasha's Otherworldly Guise | ontoken |
 | Temple of the Gods | ontoken |
 | Tenser's Transformation | ontoken |
@@ -1471,7 +1386,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Dawn | templatefx |
 | Detonate Eldritch Cannon | templatefx |
 | Distort Value | templatefx |
-| Doomtide | templatefx |
 | Draconic Transformation | templatefx |
 | Dust Devil | templatefx |
 | Erupting Earth | templatefx |
@@ -1485,7 +1399,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Investiture of Ice | templatefx |
 | Investiture of Stone | templatefx |
 | Investiture of Wind | templatefx |
-| Laeral's Silver Lance | templatefx |
 | Maximilian's Earthen Grasp | templatefx |
 | Mold Earth | templatefx |
 | Nathair's Mischief | templatefx |
@@ -1493,7 +1406,6 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Rime's Binding Ice | templatefx |
 | Shape Water | templatefx |
 | Sickening Radiance | templatefx |
-| Spellfire Storm | templatefx |
 | Storm of Radiance | templatefx |
 | Storm Sphere | templatefx |
 | Sword Burst | templatefx |
@@ -1514,8 +1426,94 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Psychic Teleportation | preset |
 | Snilloc's Snowball Swarm | preset |
 | Spray of Cards | preset |
+| Absorb Acid | aefx |
+| Absorb Cold | aefx |
+| Absorb Elements | aefx |
+| Absorb Fire | aefx |
+| Absorb Lightning | aefx |
+| Absorb Thunder | aefx |
+| Aura of Alacrity | aefx |
+| Aura of Conquest | aefx |
+| Aura of Courage | aefx |
+| Aura of Devotion | aefx |
+| Aura of Protection | aefx |
+| Aura of the Guardian | aefx |
+| Aura of the Sentinel | aefx |
+| Bardic Inspiration | aefx |
+| Bastion of Law | aefx |
+| Befuddle | aefx |
+| Blade Ward | aefx |
+| Blue Light | aefx |
+| Circle of Power | aefx |
+| Comic Dancing | aefx |
+| Concentrating: Alustriel's Mooncloak | aefx |
+| Concentrating: Antilife Shell | aefx |
+| Concentrating: Antimagic Field | aefx |
+| Concentrating: Aura of Life | aefx |
+| Concentrating: Aura of Purity | aefx |
+| Concentrating: Aura of Vitality | aefx |
+| Concentrating: Cacophonic Shield | aefx |
+| Concentrating: Conjure Minor Elementals | aefx |
+| Concentrating: Conjure Woodland Beings | aefx |
+| Concentrating: Crusader's Mantle | aefx |
+| Concentrating: Detect Evil and Good | aefx |
+| Concentrating: Detect Magic | aefx |
+| Concentrating: Detect Poison and Disease | aefx |
+| Concentrating: Dirge | aefx |
+| Concentrating: Expeditious Retreat | aefx |
+| Concentrating: Holy Aura | aefx |
+| Concentrating: Holy Star of Mystra | aefx |
+| Concentrating: Investiture of Flame | aefx |
+| Concentrating: Investiture of Ice | aefx |
+| Concentrating: Investiture of Stone | aefx |
+| Concentrating: Investiture of Wind | aefx |
+| Concentrating: Invulnerability | aefx |
+| Concentrating: Pass without Trace | aefx |
+| Concentrating: Primordial Ward | aefx |
+| Concentrating: Songal's Elemental Suffusion | aefx |
+| Concentrating: Spirit Guardians | aefx |
+| Concentrating: Spirit Shroud | aefx |
+| Concentrating: Sunbeam | aefx |
+| Concentrating: Yolande's Regal Presence | aefx |
+| Conjured Minor Elementals | aefx |
+| Contagion: Poison | aefx |
+| Covered in Acid | aefx |
+| Crown of Madness: Charmed | aefx |
+| Curse | aefx |
+| Diminish Defiance | aefx |
+| Draconic Transformation | aefx |
+| Dragon Wings | aefx |
+| Elemental Attunement | aefx |
+| Encased | aefx |
+| Ensnaring Strike: Restrained | aefx |
+| Entangle: Restrained | aefx |
+| Enthralled | aefx |
+| Fortified Intellect | aefx |
+| Glittering | aefx |
+| Green Light | aefx |
+| Heat Metal: | aefx |
+| Imprisonment: | aefx |
+| Infected | aefx |
+| Laughing Uncontrollably | aefx |
+| Living Legend | aefx |
+| Mass Suggestion | aefx |
+| On Fire | aefx |
+| Protection from Acid | aefx |
+| Protection from Cold | aefx |
+| Protection from Fire | aefx |
+| Protection from Lightning | aefx |
+| Protection from Thunder | aefx |
+| Resilient Sphere | aefx |
+| Stonecunning: Tremorsense | aefx |
+| Suggestion | aefx |
+| Synaptic Static: Muddled Thoughts | aefx |
+| Unbreakable Majesty | aefx |
+| Violet Light | aefx |
+| Wielding Shadow Blade | aefx |
+| Wreathed in Moonlight | aefx |
+| Yolande's Regal Presence: Prone | aefx |
 
-## EXCEPTION · keys a row lost to an earlier one, NOT carried (81)
+## EXCEPTION · keys a row lost to an earlier one, NOT carried (82)
 
 One FX answers one key. Where two rows both earned the same key, Automated Animations' own precedence keeps it — its exact-match rows first, then its menu order — which is what answered at the table under AA. The losing row's FX for THAT key is not written; where the row earned other keys, those are.
 
@@ -1543,6 +1541,7 @@ One FX answers one key. Where two rows both earned the same key, Automated Anima
 | `spell:befuddlement` | Befuddlement [range] → befuddlement | Feeblemind [range] |
 | `natural:lightning-strike` | Strike [melee] → lightning-strike | Lightning Strike [range] |
 | `natural:necrotic-burst` | Burst [range] → necrotic-burst | Necrotic Burst [range] |
+| `weapon:antimatter-rifle` | Antimatter Rifle [range] → antimatter-rifle | Rifle [range] |
 | `weapon:sun-blade` | Blade [melee] → sun-blade | Sun Blade [range] |
 | `spell:witch-bolt` | Witch Bolt [preset] → witch-bolt | Witch Bolt [range] |
 | `natural:arcane-sword` | Arcane Sword [melee] → arcane-sword | Arcane Sword [ontoken] |

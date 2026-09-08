@@ -1402,3 +1402,37 @@ The user asked for D&D5e Animations' latest set. **3.3.0 is the latest** (releas
 the installed `module/autorec.json` is byte-identical to the released asset, sha256
 `b5244e40…`. `master` has moved since, but only a Polish translation, a CHANGELOG line and a
 `version: "dev"` bump — the animation set itself has not changed. Nothing to bring down.
+
+### The list audit (2026-09-08, the same day)
+
+The user enabled Ravenloft and asked for a double check before anything more was dropped. **The
+closed lists were materially incomplete** — and once "no list holds it" means *not carried*, a
+missing pack silently deletes corpus. What the audit found, against what the sandbox actually ships:
+
+| | |
+| --- | --- |
+| `dmg/items` | **did not exist.** The DMG ships `equipment` (548 records, 87 of them weapons) and `features` (23). 571 records had never been read. |
+| `ravenloft/items`, `ravenloft/options` | never read, though `ravenloft/actors` was. 59 feats, a spell, subclasses, species. |
+| `dnd-heroes-faerun` | **not mapped at all.** 129 options (19 spells, 76 feats), 21 items, its actors. |
+
+Lists after: spells 411 → **431**, features 1260 → **1483**, items 1246 → **1496**, weapons 335 →
+**377**. `LIST_PACKS` now carries a warning saying it *is* the evidence.
+
+Then the ruling reached the two paths it had missed:
+
+- **Effects** were returned unchecked — there was no list to check them against, because an
+  ActiveEffect is not an item. `buildLists` now reads every effect name the books and this world
+  hold (**1280**) and `lists.hasEffect()` meets it. 93 of 184 effect rows carry.
+- **Family rows** were always given `weapon:<its own word>` and `natural:<its own word>` whatever
+  the lists said, so `Blade` got `weapon:blade` with nothing named Blade anywhere. The same guess,
+  on the other path; it went with it.
+
+**Stock 1554 → 1286. The census did not move**: 694 of 736 abilities answer as they did under AA, 9
+stopped, 27 effects — identical to before the cut. Every one of the 268 FX removed was one that
+could never answer anything in this world, which is what "no list holds it" means. Render proof
+1293 of 1293. The exceptions: **351** rows no list holds (was 194) and **82** keys lost to an
+earlier row.
+
+**The one to watch is effects.** An item's name is evidence; an effect's is weaker, because a DM
+names effects by hand and other modules make their own. Anything on this world's actors is kept —
+the world's effects are in the list — but an effect that arrives later needs its FX re-made.

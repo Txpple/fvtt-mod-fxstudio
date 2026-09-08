@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 353
+  "fx": 369
  },
  "fx": [
   {
@@ -935,6 +935,29 @@
    "note": "D&D5e Animations 3.3.0: \"Guiding Bolt\" (range)"
   },
   {
+   "id": "holy-star-of-mystra",
+   "for": [
+    "spell:holy-star-of-mystra"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "file": "jb2a.ranged.02.instant.01.yellow"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.001",
+      "start": 350
+     },
+     "opacity": 0.75
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Holy Star of Mystra\" (range)"
+  },
+  {
    "id": "ice-knife",
    "for": [
     "spell:ice-knife"
@@ -1401,6 +1424,27 @@
    "note": "D&D5e Animations 3.3.0: \"Sorcerous Burst\" (range)"
   },
   {
+   "id": "spellfire-flare",
+   "for": [
+    "spell:spellfire-flare"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.fire_bolt.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.fire-bolt.v2"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Spellfire Flare\" (range)"
+  },
+  {
    "id": "starry-wisp",
    "for": [
     "spell:starry-wisp"
@@ -1465,6 +1509,29 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Telepathic Bond\" (range)"
+  },
+  {
+   "id": "wardaway",
+   "for": [
+    "spell:wardaway"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "file": "jb2a.ranged_helix.001.bluepurple"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.beam.003",
+      "delay": 250,
+      "start": 400
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Wardaway\" (range)"
   },
   {
    "id": "web",
@@ -1990,7 +2057,7 @@
    "note": "D&D5e Animations 3.3.0: \"Arcane Vigor\" (ontoken)"
   },
   {
-   "id": "armor-of-agathys-mark",
+   "id": "armor-of-agathys",
    "for": [
     "spell:armor-of-agathys"
    ],
@@ -2159,6 +2226,66 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Awaken\" (ontoken)"
+  },
+  {
+   "id": "backlash",
+   "for": [
+    "spell:backlash"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shield.01.outro_explode.purple"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.shield-spell.outro.v1",
+      "volume": 1,
+      "start": 100
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "opacity": 0.01,
+     "asset": {
+      "path": "jb2a.shield.01.outro_explode.purple"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "jb2a.melee_generic.slashing.two_handed"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.001"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#8363dc",
+      "contrast": 0,
+      "saturation": -1
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Backlash\" (ontoken)"
   },
   {
    "id": "bane-mark",
@@ -2383,6 +2510,45 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Blade Barrier\" (ontoken)"
+  },
+  {
+   "id": "blade-of-disaster",
+   "for": [
+    "spell:blade-of-disaster"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.spiritual_weapon.greatsword.01.astral.01.purple"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Blade of Disaster\" (ontoken)"
   },
   {
    "id": "blade-ward",
@@ -3001,6 +3167,28 @@
    "note": "D&D5e Animations 3.3.0: \"Conjure Animals\" (ontoken)"
   },
   {
+   "id": "conjure-constructs",
+   "for": [
+    "spell:conjure-constructs"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Conjure Constructs\" (ontoken)"
+  },
+  {
    "id": "conjure-elemental",
    "for": [
     "spell:conjure-elemental"
@@ -3504,6 +3692,52 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Demiplane\" (ontoken)"
+  },
+  {
+   "id": "helpful-homunculi",
+   "for": [
+    "spell:helpful-homunculi"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro-fade",
+      "start": 600
+     },
+     "asset": {
+      "path": "jb2a.spirit_guardians.orange.no_ring"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Deryan's Helpful Homunculi\" (ontoken)"
+  },
+  {
+   "id": "deryans-helpful-homunculi",
+   "for": [
+    "spell:deryans-helpful-homunculi"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro-fade",
+      "start": 600
+     },
+     "asset": {
+      "path": "jb2a.spirit_guardians.orange.no_ring"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Deryan's Helpful Homunculi\" (ontoken)"
   },
   {
    "id": "detect-thoughts",
@@ -4073,6 +4307,56 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Elemental Weapon\" (ontoken)"
+  },
+  {
+   "id": "effulgent-spheres",
+   "for": [
+    "spell:effulgent-spheres"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.conditions.generic-layer.002"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.cast_shape.circle.01.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Elminster's Effulgent Spheres\" (ontoken)"
+  },
+  {
+   "id": "elminsters-effulgent-spheres",
+   "for": [
+    "spell:elminsters-effulgent-spheres"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.conditions.generic-layer.002"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "file": "jb2a.cast_shape.circle.01.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Elminster's Effulgent Spheres\" (ontoken)"
   },
   {
    "id": "enhance-ability",
@@ -8436,6 +8720,48 @@
    "note": "D&D5e Animations 3.3.0: \"Silent Image\" (ontoken)"
   },
   {
+   "id": "simbuls-synostodweomer",
+   "for": [
+    "spell:simbuls-synostodweomer"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.transmutation.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.transmutation.complete.yellow"
+     }
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1",
+      "delay": 3000
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Simbul's Synostodweomer\" (ontoken)"
+  },
+  {
    "id": "simulacrum",
    "for": [
     "spell:simulacrum"
@@ -9169,6 +9495,71 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Swift Quiver\" (ontoken)"
+  },
+  {
+   "id": "sylunes-viper",
+   "for": [
+    "spell:sylunes-viper"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "jb2a.energy_strands.complete.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.conditions.generic-layer.002"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "asset": {
+      "path": "jb2a.cure_wounds.400px.blue"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Energy/EnergyStrandIN01_03_Regular_Green_600x600.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.007.01",
+      "volume": 1,
+      "start": 500
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "tint": {
+      "colour": "#2fb731",
+      "contrast": 1,
+      "saturation": -1
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Syluné's Viper\" (ontoken)"
   },
   {
    "id": "symbol",
@@ -10713,6 +11104,32 @@
    "note": "D&D5e Animations 3.3.0: \"Destructive Wave\" (templatefx)"
   },
   {
+   "id": "doomtide",
+   "for": [
+    "spell:doomtide"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.intro"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.7,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Doomtide\" (templatefx)"
+  },
+  {
    "id": "dragons-breath",
    "for": [
     "spell:dragons-breath"
@@ -11270,6 +11687,72 @@
    "note": "D&D5e Animations 3.3.0: \"Insect Plague\" (templatefx)"
   },
   {
+   "id": "silver-lance",
+   "for": [
+    "spell:silver-lance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.ranged_helix.Helix_only.001.white.90ft"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.001",
+      "start": 350
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.5,
+       "y": 1.5
+      }
+     },
+     "anchor": {
+      "x": 0.19,
+      "y": 0.5
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Laeral's Silver Lance\" (templatefx)"
+  },
+  {
+   "id": "laerals-silver-lance",
+   "for": [
+    "spell:laerals-silver-lance"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "jb2a.ranged_helix.Helix_only.001.white.90ft"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.only.001",
+      "start": 350
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.5,
+       "y": 1.5
+      }
+     },
+     "anchor": {
+      "x": 0.19,
+      "y": 0.5
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Laeral's Silver Lance\" (templatefx)"
+  },
+  {
    "id": "lightning-bolt",
    "for": [
     "spell:lightning-bolt"
@@ -11715,6 +12198,42 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Slow\" (templatefx)"
+  },
+  {
+   "id": "spellfire-storm",
+   "for": [
+    "spell:spellfire-storm"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.fireball.loop_debris.blue",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.explosion"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.25,
+       "y": 1.25
+      }
+     },
+     "opacity": 0.75,
+     "below": true,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Spellfire Storm\" (templatefx)"
   },
   {
    "id": "spike-growth",

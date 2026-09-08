@@ -13,14 +13,26 @@ export const BASE_WEAPON_NAMES = {
   scimitar: 'Scimitar', shortsword: 'Shortsword', sickle: 'Sickle', spear: 'Spear', shortbow: 'Shortbow', sling: 'Sling', trident: 'Trident', warpick: 'War Pick', warhammer: 'Warhammer', whip: 'Whip',
 };
 
-/** the compendia the closed lists are read from: [module dir key, pack name, what it holds] */
+/**
+ * The compendia the closed lists are read from: [module dir key, pack name, what it holds]. The
+ * third element is a label — buildLists switches on each document's own `type`, so a pack holding
+ * a mix (dmg/equipment is 286 equipment, 119 consumables and 87 weapons) is read correctly.
+ *
+ * ⚠ THE LIST IS THE EVIDENCE. A book that is installed but not named here is invisible, and since
+ * 2026-09-08 an FX whose key no list holds is NOT CARRIED — so a missing pack silently deletes
+ * corpus. Audited 2026-09-08 against what the sandbox actually ships: `dmg/items` did not exist
+ * (the DMG ships `equipment` and `features`, 571 records never read), Ravenloft's own items and
+ * options were never read though its actors were, and Heroes of Faerûn was not mapped at all.
+ */
 export const LIST_PACKS = [
   ['phb', 'spells', 'spell'], ['phb', 'feats', 'feature'], ['phb', 'classes', 'feature'], ['phb', 'origins', 'feature'], ['phb', 'equipment', 'item'],
   ['dnd5e', 'spells24', 'spell'], ['dnd5e', 'spells', 'spell'], ['dnd5e', 'feats24', 'feature'], ['dnd5e', 'classfeatures', 'feature'], ['dnd5e', 'monsterfeatures', 'feature'], ['dnd5e', 'monsterfeatures24', 'feature'], ['dnd5e', 'equipment24', 'item'], ['dnd5e', 'items', 'item'], ['dnd5e', 'tradegoods', 'item'],
-  ['dmg', 'items', 'item'], ['mm', 'features', 'feature'],
+  ['dmg', 'equipment', 'item'], ['dmg', 'features', 'feature'], ['mm', 'features', 'feature'],
+  ['ravenloft', 'items', 'item'], ['ravenloft', 'options', 'feature'],
+  ['faerun', 'items', 'item'], ['faerun', 'options', 'feature'],
 ];
 
 /** the compendia of creatures whose attacks are the natural-attack census */
-export const CREATURE_PACKS = [['mm', 'actors'], ['dnd5e', 'monsters'], ['dnd5e', 'actors24'], ['phb', 'actors'], ['dmg', 'actors'], ['ravenloft', 'actors']];
+export const CREATURE_PACKS = [['mm', 'actors'], ['dnd5e', 'monsters'], ['dnd5e', 'actors24'], ['phb', 'actors'], ['dmg', 'actors'], ['ravenloft', 'actors'], ['ravenloft', 'fallback-actors'], ['faerun', 'actors']];
 
 export const ITEM_TYPES = ['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool', 'loot'];
