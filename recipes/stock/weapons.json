@@ -75,6 +75,28 @@
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
+   "id": "pact-axe",
+   "for": [
+    "weapon:pact-axe"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.02.battleaxe.01"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "start": 750
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
+  },
+  {
    "id": "berserker-axe",
    "for": [
     "weapon:berserker-axe"
@@ -119,31 +141,61 @@
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
-   "id": "pact-axe",
+   "id": "psychic-blade",
    "for": [
-    "weapon:pact-axe"
+    "weapon:psychic-blade"
    ],
    "on": "use",
    "scenes": [
     {
      "shape": "strike",
      "asset": {
-      "path": "jb2a.melee_attack.02.battleaxe.01"
+      "path": "jb2a.melee_generic.slashing.one_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
      },
      "sound": {
-      "asset": "psfx.weapon-attacks.sword.v1",
-      "start": 750
+      "asset": "psfx.impacts.slashing.v1"
      }
     }
    ],
    "by": "the migration",
    "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
+   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
-   "id": "psychic-blade",
+   "id": "dragon-tooth-blade",
    "for": [
-    "weapon:psychic-blade"
+    "weapon:dragon-tooth-blade"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.one_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+  },
+  {
+   "id": "dread-blade-swing",
+   "for": [
+    "weapon:dread-blade"
    ],
    "on": "use",
    "scenes": [
@@ -222,58 +274,6 @@
    "id": "sun-blade",
    "for": [
     "weapon:sun-blade"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
-  },
-  {
-   "id": "dragon-tooth-blade",
-   "for": [
-    "weapon:dragon-tooth-blade"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
-  },
-  {
-   "id": "dread-blade-swing",
-   "for": [
-    "weapon:dread-blade"
    ],
    "on": "use",
    "scenes": [
@@ -1328,33 +1328,6 @@
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
-   "id": "enspelled-staff",
-   "for": [
-    "weapon:enspelled-staff"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.quarterstaff.melee.03.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1",
-      "delay": 600
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
-  },
-  {
    "id": "forest-staff",
    "for": [
     "weapon:forest-staff"
@@ -1385,6 +1358,33 @@
    "id": "wind-staff",
    "for": [
     "weapon:wind-staff"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.03.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+  },
+  {
+   "id": "enspelled-staff",
+   "for": [
+    "weapon:enspelled-staff"
    ],
    "on": "use",
    "scenes": [
@@ -1599,9 +1599,9 @@
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
-   "id": "vorpal-sword",
+   "id": "moon-touched-sword",
    "for": [
-    "weapon:vorpal-sword"
+    "weapon:moon-touched-sword"
    ],
    "on": "use",
    "scenes": [
@@ -1637,9 +1637,9 @@
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
-   "id": "moon-touched-sword",
+   "id": "vorpal-sword",
    "for": [
-    "weapon:moon-touched-sword"
+    "weapon:vorpal-sword"
    ],
    "on": "use",
    "scenes": [

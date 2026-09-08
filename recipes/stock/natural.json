@@ -234,84 +234,6 @@
    "note": "D&D5e Animations 3.3.0: \"Beard\" (melee)"
   },
   {
-   "id": "heated-blade",
-   "for": [
-    "natural:heated-blade"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
-  },
-  {
-   "id": "lightning-blade",
-   "for": [
-    "natural:lightning-blade"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
-  },
-  {
-   "id": "storm-blade",
-   "for": [
-    "natural:storm-blade"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
-  },
-  {
    "id": "chaos-blade",
    "for": [
     "natural:chaos-blade"
@@ -364,9 +286,87 @@
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
+   "id": "heated-blade",
+   "for": [
+    "natural:heated-blade"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.one_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+  },
+  {
+   "id": "lightning-blade",
+   "for": [
+    "natural:lightning-blade"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.one_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+  },
+  {
    "id": "psi-blade",
    "for": [
     "natural:psi-blade"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.one_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+  },
+  {
+   "id": "storm-blade",
+   "for": [
+    "natural:storm-blade"
    ],
    "on": "use",
    "scenes": [
@@ -540,54 +540,6 @@
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
-   "id": "claws",
-   "for": [
-    "natural:claws"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "devilish-claw",
-   "for": [
-    "natural:devilish-claw"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
    "id": "banishing-claw",
    "for": [
     "natural:banishing-claw"
@@ -615,6 +567,54 @@
    "id": "chaos-claw",
    "for": [
     "natural:chaos-claw"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
+  },
+  {
+   "id": "claws",
+   "for": [
+    "natural:claws"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
+  },
+  {
+   "id": "devilish-claw",
+   "for": [
+    "natural:devilish-claw"
    ],
    "on": "use",
    "scenes": [
@@ -1422,35 +1422,6 @@
    "note": "D&D5e Animations 3.3.0: \"Lance\" (melee)"
   },
   {
-   "id": "vine-lash",
-   "for": [
-    "natural:vine-lash"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.two_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Lash\" (melee)"
-  },
-  {
    "id": "aquatic-lash",
    "for": [
     "natural:aquatic-lash"
@@ -1512,6 +1483,35 @@
    "id": "tentacle-lash",
    "for": [
     "natural:tentacle-lash"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.two_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Lash\" (melee)"
+  },
+  {
+   "id": "vine-lash",
+   "for": [
+    "natural:vine-lash"
    ],
    "on": "use",
    "scenes": [
@@ -1995,30 +1995,6 @@
    "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
   },
   {
-   "id": "thunderous-slam",
-   "for": [
-    "natural:thunderous-slam"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slash.02.001.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
-  },
-  {
    "id": "avalanche-slam",
    "for": [
     "natural:avalanche-slam"
@@ -2070,6 +2046,30 @@
    "id": "rotting-slam",
    "for": [
     "natural:rotting-slam"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slash.02.001.orange"
+     },
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
+  },
+  {
+   "id": "thunderous-slam",
+   "for": [
+    "natural:thunderous-slam"
    ],
    "on": "use",
    "scenes": [
@@ -2195,6 +2195,40 @@
    "note": "D&D5e Animations 3.3.0: \"Snake Hair\" (melee)"
   },
   {
+   "id": "clockwork-spear",
+   "for": [
+    "natural:clockwork-spear"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.spear.melee.01.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.spear.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.spear.throw.01"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.heavy.v1.group06.0"
+      }
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
+  },
+  {
    "id": "flame-spear",
    "for": [
     "natural:flame-spear"
@@ -2297,40 +2331,6 @@
    "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
   },
   {
-   "id": "clockwork-spear",
-   "for": [
-    "natural:clockwork-spear"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.spear.melee.01.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.weapon-attacks.spear.v1"
-     },
-     "thrown": {
-      "asset": {
-       "path": "jb2a.spear.throw.01"
-      },
-      "sound": {
-       "asset": "psfx.weapon-swooshes.heavy.v1.group06.0"
-      }
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
-  },
-  {
    "id": "tail-spike",
    "for": [
     "natural:tail-spike"
@@ -2356,33 +2356,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Spike\" (melee)"
-  },
-  {
-   "id": "vine-staff",
-   "for": [
-    "natural:vine-staff"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.quarterstaff.melee.03.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1",
-      "delay": 600
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
    "id": "bog-staff",
@@ -2442,6 +2415,33 @@
    "id": "pincer-staff",
    "for": [
     "natural:pincer-staff"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.03.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+  },
+  {
+   "id": "vine-staff",
+   "for": [
+    "natural:vine-staff"
    ],
    "on": "use",
    "scenes": [
@@ -3319,72 +3319,30 @@
    "note": "D&D5e Animations 3.3.0: \"Burn\" (range)"
   },
   {
-   "id": "eldritch-burst",
-   "for": [
-    "natural:eldritch-burst"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.ranged.03.projectile.01.bluegreen"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.complete.001"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
-  },
-  {
-   "id": "poison-burst",
-   "for": [
-    "natural:poison-burst"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.ranged.03.projectile.01.bluegreen"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.complete.001"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
-  },
-  {
-   "id": "thorn-burst",
-   "for": [
-    "natural:thorn-burst"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.ranged.03.projectile.01.bluegreen"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.complete.001"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
-  },
-  {
    "id": "earth-burst",
    "for": [
     "natural:earth-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.complete.001"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
+  },
+  {
+   "id": "eldritch-burst",
+   "for": [
+    "natural:eldritch-burst"
    ],
    "on": "use",
    "scenes": [
@@ -3487,9 +3445,51 @@
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
+   "id": "poison-burst",
+   "for": [
+    "natural:poison-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.complete.001"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
+  },
+  {
    "id": "radiant-burst",
    "for": [
     "natural:radiant-burst"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.missile.complete.001"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
+  },
+  {
+   "id": "thorn-burst",
+   "for": [
+    "natural:thorn-burst"
    ],
    "on": "use",
    "scenes": [

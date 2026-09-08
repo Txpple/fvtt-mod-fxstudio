@@ -29,7 +29,7 @@ import { KINDS, keyLabel, parseKey } from '../core/subjects.js';
 import { assetsOf } from '../core/fx.js';
 import { HOOK_WORDS, KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
 import { openSheet } from './sheet.js';
-import { openRecord, recordFor, recordWords, recordsRead } from './records.js';
+import { nameForKey, openRecord, recordFor, recordWords, recordsRead } from './records.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const PAGE = 200;
@@ -101,7 +101,7 @@ function catalogue(app) {
     const keys = fx.for ?? [];
     const p = keys[0] ? parseKey(keys[0]) : null;
     const owner = keys.length ? null : app.ownerOfFx(fx.id);
-    const name = p ? idWords(p.id) : owner ? owner.item : idWords(fx.id);
+    const name = keys[0] ? nameForKey(keys[0]) : owner ? owner.item : idWords(fx.id);
     return {
       e, id: fx.id, name, keys, kind: p?.kind ?? null, item: !keys.length, owner,
       off: !!fx.off, source: e.source, at: e.original.at ?? '', mine: mine.has(fx.id),

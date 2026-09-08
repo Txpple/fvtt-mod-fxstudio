@@ -10,6 +10,7 @@
 import { MODULE_ID } from '../settings.js';
 import { assetsOf } from '../core/fx.js';
 import { esc, idWords } from './html.js';
+import { nameForKey } from './records.js';
 import { leaveSheet, openSheet } from './sheet.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -28,7 +29,7 @@ function usedPaths(a) {
   const used = new Map();
   for (const { fx } of a.fx.list()) {
     if (fx.off) continue;
-    const name = fx.for?.[0] ? idWords(fx.for[0].split(':').slice(1).join(':')) : idWords(fx.id);
+    const name = fx.for?.[0] ? nameForKey(fx.for[0]) : idWords(fx.id);
     for (const scene of fx.scenes ?? []) {
       for (const { asset } of assetsOf(scene)) {
         const paths = typeof asset === 'string' ? [asset] : asset?.paths ?? (asset?.path ? [asset.path] : asset?.family ? [asset.family] : []);
@@ -181,7 +182,7 @@ export function renderLibrary(app) {
   for (const r of rows) (groups.get(r.group) ?? groups.set(r.group, []).get(r.group)).push(r);
   const list = [...groups.entries()].map(([g, items]) => `<div class="letter">${esc(g)}</div>${items.map((r) => `<button type="button" class="row" data-act="lib-sel" data-id="${esc(r.id)}" aria-current="${r.id === L.sel}"><span class="dot ${r.used ? 'stock' : 'none'}"></span><span class="n">${esc(r.name)}</span><span class="c">${stepsOf(r).length}</span></button>`).join('')}`).join('');
   const pick = L.pick;
-  const subjectName = app.sheet?.subject?.name ?? (app.sheet?.keys?.[0] ? idWords(app.sheet.keys[0].split(':').slice(1).join(':')) : 'the FX');
+  const subjectName = app.sheet?.subject?.name ?? (app.sheet?.keys?.[0] ? nameForKey(app.sheet.keys[0]) : 'the FX');
   const banner = pick ? `<div class="picking"><span><b>${pick.slot === 'sound' ? 'SFX' : 'VFX'}</b> ${pick.view ? 'in' : 'for'} <b>${esc(subjectName)}</b> · scene ${pick.i + 1}</span><span class="spacer"></span><button type="button" class="quiet" data-act="lib-pick-back">Back</button>${pick.view ? '' : `<button type="button" class="primary" data-act="lib-pick-use" ${v ? '' : 'disabled'}>Use</button>`}</div>` : '';
   let stage;
   if (!it) stage = '<div class="frame"><div class="name">No match</div></div>';

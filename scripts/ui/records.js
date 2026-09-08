@@ -9,6 +9,7 @@
 // Read when the window opens, not at boot: the corpus plays without it, and it is the biggest file
 // the module ships. Read once per session; a row renders greyed until it arrives.
 import { MODULE_ID } from '../settings.js';
+import { idWords } from './html.js';
 
 let records = null;
 let reading = null;
@@ -27,6 +28,27 @@ export const recordsRead = () => !!records;
 
 /** the record a key's evidence lives in: {uuid, name, where, on?, of?}, or null */
 export const recordFor = (key) => (key && records?.[key]) || null;
+
+/**
+ * WHAT AN FX IS CALLED — the record's own name, spelled as the book spells it (the user,
+ * 2026-09-08: "cant you just make it good and consistent for me?"). Every screen asks this one
+ * question, so the Library, the Editor, Assets and Corpus never disagree.
+ *
+ * Before the records existed a name could only be un-slugged from the key, which reads the ability
+ * back in the migration's spelling rather than the book's: `feature:light` is the PHB's LIGHT
+ * DOMAIN, `spell:helpful-homunculi` is DERYAN'S Helpful Homunculi, and `weapon:lighthammer` is a
+ * LIGHT HAMMER — dnd5e's own base-weapon id, which is not a name at all.
+ *
+ * An `effect:` key is the exception and keeps its own id: its record is the spell or item that
+ * APPLIES the effect, so the record's name is Bless where the FX is Blessed.
+ */
+export function nameForKey(key, fallback = null) {
+  if (!key) return fallback;
+  const [kind, id] = String(key).split(':');
+  const own = idWords((id ?? '').split('/')[0]);
+  if (kind === 'effect') return own;
+  return recordFor(key)?.name ?? fallback ?? own;
+}
 
 /**
  * What the door says when you rest on it. An `effect:` key's record is the spell, feature or item

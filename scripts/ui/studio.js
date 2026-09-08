@@ -19,7 +19,7 @@ import { hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, on
 import { onCorpusChange, onCorpusClick, onCorpusInput } from './corpus.js';
 import { onCoverageClick, renderCoverage } from './coverage.js';
 import { onFxClick, renderFx, renderList } from './fxtab.js';
-import { readRecords, recordsRead } from './records.js';
+import { nameForKey, readRecords, recordsRead } from './records.js';
 import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -55,7 +55,7 @@ export class Studio extends ApplicationV2 {
     // module ships — so the table pays nothing for them. The rows waiting on them repaint once,
     // here, when they arrive. Foundry builds this window itself from the settings menu, so the
     // constructor is the one place every way in passes through.
-    if (!recordsRead()) readRecords().then(() => this.rendered && this.render());
+    if (!recordsRead()) readRecords().then(() => { this._catalogue = null; if (this.rendered) this.render(); });
   }
 
   /** open the window at a tab, on an item, on a key, or on an FX id; tab 'editor' opens the sheet on it */
@@ -129,7 +129,7 @@ export class Studio extends ApplicationV2 {
     const p = parseKey(key);
     const e = this.entries?.find((x) => x.keys.includes(key));
     if (e) return this.subjectFromEntry(e);
-    return { name: idWords(p?.id ?? key), keys: [key], owner: null, hasPlace: false, on: p?.kind === 'effect' ? 'effect' : 'use', kind: p?.kind ?? 'spell' };
+    return { name: nameForKey(key), keys: [key], owner: null, hasPlace: false, on: p?.kind === 'effect' ? 'effect' : 'use', kind: p?.kind ?? 'spell' };
   }
   subjectForFx(id) {
     const entry = api().fx.get(id);

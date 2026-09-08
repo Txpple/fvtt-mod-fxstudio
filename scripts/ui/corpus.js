@@ -10,6 +10,7 @@
 import { MODULE_ID } from '../settings.js';
 import { parseKey } from '../core/subjects.js';
 import { HOOK_WORDS, SOURCE_TAG, esc, idWords } from './html.js';
+import { nameForKey } from './records.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 
@@ -35,7 +36,7 @@ export function renderMaintain(app) {
   const problems = a.index.problems ?? [];
   if (![next.patch, next.minor].includes(co.version)) co.version = next.patch;
   const row = (l, kind) => {
-    const name = l.for?.[0] ? idWords(parseKey(l.for[0])?.id) : idWords(l.id);
+    const name = l.for?.[0] ? nameForKey(l.for[0]) : idWords(l.id);
     const tag = kind === 'staged' ? `<span class="tag bound">Staged: ${esc(a.corpus.words[l.to])}</span>` : `<span class="tag yours">${SOURCE_TAG.world}</span>`;
     const buttons = kind === 'staged'
       ? `<button type="button" class="quiet" data-act="co-stage" data-id="${esc(l.id)}" data-to="">Unstage</button>`

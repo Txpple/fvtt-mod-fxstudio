@@ -1,140 +1,129 @@
-# Handoff — the reset, day two (2026-09-08)
+# Handoff — the data pass (2026-09-08)
 
 Read [CLAUDE.md](CLAUDE.md) first (it is loaded for you), then this page. It is short on purpose.
 
-**Where we are: the reset held.** The UI was rebuilt over two days from the user's own judgment, a
-message at a time, with no plan driving it — and then the *data* was rebuilt the same way. Both are
-committed and green. **The next session continues on the migrated data.**
+**Where we are.** The UI was rebuilt from the user's judgment over two days; then the *data* was, in
+two sessions. This one made the corpus **answer for itself**: every FX now opens the compendium
+record its key was earned against, and the evidence rule was corrected twice — first because a world
+item had keyed the shipped corpus, then because the 2014 SRD had. Everything is committed, pushed
+and green. **The next session continues on migration work.**
 
 ---
 
 ## 1. How this work happens
 
 The user gives a ruling in their own words, often mid-build, sometimes several in a row. You build
-it, prove it with the suites, and report. That is the whole method. It replaced a plan, deliberately
-(§3).
+it, prove it with the suites, and report. That is the whole method.
 
 - **Wait for "go".** Investigate and prototype freely; build when told.
-- **The vetting is theirs.** They use it and say what is broken. Do not go bug-hunting, do not drive
-  the window to form an opinion about it, do not offer a list of improvements as though it were owed.
-- **Do not build from `shelved/`.** `HANDOFF.md` and `fxstudio6-proposal.html` are history. Their
-  R1–R5 and seven steps are not authority. Nothing in them is unfinished.
-- **A big diff for no behaviour change is not clean-up.**
-- **When a screen looks wrong, find out which side is lying before you change it.** Twice now the
-  screen was right and something else was wrong — a CSS specificity bug made a working filter look
-  random, and the Editor was honestly displaying data that should not have existed.
+- **The vetting is theirs.** They use it and say what is broken. Do not go bug-hunting.
+- **Do not build from `shelved/`.** It is history, not authority.
+- **Measure before you change data, and say what it costs item by item.** Every ruling below stands
+  on a number, and twice the number said *this costs nothing at the table*, which is what made the
+  change safe to make.
+- ⚠ **An FX per record playing the same animation as another is the DESIGN, not redundancy**
+  (DESIGN §18). Do not offer to "clean up" the 25 weapons that share the dagger animation. *"its a
+  record on its own that points to a correct entry … thats the whole purpose of this all."*
+- ⚠ **Do not present a menu when the answer is obvious.** *"cant you just make it good and
+  consistent for me?"* Judgment first; ask only what is genuinely the user's to decide.
 
-## 2. What was ruled and built (DESIGN §10–18)
+## 2. What was ruled and built (DESIGN §15–19)
 
 | | |
 | --- | --- |
-| §10 | **The Editor is a tab.** Library · Editor · Assets · Coverage. Leaving it does not close the sheet; only opening another FX asks before dropping changes. |
-| §11 | **The FX tab stripped back.** No detail pane, a row is a name, the search moved out of the window header. |
-| §12 | **What the tab does.** A row takes no action; the search matches the name alone; Assets browses and does not write; Revert folded into Delete, which unpins what pointed at the FX. |
-| §13 | **The screen the user drew.** No dropdown; Delete · Editor on every row, double click opens the Editor; amber group heads; Import on the search row; the sound stepper stands on files, not just variants. |
-| §14 | **ONE FX ANSWERS ONE KEY**, and the closed lists audited. The big one — see §3. |
-| §18 | **Clean data.** 393 library paths had been written as raw files since the migration (the oldest backlog item); fixed at the writer, proof 1029 of 1029. Structurally the corpus is clean: no duplicate ids, no key collisions, every key has a record. |
-| §17 | **No SRD 5.1.** Every dnd5e pack labelled "(SRD)" dropped from the evidence. Stock 1279 → 1022, records 4913 → 4168, and the census did not move a line — almost all of it was the SRD's magic-weapon variants, which the base-weapon key answers anyway. |
-| §16 | **Stock is the books; House is this table.** This world's items stopped being evidence for Stock: 7 FX left it, 5 of them pure redundancy. Vesper Staff and Necrotic Scythe moved into `house.json` on the user's word, so nothing changed at the table. |
-| §15 | **The record door.** Every row in the Library opens the compendium record (or world item) its key was earned against — 1288 of 1288, no gaps. `recipes/records.json` addresses every key the closed lists hold; the address is settled where the key is earned, never searched for by name at the table. |
+| §15 | **The record door.** Every Library row opens the compendium record (or world item) its key was earned against — 1288 of 1288 at the time, no gaps. `recipes/records.json` addresses every key the closed lists hold; the address is settled where the key is earned, never searched for by name at the table. |
+| §16 | **Stock is the books; House is this table.** This world's items stopped being evidence for Stock. 7 FX left it, 5 of them pure redundancy; Vesper Staff and Necrotic Scythe moved into `house.json`, so nothing changed at the table. |
+| §17 | **No SRD 5.1.** Every dnd5e pack flagged `sourceBook: "SRD 5.1"` left the evidence. Stock 1279 → 1022 and **the census did not move a line** — almost all of it was the SRD's magic-weapon variants, which the base-weapon key answers anyway. |
+| §18 | **Clean data.** 393 library paths had been written as raw `file`s since the migration (the oldest backlog item); fixed at the writer, proof 1029 of 1029. Structurally clean: no duplicate ids, no key collisions, every key has a record. |
+| §19 | **The books first, and a name is the record's name.** `LIST_PACKS` reads the books before the system's SRD 5.2 copies, so a record names the book it is really from. One function, `nameForKey()`, answers what an FX is called on every screen — 142 rows read properly that did not. |
 
-The tab reads **Library**; its key in code is still `fx`.
+## 3. The evidence rule, as it now stands
 
-## 3. The data ruling, and why it matters most
-
-The user opened the Editor on **Absorb Elements** and found it answering `spell:`, `feature:` and
-`item:` at once. That was AA's shape: one namespace of names, so a row stood for whatever was used
-with that name. **An FX now answers exactly one key** — a row fans out into one FX per key it earned,
-and anything with no evidence is not carried.
-
-What "evidence" means: the ability exists in an installed compendium (the 2024 books — **no SRD
-5.1**, §17) or in dnd5e's base weapons.
-**This world's own items are NOT evidence for Stock** — corrected 2026-09-08 after the user found
-`weapon:1-dagger` in the shipped corpus (§16). **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS that evidence** — and it was audited
-on 2026-09-08 because a pack missing from it now *silently deletes corpus*. It was missing
-`dmg/equipment` (571 records, 87 weapons), Ravenloft's items and options, and Heroes of Faerûn
-entirely. **If a new book is installed, add its packs there, re-run the migration, and re-run
-`tools/records.mjs --write`** — the records (§15) stand on the same evidence.
+This is the one thing to get right before touching the migration.
 
 ```
-stock 1289 → 1286 FX, one key each          the census DID NOT MOVE:
-351 rows no list holds — not carried        694 of 736 abilities answer as under AA
-82 keys lost to an earlier row              9 stopped, 27 effects — same before and after
-render proof 1293 of 1293                   every FX cut could never have answered anything here
+STOCK is keyed against:      the installed BOOKS (PHB, MM, DMG, Ravenloft, Heroes of Faerun),
+                             then SRD 5.2 (the system's ...24 packs) as the fallback,
+                             plus dnd5e's base weapons
+HOUSE may also key against:  this world's own items and effects   ({world: true})
+NOT evidence, ever:          SRD 5.1 — every dnd5e pack flagged sourceBook "SRD 5.1",
+                             every record system.source.rules "2014"
 ```
 
-Both exception lists are EXCEPTION tables in `recipes/migration-report.md`, and on the user's
-desktop as **`FX Studio exception report.xlsx`** (rebuild it from that report if it moves).
+The books come first because the system ships **copies**: 1559 of the 1603 names in the SRD 5.2
+packs are also in a book, and 1541 of those are the same document id. 44 names are only in SRD 5.2,
+so the PHB is very nearly — but not quite — a superset, and the difference is monster content.
 
-**The one to watch is effects.** An item's name is evidence; an effect's is weaker, because a DM
-names effects by hand and other modules ship their own. 93 of 184 effect rows survived. Anything
-currently on this world's actors is kept; an effect that arrives later needs its FX re-made.
-
-**`recipes/house.json` is the USER'S file.** `migrate-aa.mjs` no longer writes it — it offers
-`dist/house-from-migration.json` instead. It holds **two custom swords as Item Hooks**: First Light
-and Goldthorn. The user deleted the rest, including this world's Misty Step colour and Sorcerous
-Burst animation overrides, which now fall through to Stock.
+⚠ **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS the evidence.** Install a book → add its packs there →
+re-run `tools/migrate-aa.mjs --write` **and** `tools/records.mjs --write`.
 
 ## 4. What is in the repo right now
 
-Everything is committed and green. Nothing is half-built.
-
 | | |
 | --- | --- |
-| Corpus | stock **1022** (spells 368 · weapons 99 · features 282 · natural 172 · effects 79 · items 22), house **4** (2 Item Hooks + Vesper Staff and Necrotic Scythe, §16) |
-| Records | `recipes/records.json` **4168 keys** addressed (spell 436 · feature 1363 · item 862 · natural 251 · weapon 175 · effect 1081) — every one of the 1024 keys the corpus answers has a record |
-| `ui/fxtab.js` | search (name only) + Import · facets · rows; a row is a name with Record · Delete · Editor |
-| `ui/records.js` | reads `recipes/records.json` when the window opens; the engine never touches it |
-| `ui/sheet.js` | the Editor tab: action bar, sentence, hook strip, sequence, note |
-| `ui/library.js` | the Asset Library and the picker; browses, does not write |
-| `ui/coverage.js` | Maintain, two scopes, four tiles, the rows |
-| Suites | `smoke-screens` **182** · `smoke-author` **15** · `smoke-fx` **1026** · `smoke-replay` **45** · `check-fx` 1036 fx / 0 invalid · imports/layers/legacy green |
+| Corpus | stock **1022** (spells 368 · features 282 · natural 173 · weapons 100 · effects 79 · items 22 — one key each), house **4** (2 Item Hooks + Vesper Staff and Necrotic Scythe) |
+| Records | `recipes/records.json`, **4179 keys** addressed, 786 KB; read when the window opens, never by the engine |
+| `ui/records.js` | `recordFor()`, `nameForKey()` (what every screen calls to name an FX), `openRecord()` |
+| `ui/fxtab.js` | the Library: search · facets · rows, each row **Record · Delete · Editor** |
+| Suites | `smoke-screens` **182** · `smoke-fx` **1026** · `smoke-replay` **45** · `smoke-author` **15** · `check-fx` 1036 fx / 0 invalid · imports/layers/legacy green |
 
-Sandbox verified byte-identical to the repo on 2026-09-08, its two item pointers live, its two
-Drafts still coherent. A stale `scripts/core/looks.js` and a stale `fvtt-mod-fxstudio.looks` world
-setting were removed the same day.
+Sandbox byte-identical to the repo. The user has **`FX Studio stock report.xlsx`** on their desktop
+(1022 rows: FX · record · type · source compendium, plus a By-compendium tally) — rebuild it from
+`recipes/records.json` + `recipes/stock/*.json` if it moves.
 
-## 5. Known and unfixed — offered, never owed
+## 5. Where to pick up — the pass the user named
 
-Not ruled on. Not a to-do list.
+> *"we will do a pass later looking for items in the compendia that have no vfx, so gaps are ok."*
 
-- The window **scrolls sideways below about 780px**, on every tab.
-- **A modal dialog swallows every later click** (Back from an unsaved new sheet).
-- **No door on the Library makes a new FX** — that went with the search dropdown, on the user's word
-  (*"we'll add new later"*). The Editor's **New FX** still works.
-- `remove-fx`, `delete-fx`, `export-fx`, `create-new`, `new-kind` are handlers with no door, kept in
-  `ui/studio.js` with a comment because more passes are coming.
-- The migration report's *"FX that can never answer"* section still describes the pre-curation
-  house corpus — the tool reads AA's house rows, not `recipes/house.json`.
+**The raw material is already built.** `records.json` addresses 4179 keys; the corpus answers 1024.
+So **3155 things in the installed books have a record, a name and a book — and no FX**:
 
-## 6. Where to pick up
+```
+feature 1083   effect 1011   item 840   natural 78   weapon 75   spell 68
+```
 
-**The user said the next session continues on the migrated data.** Likely shapes, none of them
-started or owed:
+Spells are nearly done (368 of 436). Features and effects are where the corpus is thin. Coverage
+already has a **Compendiums** scope (`ui/coverage.js`, `SCOPES`) that works off live packs — the
+question for that pass is whether it should read `records.json` instead, which would let it answer
+for every installed book at once without loading a pack.
 
-- Reading the exception lists and deciding what to re-make by hand (the 351, or the 91 effects).
-- The 502 migrated assets keyed `file` that are really library paths (BACKLOG).
-- Phase 4 — outcomes and moments (PLAN §6), what the module was actually for.
-- Cutover: switching AA off on prod (PLAN §6 phase 5).
+Other things standing, none of them started or owed:
 
-**Wait for them to say which.**
+- **The gaps §17 left.** Five abilities exist in the 2024 books with no FX, because AA labelled its
+  rows with the 2014 name and SRD 5.1 was the bridge: `Deflect Missiles` → `deflect-attacks`,
+  `Empty Body` → `superior-defense`, `Perfect Self` → `perfect-focus`, `Stillness of Mind` →
+  `self-restoration`, and `Stomp`, which the 2024 MM types as a feature where the SRD typed it a
+  natural weapon. Exactly **14 SRD 5.1 records carry a 2024 identifier** and could be read as a
+  rename dictionary without ever keying to 5.1 — designed and measured, **not built**; the user said
+  gaps are fine for now.
+- **Hold Person / Hold Monster now apply "Paralyzed"**, and Guidance applies eighteen "… Guidance"
+  effects; none of those effect names has an FX. New FX, not repairs.
+- Phase 4 — outcomes and moments (PLAN §6). Cutover — AA off on prod (PLAN §6 phase 5).
+- The window **scrolls sideways below about 780px**; **a modal dialog swallows every later click**.
 
-## 7. How to work here
+## 6. How to work here
 
 In [CLAUDE.md](CLAUDE.md) in full; the ones this work keeps needing:
 
-- **The sandbox is the test box, never prod.**
-  `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs stop|start|status`, deploy with
-  `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local` (while the
-  server is down if `module.json` changed), then start. `recipes/` must travel with
-  `scripts/ styles/ templates/ lang/`. **A script or recipe edit needs a re-deploy before a suite
-  sees it** — the suite drives the browser's copy, not the repo's. ⚠ The deploy script never
-  *deletes*: a file removed from the repo lingers on the sandbox until someone looks.
-- **The migration is offline and takes 3 seconds.** `node tools/migrate-aa.mjs` writes nothing and
-  leaves its report at `dist/migration-report.md`; `--write` writes the recipes. Run the dry one and
-  read the numbers before ever passing `--write`.
-- ⚠ **A live pack is locked while Foundry runs.** Read compendia through `snapshot(dir, tag)`, never
-  the pack directory itself.
+- **The sandbox is the test box, never prod.** `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs
+  stop|start|status`; deploy with `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs
+  fvtt-mod-fxstudio --local` (while the server is down if `module.json` changed). `recipes/` travels
+  with `scripts/ styles/ templates/ lang/`. **A script or recipe edit needs a re-deploy before a
+  suite sees it** — the suite drives the browser's copy, not the repo's. ⚠ The deploy script never
+  *deletes*.
+- **The migration is offline and takes 2 seconds.** `node tools/migrate-aa.mjs` writes nothing and
+  leaves its report at `dist/migration-report.md`; `--write` writes the recipes. **Read the numbers
+  before ever passing `--write`** — the census block is what tells you the cost at the table, and
+  twice this session it was the thing that made a change safe.
+- `node tools/records.mjs` (dry) / `--write` rebuilds the records. Run it whenever `LIST_PACKS`
+  changes or the migration is re-run.
+- ⚠ **Never run two suites against the sandbox at once.** They build fixtures on the same world and
+  collide — one dies mid-`fixtureUp` with *"The Actor … does not exist"*, and because its teardown
+  never runs it **leaves its FX in the world buffer**, where it then shadows Stock and fails the
+  next run for a reason that looks like a product defect. If a suite fails oddly, check
+  `api.fx.buffer()` for anything written by *Tester Assistant* and remove it; the user's own Drafts
+  are by *Matt the DM*.
+- ⚠ **A live pack is locked while Foundry runs.** Read compendia through `snapshot(dir, tag)`.
 - After any edit under `scripts/`: `check-imports`, `check-layers`, `check-legacy`. After any edit
   under `recipes/`: `check-fx`, then the live suites.
 - One green pass, then check in. Build only when told.

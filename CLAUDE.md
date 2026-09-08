@@ -56,6 +56,14 @@ It sits in the strip whether an FX is open or not (empty, it says so and offers 
 **leaving it does not close it**: walk off to Assets and back and the FX is still there, unsaved
 changes and all. Only opening *another* FX into the sheet asks before dropping them.
 
+**THE BOOKS FIRST, AND A NAME IS THE RECORD'S NAME (the user, 2026-09-08).** `LIST_PACKS` reads the
+PHB, MM, DMG, Ravenloft and Heroes of Faerûn **before** the system's SRD 5.2 `…24` packs, which are
+copies of them (1541 of 1603 share the document id) — so a record names the book it is really from.
+One function, `nameForKey()` in `ui/records.js`, answers what an FX is called on **every** screen,
+from the record: 142 rows read properly that did not (Bigby's Hand, Blindness/Deafness, Ray of
+Frost). ⚠ **An FX per record playing the same animation as another is the DESIGN, not redundancy** —
+do not offer to "clean it up". DESIGN §18–19.
+
 **NO SRD 5.1 (the user, 2026-09-08).** The dnd5e system ships the 2014 SRD beside the 2024 content;
 every pack labelled "(SRD)" was dropped from `LIST_PACKS` and `CREATURE_PACKS`. Stock 1279 → **1022**
 and **the census did not move a line** — nearly all of it was the SRD's magic-weapon variants (Club

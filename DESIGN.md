@@ -1620,13 +1620,58 @@ user's file. What remains under `file` is **genuinely files**: 88 raw JB2A paths
 not name individually, and 29 distinct raw sound files — measured, not assumed: not one of them has
 a single-file leaf in JB2A's or PSFX's registration.
 
-### Reported, not touched
+### One thing I reported that is NOT a defect
 
-- **25 named weapons whose picture is byte-identical to their base weapon's** — Umbral Dagger =
-  Dagger, Abyssal Glaive = Glaive, Tree Club = Club. They are properly evidenced 2024 records, and
-  each is a place to hang a look later, so this is redundancy with a purpose rather than dirt.
-- **10 rows whose name is not the record's name** — `feature:light` is the PHB's *Light Domain*,
-  `spell:helpful-homunculi` is *Deryan's Helpful Homunculi*, and the five base weapons whose dnd5e
-  id is not their name (`lighthammer` → *Light Hammer*). The keys are right; the Library shows the
-  key's id because that is all it had before §15. Now that every row has a record, the row could
-  read the record's own name instead. The user's call.
+I offered "25 named weapons whose picture is byte-identical to their base weapon's" as redundancy.
+The user cut it down, and the ruling is worth keeping:
+
+> *"wtf are you talking about whos picture is identical. whats that mean. stuff like this is fine.
+> its a record on its own that points to a correct entry. if its the same animation as dagger,
+> thats fine. thats the whole purpose of this all."*
+
+**An FX per record, pointing at a correct entry, IS the design.** Umbral Dagger and Dagger playing
+the same animation is not duplication to be cleaned up: it is one row per real thing, each free to
+be given its own look later. Do not offer this again.
+
+## 19. The books first, and a name is the record's name (the user, 2026-09-08)
+
+> *"honestly … cant you just make it good and consistent for me?"*
+
+Two things came out of one screenshot: the user opened the Record door on **Umbral Dagger** and the
+sheet that came up was badged **SRD 5.2**, not Monster Manual.
+
+### The books are read first
+
+They were right to expect the book. Measured: **1559 of the 1603 names in the system's SRD 5.2
+packs are also in an installed book, and 1541 of those are the same document id** — the system
+ships copies. So `LIST_PACKS` now reads the Player's Handbook, Monster Manual, Dungeon Master's
+Guide, Ravenloft and Heroes of Faerûn **before** the system's `…24` packs, and `CREATURE_PACKS` the
+same. SRD 5.2 stands behind them as the fallback for the **44 names no installed book holds** — so
+the PHB is very nearly, but not quite, a superset (*"you'd think the PHB would be a superset of
+anything in 5.2"*), and the difference is monster content: Umbral Dagger is Monster Manual material,
+which is why no PHB record exists for it.
+
+Nothing about the corpus moved — 1022 FX, the proof 1029 of 1029, the census identical line for
+line. **151 records were sitting in a dnd5e SRD 5.2 pack; 136 now name the book they are really
+from.** Only three identifiers differ between a book and its 5.2 copy (Channel Divinity, Spell
+Scroll Cantrip, and the DMG's own typo `regneration-ioun-stone`), and the book wins, which is right:
+an item from that book carries that book's identifier.
+
+### A name is the record's name
+
+Every screen asked its own question and got a different answer, because before §15 the only source
+was the key, un-slugged. `weapon:lighthammer` is dnd5e's base-weapon id, not a name. `feature:light`
+is the PHB's **Light Domain**. And the slug rule strips punctuation, so the Library read
+*"Bigbys Hand"*, *"Blindness Deafness"*, *"Ray Of Frost"*.
+
+There is now **one function** — `nameForKey()` in `ui/records.js` — and the Library, the Editor,
+Assets and Corpus all call it. It answers with the record's own name, spelled as the book spells it.
+**142 rows read properly** that did not before:
+
+```
+Bigbys Hand → Bigby's Hand      Blindness Deafness → Blindness/Deafness
+Ray Of Frost → Ray of Frost     Antipathy Sympathy → Antipathy/Sympathy
+```
+
+An `effect:` key is the one exception and keeps its own id: its record is the spell that *applies*
+the effect, so the record says Bless where the FX is Blessed.

@@ -42,6 +42,7 @@ import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { needsPlace } from '../core/corpus.js';
 import { KNOBS, PLACES, PLACE_WORDS, assetWords, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
 import { HOOK_WORDS, KIND_WORDS, ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
+import { nameForKey } from './records.js';
 import { openPicker } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -169,7 +170,7 @@ export async function leaveSheet(app) {
   return !!ok;
 }
 
-const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.subject?.name ?? (k ? idWords(parseKey(k)?.id) : s.id ? idWords(s.id) : 'New FX'); };
+const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.subject?.name ?? (k ? nameForKey(k) : s.id ? idWords(s.id) : 'New FX'); };
 
 // -----------------------------------------------------------------------------------------------
 // rendering
