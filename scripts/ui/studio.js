@@ -19,6 +19,7 @@ import { hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, on
 import { onCorpusChange, onCorpusClick, onCorpusInput } from './corpus.js';
 import { onCoverageClick, renderCoverage } from './coverage.js';
 import { onFxClick, renderFx, renderList } from './fxtab.js';
+import { readRecords, recordsRead } from './records.js';
 import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -49,6 +50,12 @@ export class Studio extends ApplicationV2 {
     this.sheet = null;
     this.co = null;
     this._bound = false;
+    // THE RECORDS ARE READ WHEN THE WINDOW OPENS, not at boot (ui/records.js): they say where each
+    // key's evidence lives, nothing but the screens reads them, and they are the biggest file the
+    // module ships — so the table pays nothing for them. The rows waiting on them repaint once,
+    // here, when they arrive. Foundry builds this window itself from the settings menu, so the
+    // constructor is the one place every way in passes through.
+    if (!recordsRead()) readRecords().then(() => this.rendered && this.render());
   }
 
   /** open the window at a tab, on an item, on a key, or on an FX id; tab 'editor' opens the sheet on it */
@@ -147,7 +154,7 @@ export class Studio extends ApplicationV2 {
   ownerOfFx(id) {
     for (const row of this.census.actors) for (const it of row.items) {
       const item = it.uuid ? fromUuidSync(it.uuid) : null;
-      if (item?.flags?.[MODULE_ID]?.fx === id) return { actor: row.name, item: item.name };
+      if (item?.flags?.[MODULE_ID]?.fx === id) return { actor: row.name, item: item.name, uuid: it.uuid };
     }
     return null;
   }

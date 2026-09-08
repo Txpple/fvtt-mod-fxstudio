@@ -30,6 +30,7 @@ target and flies past on a miss · with the PSFX cantrips fire-bolt sound.*
 | `shipped.json` | the shipping record: one line per ship from a world (version, date, who, note, the FX and where each went); the version the repo takes at the next release | MIT |
 | `starters.json` | the abstract FX every new FX starts from (`starter:bolt`, …) | MIT |
 | `aa-assets.json` | the frozen asset table: what the migration could not point at the libraries' own paths; counted, meant to reach zero | MIT |
+| `records.json` | **the records**: every key the closed lists hold, addressed — `{uuid, name, where, on?, of?}` keyed by the key. Where a key's evidence lives, written down at the moment the key is earned (`tools/records.mjs`). No FX carries it, the engine never reads it, and the screens read it when the window opens: it is what the Library's **Record** door opens. Our own data about the installed books, not part of the migrated corpus | MIT |
 | the world setting `fx` | the live edit buffer the screens and the API write: drafts, and FX bound for a corpus (`to`) until shipped | — |
 | an item's flag `fvtt-mod-fxstudio.FX` | the item pointer: one specific item names an FX id of its own (set from the screens with "only this one"); it answers ahead of every key, and such an FX has an empty `for` | — |
 

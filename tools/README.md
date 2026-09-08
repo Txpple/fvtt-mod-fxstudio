@@ -9,6 +9,7 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 | Tool | What it does |
 | --- | --- |
 | `migrate-aa.mjs` | the migration (ARCHITECTURE §6): phase 1's lossless rows (`lib/oracle/`) → FX keyed by identity against the closed lists (the books' and the world's spells, features, items, weapons, the base weapons, the natural attacks of the installed creatures), every AA option mapped onto a knob (`lib/migrate/rows.mjs` is the table), every asset pointed at the libraries' own paths where the same files play the same way (`lib/migrate/nativise.mjs`; the frozen table is what is left), **proved at the render** row by row on the offline stage (`lib/migrate/proof.mjs`: the exact Sequencer calls the oracle makes against the exact calls the engine makes, in a canonical form with every allowance named), the census in the new keys, the report. `--write` writes `recipes/stock/*.json`, `house.json`, `aa-assets.json`, `migration-report.md`; `--show "<row label>"` prints one row's FX and proof; `--all` lists every failure. |
+| `records.mjs` | **the records**: every key the closed lists hold, addressed — Foundry's uuid for the compendium record (or the item on this world's actor), the record's name and the book it is in. Written at the moment a key is earned, so nothing is ever matched by name at the table; the screens open it, the engine never reads it. `--write` writes `recipes/records.json`. ⚠ It stands on the same evidence the corpus does (`LIST_PACKS`): install a book, add its packs there, re-run this **and** the migration. |
 | `check-fx.mjs` | every FX validates (the same validator the API runs) and every asset it names resolves against JB2A's and PSFX's own registration files and the disk. `<file.json>` checks an FX file against the recipes; `--sentences` prints every sentence. Run after any library update and on any FX before it is proposed. |
 | `check-imports.mjs` | every module under `scripts/` loads in plain node with Foundry's globals stubbed. Run after any edit under `scripts/`. |
 | `check-layers.mjs` | every import points down the layer order (core ← readers, engine ← ui). |
@@ -21,7 +22,8 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 `lib/stage.mjs` is the offline stage: enough of the canvas and Sequencer's API for an FX to build
 in node, with a recording Sequence the proof compares. `lib/recipes.mjs` reads the recipes the way
 the module does and wires the engine's asset database to the registration files. `lib/dnd5e.mjs`
-holds the base weapons and the pack lists. `lib/oracle/` is phase 1's line-for-line port of AA's
+holds the base weapons and the pack lists; `lib/migrate/keys.mjs` meets the closed lists once and
+is where both a key and the address of its evidence are settled. `lib/oracle/` is phase 1's line-for-line port of AA's
 sequences plus its rows (`import-aa.mjs` regenerates them from AA's own data, once), kept as the
 proof's independent side and otherwise history; `lib/aa-port.mjs` is AA's own reading of an entry.
 `lib/suite.mjs` is the section filter and the live fixture; `lib/foundry.mjs` the sandbox connection

@@ -24,7 +24,7 @@ it, prove it with the suites, and report. That is the whole method. It replaced 
   screen was right and something else was wrong — a CSS specificity bug made a working filter look
   random, and the Editor was honestly displaying data that should not have existed.
 
-## 2. What was ruled and built (DESIGN §10–14)
+## 2. What was ruled and built (DESIGN §10–15)
 
 | | |
 | --- | --- |
@@ -33,6 +33,7 @@ it, prove it with the suites, and report. That is the whole method. It replaced 
 | §12 | **What the tab does.** A row takes no action; the search matches the name alone; Assets browses and does not write; Revert folded into Delete, which unpins what pointed at the FX. |
 | §13 | **The screen the user drew.** No dropdown; Delete · Editor on every row, double click opens the Editor; amber group heads; Import on the search row; the sound stepper stands on files, not just variants. |
 | §14 | **ONE FX ANSWERS ONE KEY**, and the closed lists audited. The big one — see §3. |
+| §15 | **The record door.** Every row in the Library opens the compendium record (or world item) its key was earned against — 1288 of 1288, no gaps. `recipes/records.json` addresses every key the closed lists hold; the address is settled where the key is earned, never searched for by name at the table. |
 
 The tab reads **Library**; its key in code is still `fx`.
 
@@ -47,7 +48,8 @@ What "evidence" means: the ability exists in an installed compendium, in dnd5e's
 this world's actors. **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS that evidence** — and it was audited
 on 2026-09-08 because a pack missing from it now *silently deletes corpus*. It was missing
 `dmg/equipment` (571 records, 87 weapons), Ravenloft's items and options, and Heroes of Faerûn
-entirely. **If a new book is installed, add its packs there and re-run the migration.**
+entirely. **If a new book is installed, add its packs there, re-run the migration, and re-run
+`tools/records.mjs --write`** — the records (§15) stand on the same evidence.
 
 ```
 stock 1289 → 1286 FX, one key each          the census DID NOT MOVE:
@@ -75,11 +77,13 @@ Everything is committed and green. Nothing is half-built.
 | | |
 | --- | --- |
 | Corpus | stock **1286** (spells 369 · weapons 299 · features 306 · natural 193 · effects 93 · items 26), house **2** |
-| `ui/fxtab.js` | search (name only) + Import · facets · rows; a row is a name with Delete · Editor |
+| Records | `recipes/records.json` **4913 keys** addressed (spell 438 · feature 1527 · item 1097 · natural 275 · weapon 391 · effect 1185) — every one of the 1286 keys the corpus answers has a record |
+| `ui/fxtab.js` | search (name only) + Import · facets · rows; a row is a name with Record · Delete · Editor |
+| `ui/records.js` | reads `recipes/records.json` when the window opens; the engine never touches it |
 | `ui/sheet.js` | the Editor tab: action bar, sentence, hook strip, sequence, note |
 | `ui/library.js` | the Asset Library and the picker; browses, does not write |
 | `ui/coverage.js` | Maintain, two scopes, four tiles, the rows |
-| Suites | `smoke-screens` **178** · `smoke-author` **15** · `smoke-fx` **1288** · `smoke-replay` **45** · `check-fx` 1298 fx / 0 invalid · imports/layers/legacy green |
+| Suites | `smoke-screens` **182** · `smoke-author` **15** · `smoke-fx` **1288** · `smoke-replay` **45** · `check-fx` 1298 fx / 0 invalid · imports/layers/legacy green |
 
 Sandbox verified byte-identical to the repo on 2026-09-08, its two item pointers live, its two
 Drafts still coherent. A stale `scripts/core/looks.js` and a stale `fvtt-mod-fxstudio.looks` world

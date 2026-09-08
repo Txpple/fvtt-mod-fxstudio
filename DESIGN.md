@@ -1436,3 +1436,66 @@ earlier row.
 **The one to watch is effects.** An item's name is evidence; an effect's is weaker, because a DM
 names effects by hand and other modules make their own. Anything on this world's actors is kept —
 the world's effects are in the list — but an effect that arrives later needs its FX re-made.
+
+## 15. The record door (the user's ruling, 2026-09-08)
+
+> *"since everything now matches a compendium or an item in the world, i want this area here to
+> have a link that opens the compendium object/record. additionally, you should figure out what
+> data in the json file itself can be stored that makes it logical pointing. probably compendium
+> id, object id, compendium name / record name (friendly text field)."*
+
+§14 is what makes this possible: an FX answers one key, and a key is only earned when a name meets
+the closed lists. So every FX in the corpus stands on a document that exists, and that document can
+be opened. Measured before anything was built — **1288 of 1288, no gaps**:
+
+| | |
+| --- | --- |
+| spells 369 · features 306 · items 26 | the book's own record |
+| weapons 299 | 288 book records · 6 items on this world's actors · 5 base weapons whose dnd5e id is not their name (`lighthammer`, `warpick`, the three crossbows), found by the display name the system gives them |
+| natural 193 | one creature that has the attack, and how many share it — Claw → Abominable Yeti, *one of 128* |
+| effects 93 | **the record that carries the effect** — Blessed → the PHB's Bless. An effect is not an item, so nothing else could be opened, and the carrier is what a person wants anyway |
+| the 2 Item Hooks | the item they are pinned to, which the pointer already names |
+
+### What is stored, and where
+
+A Foundry uuid already *is* the compendium id and the object id joined, and `fromUuid` resolves it
+natively, so three fields carry everything: `uuid`, `name` (the record's own), `where` (the book and
+pack, in the book's own words). Two more appear only where they mean something: `on` (the creature a
+natural attack sits on) and `of` (how many creatures share it).
+
+```json
+"natural:claw": { "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAbominableYeti.Item.mmClaw0000000000",
+                  "name": "Claw", "where": "Monster Manual · Actors", "on": "Abominable Yeti", "of": 128 }
+```
+
+**It is keyed by the KEY, in a file of its own** (`recipes/records.json`, `tools/records.mjs`), not
+by a field on each FX. Three reasons, and the third is the one that decided it:
+
+1. A Draft or a House FX gets the door for free, without carrying the field — the two Drafts in this
+   world open their records today and nobody wrote anything into them.
+2. The GPL stock files do not churn by 1286 entries for a screen convenience.
+3. **It holds every key the closed lists hold, not just the ones an FX answers** — 4913 of them. An
+   FX written next year for an ability that has none today is addressed already.
+
+### The rule it keeps
+
+**The address is settled where the key is earned** — inside `buildLists`, at the same `put` that
+meets the list — and never searched for again by name at the table. That is §14's rule applied to
+the door: a name rule that survived into the running module would be exactly AA's shape back again.
+It is also the only thing that *works*: a pack index holds no embedded documents, so a runtime name
+search would fail on all 193 natural attacks and all 93 effects.
+
+The engine never reads the file. The screens read it **when the window opens**, not at boot — the
+corpus plays without it, and at 883 KB it is the biggest thing the module ships. Rows render greyed
+for the tick it takes to arrive, then repaint once.
+
+### On the row
+
+One word, `Record`, right-justified before Delete · Editor — the row stays the name the user
+stripped it back to (§11), and the record's own name, its book, the creature and the count are the
+tooltip's: *"Open Claw on Abominable Yeti · Monster Manual · Actors — one of 128 creatures with
+it"*. Where there is nothing to open — an invented spell, an Item Hook whose item is gone — it is
+greyed **where it stands with its reason** (R1), never dropped.
+
+⚠ It stands on the same evidence the corpus does. Install a book, add its packs to `LIST_PACKS`,
+and re-run `tools/records.mjs` as well as the migration.

@@ -25,10 +25,11 @@
 // colour only (R3). A facet keeps its place whatever is selected;
 // what cannot run right now is greyed WHERE IT STANDS with its reason, never dropped (R1).
 import { MODULE_ID } from '../settings.js';
-import { KINDS, parseKey } from '../core/subjects.js';
+import { KINDS, keyLabel, parseKey } from '../core/subjects.js';
 import { assetsOf } from '../core/fx.js';
 import { HOOK_WORDS, KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
 import { openSheet } from './sheet.js';
+import { openRecord, recordFor, recordWords, recordsRead } from './records.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const PAGE = 200;
@@ -163,10 +164,28 @@ function facets(app) {
   </div>`;
 }
 
+/**
+ * THE RECORD DOOR (the user, 2026-09-08: "everything now matches a compendium or an item in the
+ * world … a link that opens the compendium object/record"). One word on every row, so the row stays
+ * the name it was stripped back to — the record's own name and the book it is in are the tooltip's.
+ * The address was settled offline when the key was earned (recipes/records.json, ui/records.js);
+ * nothing is searched for by name here. An Item Hook has no key, so its record is the item it is
+ * pinned to. Nothing to open is greyed WHERE IT STANDS with its reason (R1), never dropped.
+ */
+function recordDoor(app, r) {
+  const grey = (why) => `<button type="button" class="link record" disabled data-na="true" data-tooltip="${esc(why)}">Record</button>`;
+  if (!recordsRead()) return grey('Reading the records…');
+  const rec = r.owner
+    ? (r.owner.uuid ? { uuid: r.owner.uuid, name: r.owner.item, where: `this world · ${r.owner.actor}` } : null)
+    : recordFor(r.keys[0]);
+  if (!rec?.uuid) return grey(r.item ? 'No item here points at this FX' : `Nothing here holds ${r.keys[0] ? keyLabel(r.keys[0]) : 'a record for this FX'}`);
+  return `<button type="button" class="link record" data-act="fx-record" data-uuid="${esc(rec.uuid)}" data-name="${esc(rec.name)}" data-tooltip="${esc(recordWords(rec, r.kind))}">Record</button>`;
+}
+
 /** a row is a name; clicking it marks it, and the marked row is the only one showing its doors */
 const rowHtml = (app, r) => `<div class="row" data-now="${app.view.fxSel === r.id}">
     <button type="button" class="pickbtn" data-act="fx-sel" data-id="${esc(r.id)}" aria-current="${app.view.fxSel === r.id}"><span class="n">${esc(r.name)}</span></button>
-    <span class="acts"><button type="button" class="link danger" data-act="fx-del" data-id="${esc(r.id)}" data-tooltip="Delete ${esc(r.name)} for good">Delete</button><button type="button" class="link" data-act="fx-editor" data-id="${esc(r.id)}" data-tooltip="Open ${esc(r.name)} in the Editor">Editor</button></span>
+    <span class="acts">${recordDoor(app, r)}<button type="button" class="link danger" data-act="fx-del" data-id="${esc(r.id)}" data-tooltip="Delete ${esc(r.name)} for good">Delete</button><button type="button" class="link" data-act="fx-editor" data-id="${esc(r.id)}" data-tooltip="Open ${esc(r.name)} in the Editor">Editor</button></span>
   </div>`;
 
 /** the list card on its own, so the search can redraw it without redrawing the box being typed in */
@@ -228,6 +247,8 @@ export async function onFxClick(app, b, act2) {
     case 'fx-editor': { const id = b.dataset.id; app.view.fxSel = id; openSheet(app, { id, subject: app.subjectForFx(id) }); return app.render(); }
     // deleteFx asks first, and unpins whatever item pointed at it
     case 'fx-del': return app.deleteFx(b.dataset.id);
+    // the record opens in its OWN sheet, beside the window — the Library is not a book reader
+    case 'fx-record': return openRecord(b.dataset.uuid, b.dataset.name);
     default: return undefined;
   }
 }

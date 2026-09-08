@@ -191,8 +191,8 @@ try {
       ok('§5 the row is marked, one height, the layout unmoved (R3)', geom5() === was5 && new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1 && $('.fxlist .row[data-now="true"]') === rows5()[4], `${new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size} row height(s)`);
       // the marked row is the only one showing its two doors, and they cost the row no height (R3)
       const acts5 = rows5()[4].querySelector('.acts');
-      ok('§5 every row carries Delete then Editor, right-justified', rows5().every((r) => [...r.querySelector('.acts').children].map((x) => x.textContent.trim()).join(',') === 'Delete,Editor') && rows5().every((r) => getComputedStyle(r.querySelector('.acts')).visibility === 'visible') && acts5.getBoundingClientRect().right > rows5()[4].querySelector('.n').getBoundingClientRect().right, `${[...acts5.children].map((x) => x.textContent.trim()).join(', ')} on ${rows5().length} rows`);
-      ok('§5 Delete is painted as the destructive one; Editor reads as plain text', getComputedStyle(acts5.children[0]).color !== getComputedStyle(acts5.children[1]).color && getComputedStyle(acts5.children[1]).color === getComputedStyle(rows5()[4].querySelector('.n')).color, `delete ${getComputedStyle(acts5.children[0]).color} · editor ${getComputedStyle(acts5.children[1]).color}`);
+      ok('§5 every row carries Record, then Delete, then Editor, right-justified', rows5().every((r) => [...r.querySelector('.acts').children].map((x) => x.textContent.trim()).join(',') === 'Record,Delete,Editor') && rows5().every((r) => getComputedStyle(r.querySelector('.acts')).visibility === 'visible') && acts5.getBoundingClientRect().right > rows5()[4].querySelector('.n').getBoundingClientRect().right, `${[...acts5.children].map((x) => x.textContent.trim()).join(', ')} on ${rows5().length} rows`);
+      ok('§5 Delete is painted as the destructive one; Record and Editor read as plain text', getComputedStyle(acts5.querySelector('.danger')).color !== getComputedStyle(acts5.querySelector('[data-act="fx-editor"]')).color && getComputedStyle(acts5.querySelector('[data-act="fx-editor"]')).color === getComputedStyle(rows5()[4].querySelector('.n')).color, `delete ${getComputedStyle(acts5.querySelector('.danger')).color} · editor ${getComputedStyle(acts5.querySelector('[data-act="fx-editor"]')).color}`);
       // the group heads are the one painted thing on the screen: where an FX lives
       const head5 = $('.fxlist .grouphead');
       ok('§5 a group head is plainly painted, not another grey band', !/rgba\(0, 0, 0, 0\)/.test(getComputedStyle(head5).backgroundColor) && getComputedStyle(head5).color !== getComputedStyle(rows5()[0].querySelector('.n')).color && getComputedStyle(head5).borderTopWidth !== '0px', `${getComputedStyle(head5).backgroundColor} · ${getComputedStyle(head5).color}`);
@@ -260,6 +260,26 @@ try {
       // the box is a control, not a banner
       const box = $('.fxsearch input').getBoundingClientRect();
       ok('§5 the search box is sized like a control: one facet row tall, well under half the width', Math.round(box.height) <= 28 && Math.round(box.width) <= 300 && Math.round(box.width) < content5.clientWidth / 2, `${Math.round(box.width)}×${Math.round(box.height)}`);
+      // THE RECORD DOOR (the user, 2026-09-08): one word on every row that opens the compendium
+      // record the key was earned against. The address was settled offline when the name met the
+      // closed lists (recipes/records.json) — nothing is matched by name here, at the table.
+      await type('.fx-q', 'fire bolt');
+      await sleep(450);
+      const rec5 = rows5().map((r) => r.querySelector('[data-act="fx-record"]')).find(Boolean);
+      ok('§5 a stock row carries the Record it was keyed against, named with its book', !!rec5 && /^Compendium\.[^.]+\.[^.]+\.Item\./.test(rec5.dataset.uuid ?? '') && /Fire Bolt/.test(rec5.dataset.tooltip ?? '') && /Player's Handbook/.test(rec5.dataset.tooltip ?? ''), `${rec5?.dataset.uuid} · ${rec5?.dataset.tooltip}`);
+      await click(rec5);
+      await sleep(900);
+      const shown5 = () => [...(foundry.applications.instances?.values() ?? [])].concat(Object.values(ui.windows ?? {}));
+      const hit5 = shown5().find((w) => w?.document?.uuid === rec5.dataset.uuid);
+      ok('§5 clicking it opens that record in its own sheet, beside the window', !!hit5, hit5 ? `${hit5.constructor.name} on ${hit5.document?.name}` : shown5().map((w) => w?.constructor?.name).join(', ').slice(0, 160));
+      await hit5?.close?.();
+      await sleep(200);
+      // and where nothing holds the key — a spell this world invented — the door is greyed in place
+      await type('.fx-q', 'sharran');
+      await sleep(450);
+      const grey5 = $('.fxlist .row [data-act], .fxlist .row .link.record');
+      const rdoor5 = $('.fxlist .row .acts').children[0];
+      ok('§5 an FX for something no book or actor holds is greyed WHERE IT STANDS with its reason (R1)', rdoor5?.textContent.trim() === 'Record' && rdoor5.disabled && rdoor5.dataset.na === 'true' && /Nothing here holds Sharran Step/.test(rdoor5.dataset.tooltip ?? ''), `${rdoor5?.dataset.tooltip} · ${!!grey5}`);
       await type('.fx-q', '');
       await sleep(450);
 
@@ -304,6 +324,9 @@ try {
       // pointed at it, which is the one thing Delete used not to do
       await clickFxRow(own.id);
       ok('§7 the Item Hook has a row of its own on the FX tab', tabNow() === 'fx' && app.view.fxSel === own.id, app.view.fxSel);
+      // an Item Hook answers no key, so its record is the ITEM it is pinned to, on its own actor
+      const rec7 = $(`.fxlist .row [data-act="fx-record"][data-name="${tmp.name}"]`) ?? [...$$('.fxlist .row')].find((r) => r.querySelector('.pickbtn')?.dataset.id === own.id)?.querySelector('[data-act="fx-record"]');
+      ok('§7 its Record opens the item it is pinned to, not a book', !!rec7 && rec7.dataset.uuid === tmp.uuid && /this world/.test(rec7.dataset.tooltip ?? ''), `${rec7?.dataset.uuid} vs ${tmp.uuid} · ${rec7?.dataset.tooltip}`);
       await openEditor(own.id);
       ok('§7 the Editor opens on it, an Item Hook', paneNow() === 'editor' && text('.sheet code.id') === own.id && /Item Hook/.test(text('.sheet h2')), text('.sheet code.id'));
       await sayYes(() => click('[data-act="sh-delete"]'));

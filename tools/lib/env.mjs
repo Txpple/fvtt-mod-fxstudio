@@ -5,7 +5,7 @@
 //   FXS_MCP_REPO   the MCP repo, whose node_modules hold classic-level (the LevelDB reader)
 //   FXS_SCRATCH    where snapshots and extracted sources go (default: dist/scratch, gitignored)
 import { createRequire } from 'node:module';
-import { existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -45,6 +45,21 @@ export function classicLevel() {
   } catch (e) {
     throw new Error(`classic-level is not installed under ${MCP_REPO}; run npm install there (${e.message})`);
   }
+}
+
+/**
+ * A package's manifest facts, for ADDRESSING a record and naming where it lives: {id, title, packs:
+ * {name: label}}. A compendium record's uuid is `Compendium.<id>.<pack>.<Document>.<docId>`, so the
+ * package id here is what makes a document read offline addressable in the game.
+ */
+export function packageMeta(dir) {
+  for (const f of ['module.json', 'system.json']) {
+    if (!existsSync(`${dir}/${f}`)) continue;
+    const j = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
+    const title = String(j.title ?? j.id).replace(/^Dungeons & Dragons /, '').replace(/^Fifth Edition$/, 'dnd5e');
+    return { id: j.id, title, packs: Object.fromEntries((j.packs ?? []).map((p) => [p.name, p.label ?? p.name])) };
+  }
+  return null;
 }
 
 export function moduleVersion(dir) {

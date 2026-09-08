@@ -3,8 +3,8 @@
 // installed creatures, and the world's own items. A row's label meets these lists ONCE, here, and
 // becomes explicit keys; no name rule survives into the corpus.
 import { existsSync } from 'node:fs';
-import { MODULES } from '../env.mjs';
-import { packDir, readActors, readPackEffectNames, readPackItems, snapshot } from '../leveldb.mjs';
+import { MODULES, packageMeta } from '../env.mjs';
+import { packDir, readActors, readPackEffects, readPackItems, snapshot } from '../leveldb.mjs';
 import { BASE_WEAPONS, BASE_WEAPON_NAMES, CREATURE_PACKS, LIST_PACKS } from '../dnd5e.mjs';
 import { nameForms, slug } from '../../../scripts/core/subjects.js';
 
@@ -19,38 +19,59 @@ export const wordRule = (label) => new RegExp(`(^|[^a-z0-9])${escapeRe(label.tri
  *   natural                Map<slug(name), {name, count, creatures: [names…]}> (natural weapons on creatures)
  *   world                  {items: [{name, type, baseItem, natural, actor}], effects: [names]}
  *   effects                Set<slug(name)> — every ActiveEffect the books and this world hold
+ *   records                Map<key, {uuid, name, where, on?, of?}> — the record each key's evidence lives in
  */
 export async function buildLists({ worldActors, worldItems, worldEffects }) {
   const spells = new Map(), features = new Map(), items = new Map(), weapons = new Map(), natural = new Map();
   const effects = new Set();
   const stats = { packs: [], skipped: [] };
   const put = (map, name, extra) => { const k = slug(name); if (!k) return; if (!map.has(k)) map.set(k, { name, ...extra }); };
+  // THE RECORD a key's evidence lives in, addressed ONCE, here, where the evidence is met — never
+  // searched for again by name at the table. Keyed by the KEY, not by an FX, so an FX written later
+  // for an ability that has none today is addressed too. First in wins, which is LIST_PACKS order:
+  // a book's own record before this world's copy of it. {uuid, name, where, on?, of?}
+  const records = new Map();
+  const record = (key, v) => { if (key && v && !records.has(key)) records.set(key, { ...v }); };
   for (const [mod, pack, kind] of LIST_PACKS) {
     const dir = MODULES[mod] ? packDir(MODULES[mod], pack) : null;
     if (!dir) { stats.skipped.push(`${mod}/${pack}`); continue; }
     const snap = snapshot(dir, `${mod}-${pack}`);
     const docs = await readPackItems(snap);
+    const m = packageMeta(MODULES[mod]) ?? { id: mod, title: mod, packs: {} };
+    const where = `${m.title} · ${m.packs[pack] ?? pack}`;
+    const at = (path) => `Compendium.${m.id}.${pack}.${path}`;
     let n = 0;
     for (const it of docs) {
       n++;
       const identifier = it.system?.identifier || slug(it.name);
-      if (it.type === 'spell') put(spells, it.name, { identifier, kind: 'spell', from: `${mod}/${pack}` });
-      else if (it.type === 'feat' || it.type === 'class' || it.type === 'subclass' || it.type === 'background' || it.type === 'race') put(features, it.name, { identifier, kind: 'feature', from: `${mod}/${pack}` });
+      const rec = { uuid: at(`Item.${it._id}`), name: it.name, where };
+      if (it.type === 'spell') { put(spells, it.name, { identifier, kind: 'spell', from: `${mod}/${pack}` }); record(`spell:${identifier}`, rec); record(`spell:${slug(it.name)}`, rec); }
+      else if (it.type === 'feat' || it.type === 'class' || it.type === 'subclass' || it.type === 'background' || it.type === 'race') { put(features, it.name, { identifier, kind: 'feature', from: `${mod}/${pack}` }); record(`feature:${identifier}`, rec); record(`feature:${slug(it.name)}`, rec); }
       else if (it.type === 'weapon') {
-        if (it.system?.type?.value === 'natural') put(natural, it.name, { count: 0, creatures: [] });
-        else put(weapons, it.name, { baseItem: it.system?.type?.baseItem || null, from: `${mod}/${pack}` });
+        if (it.system?.type?.value === 'natural') { put(natural, it.name, { count: 0, creatures: [] }); record(`natural:${slug(it.name)}`, rec); }
+        else { put(weapons, it.name, { baseItem: it.system?.type?.baseItem || null, from: `${mod}/${pack}` }); record(`weapon:${slug(it.name)}`, rec); }
         put(items, it.name, { identifier, kind: 'weapon', from: `${mod}/${pack}` });
-      } else if (['consumable', 'equipment', 'tool', 'loot', 'container'].includes(it.type)) put(items, it.name, { identifier, kind: 'item', from: `${mod}/${pack}` });
+      } else if (['consumable', 'equipment', 'tool', 'loot', 'container'].includes(it.type)) { put(items, it.name, { identifier, kind: 'item', from: `${mod}/${pack}` }); record(`item:${identifier}`, rec); record(`item:${slug(it.name)}`, rec); }
     }
-    for (const name of await readPackEffectNames(snap)) effects.add(slug(name));
+    // an effect is not an item: its record is the spell, feature or item that CARRIES it, which is
+    // what a person wants opened. The key's kind says so — nothing else has to be written down.
+    for (const { name, on } of await readPackEffects(snap)) {
+      effects.add(slug(name));
+      if (on) record(`effect:${slug(name)}`, { uuid: at(on.path), name: on.name, where });
+    }
     stats.packs.push(`${mod}/${pack}: ${n}`);
   }
+  // `weapon:dagger` is dnd5e's own base-weapon id, not a name: its record is the book's entry for
+  // that weapon, found by the display name the system gives it ("War Pick" → war-pick).
+  for (const [id, name] of Object.entries(BASE_WEAPON_NAMES)) record(`weapon:${id}`, records.get(`weapon:${slug(name)}`));
   // the natural attacks: every natural weapon on every creature in the installed books
   for (const [mod, pack] of CREATURE_PACKS) {
     const dir = MODULES[mod] ? packDir(MODULES[mod], pack) : null;
     if (!dir) { stats.skipped.push(`${mod}/${pack}`); continue; }
     const snap = snapshot(dir, `${mod}-${pack}-actors`);
     const { actors, items: byActor } = await readActors(snap);
+    const m = packageMeta(MODULES[mod]) ?? { id: mod, title: mod, packs: {} };
+    const where = `${m.title} · ${m.packs[pack] ?? pack}`;
     let n = 0;
     for (const [actorId, list] of Object.entries(byActor)) {
       for (const it of list) {
@@ -60,11 +81,17 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
         const e = natural.get(k) ?? natural.set(k, { name: it.name, count: 0, creatures: [] }).get(k);
         e.count++;
         if (e.creatures.length < 6 && actors[actorId]?.name && !e.creatures.includes(actors[actorId].name)) e.creatures.push(actors[actorId].name);
+        // a creature's own attack is the better record than a loose natural weapon in an items
+        // pack: it names the monster. The first creature keeps it; the rest only count (`of`).
+        const has = records.get(`natural:${k}`);
+        if (!has?.on) records.set(`natural:${k}`, { uuid: `Compendium.${m.id}.${pack}.Actor.${actorId}.Item.${it._id}`, name: it.name, where, on: actors[actorId]?.name ?? null });
       }
     }
-    for (const name of await readPackEffectNames(snap)) effects.add(slug(name));
+    for (const { name } of await readPackEffects(snap)) effects.add(slug(name));
     stats.packs.push(`${mod}/${pack}: ${n} natural attacks`);
   }
+  // one record stands for the attack; say how many creatures share it, so nobody reads it as the only one
+  for (const [k, e] of natural) { const r = records.get(`natural:${k}`); if (r && e.count > 1) r.of = e.count; }
   // the world's own items
   const world = { items: [], effects: [] };
   for (const [actorId, list] of Object.entries(worldItems ?? {})) {
@@ -72,9 +99,27 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
     for (const it of list) {
       if (!['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool', 'loot'].includes(it.type)) continue;
       world.items.push({ name: it.name, type: it.type, identifier: it.system?.identifier || null, baseItem: it.system?.type?.baseItem || null, natural: it.type === 'weapon' && it.system?.type?.value === 'natural', actor: actor?.name ?? actorId, actorType: actor?.type ?? '?' });
+      // this world's own copy is the record only where no book holds one — the same order the keys
+      // are earned in. It is addressed on the actor that carries it, which is where a person looks.
+      const rec = { uuid: `Actor.${actorId}.Item.${it._id}`, name: it.name, where: `this world · ${actor?.name ?? actorId}` };
+      const k = slug(it.name);
+      if (it.type === 'weapon') record(`${it.system?.type?.value === 'natural' ? 'natural' : 'weapon'}:${k}`, rec);
+      else if (it.type === 'spell') record(`spell:${it.system?.identifier || k}`, rec);
+      else if (it.type === 'feat') record(`feature:${it.system?.identifier || k}`, rec);
+      else record(`item:${k}`, rec);
     }
   }
-  for (const list of Object.values(worldEffects ?? {})) for (const ef of list) if (ef.name) { if (!world.effects.includes(ef.name)) world.effects.push(ef.name); effects.add(slug(ef.name)); }
+  for (const [owner, list] of Object.entries(worldEffects ?? {})) {
+    const [actorId, itemId] = owner.split('.');
+    const actor = worldActors?.[actorId];
+    for (const ef of list) {
+      if (!ef.name) continue;
+      if (!world.effects.includes(ef.name)) world.effects.push(ef.name);
+      effects.add(slug(ef.name));
+      const on = itemId ? (worldItems?.[actorId] ?? []).find((i) => i._id === itemId) : null;
+      record(`effect:${slug(ef.name)}`, { uuid: itemId ? `Actor.${actorId}.Item.${itemId}` : `Actor.${actorId}`, name: on?.name ?? actor?.name ?? ef.name, where: `this world · ${actor?.name ?? actorId}` });
+    }
+  }
 
   /** which kinds a label is, by the lists: [{kind, id, from}] — the identifier where the list has one */
   function kindsOfName(label, { only = null } = {}) {
@@ -132,7 +177,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
   /** does an ActiveEffect of this name exist in the books or in this world? */
   const hasEffect = (label) => nameForms(label).some((form) => effects.has(slug(form)));
 
-  return { spells, features, items, weapons, natural, effects, world, kindsOfName, expandWord, hasEffect, stats };
+  return { spells, features, items, weapons, natural, effects, records, world, kindsOfName, expandWord, hasEffect, stats };
 }
 
 export const packExists = (mod, pack) => !!(MODULES[mod] && existsSync(`${MODULES[mod]}/packs/${pack}`));

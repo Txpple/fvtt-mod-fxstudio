@@ -42,8 +42,9 @@ Editor · Assets · Coverage**. It opens at 1080px.
 **FX** (`ui/fxtab.js`): its own search, then facets · the rows; one list of every FX grouped
 Draft → House → Stock; a search that matches the **name alone** (no dropdown) with **Import**
 right-justified beside it; group heads painted amber; **a row is a name that takes no action when
-clicked** — it marks itself, and its two right-justified doors are **Delete** (red, asks) and
-**Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —
+clicked** — it marks itself, and its three right-justified doors are **Record** (opens the compendium
+record, or the world item, its key was earned against — ruled 2026-09-08, DESIGN §15), **Delete**
+(red, asks) and **Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —
 identity + action bar · the sentence · the hook strip · the sequence (a rail, an overlap strip, a
 band-tabbed inspector) · the note; `delay` is *Wait before*, `wait` is *Hold next*; Save is always a
 Draft; Delete is for good. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the
@@ -65,7 +66,8 @@ exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is th
 
 ⚠ **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS the evidence**, so a book missing from it silently
 deletes corpus. Audited 2026-09-08 (it was missing `dmg/equipment`, Ravenloft's items and options,
-and Heroes of Faerûn entirely). **Install a new book → add its packs there → re-run the migration.**
+and Heroes of Faerûn entirely). **Install a new book → add its packs there → re-run the migration
+AND `node tools/records.mjs --write`** (the records stand on the same evidence, DESIGN §15).
 
 **`recipes/house.json` is the USER'S file**: `migrate-aa.mjs` no longer writes it (it offers
 `dist/house-from-migration.json` instead), and it holds **two custom swords as Item Hooks** —
@@ -95,7 +97,8 @@ each. [DESIGN.md](DESIGN.md) holds what was decided while building (the row, the
 table `fxstudio.aa.*` and why, the matching rules, and §6: the moments, who plays, the presets,
 the ledger; §7: phase 2 — the proof, where every AA option went, the keys, the frozen table); [BACKLOG.md](BACKLOG.md) what is parked;
 `recipes/migration-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
-the tools. `prototypes/` holds the investigation's scripts and the clickable prototype the user
+the tools. `recipes/records.json` (`tools/records.mjs`) addresses every key the closed lists hold —
+what the Record door opens; read when the window opens, never by the engine. `prototypes/` holds the investigation's scripts and the clickable prototype the user
 ruled the shape on ("it reads right"); `shelved/` holds the redesign brief and its screens, which
 govern nothing. Each phase ends at a check-in; the next phase starts on the user's word, never on a
 handoff or a plan — which is the rule the shelved redesign broke.
