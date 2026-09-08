@@ -1,33 +1,33 @@
-# Migration report — Automated Animations → FX Studio looks
+# Migration report — Automated Animations → FX Studio fx
 
-Run 2026-09-06 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e Animations 3.3.0) against JB2A 0.9.2, PSFX 0.17.0, Sequencer 4.2.3, dnd5e null. Regenerate with `node tools/migrate-aa.mjs --write`.
+Run 2026-09-08 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e Animations 3.3.0) against JB2A 0.9.3, PSFX 0.17.0, Sequencer 4.2.3, dnd5e null. Regenerate with `node tools/migrate-aa.mjs --write`.
 
 ## Numbers
 
 | Measure | Count |
 | --- | --- |
 | Rows in (stock / house) | 1289 / 7 |
-| Looks out (stock / house) | 1289 / 7 |
+| Fx out (stock / house) | 1554 / 7 |
 | · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | 694 |
 | · family rows expanded against the base weapons, the natural attacks and the world's weapons | 224 |
 | · effect rows, keyed by the effect's name | 184 |
-| · names no list holds, keyed in all three kinds they could be | 194 |
+| · names no list holds — NOT carried, see the exceptions below | 194 |
 | · weapon words that also caught a spell, a feat or an item under AA (listed, not carried) | 26 |
-| AA paths | 555 |
-| · now the libraries' own path with the same files and structure | 21 |
-| · now a list of the libraries' own leaves | 394 |
-| · now the libraries' own by-distance nodes (a variant at random, then the distance, as AA picked) | 90 |
-| · now the raw files AA picked out of a larger set | 35 |
-| · AA's stretch metadata carried on the scene (`template`) | 75 |
-| **· still on the frozen table (the measurement; goal zero)** | **15** (loop markers differ 15, picked by distance 0, no such node 0) |
-| Frozen table entries shipped | 20 |
-| **Render-level proof: looks equal to AA's own sequence** | **1296 of 1296** (3208 of 3329 moments exactly, 121 by a named allowance below) |
-| Abilities on the world's actors | 603 |
-| · same answer as under AA | 596 |
-| · a different look now | 0 |
-| · play now, played nothing under AA | 1 |
-| · play nothing now, played under AA | 6 |
-| Looks that can never answer (a same-key look of the same layer comes first) | 7 |
+| AA paths | 496 |
+| · now the libraries' own path with the same files and structure | 19 |
+| · now a list of the libraries' own leaves | 352 |
+| · now the libraries' own by-distance nodes (a variant at random, then the distance, as AA picked) | 83 |
+| · now the raw files AA picked out of a larger set | 32 |
+| · AA's stretch metadata carried on the scene (`template`) | 69 |
+| **· still on the frozen table (the measurement; goal zero)** | **10** (loop markers differ 10, picked by distance 0, no such node 0) |
+| Frozen table entries shipped | 15 |
+| **Render-level proof: fx equal to AA's own sequence** | **1561 of 1561** (4480 of 4591 moments exactly, 111 by a named allowance below) |
+| Abilities on the world's actors | 736 |
+| · same answer as under AA | 694 |
+| · a different fx now | 31 |
+| · play now, played nothing under AA | 2 |
+| · play nothing now, played under AA | 9 |
+| Fx that can never answer (a same-key fx of the same layer comes first) | 1 |
 
 ## What the proof allows, by name
 
@@ -36,9 +36,9 @@ The proof compares what Sequencer is told, section by section, in a canonical fo
 Deliberate differences, each a choice of the model over AA's accident. Those the proof met are counted (moments):
 
 - **6** × a bolt from inside a standing area, with none standing, leaves from the caster's centre (AA left from the token's top-left corner)
-- **9** × a follow-up mark with nothing to land on plays no sound (AA played its sound anyway)
-- **97** × a look whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)
-- **4** × a mark that falls back to the caster honours the look's delay (AA dropped it there)
+- **7** × a follow-up mark with nothing to land on plays no sound (AA played its sound anyway)
+- **89** × an FX whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)
+- **4** × a mark that falls back to the caster honours the FX's delay (AA dropped it there)
 - **5** × the same pictures start in a different order with no wait between them (a shield's bottom halves first, then its top halves)
 - a swing and a bolt at several targets some in reach and some beyond: the engine plays all the swings, then all the flights, then the follow-up marks once over every target; AA interleaved them per group and played the follow-up sound per group (the proof's mixed-reach case is not in the canonical moments; the single-reach cases are)
 - a follow-up mark that waits: the engine waits after the last target it plays on; AA waited after the last of all the moment's targets
@@ -47,142 +47,414 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - the hundred-millisecond pause before every animation (AA's "global delay" world setting) is gone; the reader's own half-second wait for a Region to be drawn stays
 - the range ring of a move is shown to everyone and measured alternating; AA's switches for hiding it and measuring equidistant were used by no row
 
-## Rows translated with a note (130)
+## Rows translated with a note (402)
 
-- Antennae [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Axe [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bash [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Baton [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Beak [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Beard [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Blade [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bone [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Bone Whip [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Brutal Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Butterfly [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Chain [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Charge [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Claw [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Club [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Cutlass [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Elemental Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Falchion [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Fist [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Flail [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Flurry of Blows [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Force-Empowered Rend [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Foreleg [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Fork [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Gear [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Glaive [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Gore [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Gouge [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Grapple [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Grave Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Greataxe [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Greatclub [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Greatsword [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Halberd [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Hoof [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Hook [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Hooves [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Horn [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Interception [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Katana [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Katar [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Lash [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Mace [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Machete [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Martial Arts [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Maul [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nagamaki [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Naginata [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nodachi [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Nunchaku [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Odachi [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Open Hand Technique [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pan [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Parry [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pick [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pincer [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Primal Savagery [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pseudopod [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Punch [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Quarterstaff [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Quivering Palm [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Rake [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Ram [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Rapier [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Ravage [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Rend [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Retaliation [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Scimitar [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Scratch [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Scythe [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shield [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shortsword [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Shove [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Sickle [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Slam [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Slash [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Snake Hair [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Spike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stab [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Staff [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Steel Wind Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stick [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Sting [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stinger [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stomp [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Stunning Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tachi [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tail [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Talon [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tanto [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tonfa [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Trample [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tusk [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Unarmed [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Unarmed Strike [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wakizashi [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- War Pick [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Warhammer [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Whip [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wing [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Wrench [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Danse Macabre [range]: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Blade Barrier [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":700,"end":3333}})
-- Blade Ward [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Borrowed Knowledge [ontoken]: secondary: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Contact Other Plane [ontoken]: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Earthbind [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":700,"end":3333}})
-- Enthrall [ontoken]: secondary: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Euphoria Breath [ontoken]: mark: raw files cannot carry loop markers
-- Find Traps [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Glibness [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Grasping Vine [ontoken]: source: raw files cannot carry loop markers; mark: raw files cannot carry loop markers
-- Hail of Thorns [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Imprisonment [ontoken]: secondary: loop markers differ (AA {"loop":{"start":2033,"end":7000},"forcedEnd":7933}, JB2A {"loop":{"start":2033,"end":7000}})
-- Mental Prison [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}}); secondary: loop markers differ (AA {"loop":{"start":2033,"end":7000},"forcedEnd":7933}, JB2A {"loop":{"start":2033,"end":7000}})
-- Mind Blank [ontoken]: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Mold Earth [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Sapping Sting [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Shape Water [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Skill Empowerment [ontoken]: secondary: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Steady Aim [ontoken]: on both: AA played the secondary layer twice (once for the caster, once for the targets) with its sound each time; the scene plays once over both
-- Suggestion [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Sword Burst [ontoken]: mark: loop markers differ (AA null, JB2A {"loop":{"start":700,"end":3333}})
-- Telepathy [ontoken]: on both: AA played the secondary layer twice (once for the caster, once for the targets) with its sound each time; the scene plays once over both; secondary: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Transport via Plants [ontoken]: mark: raw files cannot carry loop markers
-- Weight of Years [ontoken]: mark: loop markers differ (AA {"loop":{"start":2033,"end":7000},"forcedEnd":7933}, JB2A {"loop":{"start":2033,"end":7000}})
-- Move Earth [templatefx]: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
-- Enervation [preset]: beam: AA never applied the beam's opacity (0.75); not carried
+- Antennae [melee] → weapon:antennae: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Antennae [melee] → natural:antennae: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → natural:mercurial-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → weapon:frost-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → weapon:berserker-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → weapon:pact-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → weapon:axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Axe [melee] → natural:axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Bash [melee] → natural:shield-bash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Bash [melee] → weapon:bash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Bash [melee] → natural:bash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Baton [melee] → natural:bejeweled-baton: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Baton [melee] → weapon:baton: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Baton [melee] → natural:baton: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Beak [melee] → natural:beak: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Beak [melee] → natural:beaks: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Beak [melee] → natural:sharpened-beak: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Beak [melee] → natural:beak-raven-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Beard [melee] → natural:beard: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:heated-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:lightning-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:storm-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:chaos-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:clockwork-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:psi-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:beheading-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:whirling-blades: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:dread-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:force-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:psychic-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:pact-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:luck-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:sun-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:dragon-tooth-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:dread-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → weapon:blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade [melee] → natural:blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Bone [melee] → weapon:bone: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Bone [melee] → natural:bone: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Bone Whip [melee] → natural:bone-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Brutal Strike [melee] → weapon:brutal-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Brutal Strike [melee] → natural:brutal-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Butterfly [melee] → weapon:butterfly: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Butterfly [melee] → natural:butterfly: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Chain [melee] → weapon:chain: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Chain [melee] → natural:chain: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Charge [melee] → weapon:charge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Charge [melee] → natural:charge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claws: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:devilish-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:banishing-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:chaos-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:elemental-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:fearsome-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:injecting-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:mutating-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:spectral-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:umbral-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claws-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claw-oni-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claw-fiend-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claw-bear-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claws-hag-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claw-tiger-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:claws-yugoloth-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:rotting-claw-putrid-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:rotting-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Claw [melee] → natural:eldritch-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → weapon:club: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → natural:stone-club: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → weapon:tree-club: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → weapon:club-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → weapon:vicious-club: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → weapon:club-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Club [melee] → weapon:club-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Cutlass [melee] → weapon:cutlass: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Cutlass [melee] → natural:cutlass: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Elemental Strike [melee] → weapon:elemental-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Elemental Strike [melee] → natural:elemental-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Falchion [melee] → weapon:falchion: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Falchion [melee] → natural:falchion: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fist [melee] → natural:fist: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fist [melee] → natural:rotting-fist: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fist [melee] → natural:clenched-fist: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → weapon:flail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → natural:bone-flail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → weapon:flail-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → weapon:vicious-flail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → weapon:flail-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → weapon:flail-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flail [melee] → weapon:elemental-flail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flurry of Blows [melee] → weapon:flurry-of-blows: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Flurry of Blows [melee] → natural:flurry-of-blows: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Force-Empowered Rend [melee] → weapon:force-empowered-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Force-Empowered Rend [melee] → natural:force-empowered-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Foreleg [melee] → natural:foreleg: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fork [melee] → natural:searing-fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fork [melee] → weapon:infernal-fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fork [melee] → weapon:fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Fork [melee] → natural:fork: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Gear [melee] → natural:gear: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:abyssal-glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:infernal-glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:glaive-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:glaive-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:vicious-glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Glaive [melee] → weapon:glaive-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Gore [melee] → natural:gore: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Gore [melee] → natural:brutal-gore: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Gore [melee] → natural:gore-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Gouge [melee] → natural:gouge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Grapple [melee] → weapon:grapple: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Grapple [melee] → natural:grapple: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Grave Strike [melee] → natural:grave-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Grave Strike [melee] → natural:grave-strike-vampire-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:greataxe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:greataxe-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:greataxe-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:giant-slayer-greataxe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:vicious-greataxe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:greataxe-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greataxe [melee] → weapon:berserker-greataxe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatclub [melee] → weapon:greatclub: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatclub [melee] → weapon:thunderous-greatclub: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatclub [melee] → weapon:greatclub-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatclub [melee] → weapon:greatclub-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatclub [melee] → weapon:greatclub-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatclub [melee] → weapon:vicious-greatclub: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:vorpal-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:greatsword-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:holy-avenger-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:vicious-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:greatsword-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:flame-tongue-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:luck-blade-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:greatsword-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:giant-slayer-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:defender-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:dragon-slayer-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:nine-lives-stealer-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:frost-brand-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:dancing-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Greatsword [melee] → weapon:ember-touched-greatsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Halberd [melee] → weapon:halberd: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Halberd [melee] → weapon:halberd-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Halberd [melee] → weapon:halberd-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Halberd [melee] → weapon:vicious-halberd: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Halberd [melee] → weapon:halberd-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Hoof [melee] → weapon:hoof: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Hoof [melee] → natural:hoof: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Hook [melee] → natural:hook: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Hooves [melee] → natural:hooves: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Horn [melee] → natural:horn: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Horn [melee] → natural:radiant-horn: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Horn [melee] → natural:horns: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Interception [melee] → weapon:interception: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Interception [melee] → natural:interception: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Katana [melee] → weapon:katana: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Katana [melee] → natural:katana: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Katar [melee] → weapon:katar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Katar [melee] → natural:katar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Lash [melee] → natural:vine-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Lash [melee] → natural:aquatic-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Lash [melee] → natural:caustic-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Lash [melee] → natural:tentacle-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Lash [melee] → weapon:lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Lash [melee] → natural:lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → natural:radiant-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → natural:radiant-mace-defender-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:fiery-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:holy-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:thunderous-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:mace-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:vicious-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:mace-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Mace [melee] → weapon:mace-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Machete [melee] → weapon:machete: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Machete [melee] → natural:machete: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Martial Arts [melee] → weapon:martial-arts: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Martial Arts [melee] → natural:martial-arts: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Maul [melee] → weapon:maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Maul [melee] → natural:earthen-maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Maul [melee] → weapon:maul-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Maul [melee] → weapon:vicious-maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Maul [melee] → weapon:maul-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Maul [melee] → weapon:maul-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Nagamaki [melee] → weapon:nagamaki: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Nagamaki [melee] → natural:nagamaki: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Naginata [melee] → weapon:naginata: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Naginata [melee] → natural:naginata: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Nodachi [melee] → weapon:nodachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Nodachi [melee] → natural:nodachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Nunchaku [melee] → weapon:nunchaku: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Nunchaku [melee] → natural:nunchaku: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Odachi [melee] → weapon:odachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Odachi [melee] → natural:odachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Open Hand Technique [melee] → weapon:open-hand-technique: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Open Hand Technique [melee] → natural:open-hand-technique: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pan [melee] → weapon:pan: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pan [melee] → natural:pan: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Parry [melee] → weapon:parry: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Parry [melee] → natural:parry: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:warpick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:war-pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:war-pick-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:vicious-war-pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:war-pick-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:war-pick-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → weapon:pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pick [melee] → natural:pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pincer [melee] → natural:pincer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Primal Savagery [melee] → weapon:primal-savagery: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Primal Savagery [melee] → natural:primal-savagery: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pseudopod [melee] → natural:pseudopod: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Pseudopod [melee] → natural:dissolving-pseudopod: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Punch [melee] → weapon:punch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Punch [melee] → natural:punch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quarterstaff [melee] → weapon:quarterstaff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quarterstaff [melee] → weapon:quarterstaff-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quarterstaff [melee] → weapon:quarterstaff-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quarterstaff [melee] → weapon:vicious-quarterstaff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quarterstaff [melee] → weapon:quarterstaff-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quivering Palm [melee] → weapon:quivering-palm: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Quivering Palm [melee] → natural:quivering-palm: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rake [melee] → natural:rake: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Ram [melee] → natural:ram: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:dancing-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:flame-tongue-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:giant-slayer-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:nine-lives-stealer-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:rapier-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:dragon-slayer-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:rapier-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:defender-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:frost-brand-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:vicious-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:holy-avenger-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:luck-blade-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:rapier-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rapier [melee] → weapon:insectile-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Ravage [melee] → natural:ravage: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rend [melee] → natural:rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rend [melee] → natural:rend-jackal-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rend [melee] → natural:rend-bear-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rend [melee] → natural:rend-dire-wolf-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Rend [melee] → natural:mind-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Retaliation [melee] → weapon:retaliation: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Retaliation [melee] → natural:retaliation: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:frost-brand-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:scimitar-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:nine-lives-stealer-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:luck-blade-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:vicious-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:vorpal-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:defender-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:holy-avenger-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:scimitar-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:scimitar-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:giant-slayer-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:dragon-slayer-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:dancing-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scimitar [melee] → weapon:flame-tongue-scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scratch [melee] → natural:scratch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scythe [melee] → natural:dread-scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scythe [melee] → natural:necrotic-scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scythe [melee] → weapon:scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Scythe [melee] → natural:scythe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shield [melee] → weapon:shield: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shield [melee] → natural:shield: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:vicious-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:nine-lives-stealer-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:frost-brand-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:dragon-slayer-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:flame-tongue-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:shortsword-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:holy-avenger-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:defender-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:luck-blade-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:shortsword-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:dancing-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:giant-slayer-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:shortsword-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shortsword [melee] → weapon:seras-shortsword: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shove [melee] → weapon:shove: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Shove [melee] → natural:shove: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sickle [melee] → weapon:sickle: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sickle [melee] → natural:ritual-sickle: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sickle [melee] → weapon:vicious-sickle: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sickle [melee] → weapon:sickle-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sickle [melee] → weapon:sickle-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sickle [melee] → weapon:sickle-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slam [melee] → natural:slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slam [melee] → natural:thunderous-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slam [melee] → natural:avalanche-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slam [melee] → natural:object-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slam [melee] → natural:rotting-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slam [melee] → natural:slam-human-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slash [melee] → natural:slash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Slash [melee] → natural:darkflame-slash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Snake Hair [melee] → natural:snake-hair: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Spike [melee] → natural:tail-spike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Spike [melee] → weapon:spike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Spike [melee] → natural:spike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stab [melee] → weapon:stab: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stab [melee] → natural:stab: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → weapon:staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → natural:vine-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → natural:bog-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → natural:chaos-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → natural:pincer-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → weapon:wooden-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → weapon:forest-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → weapon:wind-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Staff [melee] → weapon:vesper-staff: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Steel Wind Strike [melee] → weapon:steel-wind-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Steel Wind Strike [melee] → natural:steel-wind-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stick [melee] → natural:hex-stick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stick [melee] → weapon:stick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stick [melee] → natural:stick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sting [melee] → natural:sting: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sting [melee] → natural:infernal-sting: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Sting [melee] → natural:sting-bite-in-beast-form: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stinger [melee] → natural:stinger: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stinger [melee] → natural:tail-stinger: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stomp [melee] → natural:stomp: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:unarmed-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:abyssal-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:beguiling-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:draconic-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:otherworldly-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:psi-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:shadow-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:lightning-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:unarmed-strike-vampire-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:beasts-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:fiery-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:fiery-strike-devil-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:death-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → weapon:unarmed-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → weapon:strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Strike [melee] → natural:strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stunning Strike [melee] → weapon:stunning-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Stunning Strike [melee] → natural:stunning-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tachi [melee] → weapon:tachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tachi [melee] → natural:tachi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tail [melee] → natural:tail: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Talon [melee] → natural:talons: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Talon [melee] → weapon:talon: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Talon [melee] → natural:talon: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tanto [melee] → weapon:tanto: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tanto [melee] → natural:tanto: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tonfa [melee] → weapon:tonfa: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tonfa [melee] → natural:tonfa: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Trample [melee] → weapon:trample: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Trample [melee] → natural:trample: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tusk [melee] → natural:tusk: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tusk [melee] → natural:tusk-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Tusk [melee] → natural:tusks-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Unarmed [melee] → weapon:unarmed: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Unarmed [melee] → natural:unarmed: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Wakizashi [melee] → weapon:wakizashi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Wakizashi [melee] → natural:wakizashi: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Warhammer [melee] → weapon:warhammer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Warhammer [melee] → weapon:warhammer-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Warhammer [melee] → weapon:vicious-warhammer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Warhammer [melee] → weapon:warhammer-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Warhammer [melee] → weapon:warhammer-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → weapon:whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → natural:flame-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → weapon:whip-2: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → weapon:whip-3: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → weapon:whip-1: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → weapon:vicious-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Whip [melee] → weapon:mercurial-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Wing [melee] → weapon:wing: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Wing [melee] → natural:wing: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Wrench [melee] → weapon:wrench: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Wrench [melee] → natural:wrench: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
+- Blade Barrier [ontoken] → spell:blade-barrier: mark: loop markers differ (AA null, JB2A {"loop":{"start":700,"end":3333}})
+- Blade Ward [ontoken] → spell:blade-ward: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Contact Other Plane [ontoken] → spell:contact-other-plane: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Enthrall [ontoken] → spell:enthrall: secondary: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Euphoria Breath [ontoken] → feature:euphoria-breath: mark: raw files cannot carry loop markers
+- Find Traps [ontoken] → spell:find-traps: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Glibness [ontoken] → spell:glibness: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Grasping Vine [ontoken] → spell:grasping-vine: source: raw files cannot carry loop markers; mark: raw files cannot carry loop markers
+- Hail of Thorns [ontoken] → spell:hail-of-thorns: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Imprisonment [ontoken] → spell:imprisonment: secondary: loop markers differ (AA {"loop":{"start":2033,"end":7000},"forcedEnd":7933}, JB2A {"loop":{"start":2033,"end":7000}})
+- Mind Blank [ontoken] → spell:mind-blank: source: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Steady Aim [ontoken] → feature:steady-aim: on both: AA played the secondary layer twice (once for the caster, once for the targets) with its sound each time; the scene plays once over both
+- Suggestion [ontoken] → spell:suggestion: mark: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Telepathy [ontoken] → spell:telepathy: on both: AA played the secondary layer twice (once for the caster, once for the targets) with its sound each time; the scene plays once over both; secondary: loop markers differ (AA null, JB2A {"loop":{"start":1500,"end":6500}})
+- Transport via Plants [ontoken] → spell:transport-via-plants: mark: raw files cannot carry loop markers
+- Weight of Years [ontoken] → feature:weight-of-years: mark: loop markers differ (AA {"loop":{"start":2033,"end":7000},"forcedEnd":7933}, JB2A {"loop":{"start":2033,"end":7000}})
 - house Goldthorn [melee]: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 
 ## The family rows, expanded (224)
 
-Each of Automated Animations' weapon and creature-attack rows matched a word inside a name. Here each is expanded once, against the base weapons (dnd5e's list), the natural attacks of the installed creatures, and the world's own weapons, and the keys are written down. Read what each word would and would not have caught; a wanted catch that is missing is one house look away.
+Each of Automated Animations' weapon and creature-attack rows matched a word inside a name. Here each is expanded once, against the base weapons (dnd5e's list), the natural attacks of the installed creatures, and the world's own weapons, and the keys are written down. Read what each word would and would not have caught; a wanted catch that is missing is one house fx away.
 
 - **Antennae** [melee] → weapon:antennae, natural:antennae
 - **Arcane Sword** [melee] → natural:arcane-sword
@@ -1008,298 +1280,346 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 
 ## Caught by a weapon word under AA, not carried (26 words)
 
-Automated Animations' weapon and creature-attack rows matched their word inside any name — a feat, a wand, a spell. Those catches are accidents of the word and are not carried: a weapon look never answers a spell, a feature or an item. Each is one house look away if it was wanted ("like the Burst look, for feature:spellfire-burst").
+Automated Animations' weapon and creature-attack rows matched their word inside any name — a feat, a wand, a spell. Those catches are accidents of the word and are not carried: a weapon fx never answers a spell, a feature or an item. Each is one house fx away if it was wanted ("like the Burst fx, for feature:spellfire-burst").
 
 - **Blade** [melee]: Flame Blade [spell] (phb/spells)
 - **Chain** [melee]: Chain [consumable] on Mother Wend
 - **Dagger** [melee]: Cloud of Daggers [spell] (phb/spells)
 - **Horn** [melee]: Horn [tool] on Mother Wend
 - **Knife** [melee]: Ice Knife [spell] on Skeletal Mage; Ice Knife [spell] (phb/spells)
-- **Shield** [melee]: Shield [spell] on Gren Greenmantle; Shield [equipment] on Mother Wend; Sentinel Shield [equipment] on Mother Wend; Shield [spell] on Skeletal Mage; Shield [equipment] on Hobgoblin Warrior; Shield [equipment] on Sharran Enforcer; +1 Shield [equipment] on Thomas A. Invictus; Fire Shield [spell] (phb/spells)
+- **Shield** [melee]: Shield [spell] on Gren Greenmantle; Shield [equipment] on BF Test Attacker; Shield [equipment] on BF Test Victim; Shield [equipment] on Mother Wend; Sentinel Shield [equipment] on Mother Wend; Shield [spell] on Skeletal Mage; Shield [equipment] on Hobgoblin Warrior; Shield [equipment] on Sharran Enforcer; +1 Shield [equipment] on Thomas A. Invictus; Shield [spell] on BF Test Shielder; Fire Shield [spell] (phb/spells)
 - **Spike** [melee]: Mind Spike [spell] (phb/spells)
-- **Strike** [melee]: Flame Strike [spell] on Harrow Vane; True Strike [spell] on Sharran Acolyte; Ensnaring Strike [spell] (phb/spells); Flame Strike [spell] (phb/spells); Steel Wind Strike [spell] (phb/spells); True Strike [spell] (phb/spells)
+- **Strike** [melee]: Flame Strike [spell] on Harrow Vane; True Strike [spell] on Sharran Acolyte; Cunning Strike [feat] on BF Test Rogue; Devious Strikes [feat] on BF Test Rogue; Improved Cunning Strike [feat] on BF Test Rogue; Ensnaring Strike [spell] (phb/spells); Flame Strike [spell] (phb/spells); Steel Wind Strike [spell] (phb/spells); True Strike [spell] (phb/spells)
 - **Sword** [melee]: Mordenkainen's Sword [spell] (phb/spells); Arcane Sword [spell] (dnd5e/spells24)
 - **Whip** [melee]: Thorn Whip [spell] (phb/spells)
 - **Acid Arrow** [range]: Melf's Acid Arrow [spell] (phb/spells)
-- **Burst** [range]: Spellfire Burst [feat] on Gren Greenmantle; Sorcerous Burst [spell] on Gren Greenmantle; Sorcerous Burst [spell] (phb/spells)
+- **Burst** [range]: Spellfire Burst [feat] on Gren Greenmantle; Sorcerous Burst [spell] on Gren Greenmantle; Spellfire Burst [feat] on BF Test Shielder; Sorcerous Burst [spell] on BF Test Shielder; Sorcerous Burst [spell] (phb/spells)
 - **Consume Life** [range]: Consume Life [feat] on Will-o'-Wisp
 - **Ice Knife** [range]: Ice Knife [spell] on Skeletal Mage
 - **Life Drain** [range]: Life Drain [feat] on Aldous; Life Drain [feat] on Osric, the Keeper; Life Drain [feat] on Wight; Life Drain [feat] on Cadoc, the Guardian; Life Drain [feat] on Edda; Life Drain [feat] on Hesper, the Mortician
-- **Mind Sliver** [range]: Mind Sliver [spell] on Gren Greenmantle
-- **Missile** [range]: Magic Missile [spell] on Gren Greenmantle; Wand of Magic Missiles [equipment] on Gren Greenmantle; Magic Missile [spell] on Skeletal Mage; Magic Missile [spell] (phb/spells)
+- **Mind Sliver** [range]: Mind Sliver [spell] on Gren Greenmantle; Mind Sliver [spell] on BF Test Shielder
+- **Missile** [range]: Magic Missile [spell] on Gren Greenmantle; Wand of Magic Missiles [equipment] on Gren Greenmantle; Magic Missile [spell] on Skeletal Mage; Magic Missile [spell] on BF Test Shielder; Wand of Magic Missiles [equipment] on BF Test Shielder; Magic Missile [spell] (phb/spells)
 - **Modify Memory** [range]: Modify Memory [spell] on Harrow Vane
 - **Needle** [range]: Needles [consumable] on Mother Wend
-- **Ray of Enfeeblement** [range]: Ray of Enfeeblement [spell] on Salyth
+- **Ray of Enfeeblement** [range]: Ray of Enfeeblement [spell] on Salyth; Ray of Enfeeblement [spell] on BF Test Bard
 - **Sling** [range]: Bullets, Sling [consumable] on Mother Wend
-- **Sorcerous Burst** [range]: Sorcerous Burst [spell] on Gren Greenmantle
-- **Surge** [range]: Action Surge [feat] on Morgash the Gravemaker
+- **Sorcerous Burst** [range]: Sorcerous Burst [spell] on Gren Greenmantle; Sorcerous Burst [spell] on BF Test Shielder
+- **Surge** [range]: Action Surge [feat] on Morgash the Gravemaker; Action Surge [feat] on BF Test Fighter
 - **Telepathic Bond** [range]: Rary's Telepathic Bond [spell] (phb/spells)
 - **Thorn** [range]: Hail of Thorns [spell] on Jetten Elisedil; Hail of Thorns [spell] (phb/spells); Wall of Thorns [spell] (phb/spells)
-- **Web** [range]: Web [spell] on Gren Greenmantle
+- **Web** [range]: Web [spell] on Gren Greenmantle; Web [spell] on BF Test Shielder
 
-## Keys ceded to a longer label (31)
+## Keys ceded to a longer label (0)
 
 Where two rows claimed one key, the longer label keeps it, as Automated Animations' search took the longest label contained in a name.
 
-- weapon:shadow-blade: "Blade" cedes to "Shadow Blade"
-- natural:arcane-sword: "Sword" cedes to "Arcane Sword", "Arcane Sword"
-- weapon:sun-blade: "Blade" cedes to "Sun Blade"
-- natural:bone-whip: "Whip" cedes to "Bone Whip"
-- natural:grave-strike: "Strike" cedes to "Grave Strike"
-- natural:grave-strike-vampire-form-only: "Strike" cedes to "Grave Strike"
-- weapon:warpick: "Pick" cedes to "War Pick"
-- weapon:war-pick: "Pick" cedes to "War Pick"
-- weapon:war-pick-2: "Pick" cedes to "War Pick"
-- weapon:vicious-war-pick: "Pick" cedes to "War Pick"
-- weapon:war-pick-1: "Pick" cedes to "War Pick"
-- weapon:war-pick-3: "Pick" cedes to "War Pick"
-- natural:unarmed-strike: "Strike" cedes to "Unarmed Strike"
-- natural:otherworldly-strike: "Strike" cedes to "Otherworldly Strike"
-- natural:lightning-strike: "Strike" cedes to "Lightning Strike"
-- natural:unarmed-strike-vampire-form-only: "Strike" cedes to "Unarmed Strike"
-- natural:death-strike: "Strike" cedes to "Death Strike"
-- weapon:unarmed-strike: "Strike" cedes to "Unarmed Strike"
-- natural:aquatic-burst: "Burst" cedes to "Aquatic Burst"
-- natural:arcane-burst: "Burst" cedes to "Arcane Burst"
-- spell:befuddlement: "Feeblemind" cedes to "Befuddlement"
-- weapon:bone-bow: "Bow" cedes to "Bone Bow"
-- natural:eldritch-burst: "Burst" cedes to "Eldritch Burst"
-- natural:earth-burst: "Burst" cedes to "Earth Burst"
-- natural:elemental-burst: "Burst" cedes to "Elemental Burst"
-- natural:necrotic-burst: "Burst" cedes to "Necrotic Burst"
-- feature:breath-weapon: "Breath Weapon" cedes to "Breath Weapon (Lightning)"
-- feature:breath-weapon: "Breath Weapon (Acid)" cedes to "Breath Weapon (Lightning)"
-- feature:breath-weapon: "Breath Weapon (Cold)" cedes to "Breath Weapon (Lightning)"
-- feature:breath-weapon: "Breath Weapon (Fire)" cedes to "Breath Weapon (Lightning)"
-- feature:breath-weapon: "Breath Weapon (Poison)" cedes to "Breath Weapon (Lightning)"
 
-## Names no list holds (194)
+## EXCEPTION · rows no list holds, NOT carried (194)
 
-Keyed as a spell, a feature and an item of that name, since neither the books nor the world say which; whichever the table has answers.
+Neither the books, the base weapons, the creature attacks nor this world hold an ability of this name, so there is no evidence of what kind it is. The first migration keyed each of these as a spell, a feature AND an item — the one place the corpus guessed. **The user ruled that out (2026-09-08): these rows are not carried.** Each is one FX away if it turns out to be wanted: open the Editor, name the ability, and copy the scenes of whatever it should look like.
 
-- Green-Flame Blade [ontoken]
-- Heal-disabled [ontoken]
-- Starlight Step [preset]
-- Thunder Step [preset]
-- Beam [range]
-- Chaos Bolt [range]
-- Confusion Ray [range]
-- Danse Macabre [range]
-- Death Ray [range]
-- Disintegration Ray [range]
-- Enemies Abound [range]
-- Fear Ray [range]
-- Force Ballista [range]
-- Holy Star of Mystra [range]
-- Lightning Launcher [range]
-- Lightning Lure [range]
-- Paralyzing Ray [range]
-- Petrification Ray [range]
-- Ray [range]
-- Sleep Ray [range]
-- Slowing Ray [range]
-- Spellfire Flare [range]
-- Spittle [range]
-- Telekinetic Ray [range]
-- Thunder Gauntlet [range]
-- Wounding Ray [range]
-- Absorb Elements [ontoken]
-- Adventurer's Atlas [ontoken]
-- Air Bubble [ontoken]
-- Arcane Armor [ontoken]
-- Arcane Jolt [ontoken]
-- Armor Model [ontoken]
-- Ashardalon's Stride [ontoken]
-- Backlash [ontoken]
-- Beast Bond [ontoken]
-- Blade of Disaster [ontoken]
-- Booming Blade [ontoken]
-- Borrowed Knowledge [ontoken]
-- Bubbling Cauldron [ontoken]
-- Catnap [ontoken]
-- Cause Fear [ontoken]
-- Ceremony [ontoken]
-- Chemical Mastery [ontoken]
-- Concentration Check: [ontoken]
-- Conjure Constructs [ontoken]
-- Control [ontoken]
-- Create Homunculus [ontoken]
-- Create Magen [ontoken]
-- Create Spelljamming Helm [ontoken]
-- Crown of Stars [ontoken]
-- Defense Roll [ontoken]
-- Defensive Field [ontoken]
-- Deryan's Helpful Homunculi [ontoken]
-- Dream of the Blue Veil [ontoken]
-- Drow Poison [ontoken]
-- Druid Grove [ontoken]
-- Earth Tremor [ontoken]
-- Earthbind [ontoken]
-- Eldritch Cannon [ontoken]
-- Elemental Bane [ontoken]
-- Elminster's Effulgent Spheres [ontoken]
-- Encode Thoughts [ontoken]
-- Experimental Elixir [ontoken]
-- Find Greater Steed [ontoken]
-- Fizban's Platinum Shield [ontoken]
-- Flame Arrows [ontoken]
-- Flash of Genius [ontoken]
-- Frostbite [ontoken]
-- Gaze [ontoken]
-- Gift of Gab [ontoken]
-- Greater Comprehension [ontoken]
-- Guardian of Nature [ontoken]
-- Gust [ontoken]
-- Healing Surge [ontoken]
-- Holy Weapon [ontoken]
-- Homunculus Servant [ontoken]
-- Hunter's Defense [ontoken]
-- Illusory Dragon [ontoken]
-- Immolation [ontoken]
-- Incite Greed [ontoken]
-- Infernal Calling [ontoken]
-- Jaw [ontoken]
-- Kinetic Jaunt [ontoken]
-- Locate [ontoken]
-- Maelstrom [ontoken]
-- Magic Aura [ontoken]
-- Magic Item Tinker [ontoken]
-- Magical Tinkering [ontoken]
-- Mass Polymorph [ontoken]
-- Melf's Minute Meteors [ontoken]
-- Mental Prison [ontoken]
-- Mighty Fortress [ontoken]
-- Mimic [ontoken]
-- Mold Earth [ontoken]
-- Motivational Speech [ontoken]
-- Necrotic Shroud [ontoken]
-- Potion of [ontoken]
-- Power Word [ontoken]
-- Power Word Pain [ontoken]
-- Quickened Healing [ontoken]
-- Raulothim's Psychic Lance [ontoken]
-- Repair [ontoken]
-- Restoration [ontoken]
-- Sapping Sting [ontoken]
-- Scatter [ontoken]
-- Shadow of Moil [ontoken]
-- Shape Water [ontoken]
-- Silvery Barbs [ontoken]
-- Simbul's Synostodweomer [ontoken]
-- Skill Empowerment [ontoken]
-- Skywrite [ontoken]
-- Slime [ontoken]
-- Snare [ontoken]
-- Sorcery Points [ontoken]
-- Soul of Artifice [ontoken]
-- Spectral Fangs [ontoken]
-- Spectral Sword [ontoken]
-- Spirit of Death [ontoken]
-- Spore [ontoken]
-- Steel Defender [ontoken]
-- Summon Draconic Spirit [ontoken]
-- Summon Greater Demon [ontoken]
-- Summon Lesser Demon [ontoken]
-- Summon Shadowspawn [ontoken]
-- Sword Burst [ontoken]
-- Syluné's Viper [ontoken]
-- Tasha's Otherworldly Guise [ontoken]
-- Temple of the Gods [ontoken]
-- Tenser's Transformation [ontoken]
-- Tidal Wave [ontoken]
-- Tiny Servant [ontoken]
-- Tongue [ontoken]
-- Unsettling Words [ontoken]
-- Vigilant Blessing [ontoken]
-- Vortex Warp [ontoken]
-- Warp Sense [ontoken]
-- Zephyr Strike [ontoken]
-- Abi-Dalzim's Horrid Wilting [templatefx]
-- Aganazzar's Scorcher [templatefx]
-- Aura of Annihilation [templatefx]
-- Blade Ring [templatefx]
-- Blade Wall [templatefx]
-- Bones of the Earth [templatefx]
-- Caustic Brew [templatefx]
-- Control [templatefx]
-- Control Flames [templatefx]
-- Control Winds [templatefx]
-- Create Bonfire [templatefx]
-- Dawn [templatefx]
-- Detonate Eldritch Cannon [templatefx]
-- Distort Value [templatefx]
-- Doomtide [templatefx]
-- Draconic Transformation [templatefx]
-- Dust Devil [templatefx]
-- Erupting Earth [templatefx]
-- Explosive Cannon [templatefx]
-- Flamethrower [templatefx]
-- Frost Fingers [templatefx]
-- Gate Seal [templatefx]
-- Healing Spirit [templatefx]
-- Image [templatefx]
-- Investiture of Flame [templatefx]
-- Investiture of Ice [templatefx]
-- Investiture of Stone [templatefx]
-- Investiture of Wind [templatefx]
-- Laeral's Silver Lance [templatefx]
-- Maximilian's Earthen Grasp [templatefx]
-- Mold Earth [templatefx]
-- Nathair's Mischief [templatefx]
-- Pyrotechnics [templatefx]
-- Rime's Binding Ice [templatefx]
-- Shape Water [templatefx]
-- Sickening Radiance [templatefx]
-- Spellfire Storm [templatefx]
-- Storm of Radiance [templatefx]
-- Storm Sphere [templatefx]
-- Sword Burst [templatefx]
-- Tidal Wave [templatefx]
-- Transmute Rock [templatefx]
-- Turn Undead [templatefx]
-- Wall of Light [templatefx]
-- Wall of Sand [templatefx]
-- Wall of Water [templatefx]
-- Warding Wind [templatefx]
-- Watery Sphere [templatefx]
-- Wither and Bloom [templatefx]
-- Wrath of Nature [templatefx]
-- Enervation [preset]
-- Far Step [preset]
-- Ingenious Movement [preset]
-- Portal Jump [preset]
-- Psychic Teleportation [preset]
-- Snilloc's Snowball Swarm [preset]
-- Spray of Cards [preset]
+| Row | AA menu |
+| --- | --- |
+| Green-Flame Blade | ontoken |
+| Heal-disabled | ontoken |
+| Starlight Step | preset |
+| Thunder Step | preset |
+| Beam | range |
+| Chaos Bolt | range |
+| Confusion Ray | range |
+| Danse Macabre | range |
+| Death Ray | range |
+| Disintegration Ray | range |
+| Enemies Abound | range |
+| Fear Ray | range |
+| Force Ballista | range |
+| Holy Star of Mystra | range |
+| Lightning Launcher | range |
+| Lightning Lure | range |
+| Paralyzing Ray | range |
+| Petrification Ray | range |
+| Ray | range |
+| Sleep Ray | range |
+| Slowing Ray | range |
+| Spellfire Flare | range |
+| Spittle | range |
+| Telekinetic Ray | range |
+| Thunder Gauntlet | range |
+| Wounding Ray | range |
+| Absorb Elements | ontoken |
+| Adventurer's Atlas | ontoken |
+| Air Bubble | ontoken |
+| Arcane Armor | ontoken |
+| Arcane Jolt | ontoken |
+| Armor Model | ontoken |
+| Ashardalon's Stride | ontoken |
+| Backlash | ontoken |
+| Beast Bond | ontoken |
+| Blade of Disaster | ontoken |
+| Booming Blade | ontoken |
+| Borrowed Knowledge | ontoken |
+| Bubbling Cauldron | ontoken |
+| Catnap | ontoken |
+| Cause Fear | ontoken |
+| Ceremony | ontoken |
+| Chemical Mastery | ontoken |
+| Concentration Check: | ontoken |
+| Conjure Constructs | ontoken |
+| Control | ontoken |
+| Create Homunculus | ontoken |
+| Create Magen | ontoken |
+| Create Spelljamming Helm | ontoken |
+| Crown of Stars | ontoken |
+| Defense Roll | ontoken |
+| Defensive Field | ontoken |
+| Deryan's Helpful Homunculi | ontoken |
+| Dream of the Blue Veil | ontoken |
+| Drow Poison | ontoken |
+| Druid Grove | ontoken |
+| Earth Tremor | ontoken |
+| Earthbind | ontoken |
+| Eldritch Cannon | ontoken |
+| Elemental Bane | ontoken |
+| Elminster's Effulgent Spheres | ontoken |
+| Encode Thoughts | ontoken |
+| Experimental Elixir | ontoken |
+| Find Greater Steed | ontoken |
+| Fizban's Platinum Shield | ontoken |
+| Flame Arrows | ontoken |
+| Flash of Genius | ontoken |
+| Frostbite | ontoken |
+| Gaze | ontoken |
+| Gift of Gab | ontoken |
+| Greater Comprehension | ontoken |
+| Guardian of Nature | ontoken |
+| Gust | ontoken |
+| Healing Surge | ontoken |
+| Holy Weapon | ontoken |
+| Homunculus Servant | ontoken |
+| Hunter's Defense | ontoken |
+| Illusory Dragon | ontoken |
+| Immolation | ontoken |
+| Incite Greed | ontoken |
+| Infernal Calling | ontoken |
+| Jaw | ontoken |
+| Kinetic Jaunt | ontoken |
+| Locate | ontoken |
+| Maelstrom | ontoken |
+| Magic Aura | ontoken |
+| Magic Item Tinker | ontoken |
+| Magical Tinkering | ontoken |
+| Mass Polymorph | ontoken |
+| Melf's Minute Meteors | ontoken |
+| Mental Prison | ontoken |
+| Mighty Fortress | ontoken |
+| Mimic | ontoken |
+| Mold Earth | ontoken |
+| Motivational Speech | ontoken |
+| Necrotic Shroud | ontoken |
+| Potion of | ontoken |
+| Power Word | ontoken |
+| Power Word Pain | ontoken |
+| Quickened Healing | ontoken |
+| Raulothim's Psychic Lance | ontoken |
+| Repair | ontoken |
+| Restoration | ontoken |
+| Sapping Sting | ontoken |
+| Scatter | ontoken |
+| Shadow of Moil | ontoken |
+| Shape Water | ontoken |
+| Silvery Barbs | ontoken |
+| Simbul's Synostodweomer | ontoken |
+| Skill Empowerment | ontoken |
+| Skywrite | ontoken |
+| Slime | ontoken |
+| Snare | ontoken |
+| Sorcery Points | ontoken |
+| Soul of Artifice | ontoken |
+| Spectral Fangs | ontoken |
+| Spectral Sword | ontoken |
+| Spirit of Death | ontoken |
+| Spore | ontoken |
+| Steel Defender | ontoken |
+| Summon Draconic Spirit | ontoken |
+| Summon Greater Demon | ontoken |
+| Summon Lesser Demon | ontoken |
+| Summon Shadowspawn | ontoken |
+| Sword Burst | ontoken |
+| Syluné's Viper | ontoken |
+| Tasha's Otherworldly Guise | ontoken |
+| Temple of the Gods | ontoken |
+| Tenser's Transformation | ontoken |
+| Tidal Wave | ontoken |
+| Tiny Servant | ontoken |
+| Tongue | ontoken |
+| Unsettling Words | ontoken |
+| Vigilant Blessing | ontoken |
+| Vortex Warp | ontoken |
+| Warp Sense | ontoken |
+| Zephyr Strike | ontoken |
+| Abi-Dalzim's Horrid Wilting | templatefx |
+| Aganazzar's Scorcher | templatefx |
+| Aura of Annihilation | templatefx |
+| Blade Ring | templatefx |
+| Blade Wall | templatefx |
+| Bones of the Earth | templatefx |
+| Caustic Brew | templatefx |
+| Control | templatefx |
+| Control Flames | templatefx |
+| Control Winds | templatefx |
+| Create Bonfire | templatefx |
+| Dawn | templatefx |
+| Detonate Eldritch Cannon | templatefx |
+| Distort Value | templatefx |
+| Doomtide | templatefx |
+| Draconic Transformation | templatefx |
+| Dust Devil | templatefx |
+| Erupting Earth | templatefx |
+| Explosive Cannon | templatefx |
+| Flamethrower | templatefx |
+| Frost Fingers | templatefx |
+| Gate Seal | templatefx |
+| Healing Spirit | templatefx |
+| Image | templatefx |
+| Investiture of Flame | templatefx |
+| Investiture of Ice | templatefx |
+| Investiture of Stone | templatefx |
+| Investiture of Wind | templatefx |
+| Laeral's Silver Lance | templatefx |
+| Maximilian's Earthen Grasp | templatefx |
+| Mold Earth | templatefx |
+| Nathair's Mischief | templatefx |
+| Pyrotechnics | templatefx |
+| Rime's Binding Ice | templatefx |
+| Shape Water | templatefx |
+| Sickening Radiance | templatefx |
+| Spellfire Storm | templatefx |
+| Storm of Radiance | templatefx |
+| Storm Sphere | templatefx |
+| Sword Burst | templatefx |
+| Tidal Wave | templatefx |
+| Transmute Rock | templatefx |
+| Turn Undead | templatefx |
+| Wall of Light | templatefx |
+| Wall of Sand | templatefx |
+| Wall of Water | templatefx |
+| Warding Wind | templatefx |
+| Watery Sphere | templatefx |
+| Wither and Bloom | templatefx |
+| Wrath of Nature | templatefx |
+| Enervation | preset |
+| Far Step | preset |
+| Ingenious Movement | preset |
+| Portal Jump | preset |
+| Psychic Teleportation | preset |
+| Snilloc's Snowball Swarm | preset |
+| Spray of Cards | preset |
 
-## Looks that can never answer (7)
+## EXCEPTION · keys a row lost to an earlier one, NOT carried (81)
 
-Two looks in the same layer answer the same key for the same kind of moment; the first (AA's own precedence: its exact-match rows, then its menu order) answers, as it did under AA. Listed so nothing is lost silently.
+One FX answers one key. Where two rows both earned the same key, Automated Animations' own precedence keeps it — its exact-match rows first, then its menu order — which is what answered at the table under AA. The losing row's FX for THAT key is not written; where the row earned other keys, those are.
 
-- spell:witch-bolt (use): "witch-bolt" answers; "witch-bolt-bolt" never will
-- natural:arcane-sword (use): "arcane-sword" answers; "arcane-sword-mark" never will
-- natural:gore (use): "gore" answers; "gore-mark" never will
-- spell:cordon-of-arrows (use): "cordon-of-arrows" answers; "cordon-of-arrows-mark" never will
-- natural:necrotic-burst (use): "necrotic-burst" answers; "necrotic-burst-harrow-vane" never will
-- feature:restoring-touch (use): "cleansing-touch" answers; "restoring-touch" never will
-- feature:step-of-the-wind (use): "step-of-the-wind" answers; "step-of-the-wind-preset" never will
+| Key | Kept | Not carried |
+| --- | --- | --- |
+| `weapon:shadow-blade` | Shadow Blade [ontoken] → shadow-blade | Blade [melee] |
+| `natural:grave-strike` | Grave Strike [melee] → grave-strike | Strike [melee] |
+| `natural:grave-strike-vampire-form-only` | Grave Strike [melee] → grave-strike-vampire-form-only | Strike [melee] |
+| `natural:arcane-sword` | Arcane Sword [melee] → arcane-sword | Sword [melee] |
+| `weapon:unarmed-strike` | Strike [melee] → unarmed-strike-swing | Unarmed Strike [melee] |
+| `natural:unarmed-strike` | Strike [melee] → unarmed-strike | Unarmed Strike [melee] |
+| `natural:unarmed-strike-vampire-form-only` | Strike [melee] → unarmed-strike-vampire-form-only | Unarmed Strike [melee] |
+| `weapon:warpick` | Pick [melee] → warpick | War Pick [melee] |
+| `weapon:war-pick` | Pick [melee] → war-pick | War Pick [melee] |
+| `weapon:war-pick-2` | Pick [melee] → war-pick-2 | War Pick [melee] |
+| `weapon:vicious-war-pick` | Pick [melee] → vicious-war-pick | War Pick [melee] |
+| `weapon:war-pick-1` | Pick [melee] → war-pick-1 | War Pick [melee] |
+| `weapon:war-pick-3` | Pick [melee] → war-pick-3 | War Pick [melee] |
+| `natural:bone-whip` | Bone Whip [melee] → bone-whip | Whip [melee] |
+| `weapon:bone-bow` | Bone Bow [range] → bone-bow | Bow [range] |
+| `natural:arcane-burst` | Arcane Burst [range] → arcane-burst | Burst [range] |
+| `natural:aquatic-burst` | Aquatic Burst [range] → aquatic-burst | Burst [range] |
+| `natural:earth-burst` | Burst [range] → earth-burst | Earth Burst [range] |
+| `natural:eldritch-burst` | Burst [range] → eldritch-burst | Eldritch Burst [range] |
+| `spell:befuddlement` | Befuddlement [range] → befuddlement | Feeblemind [range] |
+| `natural:lightning-strike` | Strike [melee] → lightning-strike | Lightning Strike [range] |
+| `natural:necrotic-burst` | Burst [range] → necrotic-burst | Necrotic Burst [range] |
+| `weapon:sun-blade` | Blade [melee] → sun-blade | Sun Blade [range] |
+| `spell:witch-bolt` | Witch Bolt [preset] → witch-bolt | Witch Bolt [range] |
+| `natural:arcane-sword` | Arcane Sword [melee] → arcane-sword | Arcane Sword [ontoken] |
+| `spell:cordon-of-arrows` | Cordon of Arrows [range] → cordon-of-arrows | Cordon of Arrows [ontoken] |
+| `natural:death-strike` | Strike [melee] → death-strike | Death Strike [ontoken] |
+| `natural:gore` | Gore [melee] → gore | Gore [ontoken] |
+| `natural:otherworldly-strike` | Strike [melee] → otherworldly-strike | Otherworldly Strike [ontoken] |
+| `feature:restoring-touch` | Cleansing Touch [ontoken] → restoring-touch | Restoring Touch [ontoken] |
+| `spell:arcane-gate` | Arcane Gate [ontoken] → arcane-gate | Arcane Gate [templatefx] |
+| `spell:arms-of-hadar` | Arms of Hadar [ontoken] → arms-of-hadar | Arms of Hadar [templatefx] |
+| `spell:blade-barrier` | Blade Barrier [ontoken] → blade-barrier | Blade Barrier [templatefx] |
+| `feature:breath-weapon` | Breath Weapon [templatefx] → breath-weapon | Breath Weapon (Acid) [templatefx] |
+| `feature:breath-weapon` | Breath Weapon [templatefx] → breath-weapon | Breath Weapon (Cold) [templatefx] |
+| `feature:breath-weapon` | Breath Weapon [templatefx] → breath-weapon | Breath Weapon (Fire) [templatefx] |
+| `feature:breath-weapon` | Breath Weapon [templatefx] → breath-weapon | Breath Weapon (Lightning) [templatefx] |
+| `feature:breath-weapon` | Breath Weapon [templatefx] → breath-weapon | Breath Weapon (Poison) [templatefx] |
+| `spell:call-lightning` | Call Lightning [range] → call-lightning | Call Lightning [templatefx] |
+| `spell:circle-of-power` | Circle of Power [ontoken] → circle-of-power | Circle of Power [templatefx] |
+| `spell:confusion` | Confusion [ontoken] → confusion | Confusion [templatefx] |
+| `spell:control-weather` | Control Weather [ontoken] → control-weather | Control Weather [templatefx] |
+| `feature:control-weather` | Control Weather [ontoken] → control-weather-mark | Control Weather [templatefx] |
+| `spell:cordon-of-arrows` | Cordon of Arrows [range] → cordon-of-arrows | Cordon of Arrows [templatefx] |
+| `spell:demiplane` | Demiplane [ontoken] → demiplane | Demiplane [templatefx] |
+| `spell:druidcraft` | Druidcraft [ontoken] → druidcraft | Druidcraft [templatefx] |
+| `spell:earthquake` | Earthquake [ontoken] → earthquake | Earthquake [templatefx] |
+| `natural:elemental-burst` | Burst [range] → elemental-burst | Elemental Burst [templatefx] |
+| `feature:euphoria-breath` | Euphoria Breath [ontoken] → euphoria-breath | Euphoria Breath [templatefx] |
+| `spell:fabricate` | Fabricate [ontoken] → fabricate | Fabricate [templatefx] |
+| `spell:fire-storm` | Fire Storm [ontoken] → fire-storm | Fire Storm [templatefx] |
+| `spell:forcecage` | Forcecage [ontoken] → forcecage | Forcecage [templatefx] |
+| `spell:gate` | Gate [ontoken] → gate | Gate [templatefx] |
+| `spell:guards-and-wards` | Guards and Wards [ontoken] → guards-and-wards | Guards and Wards [templatefx] |
+| `spell:hail-of-thorns` | Hail of Thorns [ontoken] → hail-of-thorns | Hail of Thorns [templatefx] |
+| `spell:heroes-feast` | Heroes' Feast [ontoken] → heroes-feast | Heroes' Feast [templatefx] |
+| `spell:hunger-of-hadar` | Hunger of Hadar [ontoken] → hunger-of-hadar | Hunger of Hadar [templatefx] |
+| `feature:hunger-of-hadar` | Hunger of Hadar [ontoken] → hunger-of-hadar-mark | Hunger of Hadar [templatefx] |
+| `spell:ice-knife` | Ice Knife [range] → ice-knife | Ice Knife [templatefx] |
+| `spell:magnificent-mansion` | Magnificent Mansion [ontoken] → magnificent-mansion | Magnificent Mansion [templatefx] |
+| `spell:meteor-swarm` | Meteor Swarm [ontoken] → meteor-swarm | Meteor Swarm [templatefx] |
+| `spell:minor-illusion` | Minor Illusion [ontoken] → minor-illusion | Minor Illusion [templatefx] |
+| `spell:move-earth` | Move Earth [ontoken] → move-earth | Move Earth [templatefx] |
+| `spell:passwall` | Passwall [ontoken] → passwall | Passwall [templatefx] |
+| `spell:planar-ally` | Planar Ally [ontoken] → planar-ally | Planar Ally [templatefx] |
+| `spell:plant-growth` | Plant Growth [ontoken] → plant-growth | Plant Growth [templatefx] |
+| `spell:private-sanctum` | Private Sanctum [ontoken] → private-sanctum | Private Sanctum [templatefx] |
+| `spell:spiritual-weapon` | Spiritual Weapon [ontoken] → spiritual-weapon | Spiritual Weapon [templatefx] |
+| `feature:spiritual-weapon` | Spiritual Weapon [ontoken] → spiritual-weapon-mark | Spiritual Weapon [templatefx] |
+| `spell:storm-of-vengeance` | Storm of Vengeance [ontoken] → storm-of-vengeance | Storm of Vengeance [templatefx] |
+| `spell:symbol` | Symbol [ontoken] → symbol | Symbol [templatefx] |
+| `spell:teleportation-circle` | Teleportation Circle [ontoken] → teleportation-circle | Teleportation Circle [templatefx] |
+| `spell:tsunami` | Tsunami [ontoken] → tsunami | Tsunami [templatefx] |
+| `spell:web` | Web [range] → web | Web [templatefx] |
+| `feature:web` | Web [range] → web-bolt | Web [templatefx] |
+| `feature:whirlwind` | Whirlwind [ontoken] → whirlwind | Whirlwind [templatefx] |
+| `spell:word-of-radiance` | Word of Radiance [ontoken] → word-of-radiance | Word of Radiance [templatefx] |
+| `spell:ice-knife` | Ice Knife [range] → ice-knife | Ice Knife [preset] |
+| `spell:lightning-arrow` | Lightning Arrow [ontoken] → lightning-arrow | Lightning Arrow [preset] |
+| `spell:meteor-swarm` | Meteor Swarm [ontoken] → meteor-swarm | Meteor Swarm [preset] |
+| `feature:step-of-the-wind` | Step of the Wind [ontoken] → step-of-the-wind | Step of the Wind [preset] |
 
-## Still on the frozen table (15)
+## Fx that can never answer (1)
+
+Two fx in the same layer answer the same key for the same kind of moment; the first (AA's own precedence: its exact-match rows, then its menu order) answers, as it did under AA. Listed so nothing is lost silently.
+
+- natural:necrotic-burst (use): "necrotic-burst-bolt" answers; "necrotic-burst-harrow-vane" never will
+
+## Still on the frozen table (10)
 
 These play through AA's own metadata because the libraries' own registration holds no node that plays the same files the same way.
 
 - fxstudio.aa.static.chains.diamond.complete.blue
-- fxstudio.aa.static.chains.diamond.complete.purple
 - fxstudio.aa.static.chains.standard.complete.blue
-- fxstudio.aa.static.energy.circle.complete.orange
 - fxstudio.aa.static.energy.circle.complete.red
 - fxstudio.aa.static.magicsign.abjuration.runecomplete.blue
 - fxstudio.aa.static.magicsign.conjuration.runecomplete.yellow
 - fxstudio.aa.static.magicsign.divination.runecomplete.blue
 - fxstudio.aa.static.magicsign.enchantment.runecomplete.pink
-- fxstudio.aa.static.magicsign.illusion.runecomplete.purple
-- fxstudio.aa.static.magicsign.necromancy.runecomplete.green
-- fxstudio.aa.static.magicsign.transmutation.runecomplete.blue
 - fxstudio.aa.static.magicsign.transmutation.runecomplete.yellow
 - fxstudio.aa.static.smoke.plume.complete
 - fxstudio.aa.static.vines.complete.nature.green
@@ -1308,14 +1628,46 @@ These play through AA's own metadata because the libraries' own registration hol
 
 Every ability on the world's actors, keyed by identity and resolved against the new corpus, beside what Automated Animations' name search answered.
 
-### A different look now (0)
+### A different fx now (31)
 
+- Enthralled Bullywug Warrior (npc) / Insectile Rapier [weapon] · keys weapon:insectile-rapier/attack, weapon:insectile-rapier, weapon:rapier/attack, weapon:rapier · was Rapier [melee] · now insectile-rapier (weapon:insectile-rapier)
+- Gren Greenmantle (character) / Bog Staff [weapon] · keys natural:bog-staff/attack, natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
+- Harrow Vane (npc) / Vesper Staff [weapon] · keys weapon:vesper-staff/attack, weapon:vesper-staff, weapon:quarterstaff/attack, weapon:quarterstaff · was Staff [melee] · now vesper-staff (weapon:vesper-staff)
+- Hobgoblin Shaman (npc) / Vine Staff [weapon] · keys natural:vine-staff/attack, natural:vine-staff · was Staff [melee] · now vine-staff (natural:vine-staff)
+- Morgash the Gravemaker (character) / Ember-Touched Greatsword [weapon] · keys weapon:ember-touched-greatsword/attack, weapon:ember-touched-greatsword, weapon:greatsword/attack, weapon:greatsword · was Greatsword [melee] · now ember-touched-greatsword (weapon:ember-touched-greatsword)
+- Aldous (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Aldous (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Osric, the Keeper (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Osric, the Keeper (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Mother Wend (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow/attack, weapon:heavy-crossbow, weapon:heavycrossbow/attack, weapon:heavycrossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
+- Mother Wend (npc) / Sera's Shortsword [weapon] · keys weapon:seras-shortsword/attack, weapon:seras-shortsword, weapon:shortsword/attack, weapon:shortsword · was Shortsword [melee] · now seras-shortsword (weapon:seras-shortsword)
+- Mother Wend (npc) / Wooden staff [weapon] · keys weapon:wooden-staff/attack, weapon:wooden-staff, weapon:quarterstaff/attack, weapon:quarterstaff · was Staff [melee] · now wooden-staff (weapon:wooden-staff)
+- Mother Wend (npc) / Light Crossbow [weapon] · keys weapon:light-crossbow/attack, weapon:light-crossbow, weapon:lightcrossbow/attack, weapon:lightcrossbow · was Crossbow [range] · now light-crossbow (weapon:light-crossbow)
+- Mother Wend (npc) / Hand Crossbow [weapon] · keys weapon:hand-crossbow/attack, weapon:hand-crossbow, weapon:handcrossbow/attack, weapon:handcrossbow · was Crossbow [range] · now hand-crossbow (weapon:hand-crossbow)
+- Mother Wend (npc) / Marn's Light Crossbow [weapon] · keys weapon:marns-light-crossbow/attack, weapon:marns-light-crossbow, weapon:lightcrossbow/attack, weapon:lightcrossbow · was Crossbow [range] · now marns-light-crossbow (weapon:marns-light-crossbow)
+- Mother Wend (npc) / Light Hammer [weapon] · keys weapon:light-hammer/attack, weapon:light-hammer, weapon:lighthammer/attack, weapon:lighthammer · was Hammer [melee] · now light-hammer (weapon:light-hammer)
+- Wight (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Wight (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Sharran Enforcer (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow/attack, weapon:heavy-crossbow, weapon:heavycrossbow/attack, weapon:heavycrossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
+- BF Test Fighter (character) / Ember-Touched Greatsword [weapon] · keys weapon:ember-touched-greatsword/attack, weapon:ember-touched-greatsword, weapon:greatsword/attack, weapon:greatsword · was Greatsword [melee] · now ember-touched-greatsword (weapon:ember-touched-greatsword)
+- Enthralled Bullywug Bog Sage (npc) / Bog Staff [weapon] · keys natural:bog-staff/attack, natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
+- Selma (npc) / Sera's Longbow [weapon] · keys weapon:seras-longbow/attack, weapon:seras-longbow, weapon:longbow/attack, weapon:longbow · was Longbow [range] · now seras-longbow (weapon:seras-longbow)
+- The Party (group) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- BF Test Shielder (character) / Bog Staff [weapon] · keys natural:bog-staff/attack, natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
+- Cadoc, the Guardian (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Cadoc, the Guardian (npc) / Necrotic Scythe [weapon] · keys natural:necrotic-scythe/attack, natural:necrotic-scythe · was Scythe [melee] · now necrotic-scythe (natural:necrotic-scythe)
+- Edda (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Edda (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Hesper, the Mortician (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Hesper, the Mortician (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Jetten Elisedil (character) / +1 Dagger [weapon] · keys weapon:1-dagger/attack, weapon:1-dagger, weapon:dagger/attack, weapon:dagger · was Dagger [melee] · now 1-dagger (weapon:1-dagger)
 
-### Play now, played nothing under AA (1)
+### Play now, played nothing under AA (2)
 
 - Morgash the Gravemaker (character) / Maul of Momentum [weapon] · keys weapon:maul-of-momentum/attack, weapon:maul-of-momentum, weapon:maul/attack, weapon:maul · was nothing · now maul (weapon:maul)
+- BF Test Fighter (character) / Maul of Momentum [weapon] · keys weapon:maul-of-momentum/attack, weapon:maul-of-momentum, weapon:maul/attack, weapon:maul · was nothing · now maul (weapon:maul)
 
-### Play nothing now, played under AA (6)
+### Play nothing now, played under AA (9)
 
 - Gren Greenmantle (character) / Spellfire Burst [feat] · keys feature:spellfire-burst/heal, feature:spellfire-burst · was Burst [range] · now nothing
 - Gren Greenmantle (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles/cast, item:wand-of-magic-missiles · was Missile [range] · now nothing
@@ -1323,10 +1675,13 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - Mother Wend (npc) / Horn [tool] · keys item:horn/check, item:horn · was Horn [melee] · now nothing
 - Mother Wend (npc) / Chain [consumable] · keys item:chain/check, item:chain · was Chain [melee] · now nothing
 - Skeletal Mage (npc) / Shield [spell] · keys spell:shield/utility, spell:shield · was Shield [melee] · now nothing
+- BF Test Shielder (character) / Spellfire Burst [feat] · keys feature:spellfire-burst/heal, feature:spellfire-burst · was Burst [range] · now nothing
+- BF Test Shielder (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles/cast, item:wand-of-magic-missiles · was Missile [range] · now nothing
+- BF Test Shielder (character) / Shield [spell] · keys spell:shield/utility, spell:shield · was Shield [melee] · now nothing
 
 ### NPC attacks
 
-198 attack weapons on the world's NPCs: 157 answered by the weapon's own name, 0 by its base weapon, 36 as a natural attack, 5 nothing.
+202 attack weapons on the world's NPCs: 161 answered by the weapon's own name, 0 by its base weapon, 36 as a natural attack, 5 nothing.
 
 - as a natural attack, e.g. Claw → natural:claw; Bite → natural:bite; Necrotic Burst → natural:necrotic-burst; Vine Staff → natural:vine-staff; Slam → natural:slam; Necrotic Sword → natural:necrotic-sword; Claw → natural:claw; Necrotic Sword → natural:necrotic-sword; Gore → natural:gore; Talons → natural:talons
 - nothing: Battleaxe; Smother; Constricting Vine
@@ -1334,12 +1689,12 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 ### Nothing plays yet — the party's sheets
 
 - **Gren Greenmantle** (37 of 57 play; 20 nothing): Spellfire Burst [feat]; Driftglobe [equipment]; Wand of the War Mage +1 [equipment]; Torch [consumable]; Fey-Touched [feat]; Candle [consumable]; Tinderbox [equipment]; Manacles [consumable]; Aura of Vitality [spell]; Oil [consumable]; Wand of Magic Missiles [equipment]; Subtle Spell [feat]; Three-dragon ante [tool]; Magic Initiate [feat]; Pearl of Power [equipment]; Shield [spell]; Rope [consumable]; Antitoxin [consumable]; Lesser Restoration [spell]; Careful Spell [feat]
-- **Morgash the Gravemaker** (12 of 26 play; 14 nothing): Riposte [feat]; Smith's Tools [tool]; Tinderbox [equipment]; Cook's Utensils [tool]; Great Weapon Master [feat]; The Graveheart [equipment]; Precision Attack [feat]; Healer's Kit [consumable]; Keoghtom's Ointment [consumable]; Torch [consumable]; Rope [consumable]; Rally [feat]; Antitoxin [consumable]; Dice [tool]
+- **Morgash the Gravemaker** (11 of 25 play; 14 nothing): Riposte [feat]; Smith's Tools [tool]; Tinderbox [equipment]; Cook's Utensils [tool]; Great Weapon Master [feat]; The Graveheart [equipment]; Precision Attack [feat]; Healer's Kit [consumable]; Keoghtom's Ointment [consumable]; Torch [consumable]; Rope [consumable]; Rally [feat]; Antitoxin [consumable]; Dice [tool]
 - **Salyth** (21 of 30 play; 9 nothing): Flute [tool]; Lute [tool]; The Graveheart [equipment]; Bullseye Lantern [consumable]; Moon's Inspiration [feat]; Tinderbox [equipment]; Blessing of Moonlight [feat]; Water (Pint) [consumable]; Oil [consumable]
 - **Thomas A. Invictus** (30 of 47 play; 17 nothing): Shield Master [feat]; Lantern, Hooded [equipment]; Fine Clothes [equipment]; Healer [feat]; Wrathful Smite [spell]; Thunderous Smite [spell]; Lantern of Revealing [equipment]; Searing Smite [spell]; Resourceful [feat]; Detect Magic [spell]; Healer's Kit [consumable]; Shield of Faith [spell]; Detect Evil and Good [spell]; Detect Poison and Disease [spell]; Shining Smite [spell]; Torch [consumable]; Antitoxin [consumable]
 - **Jetten Elisedil** (23 of 35 play; 12 nothing): Torch [consumable]; Favored Enemy [feat]; Rope [consumable]; Healer's Kit [consumable]; Tinderbox [equipment]; Bullseye Lantern [consumable]; Antitoxin [consumable]; Magic Initiate [feat]; Cartographer's Tools [tool]; Elven Lineage, Wood Elf [feat]; Pass without Trace [spell]; Oil [consumable]
 
-### Effects on the world's actors (154 names, 25 with a look)
+### Effects on the world's actors (162 names, 27 with an FX)
 
 - Bloodied: nothing
 - Shard-Hardened (Natural Armor): nothing
@@ -1406,6 +1761,12 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - Hexed Wisdom: nothing
 - Hexed Strength: nothing
 - Hexed Charisma: nothing
+- Cunning Strike: Tripped: nothing
+- Cunning Strike: Poisoned: nothing
+- Devious Strikes: Knocked Out: nothing
+- Devious Strikes: Blinded: nothing
+- Devious Strikes: Dazed: nothing
+- Assasinate: nothing
 - Grappled + Other Conditions: nothing
 - Blocked Healing: nothing
 - Inspired: nothing
@@ -1462,11 +1823,11 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - Deafness: nothing
 - Grappled: nothing
 - Failure: Dead: nothing
+- Ambusher's Leap: nothing
+- Dread Ambusher: nothing
 - Archery Style: nothing
 - Bonus Damage: Bows: nothing
 - Bow Proficiencies: nothing
-- Ambusher's Leap: nothing
-- Dread Ambusher: nothing
 - Concealed: nothing
 - Umbral Sight: nothing
 - Stealth Advantage: nothing

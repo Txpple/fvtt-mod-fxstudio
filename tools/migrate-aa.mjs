@@ -57,10 +57,11 @@ say(`   closed lists: spells ${lists.spells.size} · features ${lists.features.s
 // ---------------------------------------------------------------------------------------------
 say('2 · keys');
 const MENU_ORDER = ['melee', 'range', 'ontoken', 'templatefx', 'aura', 'preset', 'aefx'];
-const keyed = { byList: 0, expanded: 0, ownNameOnly: 0, threeKinds: 0, effects: 0 };
+const keyed = { byList: 0, expanded: 0, ownNameOnly: 0, noEvidence: 0, effects: 0 };
 const expansions = [];
 const notCarried = [];
-const threeKinds = [];
+const noEvidence = [];   // b · rows no list can key: dropped, and listed
+const clashes = [];      // c · a key two rows both want: the first keeps it, the rest are listed
 const ownOnly = [];
 function keysForRow(row) {
   const label = row.name.trim();
@@ -86,10 +87,12 @@ function keysForRow(row) {
   }
   const kinds = lists.kindsOfName(label);
   if (kinds.length) { keyed.byList++; for (const k of kinds) add(`${k.kind}:${k.id}`); return out; }
-  // no list holds the name: keyed in the three kinds it could be, and listed
-  keyed.threeKinds++;
-  threeKinds.push(`${label} [${row.menu}]`);
-  return [`spell:${own}`, `feature:${own}`, `item:${own}`];
+  // NO LIST HOLDS THE NAME, so there is no evidence of what it is. The first migration keyed these
+  // in all three kinds they could be — a guess, and the one place the corpus guessed. The user
+  // ruled it out (2026-09-08): the row is NOT carried, and it is listed for them to key by hand.
+  keyed.noEvidence++;
+  noEvidence.push({ label, menu: row.menu });
+  return [];
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -101,28 +104,42 @@ const taken = new Set();
 const stockFx = []; // {fx, row, notes, source}
 const notesByRow = [];
 const ordered = [...stockRows].sort((a, b) => (a.match === 'exact' ? 0 : 1) - (b.match === 'exact' ? 0 : 1) || MENU_ORDER.indexOf(a.menu) - MENU_ORDER.indexOf(b.menu));
-const idOfRow = new Map();
+// ONE FX ANSWERS ONE KEY (the user, 2026-09-08). AA had a single namespace of names, so one of its
+// rows could stand for a spell, a feature and an item at once; carrying that as one FX with three
+// keys made "Absorb Elements" claim to answer three things when the evidence was for one. A row now
+// fans out: one FX per key it earned, each free to be edited, retired or replaced on its own.
+const keyOwner = new Map();   // key → {id, row} — the FX that answers it
+const idsOfRow = new Map();   // row → the ids it produced, in order
 for (const row of ordered) {
-  const id = idFor(row.name, row.menu, taken);
-  idOfRow.set(row, id);
   const keys = keysForRow(row);
   const on = row.menu === 'aefx' ? 'effect' : 'use';
-  const { fx, notes } = rowToFx(row, nativiser, { id, keys, on });
-  fx.by = 'the migration';
-  fx.at = today;
-  fx.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
-  stockFx.push({ fx, row, notes, source: 'stock' });
-  if (notes.length) notesByRow.push(`${row.name} [${row.menu}]: ${notes.join('; ')}`);
+  const mine = [];
+  for (const key of keys) {
+    // c · two rows both want this key. AA's own precedence decides, as it did at the table: its
+    // exact-match rows first, then its menu order (the `ordered` sort). The rest are listed.
+    const won = keyOwner.get(key);
+    if (won) { clashes.push({ key, kept: `${won.row.name} [${won.row.menu}] → ${won.id}`, dropped: `${row.name} [${row.menu}]` }); continue; }
+    const id = idFor(key.split(':').slice(1).join(':').split('/')[0], row.menu, taken);
+    const { fx, notes } = rowToFx(row, nativiser, { id, keys: [key], on });
+    fx.by = 'the migration';
+    fx.at = today;
+    fx.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
+    stockFx.push({ fx, row, notes, source: 'stock' });
+    keyOwner.set(key, { id, row });
+    mine.push(id);
+    if (notes.length) notesByRow.push(`${row.name} [${row.menu}] → ${key}: ${notes.join('; ')}`);
+  }
+  idsOfRow.set(row, mine);
 }
 // the house rows: a changed stock row keeps its id (and replaces it); an item's own FX is keyed like its name and named for its owner
 const houseFx = [];
 for (const row of houseRows) {
   const twinRow = stockRows.find((b) => b.name === row.name && b.menu === row.menu && !(row.note ?? '').includes("the item's own FX"));
   let id;
-  if (row.off) { id = idOfRow.get(twinRow) ?? idFor(row.name, row.menu, taken); houseFx.push({ fx: { id, for: keysForRow(row), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
-  if (twinRow) id = idOfRow.get(twinRow);
-  else { const owner = /\(([^/]+) \/ /.exec(row.note ?? '')?.[1]; id = idFor(owner ? `${row.name} ${owner}` : row.name, row.menu, taken); }
-  const keys = keysForRow(row);
+  if (row.off) { id = idsOfRow.get(twinRow)?.[0] || idFor(row.name, row.menu, taken); houseFx.push({ fx: { id, for: keysForRow(row).slice(0, 1), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
+  if (twinRow) id = idsOfRow.get(twinRow)?.[0] || null;
+  if (!id) { const owner = /\(([^/]+) \/ /.exec(row.note ?? '')?.[1]; id = idFor(owner ? `${row.name} ${owner}` : row.name, row.menu, taken); }
+  const keys = keysForRow(row).slice(0, 1);
   const { fx, notes } = rowToFx(row, nativiser, { id, keys, on: row.menu === 'aefx' ? 'effect' : 'use' });
   fx.by = 'the migration';
   fx.at = today;
@@ -130,7 +147,7 @@ for (const row of houseRows) {
   houseFx.push({ fx, row, notes, source: 'house' });
   if (notes.length) notesByRow.push(`house ${row.name} [${row.menu}]: ${notes.join('; ')}`);
 }
-say(`   ${stockFx.length} stock FX, ${houseFx.length} house FX · keys: by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects}, in three kinds (no list holds the name) ${keyed.threeKinds}`);
+say(`   ${stockFx.length} stock FX (one per key), ${houseFx.length} house FX · rows: keyed by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects} · NOT carried: ${keyed.noEvidence} rows no list holds, ${clashes.length} keys a row lost to an earlier one`);
 const ns = nativiser.stats;
 say(`   assets: ${ns.paths} AA paths → native exact ${ns.exact}, as JB2A leaves ${ns.leaves}, as JB2A range nodes ${ns.ranges}, as raw files ${ns.files} (AA's stretch metadata carried on ${ns.templateCarried}) · frozen ${ns.frozen} (markers ${ns.markersFrozen}, by-distance ${ns.rangeFrozen}, missing ${ns.missingNode})`);
 
@@ -211,7 +228,7 @@ for (const [actorId, list] of Object.entries(worldItems)) {
     census.asked++;
     const nowName = now.fx ? `${now.fx.id} (${now.key})` : null;
     const beforeName = before ? `${before.row.name} [${before.row.menu}]` : null;
-    const beforeId = before ? idOfRow.get(stockRows.find((b) => b === before.row)) ?? slug(before.row.name) : null;
+    const beforeId = before ? (idsOfRow.get(stockRows.find((b) => b === before.row)) ?? [])[0] ?? slug(before.row.name) : null;
     const same = (!now.fx && !before) || (now.fx && before && (now.fx.id === beforeId || now.fx.id.startsWith(beforeId + '-') || slug(before.row.name) === now.fx.id.replace(/-(swing|bolt|mark|area|aura|preset|effect)(-\d+)?$/, '')));
     const line = `${actor.name} (${actor.type}) / ${it.name} [${it.type}] · keys ${subject.keys.join(', ')} · was ${beforeName ?? 'nothing'} · now ${nowName ?? 'nothing'}`;
     if (same) census.same++; else if (now.fx && !before) census.gained.push(line); else if (!now.fx && before) census.lost.push(line); else census.changed.push(line);
@@ -265,7 +282,7 @@ R(`| Fx out (stock / house) | ${stockFx.length} / ${houseFx.length} |`);
 R(`| · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | ${keyed.byList} |`);
 R(`| · family rows expanded against the base weapons, the natural attacks and the world's weapons | ${keyed.expanded} |`);
 R(`| · effect rows, keyed by the effect's name | ${keyed.effects} |`);
-R(`| · names no list holds, keyed in all three kinds they could be | ${keyed.threeKinds} |`);
+R(`| · names no list holds — NOT carried, see the exceptions below | ${keyed.noEvidence} |`);
 R(`| · weapon words that also caught a spell, a feat or an item under AA (listed, not carried) | ${notCarried.length} |`);
 R(`| AA paths | ${ns.paths} |`);
 R(`| · now the libraries' own path with the same files and structure | ${ns.exact} |`);
@@ -316,11 +333,21 @@ R(`Where two rows claimed one key, the longer label keeps it, as Automated Anima
 R();
 for (const c of ceded) R(`- ${c}`);
 R();
-R(`## Names no list holds (${threeKinds.length})`);
+R(`## EXCEPTION · rows no list holds, NOT carried (${noEvidence.length})`);
 R();
-R(`Keyed as a spell, a feature and an item of that name, since neither the books nor the world say which; whichever the table has answers.`);
+R(`Neither the books, the base weapons, the creature attacks nor this world hold an ability of this name, so there is no evidence of what kind it is. The first migration keyed each of these as a spell, a feature AND an item — the one place the corpus guessed. **The user ruled that out (2026-09-08): these rows are not carried.** Each is one FX away if it turns out to be wanted: open the Editor, name the ability, and copy the scenes of whatever it should look like.`);
 R();
-for (const n of threeKinds) R(`- ${n}`);
+R(`| Row | AA menu |`);
+R(`| --- | --- |`);
+for (const n of noEvidence) R(`| ${n.label} | ${n.menu} |`);
+R();
+R(`## EXCEPTION · keys a row lost to an earlier one, NOT carried (${clashes.length})`);
+R();
+R(`One FX answers one key. Where two rows both earned the same key, Automated Animations' own precedence keeps it — its exact-match rows first, then its menu order — which is what answered at the table under AA. The losing row's FX for THAT key is not written; where the row earned other keys, those are.`);
+R();
+R(`| Key | Kept | Not carried |`);
+R(`| --- | --- | --- |`);
+for (const c of clashes) R(`| \`${c.key}\` | ${c.kept} | ${c.dropped} |`);
 R();
 R(`## Fx that can never answer (${shadowed.length})`);
 R();
@@ -371,10 +398,14 @@ if (WRITE) {
   for (const [name, list] of Object.entries(files)) {
     writeFileSync(join(RECIPES, 'stock', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see STOCK-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
   }
-  writeFileSync(join(RECIPES, 'house.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: "The user's own fx: what this world changed over the stock at migration, and everything kept from the world buffer since (tools/export-fx.mjs).", fx: houseFx.length }), fx: houseFx.map((l) => l.fx) }, null, 1));
+  // recipes/house.json IS THE USER'S FILE and this tool does not own it (2026-09-08). It was
+  // written once at migration and curated since — the Item Hooks in it were re-keyed by hand
+  // (tools/bind-item-fx.mjs, commit 4d7e3f9), which a regeneration would silently undo, turning an
+  // Item Hook back into a Global Hook. What the migration would have written is offered beside it.
+  writeFileSync(join(REPO, 'dist', 'house-from-migration.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: 'What the migration makes of this world\'s own AA rows. NOT written to recipes/house.json, which the user curates.', fx: houseFx.length }), fx: houseFx.map((l) => l.fx) }, null, 1));
   writeFileSync(join(RECIPES, 'aa-assets.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'What the migration could not point at the libraries\' own paths: AA\'s own Sequencer entries for these, verbatim with their metadata, registered as fxstudio.aa. Counted, meant to reach zero.', entries: frozen.entries, paths: frozen.paths.length, missingFiles: twin.meta?.missingFiles ?? [] }), db: frozen.db }));
   writeFileSync(reportPath, report.join('\n'));
-  say(`6 · wrote recipes/stock/{${Object.entries(files).map(([k, v]) => `${k} ${v.length}`).join(', ')}}, recipes/house.json (${houseFx.length}), recipes/aa-assets.json (${frozen.entries} entries), recipes/migration-report.md`);
+  say(`6 · wrote recipes/stock/{${Object.entries(files).map(([k, v]) => `${k} ${v.length}`).join(', ')}}, recipes/aa-assets.json (${frozen.entries} entries), recipes/migration-report.md · recipes/house.json LEFT ALONE (the user's); what the migration makes of it is at dist/house-from-migration.json`);
 } else {
   writeFileSync(reportPath, report.join('\n'));
   say(`6 · dry run: report at dist/migration-report.md (pass --write to write the recipes)`);

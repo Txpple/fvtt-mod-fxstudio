@@ -52,6 +52,15 @@ It sits in the strip whether an FX is open or not (empty, it says so and offers 
 **leaving it does not close it**: walk off to Assets and back and the FX is still there, unsaved
 changes and all. Only opening *another* FX into the sheet asks before dropping them.
 
+**ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key, or none when it is
+an Item Hook. AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
+is not carried: the migration fans a row out into one FX per key it earned. The 194 rows no list can
+key, and the 81 keys a row lost to an earlier one, are **not carried** — both are EXCEPTION tables
+in `recipes/migration-report.md`. Stock is **1554 FX**, one key each. PLAN §0.1–2 carry the
+amendment. `recipes/house.json` is the USER'S file: `migrate-aa.mjs` no longer writes it (it offers
+`dist/house-from-migration.json` instead), and it holds **two custom swords as Item Hooks** —
+First Light and Goldthorn — after the user cut the rest on 2026-09-08.
+
 **The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
 `with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
 (`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House / Draft,

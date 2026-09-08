@@ -1,12 +1,12 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-06",
+  "generated": "2026-09-08",
   "tool": "tools/migrate-aa.mjs",
   "sources": {
    "aa": "7.0.22",
    "dnd5eAnimations": "3.3.0",
-   "jb2a": "0.9.2",
+   "jb2a": "0.9.3",
    "psfx": "0.17.0",
    "sequencer": "4.2.3",
    "dnd5e": null
@@ -17,7 +17,7 @@
    "MrVauxs",
    "Sisimshow"
   ],
-  "note": "The effects of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "note": "The effects of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
   "fx": 184
  },
  "fx": [
@@ -63,7 +63,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Abjuration Ward\" (aefx)"
   },
   {
@@ -92,7 +92,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Arcane Ward\" (aefx)"
   },
   {
@@ -123,7 +123,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Armor of Agathys\" (aefx)"
   },
   {
@@ -150,7 +150,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bane\" (aefx)"
   },
   {
@@ -206,7 +206,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bark-like Skin\" (aefx)"
   },
   {
@@ -262,7 +262,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Barkskin\" (aefx)"
   },
   {
@@ -289,7 +289,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bless\" (aefx)"
   },
   {
@@ -316,7 +316,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Blessed\" (aefx)"
   },
   {
@@ -352,7 +352,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Chill Shield\" (aefx)"
   },
   {
@@ -379,7 +379,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Blur\" (aefx)"
   },
   {
@@ -399,7 +399,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Confused\" (aefx)"
   },
   {
@@ -449,12 +449,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Fire Shield\" (aefx)"
   },
   {
@@ -478,7 +477,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Haste\" (aefx)"
   },
   {
@@ -502,7 +501,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Hasted\" (aefx)"
   },
   {
@@ -541,7 +540,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Mage Armor\" (aefx)"
   },
   {
@@ -598,12 +597,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Shield\" (aefx)"
   },
   {
@@ -627,7 +625,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Shield of Faith\" (aefx)"
   },
   {
@@ -651,7 +649,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Slow\" (aefx)"
   },
   {
@@ -675,7 +673,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Slowed\" (aefx)"
   },
   {
@@ -711,7 +709,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Warm Shield\" (aefx)"
   },
   {
@@ -735,7 +733,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Absorb Acid\" (aefx)"
   },
   {
@@ -759,11 +757,11 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Absorb Cold\" (aefx)"
   },
   {
-   "id": "absorb-elements-effect",
+   "id": "absorb-elements",
    "for": [
     "effect:absorb-elements"
    ],
@@ -783,7 +781,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Absorb Elements\" (aefx)"
   },
   {
@@ -812,7 +810,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Absorb Fire\" (aefx)"
   },
   {
@@ -836,7 +834,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Absorb Lightning\" (aefx)"
   },
   {
@@ -865,7 +863,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Absorb Thunder\" (aefx)"
   },
   {
@@ -889,7 +887,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Acid Protection\" (aefx)"
   },
   {
@@ -910,7 +908,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Alertness\" (aefx)"
   },
   {
@@ -931,7 +929,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of Alacrity\" (aefx)"
   },
   {
@@ -952,7 +950,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of Conquest\" (aefx)"
   },
   {
@@ -973,7 +971,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of Courage\" (aefx)"
   },
   {
@@ -994,7 +992,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of Devotion\" (aefx)"
   },
   {
@@ -1015,7 +1013,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of Protection\" (aefx)"
   },
   {
@@ -1036,7 +1034,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of the Guardian\" (aefx)"
   },
   {
@@ -1057,7 +1055,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of the Sentinel\" (aefx)"
   },
   {
@@ -1078,7 +1076,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Aura of Warding\" (aefx)"
   },
   {
@@ -1115,12 +1113,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Avenging Angel\" (aefx)"
   },
   {
@@ -1140,7 +1137,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Banished\" (aefx)"
   },
   {
@@ -1160,7 +1157,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bardic Inspiration\" (aefx)"
   },
   {
@@ -1186,7 +1183,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bastion of Law\" (aefx)"
   },
   {
@@ -1206,7 +1203,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Befuddle\" (aefx)"
   },
   {
@@ -1230,7 +1227,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Berserk\" (aefx)"
   },
   {
@@ -1253,7 +1250,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Blade Ward\" (aefx)"
   },
   {
@@ -1274,7 +1271,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Blue Light\" (aefx)"
   },
   {
@@ -1297,7 +1294,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bonded\" (aefx)"
   },
   {
@@ -1317,7 +1314,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Bound to Service\" (aefx)"
   },
   {
@@ -1350,7 +1347,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Burning\" (aefx)"
   },
   {
@@ -1370,7 +1367,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Carrying Message\" (aefx)"
   },
   {
@@ -1390,7 +1387,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Charmed\" (aefx)"
   },
   {
@@ -1410,7 +1407,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Circle of Power\" (aefx)"
   },
   {
@@ -1430,7 +1427,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Circle's Power\" (aefx)"
   },
   {
@@ -1453,7 +1450,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Cloud Form\" (aefx)"
   },
   {
@@ -1477,7 +1474,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Cold Protection\" (aefx)"
   },
   {
@@ -1497,7 +1494,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Comic Dancing\" (aefx)"
   },
   {
@@ -1517,7 +1514,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Comprehension\" (aefx)"
   },
   {
@@ -1544,7 +1541,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Alustriel's Mooncloak\" (aefx)"
   },
   {
@@ -1570,7 +1567,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Antilife Shell\" (aefx)"
   },
   {
@@ -1603,7 +1600,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Antimagic Field\" (aefx)"
   },
   {
@@ -1627,7 +1624,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Aura of Life\" (aefx)"
   },
   {
@@ -1651,7 +1648,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Aura of Purity\" (aefx)"
   },
   {
@@ -1675,7 +1672,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Aura of Vitality\" (aefx)"
   },
   {
@@ -1707,7 +1704,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Cacophonic Shield\" (aefx)"
   },
   {
@@ -1739,7 +1736,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Conjure Minor Elementals\" (aefx)"
   },
   {
@@ -1771,7 +1768,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Conjure Woodland Beings\" (aefx)"
   },
   {
@@ -1803,7 +1800,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Crusader's Mantle\" (aefx)"
   },
   {
@@ -1835,7 +1832,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Detect Evil and Good\" (aefx)"
   },
   {
@@ -1867,7 +1864,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Detect Magic\" (aefx)"
   },
   {
@@ -1899,7 +1896,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Detect Poison and Disease\" (aefx)"
   },
   {
@@ -1927,7 +1924,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Dirge\" (aefx)"
   },
   {
@@ -1948,7 +1945,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Expeditious Retreat\" (aefx)"
   },
   {
@@ -1979,7 +1976,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Holy Aura\" (aefx)"
   },
   {
@@ -2003,7 +2000,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Holy Star of Mystra\" (aefx)"
   },
   {
@@ -2047,12 +2044,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Investiture of Flame\" (aefx)"
   },
   {
@@ -2096,12 +2092,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Investiture of Ice\" (aefx)"
   },
   {
@@ -2145,12 +2140,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Investiture of Stone\" (aefx)"
   },
   {
@@ -2194,12 +2188,11 @@
       "colour": "#FFFFFF",
       "contrast": 0.5,
       "saturation": -1
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Investiture of Wind\" (aefx)"
   },
   {
@@ -2229,12 +2222,11 @@
      "size": {
       "radius": 2
      },
-     "below": true,
-     "delay": 0
+     "below": true
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Invulnerability\" (aefx)"
   },
   {
@@ -2267,7 +2259,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Pass without Trace\" (aefx)"
   },
   {
@@ -2302,7 +2294,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Primordial Ward\" (aefx)"
   },
   {
@@ -2329,7 +2321,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Songal's Elemental Suffusion\" (aefx)"
   },
   {
@@ -2361,7 +2353,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Spirit Guardians\" (aefx)"
   },
   {
@@ -2393,7 +2385,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Spirit Shroud\" (aefx)"
   },
   {
@@ -2417,7 +2409,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Sunbeam\" (aefx)"
   },
   {
@@ -2451,7 +2443,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Concentrating: Yolande's Regal Presence\" (aefx)"
   },
   {
@@ -2482,7 +2474,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Conjured Minor Elementals\" (aefx)"
   },
   {
@@ -2508,7 +2500,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Contagion: Poison\" (aefx)"
   },
   {
@@ -2529,7 +2521,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Courageous\" (aefx)"
   },
   {
@@ -2557,7 +2549,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Covered in Acid\" (aefx)"
   },
   {
@@ -2581,7 +2573,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Crown of Madness: Charmed\" (aefx)"
   },
   {
@@ -2601,7 +2593,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Curse\" (aefx)"
   },
   {
@@ -2638,12 +2630,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Diminish Defiance\" (aefx)"
   },
   {
@@ -2664,7 +2655,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Divine Favor\" (aefx)"
   },
   {
@@ -2684,11 +2675,11 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Dominated\" (aefx)"
   },
   {
-   "id": "draconic-transformation-effect",
+   "id": "draconic-transformation",
    "for": [
     "effect:draconic-transformation"
    ],
@@ -2728,12 +2719,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Draconic Transformation\" (aefx)"
   },
   {
@@ -2777,12 +2767,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Dragon Wings\" (aefx)"
   },
   {
@@ -2805,7 +2794,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Elemental Attunement\" (aefx)"
   },
   {
@@ -2831,7 +2820,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Elminster's Elusion\" (aefx)"
   },
   {
@@ -2854,7 +2843,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Encased\" (aefx)"
   },
   {
@@ -2874,7 +2863,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Enclosed in Sphere \" (aefx)"
   },
   {
@@ -2898,7 +2887,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Ensnared\" (aefx)"
   },
   {
@@ -2922,7 +2911,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Ensnaring Strike: Restrained\" (aefx)"
   },
   {
@@ -2946,7 +2935,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Entangle: Restrained\" (aefx)"
   },
   {
@@ -2966,7 +2955,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Enthralled\" (aefx)"
   },
   {
@@ -2996,7 +2985,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Ethereal\" (aefx)"
   },
   {
@@ -3020,7 +3009,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Fire Protection\" (aefx)"
   },
   {
@@ -3044,7 +3033,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Flesh to Stone: \" (aefx)"
   },
   {
@@ -3065,7 +3054,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Flight\" (aefx)"
   },
   {
@@ -3096,7 +3085,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Foresight\" (aefx)"
   },
   {
@@ -3132,7 +3121,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Fortified Intellect\" (aefx)"
   },
   {
@@ -3157,7 +3146,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Frightened\" (aefx)"
   },
   {
@@ -3180,7 +3169,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Gaseous Form\" (aefx)"
   },
   {
@@ -3200,7 +3189,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Glittering\" (aefx)"
   },
   {
@@ -3220,7 +3209,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Green Light\" (aefx)"
   },
   {
@@ -3240,7 +3229,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Guidance\" (aefx)"
   },
   {
@@ -3261,7 +3250,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Guiding Bolt\" (aefx)"
   },
   {
@@ -3294,7 +3283,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Heat Metal: \" (aefx)"
   },
   {
@@ -3327,7 +3316,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Heated Metal\" (aefx)"
   },
   {
@@ -3351,7 +3340,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Heavenly Wings\" (aefx)"
   },
   {
@@ -3374,7 +3363,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Hold Monster: \" (aefx)"
   },
   {
@@ -3397,7 +3386,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Hold Person: \" (aefx)"
   },
   {
@@ -3417,7 +3406,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Hypnotic Pattern: \" (aefx)"
   },
   {
@@ -3437,7 +3426,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Hypnotized\" (aefx)"
   },
   {
@@ -3457,7 +3446,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Illuminated\" (aefx)"
   },
   {
@@ -3514,12 +3503,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Imperceptible Barrier\" (aefx)"
   },
   {
@@ -3543,7 +3531,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Imprisonment: \" (aefx)"
   },
   {
@@ -3569,7 +3557,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Infected\" (aefx)"
   },
   {
@@ -3589,7 +3577,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Irresistible Dance\" (aefx)"
   },
   {
@@ -3610,7 +3598,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Jump\" (aefx)"
   },
   {
@@ -3630,7 +3618,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Laughing Uncontrollably\" (aefx)"
   },
   {
@@ -3651,7 +3639,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Levitating\" (aefx)"
   },
   {
@@ -3675,7 +3663,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Lightning Protection\" (aefx)"
   },
   {
@@ -3703,7 +3691,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Lingering Acid\" (aefx)"
   },
   {
@@ -3731,7 +3719,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Living Legend\" (aefx)"
   },
   {
@@ -3752,7 +3740,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Longstrider\" (aefx)"
   },
   {
@@ -3775,7 +3763,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Majestic Presence\" (aefx)"
   },
   {
@@ -3795,7 +3783,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Mass Suggestion\" (aefx)"
   },
   {
@@ -3815,7 +3803,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Mocked\" (aefx)"
   },
   {
@@ -3840,7 +3828,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Muddled Thoughts\" (aefx)"
   },
   {
@@ -3873,7 +3861,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"On Fire\" (aefx)"
   },
   {
@@ -3894,7 +3882,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Outlined\" (aefx)"
   },
   {
@@ -3919,7 +3907,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Peerless Athlete\" (aefx)"
   },
   {
@@ -3952,7 +3940,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Poison Protection\" (aefx)"
   },
   {
@@ -3985,7 +3973,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protected\" (aefx)"
   },
   {
@@ -4018,7 +4006,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protection\" (aefx)"
   },
   {
@@ -4042,7 +4030,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protection from Acid\" (aefx)"
   },
   {
@@ -4066,7 +4054,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protection from Cold\" (aefx)"
   },
   {
@@ -4090,7 +4078,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protection from Fire\" (aefx)"
   },
   {
@@ -4114,7 +4102,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protection from Lightning\" (aefx)"
   },
   {
@@ -4138,7 +4126,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Protection from Thunder\" (aefx)"
   },
   {
@@ -4159,7 +4147,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Rage\" (aefx)"
   },
   {
@@ -4190,7 +4178,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Reduced Movement\" (aefx)"
   },
   {
@@ -4210,7 +4198,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Regenerating\" (aefx)"
   },
   {
@@ -4230,7 +4218,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Resilient Sphere\" (aefx)"
   },
   {
@@ -4257,7 +4245,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Resistance: \" (aefx)"
   },
   {
@@ -4290,7 +4278,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Seared\" (aefx)"
   },
   {
@@ -4313,7 +4301,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Searing Radiance\" (aefx)"
   },
   {
@@ -4337,7 +4325,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Shimmering Field\" (aefx)"
   },
   {
@@ -4363,7 +4351,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Shining\" (aefx)"
   },
   {
@@ -4383,7 +4371,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Short Dance\" (aefx)"
   },
   {
@@ -4403,7 +4391,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Sleep: \" (aefx)"
   },
   {
@@ -4423,7 +4411,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Sleeping\" (aefx)"
   },
   {
@@ -4447,7 +4435,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Spectral Crown\" (aefx)"
   },
   {
@@ -4473,7 +4461,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Starry Form\" (aefx)"
   },
   {
@@ -4502,7 +4490,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Stonecunning\" (aefx)"
   },
   {
@@ -4531,7 +4519,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Stonecunning: Tremorsense\" (aefx)"
   },
   {
@@ -4565,7 +4553,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Stoneskin\" (aefx)"
   },
   {
@@ -4590,7 +4578,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Stunned\" (aefx)"
   },
   {
@@ -4610,7 +4598,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Suggestion\" (aefx)"
   },
   {
@@ -4630,7 +4618,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Suspended Animation\" (aefx)"
   },
   {
@@ -4655,7 +4643,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Synaptic Static: Muddled Thoughts\" (aefx)"
   },
   {
@@ -4679,7 +4667,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Thunder Protection\" (aefx)"
   },
   {
@@ -4699,7 +4687,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Trance State\" (aefx)"
   },
   {
@@ -4723,7 +4711,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Turning to Stone\" (aefx)"
   },
   {
@@ -4746,7 +4734,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Unbreakable Majesty\" (aefx)"
   },
   {
@@ -4766,7 +4754,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Uncontrollable Laughter\" (aefx)"
   },
   {
@@ -4786,7 +4774,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Universal Communication\" (aefx)"
   },
   {
@@ -4807,7 +4795,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Unrestricted Movement\" (aefx)"
   },
   {
@@ -4827,7 +4815,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Vicious Mockery\" (aefx)"
   },
   {
@@ -4847,7 +4835,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Violet Light\" (aefx)"
   },
   {
@@ -4901,12 +4889,11 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Warded\" (aefx)"
   },
   {
@@ -4932,7 +4919,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Warded by Law\" (aefx)"
   },
   {
@@ -4953,7 +4940,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Wielding Shadow Blade\" (aefx)"
   },
   {
@@ -4979,7 +4966,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Wreathed in Moonlight\" (aefx)"
   },
   {
@@ -5007,7 +4994,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Yolande's Regal Presence: Prone\" (aefx)"
   }
  ]

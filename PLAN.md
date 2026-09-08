@@ -25,9 +25,20 @@ decided while building is in [DESIGN.md](DESIGN.md). Each phase ends at a check-
 
 1. **The stock corpus is the D&D5e Animations corpus, kept whole.** Every row it holds is
    carried over. Nothing is retired to a rule.
+   **AMENDED 2026-09-08 (the user): one FX answers one key, and a row with no evidence is not
+   carried.** AA had a single namespace of names, so one row could stand for a spell, a feature
+   and an item at once. Carrying that shape made an FX claim to answer three things on the evidence
+   of one. A row now fans out into one FX per key it earned, and the 194 rows no list can key at
+   all are **dropped and listed** rather than guessed into three kinds. See §0.5 — this is the
+   same rule: it never guesses.
 2. **Zero loss.** The migration is complete only when every row plays through fxstudio with the
    same files, the same sound, and the same options it had under AA. This is measured, not
    judged (§4 step 4, §6 phase 1 exit).
+   **AMENDED 2026-09-08:** zero loss still binds *what is carried* — the proof is 1561 of 1561 at
+   the render. What is **not** carried is now named and counted instead of guessed: 194 rows with
+   no evidence and 81 keys a row lost to an earlier one, both in `recipes/migration-report.md`
+   under EXCEPTION. Against this world's actors the new keying agrees with AA on **more** than the
+   first migration did (694 of 736, up from 596).
 3. **The stock ships in this repo, attributed and licensed.** `recipes/stock.json` is a
    separate work under GPL-3 with attribution to D&D5e Animations 3.3.0 by MrVauxs and Sisimshow;
    the module's code stays MIT. A new campaign needs neither AA nor D&D5e Animations installed:

@@ -1,8 +1,8 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-06",
-  "tool": "tools/migrate-aa.mjs",
+  "generated": "2026-09-08",
+  "tool": "curated by hand",
   "sources": {
    "aa": "7.0.22",
    "dnd5eAnimations": "3.3.0",
@@ -12,155 +12,10 @@
    "dnd5e": null
   },
   "licence": "MIT",
-  "note": "The user's own looks: what this world changed over the stock at migration, and everything kept from the world buffer since (tools/export-looks.mjs).",
-  "fx": 7
+  "note": "The user's own FX. Two custom swords, each an Item Hook: it answers that one item and nothing else. Not written by tools/migrate-aa.mjs — that tool leaves this file alone. Add to it from the window (Save writes a Draft; Coverage stages and ships it) or with tools/export-fx.mjs.",
+  "fx": 2
  },
  "fx": [
-  {
-   "id": "sorcerous-burst",
-   "for": [
-    "spell:sorcerous-burst"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.guiding_bolt.01.blueyellow"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.projectile.instant.001"
-     },
-     "delay": 0
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "changed in this world: primary.video.menuType, primary.video.animation, primary.video.variant, primary.video.color, primary.video.enableCustom (Automated Animations 7.0.22)"
-  },
-  {
-   "id": "necrotic-burst",
-   "for": [
-    "natural:necrotic-burst"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.eldritch_blast.purple"
-     },
-     "sound": {
-      "asset": "psfx.cantrips.eldritch-blast.v1"
-     },
-     "delay": 0
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "changed in this world: primary.video.animation, primary.video.variant, primary.video.color, primary.video.enableCustom, primary.video.customPath, primary.sound.file +17 (Automated Animations 7.0.22)"
-  },
-  {
-   "id": "misty-step",
-   "for": [
-    "spell:misty-step",
-    "feature:misty-step"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.misty_step.01.blue"
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "size": {
-      "tokenWidths": 2.25
-     },
-     "fadeOut": 250,
-     "delay": 0,
-     "zIndex": 0,
-     "sound": {
-      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "destination",
-     "asset": {
-      "path": "jb2a.misty_step.02.blue"
-     },
-     "delay": 500,
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "size": {
-      "tokenWidths": 2.25
-     },
-     "fadeOut": 250,
-     "zIndex": 0
-    },
-    {
-     "shape": "move",
-     "after": 1000,
-     "fade": {
-      "to": 0.01,
-      "after": 750,
-      "back": 250
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "changed in this world: data.start.color, data.end.color (Automated Animations 7.0.22)"
-  },
-  {
-   "id": "unholy-word-harrow-vane",
-   "for": [],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "jb2a.markers.light.complete.yellow"
-     },
-     "sound": {
-      "asset": "psfx.cantrips.light.v1.001"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "opacity": 0.5,
-     "delay": 0,
-     "persist": "template"
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "the item's own look (Harrow Vane / Unholy Word) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
-  },
-  {
-   "id": "necrotic-burst-harrow-vane",
-   "for": [],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.eldritch_blast.purple"
-     },
-     "delay": 0
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "the item's own look (Harrow Vane / Necrotic Burst) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
-  },
   {
    "id": "first-light-thomas-a-invictus",
    "for": [],

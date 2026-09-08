@@ -1,12 +1,12 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-06",
+  "generated": "2026-09-08",
   "tool": "tools/migrate-aa.mjs",
   "sources": {
    "aa": "7.0.22",
    "dnd5eAnimations": "3.3.0",
-   "jb2a": "0.9.2",
+   "jb2a": "0.9.3",
    "psfx": "0.17.0",
    "sequencer": "4.2.3",
    "dnd5e": null
@@ -17,8 +17,8 @@
    "MrVauxs",
    "Sisimshow"
   ],
-  "note": "The items of the D&D5e Animations preset, migrated to looks keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 23
+  "note": "The items of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "fx": 25
  },
  "fx": [
   {
@@ -36,12 +36,11 @@
      },
      "asset": {
       "path": "jb2a.liquid.splash.dark_black"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Ink\" (ontoken)"
   },
   {
@@ -60,8 +59,7 @@
       "asset": "psfx.weapon-swooshes.light.v1.group01",
       "delay": 500
      },
-     "opacity": 0.8,
-     "delay": 0
+     "opacity": 0.8
     },
     {
      "shape": "mark",
@@ -86,7 +84,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Burnt Othur Fumes\" (range)"
   },
   {
@@ -105,8 +103,7 @@
       "asset": "psfx.weapon-swooshes.light.v1.group01",
       "delay": 500
      },
-     "opacity": 0.8,
-     "delay": 0
+     "opacity": 0.8
     },
     {
      "shape": "mark",
@@ -131,7 +128,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Essence of Ether\" (range)"
   },
   {
@@ -149,8 +146,7 @@
      "sound": {
       "asset": "psfx.weapon-swooshes.light.v1",
       "delay": 500
-     },
-     "delay": 0
+     }
     },
     {
      "shape": "mark",
@@ -172,7 +168,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Holy Water\" (range)"
   },
   {
@@ -190,8 +186,7 @@
      "sound": {
       "asset": "psfx.weapon-swooshes.light.v1.group01",
       "delay": 500
-     },
-     "delay": 0
+     }
     },
     {
      "shape": "mark",
@@ -217,13 +212,34 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Malice\" (range)"
   },
   {
    "id": "acid-vial",
    "for": [
-    "item:acid-vial",
+    "item:acid-vial"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "path": "jb2a.liquid.splash.green"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Acid (vial)\" (ontoken)"
+  },
+  {
+   "id": "acid",
+   "for": [
     "item:acid"
    ],
    "on": "use",
@@ -236,12 +252,11 @@
      "opacity": 0.8,
      "asset": {
       "path": "jb2a.liquid.splash.green"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Acid (vial)\" (ontoken)"
   },
   {
@@ -264,12 +279,11 @@
        0,
        0
       ]
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Assassin's Blood\" (ontoken)"
   },
   {
@@ -287,12 +301,11 @@
      "opacity": 0.8,
      "asset": {
       "path": "jb2a.liquid.splash.grey"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Crawler Mucus\" (ontoken)"
   },
   {
@@ -315,13 +328,37 @@
        0,
        0
       ]
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Midnight Tears\" (ontoken)"
+  },
+  {
+   "id": "net-mark",
+   "for": [
+    "item:net"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.weapon-swooshes.heavy.v1",
+      "start": 500
+     },
+     "rate": 0.25,
+     "mask": true,
+     "asset": {
+      "file": "icons/tools/fishing/net-tan.webp"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Net\" (ontoken)"
   },
   {
    "id": "oil-of-taggit",
@@ -338,12 +375,11 @@
      },
      "asset": {
       "path": "jb2a.liquid.splash.dark_black"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Oil of Taggit\" (ontoken)"
   },
   {
@@ -366,12 +402,11 @@
        0,
        0
       ]
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Pale Tincture\" (ontoken)"
   },
   {
@@ -398,7 +433,6 @@
       "level": -2,
       "absolute": false
      },
-     "delay": 0,
      "wait": true,
      "follow": true
     },
@@ -429,12 +463,11 @@
      "elevation": {
       "level": -2,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Potion of Greater Healing\" (ontoken)"
   },
   {
@@ -461,7 +494,6 @@
       "level": -2,
       "absolute": false
      },
-     "delay": 0,
      "wait": true,
      "follow": true
     },
@@ -492,12 +524,11 @@
      "elevation": {
       "level": -2,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
   },
   {
@@ -524,7 +555,6 @@
       "level": -2,
       "absolute": false
      },
-     "delay": 0,
      "wait": true,
      "follow": true
     },
@@ -541,12 +571,11 @@
        0,
        0
       ]
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Potion of Poison\" (ontoken)"
   },
   {
@@ -573,7 +602,6 @@
       "level": -2,
       "absolute": false
      },
-     "delay": 0,
      "wait": true,
      "follow": true
     },
@@ -603,12 +631,11 @@
      "elevation": {
       "level": -2,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Potion of Superior Healing\" (ontoken)"
   },
   {
@@ -635,7 +662,6 @@
       "level": -2,
       "absolute": false
      },
-     "delay": 0,
      "wait": true,
      "follow": true
     },
@@ -665,12 +691,11 @@
      "elevation": {
       "level": -2,
       "absolute": false
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Potion of Supreme Healing\" (ontoken)"
   },
   {
@@ -689,12 +714,11 @@
      "opacity": 0.8,
      "asset": {
       "path": "jb2a.liquid.splash.bright_purple"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Purple Worm Poison\" (ontoken)"
   },
   {
@@ -713,12 +737,11 @@
      "opacity": 0.8,
      "asset": {
       "path": "jb2a.liquid.splash.green"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Serpent Venom\" (ontoken)"
   },
   {
@@ -741,12 +764,11 @@
        0,
        0
       ]
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Torpor\" (ontoken)"
   },
   {
@@ -770,12 +792,11 @@
        0,
        0
       ]
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Truth Serum\" (ontoken)"
   },
   {
@@ -794,12 +815,11 @@
      },
      "asset": {
       "path": "jb2a.claws.400px.dark_red"
-     },
-     "delay": 0
+     }
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Wyvern Poison\" (ontoken)"
   },
   {
@@ -818,12 +838,11 @@
       "fit": "shape"
      },
      "below": true,
-     "delay": 0,
      "persist": "template"
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Ball Bearings\" (templatefx)"
   },
   {
@@ -885,7 +904,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-06",
+   "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Caltrops\" (preset)"
   }
  ]

@@ -171,7 +171,9 @@ try {
         // the token is placed a second after the pictures end: wait for the landing (or for a refusal to stand) before measuring
         const play = async (destination, extra = {}) => { const moment = { when: 'use', kind: 'use', subject: api.subjects.ofItem(it), source: caster, targets: [], origin: it?.uuid ?? 'test', id: `replay-move-${Date.now()}`, destination }; const e = await api.play(moment, extra); const want = canvas.grid.getTopLeftPoint(destination); for (let i = 0; i < 60 && e.played && (caster.document.x !== want.x || caster.document.y !== want.y); i++) await sleep(100); await sleep(1500 + watch); return e; };
         let e = await play({ x: 350, y: 850 });
-        ok('§9 Misty Step: the house fx played the move', e?.fx === 'misty-step' && e.source === 'house' && e.played, `${e?.source} ${files(e)}`);
+        // the house Misty Step (this world's colour override) went when the user cut the house corpus
+        // to its two custom swords (2026-09-08); the Stock FX answers now, and it moves the same
+        ok('§9 Misty Step: the stock fx played the move', e?.fx === 'misty-step' && e.source === 'stock' && e.played, `${e?.source} ${files(e)}`);
         ok('§9 Misty Step: the token moved to the destination', caster.document.x === 300 && caster.document.y === 800, `${caster.document.x},${caster.document.y}`);
         ok('§9 the sentence says what the spot must be', /an unoccupied space they can see/.test(api.sentenceFor(it).sentence), api.sentenceFor(it).sentence);
         await moveTo(caster, before.x, before.y);

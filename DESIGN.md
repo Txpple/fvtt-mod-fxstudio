@@ -1333,3 +1333,72 @@ a group head is plainly painted, not another grey band; Import is right-justifie
 the same height as the box; the stepper's count matches what it lists; and the caption names the
 very stop the dropdown is on, word for word. `check-imports` (31), `check-layers` (73),
 `check-legacy` green.
+
+## 14. One FX, one key (the user's ruling, 2026-09-08)
+
+The user opened the Editor on **Absorb Elements** and found it answering `spell:`, `feature:` and
+`item:` while the Library's Features facet did not list it at all:
+
+> *"yea so absorb elements is really keyed to a spell because it doesnt show if i select features…
+> but it answers to all three in the editor … which i think is factually wrong then?"* ·
+> *"i think the idea was that an fx only has one key… if we wanted an item absorb elements, that'd
+> be a separate fx. the migration should have handled that."*
+
+**Both screens were reporting honestly and one of them was wrong.** `corpus.js` indexes every key an
+FX carries, so a feature named Absorb Elements really did play it — the Editor's three pills were
+the truth. The Library files a row by `keys[0]` alone, so it showed 277 Features where 501 FX
+answered one. The fix was neither screen: **the data was wrong**, and once it is one-key the
+Library's first-key filing is correct by construction.
+
+### What the migration does now
+
+A row fans out into **one FX per key it earned**. Where a key was earned twice, Automated
+Animations' own precedence keeps it — its exact-match rows first, then its menu order, which is what
+answered at the table under AA.
+
+| Ruling | Then | Now |
+| --- | --- | --- |
+| **a · key by evidence** | one FX, every kind the lists found | one FX per key; `kindsOfName` is unchanged, the fan-out is new |
+| **b · no evidence** | keyed `spell:` + `feature:` + `item:`, blind | **not carried**, 194 rows, EXCEPTION table in the report |
+| **c · two rows, one key** | both written; the loser could never answer | the winner is written, **81** losers listed, EXCEPTION table |
+
+**b is the point of the whole thing.** That fallback was the one place the corpus guessed, and it
+guessed 194 times × 3. It is gone. Each of those rows is one FX away if it turns out to be wanted.
+
+### Measured
+
+| | Before | After |
+| --- | --- | --- |
+| Stock FX | 1289 | **1554** (one key each — 0 carry more) |
+| Keys | 2191 | 1554 |
+| Agrees with AA on this world's actors | 596 of 736 | **694 of 736** |
+| Plays nothing that AA played | 6 | 9 — the three new are all on `BF Test Shielder`, a Battle Flow fixture added since |
+| Render proof | 1296 of 1296 | **1561 of 1561** |
+
+`check-fx` 1566 FX / 3791 assets / 0 invalid · `smoke-fx` 1556 build · `smoke-replay` 45 of 45 ·
+`smoke-author` 15 of 15 · `smoke-screens` 178 of 178.
+
+### The house corpus, and why the tool no longer writes it
+
+`recipes/house.json` was written once by `migrate-aa.mjs` and **curated by hand since** — commit
+`4d7e3f9` re-keyed four of its FX as Item Hooks (`for: []`) with `tools/bind-item-fx.mjs`. A
+regeneration would have handed those keys back and turned an Item Hook into a Global Hook, so a
+custom sword would have started firing for every sword of that name on every actor. **The tool now
+leaves the file alone** and writes what it would have made to `dist/house-from-migration.json`.
+
+The user then cut the house corpus to what they actually wanted:
+
+> *"i only want to keep first light and goldthorn, and make those items. its just custom swords.
+> delete the others."*
+
+So house is **two Item Hooks**: `first-light-thomas-a-invictus` and `goldthorn-jetten-elisedil`.
+Gone with the rest: the world's Misty Step colour override and its Sorcerous Burst animation
+override, which now fall through to Stock — `smoke-replay` §9 says so out loud. `bind-item-fx.mjs`
+also **unbinds** now: Harrow Vane's two items were pointing at FX that no longer exist.
+
+### Not newer, and checked
+
+The user asked for D&D5e Animations' latest set. **3.3.0 is the latest** (released 2026-04-28) and
+the installed `module/autorec.json` is byte-identical to the released asset, sha256
+`b5244e40…`. `master` has moved since, but only a Polish translation, a CHANGELOG line and a
+`version: "dev"` bump — the animation set itself has not changed. Nothing to bring down.
