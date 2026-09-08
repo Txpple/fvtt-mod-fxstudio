@@ -55,13 +55,13 @@ const AT_OF = { source: 'source', default: 'targets-else-source', target: 'each-
  * @returns {fx, notes: [sentences about what was translated with a difference]}
  */
 export function rowToFx(row, nativiser, { id, keys, on }) {
-  const { assetFor, firstFile } = nativiser;
+  const { assetFor, firstFile, isLibraryPath } = nativiser;
   const notes = [];
   const scenes = [];
   const assetOf = (layer, where) => {
     if (!layer) return undefined;
     if (layer.aa) { const r = assetFor(layer.aa); if (r.note) notes.push(`${where}: ${r.note}`); return r.asset; }
-    if (layer.file) return { file: layer.file };
+    if (layer.file) return isLibraryPath(layer.file) ? { path: layer.file } : { file: layer.file };
     return undefined;
   };
   const clean = (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v)));
@@ -202,7 +202,7 @@ export function rowToFx(row, nativiser, { id, keys, on }) {
       if (d.preExplosion?.enable && (d.preExplosion.aa || d.preExplosion.file)) { const o = d.preExplosion.options; scenes.push(trim({ shape: 'mark', at: 'template', asset: assetOf(d.preExplosion, 'pre-explosion'), sound: preSound, size: { fit: 'object', scale: o.scale }, ...repeatOf(o), rate: o.playbackRate, wait: o.wait === 0 ? true : o.wait, aboveLighting: o.aboveTemplate || undefined, ...elevationOf(o, 'both'), fadeIn: 0, fadeOut: 0, zIndex: 0 })); }
       else if (preSound) scenes.push({ shape: 'sound', ...preSound });
       { const o = d.explosion.options; scenes.push(trim({ shape: 'mark', at: 'template', asset: assetOf(d.explosion, 'explosion'), sound: soundOf(d.explosion.sound), size: { fit: 'object', scale: o.scale }, ...repeatOf(o), zIndex: 5, rate: o.playbackRate, wait: -750 + o.wait === 0 ? true : -750 + o.wait, aboveLighting: o.aboveTemplate || undefined, ...elevationOf(o, 'both'), fadeIn: 0, fadeOut: 0 })); }
-      if (d.afterImage?.customPath) { const o = d.afterImage.options; scenes.push(trim({ shape: 'mark', at: 'template', asset: { file: d.afterImage.customPath }, size: { fit: 'object', scale: o.scale }, persist: o.persistent ? 'until-removed' : 'none', fadeIn: 250, fadeOut: 500, ...elevationOf(o, 'both'), zIndex: 0 })); }
+      if (d.afterImage?.customPath) { const o = d.afterImage.options; scenes.push(trim({ shape: 'mark', at: 'template', asset: isLibraryPath(d.afterImage.customPath) ? { path: d.afterImage.customPath } : { file: d.afterImage.customPath }, size: { fit: 'object', scale: o.scale }, persist: o.persistent ? 'until-removed' : 'none', fadeIn: 250, fadeOut: 500, ...elevationOf(o, 'both'), zIndex: 0 })); }
       scenes.push(...extras(row, { secondaryAt: 'each-target', targetAt: 'each-target' }));
       break;
     }

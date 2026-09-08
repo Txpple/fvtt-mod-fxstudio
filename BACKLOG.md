@@ -74,12 +74,16 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 
 ## Found while bug testing (2026-09-07)
 
-- **502 migrated assets are keyed `"file"` when they are library paths** (of 634 with that key:
-  `{"file": "jb2a.scorched_earth.black"}`, no slash in it). They play — Sequencer takes a path
-  where a file is asked for — but the screens read them as raw files: no Colour dropdown on the
-  scene row, and the deep-link into the Asset Library only works because `slotPath` now accepts a
-  slashless file. Re-keying them `"path"` in `recipes/stock/*.json` is a one-pass tool and a
-  measurable diff; parked for the user's word.
+- ~~**502 migrated assets are keyed `"file"` when they are library paths.**~~ **DONE 2026-09-08**
+  (the user: *"what i want is CLEAN data right now"*). Fixed at the writer, not by patching the
+  JSON: `rows.mjs` asks the nativiser's new `isLibraryPath()` whether a slashless value names a
+  real node in JB2A's own database, and writes `path` when it does. 393 → **3**, library paths 893
+  → **1284**, and the render proof says **1029 of 1029 equal** — the value never changed, only the
+  key it is written under. The three left (`jb2a.melee_generic.whirlwind.01.orange.0`) end in an
+  index into a node's file list, which is not a node; they stay `file` and resolve.
+  The **88 raw module paths that remain are genuinely files** — JB2A's database does not name them
+  individually — as are the 29 distinct raw sound files (measured: not one has a single-file leaf
+  in JB2A's or PSFX's registration).
 
 ## Found while building the revamp (2026-09-07)
 

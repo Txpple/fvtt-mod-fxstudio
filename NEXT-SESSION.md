@@ -24,7 +24,7 @@ it, prove it with the suites, and report. That is the whole method. It replaced 
   screen was right and something else was wrong — a CSS specificity bug made a working filter look
   random, and the Editor was honestly displaying data that should not have existed.
 
-## 2. What was ruled and built (DESIGN §10–17)
+## 2. What was ruled and built (DESIGN §10–18)
 
 | | |
 | --- | --- |
@@ -33,6 +33,7 @@ it, prove it with the suites, and report. That is the whole method. It replaced 
 | §12 | **What the tab does.** A row takes no action; the search matches the name alone; Assets browses and does not write; Revert folded into Delete, which unpins what pointed at the FX. |
 | §13 | **The screen the user drew.** No dropdown; Delete · Editor on every row, double click opens the Editor; amber group heads; Import on the search row; the sound stepper stands on files, not just variants. |
 | §14 | **ONE FX ANSWERS ONE KEY**, and the closed lists audited. The big one — see §3. |
+| §18 | **Clean data.** 393 library paths had been written as raw files since the migration (the oldest backlog item); fixed at the writer, proof 1029 of 1029. Structurally the corpus is clean: no duplicate ids, no key collisions, every key has a record. |
 | §17 | **No SRD 5.1.** Every dnd5e pack labelled "(SRD)" dropped from the evidence. Stock 1279 → 1022, records 4913 → 4168, and the census did not move a line — almost all of it was the SRD's magic-weapon variants, which the base-weapon key answers anyway. |
 | §16 | **Stock is the books; House is this table.** This world's items stopped being evidence for Stock: 7 FX left it, 5 of them pure redundancy. Vesper Staff and Necrotic Scythe moved into `house.json` on the user's word, so nothing changed at the table. |
 | §15 | **The record door.** Every row in the Library opens the compendium record (or world item) its key was earned against — 1288 of 1288, no gaps. `recipes/records.json` addresses every key the closed lists hold; the address is settled where the key is earned, never searched for by name at the table. |
@@ -87,7 +88,7 @@ Everything is committed and green. Nothing is half-built.
 | `ui/sheet.js` | the Editor tab: action bar, sentence, hook strip, sequence, note |
 | `ui/library.js` | the Asset Library and the picker; browses, does not write |
 | `ui/coverage.js` | Maintain, two scopes, four tiles, the rows |
-| Suites | `smoke-screens` **182** · `smoke-author` **15** · `smoke-fx` **1288** · `smoke-replay` **45** · `check-fx` 1298 fx / 0 invalid · imports/layers/legacy green |
+| Suites | `smoke-screens` **182** · `smoke-author` **15** · `smoke-fx` **1026** · `smoke-replay` **45** · `check-fx` 1036 fx / 0 invalid · imports/layers/legacy green |
 
 Sandbox verified byte-identical to the repo on 2026-09-08, its two item pointers live, its two
 Drafts still coherent. A stale `scripts/core/looks.js` and a stale `fvtt-mod-fxstudio.looks` world

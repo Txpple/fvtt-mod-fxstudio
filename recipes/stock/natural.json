@@ -69,7 +69,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.battleaxe.01"
+      "path": "jb2a.melee_attack.02.battleaxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -91,7 +91,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.club.01"
+      "path": "jb2a.melee_attack.02.club.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -503,7 +503,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.two_handed"
+      "path": "jb2a.melee_generic.slashing.two_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3",
@@ -525,7 +525,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -549,7 +549,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -573,7 +573,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -597,7 +597,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -621,7 +621,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -645,7 +645,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -669,7 +669,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -693,7 +693,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -717,7 +717,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -741,7 +741,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -765,7 +765,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -789,7 +789,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -813,7 +813,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -837,7 +837,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -861,7 +861,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -885,7 +885,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.club.01"
+      "path": "jb2a.melee_attack.02.club.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -906,7 +906,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.fist.001.yellow"
+      "path": "jb2a.melee_generic.creature_attack.fist.001.yellow"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Bludgeoning/bludgeoning-swing-impact-blunt-2.mp3"
@@ -930,7 +930,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.fist.001.yellow"
+      "path": "jb2a.melee_generic.creature_attack.fist.001.yellow"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Bludgeoning/bludgeoning-swing-impact-blunt-2.mp3"
@@ -954,7 +954,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -1054,7 +1054,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.one_handed"
+      "path": "jb2a.melee_generic.slashing.one_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1075,7 +1075,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.one_handed"
+      "path": "jb2a.melee_generic.slashing.one_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1096,7 +1096,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.one_handed"
+      "path": "jb2a.melee_generic.slashing.one_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1117,7 +1117,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1141,7 +1141,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.green"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.green"
      },
      "sound": {
       "asset": "psfx.impacts.magicaleffects.generic.002.003",
@@ -1166,7 +1166,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.green"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.green"
      },
      "sound": {
       "asset": "psfx.impacts.magicaleffects.generic.002.003",
@@ -1222,7 +1222,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.hammer.01"
+      "path": "jb2a.melee_attack.02.hammer.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -1547,7 +1547,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -1568,7 +1568,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -1589,7 +1589,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.03.maul.01"
+      "path": "jb2a.melee_attack.03.maul.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1",
@@ -1611,7 +1611,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.pincer.001.red"
+      "path": "jb2a.melee_generic.creature_attack.pincer.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-hit-2.mp3"
@@ -1765,7 +1765,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*",
@@ -1793,7 +1793,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1817,7 +1817,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1841,7 +1841,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1865,7 +1865,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1889,7 +1889,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1913,7 +1913,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -1937,7 +1937,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.05.scythe.01"
+      "path": "jb2a.melee_attack.05.scythe.01"
      },
      "sound": {
       "asset": "psfx.impacts.slashing.v1"
@@ -1958,7 +1958,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.01.sickle.01"
+      "path": "jb2a.melee_attack.01.sickle.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -1980,7 +1980,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slash.02.001.orange"
+      "path": "jb2a.melee_generic.slash.02.001.orange"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -2004,7 +2004,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slash.02.001.orange"
+      "path": "jb2a.melee_generic.slash.02.001.orange"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -2028,7 +2028,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slash.02.001.orange"
+      "path": "jb2a.melee_generic.slash.02.001.orange"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -2052,7 +2052,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slash.02.001.orange"
+      "path": "jb2a.melee_generic.slash.02.001.orange"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -2076,7 +2076,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slash.02.001.orange"
+      "path": "jb2a.melee_generic.slash.02.001.orange"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -2100,7 +2100,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slash.02.001.orange"
+      "path": "jb2a.melee_generic.slash.02.001.orange"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
@@ -3081,7 +3081,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh-*"
@@ -3154,7 +3154,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.two_handed"
+      "path": "jb2a.melee_generic.slashing.two_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3",
@@ -3176,7 +3176,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.04.projectile.01.blue"
+      "path": "jb2a.ranged.04.projectile.01.blue"
      },
      "sound": {
       "asset": "psfx.casting.water.001"
@@ -3328,7 +3328,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3349,7 +3349,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3370,7 +3370,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3391,7 +3391,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3412,7 +3412,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3433,7 +3433,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3454,7 +3454,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3475,7 +3475,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3496,7 +3496,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3517,7 +3517,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3538,7 +3538,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3559,7 +3559,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.bluegreen"
+      "path": "jb2a.ranged.03.projectile.01.bluegreen"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.complete.001"
@@ -3839,7 +3839,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.01.projectile.01.dark_purple"
+      "path": "jb2a.ranged.01.projectile.01.dark_purple"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.projectile.instant.003",
@@ -3861,7 +3861,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.04.projectile.01.green"
+      "path": "jb2a.ranged.04.projectile.01.green"
      },
      "sound": {
       "asset": "psfx.cantrips.poison-spray",
@@ -3883,7 +3883,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.04.projectile.01.green"
+      "path": "jb2a.ranged.04.projectile.01.green"
      },
      "sound": {
       "asset": "psfx.cantrips.poison-spray",
@@ -4040,7 +4040,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.04.projectile.01.blue"
+      "path": "jb2a.ranged.04.projectile.01.blue"
      },
      "sound": {
       "asset": "psfx.2nd-level-spells.misty-step.v1.intro.water"
@@ -4130,14 +4130,14 @@
       "asset": "psfx.casting.generic.002.001"
      },
      "asset": {
-      "file": "jb2a.glint.purple.many"
+      "path": "jb2a.glint.purple.many"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.glint.purple.many"
+      "path": "jb2a.glint.purple.many"
      },
      "elevation": {
       "level": 999,
@@ -4164,14 +4164,14 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swarm.mp3"
      },
      "asset": {
-      "file": "jb2a.butterflies.many.orange"
+      "path": "jb2a.butterflies.many.orange"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.butterflies.many.orange"
+      "path": "jb2a.butterflies.many.orange"
      },
      "size": {
       "tokenWidths": 1.7999999999999998
@@ -4191,7 +4191,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.butterflies.many.orange"
+      "path": "jb2a.butterflies.many.orange"
      },
      "size": {
       "tokenWidths": 1.125
@@ -4275,7 +4275,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh*"
      },
      "asset": {
-      "file": "jb2a.melee_generic.slashing.two_handed"
+      "path": "jb2a.melee_generic.slashing.two_handed"
      }
     }
    ],

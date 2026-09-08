@@ -3,10 +3,10 @@
   "schema": 1,
   "generated": "2026-09-08",
   "tool": "tools/records.mjs",
-  "keys": 4168,
+  "keys": 4179,
   "kinds": {
-   "effect": 1081,
-   "feature": 1363,
+   "effect": 1090,
+   "feature": 1365,
    "item": 862,
    "natural": 251,
    "spell": 436,
@@ -20,6 +20,8 @@
    "phb/equipment",
    "dnd5e/spells24",
    "dnd5e/feats24",
+   "dnd5e/classes24",
+   "dnd5e/origins24",
    "dnd5e/monsterfeatures24",
    "dnd5e/equipment24",
    "dmg/equipment",
@@ -1719,6 +1721,11 @@
    "name": "Divine Foreknowledge",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "effect:divine-order-protector": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbDivineOrderPr",
+   "name": "Divine Order: Protector",
+   "where": "dnd5e · Character Classes"
+  },
   "effect:divine-sense": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnChannelDiv",
    "name": "Channel Divinity",
@@ -1833,6 +1840,11 @@
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgEfreetiChain0",
    "name": "Efreeti Chain",
    "where": "dnd5e · Equipment"
+  },
+  "effect:eldritch-mind": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbinvEldritchMi",
+   "name": "Eldritch Mind",
+   "where": "dnd5e · Character Classes"
   },
   "effect:eldritch-spear": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvEldritchSp",
@@ -2999,6 +3011,16 @@
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
   },
+  "effect:investment-of-flight": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbinvInvestment",
+   "name": "Investment of the Chain Master",
+   "where": "dnd5e · Character Classes"
+  },
+  "effect:investment-of-swimming": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbinvInvestment",
+   "name": "Investment of the Chain Master",
+   "where": "dnd5e · Character Classes"
+  },
   "effect:invisible": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGreaterInv",
    "name": "Greater Invisibility",
@@ -3209,6 +3231,11 @@
    "name": "Magic Weapon",
    "where": "Player's Handbook · Spells"
   },
+  "effect:magician": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbPrimalOrderMa",
+   "name": "Primal Order: Magician",
+   "where": "dnd5e · Character Classes"
+  },
   "effect:magician-checks--cantrip": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbPrimalOrderMa",
    "name": "Primal Order: Magician",
@@ -3373,6 +3400,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:natures-ward": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbdrdNaturesWar",
+   "name": "Nature's Ward",
+   "where": "dnd5e · Character Classes"
   },
   "effect:natures-ward-arid": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdNaturesSan",
@@ -3688,6 +3720,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbPrimalKnow",
    "name": "Primal Knowledge",
    "where": "Player's Handbook · Character Classes"
+  },
+  "effect:primal-order-warden": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbPrimalOrderWa",
+   "name": "Primal Order: Warden",
+   "where": "dnd5e · Character Classes"
   },
   "effect:prismatic-blinding": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticW",
@@ -4849,6 +4886,11 @@
    "name": "Antipathy/Sympathy",
    "where": "Player's Handbook · Spells"
   },
+  "effect:tactial-master": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbftrTacticalMa",
+   "name": "Tactical Master",
+   "where": "dnd5e · Character Classes"
+  },
   "effect:tactical-master": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrTacticalMa",
    "name": "Tactical Master",
@@ -5393,6 +5435,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWish000000",
    "name": "Wish",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:witch-sight": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbinvWitchSight",
+   "name": "Witch Sight",
+   "where": "dnd5e · Character Classes"
   },
   "effect:withered": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgStaffOfWither",
@@ -6423,6 +6470,16 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcChannelDiv",
    "name": "Channel Divinity",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:channel-divinity-cleric": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbclcChannelDiv",
+   "name": "Channel Divinity",
+   "where": "dnd5e · Character Classes"
+  },
+  "feature:channel-divinity-paladin": {
+   "uuid": "Compendium.dnd5e.classes24.Item.phbpdnChannelDiv",
+   "name": "Channel Divinity",
+   "where": "dnd5e · Character Classes"
   },
   "feature:channeler": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSChannelerlK",

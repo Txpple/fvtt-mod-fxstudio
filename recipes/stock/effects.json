@@ -453,7 +453,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.markers.on_token_mask.loop.01.yellow02"
+      "path": "jb2a.markers.on_token_mask.loop.01.yellow02"
      }
     }
    ],
@@ -744,7 +744,7 @@
      },
      "persist": "effect",
      "asset": {
-      "file": "jb2a.aura_themed.01.orbit.loop.metal.01.teal"
+      "path": "jb2a.aura_themed.01.orbit.loop.metal.01.teal"
      }
     }
    ],
@@ -863,7 +863,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.wind_stream.400.white"
+      "path": "jb2a.wind_stream.400.white"
      }
     }
    ],
@@ -963,7 +963,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.particles.outward.orange.01.03"
+      "path": "jb2a.particles.outward.orange.01.03"
      }
     }
    ],
@@ -1162,7 +1162,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.wind_stream.400.white"
+      "path": "jb2a.wind_stream.400.white"
      }
     }
    ],
@@ -1183,7 +1183,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.wind_stream.400.white"
+      "path": "jb2a.wind_stream.400.white"
      }
     }
    ],
@@ -1256,7 +1256,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.wind_stream.400.white"
+      "path": "jb2a.wind_stream.400.white"
      }
     }
    ],
@@ -1345,7 +1345,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.particles.outward.blue.01.03"
+      "path": "jb2a.particles.outward.blue.01.03"
      }
     }
    ],
@@ -1370,7 +1370,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.markers.on_token_mask.loop.01.yellow02"
+      "path": "jb2a.markers.on_token_mask.loop.01.yellow02"
      }
     }
    ],
@@ -1490,7 +1490,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.markers.on_token_mask.loop.01.yellow02"
+      "path": "jb2a.markers.on_token_mask.loop.01.yellow02"
      }
     }
    ],
@@ -1541,7 +1541,7 @@
      "at": "source",
      "persist": "effect",
      "asset": {
-      "file": "jb2a.energy_strands.02.marker.orangered"
+      "path": "jb2a.energy_strands.02.marker.orangered"
      }
     }
    ],
@@ -1756,7 +1756,7 @@
      "shape": "aura",
      "at": "source",
      "asset": {
-      "file": "jb2a.soundwave.01.multicolored01"
+      "path": "jb2a.soundwave.01.multicolored01"
      },
      "size": {
       "radius": 2,
@@ -1974,7 +1974,7 @@
      "mask": true,
      "persist": "effect",
      "asset": {
-      "file": "jb2a.wind_stream.400.white"
+      "path": "jb2a.wind_stream.400.white"
      }
     }
    ],
@@ -2058,7 +2058,7 @@
      },
      "persist": "effect",
      "asset": {
-      "file": "jb2a.cast_shape.circle.single01.blue"
+      "path": "jb2a.cast_shape.circle.single01.blue"
      }
     }
    ],

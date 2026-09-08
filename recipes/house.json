@@ -108,7 +108,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.05.scythe.01"
+      "path": "jb2a.melee_attack.05.scythe.01"
      },
      "sound": {
       "asset": "psfx.impacts.slashing.v1"

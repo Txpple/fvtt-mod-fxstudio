@@ -137,5 +137,14 @@ export function makeNativiser({ jb2a, twin }) {
     return node === undefined ? null : first(node);
   }
 
-  return { assetFor, firstFile, stats, frozenTable, frozenPaths };
+  /**
+   * A slashless value that names a real node in JB2A's own database is a PATH, not a file. AA let a
+   * person type either into its custom-path box, so its rows hold both; carrying the string through
+   * verbatim played correctly (Sequencer takes either) but told the screens it was a raw file —
+   * no colour, no variants, no Asset Library. The value is unchanged; only the key it is written
+   * under changes, and only when the library really holds it.
+   */
+  const isLibraryPath = (v) => typeof v === 'string' && !v.includes('/') && v.startsWith('jb2a.') && nodeAt(jb2a, v) !== undefined;
+
+  return { assetFor, firstFile, isLibraryPath, stats, frozenTable, frozenPaths };
 }

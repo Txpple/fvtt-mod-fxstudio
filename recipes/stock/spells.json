@@ -66,7 +66,7 @@
       "tokenWidths": 2.25
      },
      "asset": {
-      "file": "jb2a.markers.light.complete.yellow"
+      "path": "jb2a.markers.light.complete.yellow"
      }
     }
    ],
@@ -538,7 +538,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.pinkpurple"
+      "path": "jb2a.ranged.03.projectile.01.pinkpurple"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.only.002"
@@ -548,7 +548,7 @@
      "shape": "mark",
      "at": "impact",
      "asset": {
-      "file": "jb2a.energy_attack.01.dark_purple"
+      "path": "jb2a.energy_attack.01.dark_purple"
      },
      "sound": {
       "asset": "psfx.casting.generic.002.003",
@@ -699,7 +699,7 @@
      "shape": "mark",
      "at": "impact",
      "asset": {
-      "file": "jb2a.energy_attack.01.dark_purple"
+      "path": "jb2a.energy_attack.01.dark_purple"
      },
      "sound": {
       "asset": "psfx.cantrips.toll-the-dead.v1.001",
@@ -902,7 +902,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.02.instant.01.yellow"
+      "path": "jb2a.ranged.02.instant.01.yellow"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.only.001",
@@ -1126,7 +1126,7 @@
      "shape": "mark",
      "at": "impact",
      "asset": {
-      "file": "jb2a.condition.curse.01.003.purple"
+      "path": "jb2a.condition.curse.01.003.purple"
      },
      "size": {
       "tokenWidths": 2.25
@@ -1201,7 +1201,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.04.projectile.01.green"
+      "path": "jb2a.ranged.04.projectile.01.green"
      },
      "sound": {
       "asset": "psfx.cantrips.poison-spray",
@@ -1224,7 +1224,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.flames.01.orange"
+      "path": "jb2a.flames.01.orange"
      },
      "sound": {
       "asset": "psfx.impacts.magicaleffects.fire"
@@ -1264,7 +1264,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.03.projectile.01.pinkpurple"
+      "path": "jb2a.ranged.03.projectile.01.pinkpurple"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.only.001"
@@ -1370,7 +1370,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged.02.projectile.01.blue"
+      "path": "jb2a.ranged.02.projectile.01.blue"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.projectile.instant.001"
@@ -1478,7 +1478,7 @@
     {
      "shape": "shoot",
      "asset": {
-      "file": "jb2a.ranged_helix.001.bluepurple"
+      "path": "jb2a.ranged_helix.001.bluepurple"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.beam.003",
@@ -1593,14 +1593,14 @@
       "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.009.red"
+      "path": "jb2a.condition.boon.01.009.red"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.009",
@@ -1825,7 +1825,7 @@
       "tokenWidths": 4.5
      },
      "asset": {
-      "file": "jb2a.portals.vertical.vortex.orange"
+      "path": "jb2a.portals.vertical.vortex.orange"
      },
      "below": true,
      "anchor": {
@@ -2222,7 +2222,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.two_handed"
+      "path": "jb2a.melee_generic.slashing.two_handed"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.only.001"
@@ -2492,7 +2492,7 @@
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.spiritual_weapon.greatsword.01.astral.01.purple"
+      "path": "jb2a.spiritual_weapon.greatsword.01.astral.01.purple"
      },
      "size": {
       "radius": 1.5
@@ -2569,7 +2569,7 @@
       "asset": "psfx.casting.generic.002.003"
      },
      "asset": {
-      "file": "jb2a.markers.simple.001.complete.004.green"
+      "path": "jb2a.markers.simple.001.complete.004.green"
      }
     }
    ],
@@ -2638,14 +2638,14 @@
       "delay": 100
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.016.red"
+      "path": "jb2a.condition.boon.01.016.red"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.016",
@@ -2681,14 +2681,14 @@
       "delay": 100
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.014.red"
+      "path": "jb2a.condition.boon.01.014.red"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.016",
@@ -2726,7 +2726,7 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.013.green"
+      "path": "jb2a.condition.curse.01.013.green"
      }
     }
    ],
@@ -2792,7 +2792,7 @@
       "saturation": -1
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.002.green"
+      "path": "jb2a.condition.curse.01.002.green"
      }
     },
     {
@@ -2851,7 +2851,7 @@
       "saturation": 0
      },
      "asset": {
-      "file": "jb2a.extras.tmfx.runes.circle.inpulse.necromancy"
+      "path": "jb2a.extras.tmfx.runes.circle.inpulse.necromancy"
      },
      "repeat": 5,
      "every": 2000
@@ -2888,7 +2888,7 @@
       "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.013.purple"
+      "path": "jb2a.condition.curse.01.013.purple"
      }
     }
    ],
@@ -2995,14 +2995,14 @@
       "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.001.red"
+      "path": "jb2a.condition.boon.01.001.red"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.009",
@@ -3061,7 +3061,7 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.003.purple"
+      "path": "jb2a.condition.curse.01.003.purple"
      }
     },
     {
@@ -3280,7 +3280,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.particle_burst.01.rune.green"
+      "path": "jb2a.particle_burst.01.rune.green"
      },
      "sound": {
       "asset": "psfx.casting.generic.002.003",
@@ -3508,7 +3508,7 @@
       "asset": "psfx.cantrips.dancing-lights"
      },
      "asset": {
-      "file": "jb2a.cast_shape.circle.01.yellow"
+      "path": "jb2a.cast_shape.circle.01.yellow"
      }
     }
    ],
@@ -3534,7 +3534,7 @@
       "saturation": 0
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.002.red"
+      "path": "jb2a.condition.curse.01.002.red"
      }
     }
    ],
@@ -3558,7 +3558,7 @@
       "tokenWidths": 1.9500000000000002
      },
      "asset": {
-      "file": "jb2a.token_border.circle.static.green.006"
+      "path": "jb2a.token_border.circle.static.green.006"
      }
     }
    ],
@@ -3612,7 +3612,7 @@
       "tokenWidths": 4.5
      },
      "asset": {
-      "file": "jb2a.portals.vertical.vortex.orange"
+      "path": "jb2a.portals.vertical.vortex.orange"
      },
      "below": true,
      "anchor": {
@@ -3820,7 +3820,7 @@
       "tokenWidths": 2.25
      },
      "asset": {
-      "file": "jb2a.soundwave.02.purple"
+      "path": "jb2a.soundwave.02.purple"
      }
     },
     {
@@ -3871,7 +3871,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.condition.curse.01.002.green"
+      "path": "jb2a.condition.curse.01.002.green"
      },
      "size": {
       "radius": 1.25
@@ -4083,7 +4083,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.magic_signs.rune.enchantment.complete.pink"
+      "path": "jb2a.magic_signs.rune.enchantment.complete.pink"
      },
      "elevation": {
       "level": 999,
@@ -4228,7 +4228,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.impact.ground_crack.orange"
+      "path": "jb2a.impact.ground_crack.orange"
      },
      "sound": {
       "asset": "psfx.creature.movement.burrow.breach",
@@ -4283,7 +4283,7 @@
       "tokenWidths": 3
      },
      "asset": {
-      "file": "jb2a.cast_shape.circle.01.purple"
+      "path": "jb2a.cast_shape.circle.01.purple"
      }
     }
    ],
@@ -4308,7 +4308,7 @@
       "tokenWidths": 3
      },
      "asset": {
-      "file": "jb2a.cast_shape.circle.01.purple"
+      "path": "jb2a.cast_shape.circle.01.purple"
      }
     }
    ],
@@ -4329,13 +4329,13 @@
       "asset": "psfx.conditions.generic-layer.002"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.006.yellow"
+      "path": "jb2a.condition.boon.01.006.yellow"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.006",
@@ -4495,14 +4495,14 @@
       "asset": "psfx.conditions.boon.015"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.015.yellow"
+      "path": "jb2a.condition.boon.01.015.yellow"
      }
     },
     {
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.generic-layer.001"
@@ -4641,7 +4641,7 @@
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.condition.boon.01.009.yellow"
+      "path": "jb2a.condition.boon.01.009.yellow"
      },
      "sound": {
       "asset": "psfx.conditions.boon.009",
@@ -4696,13 +4696,13 @@
       "asset": "psfx.conditions.generic-layer.001"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.003.yellow"
+      "path": "jb2a.condition.boon.01.003.yellow"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.003",
@@ -4739,7 +4739,7 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.001.green"
+      "path": "jb2a.condition.curse.01.001.green"
      }
     },
     {
@@ -4969,7 +4969,7 @@
       "start": 500
      },
      "asset": {
-      "file": "jb2a.portals.vertical.ring.dark_yellow"
+      "path": "jb2a.portals.vertical.ring.dark_yellow"
      }
     }
    ],
@@ -4992,7 +4992,7 @@
       "start": 500
      },
      "asset": {
-      "file": "jb2a.portals.vertical.ring.dark_yellow"
+      "path": "jb2a.portals.vertical.ring.dark_yellow"
      }
     }
    ],
@@ -5112,7 +5112,7 @@
       "tokenWidths": 4.199999999999999
      },
      "asset": {
-      "file": "jb2a.wall_of_force.horizontal.red"
+      "path": "jb2a.wall_of_force.horizontal.red"
      }
     },
     {
@@ -5236,7 +5236,7 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.003.purple"
+      "path": "jb2a.condition.curse.01.003.purple"
      }
     }
    ],
@@ -5282,7 +5282,7 @@
       "tokenWidths": 6
      },
      "asset": {
-      "file": "jb2a.portals.vertical.vortex.orange"
+      "path": "jb2a.portals.vertical.vortex.orange"
      },
      "below": true,
      "anchor": {
@@ -5344,7 +5344,7 @@
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.condition.curse.01.003.purple"
+      "path": "jb2a.condition.curse.01.003.purple"
      },
      "sound": {
       "asset": "psfx.casting.generic"
@@ -5413,7 +5413,7 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.butterflies.many.yellow"
+      "path": "jb2a.butterflies.many.yellow"
      },
      "repeat": 2,
      "every": 5400
@@ -5511,7 +5511,7 @@
       "volume": 0.5
      },
      "asset": {
-      "file": "jb2a.cast_shape.circle.01.yellow"
+      "path": "jb2a.cast_shape.circle.01.yellow"
      }
     }
    ],
@@ -5564,7 +5564,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.melee_generic.piercing.one_handed"
+      "path": "jb2a.melee_generic.piercing.one_handed"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -5750,13 +5750,13 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.012.blue"
+      "path": "jb2a.condition.boon.01.012.blue"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.012",
@@ -5829,7 +5829,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.energy_attack.01.dark_purple"
+      "path": "jb2a.energy_attack.01.dark_purple"
      },
      "size": {
       "radius": 1.5
@@ -6012,13 +6012,13 @@
       "asset": "psfx.casting.generic.002.003"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.005.yellow"
+      "path": "jb2a.condition.boon.01.005.yellow"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.005",
@@ -6076,7 +6076,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.006.purple"
+      "path": "jb2a.condition.curse.01.006.purple"
      }
     }
    ],
@@ -6360,7 +6360,7 @@
       "tokenWidths": 0.75
      },
      "asset": {
-      "file": "jb2a.ioun_stones.01.blue.awareness"
+      "path": "jb2a.ioun_stones.01.blue.awareness"
      }
     },
     {
@@ -6458,13 +6458,13 @@
       "asset": "psfx.conditions.boon.003"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.003.yellow"
+      "path": "jb2a.condition.boon.01.003.yellow"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.ui.chevrons3.yellow"
+      "path": "jb2a.ui.chevrons3.yellow"
      },
      "sound": {
       "asset": "psfx.conditions.generic-layer.002"
@@ -6497,7 +6497,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Ambience/knocking.mp3"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.004.yellow"
+      "path": "jb2a.condition.boon.01.004.yellow"
      }
     }
    ],
@@ -6628,7 +6628,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.condition.boon.01.007.blue"
+      "path": "jb2a.condition.boon.01.007.blue"
      },
      "size": {
       "radius": 1.5
@@ -6658,14 +6658,14 @@
       "asset": "psfx.casting.generic.002.003"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.015.yellow"
+      "path": "jb2a.condition.boon.01.015.yellow"
      }
     },
     {
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.015",
@@ -6771,7 +6771,7 @@
       "saturation": 0
      },
      "asset": {
-      "file": "jb2a.extras.tmfx.runes.circle.inpulse.necromancy"
+      "path": "jb2a.extras.tmfx.runes.circle.inpulse.necromancy"
      },
      "repeat": 5,
      "every": 2000
@@ -6847,13 +6847,13 @@
       "asset": "psfx.casting.generic.002.001"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.002.red"
+      "path": "jb2a.condition.boon.01.002.red"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.impact.001.blue"
+      "path": "jb2a.impact.001.blue"
      },
      "sound": {
       "asset": "psfx.conditions.boon.002",
@@ -6904,7 +6904,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.portals.horizontal.vortex.yellow"
+      "path": "jb2a.portals.horizontal.vortex.yellow"
      },
      "anchor": {
       "x": 0.5,
@@ -7017,7 +7017,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.celestial_bodies.asteroid.ring.iron.red.01"
+      "path": "jb2a.celestial_bodies.asteroid.ring.iron.red.01"
      },
      "rate": 2,
      "size": {
@@ -7152,7 +7152,7 @@
       "tokenWidths": 1.875
      },
      "asset": {
-      "file": "jb2a.extras.tmfx.runes.circle.simple.illusion"
+      "path": "jb2a.extras.tmfx.runes.circle.simple.illusion"
      },
      "repeat": 3,
      "every": 1525
@@ -7216,14 +7216,14 @@
      },
      "rate": 2,
      "asset": {
-      "file": "jb2a.shield_themed.below.molten_earth.03.dark_orange"
+      "path": "jb2a.shield_themed.below.molten_earth.03.dark_orange"
      }
     },
     {
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.scorched_earth.02.orange"
+      "path": "jb2a.scorched_earth.02.orange"
      },
      "rate": 2,
      "size": {
@@ -7319,7 +7319,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.condition.curse.01.011.purple"
+      "path": "jb2a.condition.curse.01.011.purple"
      },
      "size": {
       "radius": 1
@@ -7802,7 +7802,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.token_stage.square.blue.01.04"
+      "path": "jb2a.token_stage.square.blue.01.04"
      },
      "size": {
       "radius": 1.5
@@ -8460,7 +8460,7 @@
       "saturation": -1
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.002.green"
+      "path": "jb2a.condition.curse.01.002.green"
      }
     }
    ],
@@ -8699,7 +8699,7 @@
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.healing_generic.03.burst.yellow"
+      "path": "jb2a.healing_generic.03.burst.yellow"
      },
      "sound": {
       "asset": "psfx.1st-level-spells.cure-wounds.v1",
@@ -8772,7 +8772,7 @@
       "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
      },
      "asset": {
-      "file": "jb2a.healing_generic.03.burst.green"
+      "path": "jb2a.healing_generic.03.burst.green"
      }
     }
    ],
@@ -8794,14 +8794,14 @@
       "asset": "psfx.magic-signs.rune.v1.divination.intro"
      },
      "asset": {
-      "file": "jb2a.condition.boon.01.009.blue"
+      "path": "jb2a.condition.boon.01.009.blue"
      }
     },
     {
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.condition.boon.01.009.blue"
+      "path": "jb2a.condition.boon.01.009.blue"
      },
      "sound": {
       "asset": "psfx.incantations.masculine.001.reverb.help",
@@ -8935,13 +8935,13 @@
       "saturation": 0
      },
      "asset": {
-      "file": "jb2a.condition.curse.01.008.red"
+      "path": "jb2a.condition.curse.01.008.red"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.footprints.shoe.grey"
+      "path": "jb2a.footprints.shoe.grey"
      },
      "sound": {
       "asset": "psfx.creature.movement.footsteps.outdoors.001.sequence",
@@ -9465,7 +9465,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.energy_strands.complete.dark_green.01"
+      "path": "jb2a.energy_strands.complete.dark_green.01"
      },
      "sound": {
       "asset": "psfx.conditions.generic-layer.002"
@@ -9580,7 +9580,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.arcane_hand.red"
+      "path": "jb2a.arcane_hand.red"
      },
      "anchor": {
       "x": 1,
@@ -9778,7 +9778,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.vine.complete.nature.single.02.green"
+      "path": "jb2a.vine.complete.nature.single.02.green"
      },
      "sound": {
       "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro",
@@ -9808,7 +9808,7 @@
       "tokenWidths": 3
      },
      "asset": {
-      "file": "jb2a.melee_generic.piercing.one_handed"
+      "path": "jb2a.melee_generic.piercing.one_handed"
      }
     }
    ],
@@ -10192,13 +10192,13 @@
       "asset": "psfx.cantrips.mind-sliver"
      },
      "asset": {
-      "file": "jb2a.on_token_buff.001.003.purplered"
+      "path": "jb2a.on_token_buff.001.003.purplered"
      }
     },
     {
      "shape": "mark",
      "asset": {
-      "file": "jb2a.on_token_buff.001.003.purplered"
+      "path": "jb2a.on_token_buff.001.003.purplered"
      },
      "sound": {
       "asset": "psfx.incantations.feminine.001.demonic.harm",
@@ -10472,7 +10472,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.liquid.splash02.green"
+      "path": "jb2a.liquid.splash02.green"
      },
      "sound": {
       "asset": "psfx.cantrips.acid-splash.v1",
@@ -10674,7 +10674,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.ambient_fog.001.loop.large.greenyellow"
+      "path": "jb2a.ambient_fog.001.loop.large.greenyellow"
      },
      "sound": {
       "asset": "psfx.cantrips.poison-spray.v1"
@@ -10756,7 +10756,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.volley_of_projectiles_Cone5e.arrow.001.001.white"
+      "path": "jb2a.volley_of_projectiles_Cone5e.arrow.001.001.white"
      },
      "sound": {
       "asset": "psfx.ranged-weapons.longbow.v1",
@@ -10788,7 +10788,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.markers.light_orb.complete.yellow"
+      "path": "jb2a.markers.light_orb.complete.yellow"
      },
      "sound": {
       "asset": "psfx.cantrips.light.v1.001",
@@ -10836,7 +10836,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.volley_of_projectiles_Cone5e.arrow.001.001.white"
+      "path": "jb2a.volley_of_projectiles_Cone5e.arrow.001.001.white"
      },
      "sound": {
       "asset": "psfx.ranged-weapons.longbow.v1",
@@ -10876,7 +10876,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.cast_generic.water.02.blue"
+      "path": "jb2a.cast_generic.water.02.blue"
      },
      "sound": {
       "asset": "psfx.casting.water.001"
@@ -11000,7 +11000,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.markers.light.nopulse.yellow02"
+      "path": "jb2a.markers.light.nopulse.yellow02"
      },
      "sound": {
       "asset": "psfx.cantrips.light.v1.001",
@@ -11046,7 +11046,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.divine_smite.caster.reversed.yellowwhite"
+      "path": "jb2a.divine_smite.caster.reversed.yellowwhite"
      },
      "sound": {
       "asset": "psfx.class-features.divine-smite.v1.001.target"
@@ -11151,7 +11151,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.magic_signs.rune.transmutation.complete.yellow"
+      "path": "jb2a.magic_signs.rune.transmutation.complete.yellow"
      },
      "sound": {
       "asset": "psfx.cantrips.dancing-lights"
@@ -11202,7 +11202,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.shield_themed.below.fire.03.blue"
+      "path": "jb2a.shield_themed.below.fire.03.blue"
      },
      "sound": {
       "asset": "psfx.1st-level-spells.burning-hands.v1.001"
@@ -11231,7 +11231,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.template_circle.aura.02.complete.large.bluepink"
+      "path": "jb2a.template_circle.aura.02.complete.large.bluepink"
      },
      "sound": {
       "asset": "psfx.cantrips.toll-the-dead.v1.001"
@@ -11324,7 +11324,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.ambient_fog.001.loop.large.white"
+      "path": "jb2a.ambient_fog.001.loop.large.white"
      },
      "sound": {
       "asset": "psfx.cantrips.gust.v1",
@@ -11351,7 +11351,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.wall_of_force.sphere.blue"
+      "path": "jb2a.wall_of_force.sphere.blue"
      },
      "sound": {
       "asset": "psfx.magic-signs.circle.v1.abjuration.outro"
@@ -11594,7 +11594,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.fumes.fire.orange"
+      "path": "jb2a.fumes.fire.orange"
      },
      "sound": {
       "asset": "psfx.1st-level-spells.burning-hands.v1.001"
@@ -11654,7 +11654,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.ranged_helix.Helix_only.001.white.90ft"
+      "path": "jb2a.ranged_helix.Helix_only.001.white.90ft"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.only.001",
@@ -11687,7 +11687,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.ranged_helix.Helix_only.001.white.90ft"
+      "path": "jb2a.ranged_helix.Helix_only.001.white.90ft"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.missile.only.001",
@@ -11828,7 +11828,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.magic_signs.circle.02.illusion.complete.dark_purple"
+      "path": "jb2a.magic_signs.circle.02.illusion.complete.dark_purple"
      },
      "sound": {
       "asset": "psfx.magic-signs.circle.v1.illusion.outro"
@@ -11923,7 +11923,7 @@
      "shape": "mark",
      "at": "each-target",
      "asset": {
-      "file": "jb2a.energy_attack.01.multicolored01"
+      "path": "jb2a.energy_attack.01.multicolored01"
      },
      "sound": {
       "asset": "psfx.magic-signs.circle.v1.evocation.outro",
@@ -12229,7 +12229,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.ambient_fog.001.loop.large.greenyellow"
+      "path": "jb2a.ambient_fog.001.loop.large.greenyellow"
      },
      "sound": {
       "asset": "psfx.cantrips.poison-spray.v1"
@@ -12255,7 +12255,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.ranged.beam.001.01.orange"
+      "path": "jb2a.ranged.beam.001.01.orange"
      },
      "sound": {
       "asset": "psfx.ranged-magic.generic.beam.002"
@@ -12418,7 +12418,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.wall_of_fire.ring.yellow"
+      "path": "jb2a.wall_of_fire.ring.yellow"
      },
      "sound": {
       "asset": "psfx.1st-level-spells.burning-hands.v1.001"
@@ -12443,7 +12443,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.wall_of_force.sphere.purple"
+      "path": "jb2a.wall_of_force.sphere.purple"
      },
      "sound": {
       "asset": "psfx.casting.sound.001"
@@ -12589,7 +12589,7 @@
     {
      "shape": "fill",
      "asset": {
-      "file": "jb2a.wind_wall.500x100"
+      "path": "jb2a.wind_wall.500x100"
      },
      "sound": {
       "asset": "psfx.cantrips.gust.v1"
@@ -12641,7 +12641,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.portals.vertical.vortex.blue"
+      "path": "jb2a.portals.vertical.vortex.blue"
      },
      "elevation": {
       "level": 999,
@@ -12661,7 +12661,7 @@
      "shape": "mark",
      "at": "destination",
      "asset": {
-      "file": "jb2a.portals.vertical.vortex.yellow"
+      "path": "jb2a.portals.vertical.vortex.yellow"
      },
      "delay": 500,
      "elevation": {
@@ -12721,7 +12721,7 @@
      "shape": "mark",
      "at": "template",
      "asset": {
-      "file": "jb2a.impact_themed.ice_shard.01.blue"
+      "path": "jb2a.impact_themed.ice_shard.01.blue"
      },
      "sound": {
       "asset": "psfx.5th-level-spells.cone-of-cold.v1.001"
@@ -12854,7 +12854,7 @@
      "shape": "mark",
      "at": "template",
      "asset": {
-      "file": "jb2a.explosion.04.green"
+      "path": "jb2a.explosion.04.green"
      },
      "sound": {
       "asset": "psfx.cantrips.acid-splash.v1",

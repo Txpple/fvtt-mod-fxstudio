@@ -62,7 +62,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.battleaxe.01"
+      "path": "jb2a.melee_attack.02.battleaxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -84,7 +84,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.battleaxe.01"
+      "path": "jb2a.melee_attack.02.battleaxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -106,7 +106,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.battleaxe.01"
+      "path": "jb2a.melee_attack.02.battleaxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -128,7 +128,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.battleaxe.01"
+      "path": "jb2a.melee_attack.02.battleaxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -332,7 +332,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.club.01"
+      "path": "jb2a.melee_attack.02.club.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -353,7 +353,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.club.01"
+      "path": "jb2a.melee_attack.02.club.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -444,7 +444,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -465,7 +465,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -591,7 +591,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.03.greataxe.01"
+      "path": "jb2a.melee_attack.03.greataxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -613,7 +613,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.03.greatclub.01"
+      "path": "jb2a.melee_attack.03.greatclub.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -634,7 +634,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.03.greatclub.01"
+      "path": "jb2a.melee_attack.03.greatclub.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -655,7 +655,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.03.greatsword.01"
+      "path": "jb2a.melee_attack.03.greatsword.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -703,7 +703,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.hammer.01"
+      "path": "jb2a.melee_attack.02.hammer.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -732,7 +732,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.hammer.01"
+      "path": "jb2a.melee_attack.02.hammer.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -761,7 +761,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.handaxe.01"
+      "path": "jb2a.melee_attack.02.handaxe.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -859,7 +859,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -880,7 +880,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -901,7 +901,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -922,7 +922,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.mace.01"
+      "path": "jb2a.melee_attack.02.mace.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1"
@@ -943,7 +943,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.03.maul.01"
+      "path": "jb2a.melee_attack.03.maul.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1",
@@ -1004,7 +1004,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.one_handed"
+      "path": "jb2a.melee_generic.slashing.one_handed"
      },
      "sound": {
       "asset": "psfx.impacts.slashing.v1"
@@ -1025,7 +1025,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.one_handed"
+      "path": "jb2a.melee_generic.slashing.one_handed"
      },
      "sound": {
       "asset": "psfx.impacts.slashing.v1"
@@ -1183,7 +1183,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.04.scimitar.01"
+      "path": "jb2a.melee_attack.04.scimitar.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -1205,7 +1205,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.01.shortsword.01"
+      "path": "jb2a.melee_attack.01.shortsword.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -1227,7 +1227,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.01.sickle.01"
+      "path": "jb2a.melee_attack.01.sickle.01"
      },
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
@@ -1684,7 +1684,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh-*"
@@ -1807,7 +1807,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_attack.02.warhammer.01"
+      "path": "jb2a.melee_attack.02.warhammer.01"
      },
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1",
@@ -1829,7 +1829,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.two_handed"
+      "path": "jb2a.melee_generic.slashing.two_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3",
@@ -1851,7 +1851,7 @@
     {
      "shape": "strike",
      "asset": {
-      "file": "jb2a.melee_generic.slashing.two_handed"
+      "path": "jb2a.melee_generic.slashing.two_handed"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3",
@@ -1883,7 +1883,7 @@
      "shape": "mark",
      "at": "impact",
      "asset": {
-      "file": "jb2a.explosion.04.blue"
+      "path": "jb2a.explosion.04.blue"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-2.mp3",
@@ -2179,7 +2179,7 @@
      "shape": "mark",
      "at": "impact",
      "asset": {
-      "file": "jb2a.explosion.01.yellow"
+      "path": "jb2a.explosion.01.yellow"
      },
      "sound": {
       "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-2.mp3",

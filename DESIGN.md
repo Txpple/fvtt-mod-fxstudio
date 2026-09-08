@@ -1581,3 +1581,52 @@ Jetten's +1 Dagger did in §16. They were redundancy on redundancy.
 ⚠ The one thing to know: a creature dragged in from **Monsters (SRD)** now plays nothing for its
 attacks unless the same attack name appears in the Monster Manual. The party fights MM creatures,
 so nothing here changed — but that is the trade.
+
+## 18. Clean data (the user's word, 2026-09-08)
+
+Asked whether the gaps §17 left should be closed, the user said no — *"we will do a pass later
+looking for items in the compendia that have no vfx, so gaps are ok. what i want is CLEAN data
+right now."* So: not more corpus, a **sound** corpus. Everything nameable as a defect, counted.
+
+| | |
+| --- | --- |
+| duplicate FX ids | **0** |
+| two FX answering one key | **0** |
+| keys with no record | **0** (1024 of 1024) |
+| FX with no scenes, or names that read badly on a screen | **0** |
+| assets that do not resolve | **0** (check-fx, 2574 assets) |
+
+One real defect, and it was the oldest thing on the backlog:
+
+### 393 library paths were written as raw files
+
+AA let a person type either a raw path or a JB2A **database path** into its custom-path box, and
+its rows hold both. The migration carried the string through verbatim under `file`, which *played*
+correctly — Sequencer takes either — but told the screens it was a raw file: no colour, no
+variants, no Asset Library.
+
+Fixed **at the writer, not by patching the JSON**: the nativiser gained `isLibraryPath()`, which
+says whether a slashless value names a real node in JB2A's own registration, and `rows.mjs` writes
+`path` when it does. Nothing about the value changed, only the key it sits under, and **the render
+proof said 1029 of 1029 equal** — which is the whole point of having the proof.
+
+```
+library paths   893 → 1284        mis-keyed database paths  393 → 3
+```
+
+The three left end in `.0` — an index into a node's file list, which is not a node — so they stay
+`file`, and they resolve. `recipes/house.json`'s Necrotic Scythe was re-keyed by hand, being the
+user's file. What remains under `file` is **genuinely files**: 88 raw JB2A paths the library does
+not name individually, and 29 distinct raw sound files — measured, not assumed: not one of them has
+a single-file leaf in JB2A's or PSFX's registration.
+
+### Reported, not touched
+
+- **25 named weapons whose picture is byte-identical to their base weapon's** — Umbral Dagger =
+  Dagger, Abyssal Glaive = Glaive, Tree Club = Club. They are properly evidenced 2024 records, and
+  each is a place to hang a look later, so this is redundancy with a purpose rather than dirt.
+- **10 rows whose name is not the record's name** — `feature:light` is the PHB's *Light Domain*,
+  `spell:helpful-homunculi` is *Deryan's Helpful Homunculi*, and the five base weapons whose dnd5e
+  id is not their name (`lighthammer` → *Light Hammer*). The keys are right; the Library shows the
+  key's id because that is all it had before §15. Now that every row has a record, the row could
+  read the record's own name instead. The user's call.

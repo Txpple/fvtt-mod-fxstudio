@@ -438,7 +438,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.impact.005.blue"
+      "path": "jb2a.impact.005.blue"
      },
      "sound": {
       "asset": "psfx.consumables.potions-vials.cork-bottle"
@@ -462,14 +462,14 @@
       "start": 100
      },
      "asset": {
-      "file": "jb2a.healing_generic.400px.blue"
+      "path": "jb2a.healing_generic.400px.blue"
      }
     },
     {
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.impact.005.blue"
+      "path": "jb2a.impact.005.blue"
      },
      "sound": {
       "asset": "psfx.consumables.potions-vials.drink-liquid"
@@ -499,7 +499,7 @@
      "shape": "mark",
      "at": "source",
      "asset": {
-      "file": "jb2a.impact.005.blue"
+      "path": "jb2a.impact.005.blue"
      },
      "sound": {
       "asset": "psfx.consumables.potions-vials.cork-bottle"
@@ -693,7 +693,7 @@
      "shape": "shoot",
      "to": "template",
      "asset": {
-      "file": "jb2a.caltrops.01.grey"
+      "path": "jb2a.caltrops.01.grey"
      },
      "sound": {
       "asset": "psfx.weapon-swooshes.light.v1.group01"
@@ -710,7 +710,7 @@
      "shape": "mark",
      "at": "template",
      "asset": {
-      "file": "jb2a.caltrops.endframe.01.grey"
+      "path": "jb2a.caltrops.endframe.01.grey"
      },
      "size": {
       "fit": "object",
@@ -729,7 +729,7 @@
      "shape": "mark",
      "at": "template",
      "asset": {
-      "file": "jb2a.caltrops.endframe.01.grey"
+      "path": "jb2a.caltrops.endframe.01.grey"
      },
      "size": {
       "fit": "object",
