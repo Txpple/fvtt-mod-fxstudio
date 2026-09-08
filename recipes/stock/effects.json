@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 93
+  "fx": 79
  },
  "fx": [
   {
@@ -105,89 +105,6 @@
    "note": "D&D5e Animations 3.3.0: \"Bark-like Skin\" (aefx)"
   },
   {
-   "id": "barkskin",
-   "for": [
-    "effect:barkskin"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro"
-     },
-     "opacity": 0.7,
-     "rate": 0.5,
-     "tint": {
-      "colour": "#804000",
-      "contrast": 0,
-      "saturation": -0.5
-     },
-     "persist": "effect",
-     "attach": {
-      "alpha": true,
-      "visibility": true
-     },
-     "asset": {
-      "file": "modules/jb2a_patreon/Library/Generic/Fire/ShieldMoltenEarthBelow01_01_Regular_Orange_400x400.webm"
-     },
-     "rotate": 180,
-     "zIndex": 0
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "opacity": 0.7,
-     "rate": 0.5,
-     "tint": {
-      "colour": "#804000",
-      "contrast": 0,
-      "saturation": -0.5
-     },
-     "persist": "effect",
-     "attach": {
-      "alpha": true,
-      "visibility": true
-     },
-     "asset": {
-      "file": "modules/jb2a_patreon/Library/Generic/Fire/ShieldMoltenEarthAbove01_01_Regular_Orange_400x400.webm"
-     },
-     "zIndex": 0
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Barkskin\" (aefx)"
-  },
-  {
-   "id": "bless",
-   "for": [
-    "effect:bless"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "aura",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.bless.400px.loop.yellow"
-     },
-     "size": {
-      "radius": 1
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "persist": "effect"
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Bless\" (aefx)"
-  },
-  {
    "id": "blessed",
    "for": [
     "effect:blessed"
@@ -271,30 +188,6 @@
    "note": "D&D5e Animations 3.3.0: \"Confused\" (aefx)"
   },
   {
-   "id": "haste",
-   "for": [
-    "effect:haste"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "opacity": 0.6,
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.token_border.circle.static.orange.004"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Haste\" (aefx)"
-  },
-  {
    "id": "hasted",
    "for": [
     "effect:hasted"
@@ -356,115 +249,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Mage Armor\" (aefx)"
-  },
-  {
-   "id": "shield",
-   "for": [
-    "effect:shield"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.shield.01.intro.blue"
-     },
-     "sound": {
-      "asset": "psfx.1st-level-spells.shield-spell.intro.v3"
-     },
-     "fadeIn": 500,
-     "fadeOut": 0,
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "delay": -500,
-     "wait": true,
-     "follow": true
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "persist": "effect",
-     "attach": {
-      "alpha": true,
-      "visibility": true
-     },
-     "asset": {
-      "path": "jb2a.shield.01.loop.blue"
-     },
-     "fadeOut": 0,
-     "wait": true,
-     "delay": -1000
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.shield.01.outro_explode.blue"
-     },
-     "sound": {
-      "asset": "psfx.1st-level-spells.shield-spell.outro.v3"
-     },
-     "fadeOut": 250,
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Shield\" (aefx)"
-  },
-  {
-   "id": "shield-of-faith",
-   "for": [
-    "effect:shield-of-faith"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
-     },
-     "opacity": 0.5,
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.markers.shield_rampart.loop.03.blue"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Shield of Faith\" (aefx)"
-  },
-  {
-   "id": "slow",
-   "for": [
-    "effect:slow"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "opacity": 0.6,
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.token_border.circle.static.purple.004"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Slow\" (aefx)"
   },
   {
    "id": "slowed",
@@ -1067,30 +851,6 @@
    "note": "D&D5e Animations 3.3.0: \"Fire Protection\" (aefx)"
   },
   {
-   "id": "flesh-to-stone-effect",
-   "for": [
-    "effect:flesh-to-stone"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "mask": true,
-     "persist": "effect",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/Stone.webp"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Flesh to Stone: \" (aefx)"
-  },
-  {
    "id": "flight",
    "for": [
     "effect:flight"
@@ -1191,26 +951,6 @@
    "note": "D&D5e Animations 3.3.0: \"Gaseous Form\" (aefx)"
   },
   {
-   "id": "guidance-effect",
-   "for": [
-    "effect:guidance"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "persist": "effect",
-     "asset": {
-      "file": "jb2a.energy_strands.02.marker.bluepurple"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Guidance\" (aefx)"
-  },
-  {
    "id": "guiding-bolt-effect",
    "for": [
     "effect:guiding-bolt"
@@ -1287,72 +1027,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Heavenly Wings\" (aefx)"
-  },
-  {
-   "id": "hold-monster-effect",
-   "for": [
-    "effect:hold-monster"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.markers.chain.spike.loop.02.purple"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Hold Monster: \" (aefx)"
-  },
-  {
-   "id": "hold-person-effect",
-   "for": [
-    "effect:hold-person"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.markers.chain.diamond.loop.02.purple"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Hold Person: \" (aefx)"
-  },
-  {
-   "id": "hypnotic-pattern-effect",
-   "for": [
-    "effect:hypnotic-pattern"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.markers.stun.purple.03"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Hypnotic Pattern: \" (aefx)"
   },
   {
    "id": "hypnotized",
@@ -1876,33 +1550,6 @@
    "note": "D&D5e Animations 3.3.0: \"Regenerating\" (aefx)"
   },
   {
-   "id": "resistance",
-   "for": [
-    "effect:resistance"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.cantrips.mind-sliver.v1"
-     },
-     "opacity": 0.75,
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.energy_field.01.multicolored"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Resistance: \" (aefx)"
-  },
-  {
    "id": "seared",
    "for": [
     "effect:seared"
@@ -2027,26 +1674,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Short Dance\" (aefx)"
-  },
-  {
-   "id": "sleep-effect",
-   "for": [
-    "effect:sleep"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.sleep.symbol.pink"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Sleep: \" (aefx)"
   },
   {
    "id": "sleeping",
@@ -2354,26 +1981,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Unrestricted Movement\" (aefx)"
-  },
-  {
-   "id": "vicious-mockery-effect",
-   "for": [
-    "effect:vicious-mockery"
-   ],
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "persist": "effect",
-     "asset": {
-      "path": "jb2a.markers.fear.dark_purple.03"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Vicious Mockery\" (aefx)"
   },
   {
    "id": "warded",

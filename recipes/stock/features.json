@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 306
+  "fx": 282
  },
  "fx": [
   {
@@ -577,7 +577,7 @@
    "note": "D&D5e Animations 3.3.0: \"Life Drain\" (range)"
   },
   {
-   "id": "lightning-strike-bolt",
+   "id": "lightning-strike",
    "for": [
     "feature:lightning-strike"
    ],
@@ -1594,31 +1594,6 @@
    "note": "D&D5e Animations 3.3.0: \"Charm\" (ontoken)"
   },
   {
-   "id": "children-of-the-night",
-   "for": [
-    "feature:children-of-the-night"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
-     },
-     "size": {
-      "tokenWidths": 3
-     },
-     "asset": {
-      "path": "jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Children of the Night\" (ontoken)"
-  },
-  {
    "id": "chomp",
    "for": [
     "feature:chomp"
@@ -1660,48 +1635,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Clairvoyant Combatant\" (ontoken)"
-  },
-  {
-   "id": "restoring-touch",
-   "for": [
-    "feature:restoring-touch"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.caster"
-     },
-     "asset": {
-      "path": "jb2a.divine_smite.caster.greenyellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Cleansing Touch\" (ontoken)"
-  },
-  {
-   "id": "cleansing-touch",
-   "for": [
-    "feature:cleansing-touch"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.caster"
-     },
-     "asset": {
-      "path": "jb2a.divine_smite.caster.greenyellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Cleansing Touch\" (ontoken)"
   },
   {
    "id": "cloak-of-shadows",
@@ -2300,64 +2233,6 @@
    "note": "D&D5e Animations 3.3.0: \"Defensive Tactics\" (ontoken)"
   },
   {
-   "id": "deflect-attacks",
-   "for": [
-    "feature:deflect-attacks"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1.0"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     },
-     "asset": {
-      "file": "jb2a.melee_generic.piercing.two_handed"
-     },
-     "anchor": {
-      "x": 0.6,
-      "y": 0.5
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Deflect Missiles\" (ontoken)"
-  },
-  {
-   "id": "deflect-missiles",
-   "for": [
-    "feature:deflect-missiles"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1.0"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     },
-     "asset": {
-      "file": "jb2a.melee_generic.piercing.two_handed"
-     },
-     "anchor": {
-      "x": 0.6,
-      "y": 0.5
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Deflect Missiles\" (ontoken)"
-  },
-  {
    "id": "devious-strikes",
    "for": [
     "feature:devious-strikes"
@@ -2425,75 +2300,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Divine Intervention\" (ontoken)"
-  },
-  {
-   "id": "divine-sense",
-   "for": [
-    "feature:divine-sense"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.magic-signs.rune.v1.divination.complete"
-     },
-     "size": {
-      "tokenWidths": 4.5
-     },
-     "asset": {
-      "path": "jb2a.detect_magic.circle.yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Divine Sense\" (ontoken)"
-  },
-  {
-   "id": "divine-smite-mark",
-   "for": [
-    "feature:divine-smite"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.target"
-     },
-     "asset": {
-      "path": "jb2a.divine_smite.target.blueyellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Divine Smite\" (ontoken)"
-  },
-  {
-   "id": "divine-strike",
-   "for": [
-    "feature:divine-strike"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.target"
-     },
-     "asset": {
-      "path": "jb2a.divine_smite.target.blueyellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Divine Strike\" (ontoken)"
   },
   {
    "id": "draconic-flight",
@@ -2718,100 +2524,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Empowered Evocation\" (ontoken)"
-  },
-  {
-   "id": "superior-defense",
-   "for": [
-    "feature:superior-defense"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.casting.generic.002.002",
-      "delay": 250
-     },
-     "asset": {
-      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_01_Regular_Grey_400x400.webm",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_02_Regular_Grey_400x400.webm",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "size": {
-      "radius": 1
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Empty Body\" (ontoken)"
-  },
-  {
-   "id": "empty-body",
-   "for": [
-    "feature:empty-body"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.casting.generic.002.002",
-      "delay": 250
-     },
-     "asset": {
-      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_01_Regular_Grey_400x400.webm",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_02_Regular_Grey_400x400.webm",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "size": {
-      "radius": 1
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Empty Body\" (ontoken)"
   },
   {
    "id": "entangling-trail",
@@ -3214,43 +2926,6 @@
    "note": "D&D5e Animations 3.3.0: \"Forbiddance\" (ontoken)"
   },
   {
-   "id": "freedom-of-movement-mark",
-   "for": [
-    "feature:freedom-of-movement"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.magic-signs.circle.v1.divination.outro"
-     },
-     "asset": {
-      "path": "jb2a.magic_signs.circle.02.abjuration.loop.blue"
-     }
-    },
-    {
-     "shape": "mark",
-     "asset": {
-      "path": "jb2a.static_electricity.01.blue"
-     },
-     "repeat": 4,
-     "every": 1000,
-     "size": {
-      "radius": 0.8
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "delay": 225
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Freedom of Movement\" (ontoken)"
-  },
-  {
    "id": "frightful-presence",
    "for": [
     "feature:frightful-presence"
@@ -3454,28 +3129,6 @@
    "note": "D&D5e Animations 3.3.0: \"Hand of Ultimate Mercy\" (ontoken)"
   },
   {
-   "id": "haste-mark-2",
-   "for": [
-    "feature:haste"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.magic-signs.rune.v1.transmutation.complete",
-      "start": 500
-     },
-     "asset": {
-      "path": "jb2a.markers.01.red"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Haste\" (ontoken)"
-  },
-  {
    "id": "healing-hands",
    "for": [
     "feature:healing-hands"
@@ -3519,38 +3172,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Healing Light\" (ontoken)"
-  },
-  {
-   "id": "healing-touch",
-   "for": [
-    "feature:healing-touch"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
-     },
-     "asset": {
-      "path": "jb2a.healing_generic.400px.red"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "asset": {
-      "path": "jb2a.cure_wounds.400px.red"
-     },
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "below": true
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Healing Touch\" (ontoken)"
   },
   {
    "id": "healing-word-mark",
@@ -3646,43 +3267,6 @@
    "note": "D&D5e Animations 3.3.0: \"Hellish Rebuke\" (ontoken)"
   },
   {
-   "id": "hide-in-plain-sight",
-   "for": [
-    "feature:hide-in-plain-sight"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.outro",
-      "volume": 0.5
-     },
-     "asset": {
-      "path": "jb2a.plant_growth.02.round.4x4.complete.greenred"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.plant_growth.03.round.4x4.complete.greenyellow"
-     },
-     "size": {
-      "radius": 1
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Hide in Plain Sight\" (ontoken)"
-  },
-  {
    "id": "hills-tumble",
    "for": [
     "feature:hills-tumble"
@@ -3759,45 +3343,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Horrify\" (ontoken)"
-  },
-  {
-   "id": "horrifying-visage",
-   "for": [
-    "feature:horrifying-visage"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.icon.fear.dark_purple"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "delay": -5000,
-     "wait": true,
-     "follow": true
-    },
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "sound": {
-      "asset": "psfx.cantrips.toll-the-dead.v1.001"
-     },
-     "asset": {
-      "path": "jb2a.icon.horror.purple"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Horrifying Visage\" (ontoken)"
   },
   {
    "id": "hunger-of-hadar-mark",
@@ -4455,72 +4000,6 @@
    "note": "D&D5e Animations 3.3.0: \"Overchannel\" (ontoken)"
   },
   {
-   "id": "patient-defense",
-   "for": [
-    "feature:patient-defense"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.casting.generic.001"
-     },
-     "asset": {
-      "path": "jb2a.shimmer.01.orange"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Patient Defense\" (ontoken)"
-  },
-  {
-   "id": "perfect-focus",
-   "for": [
-    "feature:perfect-focus"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.casting.generic.001"
-     },
-     "asset": {
-      "file": "jb2a.cast_generic.01.yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Perfect Self\" (ontoken)"
-  },
-  {
-   "id": "perfect-self",
-   "for": [
-    "feature:perfect-self"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.casting.generic.001"
-     },
-     "asset": {
-      "file": "jb2a.cast_generic.01.yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Perfect Self\" (ontoken)"
-  },
-  {
    "id": "poison",
    "for": [
     "feature:poison"
@@ -4638,28 +4117,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Primal Companion\" (ontoken)"
-  },
-  {
-   "id": "primeval-awareness",
-   "for": [
-    "feature:primeval-awareness"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
-     "asset": {
-      "path": "jb2a.hunters_mark.pulse.01.green"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Primeval Awareness\" (ontoken)"
   },
   {
    "id": "projected-ward",
@@ -4822,6 +4279,29 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Relentless Endurance\" (ontoken)"
+  },
+  {
+   "id": "restoring-touch",
+   "for": [
+    "feature:restoring-touch"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 500
+     },
+     "asset": {
+      "file": "jb2a.healing_generic.03.burst.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Restoring Touch\" (ontoken)"
   },
   {
    "id": "revelation-in-flesh",
@@ -5163,27 +4643,6 @@
    "note": "D&D5e Animations 3.3.0: \"Sneak Attack\" (ontoken)"
   },
   {
-   "id": "song-of-rest",
-   "for": [
-    "feature:song-of-rest"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.musical-instruments.bagpipes.01.drone"
-     },
-     "asset": {
-      "path": "jb2a.bardic_inspiration.greenorange"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Song of Rest\" (ontoken)"
-  },
-  {
    "id": "sorcerous-restoration",
    "for": [
     "feature:sorcerous-restoration"
@@ -5489,87 +4948,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Steady Aim\" (ontoken)"
-  },
-  {
-   "id": "step-of-the-wind",
-   "for": [
-    "feature:step-of-the-wind"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.cantrips.gust.v1"
-     },
-     "asset": {
-      "path": "jb2a.swirling_feathers.outburst.01.orange"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.wind_stream.1200.white"
-     },
-     "size": {
-      "radius": 0.75
-     },
-     "elevation": {
-      "level": 799,
-      "absolute": false
-     },
-     "mask": true
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Step of the Wind\" (ontoken)"
-  },
-  {
-   "id": "self-restoration",
-   "for": [
-    "feature:self-restoration"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.cantrips.mind-sliver.v1"
-     },
-     "asset": {
-      "path": "jb2a.particles.swirl.purple.01.01"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Stillness of Mind\" (ontoken)"
-  },
-  {
-   "id": "stillness-of-mind",
-   "for": [
-    "feature:stillness-of-mind"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.cantrips.mind-sliver.v1"
-     },
-     "asset": {
-      "path": "jb2a.particles.swirl.purple.01.01"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Stillness of Mind\" (ontoken)"
   },
   {
    "id": "stones-endurance",
@@ -6011,29 +5389,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Undying Sentinel\" (ontoken)"
-  },
-  {
-   "id": "natures-veil",
-   "for": [
-    "feature:natures-veil"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.casting.generic.002.003",
-      "delay": 250
-     },
-     "asset": {
-      "path": "jb2a.sneak_attack.dark_green"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Vanish\" (ontoken)"
   },
   {
    "id": "vanish",
@@ -8383,7 +7738,7 @@
    "note": "D&D5e Animations 3.3.0: \"Sleep Breath\" (templatefx)"
   },
   {
-   "id": "slow-area-2",
+   "id": "slow-area",
    "for": [
     "feature:slow"
    ],
@@ -8651,33 +8006,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Unsettling Visage\" (templatefx)"
-  },
-  {
-   "id": "wall-of-ice-area",
-   "for": [
-    "feature:wall-of-ice"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/Ice.webp"
-     },
-     "sound": {
-      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "opacity": 0.6,
-     "mask": true,
-     "persist": "template"
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Wall of Ice\" (templatefx)"
   },
   {
    "id": "warping-implosion",

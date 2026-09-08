@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The natural of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 192
+  "fx": 172
  },
  "fx": [
   {
@@ -80,32 +80,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
-  },
-  {
-   "id": "shield-bash",
-   "for": [
-    "natural:shield-bash"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.bludgeoning.two_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1.0"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Bash\" (melee)"
   },
   {
    "id": "bejeweled-baton",
@@ -542,32 +516,6 @@
    "note": "D&D5e Animations 3.3.0: \"Bone Whip\" (melee)"
   },
   {
-   "id": "chain-swing",
-   "for": [
-    "natural:chain"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.two_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1.0"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Chain\" (melee)"
-  },
-  {
    "id": "claw",
    "for": [
     "natural:claw"
@@ -832,150 +780,6 @@
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
-   "id": "claws-hybrid-form-only",
-   "for": [
-    "natural:claws-hybrid-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "claw-oni-form-only",
-   "for": [
-    "natural:claw-oni-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "claw-fiend-form-only",
-   "for": [
-    "natural:claw-fiend-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "claw-bear-or-hybrid-form-only",
-   "for": [
-    "natural:claw-bear-or-hybrid-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "claws-hag-form-only",
-   "for": [
-    "natural:claws-hag-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "claw-tiger-or-hybrid-form-only",
-   "for": [
-    "natural:claw-tiger-or-hybrid-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
    "id": "claws-yugoloth-only",
    "for": [
     "natural:claws-yugoloth-only"
@@ -1120,30 +924,6 @@
    "id": "rotting-fist",
    "for": [
     "natural:rotting-fist"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_generic.creature_attack.fist.001.yellow"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Bludgeoning/bludgeoning-swing-impact-blunt-2.mp3"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Fist\" (melee)"
-  },
-  {
-   "id": "clenched-fist",
-   "for": [
-    "natural:clenched-fist"
    ],
    "on": "use",
    "scenes": [
@@ -1549,61 +1329,9 @@
    "note": "D&D5e Animations 3.3.0: \"Hooves\" (melee)"
   },
   {
-   "id": "horn",
-   "for": [
-    "natural:horn"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.bludgeoning.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Horn\" (melee)"
-  },
-  {
    "id": "radiant-horn",
    "for": [
     "natural:radiant-horn"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.bludgeoning.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Horn\" (melee)"
-  },
-  {
-   "id": "horns",
-   "for": [
-    "natural:horns"
    ],
    "on": "use",
    "scenes": [
@@ -2817,32 +2545,6 @@
    "note": "D&D5e Animations 3.3.0: \"Sting\" (melee)"
   },
   {
-   "id": "sting-bite-in-beast-form",
-   "for": [
-    "natural:sting-bite-in-beast-form"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.piercing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Sting\" (melee)"
-  },
-  {
    "id": "stinger",
    "for": [
     "natural:stinger"
@@ -2893,32 +2595,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Stinger\" (melee)"
-  },
-  {
-   "id": "stomp",
-   "for": [
-    "natural:stomp"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.bludgeoning.two_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Stomp\" (melee)"
   },
   {
    "id": "unarmed-strike",
@@ -3086,60 +2762,6 @@
    "id": "shadow-strike",
    "for": [
     "natural:shadow-strike"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.bludgeoning.two_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1",
-      "start": 250
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
-  },
-  {
-   "id": "lightning-strike",
-   "for": [
-    "natural:lightning-strike"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.bludgeoning.two_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1",
-      "start": 250
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
-  },
-  {
-   "id": "unarmed-strike-vampire-form-only",
-   "for": [
-    "natural:unarmed-strike-vampire-form-only"
    ],
    "on": "use",
    "scenes": [
@@ -3523,32 +3145,6 @@
    "note": "D&D5e Animations 3.3.0: \"Tusk\" (melee)"
   },
   {
-   "id": "tusks-boar-or-hybrid-form-only",
-   "for": [
-    "natural:tusks-boar-or-hybrid-form-only"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Tusk\" (melee)"
-  },
-  {
    "id": "flame-whip",
    "for": [
     "natural:flame-whip"
@@ -3611,43 +3207,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Arcane Burst\" (range)"
-  },
-  {
-   "id": "blood-drain",
-   "for": [
-    "natural:blood-drain"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.energy_strands.range.multiple.dark_red.01"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.only.002",
-      "delay": 100
-     },
-     "from": "each-target",
-     "to": "source",
-     "delay": 100
-    },
-    {
-     "shape": "mark",
-     "at": "impact",
-     "asset": {
-      "path": "jb2a.bite.400px.red"
-     },
-     "fadeIn": 500,
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Blood Drain\" (range)"
   },
   {
    "id": "boulder",
@@ -4222,30 +3781,6 @@
    "note": "D&D5e Animations 3.3.0: \"Javelin\" (range)"
   },
   {
-   "id": "life-drain-bolt",
-   "for": [
-    "natural:life-drain"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.energy_strands.range.multiple.purple.01"
-     },
-     "sound": {
-      "asset": "psfx.magic-signs.circle.v1.necromancy.intro",
-      "start": 700
-     },
-     "from": "each-target",
-     "to": "source"
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Life Drain\" (range)"
-  },
-  {
    "id": "wax-lob",
    "for": [
     "natural:wax-lob"
@@ -4560,28 +4095,6 @@
    "note": "D&D5e Animations 3.3.0: \"Bite\" (ontoken)"
   },
   {
-   "id": "constrict-mark",
-   "for": [
-    "natural:constrict"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "sound": {
-      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
-     },
-     "asset": {
-      "path": "jb2a.markers.chain.standard.loop.02.yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Constrict\" (ontoken)"
-  },
-  {
    "id": "crush",
    "for": [
     "natural:crush"
@@ -4747,31 +4260,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Sacred Weapon\" (ontoken)"
-  },
-  {
-   "id": "swallow-mark",
-   "for": [
-    "natural:swallow"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swallow.mp3"
-     },
-     "size": {
-      "tokenWidths": 2.25
-     },
-     "asset": {
-      "path": "jb2a.bite.400px.red"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Swallow\" (ontoken)"
   },
   {
    "id": "tendril",

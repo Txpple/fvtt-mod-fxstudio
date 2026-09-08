@@ -1547,3 +1547,37 @@ Global Hooks in the house corpus; the other two are Item Hooks.
 
 ⚠ They carry D&D5e Animations content, which is GPL-3, into a file whose header says MIT — so
 `house.json`'s `_meta.licence` now names those two entries and points at `STOCK-LICENSE`.
+
+## 17. No SRD 5.1 (the user's ruling, 2026-09-08)
+
+> *"remove anything that is connected to srd 5.1"*
+
+The dnd5e system ships the 2014 SRD beside the 2024 content — every pack whose label ends **(SRD)**:
+`spells`, `items`, `tradegoods`, `classfeatures`, `monsterfeatures`, `monsters`, and the rest. This
+table plays the 2024 books, so the legacy set stopped being evidence: `LIST_PACKS` keeps only the
+`…24` packs of the system, and `CREATURE_PACKS` drops `dnd5e/monsters`.
+
+It is the same rule as §16, one step further out. §16 said a shipped FX may not stand on one table's
+inventory; this says it may not stand on a ruleset the table does not play.
+
+### What it cost
+
+```
+stock 1279 → 1022     spells 369 → 368 · weapons 293 → 99 · natural 192 → 172
+records 4913 → 4168   features 306 → 282 · items 26 → 22 · effects 93 → 79
+```
+
+**And not one ability on this world's actors.** The census is identical line for line with the SRD
+gone — 701 answer as under AA, 25 changed, 2 now play, 10 play nothing, the same rows in each list,
+and the NPC attacks unmoved at 157 by name · 4 by base weapon · 35 by natural attack. Every one of
+the 257 FX removed was one nothing here could ever have asked for.
+
+Weapons took nearly all of it, 293 → 99, and the reason is worth writing down: almost the whole SRD
+weapons list is **magic variants of the base weapons** — Club +1, Vicious Dagger, Greataxe +3,
+Berserker Greataxe — which AA's family rows caught by their last word. Each of them fell straight
+through to `weapon:club`, `weapon:dagger`, `weapon:greataxe` with the same picture, exactly as
+Jetten's +1 Dagger did in §16. They were redundancy on redundancy.
+
+⚠ The one thing to know: a creature dragged in from **Monsters (SRD)** now plays nothing for its
+attacks unless the same attack name appears in the Monster Manual. The party fights MM creatures,
+so nothing here changed — but that is the trade.

@@ -45,6 +45,11 @@ decided while building is in [DESIGN.md](DESIGN.md). Each phase ends at a check-
    for a corpus that ships. A house row may key against them, because house is this world. Seven FX
    had come in that way; five were pure redundancy and two moved into `recipes/house.json` on the
    user's word, so nothing changed at the table. Stock 1286 → **1279**, house 2 → **4**. DESIGN §16.
+
+   **AND NO SRD 5.1, the same day.** The dnd5e system ships the 2014 SRD beside the 2024 content;
+   every pack labelled "(SRD)" left the evidence. Stock **1279 → 1022** — and the census did not
+   move a line, because nearly all of it was the SRD's magic-weapon variants (Club +1, Vicious
+   Dagger), which the base-weapon key answers anyway. DESIGN §17.
 3. **The stock ships in this repo, attributed and licensed.** `recipes/stock.json` is a
    separate work under GPL-3 with attribution to D&D5e Animations 3.3.0 by MrVauxs and Sisimshow;
    the module's code stays MIT. A new campaign needs neither AA nor D&D5e Animations installed:

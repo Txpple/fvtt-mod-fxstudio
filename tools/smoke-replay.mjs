@@ -23,7 +23,7 @@ const SECTIONS = {
   7: 'compositions on a template: Fireball (a bolt to the template, then the burst) and Thunderwave (the picture picked by where the template sits)',
   8: 'the beam: Witch Bolt stands on the caster, stretched to the target, until ended',
   9: 'the move: Misty Step (the house fx) with a destination given — the token appears there; the teleport crosses a movement wall (displace), a sight wall refuses it, an FX that need not see crosses it, a creature on the spot refuses it',
-  10: 'active effects: Barkskin (a shield, two halves, persistent) appears on create, ends on disable, returns on enable, ends on delete; Bless is an aura',
+  10: 'active effects: Bark-Like Skin (a shield, two halves, persistent) appears on create, ends on disable, returns on enable, ends on delete; Blessed is an aura. The 2024 effect names, which is what the table creates — the SRD spelled them Barkskin and Bless, and the SRD is not evidence (DESIGN §17)',
   11: 'the play switch: off, nothing plays and the ledger says so; on again',
   12: 'no FX: an ability with no FX plays nothing and the ledger lists its keys',
   13: 'identity over names: a "Maul of Momentum" plays the maul fx by its base weapon; a Shield spell plays nothing (no bash)',
@@ -209,23 +209,23 @@ try {
       }
       if (want(10)) {
         const mk = async (name) => { const [eff] = await target.actor.createEmbeddedDocuments('ActiveEffect', [{ name, img: 'icons/svg/aura.svg', origin: target.actor.uuid }]); await sleep(1200 + watch); return eff; };
-        const eff = await mk('Barkskin');
+        const eff = await mk('Bark-Like Skin');
         let e = ledgerFor(eff.id);
-        ok('§10 Barkskin created: the shield fx plays on the token, bottom and top halves', e?.fx === 'barkskin' && e.key === 'effect:barkskin' && e.files.length === 2, `${e?.key} ${files(e)}`);
-        ok('§10 Barkskin: a persistent picture stands with the effect as its origin', effectsOn(target, eff.uuid).length > 0, `${effectsOn(target, eff.uuid).length}`);
+        ok('§10 Bark-Like Skin created: the shield fx plays on the token, bottom and top halves', e?.fx === 'bark-like-skin' && e.key === 'effect:bark-like-skin' && e.files.length === 2, `${e?.key} ${files(e)}`);
+        ok('§10 Bark-Like Skin: a persistent picture stands with the effect as its origin', effectsOn(target, eff.uuid).length > 0, `${effectsOn(target, eff.uuid).length}`);
         await eff.update({ disabled: true });
         await sleep(700);
-        ok('§10 Barkskin disabled: the picture ends', effectsOn(target, eff.uuid).length === 0, `${effectsOn(target, eff.uuid).length}`);
+        ok('§10 Bark-Like Skin disabled: the picture ends', effectsOn(target, eff.uuid).length === 0, `${effectsOn(target, eff.uuid).length}`);
         await eff.update({ disabled: false });
         await sleep(1200 + watch);
-        ok('§10 Barkskin enabled again: it returns', effectsOn(target, eff.uuid).length > 0, `${effectsOn(target, eff.uuid).length}`);
+        ok('§10 Bark-Like Skin enabled again: it returns', effectsOn(target, eff.uuid).length > 0, `${effectsOn(target, eff.uuid).length}`);
         await eff.delete();
         await sleep(700);
-        ok('§10 Barkskin deleted: the picture is gone (tied to the document)', effectsOn(target, eff.uuid).length === 0, `${effectsOn(target, eff.uuid).length}`);
-        const bless = await mk('Bless');
+        ok('§10 Bark-Like Skin deleted: the picture is gone (tied to the document)', effectsOn(target, eff.uuid).length === 0, `${effectsOn(target, eff.uuid).length}`);
+        const bless = await mk('Blessed');
         e = ledgerFor(bless.id);
-        ok('§10 Bless created: the aura plays', e?.fx === 'bless' && e.played && named(e, 'jb2a.bless'), files(e));
-        ok('§10 Bless: the aura stands on the token', effectsOn(target, bless.uuid).length > 0, `${effectsOn(target, bless.uuid).length}`);
+        ok('§10 Blessed created: the aura plays', e?.fx === 'blessed' && e.played && named(e, 'jb2a.bless'), files(e));
+        ok('§10 Blessed: the aura stands on the token', effectsOn(target, bless.uuid).length > 0, `${effectsOn(target, bless.uuid).length}`);
         await bless.delete();
         await sleep(600);
       }

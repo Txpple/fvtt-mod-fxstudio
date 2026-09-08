@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 26
+  "fx": 22
  },
  "fx": [
   {
@@ -256,28 +256,6 @@
    "note": "D&D5e Animations 3.3.0: \"Malice\" (range)"
   },
   {
-   "id": "acid-vial",
-   "for": [
-    "item:acid-vial"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "sound": {
-      "asset": "psfx.cantrips.acid-splash.v1"
-     },
-     "opacity": 0.8,
-     "asset": {
-      "path": "jb2a.liquid.splash.green"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Acid (vial)\" (ontoken)"
-  },
-  {
    "id": "acid",
    "for": [
     "item:acid"
@@ -376,7 +354,7 @@
    "note": "D&D5e Animations 3.3.0: \"Midnight Tears\" (ontoken)"
   },
   {
-   "id": "net-mark",
+   "id": "net",
    "for": [
     "item:net"
    ],
@@ -448,67 +426,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Pale Tincture\" (ontoken)"
-  },
-  {
-   "id": "potion-of-greater-healing",
-   "for": [
-    "item:potion-of-greater-healing"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.impact.005.blue"
-     },
-     "sound": {
-      "asset": "psfx.consumables.potions-vials.cork-bottle"
-     },
-     "opacity": 0.01,
-     "size": {
-      "tokenWidths": 0.015
-     },
-     "elevation": {
-      "level": -2,
-      "absolute": false
-     },
-     "wait": true,
-     "follow": true
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
-      "start": 100
-     },
-     "asset": {
-      "file": "jb2a.healing_generic.400px.blue"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.impact.005.blue"
-     },
-     "sound": {
-      "asset": "psfx.consumables.potions-vials.drink-liquid"
-     },
-     "opacity": 0.01,
-     "size": {
-      "radius": 0.01
-     },
-     "elevation": {
-      "level": -2,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Greater Healing\" (ontoken)"
   },
   {
    "id": "potion-of-healing",
@@ -617,126 +534,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Potion of Poison\" (ontoken)"
-  },
-  {
-   "id": "potion-of-superior-healing",
-   "for": [
-    "item:potion-of-superior-healing"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.impact.005.blue"
-     },
-     "sound": {
-      "asset": "psfx.consumables.potions-vials.cork-bottle"
-     },
-     "opacity": 0.01,
-     "size": {
-      "tokenWidths": 0.015
-     },
-     "elevation": {
-      "level": -2,
-      "absolute": false
-     },
-     "wait": true,
-     "follow": true
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
-     },
-     "asset": {
-      "file": "jb2a.healing_generic.03.burst.bluepurple"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.impact.005.blue"
-     },
-     "sound": {
-      "asset": "psfx.consumables.potions-vials.drink-liquid"
-     },
-     "opacity": 0.01,
-     "size": {
-      "radius": 0.01
-     },
-     "elevation": {
-      "level": -2,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Superior Healing\" (ontoken)"
-  },
-  {
-   "id": "potion-of-supreme-healing",
-   "for": [
-    "item:potion-of-supreme-healing"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.impact.005.blue"
-     },
-     "sound": {
-      "asset": "psfx.consumables.potions-vials.cork-bottle"
-     },
-     "opacity": 0.01,
-     "size": {
-      "tokenWidths": 0.015
-     },
-     "elevation": {
-      "level": -2,
-      "absolute": false
-     },
-     "wait": true,
-     "follow": true
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
-     },
-     "asset": {
-      "file": "jb2a.healing_generic.03.burst.bluepurple"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "jb2a.impact.005.blue"
-     },
-     "sound": {
-      "asset": "psfx.consumables.potions-vials.drink-liquid"
-     },
-     "opacity": 0.01,
-     "size": {
-      "radius": 0.01
-     },
-     "elevation": {
-      "level": -2,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Supreme Healing\" (ontoken)"
   },
   {
    "id": "purple-worm-poison",

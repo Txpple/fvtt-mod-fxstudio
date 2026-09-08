@@ -627,8 +627,11 @@ try {
       Sequencer.EffectManager.endEffects({ name: 'fxstudio-move-range' });
       canvas.app.stage.removeAllListeners?.('pointerdown');
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
-      // the two delays, on an FX the migration wrote with the hold's offset in `delay` (stock: shield)
-      api.open({ tab: 'editor', id: 'shield' });
+      // the two delays, on an FX the migration wrote with the hold's offset in `delay`. Stock:
+      // `imperceptible-barrier`, which is what the 2024 PHB's Shield spell calls its effect — the
+      // SRD spelled it "Shield" and the SRD is not evidence any more (DESIGN §17). Same three
+      // scenes, same -500 on the first.
+      api.open({ tab: 'editor', id: 'imperceptible-barrier' });
       await sleep(500);
       await pick(0); await band('timing');
       const held14 = app.sheet.scenes.map((x) => JSON.stringify({ delay: x.scene.delay, wait: x.scene.wait }));

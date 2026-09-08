@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 369
+  "fx": 368
  },
  "fx": [
   {
@@ -795,48 +795,6 @@
    "by": "the migration",
    "at": "2026-09-08",
    "note": "D&D5e Animations 3.3.0: \"Eldritch Blast\" (range)"
-  },
-  {
-   "id": "feeblemind",
-   "for": [
-    "spell:feeblemind"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.disintegrate.purpleblue"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.only.002",
-      "delay": 100
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "impact",
-     "asset": {
-      "path": "jb2a.magic_signs.circle.02.illusion.complete.purple"
-     },
-     "sound": {
-      "asset": "psfx.magic-signs.circle.v1.enchantment.complete",
-      "delay": 250
-     },
-     "fadeOut": 0,
-     "size": {
-      "tokenWidths": 2.25
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "delay": 250
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Feeblemind\" (range)"
   },
   {
    "id": "finger-of-death",
@@ -2575,7 +2533,7 @@
    "note": "D&D5e Animations 3.3.0: \"Blade Ward\" (ontoken)"
   },
   {
-   "id": "bless-mark",
+   "id": "bless",
    "for": [
     "spell:bless"
    ],
@@ -5893,7 +5851,7 @@
    "note": "D&D5e Animations 3.3.0: \"Harm\" (ontoken)"
   },
   {
-   "id": "haste-mark",
+   "id": "haste",
    "for": [
     "spell:haste"
    ],
@@ -12175,7 +12133,7 @@
    "note": "D&D5e Animations 3.3.0: \"Sleet Storm\" (templatefx)"
   },
   {
-   "id": "slow-area",
+   "id": "slow",
    "for": [
     "spell:slow"
    ],

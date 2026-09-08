@@ -56,6 +56,11 @@ It sits in the strip whether an FX is open or not (empty, it says so and offers 
 **leaving it does not close it**: walk off to Assets and back and the FX is still there, unsaved
 changes and all. Only opening *another* FX into the sheet asks before dropping them.
 
+**NO SRD 5.1 (the user, 2026-09-08).** The dnd5e system ships the 2014 SRD beside the 2024 content;
+every pack labelled "(SRD)" was dropped from `LIST_PACKS` and `CREATURE_PACKS`. Stock 1279 → **1022**
+and **the census did not move a line** — nearly all of it was the SRD's magic-weapon variants (Club
++1, Vicious Dagger), which the base-weapon key answers anyway. DESIGN §17.
+
 **STOCK IS THE BOOKS; HOUSE IS THIS TABLE (the user, 2026-09-08).** A stock row is keyed against the
 installed compendia and dnd5e's base weapons and **nothing else** — this world's own items are not
 evidence for the shipped corpus; a house row may key against them, because house is this world.
@@ -66,7 +71,7 @@ the user's word, so nothing changed at the table. DESIGN §16.
 **ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key, or none when it is
 an Item Hook. AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
 is not carried: the migration fans a row out into one FX per key it earned, and **a key no list
-holds is not carried at all**. Stock is **1279 FX**, one key each (house 4). The 351 rows no list
+holds is not carried at all**. Stock is **1022 FX**, one key each (house 4). The 351 rows no list
 holds and the 82 keys a row lost to an earlier one are EXCEPTION tables in
 `recipes/migration-report.md`. The census did not move: 694 of 736 abilities answer as under AA,
 exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is the record.

@@ -23,16 +23,25 @@ export const BASE_WEAPON_NAMES = {
  * corpus. Audited 2026-09-08 against what the sandbox actually ships: `dmg/items` did not exist
  * (the DMG ships `equipment` and `features`, 571 records never read), Ravenloft's own items and
  * options were never read though its actors were, and Heroes of Faerûn was not mapped at all.
+ *
+ * ⚠ NO SRD 5.1 (the user, 2026-09-08: "remove anything that is connected to srd 5.1"). The dnd5e
+ * system ships the 2014 SRD beside the 2024 content — every pack whose label ends "(SRD)":
+ * `spells`, `items`, `tradegoods`, `classfeatures`, `monsterfeatures`, `monsters`, and the rest.
+ * This table plays the 2024 books, so the legacy set is not evidence and nothing is keyed to it.
+ * Only the `…24` packs and `equipment24` are read here. It cost 257 stock FX and NOT ONE ability
+ * on this world's actors: the census is identical, line for line, with the SRD gone. Most of what
+ * went was the SRD's magic-weapon variants (Club +1, Vicious Dagger, Greataxe +3 …), which the
+ * base-weapon key answers anyway.
  */
 export const LIST_PACKS = [
   ['phb', 'spells', 'spell'], ['phb', 'feats', 'feature'], ['phb', 'classes', 'feature'], ['phb', 'origins', 'feature'], ['phb', 'equipment', 'item'],
-  ['dnd5e', 'spells24', 'spell'], ['dnd5e', 'spells', 'spell'], ['dnd5e', 'feats24', 'feature'], ['dnd5e', 'classfeatures', 'feature'], ['dnd5e', 'monsterfeatures', 'feature'], ['dnd5e', 'monsterfeatures24', 'feature'], ['dnd5e', 'equipment24', 'item'], ['dnd5e', 'items', 'item'], ['dnd5e', 'tradegoods', 'item'],
+  ['dnd5e', 'spells24', 'spell'], ['dnd5e', 'feats24', 'feature'], ['dnd5e', 'monsterfeatures24', 'feature'], ['dnd5e', 'equipment24', 'item'],
   ['dmg', 'equipment', 'item'], ['dmg', 'features', 'feature'], ['mm', 'features', 'feature'],
   ['ravenloft', 'items', 'item'], ['ravenloft', 'options', 'feature'],
   ['faerun', 'items', 'item'], ['faerun', 'options', 'feature'],
 ];
 
-/** the compendia of creatures whose attacks are the natural-attack census */
-export const CREATURE_PACKS = [['mm', 'actors'], ['dnd5e', 'monsters'], ['dnd5e', 'actors24'], ['phb', 'actors'], ['dmg', 'actors'], ['ravenloft', 'actors'], ['ravenloft', 'fallback-actors'], ['faerun', 'actors']];
+/** the compendia of creatures whose attacks are the natural-attack census (no `dnd5e/monsters`: SRD) */
+export const CREATURE_PACKS = [['mm', 'actors'], ['dnd5e', 'actors24'], ['phb', 'actors'], ['dmg', 'actors'], ['ravenloft', 'actors'], ['ravenloft', 'fallback-actors'], ['faerun', 'actors']];
 
 export const ITEM_TYPES = ['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool', 'loot'];

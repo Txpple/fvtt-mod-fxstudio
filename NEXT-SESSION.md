@@ -24,7 +24,7 @@ it, prove it with the suites, and report. That is the whole method. It replaced 
   screen was right and something else was wrong — a CSS specificity bug made a working filter look
   random, and the Editor was honestly displaying data that should not have existed.
 
-## 2. What was ruled and built (DESIGN §10–16)
+## 2. What was ruled and built (DESIGN §10–17)
 
 | | |
 | --- | --- |
@@ -33,6 +33,7 @@ it, prove it with the suites, and report. That is the whole method. It replaced 
 | §12 | **What the tab does.** A row takes no action; the search matches the name alone; Assets browses and does not write; Revert folded into Delete, which unpins what pointed at the FX. |
 | §13 | **The screen the user drew.** No dropdown; Delete · Editor on every row, double click opens the Editor; amber group heads; Import on the search row; the sound stepper stands on files, not just variants. |
 | §14 | **ONE FX ANSWERS ONE KEY**, and the closed lists audited. The big one — see §3. |
+| §17 | **No SRD 5.1.** Every dnd5e pack labelled "(SRD)" dropped from the evidence. Stock 1279 → 1022, records 4913 → 4168, and the census did not move a line — almost all of it was the SRD's magic-weapon variants, which the base-weapon key answers anyway. |
 | §16 | **Stock is the books; House is this table.** This world's items stopped being evidence for Stock: 7 FX left it, 5 of them pure redundancy. Vesper Staff and Necrotic Scythe moved into `house.json` on the user's word, so nothing changed at the table. |
 | §15 | **The record door.** Every row in the Library opens the compendium record (or world item) its key was earned against — 1288 of 1288, no gaps. `recipes/records.json` addresses every key the closed lists hold; the address is settled where the key is earned, never searched for by name at the table. |
 
@@ -45,7 +46,8 @@ The user opened the Editor on **Absorb Elements** and found it answering `spell:
 with that name. **An FX now answers exactly one key** — a row fans out into one FX per key it earned,
 and anything with no evidence is not carried.
 
-What "evidence" means: the ability exists in an installed compendium or in dnd5e's base weapons.
+What "evidence" means: the ability exists in an installed compendium (the 2024 books — **no SRD
+5.1**, §17) or in dnd5e's base weapons.
 **This world's own items are NOT evidence for Stock** — corrected 2026-09-08 after the user found
 `weapon:1-dagger` in the shipped corpus (§16). **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS that evidence** — and it was audited
 on 2026-09-08 because a pack missing from it now *silently deletes corpus*. It was missing
@@ -78,8 +80,8 @@ Everything is committed and green. Nothing is half-built.
 
 | | |
 | --- | --- |
-| Corpus | stock **1279** (spells 369 · weapons 293 · features 306 · natural 192 · effects 93 · items 26), house **4** (2 Item Hooks + Vesper Staff and Necrotic Scythe, §16) |
-| Records | `recipes/records.json` **4913 keys** addressed (spell 438 · feature 1527 · item 1097 · natural 275 · weapon 391 · effect 1185) — every one of the 1281 keys the corpus answers has a record |
+| Corpus | stock **1022** (spells 368 · weapons 99 · features 282 · natural 172 · effects 79 · items 22), house **4** (2 Item Hooks + Vesper Staff and Necrotic Scythe, §16) |
+| Records | `recipes/records.json` **4168 keys** addressed (spell 436 · feature 1363 · item 862 · natural 251 · weapon 175 · effect 1081) — every one of the 1024 keys the corpus answers has a record |
 | `ui/fxtab.js` | search (name only) + Import · facets · rows; a row is a name with Record · Delete · Editor |
 | `ui/records.js` | reads `recipes/records.json` when the window opens; the engine never touches it |
 | `ui/sheet.js` | the Editor tab: action bar, sentence, hook strip, sequence, note |
