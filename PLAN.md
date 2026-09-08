@@ -34,11 +34,17 @@ decided while building is in [DESIGN.md](DESIGN.md). Each phase ends at a check-
 2. **Zero loss.** The migration is complete only when every row plays through fxstudio with the
    same files, the same sound, and the same options it had under AA. This is measured, not
    judged (§4 step 4, §6 phase 1 exit).
-   **AMENDED 2026-09-08:** zero loss still binds *what is carried* — the proof is 1561 of 1561 at
-   the render. What is **not** carried is now named and counted instead of guessed: 194 rows with
-   no evidence and 81 keys a row lost to an earlier one, both in `recipes/migration-report.md`
+   **AMENDED 2026-09-08:** zero loss still binds *what is carried* — the proof is 1286 of 1286 at
+   the render. What is **not** carried is now named and counted instead of guessed: 351 rows with
+   no evidence and 82 keys a row lost to an earlier one, both in `recipes/migration-report.md`
    under EXCEPTION. Against this world's actors the new keying agrees with AA on **more** than the
-   first migration did (694 of 736, up from 596).
+   first migration did (701 of 738, up from 596).
+
+   **AMENDED AGAIN, the same day: STOCK IS THE BOOKS.** A stock row is keyed against the installed
+   compendia and dnd5e's base weapons and nothing else — this world's own items are *not* evidence
+   for a corpus that ships. A house row may key against them, because house is this world. Seven FX
+   had come in that way; five were pure redundancy and two moved into `recipes/house.json` on the
+   user's word, so nothing changed at the table. Stock 1286 → **1279**, house 2 → **4**. DESIGN §16.
 3. **The stock ships in this repo, attributed and licensed.** `recipes/stock.json` is a
    separate work under GPL-3 with attribution to D&D5e Animations 3.3.0 by MrVauxs and Sisimshow;
    the module's code stays MIT. A new campaign needs neither AA nor D&D5e Animations installed:

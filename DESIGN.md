@@ -1499,3 +1499,51 @@ greyed **where it stands with its reason** (R1), never dropped.
 
 ⚠ It stands on the same evidence the corpus does. Install a book, add its packs to `LIST_PACKS`,
 and re-run `tools/records.mjs` as well as the migration.
+
+## 16. Stock is the books; House is this table (the user's correction, 2026-09-08)
+
+The record door (§15) was the thing that showed it. The user opened one and found the row **1 Dagger**
+pointing not at a compendium but at *Jetten Elisedil's +1 Dagger*:
+
+> *"right, the 1-dagger is NOT a compendium item then, which is what you were supposed to weed out —
+> stuff non-compendium (except first light and goldthorn). so you fucked up."*
+
+They were right. §14's rule had been written as *"an installed compendium, dnd5e's base weapons, **or
+on this world's actors**"* — and that last clause put this table's inventory into the **shipped GPL
+corpus**. Seven keys came in that way, every one of them a family row meeting a world item:
+
+| in stock | keyed to | on |
+| --- | --- | --- |
+| `weapon:1-dagger` · `weapon:ember-touched-greatsword` · `weapon:seras-shortsword` · `weapon:marns-light-crossbow` · `weapon:seras-longbow` | five named weapons | the party and two NPCs |
+| `weapon:vesper-staff` | Vesper Staff | Harrow Vane |
+| `natural:necrotic-scythe` | Necrotic Scythe | Cadoc, the Guardian |
+
+### The rule now
+
+**A stock row is keyed against the installed books and dnd5e's base weapons, and nothing else. A
+house row may key against this world, because house IS this world.** One parameter, `{world}`, true
+for the seven AA house rows and false for the 1289 stock ones (`keysForRow` → `kindsOfName`,
+`expandWord`, `hasEffect`). This world's items are still read: the census and the report need them,
+and the records (§15) still address them, because a house FX keyed to one needs its door.
+
+That distinction matters beyond the seven. Without it, First Light, Goldthorn and Unholy Word — the
+user's own AA entries, which exist only here — would have stopped being keyable at all.
+
+### What it cost, measured item by item
+
+```
+stock 1286 → 1279            "a different fx now"  31 → 25   (the world keys WERE the difference)
+house    2 → 4               "plays nothing now"    9 → 10   (Cadoc's Necrotic Scythe)
+```
+
+Five of the seven were **pure redundancy**: +1 Dagger falls through to `weapon:dagger`, the greatsword
+to `weapon:greatsword`, and so on — the picture byte-identical, so five items left the "different fx"
+list and now agree with AA again. Two did not: Vesper Staff would have dropped to the quarterstaff
+picture, and Cadoc's Necrotic Scythe to silence, a natural attack having no base to fall through to.
+
+**The user's word: "add them as house items."** Both moved into `recipes/house.json` keyed exactly as
+they were, so **nothing changed at the table** — only the file they live in. They are the first
+Global Hooks in the house corpus; the other two are Item Hooks.
+
+⚠ They carry D&D5e Animations content, which is GPL-3, into a file whose header says MIT — so
+`house.json`'s `_meta.licence` now names those two entries and points at `STOCK-LICENSE`.

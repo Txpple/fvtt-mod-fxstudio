@@ -63,25 +63,29 @@ const notCarried = [];
 const noEvidence = [];   // b · rows no list can key: dropped, and listed
 const clashes = [];      // c · a key two rows both want: the first keeps it, the rest are listed
 const ownOnly = [];
-function keysForRow(row) {
+// STOCK IS THE BOOKS; HOUSE IS THIS TABLE (the user, 2026-09-08). A stock row is keyed against the
+// installed books and dnd5e's base weapons alone — a shipped FX may not stand on one table's
+// inventory. A HOUSE row is the user's own, so it may: `world` is true for those.
+function keysForRow(row, { world = false } = {}) {
   const label = row.name.trim();
   const own = slug(label);
   if (row.menu === 'aefx') {
     // an ActiveEffect is not an item, so no item list can hold one — it meets the effects the books
-    // and this world hold (lists.hasEffect). Before 2026-09-08 this returned its key unchecked.
-    if (!lists.hasEffect(label)) { keyed.noEvidence++; noEvidence.push({ label, menu: row.menu }); return []; }
+    // hold (lists.hasEffect). Before 2026-09-08 this returned its key unchecked.
+    if (!lists.hasEffect(label, { world })) { keyed.noEvidence++; noEvidence.push({ label, menu: row.menu }); return []; }
     keyed.effects++;
     return [`effect:${own}`];
   }
   const out = [];
   const add = (k) => { if (k && !out.includes(k)) out.push(k); };
   if (row.match === 'word') {
-    // a family row (a weapon or a creature attack): expanded once against the base weapons, the natural attacks and the
-    // books' and the world's weapons; never a spell, a feature or an item, whatever its word also names
-    const { keys: ex, notCarried: nc } = lists.expandWord(label);
+    // a family row (a weapon or a creature attack): expanded once against the base weapons, the
+    // natural attacks and the books' weapons (this world's too, for a house row); never a spell, a
+    // feature or an item, whatever its word also names
+    const { keys: ex, notCarried: nc } = lists.expandWord(label, { world });
     // a swing is a weapon or a creature attack whatever its word also names ("Shield" is the bash, never the spell);
     // a bolt row named exactly as a spell or a feature IS that spell or feature (Mind Sliver, Life Drain)
-    const kinds = lists.kindsOfName(label, { only: row.menu === 'melee' ? ['weapon', 'natural'] : null });
+    const kinds = lists.kindsOfName(label, { only: row.menu === 'melee' ? ['weapon', 'natural'] : null, world });
     if (nc.length) notCarried.push({ label, menu: row.menu, caught: nc });
     for (const k of kinds) add(`${k.kind}:${k.id}`);
     for (const e of ex) add(`${e.kind}:${e.id}`);
@@ -94,7 +98,7 @@ function keysForRow(row) {
     expansions.push({ label, menu: row.menu, keys: out, from: [...kinds.map((k) => `${k.kind}:${k.id} (${k.from})`), ...ex.map((e) => `${e.kind}:${e.id} ← ${e.name} (${e.from})`)] });
     return out;
   }
-  const kinds = lists.kindsOfName(label);
+  const kinds = lists.kindsOfName(label, { world });
   if (kinds.length) { keyed.byList++; for (const k of kinds) add(`${k.kind}:${k.id}`); return out; }
   // NO LIST HOLDS THE NAME, so there is no evidence of what it is. The first migration keyed these
   // in all three kinds they could be — a guess, and the one place the corpus guessed. The user
@@ -145,10 +149,10 @@ const houseFx = [];
 for (const row of houseRows) {
   const twinRow = stockRows.find((b) => b.name === row.name && b.menu === row.menu && !(row.note ?? '').includes("the item's own FX"));
   let id;
-  if (row.off) { id = idsOfRow.get(twinRow)?.[0] || idFor(row.name, row.menu, taken); houseFx.push({ fx: { id, for: keysForRow(row).slice(0, 1), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
+  if (row.off) { id = idsOfRow.get(twinRow)?.[0] || idFor(row.name, row.menu, taken); houseFx.push({ fx: { id, for: keysForRow(row, { world: true }).slice(0, 1), off: true, by: 'the migration', at: today, note: row.note ?? 'switched off in this world' }, row, notes: [], source: 'house' }); continue; }
   if (twinRow) id = idsOfRow.get(twinRow)?.[0] || null;
   if (!id) { const owner = /\(([^/]+) \/ /.exec(row.note ?? '')?.[1]; id = idFor(owner ? `${row.name} ${owner}` : row.name, row.menu, taken); }
-  const keys = keysForRow(row).slice(0, 1);
+  const keys = keysForRow(row, { world: true }).slice(0, 1);
   const { fx, notes } = rowToFx(row, nativiser, { id, keys, on: row.menu === 'aefx' ? 'effect' : 'use' });
   fx.by = 'the migration';
   fx.at = today;

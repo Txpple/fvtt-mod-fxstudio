@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The weapons of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 299
+  "fx": 293
  },
  "fx": [
   {
@@ -627,41 +627,6 @@
    "id": "dagger-3",
    "for": [
     "weapon:dagger-3"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.dagger.melee.02.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.weapon-attacks.sword.v1",
-      "start": 500
-     },
-     "thrown": {
-      "asset": {
-       "path": "jb2a.dagger.throw.01.white"
-      },
-      "sound": {
-       "asset": "psfx.weapon-swooshes.light.v1"
-      }
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Dagger\" (melee)"
-  },
-  {
-   "id": "1-dagger",
-   "for": [
-    "weapon:1-dagger"
    ],
    "on": "use",
    "scenes": [
@@ -1620,28 +1585,6 @@
    "id": "dancing-greatsword",
    "for": [
     "weapon:dancing-greatsword"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_attack.03.greatsword.01"
-     },
-     "sound": {
-      "asset": "psfx.weapon-attacks.sword.v1",
-      "start": 650
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Greatsword\" (melee)"
-  },
-  {
-   "id": "ember-touched-greatsword",
-   "for": [
-    "weapon:ember-touched-greatsword"
    ],
    "on": "use",
    "scenes": [
@@ -4833,28 +4776,6 @@
    "note": "D&D5e Animations 3.3.0: \"Shortsword\" (melee)"
   },
   {
-   "id": "seras-shortsword",
-   "for": [
-    "weapon:seras-shortsword"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_attack.01.shortsword.01"
-     },
-     "sound": {
-      "asset": "psfx.weapon-attacks.sword.v1",
-      "start": 750
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Shortsword\" (melee)"
-  },
-  {
    "id": "sickle",
    "for": [
     "weapon:sickle"
@@ -5246,33 +5167,6 @@
    "id": "wind-staff",
    "for": [
     "weapon:wind-staff"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.quarterstaff.melee.03.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1",
-      "delay": 600
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
-  },
-  {
-   "id": "vesper-staff",
-   "for": [
-    "weapon:vesper-staff"
    ],
    "on": "use",
    "scenes": [
@@ -6701,27 +6595,6 @@
    "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
   },
   {
-   "id": "marns-light-crossbow",
-   "for": [
-    "weapon:marns-light-crossbow"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.bolt.physical.white"
-     },
-     "sound": {
-      "asset": "psfx.ranged-weapons.longbow.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
-  },
-  {
    "id": "dart",
    "for": [
     "weapon:dart"
@@ -7111,28 +6984,6 @@
    "id": "vicious-longbow",
    "for": [
     "weapon:vicious-longbow"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.arrow.physical.white.01"
-     },
-     "sound": {
-      "asset": "psfx.ranged-weapons.longbow.v1",
-      "start": 250
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Longbow\" (range)"
-  },
-  {
-   "id": "seras-longbow",
-   "for": [
-    "weapon:seras-longbow"
    ],
    "on": "use",
    "scenes": [

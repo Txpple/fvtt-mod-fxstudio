@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The natural of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 193
+  "fx": 192
  },
  "fx": [
   {
@@ -2203,27 +2203,6 @@
    "id": "dread-scythe",
    "for": [
     "natural:dread-scythe"
-   ],
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "file": "jb2a.melee_attack.05.scythe.01"
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Scythe\" (melee)"
-  },
-  {
-   "id": "necrotic-scythe",
-   "for": [
-    "natural:necrotic-scythe"
    ],
    "on": "use",
    "scenes": [

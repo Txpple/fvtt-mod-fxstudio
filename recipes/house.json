@@ -11,9 +11,9 @@
    "sequencer": "4.2.3",
    "dnd5e": null
   },
-  "licence": "MIT",
-  "note": "The user's own FX. Two custom swords, each an Item Hook: it answers that one item and nothing else. Not written by tools/migrate-aa.mjs — that tool leaves this file alone. Add to it from the window (Save writes a Draft; Coverage stages and ships it) or with tools/export-fx.mjs.",
-  "fx": 2
+  "licence": "MIT, except the two FX noted as D&D5e Animations 3.3.0 (Vesper Staff, Necrotic Scythe), which are derived from that GPL-3 work — see STOCK-LICENSE",
+  "note": "The user's own FX. Two custom swords, each an Item Hook: it answers that one item and nothing else. Then two Global Hooks moved out of Stock on 2026-09-08, because their keys are this world's own items and Stock is the books. Not written by tools/migrate-aa.mjs — that tool leaves this file alone. Add to it from the window (Save writes a Draft; Coverage stages and ships it) or with tools/export-fx.mjs.",
+  "fx": 4
  },
  "fx": [
   {
@@ -70,6 +70,54 @@
    "by": "the migration",
    "at": "2026-09-06",
    "note": "the item's own look (Jetten Elisedil / Goldthorn) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
+  },
+  {
+   "id": "vesper-staff",
+   "for": [
+    "weapon:vesper-staff"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.03.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee) · moved out of Stock 2026-09-08 on the user's word: the key is this world's own item, and Stock is the books."
+  },
+  {
+   "id": "necrotic-scythe",
+   "for": [
+    "natural:necrotic-scythe"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "file": "jb2a.melee_attack.05.scythe.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-08",
+   "note": "D&D5e Animations 3.3.0: \"Scythe\" (melee) · moved out of Stock 2026-09-08 on the user's word: the key is this world's own item, and Stock is the books."
   }
  ]
 }

@@ -1,7 +1,19 @@
 // The closed lists a migrated fx is keyed against (ARCHITECTURE §3): the spells, features and
-// items of the installed books and the system, the base weapons, the natural attacks of the
-// installed creatures, and the world's own items. A row's label meets these lists ONCE, here, and
-// becomes explicit keys; no name rule survives into the corpus.
+// items of the installed books and the system, the base weapons, and the natural attacks of the
+// installed creatures. A row's label meets these lists ONCE, here, and becomes explicit keys; no
+// name rule survives into the corpus.
+//
+// ⚠ STOCK IS THE BOOKS; HOUSE IS THIS TABLE (the user, 2026-09-08: "the 1-dagger is NOT a
+// compendium item then, which is what you were supposed to weed out — stuff non-compendium
+// (except first light and goldthorn)"). This world's own items are read — the census and the
+// report need them — but they are evidence only with `{world: true}`, which is what a HOUSE row
+// is keyed with. A shipped stock FX may not be keyed to one table's inventory: stock is the D&D5e
+// Animations corpus, and something only this world has belongs in the user's own house.json, the
+// way First Light and Goldthorn do. SEVEN keys had come into stock that way: six weapons (+1
+// Dagger, Ember-Touched Greatsword, Sera's Shortsword, Vesper Staff, Marn's Light Crossbow, Sera's
+// Longbow) and one natural attack (Necrotic Scythe). The `{world: true}` half is not a nicety: the
+// three AA house rows that exist only here — First Light, Goldthorn, Unholy Word — would otherwise
+// have become unkeyable, which is the opposite of what the user asked for.
 import { existsSync } from 'node:fs';
 import { MODULES, packageMeta } from '../env.mjs';
 import { packDir, readActors, readPackEffects, readPackItems, snapshot } from '../leveldb.mjs';
@@ -18,12 +30,15 @@ export const wordRule = (label) => new RegExp(`(^|[^a-z0-9])${escapeRe(label.tri
  *   weapons                Map<slug(name), {name, baseItem, from}> (equipment weapons with a base item)
  *   natural                Map<slug(name), {name, count, creatures: [names…]}> (natural weapons on creatures)
  *   world                  {items: [{name, type, baseItem, natural, actor}], effects: [names]}
- *   effects                Set<slug(name)> — every ActiveEffect the books and this world hold
+ *   effects / bookEffects  Set<slug(name)> — every ActiveEffect there is / the ones a BOOK holds (the evidence)
  *   records                Map<key, {uuid, name, where, on?, of?}> — the record each key's evidence lives in
  */
 export async function buildLists({ worldActors, worldItems, worldEffects }) {
   const spells = new Map(), features = new Map(), items = new Map(), weapons = new Map(), natural = new Map();
+  // `effects` is every effect name there is (the books' and this world's), which the report reads;
+  // `bookEffects` is the evidence — an effect a DM made here does not carry a stock FX.
   const effects = new Set();
+  const bookEffects = new Set();
   const stats = { packs: [], skipped: [] };
   const put = (map, name, extra) => { const k = slug(name); if (!k) return; if (!map.has(k)) map.set(k, { name, ...extra }); };
   // THE RECORD a key's evidence lives in, addressed ONCE, here, where the evidence is met — never
@@ -57,6 +72,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
     // what a person wants opened. The key's kind says so — nothing else has to be written down.
     for (const { name, on } of await readPackEffects(snap)) {
       effects.add(slug(name));
+      bookEffects.add(slug(name));
       if (on) record(`effect:${slug(name)}`, { uuid: at(on.path), name: on.name, where });
     }
     stats.packs.push(`${mod}/${pack}: ${n}`);
@@ -87,7 +103,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
         if (!has?.on) records.set(`natural:${k}`, { uuid: `Compendium.${m.id}.${pack}.Actor.${actorId}.Item.${it._id}`, name: it.name, where, on: actors[actorId]?.name ?? null });
       }
     }
-    for (const { name } of await readPackEffects(snap)) effects.add(slug(name));
+    for (const { name } of await readPackEffects(snap)) { effects.add(slug(name)); bookEffects.add(slug(name)); }
     stats.packs.push(`${mod}/${pack}: ${n} natural attacks`);
   }
   // one record stands for the attack; say how many creatures share it, so nobody reads it as the only one
@@ -122,7 +138,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
   }
 
   /** which kinds a label is, by the lists: [{kind, id, from}] — the identifier where the list has one */
-  function kindsOfName(label, { only = null } = {}) {
+  function kindsOfName(label, { only = null, world: worldToo = false } = {}) {
     const out = [];
     const seen = new Set();
     const add = (kind, id, from) => { if (only && !only.includes(kind)) return; const k = `${kind}:${id}`; if (!seen.has(k)) { seen.add(k); out.push({ kind, id, from }); } };
@@ -137,7 +153,8 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
       const wp = weapons.get(k); if (wp) add('weapon', k, wp.from);
       const nt = natural.get(k); if (nt) add('natural', k, `${nt.count} creatures`);
       const it = items.get(k); if (it && it.kind === 'item') add('item', it.identifier, it.from);
-      for (const w of world.items) {
+      // this world's own items are evidence for a HOUSE row alone (see the ⚠ at the top)
+      if (worldToo) for (const w of world.items) {
         if (slug(w.name) !== k) continue;
         if (w.type === 'weapon') add(w.natural ? 'natural' : 'weapon', k, `the world (${w.actor})`);
         else if (w.type === 'spell') add('spell', w.identifier || k, `the world (${w.actor})`);
@@ -154,7 +171,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
    * caught outside weapons (a feat, a wand, a spell) is NOT carried — it is returned as `notCarried`
    * for the user to keep with one word. Returns {keys: [{kind, id, name, from}], notCarried: [sentences]}.
    */
-  function expandWord(label) {
+  function expandWord(label, { world: worldToo = false } = {}) {
     const re = wordRule(label);
     const out = [];
     const notCarried = [];
@@ -163,21 +180,21 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
     for (const id of BASE_WEAPONS) if (re.test(BASE_WEAPON_NAMES[id])) add('weapon', id, BASE_WEAPON_NAMES[id], 'the base weapons');
     for (const [k, e] of natural) if (re.test(e.name)) add('natural', k, e.name, `${e.count} creatures (${e.creatures.slice(0, 3).join(', ')})`);
     for (const [k, e] of weapons) if (re.test(e.name)) add('weapon', k, e.name, e.from);
-    // the world's own weapons; anything else the word would have caught is listed, not carried
+    // what the word catches on this world's actors is LISTED, and carried only for a house row —
+    // a shipped stock FX may not be keyed to one table's inventory (see the ⚠ at the top)
     for (const w of world.items) {
       if (!re.test(w.name)) continue;
-      const k = slug(w.name);
-      if (w.type === 'weapon') add(w.natural ? 'natural' : 'weapon', k, w.name, `the world (${w.actor})`);
-      else notCarried.push(`${w.name} [${w.type}] on ${w.actor}`);
+      if (worldToo && w.type === 'weapon') add(w.natural ? 'natural' : 'weapon', slug(w.name), w.name, `the world (${w.actor})`);
+      else notCarried.push(`${w.name} [${w.type}] on ${w.actor}${w.type === 'weapon' ? " — this world's own" : ''}`);
     }
     for (const [k, e] of spells) if (re.test(e.name) && slug(e.name) !== slug(label)) notCarried.push(`${e.name} [spell] (${e.from})`);
     return { keys: out, notCarried: [...new Set(notCarried)] };
   }
 
-  /** does an ActiveEffect of this name exist in the books or in this world? */
-  const hasEffect = (label) => nameForms(label).some((form) => effects.has(slug(form)));
+  /** does an ActiveEffect of this name exist in the BOOKS? (this world's own only for a house row) */
+  const hasEffect = (label, { world: worldToo = false } = {}) => nameForms(label).some((form) => (worldToo ? effects : bookEffects).has(slug(form)));
 
-  return { spells, features, items, weapons, natural, effects, records, world, kindsOfName, expandWord, hasEffect, stats };
+  return { spells, features, items, weapons, natural, effects, bookEffects, records, world, kindsOfName, expandWord, hasEffect, stats };
 }
 
 export const packExists = (mod, pack) => !!(MODULES[mod] && existsSync(`${MODULES[mod]}/packs/${pack}`));
