@@ -1,86 +1,114 @@
-# Handoff — the reset (2026-09-07)
+# Handoff — the reset, day two (2026-09-08)
 
 Read [CLAUDE.md](CLAUDE.md) first (it is loaded for you), then this page. It is short on purpose.
 
+**Where we are: the reset held.** The UI was rebuilt over two days from the user's own judgment, a
+message at a time, with no plan driving it — and then the *data* was rebuilt the same way. Both are
+committed and green. **The next session continues on the migrated data.**
+
 ---
 
-## 1. What happened
+## 1. How this work happens
 
-The UI was rebuilt over 2026-09-07 in seven steps, off a brief and a set of Claude Design screens.
-The user stopped it:
+The user gives a ruling in their own words, often mid-build, sometimes several in a row. You build
+it, prove it with the suites, and report. That is the whole method. It replaced a plan, deliberately
+(§3).
 
-> *"the ui is buggy as fuck, it has mostly what i want, but i dont want to be burdened by the plan
-> from the html and redesign, which came from claude design. id like to continue the refactor using
-> my own judgment. … make a note which commit we started the redesign, in case we totally need to
-> roll back. then shelve teh plans to date and radically clean things up. we need another tabula
-> rasa reset where we're going to vet with what we have, fix it and see if we can go fwd, if not
-> we'll go back to the commit before this started."*
+- **Wait for "go".** Investigate and prototype freely; build when told.
+- **The vetting is theirs.** They use it and say what is broken. Do not go bug-hunting, do not drive
+  the window to form an opinion about it, do not offer a list of improvements as though it were owed.
+- **Do not build from `shelved/`.** `HANDOFF.md` and `fxstudio6-proposal.html` are history. Their
+  R1–R5 and seven steps are not authority. Nothing in them is unfinished.
+- **A big diff for no behaviour change is not clean-up.**
+- **When a screen looks wrong, find out which side is lying before you change it.** Twice now the
+  screen was right and something else was wrong — a CSS specificity bug made a working filter look
+  random, and the Editor was honestly displaying data that should not have existed.
 
-**The plan is shelved. The user's judgment drives what happens to the UI from here.**
+## 2. What was ruled and built (DESIGN §10–14)
 
-## 2. What you must not do
+| | |
+| --- | --- |
+| §10 | **The Editor is a tab.** Library · Editor · Assets · Coverage. Leaving it does not close the sheet; only opening another FX asks before dropping changes. |
+| §11 | **The FX tab stripped back.** No detail pane, a row is a name, the search moved out of the window header. |
+| §12 | **What the tab does.** A row takes no action; the search matches the name alone; Assets browses and does not write; Revert folded into Delete, which unpins what pointed at the FX. |
+| §13 | **The screen the user drew.** No dropdown; Delete · Editor on every row, double click opens the Editor; amber group heads; Import on the search row; the sound stepper stands on files, not just variants. |
+| §14 | **ONE FX ANSWERS ONE KEY**, and the closed lists audited. The big one — see §3. |
 
-- **Do not build from `shelved/`.** `HANDOFF.md` and `fxstudio6-proposal.html` are in there as
-  history. Their five "rules" (R1–R5) and seven steps are not authority for anything. Nothing in
-  them is owed or unfinished.
-- **Do not go bug-hunting on your own.** The user vets it by using it. They will say what is broken.
-  Driving the window with a script to form an opinion about it is not what "vet" meant.
-- **Do not start a UI change the user has not named**, however obvious it looks.
-- **Do not do a big rename or a doc-matching sweep.** A large diff with no behaviour change costs
-  review time and buys nothing.
+The tab reads **Library**; its key in code is still `fx`.
 
-## 3. The rollback point
+## 3. The data ruling, and why it matters most
 
-**`a4c9824`** — *"phase 3, the second bug-testing pass (2026-09-07)"* — is the last commit before
-the redesign, tagged **`pre-revamp`** (local tag only; `git push origin pre-revamp` to publish it).
+The user opened the Editor on **Absorb Elements** and found it answering `spell:`, `feature:` and
+`item:` at once. That was AA's shape: one namespace of names, so a row stood for whatever was used
+with that name. **An FX now answers exactly one key** — a row fans out into one FX per key it earned,
+and anything with no evidence is not carried.
 
-```bash
-git diff pre-revamp --stat
-git checkout -b before-revamp pre-revamp
+What "evidence" means: the ability exists in an installed compendium, in dnd5e's base weapons, or on
+this world's actors. **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS that evidence** — and it was audited
+on 2026-09-08 because a pack missing from it now *silently deletes corpus*. It was missing
+`dmg/equipment` (571 records, 87 weapons), Ravenloft's items and options, and Heroes of Faerûn
+entirely. **If a new book is installed, add its packs there and re-run the migration.**
+
+```
+stock 1289 → 1286 FX, one key each          the census DID NOT MOVE:
+351 rows no list holds — not carried        694 of 736 abilities answer as under AA
+82 keys lost to an earlier row              9 stopped, 27 effects — same before and after
+render proof 1293 of 1293                   every FX cut could never have answered anything here
 ```
 
-That is the UI after the two in-game bug-testing passes — twenty-seven of the user's own rulings,
-tested at the table.
+Both exception lists are EXCEPTION tables in `recipes/migration-report.md`, and on the user's
+desktop as **`FX Studio exception report.xlsx`** (rebuild it from that report if it moves).
 
-**⚠ One thing rides along.** The first redesign commit, `ce74b8c`, bundled step 2 of the plan
-**and** the user's own no-shortcuts ruling (`like` and `with` out of the grammar). A rollback to
-`pre-revamp` **puts `like` and `with` back**. If the user wants the rollback without that, the
-ruling has to be re-applied on top — a small, self-contained change to `core/fx.js`,
-`core/corpus.js`, `api.js` and the two screens that read them. `shelved/README.md` lists what each
-redesign commit changed, for weighing keep-or-roll-back.
+**The one to watch is effects.** An item's name is evidence; an effect's is weaker, because a DM
+names effects by hand and other modules ship their own. 93 of 184 effect rows survived. Anything
+currently on this world's actors is kept; an effect that arrives later needs its FX re-made.
 
-## 4. What is actually in the repo right now
+**`recipes/house.json` is the USER'S file.** `migrate-aa.mjs` no longer writes it — it offers
+`dist/house-from-migration.json` instead. It holds **two custom swords as Item Hooks**: First Light
+and Goldthorn. The user deleted the rest, including this world's Misty Step colour and Sorcerous
+Burst animation overrides, which now fall through to Stock.
+
+## 4. What is in the repo right now
 
 Everything is committed and green. Nothing is half-built.
 
 | | |
 | --- | --- |
-| Tabs | **FX · Editor · Assets · Coverage**; the search belongs to the FX tab; the Editor is the FX sheet, and leaving the tab does not close it |
-| `ui/fxtab.js` | the search (name only, no dropdown) + Import · facets · rows; every FX in one list, Draft → House → Stock; a row is a name with Delete · Editor, and clicking it takes no action |
-| `ui/library.js` | the Asset Library, and the picker the sheet's Browse opens — **untouched by the redesign, by the user's ruling** |
-| `ui/coverage.js` | Maintain, the two scopes, four tiles, the rows |
-| `ui/sheet.js` | one sheet per FX: the action bar, the sentence, the hook strip, the sequence, the note |
-| Suites | `smoke-screens` 163 · `smoke-author` 15 · `smoke-fx` 1293 · `smoke-replay` 45 · `check-fx`/`imports`/`layers`/`legacy` green |
+| Corpus | stock **1286** (spells 369 · weapons 299 · features 306 · natural 193 · effects 93 · items 26), house **2** |
+| `ui/fxtab.js` | search (name only) + Import · facets · rows; a row is a name with Delete · Editor |
+| `ui/sheet.js` | the Editor tab: action bar, sentence, hook strip, sequence, note |
+| `ui/library.js` | the Asset Library and the picker; browses, does not write |
+| `ui/coverage.js` | Maintain, two scopes, four tiles, the rows |
+| Suites | `smoke-screens` **178** · `smoke-author` **15** · `smoke-fx` **1288** · `smoke-replay` **45** · `check-fx` 1298 fx / 0 invalid · imports/layers/legacy green |
 
-The suites pass. **That is not the same as the UI being right** — the user's word for it is "buggy
-as fuck", and they are the one using it.
+Sandbox verified byte-identical to the repo on 2026-09-08, its two item pointers live, its two
+Drafts still coherent. A stale `scripts/core/looks.js` and a stale `fvtt-mod-fxstudio.looks` world
+setting were removed the same day.
 
-## 5. Two things already known to be wrong
+## 5. Known and unfixed — offered, never owed
 
-Found by driving the window once on 2026-09-07, before the user stopped that. **Offered, not owed** —
-they have not been ruled on, and they are not a to-do list:
+Not ruled on. Not a to-do list.
 
 - The window **scrolls sideways below about 780px**, on every tab.
-- **A modal dialog swallows every later click.** Back from an unsaved new sheet opens the
-  leave-guard dialog; anything clicked while it is up does nothing, with no sign why.
+- **A modal dialog swallows every later click** (Back from an unsaved new sheet).
+- **No door on the Library makes a new FX** — that went with the search dropdown, on the user's word
+  (*"we'll add new later"*). The Editor's **New FX** still works.
+- `remove-fx`, `delete-fx`, `export-fx`, `create-new`, `new-kind` are handlers with no door, kept in
+  `ui/studio.js` with a comment because more passes are coming.
+- The migration report's *"FX that can never answer"* section still describes the pre-curation
+  house corpus — the tool reads AA's house rows, not `recipes/house.json`.
 
 ## 6. Where to pick up
 
-**Wait for the user.** They will restart in a fresh window and say what is broken, or say roll back.
+**The user said the next session continues on the migrated data.** Likely shapes, none of them
+started or owed:
 
-Parked elsewhere, each on the user's word: phase 4 — outcomes and moments (PLAN §6, what the module
-was actually for); the 502 migrated assets keyed `file` that are really library paths (BACKLOG);
-cutover (PLAN §6 phase 5).
+- Reading the exception lists and deciding what to re-make by hand (the 351, or the 91 effects).
+- The 502 migrated assets keyed `file` that are really library paths (BACKLOG).
+- Phase 4 — outcomes and moments (PLAN §6), what the module was actually for.
+- Cutover: switching AA off on prod (PLAN §6 phase 5).
+
+**Wait for them to say which.**
 
 ## 7. How to work here
 
@@ -90,8 +118,14 @@ In [CLAUDE.md](CLAUDE.md) in full; the ones this work keeps needing:
   `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs stop|start|status`, deploy with
   `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local` (while the
   server is down if `module.json` changed), then start. `recipes/` must travel with
-  `scripts/ styles/ templates/ lang/`. **A script edit needs a re-deploy before a suite sees it** —
-  the suite drives the browser's copy of the module, not the repo's.
+  `scripts/ styles/ templates/ lang/`. **A script or recipe edit needs a re-deploy before a suite
+  sees it** — the suite drives the browser's copy, not the repo's. ⚠ The deploy script never
+  *deletes*: a file removed from the repo lingers on the sandbox until someone looks.
+- **The migration is offline and takes 3 seconds.** `node tools/migrate-aa.mjs` writes nothing and
+  leaves its report at `dist/migration-report.md`; `--write` writes the recipes. Run the dry one and
+  read the numbers before ever passing `--write`.
+- ⚠ **A live pack is locked while Foundry runs.** Read compendia through `snapshot(dir, tag)`, never
+  the pack directory itself.
 - After any edit under `scripts/`: `check-imports`, `check-layers`, `check-legacy`. After any edit
-  under `recipes/`: `check-fx`.
+  under `recipes/`: `check-fx`, then the live suites.
 - One green pass, then check in. Build only when told.

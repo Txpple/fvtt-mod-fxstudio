@@ -14,8 +14,11 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-07): A RESET. The UI redesign that ran off a Claude Design brief is SHELVED, on
-the user's word:**
+**Status (2026-09-08): the reset held, and both the UI and the DATA were rebuilt from the user's
+own judgment, a message at a time. Read [NEXT-SESSION.md](NEXT-SESSION.md) — it is the handoff.
+The next session continues on the migrated data.**
+
+**The UI redesign that ran off a Claude Design brief is SHELVED, on the user's word:**
 
 > *"the ui is buggy as fuck, it has mostly what i want, but i dont want to be burdened by the plan
 > from the html and redesign, which came from claude design. id like to continue the refactor using
@@ -54,10 +57,17 @@ changes and all. Only opening *another* FX into the sheet asks before dropping t
 
 **ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key, or none when it is
 an Item Hook. AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
-is not carried: the migration fans a row out into one FX per key it earned. The 194 rows no list can
-key, and the 81 keys a row lost to an earlier one, are **not carried** — both are EXCEPTION tables
-in `recipes/migration-report.md`. Stock is **1554 FX**, one key each. PLAN §0.1–2 carry the
-amendment. `recipes/house.json` is the USER'S file: `migrate-aa.mjs` no longer writes it (it offers
+is not carried: the migration fans a row out into one FX per key it earned, and **a key no list
+holds is not carried at all**. Stock is **1286 FX**, one key each (house 2). The 351 rows no list
+holds and the 82 keys a row lost to an earlier one are EXCEPTION tables in
+`recipes/migration-report.md`. The census did not move: 694 of 736 abilities answer as under AA,
+exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is the record.
+
+⚠ **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS the evidence**, so a book missing from it silently
+deletes corpus. Audited 2026-09-08 (it was missing `dmg/equipment`, Ravenloft's items and options,
+and Heroes of Faerûn entirely). **Install a new book → add its packs there → re-run the migration.**
+
+**`recipes/house.json` is the USER'S file**: `migrate-aa.mjs` no longer writes it (it offers
 `dist/house-from-migration.json` instead), and it holds **two custom swords as Item Hooks** —
 First Light and Goldthorn — after the user cut the rest on 2026-09-08.
 
@@ -72,9 +82,10 @@ has not ruled on either: the window **scrolls sideways below about 780px** on ev
 **a modal dialog swallows every later click** (Back from an unsaved new sheet opens the leave guard;
 anything clicked while it is up does nothing).
 
-**NEXT: nothing. Wait for the user.** Read [NEXT-SESSION.md](NEXT-SESSION.md) first — it is the
-handoff for this reset. Phase 4 (outcomes and moments, PLAN §6), the 502 migrated assets keyed
-`file` (BACKLOG) and cutover (PLAN §6 phase 5) are all parked on the user's word.
+**NEXT: the migrated data, on the user's word.** Read [NEXT-SESSION.md](NEXT-SESSION.md) first —
+it is the handoff. Candidates, none of them started or owed: reading the exception lists and
+re-making by hand what is wanted, the 502 migrated assets keyed `file` (BACKLOG), phase 4 (outcomes
+and moments, PLAN §6), cutover (PLAN §6 phase 5). **Wait for them to say which.**
 
 **The documents.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,
@@ -135,6 +146,9 @@ handoff or a plan — which is the rule the shelved redesign broke.
   Deploy while the server is down, then start — that satisfies the script-cache discipline.
   ⚠ The deploy script ships `scripts/`, `styles/`, `templates/`, `lang/` and `module.json`; this
   module also serves **`recipes/`** (fetched at boot), which must travel too — see tools/README.md.
+  ⚠ **It never deletes.** A file removed from the repo lingers on the sandbox until someone
+  byte-compares (a stale `scripts/core/looks.js` rode along from the vocabulary rename until
+  2026-09-08).
   The module is registered and enabled on the sandbox since 2026-09-06 (`tools/sandbox-module.mjs`
   writes `core.moduleConfiguration` offline; a refresh wipes that as well as the files).
 - **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes locally deployed modules AND
@@ -156,6 +170,8 @@ handoff or a plan — which is the rule the shelved redesign broke.
   (`../fvtt-mcp-molten5e/dist/foundry.js`, credentials from its `.env`; the suite identity is
   "Tester Assistant"). Follow Battle Flow's `tools/README.md` pattern: section-filterable, every
   suite restores what it touched and deletes its own chat messages.
+- ⚠ **A live compendium is LOCKED while Foundry runs.** Read a pack through `snapshot(dir, tag)`
+  (`tools/lib/leveldb.mjs`), never the pack directory itself.
 - **Reading the world offline** (no Foundry needed, as the investigation did): copy a LevelDB
   folder (`data/settings`, `data/actors`, a module's `packs/<name>`) to a scratch dir and read
   it with `classic-level` from `../fvtt-mcp-molten5e/node_modules`; see `prototypes/read-db.mjs`.
