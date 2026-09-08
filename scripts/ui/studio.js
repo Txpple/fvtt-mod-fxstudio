@@ -22,7 +22,7 @@ import { onFxClick, renderFx, renderList } from './fxtab.js';
 import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
-const TABS = [['fx', 'FX'], ['editor', 'Editor'], ['assets', 'Assets'], ['coverage', 'Coverage']];
+const TABS = [['fx', 'Library'], ['editor', 'Editor'], ['assets', 'Assets'], ['coverage', 'Coverage']];
 /** the acts that open a DIFFERENT FX into the sheet, and so must ask before dropping unsaved changes */
 const REPLACES = new Set(['entry', 'key', 'create-new', 'fx-editor']);
 /** the tabs step 5 replaced, so a macro, a bridge or an old call still lands where it meant to */

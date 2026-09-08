@@ -34,7 +34,7 @@ bug-testing passes, before the redesign. ⚠ Rolling back also **restores `like`
 grammar**, because the no-shortcuts ruling rode in on the first redesign commit (`ce74b8c`) with
 step 2. `shelved/README.md` has the commands and what each redesign commit changed.
 
-**What the window is today** (this is a description of the code, not a plan): four tabs — **FX ·
+**What the window is today** (this is a description of the code, not a plan): four tabs — **Library (the tab is still keyed `fx` in code; renamed on the user's word 2026-09-08) ·
 Editor · Assets · Coverage**. It opens at 1080px.
 **FX** (`ui/fxtab.js`): its own search, then facets · the rows; one list of every FX grouped
 Draft → House → Stock; a search that matches the **name alone** (no dropdown) with **Import**

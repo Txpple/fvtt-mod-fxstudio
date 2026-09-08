@@ -35,7 +35,7 @@ try {
     const text = (sel) => ($(sel)?.textContent ?? '').replace(/\s+/g, ' ').trim();
     // the Library's path and file boxes are read-only fields (2026-09-07): their value is the text
     const val = (sel) => ($(sel)?.value ?? '').trim();
-    // four tabs (2026-09-07): FX · Editor · Assets · Coverage — the sheet is the Editor TAB
+    // four tabs (2026-09-08): Library · Editor · Assets · Coverage — the sheet is the Editor TAB
     const paneNow = () => $('.pane[data-active="true"]')?.dataset.pane ?? '';
     const tabNow = () => $('[role=tab][aria-selected="true"]')?.dataset.tab ?? '';
     // the sheet is a rail and an inspector (HANDOFF step 4): pick a scene, then a band of knobs
@@ -61,7 +61,7 @@ try {
       const misty = caster.actor.items.getName('Misty Step');
       app = api.open({ item: misty });
       await sleep(600);
-      ok('§1 the window opens with four tabs: FX · Editor · Assets · Coverage', app?.rendered && $$('[role=tab]').length === 4 && $$('[role=tab]').map((t) => t.textContent).join('|') === 'FX|Editor|Assets|Coverage', `${$$('[role=tab]').map((t) => t.textContent).join(', ')}`);
+      ok('§1 the window opens with four tabs: Library · Editor · Assets · Coverage', app?.rendered && $$('[role=tab]').length === 4 && $$('[role=tab]').map((t) => t.textContent).join('|') === 'Library|Editor|Assets|Coverage', `${$$('[role=tab]').map((t) => t.textContent).join(', ')}`);
       ok('§1 the search belongs to the FX tab, under the tabs, not to the window header', !!$('.pane[data-pane="fx"] .fxsearch .fx-q') && !$('.fx-head') && $('.fx-q')?.placeholder === 'Search for an FX…', $('.fx-q')?.placeholder ?? 'no box');
       ok('§1 the search is on the FX screen alone', !$('.pane[data-pane="assets"] .fx-q') && !$('.pane[data-pane="coverage"] .fx-q') && $$('.fx-q').length === 1, `${$$('.fx-q').length} boxes`);
       ok('§1 the box has no dropdown: one box, one job — it narrows the list and nothing else', !$('.fxsearch .suggest') && !$('[data-act="hit"]') && !$('[data-act="new"]'), 'no suggest under the FX search');
