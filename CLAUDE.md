@@ -14,71 +14,52 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-07): THE UI REVAMP IS DONE — all seven steps of [HANDOFF.md](HANDOFF.md) are
-settled (1 superseded, 2·3·4·5·7 built, **6 ruled out by the user: "for step 6, i like my layout as
-is, so do 7"** — the Asset Library is not rebuilt and nothing of that step is owed).**
-The standing ruling underneath it all is NO SHORTCUTS: `like` and `with` are GONE from the grammar
-(DESIGN §9). Every FX states its scenes in full and none points at another, because a pointer can
-leave an orphan. "Sharran Step is Misty Step in black" means Misty Step written out again with the
-colour changed. Removed from `core/fx.js`, `core/corpus.js`, `api.js` (`fx.expand` →
-**`fx.scenesOf(id)`**), `ui/sheet.js`, `ui/library.js` and every doc; nothing in the corpus used them
-(0 of 1296). **The window is THREE TABS — FX · Assets · Coverage — the search in the window header,
-and the FX sheet a PANE, not a tab** (opened on an FX; Back returns where it came from; the old tab
-names still land where they meant to). It opens at 1080px.
-**FX** (`scripts/ui/fxtab.js`) is 190px facets · the rows · a 300px detail pane, the rows the only
-thing that scrolls: one list of every FX **grouped Draft → House → Stock** (resolution order, later
-wins), a row being name (+N keys, · Item Hook) · the generated sentence · the layer tag · the shape
-tags and **never the key list**; facets at permanent addresses with counts, greyed at zero — Lives in
-· Kind · Only (On my actors, Item Hooks, Switched off, **Broken assets**). The detail pane is what the
-Look up card was: name, tags, why, id, provenance, the sentence, the sequence as stills, and Edit ·
-▶ Play · Ships as · Duplicate · Export · Delete — or *Nothing plays* + **Create FX**.
-**Assets** (`ui/library.js`) is **unchanged by the user's ruling**: shelf · stage · paths · Used-in
-and the picker contract exactly as they were.
-**COVERAGE (`scripts/ui/coverage.js`, step 7, built 2026-09-07) is four bands and only the last one
-scrolls: MAINTAIN AT THE TOP** (a head line, then Waiting · Ship · Shipped, then the corpus's
-problems on one foot line — shipping is the last step of a workflow, not a footnote under a report;
-its ship controls now grey **in place** when nothing is staged) · **the scope** (My actors ·
-Compendiums, with Books · N and Check) · **the tiles** (Abilities · With FX · No FX · **Errors**) ·
-**the rows**. **My actors is the census, read with no await — it ran on every render and was never
-drawn until now**; every No FX row opens a new sheet for that ability; the books are picked as rows
-inside the one scroller instead of a wrapping pill cloud; **Errors is the door to the FX tab's Broken
-assets facet**, greyed in place at zero, counting the corpus so the number matches the facet it
-opens. **THE ITEM HOOK GAP IS CLOSED**: unlocked, the sheet's Reach control **picks its own actor and
-item**, so an FX can be pinned to one item without arriving from that item's sheet (it was
-`subject.uuid && subject.owner` or nothing). Also fixed there: `onCorpusInput` was called and never
-imported (typing in the Release note threw), and `.tiles` no longer `auto-fit`s (that was a wrap).
-The FX sheet is FIVE BANDS — identity + action bar · a fixed two-line sentence · the hook strip ·
-the sequence · the note — the sequence a 288px RAIL, the OVERLAP STRIP under it (every scene on one
-ms scale; a picture's length is measured from the loaded file and marked *about* until it is known),
-and an INSPECTOR whose frame never resizes (band tabs Picture · Timing · Sound · Placement · ⟨the
-shape's own⟩, each the same 4×2 grid of eight cells, live from `KNOBS` alone). THE TWO DELAYS ARE
-NAMED APART: `delay` is *Wait before*, `wait` is *Hold next*. ▶ Play all and a ▶ per rail row run
-through `api.preview`, saving nothing, greyed with their reason when they cannot run. The layout
-primitives are one gutter/row/radius on the window, a knob row is `repeat(4, minmax(0, 1fr))` (R2),
-cells at permanent addresses greyed and disabled in place from `KNOBS` alone (R1), list rows one
-height with selection changing colour only (R3), `minmax(0, 1fr)` wherever a long string sits.
-**NEXT: nothing in the revamp is owed. What is left is PHASE 4 — outcomes and moments (PLAN §6),
-what the module was for — the 502 migrated assets keyed `file` that are really library paths
-(BACKLOG), and cutover; every one of them waits on the user's word.**
-**Read [NEXT-SESSION.md](NEXT-SESSION.md) first: it is the handoff, and it says where the two design
-docs are wrong.** Earlier: phase 3 built and bug-tested in-game with the user over two passes — the
-first seventeen rulings, then ten more the same day (DESIGN §8 *The bug-testing pass* and *The
-second bug-testing pass*); pushed through 1d32ea6 (the vocabulary pass, the tab rename, the FX sheet
-that replaced the wizard — `scripts/ui/sheet.js`, DESIGN §8 *The FX sheet* — the sentence's sound
-clause `with sound (PSFX x)`, Battle Flow ruled backlog for phase 4). The
-vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens), and
-since the evening's pass **terms, not sentences** (DESIGN §8 *A tool, not prose*): Stock / House /
-Draft for where an FX lives (baseline renamed stock end to end), Global Hook / Item Hook for its
-reach, staged not bound; the FX's own sentence and each scene's line are kept on purpose; the
-wizard is gone: the FX Editor is ONE SHEET per FX with an Edit switch as the guard, Hook / Sequence / Note blocks, Save always a Draft (DESIGN §8 *The FX sheet*); the tabs are, since step 5 (2026-09-07), **FX · Assets · Coverage** — the FX sheet is a pane opened on an FX, not a tab, and the search is in the window header. Delete is for good
-(`api.corpus.erase`). `tools/smoke-screens.mjs` is 163 of 163 (`FX_TRACE=1` traces a page crash); DESIGN §8 records every ruling of the
-day in order and §9 the revamp. Both questions the user parked are now closed: the **Look up tab** is gone (its search folded into
-the header, its card became the FX tab's detail pane) and **Delay meaning two things** was named
-apart at step 4. The user iterates by sending screenshots and comments, asking to aggregate and hold
-until "go"; nothing of phase 4 (outcomes and moments, PLAN §6) starts before that word. **The
-revamp runs one or two steps at a time and stops at a check-in:** a mockup handed to an agent gets
-its pixels copied and its silences invented, so [HANDOFF.md](HANDOFF.md) §Rules is the acceptance
-criteria and `prototypes/fxstudio6-proposal.html` is illustration only (the user, 2026-09-07). Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
+**Status (2026-09-07): A RESET. The UI redesign that ran off a Claude Design brief is SHELVED, on
+the user's word:**
+
+> *"the ui is buggy as fuck, it has mostly what i want, but i dont want to be burdened by the plan
+> from the html and redesign, which came from claude design. id like to continue the refactor using
+> my own judgment. … shelve the plans to date and radically clean things up. we need another tabula
+> rasa reset where we're going to vet with what we have, fix it and see if we can go fwd, if not
+> we'll go back to the commit before this started."*
+
+**No plan drives the UI. The user's judgment does.** `shelved/HANDOFF.md` and
+`shelved/fxstudio6-proposal.html` are history — never instructions, never work to "finish". Do not
+propose the shelved steps, do not cite their rules as authority, and do not start a UI change that
+the user has not named. **The vetting is the user's**: they use it, they say what is broken, we fix
+what they name.
+
+**The rollback point is `a4c9824`, tagged `pre-revamp`** — the UI as it stood after the two in-game
+bug-testing passes, before the redesign. ⚠ Rolling back also **restores `like` and `with` to the
+grammar**, because the no-shortcuts ruling rode in on the first redesign commit (`ce74b8c`) with
+step 2. `shelved/README.md` has the commands and what each redesign commit changed.
+
+**What the window is today** (this is a description of the code, not a plan): three tabs — **FX ·
+Assets · Coverage** — with one search in the window header and the FX sheet as a **pane**, not a
+tab. It opens at 1080px. **FX** (`ui/fxtab.js`): facets · the rows · a 300px detail pane; one list
+of every FX grouped Draft → House → Stock; the pane holds Edit · ▶ Play · Ships as · Duplicate ·
+Export · Delete. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the picker the
+sheet's Browse opens. **Coverage** (`ui/coverage.js`): Maintain at the top, then My actors ·
+Compendiums, four tiles, and the rows. **The FX sheet** (`ui/sheet.js`): identity + action bar · the
+sentence · the hook strip · the sequence (a rail, an overlap strip, a band-tabbed inspector) · the
+note; `delay` is *Wait before*, `wait` is *Hold next*; Save is always a Draft; Delete is for good.
+
+**The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
+`with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
+(`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House / Draft,
+Global Hook / Item Hook, staged. FX / VFX / SFX. No JSON or raw library paths in front of a GM. It
+never guesses: an ability with no FX plays nothing.
+
+**Known and unfixed, found by driving the window on 2026-09-07** — offered, not owed, and the user
+has not ruled on either: the window **scrolls sideways below about 780px** on all three tabs, and
+**a modal dialog swallows every later click** (Back from an unsaved new sheet opens the leave guard;
+anything clicked while it is up does nothing).
+
+**NEXT: nothing. Wait for the user.** Read [NEXT-SESSION.md](NEXT-SESSION.md) first — it is the
+handoff for this reset. Phase 4 (outcomes and moments, PLAN §6), the 502 migrated assets keyed
+`file` (BACKLOG) and cutover (PLAN §6 phase 5) are all parked on the user's word.
+
+**The documents.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,
 improvements in scope), then the architecture, the measured facts, the lossless AA import with its
 parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
@@ -87,8 +68,9 @@ table `fxstudio.aa.*` and why, the matching rules, and §6: the moments, who pla
 the ledger; §7: phase 2 — the proof, where every AA option went, the keys, the frozen table); [BACKLOG.md](BACKLOG.md) what is parked;
 `recipes/migration-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
 the tools. `prototypes/` holds the investigation's scripts and the clickable prototype the user
-ruled the shape on ("it reads right"). Each phase ends at a check-in; the next phase starts on
-the user's word, never on a handoff or a plan.
+ruled the shape on ("it reads right"); `shelved/` holds the redesign brief and its screens, which
+govern nothing. Each phase ends at a check-in; the next phase starts on the user's word, never on a
+handoff or a plan — which is the rule the shelved redesign broke.
 
 ## How the user works (standing rules, learned in the sister repos)
 
@@ -102,6 +84,14 @@ the user's word, never on a handoff or a plan.
 
 - **Wait for "go".** Investigate, prototype and plan freely; build only when told. One green
   pass, then check in at every break point.
+- **The vetting is the user's (2026-09-07, the reset).** They use the thing and say what is broken;
+  we fix what they name. Do not go hunting for bugs unbidden, do not drive the window with a script
+  to form an opinion about it, and do not offer a list of improvements as though it were work owed.
+  A plan is not a mandate: the redesign was shelved precisely because it started driving the work
+  instead of the user.
+- **A big diff for no behaviour change is not clean-up.** Renaming things across the codebase to
+  match a document, or churning test names, costs the user review time and buys nothing. Clean up
+  what is wrong, not what is merely named oddly.
 - **UI questions get a clickable prototype first** (an HTML artifact); the user rules off it,
   then says go. The ruled prototype's source is `prototypes/fxstudio2.template.html` and the
   live artifact was https://claude.ai/code/artifact/33a2e286-f1fe-4358-a407-16e7ef0ea316.

@@ -84,11 +84,12 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 ## Found while building the revamp (2026-09-07)
 
 - **Four knobs can be read and cleared on the FX sheet but not written: `thrown`, `return`,
-  `breathe`, `pulse`** (step 4, DESIGN §9). Each has its address in the shape band and shows what it
-  holds in words, with ✕ to clear it; writing one needs a picker slot the sheet cannot ask for
-  without touching the `openPicker`/`applyPick` contract, and **step 6 owns that contract**. In the
-  whole corpus `thrown` is used 19 times and the other three not at all, so nothing is unreachable
-  that anyone reaches. Do it with step 6, or leave it: the file is the other door.
+  `breathe`, `pulse`** (DESIGN §9). Each has its address in the shape band and shows what it holds
+  in words, with ✕ to clear it; writing one needs a picker slot the sheet cannot ask for without
+  touching the `openPicker`/`applyPick` contract. In the whole corpus `thrown` is used 19 times and
+  the other three not at all, so nothing is unreachable that anyone reaches. The file is the other
+  door. (This was filed against a step of the shelved redesign; there is no step waiting for it
+  now — it needs the user's word like anything else here.)
 
 ## Later phases (PLAN §6)
 

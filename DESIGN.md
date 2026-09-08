@@ -700,10 +700,15 @@ had, or delete it and re-home the wand button. Also open: **Delay means two thin
 long before" normally, but `waitUntilFinished(delay)` when *wait for it to finish* is ticked
 (`engine/common.js`), which the one label does not say.
 
-## 9. The UI revamp — the seven steps (2026-09-07, off `HANDOFF.md`)
+## 9. The UI revamp — the seven steps (2026-09-07, off `HANDOFF.md`) — **SHELVED**
 
-The brief is `HANDOFF.md` at the root, written from a read of the code; its screens are
-`prototypes/fxstudio6-proposal.html`. §Rules holds five acceptance criteria (R1 every control has a
+> **This section is HISTORY, not a plan (the user, 2026-09-07).** The brief and its screens are
+> shelved in `shelved/`; nothing here is owed, and none of it is authority for a future change. It
+> is kept because it records what was built and why, which is what you need if you are deciding
+> whether to keep it or roll back to `pre-revamp`. See `shelved/README.md`.
+
+The brief was `HANDOFF.md`, written from a read of the code; its screens were
+`prototypes/fxstudio6-proposal.html`. Both now live in `shelved/`. §Rules holds five acceptance criteria (R1 every control has a
 permanent address · R2 nothing wraps · R3 selection never changes layout · R4 one scroll region ·
 R5 one grid) and seven steps. The screens are illustration; **the Rules are the spec**, because an
 agent handed a mockup reproduces its pixels and invents its own answers wherever it is silent. **All
