@@ -1,8 +1,9 @@
-# Handoff — the UI revamp, after steps 1–5 (2026-09-07)
+# Handoff — the UI revamp is done (2026-09-07)
 
-Read [CLAUDE.md](CLAUDE.md) first (it is loaded for you), then this page, then §Rules of
-[HANDOFF.md](HANDOFF.md). **Steps 2, 3, 4 and 5 are built and green; step 1 was built and then ruled
-out entirely.** Nothing of steps 6–7 is started.
+Read [CLAUDE.md](CLAUDE.md) first (it is loaded for you), then this page. **All seven steps of
+[HANDOFF.md](HANDOFF.md) are settled: 1 superseded, 2 · 3 · 4 · 5 · 7 built and green, 6 ruled out
+by the user.** Nothing of the revamp is owed. What is left is outside it, and every piece of it
+waits on the user's word.
 
 ---
 
@@ -36,8 +37,8 @@ anywhere, it is stale — **do not rebuild it.** The full record is [DESIGN.md](
 
 | Doc | What it is | State |
 | --- | --- | --- |
-| [HANDOFF.md](HANDOFF.md) | the written brief: §Rules (five acceptance criteria) and seven steps | Steps 1 (SUPERSEDED — must not be rebuilt), 3, 4 and 5 are marked; step 5's "based on another FX" facet struck out; all three Open questions answered. Steps 6–7 stand as written. |
-| [prototypes/fxstudio6-proposal.html](prototypes/fxstudio6-proposal.html) | the Claude Design screens the brief illustrates | A red **CORRECTION** banner is pinned at the top. **BAND 2 of the sheet mockup still draws an inheritance bar, and the FX tab's facet list still shows "Based on another FX". Ignore both.** Everything else on the screens stands. |
+| [HANDOFF.md](HANDOFF.md) | the written brief: §Rules (five acceptance criteria) and seven steps | Every step is marked. **1 SUPERSEDED and 6 RULED OUT — neither is to be built.** Step 5's "based on another FX" facet is struck out; all three Open questions are answered. |
+| [prototypes/fxstudio6-proposal.html](prototypes/fxstudio6-proposal.html) | the Claude Design screens the brief illustrates | A red **CORRECTION** banner is pinned at the top. **BAND 2 of the sheet mockup still draws an inheritance bar, and the FX tab's facet list still shows "Based on another FX". Ignore both.** Its Assets screen is now also illustration of a rebuild that will not happen (step 6). |
 
 **The screens are illustration, the Rules are the spec.** This is the user's own instruction:
 
@@ -46,69 +47,50 @@ anywhere, it is stale — **do not rebuild it.** The full record is [DESIGN.md](
 > five rules first, as acceptance criteria it can check itself against, then the screens as
 > illustration. 'No flex-wrap in a knob row' is testable. 'Looks like the picture' is not."*
 
-## 3. What is built
+## 3. What the window is now
 
-**Step 2 — Play.** `▶ Play all` in the Sequence header and `▶` on every rail row, both through
-`api.preview`, both saving nothing. Every reason a Play cannot run is **in the label**, greyed in
-place: *select a token*, *select a placed template*, *switched off*, *no scenes*. A move with no
-destination arms the canvas and the toast says *Click a spot on the canvas*. **Confirmed working in
-game by the user.** The rule now lives in one place — `playWhyOf(scenes, off)` in `ui/sheet.js` —
-and the FX tab's own Play reads it too.
+**Three tabs — FX · Assets · Coverage — with the search in the window header and the FX sheet as a
+pane, not a tab.** The window opens at 1080px.
 
-**Step 3 — Layout primitives.** `--fx-gutter` / `--fx-row` / `--fx-radius` on
-`.application.fxstudio`; no `flex-wrap` or `flex: 0 1 <px>` in a knob row; every list row one
-height with selection changing colour only; `minmax(0, 1fr)` wherever a long string sits.
+**FX** (`ui/fxtab.js`) — 190px facets · the rows · a 300px detail pane, and the rows are the only
+thing that scrolls. One list of every FX grouped Draft → House → Stock (resolution order, later
+wins). Facets at permanent addresses with counts, greyed at zero: *Lives in* · *Kind* · *Only* (On
+my actors, Item Hooks, Switched off, Broken assets). The detail pane is the old Look up card: name,
+tags, why, id, provenance, the sentence, the sequence as stills, and Edit · ▶ Play · Ships as ·
+Duplicate · Export · Delete — or *Nothing plays* + **Create FX** when the search finds an ability
+nothing answers.
 
-**Step 4 — the sheet as a rail and an inspector.** Five bands (there is no inheritance band):
-identity + action bar · a fixed two-line sentence · the hook strip (Answers · Reach · Moment ·
-State) · the sequence · the note. The rail is one 44px row per scene; the overlap strip under it
-draws every scene on one ms scale (a picture's length is measured from the loaded file and marked
-*about* until it is known); the inspector is a frame that never resizes, with band tabs
-**Picture · Timing · Sound · Placement · ⟨the shape's own⟩**, each the same 4×2 grid of eight cells,
-live from `KNOBS` alone. **The two delays are named apart** — `delay` is *Wait before*, `wait` is
-*Hold next* — and a scene the migration wrote as `{wait: true, delay: −1000}` is normalised as the
-sheet loads it. Size shows the grammar's unit. Every problem is listed, each the button to the scene
-it names. Two deviations are stated in DESIGN §9.
+**Assets** (`ui/library.js`) — **unchanged, by the user's ruling.** Shelf · stage · paths · Used-in,
+the picker contract with the sheet (`openPicker` / `applyPick` / the banner) exactly as it was.
 
-**Step 5 — one FX tab, and the search in the header.** The six tabs are **three**:
-**FX · Assets · Coverage**, and the **FX sheet is a pane, not a tab** — opened on an FX, Back
-returns where it came from, the FX pill is the current one while it is up. The old tab names still
-land where they meant to (`api.open({tab: 'audit'})` opens Coverage).
+**Coverage** (`ui/coverage.js`, step 7) — four bands, and only the last scrolls:
+**Maintain** (the band at the top: a head line, then Waiting · Ship · Shipped, then the corpus's
+problems on one foot line) · **the scope** (My actors · Compendiums, with Books · N and Check) ·
+**the tiles** (Abilities · With FX · No FX · **Errors**) · **the rows**. My actors is the census
+with no await — it was computed on every render and never drawn until now. Every No FX row opens a
+new sheet for that ability. Errors is the door to the FX tab's Broken assets facet.
 
-- **`scripts/ui/fxtab.js`** is the new tab: 190px facets · the rows · a **300px detail pane**, and
-  the rows are the only thing that scrolls (R4, R5, measured).
-- The list is **grouped Draft → House → Stock** — resolution order, later wins. A row is one 44px
-  line: name (+N keys, · Item Hook), the generated sentence ellipsised, the layer tag (or Off), the
-  shape tags. **Never the key list.**
-- **Facets** at permanent addresses with their counts, greyed at zero (R1): *Lives in* · *Kind* (all
-  nine, so none moves) · *Only* — On my actors, Item Hooks, Switched off, **Broken assets** (the
-  check `tools/check-fx.mjs` runs, on screen for the first time). No *Based on another FX*.
-- **The detail pane is what the Look up card was**: name (the door to the sheet, read-only), tags,
-  the `why` line, id and provenance, the sentence, the sequence as stills, and
-  **Edit · ▶ Play · Ships as · Duplicate · Export · Delete**. When nothing answers the search, the
-  same pane says *Nothing plays*, why, and offers **Create FX**.
-- **The header search does two jobs**: the dropdown answers *what plays for this ability*, and the
-  letters narrow the list. Asking from outside (the item-sheet wand, `api.open({item})`) fills the
-  box; picking a row does not.
-- **Staging is on the row's own pane**: one *Ships as* select — *Draft only* · *Staged: House* ·
-  *Staged: Stock* — greyed with its reason on a House or Stock FX. Maintain is unchanged, on
-  Coverage.
-- The window opens at **1080px** (was 860): the tab is three columns.
+**The FX sheet** (`ui/sheet.js`) — five bands: identity + action bar · a fixed two-line sentence ·
+the hook strip (Answers · Reach · Moment · State) · the sequence · the note. The sequence is a 288px
+rail, an overlap strip on one ms scale, and an inspector whose frame never resizes (band tabs
+Picture · Timing · Sound · Placement · ⟨the shape's own⟩, each the same 4×2 grid, live from `KNOBS`
+alone). The two delays are named apart: `delay` is *Wait before*, `wait` is *Hold next*. **Reach
+picks its own item** since step 7 — an Item Hook no longer needs you to have arrived from that
+item's sheet.
 
-Full record and the deviations: [DESIGN.md](DESIGN.md) §9.
+Full record, with the deviations and what each step measured: [DESIGN.md](DESIGN.md) §9.
 
-## 4. What is next — steps 6 and 7, neither started
-
-The user's standing instruction: **one or two steps at a time, then stop and check in.**
+## 4. What is next — nothing is owed, everything waits on the word
 
 | | What | Notes |
 | --- | --- | --- |
-| **6** | Assets | One scroll region (that tab has three today), a filmstrip replacing the stage arrows *and* the stepper *and* Used-in variant switching, one path line, exactly one **Use** on screen. It owns the `openPicker`/`applyPick` contract — if `thrown` / `return` are ever to be written from the sheet (BACKLOG), it happens here. The detail pane built in step 5 is the component this tab's right-hand column should become (R5). |
-| **7** | Coverage | Audit + Maintain + a new *My actors* scope in one tab. Closes a real hole: **`renderHook` only offers the Item Hook pill when `subject.uuid && subject.owner`**, so pinning an FX to one item is possible only if you arrived from that item's sheet. Step 4 left that pill greyed **in place** with its reason, which is where the fix lands. The FX tab's *Broken assets* facet wants an Errors tile here to link to. |
+| **Phase 4** | outcomes and moments (PLAN §6) | **What the module was for.** The layers AA never had. Battle Flow's hooks are its own commission, in its repo. Nothing of it starts before the user's word. |
+| | the **502 migrated assets keyed `file`** that are really library paths | BACKLOG. Still needs a word on what to do with them. |
+| | `thrown` / `return` / `breathe` / `pulse` written from the sheet | BACKLOG. Readable and clearable today, not writable — it needs a picker slot. It was step 6's to carry and **step 6 is ruled out**, so nothing is waiting behind it. |
+| | cutover | PLAN §6 phase 5: AA and D&D5e Animations are off on the sandbox, still on on prod. |
 
-**Outside the revamp, still waiting on the user's word:** the **502 migrated assets keyed `file`
-that are really library paths** (BACKLOG), and **phase 4** — outcomes and moments (PLAN §6), which
-is what the module was for.
+The user's standing way of working has not changed: **iterate off screenshots, aggregate, and hold
+until "go".**
 
 ## 5. How to work here
 
@@ -118,18 +100,20 @@ Everything below is in CLAUDE.md; these are the ones this work keeps needing.
 - **The sandbox is the test box, never prod.**
   `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs stop|start|status`, deploy with
   `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local` **while the
-  server is down**, then start. `recipes/` must travel with `scripts/ styles/ templates/ lang/`.
-  **A script edit needs a re-deploy before the suite sees it** — the suite drives the browser's own
-  copy of the module, not the repo's.
-- **Suites:** `tools/smoke-screens.mjs` (the window on the DOM — **144 of 144**),
+  server is down** for a `module.json` change, then start. `recipes/` must travel with
+  `scripts/ styles/ templates/ lang/`. **A script edit needs a re-deploy before the suite sees it**
+  — the suite drives the browser's own copy of the module, not the repo's.
+- **Suites:** `tools/smoke-screens.mjs` (the window on the DOM — **163 of 163**),
   `tools/smoke-author.mjs` (the API round trip — 15 of 15), `tools/smoke-fx.mjs` (every FX builds —
   1293), `tools/smoke-replay.mjs` (real dnd5e flows — 45 of 45). After any edit under `scripts/`:
   `check-imports`, `check-layers`, `check-legacy`. After any edit under `recipes/`: `check-fx`.
 - **A rule is only worth having if it can be checked.** Every rule in §Rules has a grep or a
   measurement; write the check into `smoke-screens` rather than asserting it in prose.
-- **Three lessons worth keeping.** A measurement saying a feature is used **zero times** is a reason
+- **Four lessons worth keeping.** A measurement saying a feature is used **zero times** is a reason
   to ask whether it should exist at all, not only how to preserve it (`like` and `with`: 0 of 1296,
   and the first pass spent a day protecting them). **Measure the corpus before designing a
   control**: step 4's band contents were settled by counting what the 1808 scenes actually use.
-  And **two screens that differ only by a filter are one screen** — Stock FX and House FX differed
-  by `e.source`, which was already printed as a tag on every row of both.
+  **Two screens that differ only by a filter are one screen** — Stock FX and House FX differed by
+  `e.source`, which was already printed as a tag on every row of both. And **one number, one
+  meaning**: step 7's Errors tile counts the corpus rather than the scope, because a scope-local
+  count would print a different number from the facet it opens.

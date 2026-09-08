@@ -1,7 +1,7 @@
 // FX Studio — the screens (ARCHITECTURE §7, the first door), built on the API and nothing else.
 // THREE TABS since step 5 (2026-09-07): FX (every FX in one list, grouped Draft → House → Stock,
-// ui/fxtab.js), Assets (ui/library.js) and Coverage (the compendiums the user picks, read once and
-// asked what plays; what did not resolve; the maintainer's card). Stock FX and House FX were the
+// ui/fxtab.js), Assets (ui/library.js) and Coverage (ui/coverage.js: what has an FX and what does
+// not, over my actors or the compendiums picked, with Maintain the band at the top). Stock FX and House FX were the
 // same list twice, differing by a filter on `source`, and Look up was a search with a card: the
 // search now lives in the window header and answers on every tab, and its card is the FX tab's own
 // detail pane. THE FX SHEET IS A PANE, NOT A TAB (ui/sheet.js): it is opened on an FX and its Back
@@ -12,7 +12,8 @@ import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { SOURCE_TAG, STATUS_WORDS, dot, esc, idWords, statusOf } from './html.js';
 import { hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
-import { onCorpusChange, onCorpusClick, renderMaintain } from './corpus.js';
+import { onCorpusChange, onCorpusClick, onCorpusInput } from './corpus.js';
+import { onCoverageClick, renderCoverage } from './coverage.js';
 import { onFxChange, onFxClick, renderFx } from './fxtab.js';
 import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from './library.js';
 
@@ -38,7 +39,7 @@ export class Studio extends ApplicationV2 {
 
   constructor(options = {}) {
     super(options);
-    this.view = { tab: 'fx', subject: null, fxSel: null, q: '', books: null, chosenBooks: new Set(), reading: false };
+    this.view = { tab: 'fx', subject: null, fxSel: null, q: '' };
     this.sheet = null;
     this.co = null;
     this._bound = false;
@@ -191,7 +192,7 @@ export class Studio extends ApplicationV2 {
       <section class="pane" data-pane="fx" data-active="${t === 'fx'}">${t === 'fx' ? renderFx(this) : ''}</section>
       <section class="pane" data-pane="editor" data-active="${t === 'editor'}">${t === 'editor' ? renderSheet(this) : ''}</section>
       <section class="pane" data-pane="assets" data-active="${t === 'assets'}">${t === 'assets' ? renderLibrary(this) : ''}</section>
-      <section class="pane" data-pane="coverage" data-active="${t === 'coverage'}">${t === 'coverage' ? this.renderCheck() : ''}</section>
+      <section class="pane" data-pane="coverage" data-active="${t === 'coverage'}">${t === 'coverage' ? renderCoverage(this) : ''}</section>
       <div class="toast" data-on="false"></div>
     </div>`;
   }
@@ -299,64 +300,6 @@ export class Studio extends ApplicationV2 {
     return this.toast(`Deleted: ${idWords(id)}${r.written.length ? ` (${r.written.map((f) => f.split('/').pop()).join(', ')})` : ''}.`);
   }
 
-  // ---- Check ----------------------------------------------------------------------------------
-  /** every Item compendium in the world, grouped by the package that ships it */
-  bookShelf() {
-    const groups = new Map();
-    for (const p of game.packs) {
-      if (p.documentName !== 'Item') continue;
-      const m = p.metadata;
-      const pkg = m.packageType === 'world' ? 'This world' : m.packageType === 'system' ? (game.system.title ?? m.packageName) : (game.modules.get(m.packageName)?.title ?? m.packageName);
-      (groups.get(pkg) ?? groups.set(pkg, []).get(pkg)).push({ id: p.collection, name: m.label ?? p.collection, size: p.index.size });
-    }
-    return [...groups.entries()].map(([pkg, books]) => ({ pkg, books: books.sort((x, y) => x.name.localeCompare(y.name)) })).sort((x, y) => x.pkg.localeCompare(y.pkg));
-  }
-
-  renderCheck() {
-    const a = api();
-    const V = this.view;
-    const problems = a.index.problems ?? [];
-    const shelf = this.bookShelf().map(({ pkg, books }) => `<div class="sub">${esc(pkg)}</div><div class="pills">${books.map((b) => `<button type="button" class="pill" aria-pressed="${V.chosenBooks.has(b.id)}" data-act="book" data-book="${esc(b.id)}">${esc(b.name)} <span class="note">${b.size}</span></button>`).join('')}</div>`).join('');
-    const n = V.chosenBooks.size;
-    const books = V.books;
-    const tiles = books ? (() => { const asked = books.reduce((t, b) => t + b.asked, 0); const answered = books.reduce((t, b) => t + b.answered, 0); return [['', asked, 'Abilities'], ['good', answered, 'With FX'], [asked - answered ? 'warn' : 'good', asked - answered, 'No FX']]; })() : [];
-    return `<div class="stack">
-      <div class="card"><div class="sub">Compendiums</div>
-        ${shelf || '<p class="note">No item compendiums in this world.</p>'}
-        <p class="note"><button type="button" data-act="books" ${n && !V.reading ? '' : 'disabled'}>${V.reading ? 'Checking…' : n ? `Check (${n})` : 'Check'}</button></p></div>
-      ${books ? `<div class="tiles">${tiles.map(([c, k, l]) => `<div class="tile ${c}"><div class="num">${k}</div><div class="l">${esc(l)}</div></div>`).join('')}</div>
-      <div class="card"><div class="sub">No FX</div>${this.renderBooks(books)}</div>` : ''}
-      ${problems.length ? `<div class="card"><div class="sub">Errors</div>${problems.map((p) => `<p class="bad">${esc(p)}</p>`).join('')}</div>` : ''}
-      ${renderMaintain(this)}
-    </div>`;
-  }
-
-  renderBooks(books) {
-    return books.map((b) => `<div class="sub">${esc(b.name)} · ${b.answered} of ${b.asked}</div>${b.nothing.length ? `<div class="abilities">${b.nothing.slice(0, 200).map((n) => `<button type="button" class="pill" data-act="key" data-key="${esc(n.key)}">${dot('none')}${esc(n.name)}</button>`).join('')}${b.nothing.length > 200 ? `<span class="note">and ${b.nothing.length - 200} more</span>` : ''}</div>` : '<p class="note">All have FX.</p>'}`).join('');
-  }
-
-  async checkBooks() {
-    const a = api();
-    const packs = [...this.view.chosenBooks].map((id) => game.packs.get(id)).filter((p) => p?.documentName === 'Item');
-    const out = [];
-    for (const p of packs) {
-      const docs = await p.getDocuments();
-      const row = { name: p.metadata.label ?? p.collection, asked: 0, answered: 0, nothing: [] };
-      for (const d of docs) {
-        if (!['spell', 'feat', 'weapon', 'consumable', 'equipment', 'tool'].includes(d.type)) continue;
-        const acts = d.system?.activities?.contents ?? [];
-        if (!acts.length && d.type !== 'weapon') continue;
-        const hasPlace = acts.some((x) => x?.target?.template?.type);
-        const r = a.resolve(a.subjects.ofItem(d, { activity: acts[0] ?? null }), 'use', { hasPlace });
-        row.asked++;
-        if (r.fx) row.answered++;
-        else row.nothing.push({ name: d.name, key: r.subject?.keys?.find((k) => !k.includes('/')) ?? r.subject?.keys?.[0] });
-      }
-      out.push(row);
-    }
-    this.view.books = out;
-  }
-
   // -------------------------------------------------------------------------------------------
   // events
   // -------------------------------------------------------------------------------------------
@@ -369,11 +312,11 @@ export class Studio extends ApplicationV2 {
     if (['tab', 'entry', 'key', 'hit', 'new', 'create-new', 'fx-sel', 'fx-open', 'fx-edit', 'fx-dup'].includes(act) && sheetDirty(this) && !(await leaveSheet(this))) return undefined;
     if (act.startsWith('fx-')) return onFxClick(this, b, act);
     if (act.startsWith('co-')) return onCorpusClick(this, b, act);
+    if (act.startsWith('cv-')) return onCoverageClick(this, b, act);
     if (act.startsWith('lib-')) return onLibraryClick(this, b, act);
     const S = this.view;
     switch (act) {
       case 'tab': S.tab = b.dataset.tab; return this.render();
-      case 'book': { const id = b.dataset.book; if (S.chosenBooks.has(id)) S.chosenBooks.delete(id); else S.chosenBooks.add(id); return this.render(); }
       case 'entry': { const item = fromUuidSync(b.dataset.uuid); if (!item) return undefined; if (b.dataset.create) this.openFor(this.subjectFromItem(item)); else this.showItem(item); return this.render(); }
       case 'effect': { const row = this.census.actors.find((r) => r.name === b.dataset.actor); const ef = row?.effects[Number(b.dataset.i)]; if (!ef) return undefined; this.showEntry({ name: ef.name, keys: ef.keys, owner: row.name, on: 'effect' }); return this.render(); }
       case 'key': this.openFor(this.subjectForKey(b.dataset.key), { edit: true }); return this.render();
@@ -386,7 +329,6 @@ export class Studio extends ApplicationV2 {
       case 'delete-fx': return this.deleteFx(b.dataset.id);
       case 'export-fx': return this.exportFx(b.dataset.id);
       case 'import-fx': return this.importFx(b.dataset.to || null);
-      case 'books': S.reading = true; await this.render(); try { await this.checkBooks(); } finally { S.reading = false; } return this.render();
       default: return undefined;
     }
   }

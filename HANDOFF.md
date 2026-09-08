@@ -200,7 +200,18 @@ Tabs become **FX · Assets · Coverage**.
 
 ---
 
-## Step 6 — Assets
+## Step 6 — Assets — **RULED OUT (the user, 2026-09-07)**
+
+> Asked which of the two remaining steps to take: *"for step 6, i like my layout as is, so do 7"*.
+> **The Asset Library is not rebuilt and nothing below is owed.** Its three scroll regions, the
+> stage arrows, the stepper, the Used-in lines and the pane's `lib-use` all stay exactly as they
+> are. Do not rebuild any of it.
+>
+> Two things the brief filed under this step: the picker contract (`openPicker` / `applyPick` / the
+> banner) was never going to change and does not; and writing `thrown` / `return` from the sheet
+> stays in the BACKLOG with no step waiting behind it — it needs the user's word, not a plan.
+
+<details><summary>what it would have been</summary>
 
 Keep the shelf / stage / paths anatomy and the picker contract with the sheet
 (`openPicker` / `applyPick` / the banner) unchanged. Four changes:
@@ -212,21 +223,34 @@ Keep the shelf / stage / paths anatomy and the picker contract with the sheet
 4. Exactly one Use on screen: when the picking banner is up, suppress the pane's own Use.
    Rename the pane's `lib-use` to "New FX from this" — that is what it does.
 
+</details>
+
 ---
 
-## Step 7 — Coverage, and the Item Hook gap
+## Step 7 — Coverage, and the Item Hook gap — **BUILT 2026-09-07** (DESIGN §9)
 
 - Audit + Maintain + a new actor scope, one tab. Maintain gets its own band at the top —
-  it is the last step of a workflow, not a footnote under a report.
+  it is the last step of a workflow, not a footnote under a report. **Built** —
+  `scripts/ui/coverage.js`, four bands: Maintain · the scope · the tiles · the rows, and only the
+  rows scroll. Maintain is a head line and three columns (Waiting · Ship · Shipped) with the
+  corpus's problems on one foot line; its ship controls now grey **in place** when nothing is
+  staged instead of the card not being drawn at all (R1).
 - Two scopes: **My actors** (from `census()`, no await) and **Compendiums** (the existing
   pick-and-Check). Only the second is on screen today although the first is computed on
-  every render.
+  every render. **Built** — and the book picking moved *into* the list, so the books are rows of
+  one height in the one region that scrolls rather than a wrapping pill cloud (R2, R3, R4).
 - Tiles: Abilities · With FX · No FX · Errors. Every "No FX" row opens a new sheet hooked to
-  that key (what `case 'key'` already does).
+  that key (what `case 'key'` already does). **Built** — the tiles show "—" before a book is read
+  rather than vanishing, `.tiles` no longer `auto-fit`s (that was a wrap), and **Errors is the door
+  to the FX tab's Broken assets facet**, greyed in place with its reason at zero. It counts the
+  corpus, not the scope, so the number matches the facet it opens.
 - **Item Hook gap:** `renderHook` only offers the Item Hook pill when
   `subject.uuid && subject.owner`, so pinning an FX to one item is possible only when you
   arrived from that item's sheet — while House FX has an Item Hook sub-tab and a New FX
-  button that cannot make one. Let the Reach control pick an actor + item.
+  button that cannot make one. Let the Reach control pick an actor + item. **Built** — unlocked,
+  the Item Hook cell is a chooser over every ability on this world's actors, matched on the
+  ability's name or its owner's, and **not** deduplicated by key the way the header search is.
+  Locked, or with nothing to choose, it still greys where it stands.
 
 ---
 

@@ -700,14 +700,14 @@ had, or delete it and re-home the wand button. Also open: **Delay means two thin
 long before" normally, but `waitUntilFinished(delay)` when *wait for it to finish* is ticked
 (`engine/common.js`), which the one label does not say.
 
-## 9. The UI revamp — steps 1 to 5 (2026-09-07, off `HANDOFF.md`)
+## 9. The UI revamp — the seven steps (2026-09-07, off `HANDOFF.md`)
 
 The brief is `HANDOFF.md` at the root, written from a read of the code; its screens are
 `prototypes/fxstudio6-proposal.html`. §Rules holds five acceptance criteria (R1 every control has a
 permanent address · R2 nothing wraps · R3 selection never changes layout · R4 one scroll region ·
 R5 one grid) and seven steps. The screens are illustration; **the Rules are the spec**, because an
-agent handed a mockup reproduces its pixels and invents its own answers wherever it is silent. Steps
-1–4 are settled (1 superseded, 2–4 built); **steps 5, 6 and 7 are not started.**
+agent handed a mockup reproduces its pixels and invents its own answers wherever it is silent. **All
+seven steps are settled: 1 superseded, 2–5 and 7 built, 6 ruled out by the user.**
 
 ### No shortcuts (the user, 2026-09-07) — the ruling that replaced step 1
 
@@ -969,6 +969,104 @@ row shape, the facet counts adding up to the corpus, a zero facet disabled, the 
 scroll region, the 300px pane, the six actions, staging from the pane, and a Stock FX that cannot be
 staged saying so where it stands.
 
+### Step 6 — Assets: RULED OUT (the user, 2026-09-07)
+
+Asked which of the two remaining steps to take, the user answered: *"for step 6, i like my layout as
+is, so do 7"*. **The Asset Library is not rebuilt.** Its three scroll regions, the stage arrows, the
+stepper and the Used-in lines all stay as they are, and the pane's `lib-use` keeps its name. Nothing
+of step 6 as briefed is owed. Two things the brief had filed under it move:
+
+- **The picker contract** (`openPicker` / `applyPick` / the banner) was never going to change; it
+  does not change.
+- **`thrown` / `return` / `breathe` / `pulse` written from the sheet** (BACKLOG) needed step 6's
+  picker slot. It stays in the backlog and now has no step waiting to carry it.
+
+R5's "the 300px detail pane is the same component in the same position on every tab" therefore
+holds on the FX tab alone, by the user's ruling. It is not drift; it is a decision.
+
+### Step 7 — Coverage, and the Item Hook gap (built 2026-09-07)
+
+**One tab, two scopes, four numbers, one list — and Maintain at the top.**
+
+The old Coverage was a `.stack` of cards: the compendium picker, then the tiles, then the No FX
+pills, then the errors, then the maintainer's card last. Two of its facts never reached the screen
+at all: **`census()` ran on every render and only the compendium scope was ever drawn**, and the
+**Broken assets** check (`tools/check-fx.mjs`) had no home outside the FX tab's facet.
+
+`scripts/ui/coverage.js` is the new tab. Four bands, in this order, and only the last one scrolls:
+
+| Band | What it is |
+| --- | --- |
+| **Maintain** | the band at the top — *shipping is the last step of a workflow, not a footnote under a report* |
+| **Scope** | My actors · Compendiums, two segments at permanent addresses, then Books · N and Check |
+| **Tiles** | Abilities · With FX · No FX · **Errors** |
+| **The rows** | the one scroll region (R4) |
+
+- **My actors** is the census, read with no await, grouped by actor: every ability that plays
+  nothing, one 44px row each, and every row is the door to a new sheet for it (it carries the item's
+  uuid, so the sheet arrives knowing the item — which is what makes an Item Hook offerable there).
+- **Compendiums** is the old pick-and-Check, with the picking moved *into the list*: the books are
+  rows, not a wrapping pill cloud, so a long shelf scrolls in the one region that scrolls and every
+  row is one height (R2, R3). **Books · N** returns to the picking with the pick remembered.
+- **The tiles show "—" before a book is read** rather than vanishing (R1), and the three counting
+  tiles describe the scope on screen.
+- **Errors is the door to the FX tab's Broken assets facet**, and it is greyed in place with its
+  reason when the count is zero. It counts the corpus, not the scope, **on purpose: one number, one
+  meaning.** A scope-local count would have printed a different number from the facet it opens, and
+  two numbers for one thing is the mistake this project keeps having to undo. Arriving clears the
+  header search and the selection: the tile asks one question, and a search left over answers
+  another.
+
+**Maintain became a band** (`ui/corpus.js`): a head line (the version, the note, Import to Stock),
+three proportional columns — **Waiting · Ship · Shipped** — and the corpus's own problems on one
+foot line. It is bounded, not scrolling: Waiting shows four and says "+N more on the FX tab", which
+is where every Draft is listed and where each has its own *Ships as*. **The ship controls keep their
+place when nothing is staged**, greyed with the reason (R1) — before this the whole Ship card simply
+was not rendered.
+
+#### The Item Hook gap, closed
+
+`renderHook` offered the Item Hook pill only when `subject.uuid && subject.owner`, so **an FX could
+be pinned to one item only if you had arrived from that item's own sheet** — while the FX tab's New
+FX button could not make one at all. Step 4 left the pill greyed in place with its reason, which is
+where the fix landed: **unlocked, the Item Hook cell is a chooser.** It searches every ability on
+this world's actors by the ability's name or its owner's, and picking one sets the sheet's subject
+and its reach in one move. Locked, or with nothing to choose, it still greys where it stands.
+
+The chooser deliberately does **not** reuse the header search's hit list: that one deduplicates by
+key, and the whole point of an Item Hook is that this Bob's Misty Step is not that Alice's.
+
+#### Four other things this step fixed
+
+- **`onCorpusInput` was called and never imported** (`ui/studio.js`), so typing in Maintain's
+  Release note box threw a ReferenceError. Found while reading for this step; fixed here.
+- **The tiles wrapped.** `.tiles` was `repeat(auto-fit, minmax(150px, 1fr))`, which rearranges into
+  fewer columns as the window narrows — a wrap by another name (R2). It is `repeat(4, minmax(0, 1fr))`.
+- **The row and the group head became the list primitive** (R5): `.fxlist .row` → `.rows .row`, so
+  the FX tab and Coverage draw the same row from the same rule rather than two copies of it.
+- **Two things only a screenshot showed**, both caught by looking at the built tab rather than by a
+  check: a **disabled `.primary` still read as the call to action** (`opacity: .6` over the accent
+  is still the brightest thing on the band — a greyed Check that invites a click is not greyed in
+  place), and **every list row's text was centred**, because Foundry's own button styling sets
+  `justify-content: center` and the `.pickbtn` grid had no explicit column. It had been that way on
+  the FX tab since step 5. `grid-template-columns: minmax(0, 1fr)` fixes both the alignment and the
+  ellipsis. **A measurement proves a rule holds; it does not prove the screen reads right.**
+
+#### Measured
+
+`smoke-screens` **163 of 163** — nineteen new. §12 is the whole tab: the four bands in order, the
+band's three columns and its greyed ship, the four tiles at permanent addresses, the tiles equal to
+`api.census()` (the scope that was computed and never shown), the rows equal to the gap and all one
+height, one scroll region, four tiles across with no sideways scroll, a No FX row opening a sheet
+hooked to that ability, Back returning to Coverage, the books as rows with the tiles waiting at "—",
+a book read and its numbers adding up, Books remembering the pick, the Errors tile counting the same
+check the tools run — proved by saving an FX that names an asset the libraries do not have, watching
+the tile go up by one, and following it to the FX list — and the Item Hook round trip end to end:
+a new sheet from the FX tab, the chooser, the pin, the id with the owner's name on it, Save, and the
+item's flag pointing at an FX with no keys. §6's two Maintain checks were rewritten for the band,
+and §14's Reach check was split in two: unlocked it offers to choose, locked it greys with its
+reason.
+
 ### The rulings of the day
 
 | Question | Ruling |
@@ -977,18 +1075,21 @@ staged saying so where it stands.
 | Is `off` worth a whole sheet? | **Leave it a mode of the sheet.** Revisit when step 5 rebuilds the row. |
 | Merge Stock FX and House FX (step 5) | **Yes.** Where an FX lives is a property, not navigation. **Built** — see step 5 above. |
 | The Look up tab | **Fold its search into the window header and drop the tab.** Tabs become FX · Assets · Coverage. **Built** — the card became the FX tab's detail pane. |
+| Step 6, Assets | **Ruled out** (*"i like my layout as is"*). The Asset Library stays exactly as it is; nothing of step 6 is owed. |
+| Step 7, Coverage | **Built.** Maintain is the band at the top, My actors is on screen at last, Errors is the door to Broken assets, and an Item Hook can be written without arriving from the item's sheet. |
 
 ### Measured on the sandbox, 2026-09-07
 
-After step 5: `smoke-screens` **144 of 144**, `smoke-author` **15 of 15** (its round trip written as
+After step 7: `smoke-screens` **163 of 163**, `smoke-author` **15 of 15** (its round trip written as
 a copy, with a check that editing what an FX was copied from leaves the copy alone), `smoke-fx`
 **1293 build**, `smoke-replay` **45 of 45**, `check-fx` 1306 fx / 3207 assets / 0 invalid, and
-`check-imports` (30 modules), `check-layers` (67 imports) and `check-legacy` green. (The screens
-stood at 116 of 116 after step 3 and 132 of 132 after step 4.)
+`check-imports` (31 modules), `check-layers` (73 imports) and `check-legacy` green. (The screens
+stood at 116 of 116 after step 3, 132 of 132 after step 4 and 144 of 144 after step 5.)
 
 ### Noted in passing, not fixed
 
 Both of the things noted after step 3 — `draftFx` emitting dead scenes on an `off` FX, and the
 lockbar wrapping — were fixed by step 4. What is left standing is the second deviation above:
 `thrown`, `return`, `breathe` and `pulse` can be read and cleared from the sheet but not written,
-because writing one needs a picker slot and step 6 owns the picker contract (BACKLOG).
+because writing one needs a picker slot. It was step 6's to carry and **step 6 is ruled out**, so it
+sits in the BACKLOG with no step waiting behind it — it needs the user's word, not a plan.

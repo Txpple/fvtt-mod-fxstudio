@@ -209,10 +209,10 @@ try {
       ok('§6 a Stock FX cannot be staged: the cell greys where it stands, with the reason (R1)', $('.fx-stage')?.disabled === true && $('.fx-stage')?.dataset.na === 'true' && /Only a Draft is staged/.test($('.fx-stage')?.dataset.tooltip ?? ''), $('.fx-stage')?.dataset.tooltip ?? '');
       ok('§6 Stock is in the same list as everything else, and no Maintain card is on this tab', Number($$('.facets [data-group="lives"]')[2].querySelector('.c').textContent) > 200 && !/Maintain · /.test(text('[data-pane="fx"]')), $$('.facets [data-group="lives"]')[2].textContent.replace(/\s+/g, ' '));
       await click('[data-tab="coverage"]');
-      ok('§6 the Maintain card sits on Coverage', /Maintain · /.test(text('[data-pane="coverage"]')), text('[data-pane="coverage"]').match(/Maintain · [^\s]+/)?.[0] ?? 'no card');
-      const row6 = $$('.list .row').find((r) => /Sharran Step/.test(r.textContent));
+      ok('§6 the Maintain band sits at the top of Coverage', /Maintain · /.test(text('[data-pane="coverage"]')) && $('.coverage').firstElementChild.classList.contains('maintain'), text('[data-pane="coverage"]').match(/Maintain · [^\s]+/)?.[0] ?? 'no band');
+      const row6 = $$('.maintain .row').find((r) => /Sharran Step/.test(r.textContent));
       ok('§6 Not yet shipped lists Sharran Step as a Draft, with Stage: House', row6 && /Draft/.test(row6.textContent) && !!row6.querySelector('[data-act="co-stage"][data-to="house"]'), row6?.textContent.replace(/\s+/g, ' ').slice(0, 160));
-      ok('§6 with nothing staged there is no Ship card', !$('[data-act="co-ship"]'), '');
+      ok('§6 with nothing staged the ship keeps its place, greyed with the reason (R1)', $('[data-act="co-ship"]')?.disabled === true && $('.co-version')?.disabled === true && /Stage a Draft/.test(text('.maintain .mcol:nth-child(2)')), text('.maintain .mcol:nth-child(2)').replace(/\s+/g, ' ').slice(0, 120));
       await click(row6.querySelector('[data-act="co-stage"][data-to="house"]'));
       await sleep(300);
       ok('§6 Stage: House stages it, and the Ship button names the version, the card the file', api.fx.buffer().find((l) => l.id === 'sharran-step')?.to === 'house' && /^Ship /.test(text('[data-act="co-ship"]')) && /house\.json/.test(text('[data-pane="coverage"]')), text('[data-act="co-ship"]'));
@@ -283,17 +283,95 @@ try {
       for (const p of FILES) if ((await readFile(p)) !== snapshot[p]) same = false;
       ok('§9 restored: the module\'s files are as they were and Sharran Step is gone from the corpus', same && !api.resolve(tmp).fx, `${api.resolve(tmp).why ?? ''}`);
 
-      // 12 · Check: pick a book, read it, find unused assets
+      // 12 · COVERAGE (HANDOFF step 7): Maintain at the top, two scopes, four tiles, one list —
+      //      and the Item Hook gap it closed
       await click('[data-tab="coverage"]');
-      const bookPills = $$('[data-act="book"]');
-      ok('§12 Check lists the item compendiums to pick from, and the button waits for a pick', bookPills.length > 0 && $('[data-act="books"]')?.disabled, `${bookPills.length} books, button ${$('[data-act="books"]')?.textContent}`);
-      const smallest = bookPills.map((b) => ({ b, n: Number(b.querySelector('.note')?.textContent) || 0 })).filter((x) => x.n > 0).sort((x, y) => x.n - y.n)[0]?.b ?? bookPills[0];
-      await click(smallest);
-      ok('§12 one compendium picked: the button says so', /Check \(1\)/.test($('[data-act="books"]')?.textContent) && !$('[data-act="books"]').disabled, $('[data-act="books"]')?.textContent);
-      await click('[data-act="books"]');
-      for (let i = 0; i < 120 && !$('.tile'); i++) await sleep(250);
-      const ctiles = $$('.tile').map((t) => t.textContent.replace(/\s+/g, ' ').trim());
-      ok('§12 the book is read: Abilities, With FX, No FX', ctiles.length === 3 && /Abilities/.test(ctiles[0]) && /With FX/.test(ctiles[1]), ctiles.join(' | '));
+      app.refresh();
+      await app.render();
+      await sleep(250);
+      const cvKids = () => [...$('.coverage').children].map((c) => (c.className.match(/maintain|cvscope|tiles|cvlist/) ?? ['?'])[0]);
+      ok('§12 four bands in one order: Maintain, the scope, the tiles, the rows', cvKids().join(' > ') === 'maintain > cvscope > tiles > cvlist', cvKids().join(' > '));
+      ok('§12 Maintain is the band at the top, whole: Waiting, Ship, Shipped, and the import', $$('.maintain .mcol').length === 3 && [...$$('.maintain .mcol .sub')].map((x) => x.textContent.split(' ·')[0]).join(' · ') === 'Waiting · Ship · Shipped' && !!$('[data-act="import-fx"][data-to="stock"]') && !!$('.maintain .co-version') && !!$('.maintain .co-note'), [...$$('.maintain .mcol .sub')].map((x) => x.textContent).join(' · '));
+      const tileL = () => $$('.tiles .tile').map((t) => t.querySelector('.l').textContent.trim());
+      const tileN = () => $$('.tiles .tile').map((t) => t.querySelector('.num').textContent.trim());
+      ok('§12 four tiles at permanent addresses: Abilities · With FX · No FX · Errors', tileL().join(' · ') === 'Abilities · With FX · No FX · Errors', tileL().join(' · '));
+      const c12 = api.census();
+      ok('§12 it opens on My actors — the scope that was computed on every render and never shown', $('[data-act="cv-scope"][data-scope="mine"]')?.getAttribute('aria-pressed') === 'true' && $$('[data-act="cv-scope"]').length === 2 && tileN()[0] === String(c12.asked) && tileN()[1] === String(c12.answered) && tileN()[2] === String(c12.asked - c12.answered), `${tileN().join(' · ')} vs census ${c12.answered} of ${c12.asked}`);
+      const cvRows = () => $$('.cvlist .rows .row');
+      ok('§12 the rows are the abilities on this world\'s actors that play nothing, grouped by actor', cvRows().length === Math.min(200, c12.asked - c12.answered) && $$('.cvlist .grouphead').length >= 1 && new Set(cvRows().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1, `${cvRows().length} rows · ${$$('.cvlist .grouphead').length} groups`);
+      const overflows12 = (sel) => { const el = $(sel); return !!el && el.scrollHeight > el.clientHeight + 1; };
+      ok('§12 one scroll region: the rows (R4)', getComputedStyle($('.cvlist .rows')).overflowY === 'auto' && !overflows12('.maintain') && !overflows12('.cvscope') && !overflows12('.tiles'), `band ${overflows12('.maintain')} · scope ${overflows12('.cvscope')} · tiles ${overflows12('.tiles')}`);
+      const content12 = app.element.querySelector('.fxstudio-content');
+      ok('§12 nothing wraps: four tiles across, three columns in the band, no sideways scroll (R2)', getComputedStyle($('.tiles')).gridTemplateColumns.split(' ').length === 4 && getComputedStyle($('.mgrid')).gridTemplateColumns.split(' ').length === 3 && content12.scrollWidth <= content12.clientWidth + 1, `${getComputedStyle($('.tiles')).gridTemplateColumns} · ${content12.scrollWidth} vs ${content12.clientWidth}`);
+      // every No FX row is the door to a sheet for it
+      const first12 = cvRows()[0];
+      const name12 = first12?.querySelector('.n')?.textContent.trim() ?? '';
+      await click(first12.querySelector('.pickbtn'));
+      ok('§12 a No FX row opens a new sheet on that ability, unlocked, hooked to it', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && text('.sheet h2').includes(name12) && $$('.hookstrip .pill.key').length >= 1, `${text('.sheet h2')} | ${text('.hookstrip .hcol').slice(0, 60)}`);
+      await click('[data-act="sh-back"]');
+      ok('§12 Back returns to Coverage, where the row was', tabNow() === 'coverage' && !!$('.coverage'), tabNow());
+      // the second scope: the books, picked as rows, read once
+      await click('[data-act="cv-scope"][data-scope="books"]');
+      ok('§12 the Compendiums scope lists the books as rows to pick, the tiles waiting with "—"', cvRows().length > 0 && !!$('[data-act="cv-book"]') && $('[data-act="cv-check"]')?.disabled === true && tileN().slice(0, 3).join('') === '———', `${cvRows().length} books · ${tileN().join(' · ')}`);
+      // the smallest book with enough in it to be worth reading, so the tiles have real numbers
+      const sized12 = cvRows().map((r) => ({ r, n: Number(r.querySelector('.tag')?.textContent) || 0 })).sort((x, y) => x.n - y.n);
+      const smallest = (sized12.find((x) => x.n >= 25) ?? sized12[sized12.length - 1])?.r ?? cvRows()[0];
+      await click(smallest.querySelector('.pickbtn'));
+      ok('§12 one compendium picked: the button says so', /Check \(1\)/.test($('[data-act="cv-check"]')?.textContent ?? '') && !$('[data-act="cv-check"]').disabled, ($('[data-act="cv-check"]')?.textContent ?? '').trim());
+      await click('[data-act="cv-check"]');
+      for (let i = 0; i < 120 && /Checking/.test($('[data-act="cv-check"]')?.textContent ?? ''); i++) await sleep(250);
+      await sleep(300);
+      ok('§12 the book is read: the tiles are its numbers, they add up, and the rows are the No FX ones', Number(tileN()[0]) > 0 && Number(tileN()[0]) === Number(tileN()[1]) + Number(tileN()[2]) && cvRows().length === Math.min(200, Number(tileN()[2])), `${tileN().join(' · ')} · ${cvRows().length} rows`);
+      const bookRow12 = cvRows()[0];
+      if (bookRow12) {
+        await click(bookRow12.querySelector('.pickbtn'));
+        ok('§12 an ability in a book with no FX opens a new sheet hooked to that key', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && $$('.hookstrip .pill.key').length >= 1, `${text('.sheet h2')} | ${text('.hookstrip .hcol').slice(0, 60)}`);
+        await click('[data-act="sh-back"]');
+      } else {
+        ok('§12 an ability in a book with no FX opens a new sheet hooked to that key', /All have FX/.test(text('.cvlist')), 'every ability in that book is answered');
+      }
+      await click('[data-act="cv-pick"]');
+      ok('§12 Books goes back to the picking with the pick remembered, and both scopes hold their place', !!$('[data-act="cv-book"][aria-pressed="true"]') && /Books · 1/.test(text('[data-act="cv-pick"]')) && $$('[data-act="cv-scope"]').length === 2, text('[data-act="cv-pick"]'));
+      await click('[data-act="cv-scope"][data-scope="mine"]');
+      // the Errors tile: the check tools/check-fx.mjs runs, on screen, and the door to the FX list
+      const broke0 = Number(tileN()[3]);
+      ok('§12 the Errors tile counts the check the tools run, greyed in place when it is zero (R1)', /^\d+$/.test(tileN()[3]) && $('[data-act="cv-broken"]').disabled === (broke0 === 0), `${broke0} broken · disabled ${$('[data-act="cv-broken"]').disabled}`);
+      const probe = { id: 'fx-broken-probe', for: ['spell:fx-broken-probe'], on: 'use', scenes: [{ shape: 'mark', at: 'source', asset: { path: 'jb2a.no_such_asset_here.blue' } }] };
+      const savedProbe = await api.fx.save(probe, { by: game.user.name });
+      if (savedProbe.ok) made.push(probe.id);
+      app.refresh();
+      await app.render();
+      await sleep(250);
+      ok('§12 an FX naming an asset the libraries do not have is counted there', savedProbe.ok && Number(tileN()[3]) === broke0 + 1 && $('[data-act="cv-broken"]').disabled === false, `${JSON.stringify(savedProbe.problems ?? [])} · ${broke0} → ${tileN()[3]}`);
+      await click('[data-act="cv-broken"]');
+      ok('§12 the tile is the door to the FX list on Broken assets, and nothing else is pressed', tabNow() === 'fx' && $('[data-group="only"][data-v="broken"]')?.getAttribute('aria-pressed') === 'true' && $$('.facets [aria-pressed="true"]').length === 1 && $$('.fxlist .row').length === broke0 + 1 && /Fx Broken Probe/.test(text('.fxlist')) && $('.fx-q')?.value === '', `${$$('.fxlist .row').length} rows · box "${$('.fx-q')?.value}"`);
+      await api.fx.remove(probe.id);
+      await sleep(300);
+      await click('[data-act="fx-clear"]');
+
+      // the Item Hook gap step 7 closed: pinning an FX to one item without arriving from its sheet
+      await click('[data-act="sh-new"]');
+      const pin12 = $('[data-act="sh-pick-item"]');
+      ok('§12 a new sheet from the FX tab knows no item, and Reach offers to choose one', paneNow() === 'editor' && !!pin12 && pin12.disabled === false && pin12.textContent.trim() === 'Item Hook', pin12 ? `${pin12.textContent.trim()} · ${pin12.dataset.tooltip}` : 'no Item Hook control at all');
+      await click(pin12);
+      await type('.sh-item-q', 'misty');
+      const hits12 = $$('.sh-item-search .hit');
+      ok('§12 the chooser lists the items on this world\'s actors, by owner and name', hits12.length >= 1 && hits12.some((h) => /FX Test Caster · Misty Step/.test(h.textContent.replace(/\s+/g, ' '))), hits12.map((h) => h.textContent.replace(/\s+/g, ' ')).join(' | ').slice(0, 160));
+      await click(hits12.find((h) => /FX Test Caster · Misty Step/.test(h.textContent.replace(/\s+/g, ' '))));
+      ok('§12 picking one pins the sheet to it: Reach reads the owner and the item, pressed', $('[data-act="sh-only"]')?.getAttribute('aria-pressed') === 'true' && /Item Hook: FX Test Caster · Misty Step/.test(text('.hookstrip').replace(/\s+/g, ' ')) && text('.sheet code.id') === 'misty-step-fx-test-caster', `${text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' ')} · ${text('.sheet code.id')}`);
+      await type('.sh-like', 'misty');
+      await sleep(250);
+      const like12 = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
+      await click(like12);
+      await click('[data-act="sh-save"]');
+      await sleep(500);
+      const pinned12 = api.fx.buffer().find((l) => l.id === 'misty-step-fx-test-caster');
+      if (pinned12) made.push(pinned12.id);
+      const misty12 = caster.actor.items.getName('Misty Step');
+      ok('§12 Save writes it as an Item Hook and the item points at it — the hole step 7 closed', !!pinned12 && pinned12.for?.length === 0 && misty12?.getFlag(MOD, 'fx') === pinned12?.id && api.resolve(misty12).fx?.id === pinned12?.id, `flag ${misty12?.getFlag(MOD, 'fx')} · for ${JSON.stringify(pinned12?.for)}`);
+      await misty12.unsetFlag(MOD, 'fx');
+      await api.fx.remove('misty-step-fx-test-caster');
+      await sleep(300);
 
       // 13 · the Asset Library: browse, step the variants, sounds, the unused filter, and the picker door from the walk
       await click('[data-tab="assets"]');
@@ -458,11 +536,17 @@ try {
       ok('§14 a hold whose offset was written as a delay is read as one thing: Hold next −500 ms, Wait before 0', $('.cw-hold')?.checked === true && $('.cw-holdms')?.value === '-500' && $('.cw-delay')?.value === '0' && held14[0] === '{"wait":-500}', held14.join(' · '));
       ok('§14 and it plays the same: the sentence no longer says "after −500 ms" about a hold', !/after -\d+ ms/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 150));
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
-      // a blank sheet: Reach keeps its place with no item to pin to, greyed and saying why (R1)
+      // a blank sheet: Reach keeps its place with no item to pin to — and since step 7 it picks one
       api.open({ tab: 'editor' });
       await sleep(400);
-      ok('§14 with no item to pin to, Reach is greyed in place with the reason, never dropped', $$('.hookstrip .hcol').length === 4 && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'Item Hook' && ($('.hookstrip .pill[data-na="true"]')?.dataset.tooltip ?? '').length > 20, text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' '));
+      ok('§14 with no item to pin to, an unlocked Reach offers to choose one (step 7)', $$('.hookstrip .hcol').length === 4 && $('[data-act="sh-pick-item"]')?.disabled === false && $('[data-act="sh-pick-item"]')?.textContent.trim() === 'Item Hook' && ($('[data-act="sh-pick-item"]')?.dataset.tooltip ?? '').length > 20, text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' '));
       ok('§14 a blank sheet says so and offers no rail', !$('.rail .row') && /No scenes yet/.test(text('.inspector')), text('.inspector').replace(/\s+/g, ' ').slice(0, 80));
+      // and locked, with no item and nothing to choose with, it greys where it stands with the reason (R1)
+      const owned14 = new Set(app.entries.filter((e) => e.uuid).flatMap((e) => e.keys));
+      const orphan14 = api.fx.list().find((e) => e.source === 'stock' && (e.fx.for ?? []).length && !(e.fx.for ?? []).some((k) => owned14.has(k)));
+      api.open({ tab: 'editor', id: orphan14.fx.id });
+      await sleep(400);
+      ok('§14 locked, with no item at all, Reach greys in place with the reason, never dropped (R1)', $('.sheet')?.dataset.edit === 'false' && $$('.hookstrip .hcol').length === 4 && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'Item Hook' && ($('.hookstrip .pill[data-na="true"]')?.dataset.tooltip ?? '').length > 20, `${orphan14.fx.id} · ${text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' ')}`);
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
 
       // 10 · the item sheet's button

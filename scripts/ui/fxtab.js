@@ -24,6 +24,23 @@ const ONLY_WORDS = { mine: 'On my actors', item: HOOK_WORDS.item + 's', off: 'Sw
 
 const fxState = (app) => (app.fxv ??= { lives: new Set(), kinds: new Set(), only: new Set(), show: PAGE });
 
+/**
+ * Coverage's Errors tile, arriving: this list on Broken assets alone, nothing else pressed and the
+ * header search cleared — the tile asks one question, and a search left over answers another.
+ */
+export function showBroken(app) {
+  const V = fxState(app);
+  V.lives.clear();
+  V.kinds.clear();
+  V.only.clear();
+  V.only.add('broken');
+  V.show = PAGE;
+  app.view.q = '';
+  app.view.subject = null;
+  app.view.fxSel = null;
+  app.view.tab = 'fx';
+}
+
 // -----------------------------------------------------------------------------------------------
 // the catalogue: every FX as a row, read once per rebuild
 // -----------------------------------------------------------------------------------------------
@@ -38,7 +55,7 @@ function mineIds(app) {
 }
 
 /** the FX naming an asset the libraries do not have — the check tools/check-fx.mjs runs, on screen */
-function brokenIds(app) {
+export function brokenIds(app) {
   if (app._broken) return app._broken;
   const a = api();
   const out = new Set();

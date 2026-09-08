@@ -74,7 +74,7 @@ export const bareKey = (subject) => subject?.keys?.find((k) => !k.includes('/'))
  */
 export function openSheet(app, { id = null, subject = null, from = null, scenes = null, edit = false } = {}) {
   const a = api();
-  const s = { id: null, source: null, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, onlyThis: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', pick: 0, band: 'picture' };
+  const s = { id: null, source: null, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, onlyThis: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture' };
   const e = id ? a.fx.get(id) : null;
   if (e) {
     s.id = id; s.source = e.source; s.original = e.original;
@@ -281,6 +281,18 @@ export function thumbHtml(scene, cls = 'thumb') {
 // -----------------------------------------------------------------------------------------------
 // band 3 — the hook strip: one row, four columns
 // -----------------------------------------------------------------------------------------------
+/**
+ * The items this FX can be pinned to: every ability on this world's actors, matched on its own name
+ * or its owner's. Deliberately NOT deduplicated by key the way the header search is — the whole
+ * point of an Item Hook is that this Bob's Misty Step is not that Alice's.
+ */
+function itemHits(app, q) {
+  const needle = q.trim().toLowerCase();
+  const rows = (app.entries ?? []).filter((e) => e.uuid && e.owner);
+  const hit = needle ? rows.filter((e) => e.name.toLowerCase().includes(needle) || e.owner.toLowerCase().includes(needle)) : rows;
+  return [...hit].sort((x, y) => x.owner.localeCompare(y.owner) || x.name.localeCompare(y.name)).slice(0, 12);
+}
+
 function renderHook(app) {
   const s = app.sheet;
   const edit = s.edit;
@@ -294,14 +306,20 @@ function renderHook(app) {
   const lastNew = s.newKeys.length ? s.newKeys[s.newKeys.length - 1] : null;
   const kinds = edit && lastNew && s.keys.includes(lastNew) ? `<span class="pills inline kinds"><span class="lbl">Type of ${esc(idWords(parseKey(lastNew)?.id))}</span>${Object.entries(KIND_WORDS).map(([k, w]) => `<button type="button" class="pill" aria-pressed="${parseKey(lastNew)?.kind === k}" data-act="sh-kind" data-kind="${k}">${w}</button>`).join('')}</span>` : '';
   const pills = (list, cur, act, attr) => list.map(([v, w]) => `<button type="button" class="pill" aria-pressed="${cur === v}" data-act="${act}" data-${attr}="${v}">${w}</button>`).join('');
-  // Reach keeps its place whether or not we came from an item; without one it says why (R1)
+  // Reach keeps its place whether or not we came from an item (R1). Until step 7 it was greyed for
+  // good unless you had arrived from that item's own sheet, which made an Item Hook impossible to
+  // write from the FX tab — so unlocked, it picks the actor and the item itself.
   const canItem = !!(sub?.uuid && sub?.owner);
+  const picking = s.itemQuery !== null;
   const reach = canItem
     ? `<button type="button" class="pill" aria-pressed="${s.onlyThis}" data-act="sh-only">${HOOK_WORDS.item}: ${esc(sub.owner)} · ${esc(sub.name)}</button>`
-    : `<span class="pill" data-na="true" data-tooltip="Open the sheet from an item to pin an FX to that one item.">${HOOK_WORDS.item}</span>`;
+    : edit
+      ? `<button type="button" class="pill" aria-pressed="${picking}" data-act="sh-pick-item" data-tooltip="Pin this FX to one item on one actor: pick the actor and the item here.">${HOOK_WORDS.item}</button>`
+      : `<span class="pill" data-na="true" data-tooltip="Unlock the sheet to pin this FX to one item, or open it from that item's own sheet.">${HOOK_WORDS.item}</span>`;
+  const pickItem = picking && !canItem ? `<div class="search sh-item-search"><input type="search" class="sh-item-q" placeholder="Find an item on an actor" aria-label="Find an item on an actor" autocomplete="off" value="${esc(s.itemQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
   return `<div class="hookstrip">
     <div class="hcol wide"><span class="lbl">Answers</span><div class="pills wrap">${keyPills}${!s.keys.length ? '<span class="note">No hook yet</span>' : ''}${addKey}${kinds}</div></div>
-    <div class="hcol"><span class="lbl">Reach</span><div class="pills"><button type="button" class="pill" aria-pressed="${!s.onlyThis}" data-act="sh-global">${HOOK_WORDS.global}</button>${reach}</div></div>
+    <div class="hcol"><span class="lbl">Reach</span><div class="pills"><button type="button" class="pill" aria-pressed="${!s.onlyThis}" data-act="sh-global">${HOOK_WORDS.global}</button>${reach}</div>${pickItem}</div>
     <div class="hcol"><span class="lbl">Moment</span><div class="pills">${pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')}</div></div>
     <div class="hcol"><span class="lbl">State</span><div class="pills">${pills([[false, 'On'], [true, 'Off']], s.off, 'sh-off', 'v')}</div></div>
   </div>`;
@@ -790,7 +808,9 @@ export async function onSheetClick(app, b, act) {
     case 'sh-key-new': { const k = `spell:${slug(b.dataset.name)}`; if (!s.keys.includes(k)) { s.keys.push(k); s.newKeys.push(k); } if (!s.subject) s.subject = app.subjectNew(b.dataset.name); s.keyQuery = ''; s.onlyThis = false; break; }
     case 'sh-kind': { const last = s.newKeys[s.newKeys.length - 1]; const p = parseKey(last); if (!p) break; const k = `${b.dataset.kind}:${p.id}`; s.keys = s.keys.map((y) => (y === last ? k : y)); s.newKeys = s.newKeys.map((y) => (y === last ? k : y)); if (s.subject?.isNew) s.subject = app.subjectNew(s.subject.name, b.dataset.kind); s.on = b.dataset.kind === 'effect' ? 'effect' : s.on; break; }
     case 'sh-only': s.onlyThis = true; break;
-    case 'sh-global': s.onlyThis = false; break;
+    case 'sh-global': s.onlyThis = false; s.itemQuery = null; break;
+    case 'sh-pick-item': s.itemQuery = s.itemQuery === null ? '' : null; break;
+    case 'sh-item-hit': { const item = fromUuidSync(b.dataset.uuid); if (item) { s.subject = app.subjectFromItem(item); s.onlyThis = true; } s.itemQuery = null; break; }
     // --- the rail and the inspector (HANDOFF step 4) ---
     case 'sh-pick': s.pick = i; if (s.band === 'shape' && !shapeCells(s.scenes[i]?.scene.shape).length) s.band = 'picture'; break;
     case 'sh-band': s.band = b.dataset.band; break;
@@ -844,6 +864,11 @@ export function onSheetInput(app, el) {
     const hits = app.searchHits(q);
     return open(hits.map(({ e, i }) => `<div class="hit" data-act="sh-key-hit" data-i="${i}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(app.hitWhere(e))}</span></div>`).join('')
       + `<div class="hit" data-act="sh-key-new" data-name="${esc(q)}"><span class="o">New ability: “${esc(q)}”</span></div>`);
+  }
+  if (el.classList.contains('sh-item-q')) {
+    s.itemQuery = el.value;
+    const hits = itemHits(app, q);
+    return open(hits.map((e) => `<div class="hit" data-act="sh-item-hit" data-uuid="${esc(e.uuid)}"><span>${dot(e.status)}${esc(e.owner)} · ${esc(e.name)}</span><span class="o">${esc(app.hitWhere(e))}</span></div>`).join('') || '<div class="hit"><span class="o">No item of that name on an actor</span></div>');
   }
   if (el.classList.contains('sh-like')) {
     const hits = app.likeHits(q).filter((h) => h.tag !== 'starter');
@@ -968,6 +993,12 @@ export function onSheetKey(app, ev) {
     else { const k = `spell:${slug(q)}`; if (!s.keys.includes(k)) { s.keys.push(k); s.newKeys.push(k); } if (!s.subject) s.subject = app.subjectNew(q); }
     s.keyQuery = '';
     app.render();
+    return true;
+  }
+  if (el.classList.contains('sh-item-q')) {
+    ev.preventDefault();
+    const first = itemHits(app, el.value)[0];
+    if (first) { const item = fromUuidSync(first.uuid); if (item) { s.subject = app.subjectFromItem(item); s.onlyThis = true; } s.itemQuery = null; app.render(); }
     return true;
   }
   if (el.classList.contains('sh-like')) {

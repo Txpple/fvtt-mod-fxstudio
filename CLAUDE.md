@@ -14,57 +14,64 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-07): NO SHORTCUTS — the ruling of the day. `like` and `with` are GONE from the
-grammar (DESIGN §9): every FX states its scenes in full and none points at another, because a
-pointer can leave an orphan. "Sharran Step is Misty Step in black" means Misty Step written out
-again with the colour changed, standing on its own. Removed from `core/fx.js`, `core/corpus.js`,
-`api.js` (`fx.expand` → **`fx.scenesOf(id)`**), `ui/sheet.js`, `ui/library.js` and every doc.
-Nothing in the corpus used them (0 of 1296); all 1306 still validate. The revamp is running off
-[HANDOFF.md](HANDOFF.md) (screens `prototypes/fxstudio6-proposal.html`); **steps 2, 3, 4 and 5 are
-BUILT; step 1 as briefed ("stop destroying `like`") was built and then REMOVED by this ruling.**
-Step 2: ▶ Play all and a ▶ per rail row through `api.preview`, saving nothing, greyed with their
-reason when they cannot run. Step 3: the layout primitives — one gutter/row/radius on the window, a
-knob row is `repeat(4, minmax(0, 1fr))` (R2), cells at permanent addresses greyed and disabled in
-place from `KNOBS` alone (R1), list rows one height with selection changing colour only (R3),
-`minmax(0, 1fr)` wherever a long string sits. Step 4 is the FX sheet as FIVE BANDS — identity +
-action bar · a fixed two-line sentence · the hook strip · the sequence · the note — where the
-sequence is a 288px RAIL, the OVERLAP STRIP under it (every scene on one ms scale; a picture's
-length is measured from the loaded file and marked *about* until it is known), and an INSPECTOR
-whose frame never resizes (band tabs Picture · Timing · Sound · Placement · ⟨the shape's own⟩, each
-the same 4×2 grid of eight cells, live from `KNOBS` alone). THE TWO DELAYS ARE NAMED APART, which
-closed the user's parked question: `delay` is *Wait before*, `wait` is *Hold next*, and a scene the
-migration wrote as `{wait: true, delay: -1000}` is normalised as the sheet loads it. Size shows the
-grammar's unit; every problem is listed, each the button to the scene it names; `off` collapses the
-Sequence band. **STEP 5 (built 2026-09-07) MERGED THE SIX TABS INTO THREE — FX · Assets · Coverage
-— and the FX SHEET IS NOW A PANE, NOT A TAB** (opened on an FX; Back returns where it came from; the
-FX pill is the current one while it is up; the old tab names still land where they meant to). The
-new `scripts/ui/fxtab.js` is 190px facets · the rows · a 300px detail pane, the rows the only thing
-that scrolls (R4, R5): one list of every FX **grouped Draft → House → Stock** (resolution order,
-later wins), a row being name (+N keys, · Item Hook) · the generated sentence · the layer tag ·
-the shape tags and **never the key list**; facets at permanent addresses with counts, greyed at zero
-— Lives in · Kind (all nine) · Only (On my actors, Item Hooks, Switched off, **Broken assets**, the
-`check-fx` test on screen for the first time). **THE DETAIL PANE IS WHAT THE LOOK UP CARD WAS**:
-name (the read-only door to the sheet), tags, why, id, provenance, the sentence, the sequence as
-stills, and Edit · ▶ Play · Ships as · Duplicate · Export · Delete — or *Nothing plays* + **Create
-FX** when the search finds an ability nothing answers. **THE SEARCH MOVED INTO THE WINDOW HEADER**
-and does two jobs: the dropdown answers what plays for an ability, the letters narrow the list; the
-item-sheet wand fills it. Staging is on the row's own pane (one *Ships as* select: Draft only ·
-Staged: House · Staged: Stock), Maintain unchanged on Coverage. The window opens at 1080px (was
-860). One deviation is stated in DESIGN §9. **NEXT: steps 6–7, neither started** — Assets, Coverage.
+**Status (2026-09-07): THE UI REVAMP IS DONE — all seven steps of [HANDOFF.md](HANDOFF.md) are
+settled (1 superseded, 2·3·4·5·7 built, **6 ruled out by the user: "for step 6, i like my layout as
+is, so do 7"** — the Asset Library is not rebuilt and nothing of that step is owed).**
+The standing ruling underneath it all is NO SHORTCUTS: `like` and `with` are GONE from the grammar
+(DESIGN §9). Every FX states its scenes in full and none points at another, because a pointer can
+leave an orphan. "Sharran Step is Misty Step in black" means Misty Step written out again with the
+colour changed. Removed from `core/fx.js`, `core/corpus.js`, `api.js` (`fx.expand` →
+**`fx.scenesOf(id)`**), `ui/sheet.js`, `ui/library.js` and every doc; nothing in the corpus used them
+(0 of 1296). **The window is THREE TABS — FX · Assets · Coverage — the search in the window header,
+and the FX sheet a PANE, not a tab** (opened on an FX; Back returns where it came from; the old tab
+names still land where they meant to). It opens at 1080px.
+**FX** (`scripts/ui/fxtab.js`) is 190px facets · the rows · a 300px detail pane, the rows the only
+thing that scrolls: one list of every FX **grouped Draft → House → Stock** (resolution order, later
+wins), a row being name (+N keys, · Item Hook) · the generated sentence · the layer tag · the shape
+tags and **never the key list**; facets at permanent addresses with counts, greyed at zero — Lives in
+· Kind · Only (On my actors, Item Hooks, Switched off, **Broken assets**). The detail pane is what the
+Look up card was: name, tags, why, id, provenance, the sentence, the sequence as stills, and Edit ·
+▶ Play · Ships as · Duplicate · Export · Delete — or *Nothing plays* + **Create FX**.
+**Assets** (`ui/library.js`) is **unchanged by the user's ruling**: shelf · stage · paths · Used-in
+and the picker contract exactly as they were.
+**COVERAGE (`scripts/ui/coverage.js`, step 7, built 2026-09-07) is four bands and only the last one
+scrolls: MAINTAIN AT THE TOP** (a head line, then Waiting · Ship · Shipped, then the corpus's
+problems on one foot line — shipping is the last step of a workflow, not a footnote under a report;
+its ship controls now grey **in place** when nothing is staged) · **the scope** (My actors ·
+Compendiums, with Books · N and Check) · **the tiles** (Abilities · With FX · No FX · **Errors**) ·
+**the rows**. **My actors is the census, read with no await — it ran on every render and was never
+drawn until now**; every No FX row opens a new sheet for that ability; the books are picked as rows
+inside the one scroller instead of a wrapping pill cloud; **Errors is the door to the FX tab's Broken
+assets facet**, greyed in place at zero, counting the corpus so the number matches the facet it
+opens. **THE ITEM HOOK GAP IS CLOSED**: unlocked, the sheet's Reach control **picks its own actor and
+item**, so an FX can be pinned to one item without arriving from that item's sheet (it was
+`subject.uuid && subject.owner` or nothing). Also fixed there: `onCorpusInput` was called and never
+imported (typing in the Release note threw), and `.tiles` no longer `auto-fit`s (that was a wrap).
+The FX sheet is FIVE BANDS — identity + action bar · a fixed two-line sentence · the hook strip ·
+the sequence · the note — the sequence a 288px RAIL, the OVERLAP STRIP under it (every scene on one
+ms scale; a picture's length is measured from the loaded file and marked *about* until it is known),
+and an INSPECTOR whose frame never resizes (band tabs Picture · Timing · Sound · Placement · ⟨the
+shape's own⟩, each the same 4×2 grid of eight cells, live from `KNOBS` alone). THE TWO DELAYS ARE
+NAMED APART: `delay` is *Wait before*, `wait` is *Hold next*. ▶ Play all and a ▶ per rail row run
+through `api.preview`, saving nothing, greyed with their reason when they cannot run. The layout
+primitives are one gutter/row/radius on the window, a knob row is `repeat(4, minmax(0, 1fr))` (R2),
+cells at permanent addresses greyed and disabled in place from `KNOBS` alone (R1), list rows one
+height with selection changing colour only (R3), `minmax(0, 1fr)` wherever a long string sits.
+**NEXT: nothing in the revamp is owed. What is left is PHASE 4 — outcomes and moments (PLAN §6),
+what the module was for — the 502 migrated assets keyed `file` that are really library paths
+(BACKLOG), and cutover; every one of them waits on the user's word.**
 **Read [NEXT-SESSION.md](NEXT-SESSION.md) first: it is the handoff, and it says where the two design
 docs are wrong.** Earlier: phase 3 built and bug-tested in-game with the user over two passes — the
 first seventeen rulings, then ten more the same day (DESIGN §8 *The bug-testing pass* and *The
 second bug-testing pass*); pushed through 1d32ea6 (the vocabulary pass, the tab rename, the FX sheet
 that replaced the wizard — `scripts/ui/sheet.js`, DESIGN §8 *The FX sheet* — the sentence's sound
-clause `with sound (PSFX x)`, Battle Flow ruled backlog for phase 4). NEXT: keep iterating off
-screenshots, holding until "go". 502 migrated assets keyed "file" that are really library paths
-still wait on a word (BACKLOG).** The
+clause `with sound (PSFX x)`, Battle Flow ruled backlog for phase 4). The
 vocabulary is FX / VFX / SFX / custom (no "look", no "override", no "imported" on the screens), and
 since the evening's pass **terms, not sentences** (DESIGN §8 *A tool, not prose*): Stock / House /
 Draft for where an FX lives (baseline renamed stock end to end), Global Hook / Item Hook for its
 reach, staged not bound; the FX's own sentence and each scene's line are kept on purpose; the
 wizard is gone: the FX Editor is ONE SHEET per FX with an Edit switch as the guard, Hook / Sequence / Note blocks, Save always a Draft (DESIGN §8 *The FX sheet*); the tabs are, since step 5 (2026-09-07), **FX · Assets · Coverage** — the FX sheet is a pane opened on an FX, not a tab, and the search is in the window header. Delete is for good
-(`api.corpus.erase`). `tools/smoke-screens.mjs` is 144 of 144 (`FX_TRACE=1` traces a page crash); DESIGN §8 records every ruling of the
+(`api.corpus.erase`). `tools/smoke-screens.mjs` is 163 of 163 (`FX_TRACE=1` traces a page crash); DESIGN §8 records every ruling of the
 day in order and §9 the revamp. Both questions the user parked are now closed: the **Look up tab** is gone (its search folded into
 the header, its card became the FX tab's detail pane) and **Delay meaning two things** was named
 apart at step 4. The user iterates by sending screenshots and comments, asking to aggregate and hold
