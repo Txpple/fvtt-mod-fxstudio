@@ -5,19 +5,17 @@ table. A greenfield design: Automated Animations' corpus is migrated once so the
 start from zero, and none of its architecture is carried. Keeps [Sequencer](https://github.com/fantasycalendar/FoundryVTT-Sequencer) as the engine
 and JB2A and PSFX as the libraries; replaces Automated Animations by carrying its whole D&D5e
 Animations corpus over losslessly, adds the user's own FX and the outcome layers AA never had,
-and is driven through one window of three tabs — FX, Assets, Coverage — with a search in its header
-and the FX sheet opened on an FX rather than kept in the tab strip: terms and labels around one
-generated sentence per FX. It never guesses an FX.
+and is driven through one window of four tabs — FX, Editor, Assets, Coverage — with a search in its
+header: terms and labels around one generated sentence per FX. It never guesses an FX.
 
 **Status: phase 3 (the screens) built, 2026-09-06; the FX sheet and two bug-testing passes from the
 table, then the UI revamp's steps 2–5 — Play, the layout primitives, the sheet as a rail and an
 inspector, and the six tabs merged into three — 2026-09-07 (DESIGN §8, §9).** FX Studio opens from the Settings sidebar (the GM's "Open FX
-Studio" button) or from the wand on any item sheet. **The search in the window header** answers what
-plays for any ability as a sentence, with the hook that answered and where it lives (Stock, House or
-Draft), and narrows the FX list as you type. **FX** is every FX in one list, grouped Draft → House →
-Stock — resolution order, later wins — with facets down the left (where it lives, its kind, on my
-actors, Item Hooks, switched off, broken assets) and a 300px detail pane on the right: the sentence,
-the sequence as stills, and Edit · Play · Ships as · Duplicate · Export · Delete. **The FX sheet** is
+Studio" button) or from the wand on any item sheet. **FX** is every FX in one list, grouped
+Draft → House → Stock — resolution order, later wins — with the search over it (it narrows the list
+as you type, and its dropdown answers what plays for any ability) and facets down the left (where it
+lives, its kind, on my actors, Item Hooks, switched off, broken assets). A row is a name. **The
+Editor** is where every edit of an FX is made. **The FX sheet** is
 one sheet per FX, the same whether you read it or change it — an Edit switch is the
 guard, and the action bar is the same in both modes with what does not apply greyed out (Back,
 New FX, Duplicate, Export, Delete or Revert, Edit, Cancel, Save); the Hook block (one or more

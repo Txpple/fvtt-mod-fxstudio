@@ -55,8 +55,8 @@ Everything is committed and green. Nothing is half-built.
 
 | | |
 | --- | --- |
-| Tabs | **FX · Assets · Coverage**, one search in the window header, the FX sheet a pane opened on an FX |
-| `ui/fxtab.js` | facets · rows · a 300px detail pane; every FX in one list, Draft → House → Stock |
+| Tabs | **FX · Editor · Assets · Coverage**; the search belongs to the FX tab; the Editor is the FX sheet, and leaving the tab does not close it |
+| `ui/fxtab.js` | the search (name only, no dropdown) + Import · facets · rows; every FX in one list, Draft → House → Stock; a row is a name with Delete · Editor, and clicking it takes no action |
 | `ui/library.js` | the Asset Library, and the picker the sheet's Browse opens — **untouched by the redesign, by the user's ruling** |
 | `ui/coverage.js` | Maintain, the two scopes, four tiles, the rows |
 | `ui/sheet.js` | one sheet per FX: the action bar, the sentence, the hook strip, the sequence, the note |
@@ -70,7 +70,7 @@ as fuck", and they are the one using it.
 Found by driving the window once on 2026-09-07, before the user stopped that. **Offered, not owed** —
 they have not been ruled on, and they are not a to-do list:
 
-- The window **scrolls sideways below about 780px**, on all three tabs.
+- The window **scrolls sideways below about 780px**, on every tab.
 - **A modal dialog swallows every later click.** Back from an unsaved new sheet opens the
   leave-guard dialog; anything clicked while it is up does nothing, with no sign why.
 

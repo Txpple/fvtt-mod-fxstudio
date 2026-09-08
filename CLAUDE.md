@@ -34,15 +34,23 @@ bug-testing passes, before the redesign. ⚠ Rolling back also **restores `like`
 grammar**, because the no-shortcuts ruling rode in on the first redesign commit (`ce74b8c`) with
 step 2. `shelved/README.md` has the commands and what each redesign commit changed.
 
-**What the window is today** (this is a description of the code, not a plan): three tabs — **FX ·
-Assets · Coverage** — with one search in the window header and the FX sheet as a **pane**, not a
-tab. It opens at 1080px. **FX** (`ui/fxtab.js`): facets · the rows · a 300px detail pane; one list
-of every FX grouped Draft → House → Stock; the pane holds Edit · ▶ Play · Ships as · Duplicate ·
-Export · Delete. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the picker the
-sheet's Browse opens. **Coverage** (`ui/coverage.js`): Maintain at the top, then My actors ·
-Compendiums, four tiles, and the rows. **The FX sheet** (`ui/sheet.js`): identity + action bar · the
-sentence · the hook strip · the sequence (a rail, an overlap strip, a band-tabbed inspector) · the
-note; `delay` is *Wait before*, `wait` is *Hold next*; Save is always a Draft; Delete is for good.
+**What the window is today** (this is a description of the code, not a plan): four tabs — **FX ·
+Editor · Assets · Coverage**. It opens at 1080px.
+**FX** (`ui/fxtab.js`): its own search, then facets · the rows; one list of every FX grouped
+Draft → House → Stock; a search that matches the **name alone** (no dropdown) with **Import**
+right-justified beside it; group heads painted amber; **a row is a name that takes no action when
+clicked** — it marks itself, and its two right-justified doors are **Delete** (red, asks) and
+**Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —
+identity + action bar · the sentence · the hook strip · the sequence (a rail, an overlap strip, a
+band-tabbed inspector) · the note; `delay` is *Wait before*, `wait` is *Hold next*; Save is always a
+Draft; Delete is for good. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the
+picker the sheet's Browse opens. **Coverage** (`ui/coverage.js`): Maintain at the top, then My
+actors · Compendiums, four tiles, and the rows.
+
+**The Editor is a tab, on the user's word (2026-09-07)** — it was a pane over the FX tab at step 5.
+It sits in the strip whether an FX is open or not (empty, it says so and offers New FX), and
+**leaving it does not close it**: walk off to Assets and back and the FX is still there, unsaved
+changes and all. Only opening *another* FX into the sheet asks before dropping them.
 
 **The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
 `with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
@@ -51,7 +59,7 @@ Global Hook / Item Hook, staged. FX / VFX / SFX. No JSON or raw library paths in
 never guesses: an ability with no FX plays nothing.
 
 **Known and unfixed, found by driving the window on 2026-09-07** — offered, not owed, and the user
-has not ruled on either: the window **scrolls sideways below about 780px** on all three tabs, and
+has not ruled on either: the window **scrolls sideways below about 780px** on every tab, and
 **a modal dialog swallows every later click** (Back from an unsaved new sheet opens the leave guard;
 anything clicked while it is up does nothing).
 

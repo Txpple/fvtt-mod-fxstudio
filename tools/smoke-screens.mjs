@@ -35,11 +35,19 @@ try {
     const text = (sel) => ($(sel)?.textContent ?? '').replace(/\s+/g, ' ').trim();
     // the Library's path and file boxes are read-only fields (2026-09-07): their value is the text
     const val = (sel) => ($(sel)?.value ?? '').trim();
-    // three tabs since step 5; the sheet is a PANE with no tab of its own, opened on an FX
+    // four tabs (2026-09-07): FX · Editor · Assets · Coverage — the sheet is the Editor TAB
     const paneNow = () => $('.pane[data-active="true"]')?.dataset.pane ?? '';
     const tabNow = () => $('[role=tab][aria-selected="true"]')?.dataset.tab ?? '';
     // the sheet is a rail and an inspector (HANDOFF step 4): pick a scene, then a band of knobs
     const pick = async (n) => click($$('.rail .pickbtn')[n]);
+    // a row on the FX tab only marks itself (2026-09-07): clicking one takes no action at all. By
+    // id, not by name — two FX can wear the same name (a spell's, and one item's Item Hook copy)
+    const clickFxRow = async (id) => { const b = $(`.fxlist .pickbtn[data-id="${id}"]`); if (!b) throw new Error(`no FX row for ${id}`); return click(b); };
+    // so the Editor is reached the way the API reaches it, or through the subject the search found
+    const openEditor = async (id) => { api.open({ tab: 'editor', id }); await sleep(450); };
+    // Delete asks first (DialogV2.confirm). The suite answers yes for one action, then puts it back
+    const sayYes = async (fn) => { const D = foundry.applications.api.DialogV2; const was = D.confirm; D.confirm = async () => true; try { await fn(); await sleep(700); } finally { D.confirm = was; } };
+    const openEditorForSubject = async () => { app.openFor(app.view.subject); await app.render(); await sleep(350); };
     const band = async (b) => click(`[data-act="sh-band"][data-band="${b}"]`);
     const cells = (b) => [...$$(`.inspector[data-band="${b}"] .knobs .f`)].map((x) => x.className.replace('f f-', '').replace(' wide', ''));
     // the module's files on the server, read fresh and written back (what Corpus does, for the restore)
@@ -53,31 +61,34 @@ try {
       const misty = caster.actor.items.getName('Misty Step');
       app = api.open({ item: misty });
       await sleep(600);
-      ok('§1 the window opens with three tabs: FX · Assets · Coverage, and no tab for the sheet', app?.rendered && $$('[role=tab]').length === 3 && $$('[role=tab]').map((t) => t.textContent).join('|') === 'FX|Assets|Coverage', `${$$('[role=tab]').map((t) => t.textContent).join(', ')}`);
-      ok('§1 the search sits in the window header, above the tabs, not in a pane', !!$('.fx-head .fx-q') && !$('.pane .fx-q') && $('.fx-q')?.placeholder === 'What plays for…', $('.fx-q')?.placeholder ?? 'no box');
-      ok('§1 opening on an item lands on FX with the FX that answers it selected, and says why', tabNow() === 'fx' && $('.detail')?.dataset.on === 'fx' && /Misty Step/.test(text('.detail .dhead')) && /Global Hook · Misty Step \(spell\)( \+\d+)? · (Stock|House)/.test(text('.detail .whyline')), `${text('.detail .dhead')} | ${text('.detail .whyline')}`);
-      ok('§1 the pane reads it back as its sentence, its id and its provenance', /Misty Step · when used/.test(text('.detail .dsentence')) && text('.detail code.id') === 'misty-step' && text('.detail').includes('Sequence'), `${text('.detail .dsentence').slice(0, 90)} | ${text('.detail code.id')}`);
-      ok('§1 the pane offers the six actions, at their own places', $$('.detail .agrid > *').length === 6 && /Edit/.test(text('[data-act="fx-edit"]')) && !!$('[data-act="fx-play"]') && !!$('.fx-stage') && !!$('[data-act="fx-dup"]') && !!$('[data-act="export-fx"]'), [...$$('.detail .agrid > *')].map((x) => x.textContent.trim().split(' ')[0]).join(', '));
+      ok('§1 the window opens with four tabs: FX · Editor · Assets · Coverage', app?.rendered && $$('[role=tab]').length === 4 && $$('[role=tab]').map((t) => t.textContent).join('|') === 'FX|Editor|Assets|Coverage', `${$$('[role=tab]').map((t) => t.textContent).join(', ')}`);
+      ok('§1 the search belongs to the FX tab, under the tabs, not to the window header', !!$('.pane[data-pane="fx"] .fxsearch .fx-q') && !$('.fx-head') && $('.fx-q')?.placeholder === 'Search for an FX…', $('.fx-q')?.placeholder ?? 'no box');
+      ok('§1 the search is on the FX screen alone', !$('.pane[data-pane="assets"] .fx-q') && !$('.pane[data-pane="coverage"] .fx-q') && $$('.fx-q').length === 1, `${$$('.fx-q').length} boxes`);
+      ok('§1 the box has no dropdown: one box, one job — it narrows the list and nothing else', !$('.fxsearch .suggest') && !$('[data-act="hit"]') && !$('[data-act="new"]'), 'no suggest under the FX search');
+      ok('§1 there is no detail pane: the FX tab is the search, the facets and the rows', tabNow() === 'fx' && !$('.detail') && !!$('.fxsearch') && !!$('.facets') && !!$('.fxlist'), $$('.fxtab > *').map((x) => x.className.split(' ')[0]).join(', '));
+      ok('§1 opening on an item lands on FX with the FX that answers it marked in the list', tabNow() === 'fx' && app.view.fxSel === 'misty-step' && $('.fx-q')?.value === 'Misty Step' && /Misty Step/.test($('.fxlist .row[data-now="true"]')?.textContent ?? ''), `${app.view.fxSel} · ${text('.fxlist .row[data-now="true"]')}`);
+      // the Editor tab is in the strip with nothing open, and says what it is for
+      await click('[data-tab="editor"]');
+      ok('§1 the Editor tab opens with no FX and says every FX is edited there', tabNow() === 'editor' && paneNow() === 'editor' && !$('.sheet') && /Every FX is edited here/.test(text('.pane[data-pane="editor"] .card')) && !!$('[data-act="sh-new"]'), text('.pane[data-pane="editor"] .card').slice(0, 110));
+      await click('[data-tab="fx"]');
 
       // 2 · a spell the corpus has never heard of
       [tmp] = await caster.actor.createEmbeddedDocuments('Item', [{ name: 'Sharran Step', type: 'spell', system: { level: 2, school: 'con', activities: { dnd5eactivity000: { type: 'utility', _id: 'dnd5eactivity000' } } } }]);
       await sleep(200);
       app.refresh();
       await type('.fx-q', 'Sharran');
-      const hit = $$('.suggest .hit').find((h) => /Sharran Step/.test(h.textContent));
-      ok('§2 typing a few letters offers the sheet\'s Sharran Step', !!hit && /FX Test Caster/.test(hit.textContent), hit?.textContent);
-      await click(hit);
-      ok('§2 it plays nothing yet, and the pane says so in words', $('.detail')?.dataset.on === 'ask' && /Nothing plays/.test(text('.detail .dsentence')) && /No FX for Sharran Step \(spell\)/.test(text('.detail .whyline')), `${text('.detail .dsentence')} | ${text('.detail .whyline')}`);
-      ok('§2 the pane offers Create FX', /Create FX/.test(text('.detail .agrid')), text('.detail .agrid'));
+      await sleep(450);
+      ok('§2 it plays nothing yet, and the list says so by having nothing to show', api.sentenceFor(tmp, 'use').sentence === 'Nothing plays.' && !$$('.fxlist .row').length && /^0 of \d+ FX$/.test(text('.fxlist .listhead')), `${api.sentenceFor(tmp, 'use').sentence} | ${text('.fxlist .listhead')}`);
       await type('.fx-q', '');
       await sleep(400);
-      ok('§2 emptying the box clears the pane and shows the whole list again', $('.detail')?.dataset.on === 'none' && $$('.fxlist .row').length > 100, `${$('.detail')?.dataset.on} · ${$$('.fxlist .row').length} rows`);
-      await type('.fx-q', 'Sharran');
-      await click($$('.suggest .hit').find((h) => /Sharran Step/.test(h.textContent)));
+      ok('§2 emptying the box shows the whole list again', $$('.fxlist .row').length > 100, `${$$('.fxlist .row').length} rows`);
 
-      // 3 · the sheet: Create FX opens a new sheet unlocked, hooked to Sharran Step; Copy from seeds it
-      await click('[data-act="create-new"]');
-      ok('§3 Create FX opens the FX Editor on a new sheet, unlocked, hooked to the spell', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Sharran Step \(spell\)/.test(text('.hookstrip')) && /New/.test(text('.sheet h2')), `pane ${paneNow()} · ${text('.sheet h2')}`);
+      // 3 · the sheet: a new sheet unlocked, hooked to Sharran Step; Copy from seeds it. The FX tab
+      // has no door that makes an FX since the dropdown went ("we'll add new later"), so this is
+      // the API's, which is the door the item sheet's own button uses too
+      api.open({ tab: 'editor', key: 'spell:sharran-step', edit: true });
+      await sleep(450);
+      ok('§3 the Editor opens on a new sheet, unlocked, hooked to the spell', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Sharran Step \(spell\)/.test(text('.hookstrip')) && /New/.test(text('.sheet h2')), `pane ${paneNow()} · ${text('.sheet h2')}`);
       ok('§3 Save waits: no scenes yet, the problem is named', $('[data-act="sh-save"]')?.disabled === true && !!$('.sheet .problem'), text('.sheet .problem'));
       ok('§3 an empty sequence offers Copy from and Add', !!$('.sh-like') && $$('[data-act="cw-add"]').length === 8, `${$$('[data-act="cw-add"]').length} shapes`);
       await type('.sh-like', 'misty step');
@@ -150,29 +161,67 @@ try {
       ok('§4 the API reads the same sentence the sheet shows, in the What plays box', text('.sheet .preview') === `What plays${r4.sentence}`, `${r4.sentence} | ${text('.sheet .preview')}`);
       ok('§4 the sentence is said once: What plays at the top, none under the sequence', $$('.sheet .preview').length === 1 && !$('.sheet .sentence') && /^What plays/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 60));
       await click('[data-act="sh-back"]');
-      ok('§4 Back returns to where the sheet was opened from: the FX tab, on the FX it wrote', tabNow() === 'fx' && paneNow() === 'fx' && $('.detail')?.dataset.on === 'fx' && /Sharran Step/.test(text('.detail .dhead')) && /Draft/.test(text('.detail .dhead')), `${text('.detail .dhead')} | ${text('.detail .whyline')}`);
+      ok('§4 Back returns to where the sheet was opened from: the FX tab, on the FX it wrote', tabNow() === 'fx' && paneNow() === 'fx' && app.view.fxSel === 'sharran-step' && /Sharran Step/.test($('.fxlist .row[data-now="true"]')?.textContent ?? ''), `${app.view.fxSel} | ${text('.fxlist .row[data-now="true"]')}`);
+      // the Editor is a tab now: leaving it does not close the sheet, and it is reachable with none open
+      await click('[data-tab="editor"]');
+      ok('§4 the Editor tab still holds the FX the sheet was on: leaving a tab does not close it', tabNow() === 'editor' && paneNow() === 'editor' && text('.sheet code.id') === 'sharran-step', `${tabNow()} · ${text('.sheet code.id')}`);
+      await click('[data-tab="fx"]');
 
       // 5 · ONE FX tab (HANDOFF step 5): one list of every FX, grouped Draft → House → Stock
       await type('.fx-q', '');
       await sleep(450);
       const rows5 = () => $$('.fxlist .row');
       const groups5 = () => $$('.fxlist .grouphead').map((g) => g.textContent.replace(/\s+/g, ' ').trim());
-      ok('§5 there is no Stock FX, House FX, FX Editor or Look up tab: one FX tab holds them', !$('[data-tab="stock"]') && !$('[data-tab="house"]') && !$('[data-tab="editor"]') && !$('[data-tab="lookup"]') && !!$('[data-tab="fx"]'), $$('[role=tab]').map((t) => t.dataset.tab).join(', '));
+      ok('§5 there is no Stock FX, House FX or Look up tab: one FX tab holds them, and editing is the Editor tab', !$('[data-tab="stock"]') && !$('[data-tab="house"]') && !$('[data-tab="lookup"]') && !!$('[data-tab="fx"]') && !!$('[data-tab="editor"]'), $$('[role=tab]').map((t) => t.dataset.tab).join(', '));
       ok('§5 the list is grouped in resolution order, later wins: Draft, then House, then Stock', groups5().map((g) => g.split(' ')[0]).join(',') === 'Draft,House,Stock' && /^Draft · \d+ FX$/.test(groups5()[0]), `${groups5().join(' | ')} · ${rows5().length} rows shown`);
       const first5 = rows5()[0];
-      ok('§5 the Draft this world wrote is the first row of all, with its sentence, its layer and its shapes', /^Sharran Step/.test(first5?.textContent.trim() ?? '') && /when used/.test(first5?.textContent ?? '') && /Draft/.test(first5?.querySelector('.tag')?.textContent ?? '') && first5?.querySelectorAll('.shapes .tag').length >= 1, first5?.textContent.replace(/\s+/g, ' ').slice(0, 160));
-      ok('§5 a row is a name and a sentence, never the whole key list', !/spell:/.test(text('.fxlist')) && !!first5?.querySelector('.n') && !!first5?.querySelector('.s'), first5?.querySelector('.n')?.textContent.trim() ?? '');
-      // R3: picking a row swaps the pane's contents and moves nothing
+      ok('§5 the Draft this world wrote is the first row of all', first5?.querySelector('.n')?.textContent.trim() === 'Sharran Step', first5?.querySelector('.n')?.textContent.trim() ?? '');
+      ok('§5 a row is the name and NOTHING else: no sentence, no layer pill, no shape tags', rows5().every((r) => r.querySelectorAll('.n').length === 1 && !r.querySelector('.s') && !r.querySelector('.tag') && !r.querySelector('.shapes')) && !/spell:/.test(text('.fxlist')) && !/when used/.test(text('.fxlist')), first5?.textContent.replace(/\s+/g, ' ') ?? '');
+      ok('§5 the list head is the count alone', !$('.fxlist .listhead button') && /^\d+( of \d+)? FX$/.test(text('.fxlist .listhead')), text('.fxlist .listhead'));
+      // Import sits on the search row, ending where the list ends, the same height as the box
+      const imp5 = $('.fxsearch button.import');
+      const box5b = $('.fxsearch input').getBoundingClientRect();
+      ok('§5 Import is right-justified with the list and the same height as the search box', !!imp5 && Math.abs(imp5.getBoundingClientRect().height - box5b.height) <= 1 && Math.abs(imp5.getBoundingClientRect().right - $('.fxlist').getBoundingClientRect().right) <= 2 && imp5.dataset.act === 'import-fx', `${Math.round(imp5.getBoundingClientRect().right)} vs list ${Math.round($('.fxlist').getBoundingClientRect().right)}`);
+      // R3: picking a row opens it in the Editor, and moves nothing in the list it left
       const geom5 = () => rows5().slice(0, 12).map((r) => { const b = r.getBoundingClientRect(); return `${Math.round(b.top)}/${Math.round(b.height)}`; }).join(',');
       const was5 = geom5();
+      const id5 = rows5()[4].querySelector('.pickbtn').dataset.id;
       await click(rows5()[4].querySelector('.pickbtn'));
-      ok('§5 picking a row changes colour and swaps the pane, never the layout (R3)', geom5() === was5 && new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1 && $('.fxlist .row[data-now="true"]') === rows5()[4], `${new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size} row height(s)`);
-      // R4: one scroll region — the rows scroll, the facets and the pane do not
+      ok('§5 clicking a row takes NO action: it marks itself, the tab does not move, no sheet opens on it', tabNow() === 'fx' && paneNow() === 'fx' && app.view.fxSel === id5 && app.sheet?.id !== id5, `${tabNow()} · sheet on ${app.sheet?.id ?? 'nothing'} · row ${id5}`);
+      ok('§5 the row is marked, one height, the layout unmoved (R3)', geom5() === was5 && new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1 && $('.fxlist .row[data-now="true"]') === rows5()[4], `${new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size} row height(s)`);
+      // the marked row is the only one showing its two doors, and they cost the row no height (R3)
+      const acts5 = rows5()[4].querySelector('.acts');
+      ok('§5 every row carries Delete then Editor, right-justified', rows5().every((r) => [...r.querySelector('.acts').children].map((x) => x.textContent.trim()).join(',') === 'Delete,Editor') && rows5().every((r) => getComputedStyle(r.querySelector('.acts')).visibility === 'visible') && acts5.getBoundingClientRect().right > rows5()[4].querySelector('.n').getBoundingClientRect().right, `${[...acts5.children].map((x) => x.textContent.trim()).join(', ')} on ${rows5().length} rows`);
+      ok('§5 Delete is painted as the destructive one; Editor reads as plain text', getComputedStyle(acts5.children[0]).color !== getComputedStyle(acts5.children[1]).color && getComputedStyle(acts5.children[1]).color === getComputedStyle(rows5()[4].querySelector('.n')).color, `delete ${getComputedStyle(acts5.children[0]).color} · editor ${getComputedStyle(acts5.children[1]).color}`);
+      // the group heads are the one painted thing on the screen: where an FX lives
+      const head5 = $('.fxlist .grouphead');
+      ok('§5 a group head is plainly painted, not another grey band', !/rgba\(0, 0, 0, 0\)/.test(getComputedStyle(head5).backgroundColor) && getComputedStyle(head5).color !== getComputedStyle(rows5()[0].querySelector('.n')).color && getComputedStyle(head5).borderTopWidth !== '0px', `${getComputedStyle(head5).backgroundColor} · ${getComputedStyle(head5).color}`);
+      // and it does not take the list away from you: scrolled down, picking a row keeps the scroll
+      const scroller5 = $('.fxlist .rows');
+      scroller5.scrollTop = 400;
+      await sleep(150);
+      const deep5 = rows5().find((r) => r.getBoundingClientRect().top > scroller5.getBoundingClientRect().top + 50);
+      await click(deep5.querySelector('.pickbtn'));
+      ok('§5 picking a row keeps the list exactly where it was scrolled to', $('.fxlist .rows') === scroller5 && Math.round(scroller5.scrollTop) === 400 && deep5.dataset.now === 'true', `scrollTop ${Math.round(scroller5.scrollTop)} of 400 · same node ${$('.fxlist .rows') === scroller5}`);
+      // the row's Editor link, and a double click, are the same door
+      const deepId5 = deep5.querySelector('.pickbtn').dataset.id;
+      await click(deep5.querySelector('[data-act="fx-editor"]'));
+      ok('§5 the Editor link on the marked row opens it in the Editor', tabNow() === 'editor' && text('.sheet code.id') === deepId5, `${deepId5} → ${text('.sheet code.id')}`);
+      await click('[data-tab="fx"]');
+      const other5 = rows5().find((r) => r.querySelector('.pickbtn').dataset.id !== deepId5);
+      const otherId5 = other5.querySelector('.pickbtn').dataset.id;
+      other5.querySelector('.pickbtn').dispatchEvent(new MouseEvent('dblclick', { bubbles: true }));
+      await sleep(500);
+      ok('§5 double-clicking a row is the same door', tabNow() === 'editor' && text('.sheet code.id') === otherId5, `${otherId5} → ${text('.sheet code.id')}`);
+      await click('[data-tab="fx"]');
+      $('.fxlist .rows').scrollTop = 0;
+      await sleep(120);
+      // R4: one scroll region — the rows scroll, the facets and the search do not
       const overflows5 = (sel) => { const el = $(sel); return !!el && el.scrollHeight > el.clientHeight + 1; };
-      ok('§5 one scroll region on the screen: the rows (R4)', !overflows5('.facets') && !overflows5('.detail') && getComputedStyle($('.fxlist .rows')).overflowY === 'auto', `facets ${overflows5('.facets')} · pane ${overflows5('.detail')}`);
-      // R5: the same 300px pane in the same place, and the window never scrolls sideways
+      ok('§5 one scroll region on the screen: the rows (R4)', !overflows5('.facets') && !overflows5('.fxsearch') && getComputedStyle($('.fxlist .rows')).overflowY === 'auto', `facets ${overflows5('.facets')}`);
+      // R5: two columns under a search of its own, and the window never scrolls sideways
       const content5 = app.element.querySelector('.fxstudio-content');
-      ok('§5 three columns: the facets, the rows, and the 300px pane, none of them spilling (R2, R5)', Math.round($('.detail').getBoundingClientRect().width) === 300 && getComputedStyle($('.fxtab')).gridTemplateColumns.split(' ').length === 3 && content5.scrollWidth <= content5.clientWidth + 1, `${getComputedStyle($('.fxtab')).gridTemplateColumns} · ${content5.scrollWidth} vs ${content5.clientWidth}`);
+      ok('§5 the tab is a search over two columns — facets and rows — none of them spilling (R2, R5)', !$('.detail') && getComputedStyle($('.fxtab')).gridTemplateColumns.split(' ').length === 2 && $('.fxsearch').getBoundingClientRect().bottom <= $('.facets').getBoundingClientRect().top && content5.scrollWidth <= content5.clientWidth + 1, `${getComputedStyle($('.fxtab')).gridTemplateColumns} · ${content5.scrollWidth} vs ${content5.clientWidth}`);
       // the facets, all of them from data the window already had
       ok('§5 three facet groups: Lives in, Kind, Only', [...$$('.facets .sub')].map((x) => x.textContent).join(' · ') === 'Lives in · Kind · Only', [...$$('.facets .sub')].map((x) => x.textContent).join(' · '));
       const live5 = $$('.facets [data-group="lives"]');
@@ -180,34 +229,43 @@ try {
       ok('§5 a kind with nothing in it is greyed where it stands, not dropped (R1)', $$('.facets [data-group="kinds"]').length === 9 && $$('.facets [data-group="kinds"][data-na="true"]').every((b) => b.disabled), `${$$('.facets [data-group="kinds"]').length} kinds, ${$$('.facets [data-group="kinds"][data-na="true"]').length} at zero`);
       const all5 = rows5().length;
       await click('[data-group="lives"][data-v="world"]');
-      ok('§5 a facet narrows the list to that layer alone', rows5().length < all5 && rows5().every((r) => r.dataset.source === 'world') && groups5().length === 1, `${all5} → ${rows5().length} rows`);
+      ok('§5 a facet narrows the list to that layer alone', rows5().length < all5 && groups5().length === 1 && /^Draft · /.test(groups5()[0]), `${all5} → ${rows5().length} rows · ${groups5().join(' | ')}`);
+      // a filter that is on must LOOK on: it lost to the base rule on specificity until 2026-09-07
+      const on5 = $('.facets [data-group="lives"][data-v="world"]');
+      const paint5 = getComputedStyle(on5);
+      const flat5 = getComputedStyle($('.facets [data-group="lives"][data-v="house"]'));
+      ok('§5 an active filter stays highlighted, plainly different from an inactive one', on5.getAttribute('aria-pressed') === 'true' && paint5.backgroundColor !== flat5.backgroundColor && paint5.borderTopColor !== flat5.borderTopColor && !/rgba\(0, 0, 0, 0\)|transparent/.test(paint5.backgroundColor), `on ${paint5.backgroundColor} / ${paint5.borderTopColor} · off ${flat5.backgroundColor}`);
       await click('[data-group="kinds"][data-v="spell"]');
-      ok('§5 the facets stack, and Clear counts what is on', rows5().every((r) => r.dataset.source === 'world') && rows5().length >= 1 && /Clear · 2/.test(text('[data-act="fx-clear"]')), `${text('[data-act="fx-clear"]')} · ${rows5().length} rows`);
-      await click('[data-act="fx-clear"]');
-      ok('§5 Clear puts every FX back', rows5().length === all5 && !$('.facets [aria-pressed="true"]'), `${rows5().length} rows`);
-      ok('§5 Broken assets is a facet, counted by the same check the tools run', !!$('[data-group="only"][data-v="broken"]') && /^\d+$/.test($('[data-group="only"][data-v="broken"] .c')?.textContent ?? ''), text('[data-group="only"][data-v="broken"]').replace(/\s+/g, ' '));
-      // the one search in the header narrows the same list
-      await type('.fx-q', 'sharran');
+      ok('§5 the facets stack, and Clear counts what is on', groups5().length === 1 && rows5().length >= 1 && /Clear · 2/.test(text('[data-act="fx-clear"]')), `${text('[data-act="fx-clear"]')} · ${rows5().length} rows`);
+      await type('.fx-q', 'a');
       await sleep(450);
-      ok('§5 the one search in the header narrows the list', rows5().length === 1 && /Sharran Step/.test(rows5()[0].textContent), `${rows5().length} rows`);
+      ok('§5 the facets work in conjunction with the search: both narrow at once', rows5().length >= 1 && rows5().every((r) => /a/i.test(r.textContent)) && $$('.facets [aria-pressed="true"]').length === 2, `${rows5().length} rows · ${$$('.facets [aria-pressed="true"]').length} filters on`);
+      await click('[data-act="fx-clear"]');
+      ok('§5 Clear clears the left-hand filters and leaves the search alone', !$('.facets [aria-pressed="true"]') && $('.fx-q').value === 'a' && rows5().length > 1, `${rows5().length} rows · box "${$('.fx-q').value}"`);
       await type('.fx-q', '');
       await sleep(450);
-      // the pane's own actions
-      await click(rows5().find((r) => /Sharran Step/.test(r.textContent)).querySelector('.pickbtn'));
-      ok('§5 the pane draws the sequence as stills and lines, four at most', $$('.detail .sc').length >= 2 && $$('.detail .sc').length <= 4 && $$('.detail .sc .thumb').length === $$('.detail .sc').length, `${$$('.detail .sc').length} scenes shown`);
-      ok('§5 Play keeps its place on the pane and greys with its reason (R1)', !!$('[data-act="fx-play"]') && $('[data-act="fx-play"]').disabled === !canvas.tokens.controlled.length, text('[data-act="fx-play"]'));
-      ok('§5 Delete on a plain Draft says Delete, not Revert', /^Delete/.test(text('[data-act="delete-fx"]')), text('[data-act="delete-fx"]'));
+      ok('§5 and emptying the box puts every FX back', rows5().length === all5, `${rows5().length} rows`);
+      ok('§5 Broken assets is a facet, counted by the same check the tools run', !!$('[data-group="only"][data-v="broken"]') && /^\d+$/.test($('[data-group="only"][data-v="broken"] .c')?.textContent ?? ''), text('[data-group="only"][data-v="broken"]').replace(/\s+/g, ' '));
+      // the search, which belongs to this tab now, narrows the same list
+      const box5 = $('.fx-q');
+      await type('.fx-q', 'sharran');
+      await sleep(450);
+      ok('§5 the tab\'s own search narrows the list without redrawing the box being typed in', rows5().length === 1 && /Sharran Step/.test(rows5()[0].textContent) && $('.fx-q') === box5 && $('.fx-q').value === 'sharran', `${rows5().length} rows · same box ${$('.fx-q') === box5}`);
+      await type('.fx-q', 'guiding bolt 01 blueyellow');
+      await sleep(450);
+      ok('§5 the search matches the NAME and only the name: what an FX plays is not searched', rows5().length === 0, `${rows5().length} rows for an asset the sentence names`);
+      await type('.fx-q', 'dagger');
+      await sleep(450);
+      ok('§5 so Dagger does not drag in Sculpting Knife, whose sentence names one', rows5().length >= 1 && rows5().every((r) => /dagger/i.test(r.textContent)), rows5().map((r) => r.textContent.trim()).join(', ').slice(0, 120));
+      // the box is a control, not a banner
+      const box = $('.fxsearch input').getBoundingClientRect();
+      ok('§5 the search box is sized like a control: one facet row tall, well under half the width', Math.round(box.height) <= 28 && Math.round(box.width) <= 300 && Math.round(box.width) < content5.clientWidth / 2, `${Math.round(box.width)}×${Math.round(box.height)}`);
+      await type('.fx-q', '');
+      await sleep(450);
 
-      // 6 · staging from the row's own pane, and the maintainer's card on Coverage
-      ok('§6 the pane stages a Draft where the Maintain card used to be the only door', !!$('.fx-stage') && $('.fx-stage').disabled === false && [...$('.fx-stage').options].map((o) => o.textContent).join(' · ') === 'Draft only · Staged: House · Staged: Stock', [...($('.fx-stage')?.options ?? [])].map((o) => o.textContent).join(' · '));
-      await choose('.fx-stage', 'house');
-      ok('§6 Staged: House on the pane stages it', api.fx.buffer().find((l) => l.id === 'sharran-step')?.to === 'house' && $('.fx-stage')?.value === 'house', `${api.fx.buffer().find((l) => l.id === 'sharran-step')?.to}`);
-      await choose('.fx-stage', '');
-      ok('§6 and Draft only unstages it again', !api.fx.buffer().find((l) => l.id === 'sharran-step')?.to, '');
-      const stockRow6 = rows5().find((r) => r.dataset.source === 'stock');
-      await click(stockRow6.querySelector('.pickbtn'));
-      ok('§6 a Stock FX cannot be staged: the cell greys where it stands, with the reason (R1)', $('.fx-stage')?.disabled === true && $('.fx-stage')?.dataset.na === 'true' && /Only a Draft is staged/.test($('.fx-stage')?.dataset.tooltip ?? ''), $('.fx-stage')?.dataset.tooltip ?? '');
-      ok('§6 Stock is in the same list as everything else, and no Maintain card is on this tab', Number($$('.facets [data-group="lives"]')[2].querySelector('.c').textContent) > 200 && !/Maintain · /.test(text('[data-pane="fx"]')), $$('.facets [data-group="lives"]')[2].textContent.replace(/\s+/g, ' '));
+      // 6 · staging: the detail pane took its select with it, so Maintain is the one door again
+      ok('§6 staging is nowhere on the FX tab: no select, and no Maintain card either', !$('[data-pane="fx"] select') && !/Maintain · /.test(text('[data-pane="fx"]')), text('[data-pane="fx"] .fxlist .listhead'));
+      ok('§6 Stock is in the same list as everything else', Number($$('.facets [data-group="lives"]')[2].querySelector('.c').textContent) > 200, $$('.facets [data-group="lives"]')[2].textContent.replace(/\s+/g, ' '));
       await click('[data-tab="coverage"]');
       ok('§6 the Maintain band sits at the top of Coverage', /Maintain · /.test(text('[data-pane="coverage"]')) && $('.coverage').firstElementChild.classList.contains('maintain'), text('[data-pane="coverage"]').match(/Maintain · [^\s]+/)?.[0] ?? 'no band');
       const row6 = $$('.maintain .row').find((r) => /Sharran Step/.test(r.textContent));
@@ -220,8 +278,8 @@ try {
       // 7 · one item's own FX, through the sheet (Open FX from the card, unlock, Item Hook, Save)
       api.open({ item: tmp });
       await sleep(300);
-      await click('.detail .dhead [data-act="fx-open"]');
-      ok('§7 the pane\'s own name opens the sheet on that FX, locked, to read', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'false' && text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
+      await openEditorForSubject();
+      ok('§7 the Editor opens on the FX that answers the item, locked, to read', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'false' && text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       const sw = $('.sh-edit'); sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§7 the Edit switch unlocks the sheet: Save and Cancel appear, the tools too', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="sh-save"]') && !!$('[data-act="sh-cancel"]') && !!$('[data-act="cw-drop"]'), '');
       const only = $('[data-act="sh-only"]');
@@ -242,12 +300,17 @@ try {
       await other[0].delete();
       api.open({ item: tmp });
       await sleep(300);
-      ok('§7 the pane offers Revert on the FX the item points at, and no Play nothing', /Revert/.test(text('.detail .agrid')) && !!$('[data-act="remove"]') && !$('[data-act="silence"]'), text('.detail .agrid').replace(/\s+/g, ' '));
-      await click('[data-act="remove"]');
-      await sleep(400);
-      ok('§7 back: the pointer is gone and the spell\'s fx answers again', !tmp.getFlag(MOD, 'fx') && !api.fx.buffer().some((l) => l.id === own?.id) && api.resolve(tmp).fx?.id === 'sharran-step', api.resolve(tmp).fx?.id);
+      // Revert is Delete now (2026-09-07): the sheet's Delete erases the FX AND unpins the item that
+      // pointed at it, which is the one thing Delete used not to do
+      await clickFxRow(own.id);
+      ok('§7 the Item Hook has a row of its own on the FX tab', tabNow() === 'fx' && app.view.fxSel === own.id, app.view.fxSel);
+      await openEditor(own.id);
+      ok('§7 the Editor opens on it, an Item Hook', paneNow() === 'editor' && text('.sheet code.id') === own.id && /Item Hook/.test(text('.sheet h2')), text('.sheet code.id'));
+      await sayYes(() => click('[data-act="sh-delete"]'));
+      ok('§7 Delete erases it and leaves no item pointing at a dead id: the spell\'s fx answers again', !tmp.getFlag(MOD, 'fx') && !api.fx.buffer().some((l) => l.id === own?.id) && api.resolve(tmp).fx?.id === 'sharran-step', `flag ${tmp.getFlag(MOD, 'fx')} · ${api.resolve(tmp).fx?.id}`);
+      await click('[data-tab="fx"]');
       // the guard: a locked sheet's Cancel drops changes; Delete on a plain draft is Delete
-      await click('.detail .dhead [data-act="fx-open"]');
+      await openEditor('sharran-step');
       const sw2 = $('.sh-edit'); sw2.checked = true; sw2.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       await pick(1); await band('timing');
       await choose('.cw-delay', '900');
@@ -350,9 +413,10 @@ try {
       await click('[data-act="fx-clear"]');
 
       // the Item Hook gap step 7 closed: pinning an FX to one item without arriving from its sheet
+      await click('[data-tab="editor"]');
       await click('[data-act="sh-new"]');
       const pin12 = $('[data-act="sh-pick-item"]');
-      ok('§12 a new sheet from the FX tab knows no item, and Reach offers to choose one', paneNow() === 'editor' && !!pin12 && pin12.disabled === false && pin12.textContent.trim() === 'Item Hook', pin12 ? `${pin12.textContent.trim()} · ${pin12.dataset.tooltip}` : 'no Item Hook control at all');
+      ok('§12 a new sheet from the Editor knows no item, and Reach offers to choose one', paneNow() === 'editor' && !!pin12 && pin12.disabled === false && pin12.textContent.trim() === 'Item Hook', pin12 ? `${pin12.textContent.trim()} · ${pin12.dataset.tooltip}` : 'no Item Hook control at all');
       await click(pin12);
       await type('.sh-item-q', 'misty');
       const hits12 = $$('.sh-item-search .hit');
@@ -376,6 +440,7 @@ try {
       // 13 · the Asset Library: browse, step the variants, sounds, the unused filter, and the picker door from the walk
       await click('[data-tab="assets"]');
       const styles = $$('[data-act="lib-sel"]');
+      ok('§13 the Asset Library browses and does not write: no Use button outside the picker', !$('[data-act="lib-use"]') && !$('.lib-actions'), 'no lib-use on the tab');
       ok('§13 the Asset Library lists the JB2A styles with their variant counts', styles.length > 100 && styles.every((r) => /\d+/.test(r.querySelector('.c')?.textContent ?? '')), `${styles.length} styles`);
       await click(styles.find((r) => r.dataset.id === 'jb2a.arcane_hand'));
       const video = $('.stage video');
@@ -393,7 +458,11 @@ try {
       await click('[data-act="lib-next"]');
       ok('§13 the arrow steps to the next variant, the dropdown follows, and the list keeps its scroll', val('.lib-dbpath') !== 'jb2a.arcane_hand.blue' && $('.lib-variant')?.value === '1' && $('.shelf .list').scrollTop === 300, `${val('.lib-dbpath')} · ${$('.lib-variant')?.value} · scroll ${$('.shelf .list').scrollTop}`);
       await click($$('[data-act="lib-sel"]').find((r) => r.dataset.id === 'jb2a.fire_bolt'));
-      ok('§13 the FX that use a style are named, with the path each names', /Used in \d+ FX/.test(text('.lib-users')) && !!$('[data-act="lib-open-fx"]') && !!$('[data-act="lib-goto"]'), text('.lib-users').slice(0, 120));
+      ok('§13 the FX that use a style are named, with the path each names', /Used in \d+ FX · every path under /.test(text('.lib-users')) && !!$('[data-act="lib-open-fx"]') && !!$('[data-act="lib-goto"]'), text('.lib-users').slice(0, 120));
+      // one path, one spelling: a used line that IS a variant reads exactly as the viewer reads it
+      const varLabels13 = [...$$('.lib-variant option')].map((o) => o.textContent.split(' · ')[0]);
+      const useLabels13 = $$('.lib-users .use .v').map((b) => b.textContent.trim());
+      ok('§13 a used line names its variant the way the viewer names it, no stray dots', useLabels13.every((l) => l === 'Default' || varLabels13.includes(l) || / · file \d+$/.test(l)) && !useLabels13.some((l) => /\w\.\w/.test(l)), `${useLabels13.join(' | ')}`);
       await click('[data-act="lib-switch"][data-lib="psfx"]');
       ok('§13 sounds are grouped by PSFX group, with one Play button and a psfx path', $$('.shelf .letter').length > 5 && $$('[data-act="lib-play"]').length === 1 && !$('[data-act="lib-map"]') && /^psfx\./.test(val('.lib-dbpath')), `${$$('.shelf .letter').length} groups · ${val('.lib-dbpath')}`);
       await click($$('[data-act="lib-sel"]').find((r) => r.dataset.id === 'psfx.weapon-swooshes.light'));
@@ -401,6 +470,11 @@ try {
       const want13 = goto13?.dataset.path ?? "";
       await click(goto13);
       ok('§13 clicking a used line loads that exact path in the viewer, and marks the line', val('.lib-dbpath') === want13 && $('.use[data-now="true"] .v')?.dataset.path === want13, `${want13} → ${val('.lib-dbpath')}`);
+      // the stepper stands on every playable thing, files included, and the caption agrees with it
+      const optLabels13 = [...$$('.lib-variant option')].map((o) => o.textContent.trim());
+      ok('§13 the stepper offers every stop, and its count matches what it lists', /· 1 of \d+/.test(optLabels13[0] ?? '') && Number((optLabels13[0] ?? '').match(/· \d+ of (\d+)/)?.[1]) === optLabels13.length, `${optLabels13.length} options · ${optLabels13[0]}`);
+      const sel13 = [...$$('.lib-variant option')].find((o) => o.selected)?.textContent.trim() ?? '';
+      ok('§13 the caption above names the very stop the dropdown is on, word for word', !!text('.stage .v') && sel13.startsWith(`${text('.stage .v')} · `), `caption "${text('.stage .v')}" vs option "${sel13}"`);
       ok('§13 a used path deeper than a variant plays that one file', /\.(ogg|wav|mp3|webm)$/i.test(val('.lib-file')), val('.lib-file').split('/').pop());
       const allSounds = $$('[data-act="lib-sel"]').length;
       await click('[data-act="lib-only"][data-only="unused"]');
@@ -414,9 +488,11 @@ try {
       await sleep(300);
       // the picker door: a scene of the sheet opens the Library, Use writes the path into that scene
       await click('[data-tab="fx"]');
-      await type('.fx-q', 'Misty Step');
-      await click($$('.suggest .hit').find((h) => /Misty Step/.test(h.textContent)));
-      await click('.detail .dhead [data-act="fx-open"]');
+      // on the item, so the sheet knows which ABILITY is being asked about (Misty Step is on more
+      // than one thing: a spell, and a feat that grants it), then the Editor on what answers it
+      api.open({ item: misty });
+      await sleep(450);
+      await openEditorForSubject();
       const sw3 = $('.sh-edit'); sw3.checked = true; sw3.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§13 the sheet is unlocked with a Browse button on the first VFX', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="cw-browse"][data-slot="asset"]'), '');
       const has13 = $('.sheet .inspector .f-vfx input')?.value ?? '';
@@ -561,7 +637,7 @@ try {
       control?.click();
       await sleep(600);
       app = api.open({});
-      ok('§10 the button opens the window on that item, on the FX tab, with the search carrying it', app?.rendered && tabNow() === 'fx' && /Misty Step/.test(text('.detail .dhead')) && $('.fx-q')?.value === 'Misty Step', `${text('.detail .dhead')} | box "${$('.fx-q')?.value}"`);
+      ok('§10 the button opens the window on that item, on the FX tab, with the search carrying it', app?.rendered && tabNow() === 'fx' && app.view.fxSel === 'misty-step' && $('.fx-q')?.value === 'Misty Step', `${app.view.fxSel} | box "${$('.fx-q')?.value}"`);
       await sheet.close();
     } catch (err) {
       results.push({ name: 'THROW', pass: false, detail: String(err.stack ?? err).slice(0, 600) });

@@ -1,6 +1,10 @@
 // The FX sheet: one screen per FX, the same whether it is read or changed. It opens from a row on
 // the FX tab, from its detail pane's Edit, from "Used in" on Assets, from Coverage, and from New FX.
-// It is a pane, not a tab (step 5): Back returns to wherever it was opened from. An Edit switch is the guard: off, the sheet is read-only and offers Duplicate,
+// IT IS THE EDITOR TAB (the user's ruling, 2026-09-07 — it was a pane over the FX tab at step 5):
+// every edit of an FX is made here and nowhere else, the tab is in the strip whether an FX is open
+// or not, and walking off to another tab leaves it open, unsaved changes and all. Back is still
+// here as the shortcut to the tab the sheet was opened from; it does not close the sheet.
+// An Edit switch is the guard: off, the sheet is read-only and offers Duplicate,
 // Export and Delete (or Revert, when a Draft sits over Stock or House); on, every control unlocks
 // and the buttons are Cancel and Save. Save always writes a Draft (the world buffer) through the
 // API — Stock and House files are never touched here.
@@ -84,7 +88,8 @@ export function openSheet(app, { id = null, subject = null, from = null, scenes 
     s.note = e.original.note ?? '';
     s.scenes = seedFrom(id);
     s.subject = subject ?? app.subjectForFx(id);
-    if (subject?.pointer === id) s.onlyThis = true;
+    // no keys IS the Item Hook: an FX opened straight by id must read as one, however it was reached
+    s.onlyThis = subject?.pointer === id || !(e.original.for ?? []).length;
   } else {
     s.subject = subject;
     if (subject) { const k = bareKey(subject); if (k) s.keys = [k]; s.on = subject.on ?? 'use'; if (subject.isNew) s.newKeys = [k]; }
@@ -172,7 +177,8 @@ const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.
 export function renderSheet(app) {
   const a = api();
   const s = app.sheet;
-  if (!s) return `<div class="stack"><div class="card"><div class="sub">FX Editor</div><p class="note">No FX open. Pick one on the FX tab, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button></div></div></div>`;
+  // the tab's resting state: it is always in the strip, so it has to say what it is when it is empty
+  if (!s) return `<div class="stack"><div class="card"><div class="sub">Editor</div><p class="note">No FX open. Every FX is edited here — pick one on the FX tab and press Edit, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button><button type="button" class="quiet" data-act="tab" data-tab="fx">Browse FX</button></div></div></div>`;
   const edit = s.edit;
   const fx = safeDraft(app);
   const problems = edit ? problemsOf(app) : [];
@@ -799,6 +805,7 @@ export async function onSheetClick(app, b, act) {
     case 'sh-delete': {
       const under = s.source === 'world' && (a.corpora.house.some((h) => h.id === s.id) || a.corpora.stock.some((b2) => b2.id === s.id));
       if (under) { await app.removeFx(s.id); openSheet(app, { id: s.id }); break; }
+      // deleteFx unpins whatever pointed at it — what the detail pane's Revert used to do by hand
       await app.deleteFx(s.id);
       if (!a.fx.get(s.id)) { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
       break;

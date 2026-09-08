@@ -180,9 +180,10 @@ export function makeApi(state) {
   };
 
   /**
-   * Open the screens: {tab: 'fx' | 'assets' | 'coverage' (the tabs step 5 replaced — stock, house,
-   * lookup, library, audit — still land where they meant to), or 'editor' for the FX sheet itself,
-   * which is a pane and not a tab; item: an Item to ask about; id: an FX id; key}
+   * Open the screens: {tab: 'fx' | 'editor' | 'assets' | 'coverage' (the tabs step 5 replaced —
+   * stock, house, lookup, library, audit — still land where they meant to); 'editor' is the FX
+   * sheet, and with an id, a key or an item it opens the sheet on it; item: an Item to ask about;
+   * id: an FX id; key}
    */
   const open = (opts = {}) => state.open?.(opts) ?? null;
 

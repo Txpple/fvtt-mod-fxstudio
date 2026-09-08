@@ -911,6 +911,13 @@ is up the **FX** pill is the one marked current, because that is where you are. 
 still land where they meant to (`WAS` in `ui/studio.js`), so `api.open({tab: 'audit'})` from a macro
 or an older tool opens Coverage.
 
+> ⚠ **Reversed by the user on 2026-09-07 — see §10.** The sheet is the **Editor** tab. The rest of
+> step 5 (one FX list, the search in the header, `WAS`) stands.
+
+> ⚠ **Most of this screen was stripped by the user on 2026-09-07 — see §11.** The detail pane is
+> gone, the row is a name, and the search belongs to this tab. What stands: one list of every FX,
+> grouped Draft → House → Stock, with the facets down the left.
+
 **The tab is three columns and one scroll region** (R4, R5): 190px facets · the rows · the **300px
 detail pane**, and the rows are the only thing that scrolls. Measured: `grid-template-columns` is
 three tracks, the pane is 300px, nothing spills sideways, and neither the facet column nor the pane
@@ -1098,3 +1105,231 @@ lockbar wrapping — were fixed by step 4. What is left standing is the second d
 `thrown`, `return`, `breathe` and `pulse` can be read and cleared from the sheet but not written,
 because writing one needs a picker slot. It was step 6's to carry and **step 6 is ruled out**, so it
 sits in the BACKLOG with no step waiting behind it — it needs the user's word, not a plan.
+
+## 10. The Editor is a tab (the user's ruling, 2026-09-07)
+
+The first decision of the reset, and it is the user's, not a plan's:
+
+> *"i would like the editor to be split to its own tab, after "FX" and before "Assets". Call it
+> "Editor" and that is where all the editing of an fx will take place. … move the UI for editing now
+> and encapsulate it in that tab."*
+
+Step 5 had argued the sheet "never needed a place in the tab strip" because Back already returned it
+to where it came from. That reasoning was about *navigation*. The ruling is about *where editing
+lives*: one named place, always at the same address, whether or not something is open in it.
+
+**The tabs are four: FX · Editor · Assets · Coverage.** `TABS` in `ui/studio.js`; the pane already
+existed (`data-pane="editor"`) and `view.tab === 'editor'` already drove it — what changed is that
+it has a pill, that the pill is marked current when you are on it (the `on()` special case that
+lit **FX** while the sheet was up is gone), and that the sheet is reachable with nothing open.
+
+Three consequences, all of them the word *encapsulate*:
+
+| | |
+| --- | --- |
+| **The tab has a resting state** | With no FX open it says so, says that every FX is edited there, and offers **New FX** and **Browse FX**. It is no longer only reachable *through* an FX. |
+| **Leaving the tab does not close the sheet** | Walk off to Assets and back and the FX is still there, unsaved changes and all. The dirty-guard on tab switches is gone: switching tabs is not leaving the sheet any more. |
+| **Only a replacement asks** | `REPLACES` in `ui/studio.js` — the acts that open a *different* FX into the sheet (`entry` with `data-create`, `key`, `create-new`, `fx-open`, `fx-edit`, `fx-dup`, and `sh-new` in the sheet) still ask before dropping unsaved changes. Picking a row, answering the search and switching tabs no longer do, because none of them touches the sheet. |
+
+**‹ Back is kept.** It is now a shortcut to the tab the sheet was opened from (`cameFrom`), not the
+only way out, and it does not close the sheet — the Editor pill goes straight back to it.
+
+**Not changed, and not asked about.** Two things that touch an FX still live outside the Editor: the
+**Ships as** control on the FX tab's detail pane and in Maintain (staging is where an FX *ships*, a
+property of the row, and it is deliberately at both addresses — §8), and the **asset picker**, which
+is the Assets tab worn as a picker: the sheet's Browse switches to Assets with a banner and Use
+returns to the Editor. Neither was named in the ruling; both wait on the user's word.
+
+### Measured on the sandbox, 2026-09-07
+
+`smoke-screens` **165 of 165** — two new: the Editor tab open with nothing in it, and the sheet
+still on its FX after a walk to the Editor tab and back. `check-imports` (31 modules),
+`check-layers` (73 imports) and `check-legacy` green.
+
+## 11. The FX tab, stripped back (the user's pass, 2026-09-07)
+
+Four changes given as one batch, built as one pass. The user's words:
+
+> *"move this search bar under the FX tab, such that search only works on the FX screen. it is no
+> longer a header for all tabs."* · *"remove this pane in its entirety and extend out the list view
+> of the FX line items."* · *"remove all the information lines on the fx line items. lets start
+> clean here with just the name."* (and, crossed out in the same shot, **Import** and **New FX**)
+
+**The screen is now the search, the facets and the rows.** `renderFx` is three lines. A row is
+`<span class="n">` inside a button and nothing else — no sentence, no layer pill, no shape tags, no
+`+1 key`, no `· Item Hook`. The grid went from `190px 1fr 300px` to `190px 1fr` under a search row of
+its own. The group heads (`Draft · 3 FX`) and the count line stayed; they were not crossed out.
+
+**The search is this tab's.** It was the window's for one day (step 5 folded Look up into it). The
+`.fx-head` row is gone from `ui/studio.js` and the box is rendered by `ui/fxtab.js`. One consequence
+had to be handled: the box now lives *inside* the pane it redraws, so `narrow()` swaps the
+`.fxlist` card alone — redrawing the pane would take the caret out of the box mid-word. The facets
+are untouched by it too, which is correct: their counts are of the whole corpus, not of what is typed.
+
+**A row is a door.** With no pane there is no Edit button, so clicking a row opens that FX in the
+**Editor**, locked, to read. This is a decision the pass had to make — the alternative was a list
+that reaches nothing — and it is the smallest one: it re-uses what the pane's own name did
+(`fx-open`), and `cameFrom` means Back returns to the list.
+
+### What the pane took with it
+
+| | |
+| --- | --- |
+| **Ships as** | Staging is back to one door: the **Maintain** band on Coverage. `onFxChange` and the `.fx-stage` select are deleted. |
+| **▶ Play, Duplicate, Export, Delete** | No door on this screen. The sheet still has Duplicate, Export and Delete in its action bar, and ▶ Play all + a ▶ per scene. Nothing was lost that the Editor does not also offer. |
+| **Revert** (`remove`) | **No door at all.** It unpinned an item's own FX and reverted it. The window still has `removeCurrent()`, the suite calls it directly, and the assertion says out loud that no button presses it. This one needs a home. |
+| **Create FX** for an ability with no FX | Re-homed onto the search's own **"New ability: …"** row, which now opens a new sheet in the Editor instead of only setting the subject. It resolves the typed name against the world first (`subjectFor`), so an ability that IS on a sheet arrives with its item — an Item Hook can still pin to it — and only a genuinely unknown name gets the sheet's kind picker. |
+| **Import** | **No door.** Import-to-Stock is still in Maintain's head; importing a file of FX into the world is not reachable. It needs a home or the user's word to drop it. |
+
+The acts the pane emitted (`remove-fx`, `delete-fx`, `export-fx`, `create-new`, `new-kind`) are kept
+in `ui/studio.js` with a comment saying they have no door, because more passes are coming and
+rebuilding them would be worse than leaving them.
+
+> **Revert and Import were closed in the same session — see §12 and §13.** Revert is folded into
+> Delete; Import is on the FX tab's search row. The row stopped being a door in §12 and got two
+> explicit ones in §13.
+
+
+
+### Measured on the sandbox, 2026-09-07
+
+`smoke-screens` **161 of 161**. Four assertions found real work in the pass, not just drift: the
+"New ability" door was treating an ability that exists as brand new; the row and the sheet spell a
+keyless FX differently (the row by its item, the sheet by its id), so the test is on the id; the
+suite's row helper must address rows **by id**, since a spell and one item's own copy of it wear the
+same name; and `narrow()` must leave the search box as the same DOM node. `check-imports` (31),
+`check-layers` (73), `check-legacy` green.
+
+## 12. The second pass: what the FX tab does, and what does not tie out (2026-09-07)
+
+Six more, again from the user, again as one pass.
+
+### The FX tab
+
+**A row takes no action.** *"if i click a list view item, it jumps to the editor. i dont want any
+action taken."* So `fx-sel` sets `view.fxSel` and stops. §11 had made the *whole row* the door
+because removing the pane removed the only Edit button; the user ruled that out, and named the
+doors themselves one message later — see §13. The suite reaches the Editor the way the API does
+(`api.open({tab: 'editor', id})`).
+
+**The search matches the name and only the name.** *"just search on the name … why do i get knife
+here"* — typing `Dagger` returned **Sculpting Knife**, because a row's search text was the FX's
+whole generated sentence, and that sentence names a PSFX group whose file list mentions one. `text`
+is now `name.toLowerCase()`. An FX is no longer findable by its id, its keys or its assets from
+this box; the facets are what narrow by anything else.
+
+**The box is sized like a control, not a banner** (*"its kinda big and puffy"*): 280px, 26px tall,
+12.5px — one facet row high.
+
+**An active filter looks active.** The behaviour the user described — click to filter, stay
+highlighted, toggle several, work with the search, Clear clears the filters — was already what the
+code did. What was broken was that **you could not see it**: `.fxstudio .fx-wrap .facets
+button.frow` (four classes and an element) beat `.fxstudio .facets .frow[aria-pressed="true"]`
+(four classes) on specificity, so a pressed facet painted `transparent` like every other row. Hover
+lost the same way. Both rules now use the same selector shape and win. A screen can be right and
+still read as broken; this one filtered correctly and looked random.
+
+### The Asset Library
+
+**No Use button.** *"remove the use button."* The tab browses and does not write. The only Use left
+is the picker's, when the sheet's Browse sent you there for one scene's VFX or SFX. `seedFx` and
+`lib-use` are gone with it.
+
+**"Used in" now says what it covers, and spells a path one way.** *"there is an issue on sfx where
+the names here don't tie out."* Two things, one real:
+
+1. *Not a bug.* The list is every path **under this family** that some FX names — not the variant on
+   screen. Standing on `V1 Group05`, which no FX uses, you still saw three `V1.Group01` lines. The
+   head now says `Used in 7 FX · every path under Light`, and the line for what is on screen is
+   marked as it always was.
+2. *A bug.* The same path was spelled two ways eight lines apart. The viewer joins path segments
+   with a space (`V1 Group05`); the used-in label ran `words()` over the raw tail, which replaces
+   `-` and `_` but not `.` (`V1.Group05`). The label now takes the **viewer's own variant label**
+   when the path is a variant, and `<variant> · file <n>` when it is one file deeper than one.
+
+### Revert and Import, the two doorless actions of §11
+
+| | |
+| --- | --- |
+| **Revert** | **Folded into Delete, and it fixes a real gap.** `sh-delete` erased the FX but never unset `flags.fvtt-mod-fxstudio.fx` on the item pointing at it — an Item Hook deleted from the sheet left the item pointing at a dead id. `Studio.unpinFx(id)` now runs after a successful delete, which is the whole of what Revert did that Delete did not. `removeCurrent()` and the `remove` act are deleted. |
+| **Import** | **In Maintain's head**, beside Import to Stock. Reading a corpus file in is the maintainer's job; it only sat on the FX tab's list head because that head existed. |
+
+**And one bug the new door found:** opening an FX straight by id (`api.open({tab:'editor', id})`)
+showed an **Item Hook as a Global Hook**, because `onlyThis` was set only when the sheet was reached
+*through* the item pointing at it. An FX with no keys *is* an Item Hook — the FX says so — so
+`openSheet` reads it from the FX, however it was reached.
+
+### Measured on the sandbox, 2026-09-07
+
+`smoke-screens` **169 of 169** — eight new, including: a row that takes no action, an active filter
+that is plainly painted differently from an inactive one, Clear clearing the filters and leaving the
+search alone, the two narrowing together, `Dagger` not dragging in Sculpting Knife, a search box
+sized like a control, no Use on the Assets tab, and a used-in line that names its variant the way
+the viewer names it with no stray dots. `check-imports` (31), `check-layers` (72), `check-legacy`
+green.
+
+## 13. The screen the user drew (2026-09-07)
+
+The third batch, given a message at a time while the previous one was still being built. Every item
+is the user's own words, and none of it came from a plan.
+
+### The search
+
+**No dropdown.** *"the drop down here is odd — why does it say (spell) in it"*, then *"clean the
+search list"*. The `(spell)` was `keyLabel`: the dropdown drew from two sources and spelled them
+differently — an ability on an actor came out `Dimension Door`, the same ability reached through a
+corpus key came out `Dimension Door (spell)` — and its right-hand word was `STATUS_WORDS`, which
+still says **Custom** where the list underneath says House or Draft. Three vocabularies in one
+control, over a box the user had just renamed **Search for an FX…** while the dropdown listed
+abilities. It is gone. One box, one job.
+
+`searchHits` and `hitWhere` stay: the **sheet's** own suggests (Add ability, Find an item) run on
+them. Creating an FX for an ability that has none went with the dropdown — *"we'll add new later"* —
+so no door on this screen makes an FX today.
+
+### The row
+
+| | |
+| --- | --- |
+| **Delete · Editor** | Right-justified, on every row (*"show for all rows not just highlighted"*, *"swap order of edit/delete"*). Delete is red and asks first; Editor is plain white text. |
+| **Double click** | The same door as Editor. |
+| **Clicking still does nothing but mark it** | And now it *only* marks it: `fx-sel` repaints two attributes in place instead of re-rendering the window, because a full render rebuilt the rows and threw away the scroll — *"it resets the listview and i lose its focus on the listview"*. `Load more` redraws the list card alone for the same reason. |
+
+**Group heads are painted** (*"make the groupings more visible, like a pleasant orange"*): the
+`--fx-warn` amber already in the palette, on a new `--fx-warn-soft` band, ruled top and bottom. It is
+the only painted thing on the screen, and what it says is where an FX lives.
+
+**Import is back on this tab**, right-justified on the search row, ending where the list ends and
+exactly as tall as the box across from it. Maintain gives back the plain Import it was lent in §12
+and keeps **Import to Stock**, which is a different act — a file straight into the shipped corpus.
+
+**Delete unpins**, wherever it is pressed. §12 put that in the sheet's own Delete handler; it now
+lives in `Studio.deleteFx`, so the row's Delete gets it too and there is one place that owes it.
+
+### The sound browser, again
+
+*"still an issue in the sound assets — i see multiple versions of the sound but only one in drop
+down, doesn't tie out."* On `psfx.impacts.slashing` the stepper said **V1 · 1 of 1** while the
+used-in list named three separate things under it and the caption read **V1.3**.
+
+The cause: a *variant* is a node in Sequencer's database, and `psfx.impacts.slashing.v1` is **one
+node holding four files**. The browser stepped variants only. The files were addressable — the
+corpus names `v1.0` and `v1.3` by hand, `focusPath`/`locate` could reach them, and `L.fi` held one —
+but **nothing in the UI could step to them**, so arriving at `v1.3` from a used-in line left the
+caption and the stepper disagreeing.
+
+`stepsOf(it)` now enumerates **everything the stepper can stand on**: a variant with one file is one
+stop; a variant with several is the variant itself — Sequencer picks one at random — *and* each
+file. The arrows, the dropdown and the caption all run off that one list, the shelf's per-family
+count is the number of stops, and an FX counts towards the stop it names **exactly** (counting files
+under their variant as well would say the same FX twice).
+
+### Measured on the sandbox, 2026-09-07
+
+`smoke-screens` **178 of 178**. New: no dropdown under the search; picking a row keeps the list
+exactly where it was scrolled to; every row carries Delete then Editor, right-justified, Delete
+painted destructive and Editor as plain text; the Editor link and a double click are the same door;
+a group head is plainly painted, not another grey band; Import is right-justified with the list and
+the same height as the box; the stepper's count matches what it lists; and the caption names the
+very stop the dropdown is on, word for word. `check-imports` (31), `check-layers` (73),
+`check-legacy` green.

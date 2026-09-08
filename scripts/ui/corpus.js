@@ -4,8 +4,8 @@
 // and where each is staged (House or Stock); the ship (the corpus files written into the module on
 // this server, a version stamped, a line in the record); what shipped before. The import of a file
 // of FX straight into Stock is in its head, and the corpus's own problems on one line under it.
-// Staging is also on every FX's own detail pane (ui/fxtab.js) — this band is where you see all of
-// it at once and press Ship. The repo pulls the files back with tools/pull-corpus.mjs. Built on
+// Staging lives HERE ALONE since the user stripped the FX tab back to a list (2026-09-07): the
+// detail pane's "Ships as" select went with the pane. The repo pulls the files back with tools/pull-corpus.mjs. Built on
 // api.corpus and api.fx and nothing else. Labels are terms.
 import { MODULE_ID } from '../settings.js';
 import { parseKey } from '../core/subjects.js';
@@ -22,6 +22,8 @@ const corpusState = (app) => (app.co ??= { version: null, note: '' });
  * (the version, the note, the button that writes the corpus files into the module on this server)
  * and what has Shipped — with the corpus's own problems on one line under them. It is bounded, not
  * scrolling: the FX tab lists every Draft, this band is the overview and the button (R4).
+ * Import to Stock is in its head — a file straight into the shipped corpus, which is the
+ * maintainer's own job. Plain Import (a file into this world as Drafts) is on the FX tab.
  */
 export function renderMaintain(app) {
   const a = api();
@@ -45,7 +47,7 @@ export function renderMaintain(app) {
   // the Ship column keeps its three controls whether or not anything is staged, greyed with the
   // reason where they stand (R1)
   const na = staged.length ? '' : ' data-na="true" disabled';
-  const whyShip = staged.length ? `Writes ${esc(files.join(', '))} into the module on this server.` : 'Stage a Draft — here, or on its own pane on the FX tab.';
+  const whyShip = staged.length ? `Writes ${esc(files.join(', '))} into the module on this server.` : 'Stage a Draft — this band is where staging lives.';
   return `<div class="card band maintain">
     <div class="bhead"><span class="sub">Maintain · ${esc(version)}</span><span class="note">Drafts play in this world only. Staged FX ship with the next version.</span><span class="spacer"></span><button type="button" class="quiet" data-act="import-fx" data-to="stock">Import to ${SOURCE_TAG.stock}</button></div>
     <div class="mgrid">
