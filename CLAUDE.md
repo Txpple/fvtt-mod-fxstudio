@@ -174,8 +174,12 @@ handoff or a plan — which is the rule the shelved redesign broke.
   2026-09-08).
   The module is registered and enabled on the sandbox since 2026-09-06 (`tools/sandbox-module.mjs`
   writes `core.moduleConfiguration` offline; a refresh wipes that as well as the files).
-- **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes locally deployed modules AND
-  Battle Flow's test fixtures. Re-deploy after every refresh. The user wants the sandbox an
+- **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes locally deployed modules, the module's
+  enabled flag, Battle Flow's test fixtures, **and the world buffer — every Draft written in the game
+  that has not been Shipped**. The routine (the user, 2026-09-09: *"i dont want to lose any work"*):
+  **before** — `node tools/world-fx.mjs --save` and commit `tools/world-buffer.json`; **after, sandbox
+  stopped** — deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`,
+  `node tools/world-fx.mjs --restore`; then start. Re-deploy after every refresh. The user wants the sandbox an
   EXACT copy of prod after a refresh: add fixtures (`node
   ../fvtt-mod-battleflow/tools/fixture-suite.mjs`) only when a suite run is asked for, and say so.
 - **Two MCP bridges, two worlds.** `foundry-local5e` is the sandbox (localhost:30000).

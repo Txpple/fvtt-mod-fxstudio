@@ -18,6 +18,7 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 | `assets.mjs` | the catalogue: `"misty step"` searches the libraries' registration; `jb2a.fire_bolt` lists a path's colours and what it plays; `--sounds`, `--json`. A path is looked up, never guessed. |
 | `pull-corpus.mjs` | brings what the Corpus tab shipped back into the repo: compares the module folder on the sandbox (`--from <dir>` for another) with `recipes/**` as FX added, changed and removed; `--write` copies the files in and takes the shipped version (from `recipes/shipped.json`) into `module.json` and its download URL. Then the release ritual. |
 | `export-fx.mjs` | the offline path: shows the world buffer (the FX written in the game) as sentences with who wrote them; `--write` folds them into `recipes/house.json`. Only for a server that forbids uploads; the Corpus tab is the way. |
+| `world-fx.mjs` | **the world buffer, saved and put back** (the user, 2026-09-09: *"i dont want to lose any work"*). An FX written in the game lives in the world's settings, not in a file, until it is Staged and Shipped — and a sandbox refresh overwrites that world. `--save` parks the buffer in `tools/world-buffer.json` (commit it); `--restore` puts it back, sandbox stopped, keeping anything written since. Read-only without a flag. Local only. The refresh routine is in the file's header and in CLAUDE.md. Proved on a copy of the world: dropped the setting, restored 2 of 2. |
 
 ### The gap — what the books hold that has no FX (2026-09-08)
 
