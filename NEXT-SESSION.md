@@ -10,6 +10,25 @@ and green. **The next session continues on migration work.**
 
 ---
 
+## 0. What changed since — the cast hold (2026-09-09, from the Battle Flow session)
+
+One edit landed here from the sister repo's work, on the user's word ("ok good"), and the user asked
+that the note be kept because this module is in active development:
+
+- `scripts/readers/dnd5e.js`, the `createRegion` handler (commit `8ea90d0`): before an area picture
+  plays, the reader asks Battle Flow's api for a **cast hold** — `game.modules.get('fvtt-mod-battleflow')
+  ?.api?.castHold(originUuid)`, a promise that settles when a cast Battle Flow is holding (Careful
+  Spell: the caster is asked who the area spares AFTER the template lands, and the usage card is held
+  back until they answer) posts its real card — and awaits it, bounded at five minutes. No hold, no
+  wait. Deployed to the sandbox, pushed. `check-imports`, `check-layers`, `check-legacy` green.
+- **It is a patch, not the rule** (the user asked which): one reader, one call site; the timing policy
+  at the top of the reader does not name the hold; the message and effect readers never ask. The
+  systemic shape — the wait in the dispatcher for every moment, one timing-policy line (*a moment
+  Battle Flow holds plays when the hold lifts*), the api recorded in Battle Flow's ARCHITECTURE — is
+  drawn in [BACKLOG.md](BACKLOG.md) (first section) and **not ruled**. Do not start it unasked; do not
+  let a refactor of the reader or the dispatcher drop the hold.
+- The Battle Flow side is in `../fvtt-mod-battleflow/HANDOFF.md` §3.
+
 ## 1. How this work happens
 
 The user gives a ruling in their own words, often mid-build, sometimes several in a row. You build
