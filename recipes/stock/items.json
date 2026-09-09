@@ -26,6 +26,11 @@
    "for": [
     "item:ink"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.UEH4xJlj50S9ztbH",
+    "name": "Ink",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -48,6 +53,11 @@
    "for": [
     "item:bomb"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBomb000000000",
+    "name": "Bomb",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -88,6 +98,11 @@
    "for": [
     "item:burnt-othur-fumes"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBurntOthurFum",
+    "name": "Burnt Othur Fumes",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -132,6 +147,11 @@
    "for": [
     "item:essence-of-ether"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEssenceOfEthe",
+    "name": "Essence of Ether",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -176,6 +196,11 @@
    "for": [
     "item:holy-water"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.nshr9PBVyB03T7wB",
+    "name": "Holy Water",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -216,6 +241,11 @@
    "for": [
     "item:malice"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMalice0000000",
+    "name": "Malice",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -260,6 +290,11 @@
    "for": [
     "item:acid"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagAcid0000000",
+    "name": "Acid",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -282,6 +317,11 @@
    "for": [
     "item:assassins-blood"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAssassinsBloo",
+    "name": "Assassin's Blood",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -309,6 +349,11 @@
    "for": [
     "item:crawler-mucus"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgCarrionCrawle",
+    "name": "Crawler Mucus",
+    "where": "dnd5e · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -331,6 +376,11 @@
    "for": [
     "item:midnight-tears"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMidnightTears",
+    "name": "Midnight Tears",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -358,6 +408,11 @@
    "for": [
     "item:net"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagNet00000000",
+    "name": "Net",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -383,6 +438,11 @@
    "for": [
     "item:oil-of-taggit"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOilOfTaggit00",
+    "name": "Oil of Taggit",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -405,6 +465,11 @@
    "for": [
     "item:pale-tincture"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPaleTincture0",
+    "name": "Pale Tincture",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -432,6 +497,11 @@
    "for": [
     "item:potion-of-healing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPotionofHea",
+    "name": "Potion of Healing",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -493,6 +563,11 @@
    "for": [
     "item:potion-of-poison"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfPoiso",
+    "name": "Potion of Poison",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -540,6 +615,11 @@
    "for": [
     "item:purple-worm-poison"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPurpleWormPoi",
+    "name": "Purple Worm Poison",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -563,6 +643,11 @@
    "for": [
     "item:serpent-venom"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSerpentVenom0",
+    "name": "Serpent Venom",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -586,6 +671,11 @@
    "for": [
     "item:torpor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTorpor0000000",
+    "name": "Torpor",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -613,6 +703,11 @@
    "for": [
     "item:truth-serum"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTruthSerum000",
+    "name": "Truth Serum",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -641,6 +736,11 @@
    "for": [
     "item:wyvern-poison"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWyvernPoison0",
+    "name": "Wyvern Poison",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -664,6 +764,11 @@
    "for": [
     "item:ball-bearings"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.KbVt56CK4ud3FUk3",
+    "name": "Ball Bearings",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -687,6 +792,11 @@
    "for": [
     "item:caltrops"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.iYwrPPLmuVD9eqfa",
+    "name": "Caltrops",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {

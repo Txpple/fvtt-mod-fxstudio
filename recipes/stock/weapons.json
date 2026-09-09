@@ -26,6 +26,11 @@
    "for": [
     "weapon:shadow-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShadowBlade000",
+    "name": "Shadow Blade",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -57,6 +62,11 @@
    "for": [
     "weapon:frost-axe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFrostAxe000000",
+    "name": "Frost Axe",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -79,6 +89,11 @@
    "for": [
     "weapon:pact-axe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPactAxe0000000",
+    "name": "Pact Axe",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -101,6 +116,11 @@
    "for": [
     "weapon:berserker-axe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBerserkerAxe0",
+    "name": "Berserker Axe",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -123,6 +143,11 @@
    "for": [
     "weapon:executioners-axe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgExecutionersA",
+    "name": "Executioner's Axe",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -145,6 +170,11 @@
    "for": [
     "weapon:psychic-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeBladesPsyc",
+    "name": "Psychic Blade",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -171,6 +201,11 @@
    "for": [
     "weapon:dragon-tooth-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDragontoothBla",
+    "name": "Dragon-Tooth Blade",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -197,6 +232,11 @@
    "for": [
     "weapon:dread-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDreadBlade0000",
+    "name": "Dread Blade",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -223,6 +263,11 @@
    "for": [
     "weapon:pact-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPactBlade00000",
+    "name": "Pact Blade",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -249,6 +294,11 @@
    "for": [
     "weapon:luck-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLuckBlade0000",
+    "name": "Luck Blade",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -275,6 +325,11 @@
    "for": [
     "weapon:sun-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSunBlade00000",
+    "name": "Sun Blade",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -301,6 +356,11 @@
    "for": [
     "weapon:chain"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmChain000000000",
+    "name": "Chain",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -327,6 +387,11 @@
    "for": [
     "weapon:club"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepClub000000",
+    "name": "Club",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -348,6 +413,11 @@
    "for": [
     "weapon:tree-club"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTreeClub000000",
+    "name": "Tree Club",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -369,6 +439,11 @@
    "for": [
     "weapon:dagger"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepDagger0000",
+    "name": "Dagger",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -404,6 +479,11 @@
    "for": [
     "weapon:umbral-dagger"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmUmbralDagger00",
+    "name": "Umbral Dagger",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -439,6 +519,11 @@
    "for": [
     "weapon:flail"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepFlail00000",
+    "name": "Flail",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -460,6 +545,11 @@
    "for": [
     "weapon:elemental-flail"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmElementalFlail",
+    "name": "Elemental Flail",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -481,6 +571,11 @@
    "for": [
     "weapon:infernal-fork"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmInfernalFork00",
+    "name": "Infernal Fork",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -508,6 +603,11 @@
    "for": [
     "weapon:glaive"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepGlaive0000",
+    "name": "Glaive",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -534,6 +634,11 @@
    "for": [
     "weapon:abyssal-glaive"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAbyssalGlaive0",
+    "name": "Abyssal Glaive",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -560,6 +665,11 @@
    "for": [
     "weapon:infernal-glaive"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmInfernalGlaive",
+    "name": "Infernal Glaive",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -586,6 +696,11 @@
    "for": [
     "weapon:greataxe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepGreataxe00",
+    "name": "Greataxe",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -608,6 +723,11 @@
    "for": [
     "weapon:greatclub"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepGreatclub0",
+    "name": "Greatclub",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -629,6 +749,11 @@
    "for": [
     "weapon:thunderous-greatclub"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgThunderousGre",
+    "name": "Thunderous Greatclub",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -650,6 +775,11 @@
    "for": [
     "weapon:greatsword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepGreatsword",
+    "name": "Greatsword",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -672,6 +802,11 @@
    "for": [
     "weapon:halberd"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHalberd000",
+    "name": "Halberd",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -698,6 +833,11 @@
    "for": [
     "weapon:lighthammer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightHamme",
+    "name": "Light Hammer",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -727,6 +867,11 @@
    "for": [
     "weapon:light-hammer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightHamme",
+    "name": "Light Hammer",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -756,6 +901,11 @@
    "for": [
     "weapon:handaxe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHandaxe000",
+    "name": "Handaxe",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -786,6 +936,11 @@
    "for": [
     "weapon:lance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLance00000",
+    "name": "Lance",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -817,6 +972,11 @@
    "for": [
     "weapon:longsword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLongsword0",
+    "name": "Longsword",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -854,6 +1014,11 @@
    "for": [
     "weapon:mace"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMace000000",
+    "name": "Mace",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -875,6 +1040,11 @@
    "for": [
     "weapon:fiery-mace"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFieryMace00000",
+    "name": "Fiery Mace",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -896,6 +1066,11 @@
    "for": [
     "weapon:holy-mace"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHolyMace000000",
+    "name": "Holy Mace",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -917,6 +1092,11 @@
    "for": [
     "weapon:thunderous-mace"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmThunderousMace",
+    "name": "Thunderous Mace",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -938,6 +1118,11 @@
    "for": [
     "weapon:maul"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMaul000000",
+    "name": "Maul",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -960,6 +1145,11 @@
    "for": [
     "weapon:morningstar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMorningsta",
+    "name": "Morningstar",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -999,6 +1189,11 @@
    "for": [
     "weapon:warpick"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWarPick000",
+    "name": "War Pick",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1020,6 +1215,11 @@
    "for": [
     "weapon:war-pick"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWarPick000",
+    "name": "War Pick",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1041,6 +1241,11 @@
    "for": [
     "weapon:pike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepPike000000",
+    "name": "Pike",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1073,6 +1278,11 @@
    "for": [
     "weapon:quarterstaff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepQuartersta",
+    "name": "Quarterstaff",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1100,6 +1310,11 @@
    "for": [
     "weapon:ram"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRam0000000000",
+    "name": "Ram",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1126,6 +1341,11 @@
    "for": [
     "weapon:rapier"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepRapier0000",
+    "name": "Rapier",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1152,6 +1372,11 @@
    "for": [
     "weapon:insectile-rapier"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmInsectileRapie",
+    "name": "Insectile Rapier",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1178,6 +1403,11 @@
    "for": [
     "weapon:scimitar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepScimitar00",
+    "name": "Scimitar",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1200,6 +1430,11 @@
    "for": [
     "weapon:shortsword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepShortsword",
+    "name": "Shortsword",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1222,6 +1457,11 @@
    "for": [
     "weapon:sickle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepSickle0000",
+    "name": "Sickle",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1244,6 +1484,11 @@
    "for": [
     "weapon:spear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepSpear00000",
+    "name": "Spear",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1278,6 +1523,11 @@
    "for": [
     "weapon:staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbafcStaffalsoa",
+    "name": "Staff",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1305,6 +1555,11 @@
    "for": [
     "weapon:wooden-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbdfcWoodenstaf",
+    "name": "Wooden staff",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1332,6 +1587,11 @@
    "for": [
     "weapon:forest-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmForestStaff000",
+    "name": "Forest Staff",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1359,6 +1619,11 @@
    "for": [
     "weapon:wind-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWindStaff00000",
+    "name": "Wind Staff",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1386,6 +1651,11 @@
    "for": [
     "weapon:enspelled-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledStaf",
+    "name": "Enspelled Staff",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1413,6 +1683,11 @@
    "for": [
     "weapon:flame-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFlameSword0000",
+    "name": "Flame Sword",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1451,6 +1726,11 @@
    "for": [
     "weapon:radiant-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmRadiantSword00",
+    "name": "Radiant Sword",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1489,6 +1769,11 @@
    "for": [
     "weapon:storm-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmStormSword0000",
+    "name": "Storm Sword",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1527,6 +1812,11 @@
    "for": [
     "weapon:withering-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWitheringSword",
+    "name": "Withering Sword",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1565,6 +1855,11 @@
    "for": [
     "weapon:dancing-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDancingSword0",
+    "name": "Dancing Sword",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1603,6 +1898,11 @@
    "for": [
     "weapon:moon-touched-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMoontouchedSw",
+    "name": "Moon-Touched Sword",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1641,6 +1941,11 @@
    "for": [
     "weapon:vorpal-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgVorpalSword00",
+    "name": "Vorpal Sword",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1679,6 +1984,11 @@
    "for": [
     "weapon:sylvan-talon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSylvanTalon00",
+    "name": "Sylvan Talon",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1700,6 +2010,11 @@
    "for": [
     "weapon:trident"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepTrident000",
+    "name": "Trident",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1734,6 +2049,11 @@
    "for": [
     "weapon:flame-trident"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFlameTrident00",
+    "name": "Flame Trident",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1768,6 +2088,11 @@
    "for": [
     "weapon:mercurial-trident"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMercurialTride",
+    "name": "Mercurial Trident",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1802,6 +2127,11 @@
    "for": [
     "weapon:warhammer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWarhammer0",
+    "name": "Warhammer",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1824,6 +2154,11 @@
    "for": [
     "weapon:whip"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWhip000000",
+    "name": "Whip",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1846,6 +2181,11 @@
    "for": [
     "weapon:mercurial-whip"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMercurialWhip0",
+    "name": "Mercurial Whip",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1868,6 +2208,11 @@
    "for": [
     "weapon:antimatter-rifle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAntimatterRif",
+    "name": "Antimatter Rifle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1908,6 +2253,11 @@
    "for": [
     "weapon:blowgun"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepBlowgun000",
+    "name": "Blowgun",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1929,6 +2279,11 @@
    "for": [
     "weapon:bone-bow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBoneBow0000000",
+    "name": "Bone Bow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1950,6 +2305,11 @@
    "for": [
     "weapon:great-bow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGreatBow000000",
+    "name": "Great Bow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1972,6 +2332,11 @@
    "for": [
     "weapon:necrotic-bow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNecroticBow000",
+    "name": "Necrotic Bow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1994,6 +2359,11 @@
    "for": [
     "weapon:energy-bow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnergyBow0000",
+    "name": "Energy Bow",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2016,6 +2386,11 @@
    "for": [
     "weapon:handcrossbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHandCrossb",
+    "name": "Hand Crossbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2037,6 +2412,11 @@
    "for": [
     "weapon:heavycrossbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHeavyCross",
+    "name": "Heavy Crossbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2058,6 +2438,11 @@
    "for": [
     "weapon:lightcrossbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightCross",
+    "name": "Light Crossbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2079,6 +2464,11 @@
    "for": [
     "weapon:hand-crossbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHandCrossb",
+    "name": "Hand Crossbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2100,6 +2490,11 @@
    "for": [
     "weapon:heavy-crossbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHeavyCross",
+    "name": "Heavy Crossbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2121,6 +2516,11 @@
    "for": [
     "weapon:light-crossbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightCross",
+    "name": "Light Crossbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2142,6 +2542,11 @@
    "for": [
     "weapon:dart"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepDart000000",
+    "name": "Dart",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2164,6 +2569,11 @@
    "for": [
     "weapon:grenade-launcher"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGrenadeLaunch",
+    "name": "Grenade Launcher",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2204,6 +2614,11 @@
    "for": [
     "weapon:javelin"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepJavelin000",
+    "name": "Javelin",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2225,6 +2640,11 @@
    "for": [
     "weapon:wind-javelin"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWindJavelin000",
+    "name": "Wind Javelin",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2246,6 +2666,11 @@
    "for": [
     "weapon:trash-lob"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTrashLob000000",
+    "name": "Trash Lob",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2268,6 +2693,11 @@
    "for": [
     "weapon:longbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLongbow000",
+    "name": "Longbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2290,6 +2720,11 @@
    "for": [
     "weapon:musket"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMusket0000",
+    "name": "Musket",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2311,6 +2746,11 @@
    "for": [
     "weapon:needles"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNeedles0000000",
+    "name": "Needles",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2338,6 +2778,11 @@
    "for": [
     "weapon:pistol"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepPistol0000",
+    "name": "Pistol",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2359,6 +2804,11 @@
    "for": [
     "weapon:laser-pistol"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLaserPistol00",
+    "name": "Laser Pistol",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2380,6 +2830,11 @@
    "for": [
     "weapon:semiautomatic-pistol"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSemiautomatic",
+    "name": "Semiautomatic Pistol",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2401,6 +2856,11 @@
    "for": [
     "weapon:revolver"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRevolver00000",
+    "name": "Revolver",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2422,6 +2882,11 @@
    "for": [
     "weapon:automatic-rifle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAutomaticRifl",
+    "name": "Automatic Rifle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2443,6 +2908,11 @@
    "for": [
     "weapon:hunting-rifle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHuntingRifle0",
+    "name": "Hunting Rifle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2464,6 +2934,11 @@
    "for": [
     "weapon:laser-rifle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLaserRifle000",
+    "name": "Laser Rifle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2485,6 +2960,11 @@
    "for": [
     "weapon:shortbow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepShortbow00",
+    "name": "Shortbow",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2507,6 +2987,11 @@
    "for": [
     "weapon:shotgun"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgShotgun000000",
+    "name": "Shotgun",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2528,6 +3013,11 @@
    "for": [
     "weapon:sling"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepSling00000",
+    "name": "Sling",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2550,6 +3040,11 @@
    "for": [
     "weapon:whelm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWhelm00000000",
+    "name": "Whelm",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "use",
    "scenes": [
     {

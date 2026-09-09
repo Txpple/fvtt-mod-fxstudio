@@ -26,6 +26,11 @@
    "for": [
     "feature:light"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcLightDomai",
+    "name": "Light Domain",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -50,6 +55,11 @@
    "for": [
     "feature:rage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbRage000000",
+    "name": "Rage",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -99,6 +109,11 @@
    "for": [
     "feature:sleep"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSleep000000000",
+    "name": "Sleep",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -150,6 +165,11 @@
    "for": [
     "feature:steps-of-the-fey"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkStepsOfThe",
+    "name": "Steps of the Fey",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -207,6 +227,11 @@
    "for": [
     "feature:teleport"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTeleport000000",
+    "name": "Teleport",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -267,6 +292,11 @@
    "for": [
     "feature:thunderclap"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmThunderclap000",
+    "name": "Thunderclap",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -309,6 +339,11 @@
    "for": [
     "feature:awakened-mind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkAwakenedMi",
+    "name": "Awakened Mind",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -335,6 +370,11 @@
    "for": [
     "feature:beguiling-defenses"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkBeguilingD",
+    "name": "Beguiling Defenses",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -377,6 +417,11 @@
    "for": [
     "feature:cinder-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCinderBreath00",
+    "name": "Cinder Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -405,6 +450,11 @@
    "for": [
     "feature:consume-life"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmConsumeLife000",
+    "name": "Consume Life",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -429,6 +479,11 @@
    "for": [
     "feature:devour-intellect"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDevourIntellec",
+    "name": "Devour Intellect",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -453,6 +508,11 @@
    "for": [
     "feature:dominate-mind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDominateMind00",
+    "name": "Dominate Mind",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -495,6 +555,11 @@
    "for": [
     "feature:draining-kiss"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDrainingKiss00",
+    "name": "Draining Kiss",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -535,6 +600,11 @@
    "for": [
     "feature:energy-drain"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEnergyDrain000",
+    "name": "Energy Drain",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -557,6 +627,11 @@
    "for": [
     "feature:life-drain"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLifeDrain00000",
+    "name": "Life Drain",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -581,6 +656,11 @@
    "for": [
     "feature:lightning-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLightningStrik",
+    "name": "Lightning Strike",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -602,6 +682,11 @@
    "for": [
     "feature:magical-backlash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMagicalBacklas",
+    "name": "Magical Backlash",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -624,6 +709,11 @@
    "for": [
     "feature:mud-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMudBreath00000",
+    "name": "Mud Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -669,6 +759,11 @@
    "for": [
     "feature:poison-spray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPoisonSpray000",
+    "name": "Poison Spray",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -691,6 +786,11 @@
    "for": [
     "feature:possession"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPossession0000",
+    "name": "Possession",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -733,6 +833,11 @@
    "for": [
     "feature:rend-mind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeRendMind00",
+    "name": "Rend Mind",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -755,6 +860,11 @@
    "for": [
     "feature:restore-balance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrRestoreBal",
+    "name": "Restore Balance",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -797,6 +907,11 @@
    "for": [
     "feature:stench-spray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmStenchSpray000",
+    "name": "Stench Spray",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -819,6 +934,11 @@
    "for": [
     "feature:telekinetic-thrust"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTelekineticThr",
+    "name": "Telekinetic Thrust",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -840,6 +960,11 @@
    "for": [
     "feature:telepathic-bond"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTelepathicBond",
+    "name": "Telepathic Bond",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -870,6 +995,11 @@
    "for": [
     "feature:telepathic-speech"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrTelepathic",
+    "name": "Telepathic Speech",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -896,6 +1026,11 @@
    "for": [
     "feature:watery-rebuke"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWateryRebuke00",
+    "name": "Watery Rebuke",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -918,6 +1053,11 @@
    "for": [
     "feature:web"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWeb00000000000",
+    "name": "Web",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -962,6 +1102,11 @@
    "for": [
     "feature:witch-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWitchStrike000",
+    "name": "Witch Strike",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -985,6 +1130,11 @@
    "for": [
     "feature:abjure-foes"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnAbjureFoes",
+    "name": "Abjure Foes",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1028,6 +1178,11 @@
    "for": [
     "feature:action-surge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrActionSurg",
+    "name": "Action Surge",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1053,6 +1208,11 @@
    "for": [
     "feature:adrenaline-rush"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptAdrenaline",
+    "name": "Adrenaline Rush",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1078,6 +1238,11 @@
    "for": [
     "feature:animal-spirit"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAnimalSpirit00",
+    "name": "Animal Spirit",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1105,6 +1270,11 @@
    "for": [
     "feature:arcane-recovery"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdArcaneReco",
+    "name": "Arcane Recovery",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1127,6 +1297,11 @@
    "for": [
     "feature:arcane-ward"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdArcaneWard",
+    "name": "Arcane Ward",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1149,6 +1324,11 @@
    "for": [
     "feature:archdruid"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdArchdruid0",
+    "name": "Archdruid",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1193,6 +1373,11 @@
    "for": [
     "feature:banish"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBanish00000000",
+    "name": "Banish",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1218,6 +1403,11 @@
    "for": [
     "feature:bardic-inspiration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdBardicInsp",
+    "name": "Bardic Inspiration",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1255,6 +1445,11 @@
    "for": [
     "feature:bend-luck"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrBendLuck00",
+    "name": "Bend Luck",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1279,6 +1474,11 @@
    "for": [
     "feature:blessed-healer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcBlessedHea",
+    "name": "Blessed Healer",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1301,6 +1501,11 @@
    "for": [
     "feature:blessed-strikes"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcBlessedStr",
+    "name": "Blessed Strikes",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1323,6 +1528,11 @@
    "for": [
     "feature:bolster"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBolster0000000",
+    "name": "Bolster",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1344,6 +1554,11 @@
    "for": [
     "feature:branches-of-the-tree"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbBranchesOf",
+    "name": "Branches of the Tree",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1370,6 +1585,11 @@
    "for": [
     "feature:bulwark-of-force"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrBulwarkOfF",
+    "name": "Bulwark of Force",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1391,6 +1611,11 @@
    "for": [
     "feature:burst-of-ingenuity"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBurstofIngenui",
+    "name": "Burst of Ingenuity",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1429,6 +1654,11 @@
    "for": [
     "feature:cacophony"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCacophony00000",
+    "name": "Cacophony",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1455,6 +1685,11 @@
    "for": [
     "feature:celestial-resilience"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkResilience",
+    "name": "Celestial Resilience",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1476,6 +1711,11 @@
    "for": [
     "feature:celestial-revelation"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptCelestialR",
+    "name": "Celestial Revelation",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1513,6 +1753,11 @@
    "for": [
     "feature:channel-divinity"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcChannelDiv",
+    "name": "Channel Divinity",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1555,6 +1800,11 @@
    "for": [
     "feature:charm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCharm000000000",
+    "name": "Charm",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1598,6 +1848,11 @@
    "for": [
     "feature:chomp"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmChomp000000000",
+    "name": "Chomp",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1620,6 +1875,11 @@
    "for": [
     "feature:clairvoyant-combatant"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkClairvoyan",
+    "name": "Clairvoyant Combatant",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1641,6 +1901,11 @@
    "for": [
     "feature:cloak-of-shadows"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkCloakOfSha",
+    "name": "Cloak of Shadows",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1663,6 +1928,11 @@
    "for": [
     "feature:cloud-of-insects"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCloudOfInsects",
+    "name": "Cloud of Insects",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1725,6 +1995,11 @@
    "for": [
     "feature:constrict"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmConstrict00000",
+    "name": "Constrict",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1747,6 +2022,11 @@
    "for": [
     "feature:consume-memories"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmConsumeMemorie",
+    "name": "Consume Memories",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1793,6 +2073,11 @@
    "for": [
     "feature:control-weather"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmControlWeather",
+    "name": "Control Weather",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1840,6 +2125,11 @@
    "for": [
     "feature:controlled-chaos"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrControlled",
+    "name": "Controlled Chaos",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1866,6 +2156,11 @@
    "for": [
     "feature:cosmic-omen"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdCosmicOmen",
+    "name": "Cosmic Omen",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1891,6 +2186,11 @@
    "for": [
     "feature:countercharm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdCountercha",
+    "name": "Countercharm",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1929,6 +2229,11 @@
    "for": [
     "feature:counterspell"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCounterspell00",
+    "name": "Counterspell",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1953,6 +2258,11 @@
    "for": [
     "feature:cunning-action"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeCunningAct",
+    "name": "Cunning Action",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1975,6 +2285,11 @@
    "for": [
     "feature:cunning-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeCunningStr",
+    "name": "Cunning Strike",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1998,6 +2313,11 @@
    "for": [
     "feature:curse-of-the-riddle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCurseOfTheRidd",
+    "name": "Curse of the Riddle",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2024,6 +2344,11 @@
    "for": [
     "feature:cutting-words"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdCuttingWor",
+    "name": "Cutting Words",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2060,6 +2385,11 @@
    "for": [
     "feature:dark-ones-blessing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkDarkOnesBl",
+    "name": "Dark One's Blessing",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2083,6 +2413,11 @@
    "for": [
     "feature:dark-ones-own-luck"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkDarkOnesOw",
+    "name": "Dark One's Own Luck",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2125,6 +2460,11 @@
    "for": [
     "feature:deadly-aim"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDeadlyAim00000",
+    "name": "Deadly Aim",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2160,6 +2500,11 @@
    "for": [
     "feature:death-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeDeathStrik",
+    "name": "Death Strike",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2215,6 +2560,11 @@
    "for": [
     "feature:defensive-tactics"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrDefensiveT",
+    "name": "Defensive Tactics",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2237,6 +2587,11 @@
    "for": [
     "feature:devious-strikes"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeDeviousStr",
+    "name": "Devious Strikes",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2259,6 +2614,11 @@
    "for": [
     "feature:disciplined-survivor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkDiscipline",
+    "name": "Disciplined Survivor",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2281,6 +2641,11 @@
    "for": [
     "feature:divine-intervention"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcDivineInte",
+    "name": "Divine Intervention",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2306,6 +2671,11 @@
    "for": [
     "feature:draconic-flight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptDraconicFl",
+    "name": "Draconic Flight",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2358,6 +2728,11 @@
    "for": [
     "feature:dread-ambusher"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrDreadAmbus",
+    "name": "Dread Ambusher",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2383,6 +2758,11 @@
    "for": [
     "feature:dreadful-strikes"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrDreadfulSt",
+    "name": "Dreadful Strikes",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2408,6 +2788,11 @@
    "for": [
     "feature:eldritch-master"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkEldritchMa",
+    "name": "Eldritch Master",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2434,6 +2819,11 @@
    "for": [
     "feature:eldritch-smite"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvEldritchSm",
+    "name": "Eldritch Smite",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2466,6 +2856,11 @@
    "for": [
     "feature:elemental-affinity"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrElementalA",
+    "name": "Elemental Affinity",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2487,6 +2882,11 @@
    "for": [
     "feature:elemental-attunement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkElementalA",
+    "name": "Elemental Attunement",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2509,6 +2909,11 @@
    "for": [
     "feature:empowered-evocation"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdEmpoweredE",
+    "name": "Empowered Evocation",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2530,6 +2935,11 @@
    "for": [
     "feature:entangling-trail"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEntanglingTrai",
+    "name": "Entangling Trail",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2553,6 +2963,11 @@
    "for": [
     "feature:envenom-weapons"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeEnvenomWea",
+    "name": "Envenom Weapons",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2575,6 +2990,11 @@
    "for": [
     "feature:ethereal-sight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEtherealSight0",
+    "name": "Ethereal Sight",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2602,6 +3022,11 @@
    "for": [
     "feature:etherealness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEtherealness00",
+    "name": "Etherealness",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2638,6 +3063,11 @@
    "for": [
     "feature:euphoria-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEuphoriaBreath",
+    "name": "Euphoria Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2668,6 +3098,11 @@
    "for": [
     "feature:extract-brain"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmExtractBrain00",
+    "name": "Extract Brain",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2704,6 +3139,11 @@
    "for": [
     "feature:fast-hands"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeFastHands0",
+    "name": "Fast Hands",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2725,6 +3165,11 @@
    "for": [
     "feature:fell-word"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFellWord000000",
+    "name": "Fell Word",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2788,6 +3233,11 @@
    "for": [
     "feature:fire-aura"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFireAura000000",
+    "name": "Fire Aura",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2813,6 +3263,11 @@
    "for": [
     "feature:flyby"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFlyby000000000",
+    "name": "Flyby",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2835,6 +3290,11 @@
    "for": [
     "feature:font-of-inspiration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdFontOfInsp",
+    "name": "Font of Inspiration",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2857,6 +3317,11 @@
    "for": [
     "feature:font-of-magic"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrFontOfMagi",
+    "name": "Font of Magic",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2879,6 +3344,11 @@
    "for": [
     "feature:forbiddance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmForbiddance000",
+    "name": "Forbiddance",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2930,6 +3400,11 @@
    "for": [
     "feature:frightful-presence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFrightfulPrese",
+    "name": "Frightful Presence",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2952,6 +3427,11 @@
    "for": [
     "feature:frosts-chill"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptFrostsChil",
+    "name": "Frost's Chill",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2976,6 +3456,11 @@
    "for": [
     "feature:giggling-magic"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGigglingMagic0",
+    "name": "Giggling Magic",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3004,6 +3489,11 @@
    "for": [
     "feature:glare"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGlare000000000",
+    "name": "Glare",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3031,6 +3521,11 @@
    "for": [
     "feature:glorious-defense"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnGloriousDe",
+    "name": "Glorious Defense",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3052,6 +3547,11 @@
    "for": [
     "feature:hand-of-harm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkHandOfHarm",
+    "name": "Hand of Harm",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3073,6 +3573,11 @@
    "for": [
     "feature:hand-of-healing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkHandOfHeal",
+    "name": "Hand of Healing",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3094,6 +3599,11 @@
    "for": [
     "feature:hand-of-ultimate-mercy"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkHandOfUlti",
+    "name": "Hand of Ultimate Mercy",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3133,6 +3643,11 @@
    "for": [
     "feature:healing-hands"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptHealingHan",
+    "name": "Healing Hands",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3154,6 +3669,11 @@
    "for": [
     "feature:healing-light"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkHealingLig",
+    "name": "Healing Light",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3178,6 +3698,11 @@
    "for": [
     "feature:healing-word"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHealingWord000",
+    "name": "Healing Word",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3202,6 +3727,11 @@
    "for": [
     "feature:heart-sight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHeartSight0000",
+    "name": "Heart Sight",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3248,6 +3778,11 @@
    "for": [
     "feature:hellish-rebuke"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHellishRebuke0",
+    "name": "Hellish Rebuke",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3271,6 +3806,11 @@
    "for": [
     "feature:hills-tumble"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptHillsTumbl",
+    "name": "Hill's Tumble",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3292,6 +3832,11 @@
    "for": [
     "feature:holy-nimbus"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnHolyNimbus",
+    "name": "Holy Nimbus",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3313,6 +3858,11 @@
    "for": [
     "feature:horrify"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHorrify0000000",
+    "name": "Horrify",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3349,6 +3899,11 @@
    "for": [
     "feature:hunger-of-hadar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHungerOfHadar0",
+    "name": "Hunger of Hadar",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3375,6 +3930,11 @@
    "for": [
     "feature:hunters-prey"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrHuntersPre",
+    "name": "Hunter's Prey",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3398,6 +3958,11 @@
    "for": [
     "feature:hurl-through-hell"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkHurlThroug",
+    "name": "Hurl Through Hell",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3441,6 +4006,11 @@
    "for": [
     "feature:illusory-reality"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdIllusoryRe",
+    "name": "Illusory Reality",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3482,6 +4052,11 @@
    "for": [
     "feature:illusory-self"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdIllusorySe",
+    "name": "Illusory Self",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3503,6 +4078,11 @@
    "for": [
     "feature:indomitable"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrIndomitabl",
+    "name": "Indomitable",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3526,6 +4106,11 @@
    "for": [
     "feature:infiltration-expertise"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeInfiltrati",
+    "name": "Infiltration Expertise",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3547,6 +4132,11 @@
    "for": [
     "feature:innate-sorcery"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrInnateSorc",
+    "name": "Innate Sorcery",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3570,6 +4160,11 @@
    "for": [
     "feature:invisibility"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmInvisibility00",
+    "name": "Invisibility",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3591,6 +4186,11 @@
    "for": [
     "feature:invoke-duplicity"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcInvokeDupl",
+    "name": "Invoke Duplicity",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3616,6 +4216,11 @@
    "for": [
     "feature:jinx"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmJinx0000000000",
+    "name": "Jinx",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3639,6 +4244,11 @@
    "for": [
     "feature:lay-on-hands"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnLayOnHands",
+    "name": "Lay on Hands",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3660,6 +4270,11 @@
    "for": [
     "feature:lordly-presence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLordlyPresence",
+    "name": "Lordly Presence",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3685,6 +4300,11 @@
    "for": [
     "feature:magical-cunning"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkMagicalCun",
+    "name": "Magical Cunning",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3719,6 +4339,11 @@
    "for": [
     "feature:mantle-of-inspiration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdMantleOfIn",
+    "name": "Mantle of Inspiration",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3745,6 +4370,11 @@
    "for": [
     "feature:metamagic"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrMetamagic0",
+    "name": "Metamagic",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3768,6 +4398,11 @@
    "for": [
     "feature:mind-corrosion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMindCorrosion0",
+    "name": "Mind Corrosion",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3791,6 +4426,11 @@
    "for": [
     "feature:mind-rending-roar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMindrendingRoa",
+    "name": "Mind-Rending Roar",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3816,6 +4456,11 @@
    "for": [
     "feature:mockery"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMockery0000000",
+    "name": "Mockery",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3856,6 +4501,11 @@
    "for": [
     "feature:mucus-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMucusCloud0000",
+    "name": "Mucus Cloud",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3881,6 +4531,11 @@
    "for": [
     "feature:natural-recovery"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdNaturalRec",
+    "name": "Natural Recovery",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3906,6 +4561,11 @@
    "for": [
     "feature:nightmare"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNightmare00000",
+    "name": "Nightmare",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3940,6 +4600,11 @@
    "for": [
     "feature:nimble-escape"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNimbleEscape00",
+    "name": "Nimble Escape",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3962,6 +4627,11 @@
    "for": [
     "feature:overchannel"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdOverchanne",
+    "name": "Overchannel",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4004,6 +4674,11 @@
    "for": [
     "feature:poison"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPoison00000000",
+    "name": "Poison",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4031,6 +4706,11 @@
    "for": [
     "feature:preserve-life"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcPreserveLi",
+    "name": "Preserve Life",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4073,6 +4753,11 @@
    "for": [
     "feature:primal-companion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrPrimalComp",
+    "name": "Primal Companion",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4123,6 +4808,11 @@
    "for": [
     "feature:projected-ward"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdProjectedW",
+    "name": "Projected Ward",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4144,6 +4834,11 @@
    "for": [
     "feature:psychic-crush"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPsychicCrush00",
+    "name": "Psychic Crush",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4180,6 +4875,11 @@
    "for": [
     "feature:radiant-soul"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkRadiantSou",
+    "name": "Radiant Soul",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4201,6 +4901,11 @@
    "for": [
     "feature:rampage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmRampage0000000",
+    "name": "Rampage",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4226,6 +4931,11 @@
    "for": [
     "feature:regeneration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmRegeneration00",
+    "name": "Regeneration",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4247,6 +4957,11 @@
    "for": [
     "feature:relentless-endurance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptRelentless",
+    "name": "Relentless Endurance",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4285,6 +5000,11 @@
    "for": [
     "feature:restoring-touch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnRestoringT",
+    "name": "Restoring Touch",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4308,6 +5028,11 @@
    "for": [
     "feature:revelation-in-flesh"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrRevelation",
+    "name": "Revelation in Flesh",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4334,6 +5059,11 @@
    "for": [
     "feature:roar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmRoar0000000000",
+    "name": "Roar",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4359,6 +5089,11 @@
    "for": [
     "feature:sacred-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnSacredWeap",
+    "name": "Sacred Weapon",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4381,6 +5116,11 @@
    "for": [
     "feature:scare"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmScare000000000",
+    "name": "Scare",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4403,6 +5143,11 @@
    "for": [
     "feature:scorching-sands"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmScorchingSands",
+    "name": "Scorching Sands",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4435,6 +5180,11 @@
    "for": [
     "feature:sear-undead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcSearUndead",
+    "name": "Sear Undead",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4461,6 +5211,11 @@
    "for": [
     "feature:searing-vengeance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkSearingVen",
+    "name": "Searing Vengeance",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4501,6 +5256,11 @@
    "for": [
     "feature:second-wind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrSecondWind",
+    "name": "Second Wind",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4523,6 +5283,11 @@
    "for": [
     "feature:shimmering-shield"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShimmeringShie",
+    "name": "Shimmering Shield",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4544,6 +5309,11 @@
    "for": [
     "feature:signature-spells"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdSignatureS",
+    "name": "Signature Spells",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4567,6 +5337,11 @@
    "for": [
     "feature:slow-fall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkSlowFall00",
+    "name": "Slow Fall",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4590,6 +5365,11 @@
    "for": [
     "feature:smite"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSmite000000000",
+    "name": "Smite",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4612,6 +5392,11 @@
    "for": [
     "feature:sneak-attack"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeSneakAttac",
+    "name": "Sneak Attack",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4647,6 +5432,11 @@
    "for": [
     "feature:sorcerous-restoration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrSorcerousR",
+    "name": "Sorcerous Restoration",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4669,6 +5459,11 @@
    "for": [
     "feature:sorcery-incarnate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrSorceryInc",
+    "name": "Sorcery Incarnate",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4691,6 +5486,11 @@
    "for": [
     "feature:spell-mastery"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdSpellMaste",
+    "name": "Spell Mastery",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4714,6 +5514,11 @@
    "for": [
     "feature:spell-reflection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSpellReflectio",
+    "name": "Spell Reflection",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4735,6 +5540,11 @@
    "for": [
     "feature:spell-thief"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeSpellThief",
+    "name": "Spell Thief",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4756,6 +5566,11 @@
    "for": [
     "feature:spider-climb"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSpiderClimb000",
+    "name": "Spider Climb",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4808,6 +5623,11 @@
    "for": [
     "feature:spiritual-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSpiritualWeapo",
+    "name": "Spiritual Weapon",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4870,6 +5690,11 @@
    "for": [
     "feature:stalkers-flurry"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrStalkersFl",
+    "name": "Stalker's Flurry",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4896,6 +5721,11 @@
    "for": [
     "feature:steady-aim"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeSteadyAim0",
+    "name": "Steady Aim",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4954,6 +5784,11 @@
    "for": [
     "feature:stones-endurance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptStonesEndu",
+    "name": "Stone's Endurance",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4984,6 +5819,11 @@
    "for": [
     "feature:storms-thunder"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptStormsThun",
+    "name": "Storm's Thunder",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5006,6 +5846,11 @@
    "for": [
     "feature:stroke-of-luck"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeStrokeOfLu",
+    "name": "Stroke of Luck",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5028,6 +5873,11 @@
    "for": [
     "feature:supreme-sneak"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeSupremeSne",
+    "name": "Supreme Sneak",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5083,6 +5933,11 @@
    "for": [
     "feature:swallow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSwallow0000000",
+    "name": "Swallow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5108,6 +5963,11 @@
    "for": [
     "feature:tactical-mind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrTacticalMi",
+    "name": "Tactical Mind",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5129,6 +5989,11 @@
    "for": [
     "feature:tactical-shift"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrTacticalSh",
+    "name": "Tactical Shift",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5150,6 +6015,11 @@
    "for": [
     "feature:tamed-surge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrTamedSurge",
+    "name": "Tamed Surge",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5186,6 +6056,11 @@
    "for": [
     "feature:telekinetic"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftTelekinetic",
+    "name": "Telekinetic",
+    "where": "Player's Handbook · Feats"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5208,6 +6083,11 @@
    "for": [
     "feature:tides-of-chaos"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrTidesOfCha",
+    "name": "Tides of Chaos",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5232,6 +6112,11 @@
    "for": [
     "feature:tireless"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrTireless00",
+    "name": "Tireless",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5269,6 +6154,11 @@
    "for": [
     "feature:tree-stride"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTreeStride0000",
+    "name": "Tree Stride",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5314,6 +6204,11 @@
    "for": [
     "feature:uncanny-dodge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeUncannyDod",
+    "name": "Uncanny Dodge",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5336,6 +6231,11 @@
    "for": [
     "feature:uncanny-metabolism"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkUncannyMet",
+    "name": "Uncanny Metabolism",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5358,6 +6258,11 @@
    "for": [
     "feature:undying-sentinel"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnUndyingSen",
+    "name": "Undying Sentinel",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5395,6 +6300,11 @@
    "for": [
     "feature:vanish"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmVanish00000000",
+    "name": "Vanish",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5418,6 +6328,11 @@
    "for": [
     "feature:veil-of-shadow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmVeilOfShadow00",
+    "name": "Veil of Shadow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5465,6 +6380,11 @@
    "for": [
     "feature:vile-appearance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmVileAppearance",
+    "name": "Vile Appearance",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5487,6 +6407,11 @@
    "for": [
     "feature:vitality-of-the-tree"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbVitalityOf",
+    "name": "Vitality of the Tree",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5518,6 +6443,11 @@
    "for": [
     "feature:vow-of-enmity"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnVowOfEnmit",
+    "name": "Vow of Enmity",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5539,6 +6469,11 @@
    "for": [
     "feature:vow-of-revenge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmVowofRevenge00",
+    "name": "Vow of Revenge",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5560,6 +6495,11 @@
    "for": [
     "feature:war-bond"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrWarBond000",
+    "name": "War Bond",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5582,6 +6522,11 @@
    "for": [
     "feature:war-cry"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWarCry00000000",
+    "name": "War Cry",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5607,6 +6552,11 @@
    "for": [
     "feature:warding-flare"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcWardingFla",
+    "name": "Warding Flare",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5629,6 +6579,11 @@
    "for": [
     "feature:warrior-of-the-gods"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbWarriorOfT",
+    "name": "Warrior of the Gods",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5674,6 +6629,11 @@
    "for": [
     "feature:water-breathing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWaterBreathing",
+    "name": "Water Breathing",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5696,6 +6656,11 @@
    "for": [
     "feature:weight-of-years"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWeightOfYears0",
+    "name": "Weight of Years",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5737,6 +6702,11 @@
    "for": [
     "feature:weird-insight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWeirdInsight00",
+    "name": "Weird Insight",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5764,6 +6734,11 @@
    "for": [
     "feature:whelm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWhelm000000000",
+    "name": "Whelm",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5793,6 +6768,11 @@
    "for": [
     "feature:whirlwind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWhirlwind00000",
+    "name": "Whirlwind",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5815,6 +6795,11 @@
    "for": [
     "feature:wholeness-of-body"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkWholenessO",
+    "name": "Wholeness of Body",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5837,6 +6822,11 @@
    "for": [
     "feature:wild-companion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdWildCompan",
+    "name": "Wild Companion",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5859,6 +6849,11 @@
    "for": [
     "feature:wild-resurgence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdWildResurg",
+    "name": "Wild Resurgence",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5881,6 +6876,11 @@
    "for": [
     "feature:wild-shape"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdWildShape0",
+    "name": "Wild Shape",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5923,6 +6923,11 @@
    "for": [
     "feature:zealous-presence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbZealousPre",
+    "name": "Zealous Presence",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5962,6 +6967,11 @@
    "for": [
     "feature:acid-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAcidBreath0000",
+    "name": "Acid Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6017,6 +7027,11 @@
    "for": [
     "feature:antimagic-cone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAntimagicCone0",
+    "name": "Antimagic Cone",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6052,6 +7067,11 @@
    "for": [
     "feature:blinding-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBlindingBreath",
+    "name": "Blinding Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6082,6 +7102,11 @@
    "for": [
     "feature:blinding-flash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBlindingFlash0",
+    "name": "Blinding Flash",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6107,6 +7132,11 @@
    "for": [
     "feature:breath-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.brwAcidBreathWea",
+    "name": "Acid Breath Weapon",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6161,6 +7191,11 @@
    "for": [
     "feature:cold-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmColdBreath0000",
+    "name": "Cold Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6216,6 +7251,11 @@
    "for": [
     "feature:cold-gale"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmColdGale000000",
+    "name": "Cold Gale",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6247,6 +7287,11 @@
    "for": [
     "feature:crackling-wave"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCracklingWave0",
+    "name": "Crackling Wave",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6274,6 +7319,11 @@
    "for": [
     "feature:death-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDeathBurst0000",
+    "name": "Death Burst",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6303,6 +7353,11 @@
    "for": [
     "feature:deathly-teleport"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDeathlyTelepor",
+    "name": "Deathly Teleport",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6327,6 +7382,11 @@
    "for": [
     "feature:deathly-wail"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDeathlyWail000",
+    "name": "Deathly Wail",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6351,6 +7411,11 @@
    "for": [
     "feature:disrupt-life"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDisruptLife000",
+    "name": "Disrupt Life",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6396,6 +7461,11 @@
    "for": [
     "feature:divine-beam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDivineBeam0000",
+    "name": "Divine Beam",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6433,6 +7503,11 @@
    "for": [
     "feature:dragons-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDragonsBreath0",
+    "name": "Dragon’s Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6487,6 +7562,11 @@
    "for": [
     "feature:elemental-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkElementalB",
+    "name": "Elemental Burst",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6511,6 +7591,11 @@
    "for": [
     "feature:fetid-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFetidCloud0000",
+    "name": "Fetid Cloud",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6537,6 +7622,11 @@
    "for": [
     "feature:fiendish-blood"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFiendishBlood0",
+    "name": "Fiendish Blood",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6562,6 +7652,11 @@
    "for": [
     "feature:fire-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFireBreath0000",
+    "name": "Fire Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6617,6 +7712,11 @@
    "for": [
     "feature:fog-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFogCloud000000",
+    "name": "Fog Cloud",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6644,6 +7744,11 @@
    "for": [
     "feature:freezing-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFreezingBurst0",
+    "name": "Freezing Burst",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6668,6 +7773,11 @@
    "for": [
     "feature:frost-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFrostBreath000",
+    "name": "Frost Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6721,6 +7831,11 @@
    "for": [
     "feature:heat-aura"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHeatAura000000",
+    "name": "Heat Aura",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6756,6 +7871,11 @@
    "for": [
     "feature:holy-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHolyBurst00000",
+    "name": "Holy Burst",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6781,6 +7901,11 @@
    "for": [
     "feature:horrific-visage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHorrificVisage",
+    "name": "Horrific Visage",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6807,6 +7932,11 @@
    "for": [
     "feature:howl"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHowl0000000000",
+    "name": "Howl",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6831,6 +7961,11 @@
    "for": [
     "feature:hunger-of-yeenoghu"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHungerOfYeenog",
+    "name": "Hunger of Yeenoghu",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6862,6 +7997,11 @@
    "for": [
     "feature:ignited-illumination"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmIgnitedIllumin",
+    "name": "Ignited Illumination",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6892,6 +8032,11 @@
    "for": [
     "feature:ink-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmInkCloud000000",
+    "name": "Ink Cloud",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6919,6 +8064,11 @@
    "for": [
     "feature:lands-aid"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdLandsAid00",
+    "name": "Land's Aid",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6946,6 +8096,11 @@
    "for": [
     "feature:lightning-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLightningBreat",
+    "name": "Lightning Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7006,6 +8161,11 @@
    "for": [
     "feature:lightning-storm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLightningStorm",
+    "name": "Lightning Storm",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7032,6 +8192,11 @@
    "for": [
     "feature:mind-blast"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMindBlast00000",
+    "name": "Mind Blast",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7068,6 +8233,11 @@
    "for": [
     "feature:mind-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMindBurst00000",
+    "name": "Mind Burst",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7099,6 +8269,11 @@
    "for": [
     "feature:necrotic-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNecroticBreath",
+    "name": "Necrotic Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7152,6 +8327,11 @@
    "for": [
     "feature:negative-energy-cone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNegativeEnergy",
+    "name": "Negative Energy Cone",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7187,6 +8367,11 @@
    "for": [
     "feature:noxious-miasma"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNoxiousMiasma0",
+    "name": "Noxious Miasma",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7213,6 +8398,11 @@
    "for": [
     "feature:paralyzing-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmParalyzingBrea",
+    "name": "Paralyzing Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7268,6 +8458,11 @@
    "for": [
     "feature:petrifying-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPetrifyingBrea",
+    "name": "Petrifying Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7323,6 +8518,11 @@
    "for": [
     "feature:petrifying-gaze"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPetrifyingGaze",
+    "name": "Petrifying Gaze",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7389,6 +8589,11 @@
    "for": [
     "feature:poison-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPoisonBreath00",
+    "name": "Poison Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7444,6 +8649,11 @@
    "for": [
     "feature:radiance-of-the-dawn"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcRadianceOf",
+    "name": "Radiance of the Dawn",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7470,6 +8680,11 @@
    "for": [
     "feature:radiant-teleport"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmRadiantTelepor",
+    "name": "Radiant Teleport",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7494,6 +8709,11 @@
    "for": [
     "feature:repulsion-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmRepulsionBreat",
+    "name": "Repulsion Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7529,6 +8749,11 @@
    "for": [
     "feature:screech"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmScreech0000000",
+    "name": "Screech",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7555,6 +8780,11 @@
    "for": [
     "feature:shadow-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShadowBreath00",
+    "name": "Shadow Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7610,6 +8840,11 @@
    "for": [
     "feature:shockwave-of-glory"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShockwaveOfGlo",
+    "name": "Shockwave of Glory",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7635,6 +8870,11 @@
    "for": [
     "feature:shriek"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShriek00000000",
+    "name": "Shriek",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7662,6 +8902,11 @@
    "for": [
     "feature:sickening-vapors"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSickeningVapor",
+    "name": "Sickening Vapors",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7688,6 +8933,11 @@
    "for": [
     "feature:sleep-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSleepBreath000",
+    "name": "Sleep Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7742,6 +8992,11 @@
    "for": [
     "feature:slow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSlow0000000000",
+    "name": "Slow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7767,6 +9022,11 @@
    "for": [
     "feature:slowing-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSlowingBreath0",
+    "name": "Slowing Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7822,6 +9082,11 @@
    "for": [
     "feature:spiteful-escape"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSpitefulEscape",
+    "name": "Spiteful Escape",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7847,6 +9112,11 @@
    "for": [
     "feature:steam-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSteamBreath000",
+    "name": "Steam Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7876,6 +9146,11 @@
    "for": [
     "feature:stench"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmStench00000000",
+    "name": "Stench",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7902,6 +9177,11 @@
    "for": [
     "feature:terrifying-presence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTerrifyingPres",
+    "name": "Terrifying Presence",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7927,6 +9207,11 @@
    "for": [
     "feature:thunderous-bellow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmThunderousBell",
+    "name": "Thunderous Bellow",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7961,6 +9246,11 @@
    "for": [
     "feature:toxic-ink"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmToxicInk000000",
+    "name": "Toxic Ink",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7987,6 +9277,11 @@
    "for": [
     "feature:unsettling-visage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmUnsettlingVisa",
+    "name": "Unsettling Visage",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8012,6 +9307,11 @@
    "for": [
     "feature:warping-implosion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrWarpingImp",
+    "name": "Warping Implosion",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8036,6 +9336,11 @@
    "for": [
     "feature:weakening-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWeakeningBreat",
+    "name": "Weakening Breath",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8091,6 +9396,11 @@
    "for": [
     "feature:world-shaking-movement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWorldshakingMo",
+    "name": "World-Shaking Movement",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8120,6 +9430,11 @@
    "for": [
     "feature:wrath-of-the-sea"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdWrathOfThe",
+    "name": "Wrath of the Sea",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8147,6 +9462,11 @@
    "for": [
     "feature:aquatic-charge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAquaticCharge0",
+    "name": "Aquatic Charge",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8218,6 +9538,11 @@
    "for": [
     "feature:arcane-charge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrArcaneChar",
+    "name": "Arcane Charge",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8288,6 +9613,11 @@
    "for": [
     "feature:arcane-prowl"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmArcaneProwl000",
+    "name": "Arcane Prowl",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8345,6 +9675,11 @@
    "for": [
     "feature:bewitching-magic"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkBewitching",
+    "name": "Bewitching Magic",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8402,6 +9737,11 @@
    "for": [
     "feature:bubble-dash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBubbleDash0000",
+    "name": "Bubble Dash",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8473,6 +9813,11 @@
    "for": [
     "feature:clouds-jaunt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptCloudsJaun",
+    "name": "Cloud's Jaunt",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8545,6 +9890,11 @@
    "for": [
     "feature:drop"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDrop0000000000",
+    "name": "Drop",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8605,6 +9955,11 @@
    "for": [
     "feature:fleet-step"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkFleetStep0",
+    "name": "Fleet Step",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8665,6 +10020,11 @@
    "for": [
     "feature:hellfire-orb"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHellfireOrb000",
+    "name": "Hellfire Orb",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8718,6 +10078,11 @@
    "for": [
     "feature:leap"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLeap0000000000",
+    "name": "Leap",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8778,6 +10143,11 @@
    "for": [
     "feature:misty-step"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMistyStep00000",
+    "name": "Misty Step",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8835,6 +10205,11 @@
    "for": [
     "feature:moonlight-step"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdMoonlightS",
+    "name": "Moonlight Step",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8907,6 +10282,11 @@
    "for": [
     "feature:pounce"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPounce00000000",
+    "name": "Pounce",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8968,6 +10348,11 @@
    "for": [
     "feature:shadow-step"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkShadowStep",
+    "name": "Shadow Step",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9027,6 +10412,11 @@
    "for": [
     "feature:shadowy-dodge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrShadowyDod",
+    "name": "Shadowy Dodge",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9085,6 +10475,11 @@
    "for": [
     "feature:travel-along-the-tree"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbTravelAlon",
+    "name": "Travel Along the Tree",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9144,6 +10539,11 @@
    "for": [
     "feature:tunneler"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTunneler000000",
+    "name": "Tunneler",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9216,6 +10616,11 @@
    "for": [
     "feature:warp-step"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWarpStep000000",
+    "name": "Warp Step",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9273,6 +10678,11 @@
    "for": [
     "feature:watery-rush"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWateryRush0000",
+    "name": "Watery Rush",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {

@@ -30,7 +30,7 @@ target and flies past on a miss · with the PSFX cantrips fire-bolt sound.*
 | `shipped.json` | the shipping record: one line per ship from a world (version, date, who, note, the FX and where each went); the version the repo takes at the next release | MIT |
 | `starters.json` | the abstract FX every new FX starts from (`starter:bolt`, …) | MIT |
 | `aa-assets.json` | the frozen asset table: what the migration could not point at the libraries' own paths; counted, meant to reach zero | MIT |
-| `records.json` | **the records**: every key the closed lists hold, addressed — `{uuid, name, where, on?, of?}` keyed by the key. Where a key's evidence lives, written down at the moment the key is earned (`tools/records.mjs`). No FX carries it, the engine never reads it, and the screens read it when the window opens: it is what the Library's **Record** door opens. Our own data about the installed books, not part of the migrated corpus | MIT |
+| `records.json` | **the records**: every key the closed lists hold, addressed — `{uuid, name, where, on?, of?}` keyed by the key. Where a key's evidence lives, written down at the moment the key is earned (`tools/records.mjs`). Since 2026-09-09 every keyed FX carries its own copy (`record`), stamped from this file, and this file is the **address book for the 3155 keys that have no FX yet** plus the source of every stamp and the fallback the screens read by key. The engine never reads it; the screens read it when the window opens | MIT |
 | the world setting `fx` | the live edit buffer the screens and the API write: drafts, and FX bound for a corpus (`to`) until shipped | — |
 | an item's flag `fvtt-mod-fxstudio.FX` | the item pointer: one specific item names an FX id of its own (set from the screens with "only this one"); it answers ahead of every key, and such an FX has an empty `for` | — |
 
@@ -43,6 +43,7 @@ the world buffer, then `house.json`, then the stock — later wins per FX id, an
 | --- | --- | --- |
 | `id` | yes | lower-case letters, digits and dashes; unique across the corpora. A house FX with a stock FX's id replaces it. |
 | `for` | yes (may be empty for a starter) | the subject keys it answers, see *Keys*. An FX answers the first key of a subject's list that has an FX. |
+| `record` | no, but every keyed FX in the corpora carries one | **where its key's evidence lives, on the FX**: `{uuid, name, where}` plus `on` (the creature a natural attack sits on) and `of` (how many share it). STAMPED by every writer from `records.json` at the moment it writes — never typed. It is what makes an FX file complete on its own, so it can be exported, handed to someone else and read without a second file. |
 | `on` | yes | the moment kind: `use` (an ability used — the attack roll for attacks, the damage roll for saves and heals, the template placement for areas, the card for the rest) or `effect` (an active effect created or switched on). |
 | `off` | no | `true`: this FX silences its `for` keys — they play nothing. Needs no scenes. |
 | `scenes` | yes | the pictures and sounds, in start order. Always this FX's own — see *No shortcuts* below. |

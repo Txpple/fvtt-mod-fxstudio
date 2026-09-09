@@ -12,12 +12,17 @@
 // an FX is carried at all).
 //
 //   node tools/records.mjs           # read everything, write nothing; report the coverage
-//   node tools/records.mjs --write   # also write recipes/records.json
+//   node tools/records.mjs --write   # also write recipes/records.json AND stamp every FX's record from it
+//
+// THE RECORD IS ON THE FX TOO (the user, 2026-09-09): every stock and house FX carries its own
+// {uuid, name, where}, stamped from this file by its key so an FX file is complete on its own.
+// --write re-stamps them all, which is how a newly installed book re-addresses the corpus.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { RECIPES, worldDb } from './lib/env.mjs';
 import { readActors, snapshot } from './lib/leveldb.mjs';
 import { buildLists } from './lib/migrate/keys.mjs';
 import { LIST_PACKS } from './lib/dnd5e.mjs';
+import { recordAgrees, stampRecord } from '../scripts/core/records.js';
 
 const WRITE = process.argv.slice(2).includes('--write');
 const say = (s = '') => console.log(s);
@@ -40,6 +45,18 @@ for (const f of ['spells', 'weapons', 'natural', 'features', 'items', 'effects']
 }
 for (const fx of JSON.parse(readFileSync(`${RECIPES}/house.json`, 'utf8')).fx) if (fx.for?.[0]) asked.add(fx.for[0]);
 const orphans = [...asked].filter((k) => !records[k]);
+
+// the FX that carry a record that disagrees with the evidence (or none): what --write will stamp
+const corpusFiles = [...['spells', 'weapons', 'natural', 'features', 'items', 'effects'].map((f) => `${RECIPES}/stock/${f}.json`), `${RECIPES}/house.json`];
+let stale = 0, stamped = 0;
+for (const path of corpusFiles) {
+  const j = JSON.parse(readFileSync(path, 'utf8'));
+  let changed = 0;
+  j.fx = j.fx.map((fx) => { const next = stampRecord(fx, records); if (JSON.stringify(next) !== JSON.stringify(fx)) changed++; return next; });
+  stale += changed;
+  if (WRITE && changed) { writeFileSync(path, JSON.stringify(j, null, 1)); stamped += changed; }
+}
+say(stale ? `${stale} FX carry no record, or one that disagrees with the evidence${WRITE ? ` — stamped ${stamped}` : ' (--write stamps them)'}` : 'every FX carries the record the evidence says');
 say(`the corpus answers ${asked.size} keys — ${asked.size - orphans.length} of them have a record${orphans.length ? `, ${orphans.length} do not` : ', every one'}`);
 if (orphans.length) say(`  ${orphans.join(', ')}`);
 

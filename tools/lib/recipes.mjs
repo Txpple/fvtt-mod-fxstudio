@@ -27,7 +27,8 @@ export function readRecipes() {
   const house = readJson(join(RECIPES, 'house.json'))?.fx ?? [];
   const starters = readJson(join(RECIPES, 'starters.json'))?.fx ?? [];
   const frozen = readJson(join(RECIPES, 'aa-assets.json'));
-  return { stock, house, starters, frozen, files };
+  const records = readJson(join(RECIPES, 'records.json'))?.records ?? {};
+  return { stock, house, starters, frozen, records, files };
 }
 
 /** the corpus index over the recipes (plus `world` fx when given: the buffer, or a file under test) */

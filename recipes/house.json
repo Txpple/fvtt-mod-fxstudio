@@ -76,6 +76,11 @@
    "for": [
     "weapon:vesper-staff"
    ],
+   "record": {
+    "uuid": "Actor.5P55min0Wz0isz1O.Item.wsXo3abWHZrcTdq2",
+    "name": "Vesper Staff",
+    "where": "this world · Harrow Vane"
+   },
    "on": "use",
    "scenes": [
     {
@@ -103,6 +108,11 @@
    "for": [
     "natural:necrotic-scythe"
    ],
+   "record": {
+    "uuid": "Actor.oOWorLH5BJ7lQfmE.Item.mmNecroticSword0",
+    "name": "Necrotic Scythe",
+    "where": "this world · Cadoc, the Guardian"
+   },
    "on": "use",
    "scenes": [
     {

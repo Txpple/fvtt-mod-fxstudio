@@ -3,6 +3,7 @@
 // back as a sentence, previews it on chosen tokens, saves it to the world buffer with provenance,
 // and asks what plays nothing. The screens (phase 3) are built on this, so it is always complete.
 import { sentence, validate, provenance } from './core/fx.js';
+import { stampRecord } from './core/records.js';
 import { LAYER_WORDS, allFx, fxFor, resolve } from './core/corpus.js';
 import { keyLabel, keysFor, keyWords } from './core/subjects.js';
 import { build, ledger, play, resolveMoment } from './engine/render.js';
@@ -16,6 +17,20 @@ import { TO_WORDS, stockFile, nextVersions, pending, ship, stage, erase } from '
  */
 export function makeApi(state) {
   const sameFx = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+  // THE RECORDS (recipes/records.json): where every key's evidence lives. Read once, lazily — when
+  // a screen opens or an FX is saved — and never by the engine, which plays without it. It is the
+  // source every stamp is taken from (core/records.js) and the fallback the screens read by key.
+  let records = null;
+  let reading = null;
+  const readRecords = () => {
+    if (records) return Promise.resolve(true);
+    reading ??= fetch(`modules/${MODULE_ID}/recipes/records.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`${r.status}`))))
+      .then((j) => { records = j.records ?? {}; return true; })
+      .catch((e) => { console.warn('FX Studio | no records file, so no row can open one:', e.message); records = {}; return false; });
+    return reading;
+  };
   const lookup = (id) => state.index.byId.get(id)?.fx ?? state.index.starters.get(id) ?? null;
   const copy = (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v)));
 
@@ -47,7 +62,9 @@ export function makeApi(state) {
     save: async (fx, { by = null, note = null, to = undefined } = {}) => {
       const problems = validate(fx);
       if (problems.length) return { ok: false, problems, fx };
-      const stamped = { ...fx, by: by ?? fx.by ?? game.user?.name ?? 'someone', at: fx.at ?? new Date().toISOString().slice(0, 10) };
+      // the record is stamped from this install's address book by the FX's key, never typed (core/records.js)
+      await readRecords();
+      const stamped = stampRecord({ ...fx, by: by ?? fx.by ?? game.user?.name ?? 'someone', at: fx.at ?? new Date().toISOString().slice(0, 10) }, records);
       if (note) stamped.note = note;
       if (to) stamped.to = to; else if (to === null) delete stamped.to;
       if (stamped.to === 'stock' && !stockFile(stamped)) return { ok: false, problems: ['an Item Hook (no ability key) can be staged for House, not Stock'], fx };
@@ -215,5 +232,7 @@ export function makeApi(state) {
     play: (moment, opts) => play(state.index, moment, opts),
     read: { message: readMessage, region: readRegion, effect: readEffect },
     rebuild: () => state.rebuild(),
+    /** the records: read once (resolves true when the map is here), the map as it is, and whether it is here */
+    records: { read: readRecords, map: () => records, ready: () => !!records },
   };
 }

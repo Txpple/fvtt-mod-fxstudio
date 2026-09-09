@@ -10,7 +10,7 @@
 import { MODULE_ID } from '../settings.js';
 import { assetsOf } from '../core/fx.js';
 import { esc, idWords } from './html.js';
-import { nameForKey } from './records.js';
+import { nameForKey, nameOf } from './records.js';
 import { leaveSheet, openSheet } from './sheet.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -29,7 +29,7 @@ function usedPaths(a) {
   const used = new Map();
   for (const { fx } of a.fx.list()) {
     if (fx.off) continue;
-    const name = fx.for?.[0] ? nameForKey(fx.for[0]) : idWords(fx.id);
+    const name = nameOf(fx, idWords(fx.id));
     for (const scene of fx.scenes ?? []) {
       for (const { asset } of assetsOf(scene)) {
         const paths = typeof asset === 'string' ? [asset] : asset?.paths ?? (asset?.path ? [asset.path] : asset?.family ? [asset.family] : []);

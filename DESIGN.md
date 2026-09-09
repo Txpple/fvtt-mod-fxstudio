@@ -1675,3 +1675,60 @@ Ray Of Frost → Ray of Frost     Antipathy Sympathy → Antipathy/Sympathy
 
 An `effect:` key is the one exception and keeps its own id: its record is the spell that *applies*
 the effect, so the record says Bless where the FX is Blessed.
+
+## 20. An FX file is complete on its own (the user's ruling, 2026-09-09)
+
+> *"i have an issue with the file format. i believe you put the source compendium/item info in a
+> separate look up file, not in the json. so for example misty step's reference that its from phb
+> is in a diff file right?"*
+>
+> *"i think thats best. every fx file should be completely isolateable, because multiple people may
+> be working on fx at any given time, less risk of data loss, and IMPORT/EXPORT of fx functionality
+> requires it."*
+
+They were right about the shape and right about why. §15 put the address in `records.json` keyed by
+the key, so a stock FX carried only `for: ["spell:misty-step"]` and some scenes. Exported, handed to
+someone else, or opened in a diff, it did not say what it was for — the meaning lived in a lookup
+table beside the data, which is the smell §0 exists to keep out.
+
+### The record is on the FX
+
+```json
+{ "id": "misty-step",
+  "for": ["spell:misty-step"],
+  "record": { "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMistyStep0",
+              "name": "Misty Step", "where": "Player's Handbook · Spells" },
+  "on": "use", "scenes": [ … ] }
+```
+
+`{uuid, name, where}`, plus `on` and `of` where they mean something — the same five fields §15
+settled, now written where the FX is. **1024 of 1024 keyed FX carry one**; an Item Hook has no key,
+so it carries none, and its Record door still opens the item its pointer names.
+
+### It is stamped, never typed
+
+`core/records.js` is the whole rule, and it is pure: `stampRecord(fx, records)` puts the record on
+by the FX's first key, `recordOf(fx, records)` reads it back, `recordAgrees` is the drift check.
+Every writer stamps — the migration as it builds each row, `api.fx.save` on every save (so an FX
+written in the game, imported from a file, or handed over by an assistant is stamped on the way in),
+and `tools/records.mjs --write` re-stamps the whole corpus, which is how a newly installed book
+re-addresses it in one run. Nobody types a uuid.
+
+### Why records.json stays
+
+Two jobs only it can do. It is the **address book for the 3155 keys that have no FX yet** (§21's
+gap analysis reads it, and so does Coverage) — there is no FX there to carry anything. And it is the
+**source every stamp is taken from**, so the corpus cannot drift from the evidence: `check-fx`
+fails an FX whose record disagrees, and `records.mjs` without `--write` says how many would change.
+
+### And why the screens still fall back to it
+
+A uuid is evidence **at this install**. An FX from a table that holds Misty Step only in the SRD
+pack carries their uuid, which resolves to nothing here — but the key still resolves. So
+`recordOf(fx)` reads the FX's own record first and falls back to `records.json` by key, and a
+foreign FX opens the right door anyway. That is the half that makes import actually work, rather
+than only look like it does.
+
+`nameOf(fx)` joins `nameForKey(key)` from §19 as the second half of the same answer: the screens
+that have an FX in hand (the Library, Assets, Corpus) read its own record; the screens that have
+only a key (the Editor on a new ability, Coverage) read the address book. One name, two doors in.

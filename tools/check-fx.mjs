@@ -12,6 +12,7 @@ import { existsSync } from 'node:fs';
 import { ROOTS } from './lib/env.mjs';
 import { readFxFile, readRecipes, useLibraries } from './lib/recipes.mjs';
 import { assetsOf, sentence, validate } from '../scripts/core/fx.js';
+import { recordAgrees } from '../scripts/core/records.js';
 import { resolveAsset } from '../scripts/engine/assets.js';
 
 const args = process.argv.slice(2);
@@ -25,13 +26,18 @@ const known = new Set(recipes.frozen?.meta?.missingFiles ?? []); // files AA's t
 const sets = file ? [['file', readFxFile(file)]] : [['stock', recipes.stock], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
 
 const problems = [];
-const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0 };
+const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0, unrecorded: 0 };
 for (const [source, list] of sets) {
   for (const fx of list) {
     counts.fx++;
     const where = `${source} "${fx?.id}"`;
     const errs = validate(fx);
     if (errs.length) { counts.invalid++; problems.push(`${where}: ${errs.join('; ')}`); continue; }
+    // every keyed FX in the corpora carries the record the evidence says (core/records.js); a file under test may not, and is told
+    if (source !== 'starters' && fx.for?.[0] && recipes.records[fx.for[0]] && !recordAgrees(fx, recipes.records)) {
+      counts.unrecorded++;
+      problems.push(`${where}: ${fx.record ? 'its record disagrees with' : 'carries no record; the evidence is'} ${recipes.records[fx.for[0]].where} · ${recipes.records[fx.for[0]].name}${source === 'file' ? ' (saving it stamps the record)' : ' (node tools/records.mjs --write stamps it)'}`);
+    }
     if (fx.off) { counts.off++; continue; }
     for (const scene of fx.scenes ?? []) {
       counts.scenes++;

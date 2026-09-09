@@ -10,24 +10,23 @@
 // the module ships. Read once per session; a row renders greyed until it arrives.
 import { MODULE_ID } from '../settings.js';
 import { idWords } from './html.js';
+import { recordOf as recordOfFx } from '../core/records.js';
 
-let records = null;
-let reading = null;
+const api = () => game.modules.get(MODULE_ID).api;
 
-/** read recipes/records.json once; resolves true when the map is here, false when it is not */
-export function readRecords() {
-  if (records) return Promise.resolve(true);
-  reading ??= fetch(`modules/${MODULE_ID}/recipes/records.json`)
-    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`${r.status}`))))
-    .then((j) => { records = j.records ?? {}; return true; })
-    .catch((e) => { console.warn('FX Studio | no records file, so no row can open one:', e.message); records = {}; return false; });
-  return reading;
-}
+/** read recipes/records.json once (the API holds it); resolves true when the map is here */
+export const readRecords = () => api().records.read();
+export const recordsRead = () => api().records.ready();
 
-export const recordsRead = () => !!records;
+/** the record a key's evidence lives in, from the address book: {uuid, name, where, on?, of?}, or null */
+export const recordFor = (key) => (key && api().records.map()?.[key]) || null;
 
-/** the record a key's evidence lives in: {uuid, name, where, on?, of?}, or null */
-export const recordFor = (key) => (key && records?.[key]) || null;
+/**
+ * THE RECORD AN FX STANDS ON — its own first (every FX carries one since 2026-09-09, stamped at
+ * every write; core/records.js), then the address book by its key, so an FX brought in from
+ * another table still opens the right door here.
+ */
+export const recordOf = (fx) => recordOfFx(fx, api().records.map());
 
 /**
  * WHAT AN FX IS CALLED — the record's own name, spelled as the book spells it (the user,
@@ -48,6 +47,16 @@ export function nameForKey(key, fallback = null) {
   const own = idWords((id ?? '').split('/')[0]);
   if (kind === 'effect') return own;
   return recordFor(key)?.name ?? fallback ?? own;
+}
+
+/** what an FX is called — nameForKey's answer, read from the FX's own record first */
+export function nameOf(fx, fallback = null) {
+  const key = fx?.for?.[0];
+  if (!key) return fallback ?? (fx?.id ? idWords(fx.id) : 'the FX');
+  const [kind, id] = String(key).split(':');
+  const own = idWords((id ?? '').split('/')[0]);
+  if (kind === 'effect') return own;
+  return fx.record?.name ?? recordFor(key)?.name ?? fallback ?? own;
 }
 
 /**

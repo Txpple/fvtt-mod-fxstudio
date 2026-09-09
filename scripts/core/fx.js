@@ -44,6 +44,7 @@
 
 import { WHEN, WHEN_WORDS } from './moments.js';
 import { isKey } from './subjects.js';
+import { recordProblems } from './records.js';
 
 export const SCHEMA_VERSION = 2;
 export const SHAPES = ['strike', 'shoot', 'mark', 'fill', 'aura', 'beam', 'move', 'sound', 'custom'];
@@ -184,6 +185,7 @@ export function validate(fx) {
   if (fx.to !== undefined && !TO.includes(fx.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus a draft is staged for)`);
   if (fx.off) {
     if (!fx.for?.length) out.push('an "off" fx needs the keys it silences in "for"');
+    out.push(...recordProblems(fx.record));
     return out;
   }
   if (fx.on === undefined) out.push('says nothing about when it plays ("on")');
@@ -194,7 +196,9 @@ export function validate(fx) {
   if (fx.with !== undefined) out.push('"with" is not part of the grammar: state the change on the scene it belongs to.');
   if (Array.isArray(fx.scenes)) fx.scenes.forEach((s, i) => out.push(...sceneProblems(s, i, fx)));
   // "like" and "with" are named above in their own sentence; they are not just unknown words
-  for (const k of Object.keys(fx)) if (!['id', 'for', 'on', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source', 'like', 'with'].includes(k)) out.push(`an FX does not have a "${k}"`);
+  // the record it stands on (core/records.js): stamped by every writer, read by the screens, never by the engine
+  out.push(...recordProblems(fx.record));
+  for (const k of Object.keys(fx)) if (!['id', 'for', 'record', 'on', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source', 'like', 'with'].includes(k)) out.push(`an FX does not have a "${k}"`);
   return out;
 }
 

@@ -26,6 +26,11 @@
    "for": [
     "spell:flame-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFlameBlade",
+    "name": "Flame Blade",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -55,6 +60,11 @@
    "for": [
     "spell:light"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLight00000",
+    "name": "Light",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -79,6 +89,11 @@
    "for": [
     "spell:mass-heal"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMassHeal00",
+    "name": "Mass Heal",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -122,6 +137,11 @@
    "for": [
     "spell:delayed-blast-fireball"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDelayedBla",
+    "name": "Delayed Blast Fireball",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -175,6 +195,11 @@
    "for": [
     "spell:fireball"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFireball00",
+    "name": "Fireball",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -233,6 +258,11 @@
    "for": [
     "spell:sleep"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSleep00000",
+    "name": "Sleep",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -284,6 +314,11 @@
    "for": [
     "spell:teleport"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTeleport00",
+    "name": "Teleport",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -344,6 +379,11 @@
    "for": [
     "spell:thunderclap"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplThundercla",
+    "name": "Thunderclap",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -386,6 +426,11 @@
    "for": [
     "spell:thunderwave"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplThunderwav",
+    "name": "Thunderwave",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -426,6 +471,11 @@
    "for": [
     "spell:witch-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWitchBolt0",
+    "name": "Witch Bolt",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -453,6 +503,11 @@
    "for": [
     "spell:acid-arrow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplMelfsAcidA",
+    "name": "Acid Arrow",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -495,6 +550,11 @@
    "for": [
     "spell:antipathy-sympathy"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntipathyS",
+    "name": "Antipathy/Sympathy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -533,6 +593,11 @@
    "for": [
     "spell:befuddlement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBefuddleme",
+    "name": "Befuddlement",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -573,6 +638,11 @@
    "for": [
     "spell:call-lightning"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCallLightn",
+    "name": "Call Lightning",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -595,6 +665,11 @@
    "for": [
     "spell:chain-lightning"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplChainLight",
+    "name": "Chain Lightning",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -616,6 +691,11 @@
    "for": [
     "spell:chromatic-orb"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplChromaticO",
+    "name": "Chromatic Orb",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -678,6 +758,11 @@
    "for": [
     "spell:contagion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -730,6 +815,11 @@
    "for": [
     "spell:cordon-of-arrows"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCordonofAr",
+    "name": "Cordon of Arrows",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -753,6 +843,11 @@
    "for": [
     "spell:disintegrate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDisintegra",
+    "name": "Disintegrate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -780,6 +875,11 @@
    "for": [
     "spell:eldritch-blast"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEldritchBl",
+    "name": "Eldritch Blast",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -801,6 +901,11 @@
    "for": [
     "spell:finger-of-death"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFingerofDe",
+    "name": "Finger of Death",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -838,6 +943,11 @@
    "for": [
     "spell:fire-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFireBolt00",
+    "name": "Fire Bolt",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -859,6 +969,11 @@
    "for": [
     "spell:guiding-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidingBol",
+    "name": "Guiding Bolt",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -897,6 +1012,11 @@
    "for": [
     "spell:holy-star-of-mystra"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofHolyStarofMys",
+    "name": "Holy Star of Mystra",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -920,6 +1040,11 @@
    "for": [
     "spell:ice-knife"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIceKnife00",
+    "name": "Ice Knife",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -961,6 +1086,11 @@
    "for": [
     "spell:magic-missile"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicMissi",
+    "name": "Magic Missile",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -987,6 +1117,11 @@
    "for": [
     "spell:maze"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMaze000000",
+    "name": "Maze",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1024,6 +1159,11 @@
    "for": [
     "spell:message"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMessage000",
+    "name": "Message",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1050,6 +1190,11 @@
    "for": [
     "spell:mind-sliver"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindSliver",
+    "name": "Mind Sliver",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1076,6 +1221,11 @@
    "for": [
     "spell:mind-spike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindSpike0",
+    "name": "Mind Spike",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1098,6 +1248,11 @@
    "for": [
     "spell:modify-memory"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplModifyMemo",
+    "name": "Modify Memory",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1147,6 +1302,11 @@
    "for": [
     "spell:planar-binding"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPlanarBind",
+    "name": "Planar Binding",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1196,6 +1356,11 @@
    "for": [
     "spell:poison-spray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPoisonSpra",
+    "name": "Poison Spray",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1218,6 +1383,11 @@
    "for": [
     "spell:produce-flame"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplProduceFla",
+    "name": "Produce Flame",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1259,6 +1429,11 @@
    "for": [
     "spell:ray-of-enfeeblement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofEnfee",
+    "name": "Ray of Enfeeblement",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1280,6 +1455,11 @@
    "for": [
     "spell:ray-of-frost"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofFrost",
+    "name": "Ray of Frost",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1301,6 +1481,11 @@
    "for": [
     "spell:ray-of-sickness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofSickn",
+    "name": "Ray of Sickness",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1323,6 +1508,11 @@
    "for": [
     "spell:scorching-ray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplScorchingR",
+    "name": "Scorching Ray",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1344,6 +1534,11 @@
    "for": [
     "spell:shocking-grasp"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShockingGr",
+    "name": "Shocking Grasp",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1365,6 +1560,11 @@
    "for": [
     "spell:sorcerous-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSorcerousB",
+    "name": "Sorcerous Burst",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1386,6 +1586,11 @@
    "for": [
     "spell:spellfire-flare"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSpellfireFlar",
+    "name": "Spellfire Flare",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1407,6 +1612,11 @@
    "for": [
     "spell:starry-wisp"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStarryWisp",
+    "name": "Starry Wisp",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1443,6 +1653,11 @@
    "for": [
     "spell:telepathic-bond"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplRarysTelep",
+    "name": "Telepathic Bond",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1473,6 +1688,11 @@
    "for": [
     "spell:wardaway"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofWardaway00000",
+    "name": "Wardaway",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1496,6 +1716,11 @@
    "for": [
     "spell:web"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWeb0000000",
+    "name": "Web",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1540,6 +1765,11 @@
    "for": [
     "spell:aid"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1562,6 +1792,11 @@
    "for": [
     "spell:alter-self"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAlterSelf0",
+    "name": "Alter Self",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1584,6 +1819,11 @@
    "for": [
     "spell:animal-friendship"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimalFrie",
+    "name": "Animal Friendship",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1626,6 +1866,11 @@
    "for": [
     "spell:animal-messenger"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimalMess",
+    "name": "Animal Messenger",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1648,6 +1893,11 @@
    "for": [
     "spell:animal-shapes"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimalShap",
+    "name": "Animal Shapes",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1684,6 +1934,11 @@
    "for": [
     "spell:animate-dead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimateDea",
+    "name": "Animate Dead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1724,6 +1979,11 @@
    "for": [
     "spell:animate-objects"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimateObj",
+    "name": "Animate Objects",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1764,6 +2024,11 @@
    "for": [
     "spell:arcane-eye"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArcaneEye0",
+    "name": "Arcane Eye",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1812,6 +2077,11 @@
    "for": [
     "spell:arcane-gate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbArcaneGate000",
+    "name": "Arcane Gate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1869,6 +2139,11 @@
    "for": [
     "spell:arcane-hand"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplBigbysHand",
+    "name": "Arcane Hand",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1928,6 +2203,11 @@
    "for": [
     "spell:arcane-lock"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArcaneLock",
+    "name": "Arcane Lock",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1951,6 +2231,11 @@
    "for": [
     "spell:arcane-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbswdMordenkain",
+    "name": "Arcane Sword",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1976,6 +2261,11 @@
    "for": [
     "spell:arcane-vigor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArcaneVigo",
+    "name": "Arcane Vigor",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2019,6 +2309,11 @@
    "for": [
     "spell:armor-of-agathys"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArmorofAga",
+    "name": "Armor of Agathys",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2058,6 +2353,11 @@
    "for": [
     "spell:arms-of-hadar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArmsofHada",
+    "name": "Arms of Hadar",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2084,6 +2384,11 @@
    "for": [
     "spell:astral-projection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAstralProj",
+    "name": "Astral Projection",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2124,6 +2429,11 @@
    "for": [
     "spell:augury"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAugury0000",
+    "name": "Augury",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2146,6 +2456,11 @@
    "for": [
     "spell:awaken"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAwaken0000",
+    "name": "Awaken",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2190,6 +2505,11 @@
    "for": [
     "spell:backlash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBacklash00000",
+    "name": "Backlash",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2250,6 +2570,11 @@
    "for": [
     "spell:bane"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBane000000",
+    "name": "Bane",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2273,6 +2598,11 @@
    "for": [
     "spell:banishment"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBanishment",
+    "name": "Banishment",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2314,6 +2644,11 @@
    "for": [
     "spell:beacon-of-hope"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBeaconofHo",
+    "name": "Beacon of Hope",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2335,6 +2670,11 @@
    "for": [
     "spell:beast-sense"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBeastSense",
+    "name": "Beast Sense",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2356,6 +2696,11 @@
    "for": [
     "spell:bestow-curse"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2379,6 +2724,11 @@
    "for": [
     "spell:bigbys-hand"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBigbysHand",
+    "name": "Bigby's Hand",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2438,6 +2788,11 @@
    "for": [
     "spell:blade-barrier"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBladeBarri",
+    "name": "Blade Barrier",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2474,6 +2829,11 @@
    "for": [
     "spell:blade-of-disaster"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBladeofDisast",
+    "name": "Blade of Disaster",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2513,6 +2873,11 @@
    "for": [
     "spell:blade-ward"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBladeWard0",
+    "name": "Blade Ward",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2537,6 +2902,11 @@
    "for": [
     "spell:bless"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBless00000",
+    "name": "Bless",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2560,6 +2930,11 @@
    "for": [
     "spell:blight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlight0000",
+    "name": "Blight",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2582,6 +2957,11 @@
    "for": [
     "spell:blindness-deafness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlindnessD",
+    "name": "Blindness/Deafness",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2605,6 +2985,11 @@
    "for": [
     "spell:blink"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlink00000",
+    "name": "Blink",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2628,6 +3013,11 @@
    "for": [
     "spell:charm-monster"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCharmMonst",
+    "name": "Charm Monster",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2671,6 +3061,11 @@
    "for": [
     "spell:charm-person"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCharmPerso",
+    "name": "Charm Person",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2714,6 +3109,11 @@
    "for": [
     "spell:chill-touch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplChillTouch",
+    "name": "Chill Touch",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2739,6 +3139,11 @@
    "for": [
     "spell:circle-of-power"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCircleofPo",
+    "name": "Circle of Power",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2775,6 +3180,11 @@
    "for": [
     "spell:clairvoyance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplClairvoyan",
+    "name": "Clairvoyance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2820,6 +3230,11 @@
    "for": [
     "spell:clone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplClone00000",
+    "name": "Clone",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2879,6 +3294,11 @@
    "for": [
     "spell:command"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCommand000",
+    "name": "Command",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2901,6 +3321,11 @@
    "for": [
     "spell:commune"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCommune000",
+    "name": "Commune",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2941,6 +3366,11 @@
    "for": [
     "spell:commune-with-nature"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCommunewit",
+    "name": "Commune with Nature",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2986,6 +3416,11 @@
    "for": [
     "spell:compelled-duel"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCompelledD",
+    "name": "Compelled Duel",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3028,6 +3463,11 @@
    "for": [
     "spell:comprehend-languages"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplComprehend",
+    "name": "Comprehend Languages",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3050,6 +3490,11 @@
    "for": [
     "spell:compulsion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCompulsion",
+    "name": "Compulsion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3085,6 +3530,11 @@
    "for": [
     "spell:confusion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConfusion0",
+    "name": "Confusion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3107,6 +3557,11 @@
    "for": [
     "spell:conjure-animals"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureAni",
+    "name": "Conjure Animals",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3129,6 +3584,11 @@
    "for": [
     "spell:conjure-constructs"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofConjureConstr",
+    "name": "Conjure Constructs",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3151,6 +3611,11 @@
    "for": [
     "spell:conjure-elemental"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureEle",
+    "name": "Conjure Elemental",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3176,6 +3641,11 @@
    "for": [
     "spell:conjure-fey"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureFey",
+    "name": "Conjure Fey",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3201,6 +3671,11 @@
    "for": [
     "spell:contact-other-plane"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContactOth",
+    "name": "Contact Other Plane",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3260,6 +3735,11 @@
    "for": [
     "spell:contingency"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContingenc",
+    "name": "Contingency",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3310,6 +3790,11 @@
    "for": [
     "spell:continual-flame"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContinualF",
+    "name": "Continual Flame",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3331,6 +3816,11 @@
    "for": [
     "spell:control-weather"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplControlWea",
+    "name": "Control Weather",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3378,6 +3868,11 @@
    "for": [
     "spell:counterspell"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCounterspe",
+    "name": "Counterspell",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3402,6 +3897,11 @@
    "for": [
     "spell:create-food-and-water"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCreateFood",
+    "name": "Create Food and Water",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3424,6 +3924,11 @@
    "for": [
     "spell:create-undead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCreateUnde",
+    "name": "Create Undead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3475,6 +3980,11 @@
    "for": [
     "spell:cure-wounds"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCureWounds",
+    "name": "Cure Wounds",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3499,6 +4009,11 @@
    "for": [
     "spell:dancing-lights"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDancingLig",
+    "name": "Dancing Lights",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3521,6 +4036,11 @@
    "for": [
     "spell:darkvision"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDarkvision",
+    "name": "Darkvision",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3547,6 +4067,11 @@
    "for": [
     "spell:death-armor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDeathArmor000",
+    "name": "Death Armor",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3571,6 +4096,11 @@
    "for": [
     "spell:death-ward"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDeathWard0",
+    "name": "Death Ward",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3600,6 +4130,11 @@
    "for": [
     "spell:demiplane"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDemiplane0",
+    "name": "Demiplane",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3656,6 +4191,11 @@
    "for": [
     "spell:helpful-homunculi"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDeryansHelpfu",
+    "name": "Deryan's Helpful Homunculi",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3679,6 +4219,11 @@
    "for": [
     "spell:deryans-helpful-homunculi"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDeryansHelpfu",
+    "name": "Deryan's Helpful Homunculi",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3702,6 +4247,11 @@
    "for": [
     "spell:detect-thoughts"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDetectThou",
+    "name": "Detect Thoughts",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3724,6 +4274,11 @@
    "for": [
     "spell:disguise-self"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDisguiseSe",
+    "name": "Disguise Self",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3746,6 +4301,11 @@
    "for": [
     "spell:dispel-evil-and-good"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDispelEvil",
+    "name": "Dispel Evil and Good",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3783,6 +4343,11 @@
    "for": [
     "spell:dispel-magic"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDispelMagi",
+    "name": "Dispel Magic",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3807,6 +4372,11 @@
    "for": [
     "spell:dissonant-whispers"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDissonantW",
+    "name": "Dissonant Whispers",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3851,6 +4421,11 @@
    "for": [
     "spell:divination"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivination",
+    "name": "Divination",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3897,6 +4472,11 @@
    "for": [
     "spell:divine-favor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineFavo",
+    "name": "Divine Favor",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3919,6 +4499,11 @@
    "for": [
     "spell:divine-smite"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineSmit",
+    "name": "Divine Smite",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3941,6 +4526,11 @@
    "for": [
     "spell:divine-word"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
+    "name": "Divine Word",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4007,6 +4597,11 @@
    "for": [
     "spell:dominate-beast"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDominateBe",
+    "name": "Dominate Beast",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4048,6 +4643,11 @@
    "for": [
     "spell:dominate-monster"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDominateMo",
+    "name": "Dominate Monster",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4101,6 +4701,11 @@
    "for": [
     "spell:dominate-person"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDominatePe",
+    "name": "Dominate Person",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4142,6 +4747,11 @@
    "for": [
     "spell:dream"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDream00000",
+    "name": "Dream",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4182,6 +4792,11 @@
    "for": [
     "spell:druidcraft"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDruidcraft",
+    "name": "Druidcraft",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4208,6 +4823,11 @@
    "for": [
     "spell:earthquake"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEarthquake",
+    "name": "Earthquake",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4250,6 +4870,11 @@
    "for": [
     "spell:elemental-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4271,6 +4896,11 @@
    "for": [
     "spell:effulgent-spheres"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersEff",
+    "name": "Elminster's Effulgent Spheres",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4296,6 +4926,11 @@
    "for": [
     "spell:elminsters-effulgent-spheres"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersEff",
+    "name": "Elminster's Effulgent Spheres",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4321,6 +4956,11 @@
    "for": [
     "spell:enhance-ability"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
+    "name": "Enhance Ability",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4361,6 +5001,11 @@
    "for": [
     "spell:enlarge-reduce"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnlargeRed",
+    "name": "Enlarge/Reduce",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4385,6 +5030,11 @@
    "for": [
     "spell:ensnaring-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnsnaringS",
+    "name": "Ensnaring Strike",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4412,6 +5062,11 @@
    "for": [
     "spell:enthrall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnthrall00",
+    "name": "Enthrall",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4450,6 +5105,11 @@
    "for": [
     "spell:etherealness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEtherealne",
+    "name": "Etherealness",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4486,6 +5146,11 @@
    "for": [
     "spell:expeditious-retreat"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplExpeditiou",
+    "name": "Expeditious Retreat",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4528,6 +5193,11 @@
    "for": [
     "spell:eyebite"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEyebite000",
+    "name": "Eyebite",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4575,6 +5245,11 @@
    "for": [
     "spell:fabricate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFabricate0",
+    "name": "Fabricate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4624,6 +5299,11 @@
    "for": [
     "spell:faithful-hound"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbFaithfulHound",
+    "name": "Faithful Hound",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4666,6 +5346,11 @@
    "for": [
     "spell:false-life"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFalseLife0",
+    "name": "False Life",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4688,6 +5373,11 @@
    "for": [
     "spell:feather-fall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFeatherFal",
+    "name": "Feather Fall",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4728,6 +5418,11 @@
    "for": [
     "spell:feign-death"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFeignDeath",
+    "name": "Feign Death",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4766,6 +5461,11 @@
    "for": [
     "spell:find-familiar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFindFamili",
+    "name": "Find Familiar",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4789,6 +5489,11 @@
    "for": [
     "spell:find-steed"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFindSteed0",
+    "name": "Find Steed",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4812,6 +5517,11 @@
    "for": [
     "spell:find-the-path"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFindthePat",
+    "name": "Find the Path",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4837,6 +5547,11 @@
    "for": [
     "spell:find-traps"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFindTraps0",
+    "name": "Find Traps",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4876,6 +5591,11 @@
    "for": [
     "spell:fire-storm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFireStorm0",
+    "name": "Fire Storm",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4915,6 +5635,11 @@
    "for": [
     "spell:flesh-to-stone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFleshtoSto",
+    "name": "Flesh to Stone",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4959,6 +5684,11 @@
    "for": [
     "spell:tensers-floating-disk"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTensersFlo",
+    "name": "Tenser's Floating Disk",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4982,6 +5712,11 @@
    "for": [
     "spell:floating-disk"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplTensersFlo",
+    "name": "Floating Disk",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5005,6 +5740,11 @@
    "for": [
     "spell:fly"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFly0000000",
+    "name": "Fly",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5049,6 +5789,11 @@
    "for": [
     "spell:forbiddance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplForbiddanc",
+    "name": "Forbiddance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5100,6 +5845,11 @@
    "for": [
     "spell:forcecage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplForcecage0",
+    "name": "Forcecage",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5137,6 +5887,11 @@
    "for": [
     "spell:foresight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplForesight0",
+    "name": "Foresight",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5187,6 +5942,11 @@
    "for": [
     "spell:freedom-of-movement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFreedomofM",
+    "name": "Freedom of Movement",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5224,6 +5984,11 @@
    "for": [
     "spell:friends"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFriends000",
+    "name": "Friends",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5249,6 +6014,11 @@
    "for": [
     "spell:gaseous-form"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGaseousFor",
+    "name": "Gaseous Form",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5270,6 +6040,11 @@
    "for": [
     "spell:gate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGate000000",
+    "name": "Gate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5326,6 +6101,11 @@
    "for": [
     "spell:geas"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGeas000000",
+    "name": "Geas",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5379,6 +6159,11 @@
    "for": [
     "spell:gentle-repose"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGentleRepo",
+    "name": "Gentle Repose",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5401,6 +6186,11 @@
    "for": [
     "spell:giant-insect"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGiantInsec",
+    "name": "Giant Insect",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5439,6 +6229,11 @@
    "for": [
     "spell:glibness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGlibness00",
+    "name": "Glibness",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5477,6 +6272,11 @@
    "for": [
     "spell:glyph-of-warding"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGlyphofWar",
+    "name": "Glyph of Warding",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5501,6 +6301,11 @@
    "for": [
     "spell:goodberry"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGoodberry0",
+    "name": "Goodberry",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5524,6 +6329,11 @@
    "for": [
     "spell:grasping-vine"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGraspingVi",
+    "name": "Grasping Vine",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5585,6 +6395,11 @@
    "for": [
     "spell:greater-invisibility"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGreaterInv",
+    "name": "Greater Invisibility",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5609,6 +6424,11 @@
    "for": [
     "spell:greater-restoration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGreaterRes",
+    "name": "Greater Restoration",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5652,6 +6472,11 @@
    "for": [
     "spell:guardian-of-faith"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuardianof",
+    "name": "Guardian of Faith",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5688,6 +6513,11 @@
    "for": [
     "spell:guards-and-wards"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuardsandW",
+    "name": "Guards and Wards",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5739,6 +6569,11 @@
    "for": [
     "spell:guidance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5782,6 +6617,11 @@
    "for": [
     "spell:hail-of-thorns"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHailofThor",
+    "name": "Hail of Thorns",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5805,6 +6645,11 @@
    "for": [
     "spell:harm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHarm000000",
+    "name": "Harm",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5855,6 +6700,11 @@
    "for": [
     "spell:haste"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHaste00000",
+    "name": "Haste",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5877,6 +6727,11 @@
    "for": [
     "spell:healing-word"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHealingWor",
+    "name": "Healing Word",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5901,6 +6756,11 @@
    "for": [
     "spell:heat-metal"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeatMetal0",
+    "name": "Heat Metal",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5933,6 +6793,11 @@
    "for": [
     "spell:hellish-rebuke"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHellishReb",
+    "name": "Hellish Rebuke",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -5956,6 +6821,11 @@
    "for": [
     "spell:heroes-feast"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeroesFeas",
+    "name": "Heroes' Feast",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6004,6 +6874,11 @@
    "for": [
     "spell:heroism"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeroism000",
+    "name": "Heroism",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6044,6 +6919,11 @@
    "for": [
     "spell:hex"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6067,6 +6947,11 @@
    "for": [
     "spell:hideous-laughter"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplTashasHide",
+    "name": "Hideous Laughter",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6089,6 +6974,11 @@
    "for": [
     "spell:hold-monster"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHoldMonste",
+    "name": "Hold Monster",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6133,6 +7023,11 @@
    "for": [
     "spell:hold-person"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHoldPerson",
+    "name": "Hold Person",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6174,6 +7069,11 @@
    "for": [
     "spell:hunger-of-hadar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHungerofHa",
+    "name": "Hunger of Hadar",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6200,6 +7100,11 @@
    "for": [
     "spell:hunters-mark"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHuntersMar",
+    "name": "Hunter's Mark",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6223,6 +7128,11 @@
    "for": [
     "spell:identify"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIdentify00",
+    "name": "Identify",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6244,6 +7154,11 @@
    "for": [
     "spell:illusory-script"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIllusorySc",
+    "name": "Illusory Script",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6266,6 +7181,11 @@
    "for": [
     "spell:imprisonment"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplImprisonme",
+    "name": "Imprisonment",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6306,6 +7226,11 @@
    "for": [
     "spell:inflict-wounds"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInflictWou",
+    "name": "Inflict Wounds",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6347,6 +7272,11 @@
    "for": [
     "spell:instant-summons"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplDrawmijsIn",
+    "name": "Instant Summons",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6388,6 +7318,11 @@
    "for": [
     "spell:invisibility"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInvisibili",
+    "name": "Invisibility",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6409,6 +7344,11 @@
    "for": [
     "spell:irresistible-dance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplOttosIrres",
+    "name": "Irresistible Dance",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6450,6 +7390,11 @@
    "for": [
     "spell:jump"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplJump000000",
+    "name": "Jump",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6489,6 +7434,11 @@
    "for": [
     "spell:knock"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplKnock00000",
+    "name": "Knock",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6510,6 +7460,11 @@
    "for": [
     "spell:legend-lore"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLegendLore",
+    "name": "Legend Lore",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6546,6 +7501,11 @@
    "for": [
     "spell:levitate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLevitate00",
+    "name": "Levitate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6585,6 +7545,11 @@
    "for": [
     "spell:lightning-arrow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLightningA",
+    "name": "Lightning Arrow",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6609,6 +7574,11 @@
    "for": [
     "spell:locate-creature"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLocateCrea",
+    "name": "Locate Creature",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6649,6 +7619,11 @@
    "for": [
     "spell:longstrider"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLongstride",
+    "name": "Longstrider",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6691,6 +7666,11 @@
    "for": [
     "spell:mage-armor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMageArmor0",
+    "name": "Mage Armor",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6714,6 +7694,11 @@
    "for": [
     "spell:mage-hand"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMageHand00",
+    "name": "Mage Hand",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6736,6 +7721,11 @@
    "for": [
     "spell:magic-jar"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicJar00",
+    "name": "Magic Jar",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6797,6 +7787,11 @@
    "for": [
     "spell:magic-mouth"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicMouth",
+    "name": "Magic Mouth",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6839,6 +7834,11 @@
    "for": [
     "spell:magic-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicWeapo",
+    "name": "Magic Weapon",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6879,6 +7879,11 @@
    "for": [
     "spell:magnificent-mansion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbMagnificentMa",
+    "name": "Magnificent Mansion",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6929,6 +7934,11 @@
    "for": [
     "spell:major-image"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMajorImage",
+    "name": "Major Image",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6952,6 +7962,11 @@
    "for": [
     "spell:meld-into-stone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMeldintoSt",
+    "name": "Meld into Stone",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6975,6 +7990,11 @@
    "for": [
     "spell:mending"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMending000",
+    "name": "Mending",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -6997,6 +8017,11 @@
    "for": [
     "spell:meteor-swarm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMeteorSwar",
+    "name": "Meteor Swarm",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7039,6 +8064,11 @@
    "for": [
     "spell:mind-blank"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindBlank0",
+    "name": "Mind Blank",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7095,6 +8125,11 @@
    "for": [
     "spell:minor-illusion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMinorIllus",
+    "name": "Minor Illusion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7116,6 +8151,11 @@
    "for": [
     "spell:mirror-image"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMirrorImag",
+    "name": "Mirror Image",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7139,6 +8179,11 @@
    "for": [
     "spell:mislead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMislead000",
+    "name": "Mislead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7178,6 +8223,11 @@
    "for": [
     "spell:mordenkainens-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbswdMordenkain",
+    "name": "Mordenkainen's Sword",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7203,6 +8253,11 @@
    "for": [
     "spell:move-earth"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMoveEarth0",
+    "name": "Move Earth",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7241,6 +8296,11 @@
    "for": [
     "spell:nondetection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplNondetecti",
+    "name": "Nondetection",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7263,6 +8323,11 @@
    "for": [
     "spell:passwall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPasswall00",
+    "name": "Passwall",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7299,6 +8364,11 @@
    "for": [
     "spell:phantasmal-killer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPhantasmal",
+    "name": "Phantasmal Killer",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7340,6 +8410,11 @@
    "for": [
     "spell:phantom-steed"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPhantomSte",
+    "name": "Phantom Steed",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7362,6 +8437,11 @@
    "for": [
     "spell:planar-ally"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPlanarAlly",
+    "name": "Planar Ally",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7402,6 +8482,11 @@
    "for": [
     "spell:plane-shift"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPlaneShift",
+    "name": "Plane Shift",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7442,6 +8527,11 @@
    "for": [
     "spell:plant-growth"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPlantGrowt",
+    "name": "Plant Growth",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7467,6 +8557,11 @@
    "for": [
     "spell:polymorph"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPolymorph0",
+    "name": "Polymorph",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7503,6 +8598,11 @@
    "for": [
     "spell:power-word-fortify"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordF",
+    "name": "Power Word Fortify",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7557,6 +8657,11 @@
    "for": [
     "spell:power-word-heal"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordH",
+    "name": "Power Word Heal",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7606,6 +8711,11 @@
    "for": [
     "spell:power-word-kill"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordK",
+    "name": "Power Word Kill",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7672,6 +8782,11 @@
    "for": [
     "spell:power-word-stun"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordS",
+    "name": "Power Word Stun",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7738,6 +8853,11 @@
    "for": [
     "spell:prayer-of-healing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrayerofHe",
+    "name": "Prayer of Healing",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7759,6 +8879,11 @@
    "for": [
     "spell:prestidigitation"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrestidigi",
+    "name": "Prestidigitation",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7783,6 +8908,11 @@
    "for": [
     "spell:private-sanctum"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbPrivateSanctu",
+    "name": "Private Sanctum",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7820,6 +8950,11 @@
    "for": [
     "spell:project-image"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplProjectIma",
+    "name": "Project Image",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7861,6 +8996,11 @@
    "for": [
     "spell:protection-from-evil-and-good"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbEvilAndGoodPr",
+    "name": "Protection from Evil and Good",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7891,6 +9031,11 @@
    "for": [
     "spell:protection-from-poison"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplProtection",
+    "name": "Protection from Poison",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7921,6 +9066,11 @@
    "for": [
     "spell:raise-dead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRaiseDead0",
+    "name": "Raise Dead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -7988,6 +9138,11 @@
    "for": [
     "spell:regenerate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRegenerate",
+    "name": "Regenerate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8032,6 +9187,11 @@
    "for": [
     "spell:reincarnate"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplReincarnat",
+    "name": "Reincarnate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8099,6 +9259,11 @@
    "for": [
     "spell:remove-curse"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRemoveCurs",
+    "name": "Remove Curse",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8123,6 +9288,11 @@
    "for": [
     "spell:resilient-sphere"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesRe",
+    "name": "Resilient Sphere",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8145,6 +9315,11 @@
    "for": [
     "spell:resurrection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResurrecti",
+    "name": "Resurrection",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8211,6 +9386,11 @@
    "for": [
     "spell:revivify"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRevivify00",
+    "name": "Revivify",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8272,6 +9452,11 @@
    "for": [
     "spell:rope-trick"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRopeTrick0",
+    "name": "Rope Trick",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8294,6 +9479,11 @@
    "for": [
     "spell:sacred-flame"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSacredFlam",
+    "name": "Sacred Flame",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8342,6 +9532,11 @@
    "for": [
     "spell:sanctuary"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbSanctuary0000",
+    "name": "Sanctuary",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8373,6 +9568,11 @@
    "for": [
     "spell:scrying"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplScrying000",
+    "name": "Scrying",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8422,6 +9622,11 @@
    "for": [
     "spell:secret-chest"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsSe",
+    "name": "Secret Chest",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8446,6 +9651,11 @@
    "for": [
     "spell:see-invisibility"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSeeInvisib",
+    "name": "See Invisibility",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8473,6 +9683,11 @@
    "for": [
     "spell:seeming"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSeeming000",
+    "name": "Seeming",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8514,6 +9729,11 @@
    "for": [
     "spell:sending"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSending000",
+    "name": "Sending",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8537,6 +9757,11 @@
    "for": [
     "spell:sequester"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSequester0",
+    "name": "Sequester",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8591,6 +9816,11 @@
    "for": [
     "spell:shapechange"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShapechang",
+    "name": "Shapechange",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8629,6 +9859,11 @@
    "for": [
     "spell:shillelagh"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShillelagh",
+    "name": "Shillelagh",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8661,6 +9896,11 @@
    "for": [
     "spell:silent-image"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSilentImag",
+    "name": "Silent Image",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8682,6 +9922,11 @@
    "for": [
     "spell:simbuls-synostodweomer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSimbulsSynost",
+    "name": "Simbul's Synostodweomer",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8724,6 +9969,11 @@
    "for": [
     "spell:simulacrum"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSimulacrum",
+    "name": "Simulacrum",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8763,6 +10013,11 @@
    "for": [
     "spell:spare-the-dying"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSparetheDy",
+    "name": "Spare the Dying",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8785,6 +10040,11 @@
    "for": [
     "spell:speak-with-animals"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpeakwithA",
+    "name": "Speak with Animals",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8829,6 +10089,11 @@
    "for": [
     "spell:speak-with-dead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpeakwithD",
+    "name": "Speak with Dead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8877,6 +10142,11 @@
    "for": [
     "spell:speak-with-plants"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpeakwithP",
+    "name": "Speak with Plants",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8918,6 +10188,11 @@
    "for": [
     "spell:spider-climb"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpiderClim",
+    "name": "Spider Climb",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -8970,6 +10245,11 @@
    "for": [
     "spell:spiritual-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpiritualW",
+    "name": "Spiritual Weapon",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9032,6 +10312,11 @@
    "for": [
     "spell:stone-shape"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStoneShape",
+    "name": "Stone Shape",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9075,6 +10360,11 @@
    "for": [
     "spell:storm-of-vengeance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStormofVen",
+    "name": "Storm of Vengeance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9140,6 +10430,11 @@
    "for": [
     "spell:suggestion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSuggestion",
+    "name": "Suggestion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9198,6 +10493,11 @@
    "for": [
     "spell:summon-aberration"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonAber",
+    "name": "Summon Aberration",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9223,6 +10523,11 @@
    "for": [
     "spell:summon-beast"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonBeas",
+    "name": "Summon Beast",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9248,6 +10553,11 @@
    "for": [
     "spell:summon-celestial"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonCele",
+    "name": "Summon Celestial",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9273,6 +10583,11 @@
    "for": [
     "spell:summon-construct"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonCons",
+    "name": "Summon Construct",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9298,6 +10613,11 @@
    "for": [
     "spell:summon-dragon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonDrag",
+    "name": "Summon Dragon",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9323,6 +10643,11 @@
    "for": [
     "spell:summon-elemental"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonElem",
+    "name": "Summon Elemental",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9348,6 +10673,11 @@
    "for": [
     "spell:summon-fey"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonFey0",
+    "name": "Summon Fey",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9373,6 +10703,11 @@
    "for": [
     "spell:summon-fiend"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonFien",
+    "name": "Summon Fiend",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9398,6 +10733,11 @@
    "for": [
     "spell:summon-undead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonUnde",
+    "name": "Summon Undead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9423,6 +10763,11 @@
    "for": [
     "spell:swift-quiver"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSwiftQuive",
+    "name": "Swift Quiver",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9459,6 +10804,11 @@
    "for": [
     "spell:sylunes-viper"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSylunesViper0",
+    "name": "Syluné's Viper",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9524,6 +10874,11 @@
    "for": [
     "spell:symbol"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSymbol0000",
+    "name": "Symbol",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9560,6 +10915,11 @@
    "for": [
     "spell:telekinesis"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTelekinesi",
+    "name": "Telekinesis",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9605,6 +10965,11 @@
    "for": [
     "spell:telepathy"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTelepathy0",
+    "name": "Telepathy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9673,6 +11038,11 @@
    "for": [
     "spell:teleportation-circle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTeleportat",
+    "name": "Teleportation Circle",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9716,6 +11086,11 @@
    "for": [
     "spell:thaumaturgy"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplThaumaturg",
+    "name": "Thaumaturgy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9772,6 +11147,11 @@
    "for": [
     "spell:thorn-whip"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplThornWhip0",
+    "name": "Thorn Whip",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9821,6 +11201,11 @@
    "for": [
     "spell:time-stop"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTimeStop00",
+    "name": "Time Stop",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9864,6 +11249,11 @@
    "for": [
     "spell:toll-the-dead"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTolltheDea",
+    "name": "Toll the Dead",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9887,6 +11277,11 @@
    "for": [
     "spell:tongues"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTongues000",
+    "name": "Tongues",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9928,6 +11323,11 @@
    "for": [
     "spell:transport-via-plants"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTransportv",
+    "name": "Transport via Plants",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -9972,6 +11372,11 @@
    "for": [
     "spell:tree-stride"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTreeStride",
+    "name": "Tree Stride",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10017,6 +11422,11 @@
    "for": [
     "spell:true-seeing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTrueSeeing",
+    "name": "True Seeing",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10065,6 +11475,11 @@
    "for": [
     "spell:true-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTrueStrike",
+    "name": "True Strike",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10111,6 +11526,11 @@
    "for": [
     "spell:tsunami"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTsunami000",
+    "name": "Tsunami",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10157,6 +11577,11 @@
    "for": [
     "spell:unseen-servant"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplUnseenServ",
+    "name": "Unseen Servant",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10184,6 +11609,11 @@
    "for": [
     "spell:vicious-mockery"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplViciousMoc",
+    "name": "Vicious Mockery",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10224,6 +11654,11 @@
    "for": [
     "spell:warding-bond"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWardingBon",
+    "name": "Warding Bond",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10254,6 +11689,11 @@
    "for": [
     "spell:water-breathing"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWaterBreat",
+    "name": "Water Breathing",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10276,6 +11716,11 @@
    "for": [
     "spell:water-walk"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWaterWalk0",
+    "name": "Water Walk",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10299,6 +11744,11 @@
    "for": [
     "spell:wind-walk"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWindWalk00",
+    "name": "Wind Walk",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10334,6 +11784,11 @@
    "for": [
     "spell:wish"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWish000000",
+    "name": "Wish",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10400,6 +11855,11 @@
    "for": [
     "spell:word-of-radiance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWordofRadi",
+    "name": "Word of Radiance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10426,6 +11886,11 @@
    "for": [
     "spell:word-of-recall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWordofReca",
+    "name": "Word of Recall",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10467,6 +11932,11 @@
    "for": [
     "spell:acid-splash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAcidSplash",
+    "name": "Acid Splash",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10494,6 +11964,11 @@
    "for": [
     "spell:alarm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAlarm00000",
+    "name": "Alarm",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10521,6 +11996,11 @@
    "for": [
     "spell:black-tentacles"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplEvardsBlac",
+    "name": "Black Tentacles",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10547,6 +12027,11 @@
    "for": [
     "spell:burning-hands"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBurningHan",
+    "name": "Burning Hands",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10571,6 +12056,11 @@
    "for": [
     "spell:calm-emotions"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCalmEmotio",
+    "name": "Calm Emotions",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10596,6 +12086,11 @@
    "for": [
     "spell:circle-of-death"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCircleofDe",
+    "name": "Circle of Death",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10640,6 +12135,11 @@
    "for": [
     "spell:cloud-of-daggers"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCloudofDag",
+    "name": "Cloud of Daggers",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10669,6 +12169,11 @@
    "for": [
     "spell:cloudkill"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCloudkill0",
+    "name": "Cloudkill",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10695,6 +12200,11 @@
    "for": [
     "spell:color-spray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplColorSpray",
+    "name": "Color Spray",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10726,6 +12236,11 @@
    "for": [
     "spell:cone-of-cold"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConeofCold",
+    "name": "Cone of Cold",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10751,6 +12266,11 @@
    "for": [
     "spell:conjure-barrage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureBar",
+    "name": "Conjure Barrage",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10783,6 +12303,11 @@
    "for": [
     "spell:conjure-celestial"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureCel",
+    "name": "Conjure Celestial",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10815,6 +12340,11 @@
    "for": [
     "spell:conjure-volley"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureVol",
+    "name": "Conjure Volley",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10870,6 +12400,11 @@
    "for": [
     "spell:control-water"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplControlWat",
+    "name": "Control Water",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10915,6 +12450,11 @@
    "for": [
     "spell:create-or-destroy-water"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCreateorDe",
+    "name": "Create or Destroy Water",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10941,6 +12481,11 @@
    "for": [
     "spell:creation"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCreation00",
+    "name": "Creation",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10969,6 +12514,11 @@
    "for": [
     "spell:darkness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDarkness00",
+    "name": "Darkness",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -10995,6 +12545,11 @@
    "for": [
     "spell:daylight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDaylight00",
+    "name": "Daylight",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11022,6 +12577,11 @@
    "for": [
     "spell:destructive-wave"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDestructiv",
+    "name": "Destructive Wave",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11066,6 +12626,11 @@
    "for": [
     "spell:doomtide"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDoomtide00000",
+    "name": "Doomtide",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11092,6 +12657,11 @@
    "for": [
     "spell:dragons-breath"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDragonsBre",
+    "name": "Dragon's Breath",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11146,6 +12716,11 @@
    "for": [
     "spell:elementalism"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementali",
+    "name": "Elementalism",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11171,6 +12746,11 @@
    "for": [
     "spell:entangle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEntangle00",
+    "name": "Entangle",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11197,6 +12777,11 @@
    "for": [
     "spell:faerie-fire"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFaerieFire",
+    "name": "Faerie Fire",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11226,6 +12811,11 @@
    "for": [
     "spell:fear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFear000000",
+    "name": "Fear",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11260,6 +12850,11 @@
    "for": [
     "spell:flame-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFlameStrik",
+    "name": "Flame Strike",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11289,6 +12884,11 @@
    "for": [
     "spell:flaming-sphere"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFlamingSph",
+    "name": "Flaming Sphere",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11319,6 +12919,11 @@
    "for": [
     "spell:fog-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFogCloud00",
+    "name": "Fog Cloud",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11346,6 +12951,11 @@
    "for": [
     "spell:globe-of-invulnerability"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGlobeofInv",
+    "name": "Globe of Invulnerability",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11376,6 +12986,11 @@
    "for": [
     "spell:grease"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGrease0000",
+    "name": "Grease",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11408,6 +13023,11 @@
    "for": [
     "spell:gust-of-wind"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGustofWind",
+    "name": "Gust of Wind",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11435,6 +13055,11 @@
    "for": [
     "spell:hallow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHallow0000",
+    "name": "Hallow",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11504,6 +13129,11 @@
    "for": [
     "spell:hallucinatory-terrain"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHallucinat",
+    "name": "Hallucinatory Terrain",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11530,6 +13160,11 @@
    "for": [
     "spell:hypnotic-pattern"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHypnoticPa",
+    "name": "Hypnotic Pattern",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11563,6 +13198,11 @@
    "for": [
     "spell:ice-storm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIceStorm00",
+    "name": "Ice Storm",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11589,6 +13229,11 @@
    "for": [
     "spell:incendiary-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIncendiary",
+    "name": "Incendiary Cloud",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11623,6 +13268,11 @@
    "for": [
     "spell:insect-plague"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInsectPlag",
+    "name": "Insect Plague",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11649,6 +13299,11 @@
    "for": [
     "spell:silver-lance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofLaeralsSilver",
+    "name": "Laeral's Silver Lance",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11682,6 +13337,11 @@
    "for": [
     "spell:laerals-silver-lance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofLaeralsSilver",
+    "name": "Laeral's Silver Lance",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11715,6 +13375,11 @@
    "for": [
     "spell:lightning-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLightningB",
+    "name": "Lightning Bolt",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11739,6 +13404,11 @@
    "for": [
     "spell:magic-circle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicCircl",
+    "name": "Magic Circle",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11765,6 +13435,11 @@
    "for": [
     "spell:mass-cure-wounds"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMassCureWo",
+    "name": "Mass Cure Wounds",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11806,6 +13481,11 @@
    "for": [
     "spell:mirage-arcane"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMirageArca",
+    "name": "Mirage Arcane",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11848,6 +13528,11 @@
    "for": [
     "spell:moonbeam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMoonbeam00",
+    "name": "Moonbeam",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11875,6 +13560,11 @@
    "for": [
     "spell:phantasmal-force"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbPhantasmalFor",
+    "name": "Phantasmal Force",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11900,6 +13590,11 @@
    "for": [
     "spell:prismatic-spray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticS",
+    "name": "Prismatic Spray",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11945,6 +13640,11 @@
    "for": [
     "spell:prismatic-wall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticW",
+    "name": "Prismatic Wall",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11970,6 +13670,11 @@
    "for": [
     "spell:programmed-illusion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplProgrammed",
+    "name": "Programmed Illusion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -11997,6 +13702,11 @@
    "for": [
     "spell:purify-food-and-drink"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPurifyFood",
+    "name": "Purify Food and Drink",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12023,6 +13733,11 @@
    "for": [
     "spell:reverse-gravity"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplReverseGra",
+    "name": "Reverse Gravity",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12055,6 +13770,11 @@
    "for": [
     "spell:shatter"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShatter000",
+    "name": "Shatter",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12081,6 +13801,11 @@
    "for": [
     "spell:silence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSilence000",
+    "name": "Silence",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12111,6 +13836,11 @@
    "for": [
     "spell:sleet-storm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSleetStorm",
+    "name": "Sleet Storm",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12137,6 +13867,11 @@
    "for": [
     "spell:slow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSlow000000",
+    "name": "Slow",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12162,6 +13897,11 @@
    "for": [
     "spell:spellfire-storm"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSpellfireStor",
+    "name": "Spellfire Storm",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12198,6 +13938,11 @@
    "for": [
     "spell:spike-growth"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpikeGrowt",
+    "name": "Spike Growth",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12224,6 +13969,11 @@
    "for": [
     "spell:stinking-cloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStinkingCl",
+    "name": "Stinking Cloud",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12250,6 +14000,11 @@
    "for": [
     "spell:sunbeam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSunbeam000",
+    "name": "Sunbeam",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12287,6 +14042,11 @@
    "for": [
     "spell:sunburst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSunburst00",
+    "name": "Sunburst",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12312,6 +14072,11 @@
    "for": [
     "spell:synaptic-static"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSynapticSt",
+    "name": "Synaptic Static",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12337,6 +14102,11 @@
    "for": [
     "spell:tashas-bubbling-cauldron"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTashasBubb",
+    "name": "Tasha's Bubbling Cauldron",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12366,6 +14136,11 @@
    "for": [
     "spell:tiny-hut"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsTi",
+    "name": "Tiny Hut",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12413,6 +14188,11 @@
    "for": [
     "spell:wall-of-fire"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofFire",
+    "name": "Wall of Fire",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12438,6 +14218,11 @@
    "for": [
     "spell:wall-of-force"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofForc",
+    "name": "Wall of Force",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12465,6 +14250,11 @@
    "for": [
     "spell:wall-of-ice"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofIce0",
+    "name": "Wall of Ice",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12492,6 +14282,11 @@
    "for": [
     "spell:wall-of-stone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofSton",
+    "name": "Wall of Stone",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12522,6 +14317,11 @@
    "for": [
     "spell:wall-of-thorns"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofThor",
+    "name": "Wall of Thorns",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12549,6 +14349,11 @@
    "for": [
     "spell:weird"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWeird00000",
+    "name": "Weird",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12584,6 +14389,11 @@
    "for": [
     "spell:wind-wall"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWindWall00",
+    "name": "Wind Wall",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12609,6 +14419,11 @@
    "for": [
     "spell:zone-of-truth"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplZoneofTrut",
+    "name": "Zone of Truth",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12635,6 +14450,11 @@
    "for": [
     "spell:dimension-door"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDimensionD",
+    "name": "Dimension Door",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12696,6 +14516,11 @@
    "for": [
     "spell:freezing-sphere"
    ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesFr",
+    "name": "Freezing Sphere",
+    "where": "dnd5e · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12749,6 +14574,11 @@
    "for": [
     "spell:misty-step"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMistyStep0",
+    "name": "Misty Step",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12806,6 +14636,11 @@
    "for": [
     "spell:vampiric-touch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplVampiricTo",
+    "name": "Vampiric Touch",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {
@@ -12831,6 +14666,11 @@
    "for": [
     "spell:vitriolic-sphere"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplVitriolicS",
+    "name": "Vitriolic Sphere",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "use",
    "scenes": [
     {

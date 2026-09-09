@@ -26,6 +26,11 @@
    "for": [
     "effect:bane"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBane000000",
+    "name": "Bane",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -53,6 +58,11 @@
    "for": [
     "effect:bark-like-skin"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBarkskin00",
+    "name": "Barkskin",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -109,6 +119,11 @@
    "for": [
     "effect:blessed"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBless00000",
+    "name": "Bless",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -136,6 +151,11 @@
    "for": [
     "effect:chill-shield"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFireShield",
+    "name": "Fire Shield",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -172,6 +192,11 @@
    "for": [
     "effect:confused"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConfusion0",
+    "name": "Confusion",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -192,6 +217,11 @@
    "for": [
     "effect:hasted"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHaste00000",
+    "name": "Haste",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -216,6 +246,11 @@
    "for": [
     "effect:mage-armor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMageArmor0",
+    "name": "Mage Armor",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -255,6 +290,11 @@
    "for": [
     "effect:slowed"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSlow000000",
+    "name": "Slow",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -279,6 +319,11 @@
    "for": [
     "effect:warm-shield"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFireShield",
+    "name": "Fire Shield",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -315,6 +360,11 @@
    "for": [
     "effect:acid-protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbProtectionFro",
+    "name": "Protection from Energy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -339,6 +389,11 @@
    "for": [
     "effect:alertness"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfAlertnes",
+    "name": "Rod of Alertness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -360,6 +415,11 @@
    "for": [
     "effect:aura-of-warding"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnWardingAur",
+    "name": "Aura of Warding",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -381,6 +441,11 @@
    "for": [
     "effect:avenging-angel"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnAvengingAn",
+    "name": "Avenging Angel",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -422,6 +487,11 @@
    "for": [
     "effect:banished"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBanishingS",
+    "name": "Banishing Smite",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -442,6 +512,11 @@
    "for": [
     "effect:berserk"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBerserk0000000",
+    "name": "Berserk",
+    "where": "Monster Manual · Features"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -466,6 +541,11 @@
    "for": [
     "effect:bonded"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWardingBon",
+    "name": "Warding Bond",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -489,6 +569,11 @@
    "for": [
     "effect:bound-to-service"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPlanarBind",
+    "name": "Planar Binding",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -509,6 +594,11 @@
    "for": [
     "effect:burning"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagAlchemistsF",
+    "name": "Alchemist's Fire",
+    "where": "Player's Handbook · Equipment"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -542,6 +632,11 @@
    "for": [
     "effect:carrying-message"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimalMess",
+    "name": "Animal Messenger",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -562,6 +657,11 @@
    "for": [
     "effect:charmed"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimalFrie",
+    "name": "Animal Friendship",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -582,6 +682,11 @@
    "for": [
     "effect:circles-power"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCircleofPo",
+    "name": "Circle of Power",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -602,6 +707,11 @@
    "for": [
     "effect:cloud-form"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWindWalk00",
+    "name": "Wind Walk",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -625,6 +735,11 @@
    "for": [
     "effect:cold-protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbProtectionFro",
+    "name": "Protection from Energy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -649,6 +764,11 @@
    "for": [
     "effect:comprehension"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplComprehend",
+    "name": "Comprehend Languages",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -669,6 +789,11 @@
    "for": [
     "effect:courageous"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnCourageAur",
+    "name": "Aura of Courage",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -690,6 +815,11 @@
    "for": [
     "effect:divine-favor"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineFavo",
+    "name": "Divine Favor",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -711,6 +841,11 @@
    "for": [
     "effect:dominated"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDominateBe",
+    "name": "Dominate Beast",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -731,6 +866,11 @@
    "for": [
     "effect:elminsters-elusion"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersElu",
+    "name": "Elminster's Elusion",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -757,6 +897,11 @@
    "for": [
     "effect:enclosed-in-sphere"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOtilukesRe",
+    "name": "Otiluke's Resilient Sphere",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -777,6 +922,11 @@
    "for": [
     "effect:ensnared"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnsnaringS",
+    "name": "Ensnaring Strike",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -801,6 +951,11 @@
    "for": [
     "effect:ethereal"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlink00000",
+    "name": "Blink",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -831,6 +986,11 @@
    "for": [
     "effect:fire-protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbProtectionFro",
+    "name": "Protection from Energy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -855,6 +1015,11 @@
    "for": [
     "effect:flight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFly0000000",
+    "name": "Fly",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -876,6 +1041,11 @@
    "for": [
     "effect:foresight"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplForesight0",
+    "name": "Foresight",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -907,6 +1077,11 @@
    "for": [
     "effect:frightened"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntipathyS",
+    "name": "Antipathy/Sympathy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -932,6 +1107,11 @@
    "for": [
     "effect:gaseous-form"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGaseousFor",
+    "name": "Gaseous Form",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -955,6 +1135,11 @@
    "for": [
     "effect:guiding-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidingBol",
+    "name": "Guiding Bolt",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -976,6 +1161,11 @@
    "for": [
     "effect:heated-metal"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeatMetal0",
+    "name": "Heat Metal",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1009,6 +1199,11 @@
    "for": [
     "effect:heavenly-wings"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptCelestialR",
+    "name": "Celestial Revelation",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1033,6 +1228,11 @@
    "for": [
     "effect:hypnotized"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHypnoticPa",
+    "name": "Hypnotic Pattern",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1053,6 +1253,11 @@
    "for": [
     "effect:illuminated"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStarryWisp",
+    "name": "Starry Wisp",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1073,6 +1278,11 @@
    "for": [
     "effect:imperceptible-barrier"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShield0000",
+    "name": "Shield",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1134,6 +1344,11 @@
    "for": [
     "effect:irresistible-dance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOttosIrres",
+    "name": "Otto's Irresistible Dance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1154,6 +1369,11 @@
    "for": [
     "effect:jump"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplJump000000",
+    "name": "Jump",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1175,6 +1395,11 @@
    "for": [
     "effect:levitating"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLevitate00",
+    "name": "Levitate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1196,6 +1421,11 @@
    "for": [
     "effect:lightning-protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbProtectionFro",
+    "name": "Protection from Energy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1220,6 +1450,11 @@
    "for": [
     "effect:lingering-acid"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMelfsAcidA",
+    "name": "Melf's Acid Arrow",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1248,6 +1483,11 @@
    "for": [
     "effect:longstrider"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLongstride",
+    "name": "Longstrider",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1269,6 +1509,11 @@
    "for": [
     "effect:majestic-presence"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdUnbreakabl",
+    "name": "Unbreakable Majesty",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1292,6 +1537,11 @@
    "for": [
     "effect:mocked"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplViciousMoc",
+    "name": "Vicious Mockery",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1312,6 +1562,11 @@
    "for": [
     "effect:muddled-thoughts"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSynapticSt",
+    "name": "Synaptic Static",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1337,6 +1592,11 @@
    "for": [
     "effect:outlined"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFaerieFire",
+    "name": "Faerie Fire",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1358,6 +1618,11 @@
    "for": [
     "effect:peerless-athlete"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnPeerlessAt",
+    "name": "Peerless Athlete",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1383,6 +1648,11 @@
    "for": [
     "effect:poison-protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplProtection",
+    "name": "Protection from Poison",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1416,6 +1686,11 @@
    "for": [
     "effect:protected"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbEvilAndGoodPr",
+    "name": "Protection from Evil and Good",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1449,6 +1724,11 @@
    "for": [
     "effect:protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfOrcus00",
+    "name": "Wand of Orcus",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1482,6 +1762,11 @@
    "for": [
     "effect:rage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbRage000000",
+    "name": "Rage",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1503,6 +1788,11 @@
    "for": [
     "effect:reduced-movement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofFrost",
+    "name": "Ray of Frost",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1534,6 +1824,11 @@
    "for": [
     "effect:regenerating"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRegenerate",
+    "name": "Regenerate",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1554,6 +1849,11 @@
    "for": [
     "effect:seared"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSearingSmi",
+    "name": "Searing Smite",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1587,6 +1887,11 @@
    "for": [
     "effect:searing-radiance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptCelestialR",
+    "name": "Celestial Revelation",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1610,6 +1915,11 @@
    "for": [
     "effect:shimmering-field"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShieldofFa",
+    "name": "Shield of Faith",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1634,6 +1944,11 @@
    "for": [
     "effect:shining"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShiningSmi",
+    "name": "Shining Smite",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1660,6 +1975,11 @@
    "for": [
     "effect:short-dance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOttosIrres",
+    "name": "Otto's Irresistible Dance",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1680,6 +2000,11 @@
    "for": [
     "effect:sleeping"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSleep00000",
+    "name": "Sleep",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1700,6 +2025,11 @@
    "for": [
     "effect:spectral-crown"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCrownofMad",
+    "name": "Crown of Madness",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1724,6 +2054,11 @@
    "for": [
     "effect:starry-form"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdStarryForm",
+    "name": "Starry Form",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1750,6 +2085,11 @@
    "for": [
     "effect:stonecunning"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptStonecunni",
+    "name": "Stonecunning",
+    "where": "Player's Handbook · Character Origins"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1779,6 +2119,11 @@
    "for": [
     "effect:stoneskin"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStoneskin0",
+    "name": "Stoneskin",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1813,6 +2158,11 @@
    "for": [
     "effect:stunned"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordS",
+    "name": "Power Word Stun",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1838,6 +2188,11 @@
    "for": [
     "effect:suspended-animation"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAstralProj",
+    "name": "Astral Projection",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1858,6 +2213,11 @@
    "for": [
     "effect:thunder-protection"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbProtectionFro",
+    "name": "Protection from Energy",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1882,6 +2242,11 @@
    "for": [
     "effect:trance-state"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDream00000",
+    "name": "Dream",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1902,6 +2267,11 @@
    "for": [
     "effect:turning-to-stone"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFleshtoSto",
+    "name": "Flesh to Stone",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1926,6 +2296,11 @@
    "for": [
     "effect:uncontrollable-laughter"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTashasHide",
+    "name": "Tasha's Hideous Laughter",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1946,6 +2321,11 @@
    "for": [
     "effect:universal-communication"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTongues000",
+    "name": "Tongues",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1966,6 +2346,11 @@
    "for": [
     "effect:unrestricted-movement"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFreedomofM",
+    "name": "Freedom of Movement",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -1987,6 +2372,11 @@
    "for": [
     "effect:warded"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbSanctuary0000",
+    "name": "Sanctuary",
+    "where": "Player's Handbook · Spells"
+   },
    "on": "effect",
    "scenes": [
     {
@@ -2045,6 +2435,11 @@
    "for": [
     "effect:warded-by-law"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrBastionOfL",
+    "name": "Bastion of Law",
+    "where": "Player's Handbook · Character Classes"
+   },
    "on": "effect",
    "scenes": [
     {

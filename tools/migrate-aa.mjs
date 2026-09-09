@@ -19,6 +19,7 @@ import { install } from './lib/stage.mjs';
 import { rows as oracleRows } from './lib/oracle/index.mjs';
 import { buildIndex as oracleIndex, lookup as oracleLookup } from './lib/oracle/corpus.js';
 import { buildLists } from './lib/migrate/keys.mjs';
+import { stampRecord } from '../scripts/core/records.js';
 import { makeNativiser } from './lib/migrate/nativise.mjs';
 import { idFor, rowToFx } from './lib/migrate/rows.mjs';
 import { makePlays, proveRow, stageTokens } from './lib/migrate/proof.mjs';
@@ -137,7 +138,8 @@ for (const row of ordered) {
     fx.by = 'the migration';
     fx.at = today;
     fx.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
-    stockFx.push({ fx, row, notes, source: 'stock' });
+    // the record it stands on, ON the FX (the user, 2026-09-09) — from the same evidence the key was earned against
+    stockFx.push({ fx: stampRecord(fx, Object.fromEntries(lists.records)), row, notes, source: 'stock' });
     keyOwner.set(key, { id, row });
     mine.push(id);
     if (notes.length) notesByRow.push(`${row.name} [${row.menu}] → ${key}: ${notes.join('; ')}`);
@@ -157,7 +159,7 @@ for (const row of houseRows) {
   fx.by = 'the migration';
   fx.at = today;
   fx.note = `${row.note ?? 'this world'} (Automated Animations ${versions.aa})`;
-  houseFx.push({ fx, row, notes, source: 'house' });
+  houseFx.push({ fx: stampRecord(fx, Object.fromEntries(lists.records)), row, notes, source: 'house' });
   if (notes.length) notesByRow.push(`house ${row.name} [${row.menu}]: ${notes.join('; ')}`);
 }
 say(`   ${stockFx.length} stock FX (one per key), ${houseFx.length} house FX · rows: keyed by the lists ${keyed.byList}, family rows expanded ${keyed.expanded}, effects ${keyed.effects} · NOT carried: ${keyed.noEvidence} rows no list holds, ${clashes.length} keys a row lost to an earlier one`);

@@ -29,7 +29,7 @@ import { KINDS, keyLabel, parseKey } from '../core/subjects.js';
 import { assetsOf } from '../core/fx.js';
 import { HOOK_WORDS, KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
 import { openSheet } from './sheet.js';
-import { nameForKey, openRecord, recordFor, recordWords, recordsRead } from './records.js';
+import { nameOf, openRecord, recordOf, recordWords, recordsRead } from './records.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const PAGE = 200;
@@ -101,7 +101,7 @@ function catalogue(app) {
     const keys = fx.for ?? [];
     const p = keys[0] ? parseKey(keys[0]) : null;
     const owner = keys.length ? null : app.ownerOfFx(fx.id);
-    const name = keys[0] ? nameForKey(keys[0]) : owner ? owner.item : idWords(fx.id);
+    const name = keys[0] ? nameOf(fx) : owner ? owner.item : idWords(fx.id);
     return {
       e, id: fx.id, name, keys, kind: p?.kind ?? null, item: !keys.length, owner,
       off: !!fx.off, source: e.source, at: e.original.at ?? '', mine: mine.has(fx.id),
@@ -177,7 +177,7 @@ function recordDoor(app, r) {
   if (!recordsRead()) return grey('Reading the records…');
   const rec = r.owner
     ? (r.owner.uuid ? { uuid: r.owner.uuid, name: r.owner.item, where: `this world · ${r.owner.actor}` } : null)
-    : recordFor(r.keys[0]);
+    : recordOf(r.e.fx);
   if (!rec?.uuid) return grey(r.item ? 'No item here points at this FX' : `Nothing here holds ${r.keys[0] ? keyLabel(r.keys[0]) : 'a record for this FX'}`);
   return `<button type="button" class="link record" data-act="fx-record" data-uuid="${esc(rec.uuid)}" data-name="${esc(rec.name)}" data-tooltip="${esc(recordWords(rec, r.kind))}">Record</button>`;
 }

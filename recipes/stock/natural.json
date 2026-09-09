@@ -26,6 +26,12 @@
    "for": [
     "natural:arcane-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmHelmedHorror00.Item.mmArcaneSword000",
+    "name": "Arcane Sword",
+    "where": "Monster Manual · Actors",
+    "on": "Helmed Horror"
+   },
    "on": "use",
    "scenes": [
     {
@@ -64,6 +70,12 @@
    "for": [
     "natural:mercurial-axe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmNycaloth000000.Item.mmMercurialAxe00",
+    "name": "Mercurial Axe",
+    "where": "Monster Manual · Actors",
+    "on": "Nycaloth"
+   },
    "on": "use",
    "scenes": [
     {
@@ -86,6 +98,13 @@
    "for": [
     "natural:bejeweled-baton"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmPerformerLegen.Item.mmBejeweledBaton",
+    "name": "Bejeweled Baton",
+    "where": "Monster Manual · Actors",
+    "on": "Performer Legend",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -107,6 +126,13 @@
    "for": [
     "natural:beak"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAxeBeak0000000.Item.mmBeak0000000000",
+    "name": "Beak",
+    "where": "Monster Manual · Actors",
+    "on": "Axe Beak",
+    "of": 18
+   },
    "on": "use",
    "scenes": [
     {
@@ -133,6 +159,13 @@
    "for": [
     "natural:beaks"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSwarmOfRavens0.Item.mmBeaks000000000",
+    "name": "Beaks",
+    "where": "Monster Manual · Actors",
+    "on": "Swarm of Ravens",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -159,6 +192,12 @@
    "for": [
     "natural:sharpened-beak"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGiantAxeBeak00.Item.mmSharpenedBeak0",
+    "name": "Sharpened Beak",
+    "where": "Monster Manual · Actors",
+    "on": "Giant Axe Beak"
+   },
    "on": "use",
    "scenes": [
     {
@@ -185,6 +224,12 @@
    "for": [
     "natural:beak-raven-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwWereraven0000.Item.ZNTd4mGBAzqn7jkw",
+    "name": "Beak (Raven or Hybrid Form Only)",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Wereraven"
+   },
    "on": "use",
    "scenes": [
     {
@@ -211,6 +256,13 @@
    "for": [
     "natural:beard"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBeardedDevil00.Item.mmBeard000000000",
+    "name": "Beard",
+    "where": "Monster Manual · Actors",
+    "on": "Bearded Devil",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -238,6 +290,12 @@
    "for": [
     "natural:chaos-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDeathSlaad0000.Item.yDu5v2Fj4bPhdXgS",
+    "name": "Chaos Blade",
+    "where": "Monster Manual · Actors",
+    "on": "Death Slaad"
+   },
    "on": "use",
    "scenes": [
     {
@@ -264,6 +322,12 @@
    "for": [
     "natural:clockwork-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmModronDuodrone.Item.Pc0R44kc39Pb8BXU",
+    "name": "Clockwork Blade",
+    "where": "Monster Manual · Actors",
+    "on": "Modron Duodrone"
+   },
    "on": "use",
    "scenes": [
     {
@@ -290,6 +354,13 @@
    "for": [
     "natural:heated-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmEfreeti0000000.Item.mmHeatedBlade000",
+    "name": "Heated Blade",
+    "where": "Monster Manual · Actors",
+    "on": "Efreeti",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -316,6 +387,13 @@
    "for": [
     "natural:lightning-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBalor000000000.Item.mmLightningBlade",
+    "name": "Lightning Blade",
+    "where": "Monster Manual · Actors",
+    "on": "Balor",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -342,6 +420,12 @@
    "for": [
     "natural:psi-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.dmgGithyankiWarr.Item.mmPsiBlade000000",
+    "name": "Psi Blade",
+    "where": "Monster Manual · Actors",
+    "on": "Githyanki Warrior"
+   },
    "on": "use",
    "scenes": [
     {
@@ -368,6 +452,13 @@
    "for": [
     "natural:storm-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDjinni00000000.Item.mmStormBlade0000",
+    "name": "Storm Blade",
+    "where": "Monster Manual · Actors",
+    "on": "Djinni",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -394,6 +485,12 @@
    "for": [
     "natural:beheading-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwDullahan00000.Item.ABZrHWfVOAdfAfBG",
+    "name": "Beheading Blade",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Dullahan"
+   },
    "on": "use",
    "scenes": [
     {
@@ -420,6 +517,12 @@
    "for": [
     "natural:whirling-blades"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGallowsSpeake.Item.HgD9e4IKplpD2n8a",
+    "name": "Whirling Blades",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Gallows Speaker"
+   },
    "on": "use",
    "scenes": [
     {
@@ -446,6 +549,12 @@
    "for": [
     "natural:dread-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwRamyaVasavada.Item.mRW3ysPhHXbbdryI",
+    "name": "Dread Blade",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Ramya Vasavadan"
+   },
    "on": "use",
    "scenes": [
     {
@@ -472,6 +581,12 @@
    "for": [
     "natural:force-blade"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwTomeInquisito.Item.lfB6A6d4cnJ8nLuX",
+    "name": "Force Blade",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Inquisitor of the Tome"
+   },
    "on": "use",
    "scenes": [
     {
@@ -498,6 +613,13 @@
    "for": [
     "natural:bone-whip"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGnollPackLord0.Item.mmBoneWhip000000",
+    "name": "Bone Whip",
+    "where": "Monster Manual · Actors",
+    "on": "Gnoll Pack Lord",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -520,6 +642,13 @@
    "for": [
     "natural:claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAbominableYeti.Item.mmClaw0000000000",
+    "name": "Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Abominable Yeti",
+    "of": 80
+   },
    "on": "use",
    "scenes": [
     {
@@ -544,6 +673,13 @@
    "for": [
     "natural:banishing-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmArcanaloth0000.Item.mmBanishingClaw0",
+    "name": "Banishing Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Arcanaloth",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -568,6 +704,12 @@
    "for": [
     "natural:chaos-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGraySlaad00000.Item.mmChaosClaw00000",
+    "name": "Chaos Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Gray Slaad"
+   },
    "on": "use",
    "scenes": [
     {
@@ -592,6 +734,13 @@
    "for": [
     "natural:claws"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAllosaurus0000.Item.mmClaws000000000",
+    "name": "Claws",
+    "where": "Monster Manual · Actors",
+    "on": "Allosaurus",
+    "of": 6
+   },
    "on": "use",
    "scenes": [
     {
@@ -616,6 +765,13 @@
    "for": [
     "natural:devilish-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmPitFiend000000.Item.mmDevilishClaw00",
+    "name": "Devilish Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Pit Fiend",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -640,6 +796,13 @@
    "for": [
     "natural:elemental-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmElementalCulti.Item.mmElementalClaw0",
+    "name": "Elemental Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Elemental Cultist",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -664,6 +827,12 @@
    "for": [
     "natural:fearsome-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmScarecrow00000.Item.mmFearsomeClaw00",
+    "name": "Fearsome Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Scarecrow"
+   },
    "on": "use",
    "scenes": [
     {
@@ -688,6 +857,12 @@
    "for": [
     "natural:injecting-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmRedSlaad000000.Item.mmInjectingClaw0",
+    "name": "Injecting Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Red Slaad"
+   },
    "on": "use",
    "scenes": [
     {
@@ -712,6 +887,12 @@
    "for": [
     "natural:mutating-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBlueSlaad00000.Item.mmMutatingClaw00",
+    "name": "Mutating Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Blue Slaad"
+   },
    "on": "use",
    "scenes": [
     {
@@ -736,6 +917,12 @@
    "for": [
     "natural:spectral-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmArchhag0000000.Item.mmSpectralClaw00",
+    "name": "Spectral Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Arch-hag"
+   },
    "on": "use",
    "scenes": [
     {
@@ -760,6 +947,12 @@
    "for": [
     "natural:umbral-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmShadowDemon000.Item.mmUmbralClaw0000",
+    "name": "Umbral Claw",
+    "where": "Monster Manual · Actors",
+    "on": "Shadow Demon"
+   },
    "on": "use",
    "scenes": [
     {
@@ -784,6 +977,12 @@
    "for": [
     "natural:claws-yugoloth-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobFiendishSp.Item.phbaoiClawsYugol",
+    "name": "Claws (Yugoloth Only)",
+    "where": "Player's Handbook · Actors",
+    "on": "Fiendish Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -808,6 +1007,12 @@
    "for": [
     "natural:rotting-claw-putrid-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobUndeadSpir.Item.phbaoiRottingCla",
+    "name": "Rotting Claw (Putrid Only)",
+    "where": "Player's Handbook · Actors",
+    "on": "Undead Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -832,6 +1037,12 @@
    "for": [
     "natural:rotting-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbudsPutridSpir.Item.phbaoiRottingCla",
+    "name": "Rotting Claw",
+    "where": "Player's Handbook · Actors",
+    "on": "Putrid Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -856,6 +1067,12 @@
    "for": [
     "natural:eldritch-claw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwCthulhu000000.Item.lx2aqNUOJJeq4864",
+    "name": "Eldritch Claw",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Cthulhu"
+   },
    "on": "use",
    "scenes": [
     {
@@ -880,6 +1097,13 @@
    "for": [
     "natural:stone-club"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmStoneGiant0000.Item.mmStoneClub00000",
+    "name": "Stone Club",
+    "where": "Monster Manual · Actors",
+    "on": "Stone Giant",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -901,6 +1125,13 @@
    "for": [
     "natural:fist"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmApe00000000000.Item.mmFist0000000000",
+    "name": "Fist",
+    "where": "Monster Manual · Actors",
+    "on": "Ape",
+    "of": 7
+   },
    "on": "use",
    "scenes": [
     {
@@ -925,6 +1156,13 @@
    "for": [
     "natural:rotting-fist"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMummy000000000.Item.mmRottingFist000",
+    "name": "Rotting Fist",
+    "where": "Monster Manual · Actors",
+    "on": "Mummy",
+    "of": 5
+   },
    "on": "use",
    "scenes": [
     {
@@ -949,6 +1187,12 @@
    "for": [
     "natural:bone-flail"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGnollFangOfYee.Item.mmBoneFlail00000",
+    "name": "Bone Flail",
+    "where": "Monster Manual · Actors",
+    "on": "Gnoll Fang of Yeenoghu"
+   },
    "on": "use",
    "scenes": [
     {
@@ -970,6 +1214,13 @@
    "for": [
     "natural:foreleg"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDrider00000000.Item.mmForeleg0000000",
+    "name": "Foreleg",
+    "where": "Monster Manual · Actors",
+    "on": "Drider",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -996,6 +1247,13 @@
    "for": [
     "natural:searing-fork"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmHornedDevil000.Item.mmSearingFork000",
+    "name": "Searing Fork",
+    "where": "Monster Manual · Actors",
+    "on": "Horned Devil",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1023,6 +1281,12 @@
    "for": [
     "natural:gear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmModronMonodron.Item.mmGear0000000000",
+    "name": "Gear",
+    "where": "Monster Manual · Actors",
+    "on": "Modron Monodrone"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1049,6 +1313,13 @@
    "for": [
     "natural:gore"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBoar0000000000.Item.mmGore0000000000",
+    "name": "Gore",
+    "where": "Monster Manual · Actors",
+    "on": "Boar",
+    "of": 20
+   },
    "on": "use",
    "scenes": [
     {
@@ -1070,6 +1341,12 @@
    "for": [
     "natural:brutal-gore"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGoristro000000.Item.mmBrutalGore0000",
+    "name": "Brutal Gore",
+    "where": "Monster Manual · Actors",
+    "on": "Goristro"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1091,6 +1368,13 @@
    "for": [
     "natural:gore-boar-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWereboar000000.Item.mmGore0000000000",
+    "name": "Gore  (Boar or Hybrid Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Wereboar",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1112,6 +1396,13 @@
    "for": [
     "natural:gouge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGiantVulture00.Item.mmGouge000000000",
+    "name": "Gouge",
+    "where": "Monster Manual · Actors",
+    "on": "Giant Vulture",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1136,6 +1427,13 @@
    "for": [
     "natural:grave-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampireUmbralL.Item.mmGraveStrike000",
+    "name": "Grave Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Vampire Umbral Lord",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1161,6 +1459,13 @@
    "for": [
     "natural:grave-strike-vampire-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampire0000000.Item.mmGraveStrike000",
+    "name": "Grave Strike (Vampire Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Vampire",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1186,6 +1491,12 @@
    "for": [
     "natural:gythka"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmThrikreenMarau.Item.mmGythka00000000",
+    "name": "Gythka",
+    "where": "Monster Manual · Actors",
+    "on": "Thri-kreen Marauder"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1217,6 +1528,13 @@
    "for": [
     "natural:burning-hammer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAzerSentinel00.Item.mmBurningHammer0",
+    "name": "Burning Hammer",
+    "where": "Monster Manual · Actors",
+    "on": "Azer Sentinel",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1246,6 +1564,13 @@
    "for": [
     "natural:harpoon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMerrow00000000.Item.mmHarpoon0000000",
+    "name": "Harpoon",
+    "where": "Monster Manual · Actors",
+    "on": "Merrow",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1281,6 +1606,12 @@
    "for": [
     "natural:hook"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmHookHorror0000.Item.mmHook0000000000",
+    "name": "Hook",
+    "where": "Monster Manual · Actors",
+    "on": "Hook Horror"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1307,6 +1638,13 @@
    "for": [
     "natural:hooves"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDraftHorse0000.Item.mmHooves00000000",
+    "name": "Hooves",
+    "where": "Monster Manual · Actors",
+    "on": "Draft Horse",
+    "of": 32
+   },
    "on": "use",
    "scenes": [
     {
@@ -1333,6 +1671,13 @@
    "for": [
     "natural:radiant-horn"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmUnicorn0000000.Item.mmRadiantHorn000",
+    "name": "Radiant Horn",
+    "where": "Monster Manual · Actors",
+    "on": "Unicorn",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1359,6 +1704,12 @@
    "for": [
     "natural:sculpting-knife"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwWaxwork000000.Item.pMBdJmE8N7QPtNnB",
+    "name": "Sculpting Knife",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Waxwork"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1395,6 +1746,12 @@
    "for": [
     "natural:psionic-lance"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmThrikreenPsion.Item.mmPsionicLance00",
+    "name": "Psionic Lance",
+    "where": "Monster Manual · Actors",
+    "on": "Thri-kreen Psion"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1426,6 +1783,12 @@
    "for": [
     "natural:aquatic-lash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMarid000000000.Item.mmAquaticLash000",
+    "name": "Aquatic Lash",
+    "where": "Monster Manual · Actors",
+    "on": "Marid"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1455,6 +1818,12 @@
    "for": [
     "natural:caustic-lash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYochlol0000000.Item.mmCausticLash000",
+    "name": "Caustic Lash",
+    "where": "Monster Manual · Actors",
+    "on": "Yochlol"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1484,6 +1853,13 @@
    "for": [
     "natural:tentacle-lash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAberrantCultis.Item.mmTentacleLash00",
+    "name": "Tentacle Lash",
+    "where": "Monster Manual · Actors",
+    "on": "Aberrant Cultist",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1513,6 +1889,13 @@
    "for": [
     "natural:vine-lash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDryad000000000.Item.mmVineLash000000",
+    "name": "Vine Lash",
+    "where": "Monster Manual · Actors",
+    "on": "Dryad",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1542,6 +1925,12 @@
    "for": [
     "natural:radiant-mace"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbcesDefenderSp.Item.phbaoiRadiantMac",
+    "name": "Radiant Mace",
+    "where": "Player's Handbook · Actors",
+    "on": "Defender Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1563,6 +1952,12 @@
    "for": [
     "natural:radiant-mace-defender-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobCelestialS.Item.phbaoiRadiantMac",
+    "name": "Radiant Mace (Defender Only)",
+    "where": "Player's Handbook · Actors",
+    "on": "Celestial Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1584,6 +1979,13 @@
    "for": [
     "natural:earthen-maul"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDao00000000000.Item.mmEarthenMaul000",
+    "name": "Earthen Maul",
+    "where": "Monster Manual · Actors",
+    "on": "Dao",
+    "of": 4
+   },
    "on": "use",
    "scenes": [
     {
@@ -1606,6 +2008,13 @@
    "for": [
     "natural:pincer"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmChuul000000000.Item.mmPincer00000000",
+    "name": "Pincer",
+    "where": "Monster Manual · Actors",
+    "on": "Chuul",
+    "of": 6
+   },
    "on": "use",
    "scenes": [
     {
@@ -1630,6 +2039,13 @@
    "for": [
     "natural:pseudopod"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBlobOfAnnihila.Item.mmPseudopod00000",
+    "name": "Pseudopod",
+    "where": "Monster Manual · Actors",
+    "on": "Blob of Annihilation",
+    "of": 12
+   },
    "on": "use",
    "scenes": [
     {
@@ -1669,6 +2085,13 @@
    "for": [
     "natural:dissolving-pseudopod"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBlackPudding00.Item.mmDissolvingPseu",
+    "name": "Dissolving Pseudopod",
+    "where": "Monster Manual · Actors",
+    "on": "Black Pudding",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1708,6 +2131,13 @@
    "for": [
     "natural:rake"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAwakenedShrub0.Item.mmRake0000000000",
+    "name": "Rake",
+    "where": "Monster Manual · Actors",
+    "on": "Awakened Shrub",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1734,6 +2164,13 @@
    "for": [
     "natural:ram"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmChimera0000000.Item.mmRam00000000000",
+    "name": "Ram",
+    "where": "Monster Manual · Actors",
+    "on": "Chimera",
+    "of": 14
+   },
    "on": "use",
    "scenes": [
     {
@@ -1760,6 +2197,12 @@
    "for": [
     "natural:ravage"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmPrimevalOwlbea.Item.mmRavage00000000",
+    "name": "Ravage",
+    "where": "Monster Manual · Actors",
+    "on": "Primeval Owlbear"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1788,6 +2231,13 @@
    "for": [
     "natural:rend"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAdultBlackDrag.Item.mmRend0000000000",
+    "name": "Rend",
+    "where": "Monster Manual · Actors",
+    "on": "Adult Black Dragon",
+    "of": 130
+   },
    "on": "use",
    "scenes": [
     {
@@ -1812,6 +2262,12 @@
    "for": [
     "natural:rend-jackal-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmJackalwere0000.Item.mmRend0000000000",
+    "name": "Rend (Jackal or Hybrid Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Jackalwere"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1836,6 +2292,13 @@
    "for": [
     "natural:rend-bear-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWerebear000000.Item.mmRend0000000000",
+    "name": "Rend (Bear or Hybrid Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Werebear",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1860,6 +2323,12 @@
    "for": [
     "natural:rend-dire-wolf-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwLoupGarou0000.Item.PITQF0vi9ChWFXhU",
+    "name": "Rend (Dire Wolf or Hybrid Form Only)",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Loup Garou"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1884,6 +2353,12 @@
    "for": [
     "natural:mind-rend"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwMistHorror000.Item.fiNNKCWOyfzQ52OF",
+    "name": "Mind Rend",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Mist Horror"
+   },
    "on": "use",
    "scenes": [
     {
@@ -1908,6 +2383,13 @@
    "for": [
     "natural:scratch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCat00000000000.Item.mmScratch0000000",
+    "name": "Scratch",
+    "where": "Monster Manual · Actors",
+    "on": "Cat",
+    "of": 10
+   },
    "on": "use",
    "scenes": [
     {
@@ -1932,6 +2414,13 @@
    "for": [
     "natural:dread-scythe"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDeathCultist00.Item.mmDreadScythe000",
+    "name": "Dread Scythe",
+    "where": "Monster Manual · Actors",
+    "on": "Death Cultist",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1953,6 +2442,13 @@
    "for": [
     "natural:ritual-sickle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCultist0000000.Item.mmRitualSickle00",
+    "name": "Ritual Sickle",
+    "where": "Monster Manual · Actors",
+    "on": "Cultist",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -1975,6 +2471,13 @@
    "for": [
     "natural:slam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimatedArmor0.Item.mmSlam0000000000",
+    "name": "Slam",
+    "where": "Monster Manual · Actors",
+    "on": "Animated Armor",
+    "of": 48
+   },
    "on": "use",
    "scenes": [
     {
@@ -1999,6 +2502,13 @@
    "for": [
     "natural:avalanche-slam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimatedBoulde.Item.mmAvalancheSlam0",
+    "name": "Avalanche Slam",
+    "where": "Monster Manual · Actors",
+    "on": "Animated Boulder",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2023,6 +2533,13 @@
    "for": [
     "natural:object-slam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmHauntingRevena.Item.mmObjectSlam0000",
+    "name": "Object Slam",
+    "where": "Monster Manual · Actors",
+    "on": "Haunting Revenant",
+    "of": 5
+   },
    "on": "use",
    "scenes": [
     {
@@ -2047,6 +2564,13 @@
    "for": [
     "natural:rotting-slam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVioletFungusNe.Item.mmRottingSlam000",
+    "name": "Rotting Slam",
+    "where": "Monster Manual · Actors",
+    "on": "Violet Fungus Necrohulk",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2071,6 +2595,13 @@
    "for": [
     "natural:thunderous-slam"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAirElemental00.Item.mmThunderousSlam",
+    "name": "Thunderous Slam",
+    "where": "Monster Manual · Actors",
+    "on": "Air Elemental",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2095,6 +2626,12 @@
    "for": [
     "natural:slam-human-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmJackalwere0000.Item.mmSlam0000000000",
+    "name": "Slam (Human or Hybrid Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Jackalwere"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2119,6 +2656,13 @@
    "for": [
     "natural:slash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimatedFlying.Item.mmSlash000000000",
+    "name": "Slash",
+    "where": "Monster Manual · Actors",
+    "on": "Animated Flying Sword",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2146,6 +2690,12 @@
    "for": [
     "natural:darkflame-slash"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwEbonbane00000.Item.5NlLhKr2emfVrG3G",
+    "name": "Darkflame Slash",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Ebonbane"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2173,6 +2723,13 @@
    "for": [
     "natural:snake-hair"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMedusa00000000.Item.mmSnakeHair00000",
+    "name": "Snake Hair",
+    "where": "Monster Manual · Actors",
+    "on": "Medusa",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2199,6 +2756,12 @@
    "for": [
     "natural:clockwork-spear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmModronTridrone.Item.mmClockworkSpear",
+    "name": "Clockwork Spear",
+    "where": "Monster Manual · Actors",
+    "on": "Modron Tridrone"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2233,6 +2796,13 @@
    "for": [
     "natural:flame-spear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSalamander0000.Item.mmFlameSpear0000",
+    "name": "Flame Spear",
+    "where": "Monster Manual · Actors",
+    "on": "Salamander",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2267,6 +2837,13 @@
    "for": [
     "natural:ice-spear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmIceDevil000000.Item.mmIceSpear000000",
+    "name": "Ice Spear",
+    "where": "Monster Manual · Actors",
+    "on": "Ice Devil",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2301,6 +2878,13 @@
    "for": [
     "natural:ocean-spear"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMerfolkSkirmis.Item.mmOceanSpear0000",
+    "name": "Ocean Spear",
+    "where": "Monster Manual · Actors",
+    "on": "Merfolk Skirmisher",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2335,6 +2919,13 @@
    "for": [
     "natural:tail-spike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmManticore00000.Item.mmTailSpike00000",
+    "name": "Tail Spike",
+    "where": "Monster Manual · Actors",
+    "on": "Manticore",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2362,6 +2953,13 @@
    "for": [
     "natural:bog-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBullywugBogSag.Item.mmBogStaff000000",
+    "name": "Bog Staff",
+    "where": "Monster Manual · Actors",
+    "on": "Bullywug Bog Sage",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2389,6 +2987,12 @@
    "for": [
     "natural:chaos-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGreenSlaad0000.Item.mmChaosStaff0000",
+    "name": "Chaos Staff",
+    "where": "Monster Manual · Actors",
+    "on": "Green Slaad"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2416,6 +3020,12 @@
    "for": [
     "natural:pincer-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmKuotoaWhip0000.Item.mmPincerStaff000",
+    "name": "Pincer Staff",
+    "where": "Monster Manual · Actors",
+    "on": "Kuo-toa Whip"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2443,6 +3053,13 @@
    "for": [
     "natural:vine-staff"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDruid000000000.Item.mmVineStaff00000",
+    "name": "Vine Staff",
+    "where": "Monster Manual · Actors",
+    "on": "Druid",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2470,6 +3087,12 @@
    "for": [
     "natural:hex-stick"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGoblinHexer000.Item.mmHexStick000000",
+    "name": "Hex Stick",
+    "where": "Monster Manual · Actors",
+    "on": "Goblin Hexer"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2497,6 +3120,13 @@
    "for": [
     "natural:sting"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGiantScorpion0.Item.mmSting000000000",
+    "name": "Sting",
+    "where": "Monster Manual · Actors",
+    "on": "Giant Scorpion",
+    "of": 12
+   },
    "on": "use",
    "scenes": [
     {
@@ -2523,6 +3153,13 @@
    "for": [
     "natural:infernal-sting"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBoneDevil00000.Item.mmInfernalSting0",
+    "name": "Infernal Sting",
+    "where": "Monster Manual · Actors",
+    "on": "Bone Devil",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2549,6 +3186,12 @@
    "for": [
     "natural:stinger"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwCarrionStalke.Item.Un9uL9CKCtllMZMX",
+    "name": "Stinger",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Carrion Stalker"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2575,6 +3218,13 @@
    "for": [
     "natural:tail-stinger"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmPurpleWorm0000.Item.mmTailStinger000",
+    "name": "Tail Stinger",
+    "where": "Monster Manual · Actors",
+    "on": "Purple Worm",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2601,6 +3251,13 @@
    "for": [
     "natural:unarmed-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbprgBarbarian0.Item.EvGUbT0GwNyKtr2d",
+    "name": "Unarmed Strike",
+    "where": "Player's Handbook · Actors",
+    "on": "Barbarian",
+    "of": 10
+   },
    "on": "use",
    "scenes": [
     {
@@ -2628,6 +3285,12 @@
    "for": [
     "natural:abyssal-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGnollDemoniac0.Item.mmAbyssalStrike0",
+    "name": "Abyssal Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Gnoll Demoniac"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2655,6 +3318,12 @@
    "for": [
     "natural:beguiling-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmNobleProdigy00.Item.mmBeguilingStrik",
+    "name": "Beguiling Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Noble Prodigy"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2682,6 +3351,12 @@
    "for": [
     "natural:draconic-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGithyankiDraco.Item.mmDraconicStrike",
+    "name": "Draconic Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Githyanki Dracomancer"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2709,6 +3384,12 @@
    "for": [
     "natural:otherworldly-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmEmpyreanIota00.Item.mmOtherworldlySt",
+    "name": "Otherworldly Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Empyrean Iota"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2736,6 +3417,13 @@
    "for": [
     "natural:psi-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGithzeraiMonk0.Item.mmPsiStrike00000",
+    "name": "Psi Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Githzerai Monk",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2763,6 +3451,12 @@
    "for": [
     "natural:shadow-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampireNightbr.Item.mmShadowStrike00",
+    "name": "Shadow Strike",
+    "where": "Monster Manual · Actors",
+    "on": "Vampire Nightbringer"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2790,6 +3484,13 @@
    "for": [
     "natural:beasts-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbBeastoftheLan.Item.VSfvWi5FOm2U6pfm",
+    "name": "Beast's Strike",
+    "where": "Player's Handbook · Actors",
+    "on": "Beast of the Land",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -2817,6 +3518,12 @@
    "for": [
     "natural:fiery-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbfisDevilSpiri.Item.phbaoiFieryStrik",
+    "name": "Fiery Strike",
+    "where": "Player's Handbook · Actors",
+    "on": "Devil Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2844,6 +3551,12 @@
    "for": [
     "natural:fiery-strike-devil-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobFiendishSp.Item.phbaoiFieryStrik",
+    "name": "Fiery Strike (Devil Only)",
+    "where": "Player's Handbook · Actors",
+    "on": "Fiendish Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2871,6 +3584,12 @@
    "for": [
     "natural:death-strike"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwStrahdvonZaro.Item.V57H9BqCDXDKhTNx",
+    "name": "Death Strike",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Strahd von Zarovich"
+   },
    "on": "use",
    "scenes": [
     {
@@ -2898,6 +3617,13 @@
    "for": [
     "natural:flying-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSolar000000000.Item.mmFlyingSword000",
+    "name": "Flying Sword",
+    "where": "Monster Manual · Actors",
+    "on": "Solar",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -2936,6 +3662,13 @@
    "for": [
     "natural:necrotic-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWight000000000.Item.mmNecroticSword0",
+    "name": "Necrotic Sword",
+    "where": "Monster Manual · Actors",
+    "on": "Wight",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -2974,6 +3707,13 @@
    "for": [
     "natural:needle-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSprite00000000.Item.mmNeedleSword000",
+    "name": "Needle Sword",
+    "where": "Monster Manual · Actors",
+    "on": "Sprite",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3012,6 +3752,12 @@
    "for": [
     "natural:silver-sword"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGithyankiKnigh.Item.mmSilverSword000",
+    "name": "Silver Sword",
+    "where": "Monster Manual · Actors",
+    "on": "Githyanki Knight"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3050,6 +3796,13 @@
    "for": [
     "natural:tail"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnkylosaurus00.Item.mmTail0000000000",
+    "name": "Tail",
+    "where": "Monster Manual · Actors",
+    "on": "Ankylosaurus",
+    "of": 18
+   },
    "on": "use",
    "scenes": [
     {
@@ -3076,6 +3829,13 @@
    "for": [
     "natural:talons"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAarakocraSkirm.Item.mmTalons00000000",
+    "name": "Talons",
+    "where": "Monster Manual · Actors",
+    "on": "Aarakocra Skirmisher",
+    "of": 16
+   },
    "on": "use",
    "scenes": [
     {
@@ -3097,6 +3857,11 @@
    "for": [
     "natural:tusk"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTusk0000000000",
+    "name": "Tusk",
+    "where": "Monster Manual · Features"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3123,6 +3888,13 @@
    "for": [
     "natural:tusk-boar-or-hybrid-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWereboar000000.Item.mmTusk0000000000",
+    "name": "Tusk (Boar or Hybrid Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Wereboar",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3149,6 +3921,13 @@
    "for": [
     "natural:flame-whip"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBalor000000000.Item.mmFlameWhip00000",
+    "name": "Flame Whip",
+    "where": "Monster Manual · Actors",
+    "on": "Balor",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3171,6 +3950,12 @@
    "for": [
     "natural:aquatic-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMerfolkWaveben.Item.mmAquaticBurst00",
+    "name": "Aquatic Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Merfolk Wavebender"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3192,6 +3977,13 @@
    "for": [
     "natural:arcane-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmArchmage000000.Item.mmArcaneBurst000",
+    "name": "Arcane Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Archmage",
+    "of": 6
+   },
    "on": "use",
    "scenes": [
     {
@@ -3213,6 +4005,13 @@
    "for": [
     "natural:boulder"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmStoneGiant0000.Item.mmBoulder0000000",
+    "name": "Boulder",
+    "where": "Monster Manual · Actors",
+    "on": "Stone Giant",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3236,6 +4035,13 @@
    "for": [
     "natural:enchanting-bow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSprite00000000.Item.mmEnchantingBow0",
+    "name": "Enchanting Bow",
+    "where": "Monster Manual · Actors",
+    "on": "Sprite",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3258,6 +4064,12 @@
    "for": [
     "natural:radiant-bow"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbcesAngelSpiri.Item.phbaoiRadiantBow",
+    "name": "Radiant Bow",
+    "where": "Player's Handbook · Actors",
+    "on": "Avenger Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3280,6 +4092,12 @@
    "for": [
     "natural:radiant-bow-avenger-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobCelestialS.Item.phbaoiRadiantBow",
+    "name": "Radiant Bow (Avenger Only)",
+    "where": "Player's Handbook · Actors",
+    "on": "Celestial Spirit"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3302,6 +4120,13 @@
    "for": [
     "natural:burn"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmFireElemental0.Item.mmBurn0000000000",
+    "name": "Burn",
+    "where": "Monster Manual · Actors",
+    "on": "Fire Elemental",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3323,6 +4148,13 @@
    "for": [
     "natural:earth-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDao00000000000.Item.mmEarthBurst0000",
+    "name": "Earth Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Dao",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3344,6 +4176,13 @@
    "for": [
     "natural:eldritch-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmLich0000000000.Item.6qvUZeTimud7ekV8",
+    "name": "Eldritch Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Lich",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3365,6 +4204,12 @@
    "for": [
     "natural:elemental-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmElementalCatac.Item.mmElementalBurst",
+    "name": "Elemental Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Elemental Cataclysm"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3386,6 +4231,13 @@
    "for": [
     "natural:fiendish-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmArcanaloth0000.Item.mmFiendishBurst0",
+    "name": "Fiendish Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Arcanaloth",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3407,6 +4259,12 @@
    "for": [
     "natural:flame-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAzerPyromancer.Item.mmFlameBurst0000",
+    "name": "Flame Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Azer Pyromancer"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3428,6 +4286,13 @@
    "for": [
     "natural:necrotic-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDemilich000000.Item.8gPbaQO9kv9Ipevm",
+    "name": "Necrotic Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Demilich",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3449,6 +4314,13 @@
    "for": [
     "natural:poison-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDrider00000000.Item.mmPoisonBurst000",
+    "name": "Poison Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Drider",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3470,6 +4342,13 @@
    "for": [
     "natural:radiant-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmArchpriest0000.Item.mmRadiantBurst00",
+    "name": "Radiant Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Archpriest",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3491,6 +4370,13 @@
    "for": [
     "natural:thorn-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDryad000000000.Item.mmThornBurst0000",
+    "name": "Thorn Burst",
+    "where": "Monster Manual · Actors",
+    "on": "Dryad",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3512,6 +4398,12 @@
    "for": [
     "natural:poison-burst-yuan-ti-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYuantiMalison3.Item.mmPoisonBurst000",
+    "name": "Poison Burst (Yuan-ti Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Yuan-ti Malison (Type 3)"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3533,6 +4425,12 @@
    "for": [
     "natural:negative-energy-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwAnkhtepot0000.Item.wIqO5H1wjCDFIzdc",
+    "name": "Negative Energy Burst",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Ankhtepot"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3554,6 +4452,12 @@
    "for": [
     "natural:disrupting-burst"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwBraininaJar00.Item.lO3iX6KYKp1VpjNI",
+    "name": "Disrupting Burst",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Brain in a Jar"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3575,6 +4479,12 @@
    "for": [
     "natural:chatkcha"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmThrikreenMarau.Item.mmChatkcha000000",
+    "name": "Chatkcha",
+    "where": "Monster Manual · Actors",
+    "on": "Thri-kreen Marauder"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3599,6 +4509,12 @@
    "for": [
     "natural:electrical-discharge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmModronPentadro.Item.mmElectricalDisc",
+    "name": "Electrical Discharge",
+    "where": "Monster Manual · Actors",
+    "on": "Modron Pentadrone"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3621,6 +4537,13 @@
    "for": [
     "natural:fiery-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmIronGolem00000.Item.mmFieryBolt00000",
+    "name": "Fiery Bolt",
+    "where": "Monster Manual · Actors",
+    "on": "Iron Golem",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3642,6 +4565,13 @@
    "for": [
     "natural:fire-ray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCambion0000000.Item.mmFireRay0000000",
+    "name": "Fire Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Cambion",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3663,6 +4593,13 @@
    "for": [
     "natural:force-bolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmStoneGolem0000.Item.mmForceBolt00000",
+    "name": "Force Bolt",
+    "where": "Monster Manual · Actors",
+    "on": "Stone Golem",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3685,6 +4622,12 @@
    "for": [
     "natural:gear-flinger"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmModronMonodron.Item.mmGearFlinger000",
+    "name": "Gear Flinger",
+    "where": "Monster Manual · Actors",
+    "on": "Modron Monodrone"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3711,6 +4654,13 @@
    "for": [
     "natural:hail-of-bark"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmTreant00000000.Item.mmHailOfBark0000",
+    "name": "Hail of Bark",
+    "where": "Monster Manual · Actors",
+    "on": "Treant",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3743,6 +4693,13 @@
    "for": [
     "natural:hurl-flame"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBarbedDevil000.Item.mmHurlFlame00000",
+    "name": "Hurl Flame",
+    "where": "Monster Manual · Actors",
+    "on": "Barbed Devil",
+    "of": 7
+   },
    "on": "use",
    "scenes": [
     {
@@ -3764,6 +4721,12 @@
    "for": [
     "natural:bone-javelin"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGnollPackLord0.Item.mmBoneJavelin000",
+    "name": "Bone Javelin",
+    "where": "Monster Manual · Actors",
+    "on": "Gnoll Pack Lord"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3785,6 +4748,12 @@
    "for": [
     "natural:wax-lob"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwWaxwork000000.Item.q5OBS6nUXv7pjq1g",
+    "name": "Wax Lob",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Waxwork"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3807,6 +4776,12 @@
    "for": [
     "natural:silver-needle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwCarrionette00.Item.0ci45y065YRzyrdZ",
+    "name": "Silver Needle",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Carrionette"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3834,6 +4809,13 @@
    "for": [
     "natural:nightmare-ray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmOni00000000000.Item.mmNightmareRay00",
+    "name": "Nightmare Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Oni",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3856,6 +4838,13 @@
    "for": [
     "natural:poison-ray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMedusa00000000.Item.mmPoisonRay00000",
+    "name": "Poison Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Medusa",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3878,6 +4867,13 @@
    "for": [
     "natural:poison-ray-yuan-ti-form-only"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYuantiMalison1.Item.mmPoisonRay00000",
+    "name": "Poison Ray  (Yuan-ti Form Only)",
+    "where": "Monster Manual · Actors",
+    "on": "Yuan-ti Malison (Type 1)",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -3900,6 +4896,13 @@
    "for": [
     "natural:proboscis"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmChasme00000000.Item.mmProboscis00000",
+    "name": "Proboscis",
+    "where": "Monster Manual · Actors",
+    "on": "Chasme",
+    "of": 4
+   },
    "on": "use",
    "scenes": [
     {
@@ -3927,6 +4930,13 @@
    "for": [
     "natural:radiant-ray"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimalLord0000.Item.mmRadiantRay0000",
+    "name": "Radiant Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Animal Lord",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3948,6 +4958,12 @@
    "for": [
     "natural:hunting-rifle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwWilfredGodefr.Item.15YzMhpT0WZcGdy0",
+    "name": "Hunting Rifle",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Wilfred Godefroy"
+   },
    "on": "use",
    "scenes": [
     {
@@ -3969,6 +4985,13 @@
    "for": [
     "natural:rock"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmApe00000000000.Item.mmRock0000000000",
+    "name": "Rock",
+    "where": "Monster Manual · Actors",
+    "on": "Ape",
+    "of": 3
+   },
    "on": "use",
    "scenes": [
     {
@@ -3992,6 +5015,13 @@
    "for": [
     "natural:rock-launch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmEarthElemental.Item.mmRockLaunch0000",
+    "name": "Rock Launch",
+    "where": "Monster Manual · Actors",
+    "on": "Earth Elemental",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4014,6 +5044,13 @@
    "for": [
     "natural:shock"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWillowisp00000.Item.KSPu27tkSo11sWcw",
+    "name": "Shock",
+    "where": "Monster Manual · Actors",
+    "on": "Will-o'-Wisp",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4035,6 +5072,12 @@
    "for": [
     "natural:surge"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWaterWeird0000.Item.mmSurge000000000",
+    "name": "Surge",
+    "where": "Monster Manual · Actors",
+    "on": "Water Weird"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4056,6 +5099,13 @@
    "for": [
     "natural:thunderbolt"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmStormGiant0000.Item.mmThunderbolt000",
+    "name": "Thunderbolt",
+    "where": "Monster Manual · Actors",
+    "on": "Storm Giant",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4077,6 +5127,13 @@
    "for": [
     "natural:bite"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAllosaurus0000.Item.mmBite0000000000",
+    "name": "Bite",
+    "where": "Monster Manual · Actors",
+    "on": "Allosaurus",
+    "of": 200
+   },
    "on": "use",
    "scenes": [
     {
@@ -4099,6 +5156,13 @@
    "for": [
     "natural:crush"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDarkmantle0000.Item.mmCrush000000000",
+    "name": "Crush",
+    "where": "Monster Manual · Actors",
+    "on": "Darkmantle",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4121,6 +5185,13 @@
    "for": [
     "natural:faerie-dust"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmPixie000000000.Item.mmFaerieDust0000",
+    "name": "Faerie Dust",
+    "where": "Monster Manual · Actors",
+    "on": "Pixie",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4155,6 +5226,12 @@
    "for": [
     "natural:infestation"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwSwarmofInfest.Item.ma7WTCyNrlRyo7lU",
+    "name": "Infestation",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Swarm of Infesting Insects"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4217,6 +5294,13 @@
    "for": [
     "natural:radiant-flame"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmPriest00000000.Item.mmRadiantFlame00",
+    "name": "Radiant Flame",
+    "where": "Monster Manual · Actors",
+    "on": "Priest",
+    "of": 5
+   },
    "on": "use",
    "scenes": [
     {
@@ -4244,6 +5328,12 @@
    "for": [
     "natural:sacred-weapon"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmEmpyrean000000.Item.mmSacredWeapon00",
+    "name": "Sacred Weapon",
+    "where": "Monster Manual · Actors",
+    "on": "Empyrean"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4266,6 +5356,12 @@
    "for": [
     "natural:tendril"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGasSporeFungus.Item.mmTendril0000000",
+    "name": "Tendril",
+    "where": "Monster Manual · Actors",
+    "on": "Gas Spore Fungus"
+   },
    "on": "use",
    "scenes": [
     {
@@ -4288,6 +5384,13 @@
    "for": [
     "natural:tentacle"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAboleth0000000.Item.mmTentacle000000",
+    "name": "Tentacle",
+    "where": "Monster Manual · Actors",
+    "on": "Aboleth",
+    "of": 13
+   },
    "on": "use",
    "scenes": [
     {
@@ -4311,6 +5414,13 @@
    "for": [
     "natural:thundercloud"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCloudGiant0000.Item.mmThundercloud00",
+    "name": "Thundercloud",
+    "where": "Monster Manual · Actors",
+    "on": "Cloud Giant",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4337,6 +5447,13 @@
    "for": [
     "natural:touch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMagmin00000000.Item.mmTouch000000000",
+    "name": "Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Magmin",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4365,6 +5482,13 @@
    "for": [
     "natural:withering-touch"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGhost000000000.Item.yf1Nf7oPWS4arOOL",
+    "name": "Withering Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Ghost",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
@@ -4404,6 +5528,13 @@
    "for": [
     "natural:ice-throw"
    ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAbominableYeti.Item.mmIceThrow000000",
+    "name": "Ice Throw",
+    "where": "Monster Manual · Actors",
+    "on": "Abominable Yeti",
+    "of": 2
+   },
    "on": "use",
    "scenes": [
     {
