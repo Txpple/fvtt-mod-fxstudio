@@ -156,6 +156,16 @@ export function registerReader({ dispatch, end }) {
     if (userId !== game.user.id) return;
     const moment = readRegion(region);
     if (!moment || moment.skip) { if (moment?.skip) log(`template ${region.id}: ${moment.skip}`); return; }
+    // The timing policy, kept: an area plays as late as the answer is known. Battle Flow may HOLD a cast
+    // while its caster answers a question the area raised (Careful Spell: who does the spell spare?) —
+    // its api hands out a promise that settles when the cast's card posts; the picture waits for it
+    // (the user, 2026-09-09: "the animation fires early"). Bounded, so a hold nobody lifts never
+    // swallows a picture. No hold, no wait.
+    const hold = game.modules.get('fvtt-mod-battleflow')?.api?.castHold?.(region.flags?.dnd5e?.origin ?? '');
+    if (hold) {
+      log(`template ${region.id}: held by Battle Flow — waiting for the answer`);
+      await Promise.race([hold, new Promise((r) => setTimeout(r, 5 * 60 * 1000))]);
+    }
     // half a second for the Region to be drawn before a picture is sized to it
     await new Promise((r) => setTimeout(r, 500));
     handle(moment, `template ${region.id}`);
