@@ -283,6 +283,26 @@ try {
       await type('.fx-q', '');
       await sleep(450);
 
+      // THE EDITOR NAMES ITS BOOK (the user, 2026-09-09). Every keyed FX carries its own record
+      // (DESIGN §20), so the screen the work happens on says where the ability comes from, and the
+      // line is the same door the row's Record is.
+      await type('.fx-q', 'fire bolt');
+      await sleep(450);
+      await click($$('.fxlist .row .n')[0]);
+      await sleep(120);
+      await click($('.fxlist .row .acts [data-act="fx-editor"]'));
+      await sleep(500);
+      const recline = $('.sheet-title .recordline [data-act="sh-record"]');
+      ok('§5 the Editor names the book the ability comes from, under its name', /Player's Handbook/.test(recline?.textContent ?? '') && /^Compendium\./.test(recline?.dataset.uuid ?? ''), `${recline?.textContent} · ${recline?.dataset.uuid}`);
+      await click(recline);
+      await sleep(900);
+      const hitEd = shown5().find((w) => w?.document?.name === 'Fire Bolt');
+      ok('§5 that line opens the same record the Record door opens', !!hitEd, hitEd ? `${hitEd.constructor.name} on ${hitEd.document?.name}` : 'nothing opened');
+      await hitEd?.close?.();
+      await click('[data-tab="fx"]');
+      await type('.fx-q', '');
+      await sleep(450);
+
       // 6 · staging: the detail pane took its select with it, so Maintain is the one door again
       ok('§6 staging is nowhere on the FX tab: no select, and no Maintain card either', !$('[data-pane="fx"] select') && !/Maintain · /.test(text('[data-pane="fx"]')), text('[data-pane="fx"] .fxlist .listhead'));
       ok('§6 Stock is in the same list as everything else', Number($$('.facets [data-group="lives"]')[2].querySelector('.c').textContent) > 200, $$('.facets [data-group="lives"]')[2].textContent.replace(/\s+/g, ' '));

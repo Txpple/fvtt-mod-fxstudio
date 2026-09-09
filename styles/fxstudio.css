@@ -195,6 +195,10 @@
 .fxstudio .sheet-title h2 { margin: 0; font-size: 20px; font-weight: 600; border: 0; display: flex; align-items: center; gap: 8px; min-width: 0; }
 .fxstudio .sheet-title h2 .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fxstudio .sheet-title h2 .tag { flex: 0 0 auto; }
+/* where the ability comes from, under its name: the book, and the door to it (the user, 2026-09-09) */
+.fxstudio .sheet-title .recordline { margin: 2px 0 0; font-size: 12px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .sheet-title .recordline .record { color: var(--fx-muted); }
+.fxstudio .sheet-title .recordline .record:hover { color: var(--fx-text); }
 /* the hook, the id and the provenance on one monospace line */
 .fxstudio .whyline { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 0; min-width: 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; color: var(--fx-muted); }
 .fxstudio .whyline .why { color: var(--fx-text); white-space: nowrap; flex: 0 0 auto; }

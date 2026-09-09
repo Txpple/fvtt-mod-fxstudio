@@ -42,7 +42,7 @@ import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { needsPlace } from '../core/corpus.js';
 import { KNOBS, PLACES, PLACE_WORDS, assetWords, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
 import { HOOK_WORDS, KIND_WORDS, ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
-import { nameForKey } from './records.js';
+import { nameForKey, openRecord, recordFor, recordOf, recordWords } from './records.js';
 import { openPicker } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -212,7 +212,7 @@ export function renderSheet(app) {
   }).join('')}</ul>` : '';
   return `<div class="card sheet" data-edit="${edit}">
     <div class="sheet-head">
-      <div class="sheet-title"><h2><span class="nm">${esc(name)}</span>${tags}</h2></div>
+      <div class="sheet-title"><h2><span class="nm">${esc(name)}</span>${tags}</h2>${recordLine(app)}</div>
       ${lockbar}
     </div>
     <p class="whyline"><span class="why">${esc(whyWords(app))}</span><code class="id">${esc(fx?.id ?? s.id ?? '')}</code>${s.original && provenance(s.original) ? `<span class="prov">${esc(provenance(s.original))}</span>` : ''}</p>
@@ -222,6 +222,22 @@ export function renderSheet(app) {
     <div class="section sequence"><div class="sechead"><div class="sub">Sequence</div>${playAll(app)}</div>${renderSequence(app)}</div>
     <div class="section"><div class="sub">Note</div><input type="text" class="sh-note knob" value="${esc(s.note)}" placeholder="${esc(s.from ? `copied from ${idWords(s.from)}` : 'Why this FX, for whoever reads it later')}" ${edit ? '' : 'disabled'}></div>
   </div>`;
+}
+
+/**
+ * WHERE THE ABILITY COMES FROM, on the sheet you edit it on (the user, 2026-09-09). The Library's
+ * rows have carried a Record door since §15; the Editor is where the work happens and said nothing.
+ * Every keyed FX carries its own record now (§20), so this reads the FX's own first and falls back
+ * to the address book by key — which is what lets a NEW FX, not yet saved, already name its book.
+ * An Item Hook has no key: it names the item it is pinned to, as the row's door does.
+ */
+function recordLine(app) {
+  const s = app.sheet;
+  const rec = recordOf(s.original) ?? (s.keys[0] ? recordFor(s.keys[0]) : null)
+    ?? (s.onlyThis && s.subject?.uuid ? { uuid: s.subject.uuid, name: s.subject.name, where: `this world · ${s.subject.owner ?? 'this item'}` } : null);
+  if (!rec?.uuid) return '';
+  const kind = s.keys[0] ? parseKey(s.keys[0])?.kind : null;
+  return `<p class="recordline"><button type="button" class="link record" data-act="sh-record" data-uuid="${esc(rec.uuid)}" data-name="${esc(rec.name)}" data-tooltip="${esc(recordWords(rec, kind))}">${esc(rec.where)}</button></p>`;
 }
 
 /** the hook and the layer, in terms: "Global Hook · Misty Step (spell) · House" */
@@ -803,6 +819,7 @@ export async function onSheetClick(app, b, act) {
     case 'sh-save': return saveSheet(app);
     case 'sh-dup': { openSheet(app, { subject: s.subject, from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Add its hook, then Save.`); break; }
     case 'sh-export': return app.exportFx(s.id);
+    case 'sh-record': return openRecord(b.dataset.uuid, b.dataset.name);
     case 'sh-delete': {
       const under = s.source === 'world' && (a.corpora.house.some((h) => h.id === s.id) || a.corpora.stock.some((b2) => b2.id === s.id));
       if (under) { await app.removeFx(s.id); openSheet(app, { id: s.id }); break; }
