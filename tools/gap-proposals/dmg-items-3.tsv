@@ -1,0 +1,161 @@
+item:frost-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-giant-strength-frost	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:hill-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-giant-strength-hill	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-giant-strength-stone	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:stone-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-giant-strength-storm	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:storm-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-greater-invisibility	Close match	spell:greater-invisibility	jb2a.shimmer.01.blue	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the drinker is gone.
+item:potion-of-growth	Close match	effect:bark-like-skin	jb2a.particles.outward.orange.01.03	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the drinker swells.
+item:greater-potion-of-healing	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.consumables.potions-vials.drink-liquid.001	A healing potion is drunk — all six read the same, and the size says how much.
+item:potion-of-healing-greater	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.consumables.potions-vials.drink-liquid.001	A healing potion is drunk — all six read the same.
+item:potion-of-healing-superior	Close match	spell:cure-wounds	jb2a.healing_generic.400px.red	psfx.consumables.potions-vials.drink-liquid.001	A superior healing potion is drunk.
+item:superior-potion-of-healing	Close match	spell:cure-wounds	jb2a.healing_generic.400px.red	psfx.consumables.potions-vials.drink-liquid.001	A superior healing potion is drunk.
+item:potion-of-healing-supreme	Close match	spell:cure-wounds	jb2a.healing_generic.400px.yellow	psfx.consumables.potions-vials.drink-liquid.001	A supreme healing potion is drunk.
+item:supreme-potion-of-healing	Close match	spell:cure-wounds	jb2a.healing_generic.400px.yellow	psfx.consumables.potions-vials.drink-liquid.001	A supreme healing potion is drunk.
+item:potion-of-heroism	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Heroism.
+item:potion-of-invisibility	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the drinker is gone.
+item:potion-of-invulnerability	Close match	spell:mage-armor	jb2a.markers.shield_rampart.loop.01.white	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: resistance to everything.
+item:potion-of-longevity	No proposed FX				Years come off. Nothing at the table to play.
+item:potion-of-mind-reading	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Detect Thoughts.
+item:potion-of-pugilism	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the fists hit harder.
+item:potion-of-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.blue	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: resistance to one damage type.
+item:potion-of-speed	Close match	spell:haste	jb2a.token_border.circle.static.orange.004	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Haste.
+item:potion-of-vitality	Close match	spell:cure-wounds	jb2a.healing_generic.400px.yellow	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: every hit die back and no exhaustion.
+item:potion-of-water-breathing	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: bubbles at the drinker.
+item:prosthetic-limb	No proposed FX				Worn, always on — no moment to play.
+item:puzzle	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.intro	A feather token is used and becomes what it is — all seven read the same.
+item:anchor-quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.intro	The anchor token: the boat will not move.
+item:quaals-feather-token-anchor	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.intro	The anchor token: the boat will not move.
+item:bird-quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.complete	The bird token becomes a roc.
+item:quaals-feather-token-bird	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.complete	The bird token becomes a roc.
+item:fan-quaals-feather-token	Close match	spell:conjure-animals	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The fan token raises a wind.
+item:quaals-feather-token-fan	Close match	spell:conjure-animals	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The fan token raises a wind.
+item:quaals-feather-token-swan-boat	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.casting.water.001	The swan boat token unfolds on the water.
+item:swan-boat-quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.casting.water.001	The swan boat token unfolds on the water.
+item:quaals-feather-token-tree	Close match	spell:conjure-animals	jb2a.plant_growth.04.round.4x4.complete.greenwhite	psfx.casting.earth.001	The tree token grows an oak.
+item:tree-quaals-feather-token	Close match	spell:conjure-animals	jb2a.plant_growth.04.round.4x4.complete.greenwhite	psfx.casting.earth.001	The tree token grows an oak.
+item:quaals-feather-token-whip	Close match	spell:conjure-animals	jb2a.melee_generic.slashing.two_handed	psfx.impacts.slashing.v1	The whip token lashes at what the holder points at.
+item:whip-quaals-feather-token	Close match	spell:conjure-animals	jb2a.melee_generic.slashing.two_handed	psfx.impacts.slashing.v1	The whip token lashes at what the holder points at.
+item:quiver-of-ehlonna	No proposed FX				A container. Reaching into it is not a moment the table watches.
+item:ring	No proposed FX				A stub record with no rules of its own — the specific rings each have one.
+item:sup-ring-of-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to one damage type: the same shield the elemental protections use.
+item:ring-of-animal-influence	Close match	spell:dominate-person	jb2a.markers.heart.teal.03	psfx.magic-signs.rune.v1.enchantment.intro	The ring speaks to beasts.
+item:ring-of-djinni-summoning	Close match	spell:conjure-animals	jb2a.smoke.plumes.01.blue	psfx.magic-signs.circle.v1.conjuration.complete	The ring is rubbed and the djinni comes out of the smoke.
+item:ring-of-evasion	Close match	spell:mage-armor	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.abjuration.intro	The ring turns a failed save into a success.
+item:ring-of-feather-falling	Close match	effect:levitating	jb2a.swirling_feathers.outburst	psfx.cantrips.gust.v1	The wearer lands like a feather.
+item:ring-of-free-action	No proposed FX				Worn, always on — no moment to play.
+item:ring-of-invisibility	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	The ring is turned and the wearer is gone.
+item:ring-of-jumping	Close match	effect:jump	jb2a.wind_stream.400.white	psfx.magic-signs.rune.v1.transmutation.intro	The ring jumps the wearer.
+item:ring-of-mind-shielding	No proposed FX				Worn, always on — no moment to play.
+item:ring-of-protection	No proposed FX				Worn, always on — no moment to play.
+item:ring-of-regeneration	Close match	effect:regenerating	jb2a.energy_strands.02.marker.orangered	psfx.1st-level-spells.cure-wounds.v1.001	The ring closes the wounds as they open.
+item:ring-of-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to one damage type: the same shield the elemental protections use.
+item:ring-of-shooting-stars	Close match	spell:guiding-bolt	jb2a.twinkling_stars.points06.white	psfx.class-features.divine-smite.v1.001.target	Stars shoot from the ring.
+item:ring-of-spell-storing	Close match	spell:mage-armor	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.conjuration.intro	A spell goes into the ring, or comes out.
+item:ring-of-spell-turning	Close match	spell:counterspell	jb2a.shield.01.intro.purple	psfx.magic-signs.rune.v1.abjuration.intro	A spell comes back at whoever cast it.
+item:ring-of-swimming	No proposed FX				Worn, always on — no moment to play.
+item:ring-of-telekinesis	Close match	spell:mage-armor	jb2a.energy_strands.range.multiple.blue.01.30ft	psfx.magic-signs.rune.v1.transmutation.intro	Telekinesis from the ring.
+item:ring-of-the-ram	Close match	spell:magic-missile	jb2a.impact.004.blue	psfx.impacts.magicaleffects.generic.002.001	A ram of force strikes at range.
+item:ring-of-three-wishes	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A wish is spent.
+item:ring-of-warmth	No proposed FX				Worn, always on — no moment to play.
+item:ring-of-water-walking	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	The surface holds the wearer.
+item:ring-of-x-ray-vision	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.magic-signs.rune.v1.divination.intro	The ring sees through the wall.
+item:rival-coin	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	The coin is flipped and someone takes psychic damage.
+item:robe-of-eyes	Close match	effect:foresight	jb2a.eyes.01.bluegreen.many	psfx.magic-signs.rune.v1.divination.intro	Every eye on the robe opens.
+item:robe-of-scintillating-colors	Close match	effect:hypnotized	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.illusion.intro	The robe blazes with shifting colour.
+item:robe-of-stars	Close match	spell:mage-armor	jb2a.twinkling_stars.points06.white	psfx.magic-signs.rune.v1.abjuration.intro	A star is pulled off the robe and thrown.
+item:robe-of-the-archmagi	No proposed FX				Worn, always on — no moment to play.
+item:robe-of-useful-items	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.magic-signs.circle.v1.conjuration.intro	A patch is torn off and becomes the thing it showed.
+item:rod-of-absorption	Close match	spell:counterspell	jb2a.shield.01.intro.purple	psfx.magic-signs.rune.v1.abjuration.intro	The rod drinks a spell.
+item:rod-of-alertness	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.circle.v1.abjuration.intro	The rod is planted and everyone near it is alert.
+item:rod-of-resurrection	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	The dead are brought back.
+item:rod-of-rulership	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.complete.dark_yellow	psfx.magic-signs.circle.v1.enchantment.complete	The rod is raised and everyone who sees it obeys.
+item:rod-of-security	Close match	spell:dimension-door	jb2a.portals.vertical.vortex.green	psfx.magic-signs.circle.v1.conjuration.complete	The party steps into the rod's paradise.
+item:rod-of-the-pact-keeper	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:rogue	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:rolling-stone	Close match	spell:shatter	jb2a.rolling_boulder.loop.01.rock.brown	psfx.impacts.bludgeoning.v1	A boulder rolls down the passage.
+item:rope-of-climbing	No proposed FX				A rope that knots itself — nothing to play.
+item:rope-of-entanglement	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.transmutation.intro	The rope wraps the target.
+item:rope-of-mending	No proposed FX				A rope that repairs itself — nothing to play.
+item:ruby-of-the-war-mage	No proposed FX				A focus attached to a weapon — nothing of its own to play.
+item:ruin	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:rust-bag-of-tricks	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	A ball of fuzz is thrown and becomes a beast.
+item:saddle-of-the-cavalier	No proposed FX				Worn by a mount, always on — no moment to play.
+item:sage	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:scarab-of-protection	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	The scarab turns a necromancy spell aside.
+item:scroll	No proposed FX				A stub record. The spell a scroll casts is that spell's own FX.
+item:sup-basic-scroll	No proposed FX				A stub record. The spell a scroll casts is that spell's own FX.
+item:scroll-of-protection	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.complete.blue	psfx.magic-signs.circle.v1.abjuration.complete	The scroll is read and a circle keeps one kind of creature out.
+item:scroll-of-titan-summoning	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	The scroll is read and a titan arrives.
+item:sending-stones	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	A word sent from one stone to the other.
+item:sentinel-shield	No proposed FX				Worn, always on — no moment to play.
+item:serpentine-owl	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:serpentine-owl-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:shield-of-expression	No proposed FX				A shield with a face on it — nothing to play.
+item:shield-of-missile-attraction	No proposed FX				Worn, always on — and it is a curse, not a moment.
+item:shield-of-the-cavalier	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.impacts.bludgeoning.v1	The shield shoves everyone back.
+item:shield-1-2-or-3	No proposed FX				Worn, always on — no moment to play.
+item:short-compartment	No proposed FX				A container. Nothing happens at the table.
+item:silver-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come.
+item:silver-raven	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:silver-raven-uncommon	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:skull	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:slippers-of-spider-climbing	No proposed FX				Worn, always on — no moment to play.
+item:smoldering-armor	No proposed FX				Armour that smokes but never burns — a look, not a moment.
+item:sovereign-glue	No proposed FX				Glue. Nothing at the table to play.
+item:spell-scroll	No proposed FX				A stub record. The spell a scroll casts is that spell's own FX.
+item:spellguard-shield	No proposed FX				Worn, always on — no moment to play.
+item:sphere-of-annihilation	Close match	spell:black-tentacles	jb2a.sphere_of_annihilation.600px.purple	psfx.impacts.magicaleffects.necrotic	The sphere JB2A drew for this exact item.
+item:spiked-pit	Close match	spell:shatter	jb2a.spike_trap.10x10ft.side.base.normal.01.01	psfx.impacts.slashing.v1	The floor gives way onto spikes.
+item:spirit-board	Close match	spell:raise-dead	jb2a.ouija_planchette.pink	psfx.incantations.whispers.fem.001.forward.slow.001	The planchette moves — JB2A drew one for this.
+item:star	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:stone-of-controlling-earth-elementals	Close match	spell:conjure-animals	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	An earth elemental is called out of the ground.
+item:stone-of-good-luck-luckstone	No proposed FX				Carried, always on — no moment to play.
+item:sun	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:talisman-of-pure-good	Close match	spell:guiding-bolt	jb2a.divine_smite.target.yellowwhite	psfx.class-features.divine-smite.v1.001.target	The talisman opens the ground under an evil creature.
+item:talisman-of-the-sphere	No proposed FX				Carried, always on — it steadies the Sphere of Annihilation, which has its own FX.
+item:talisman-of-ultimate-evil	Close match	spell:raise-dead	jb2a.markers.skull.dark_red.03	psfx.impacts.magicaleffects.necrotic	The talisman opens the ground under a good creature.
+item:talking-doll	No proposed FX				A doll that says a phrase — nothing to play.
+item:talons	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:tan-bag-of-tricks	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	A ball of fuzz is thrown and becomes a beast.
+item:tankard-of-sobriety	No proposed FX				A tankard that keeps you sober — nothing to play.
+item:tentacle-rod	Close match	spell:black-tentacles	jb2a.black_tentacles.dark_purple	psfx.impacts.magicaleffects.psychic	Three tentacles lash out of the rod.
+item:throne	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:tome-of-clear-thought	No proposed FX				A book read over six days — no moment at the table.
+item:tome-of-leadership-and-influence	No proposed FX				A book read over six days — no moment at the table.
+item:tome-of-the-stilled-tongue	Close match	spell:raise-dead	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	The tongue in the book speaks.
+item:tome-of-understanding	No proposed FX				A book read over six days — no moment at the table.
+item:universal-solvent	No proposed FX				Solvent. Nothing at the table to play.
+item:vinegar	No proposed FX				Food. Nothing happens at the table.
+item:vinegar-pint	No proposed FX				Food. Nothing happens at the table.
+item:void	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:walloping-ammunition	Family match	weapon:longbow	jb2a.impact.004.blue	psfx.impacts.bludgeoning.v1	The shot knocks the target down.
+item:walloping-arrows	Family match	weapon:longbow	jb2a.impact.004.blue	psfx.impacts.bludgeoning.v1	The shot knocks the target down.
+item:wand-of-binding	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.purple	psfx.magic-signs.rune.v1.abjuration.intro	Hold Monster from the wand.
+item:wand-of-conducting	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.violin.01.sforzando.keyOfC.C6	The wand conducts music out of the air.
+item:wand-of-enemy-detection	Close match	spell:dispel-magic	jb2a.detect_magic.circle.dark_red	psfx.1st-level-spells.detect-magic.v1.001	The wand finds what is hostile.
+item:wand-of-fear	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.magic-signs.rune.v1.necromancy.intro	Fear from the wand.
+item:wand-of-fireballs	Close match	spell:fireball	jb2a.fireball.explosion.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	Fireball from the wand — the same explosion the corpus already plays.
+item:wand-of-lightning-bolts	Close match	spell:lightning-bolt	jb2a.lightning_bolt.narrow.blue	psfx.3rd-level-spells.call-lightning.v1.primary	Lightning Bolt from the wand.
+item:wand-of-magic-detection	Close match	spell:dispel-magic	jb2a.detect_magic.circle.blue	psfx.1st-level-spells.detect-magic.v1.001	Detect Magic from the wand.
+item:wand-of-magic-missiles	Close match	spell:magic-missile	jb2a.magic_missile.purple	psfx.1st-level-spells.magic-missile.v1	Magic Missile from the wand — the same darts the corpus already plays.
+item:wand-of-paralysis	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.magic-signs.rune.v1.enchantment.intro	A ray from the wand and the target is paralysed.
+item:wand-of-polymorph	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.complete.yellow	psfx.magic-signs.circle.v1.transmutation.complete	Polymorph from the wand.
+item:wand-of-pyrotechnics	Close match	spell:fireball	jb2a.firework.01.bluepink.03	psfx.casting.fire.001	Sparks and fireworks from the wand.
+item:wand-of-secrets	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.magic-signs.rune.v1.divination.intro	The wand finds the hidden door.
+item:1-wand-of-the-war-mage	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:wand-of-the-war-mage-1-2-or-3	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:wand-of-web	Close match	spell:web	jb2a.web.complete.002.white	psfx.magic-signs.rune.v1.conjuration.intro	Web from the wand.
+item:wand-of-wonder	Close match	spell:fireball	jb2a.firework.02.orangeyellow.01	psfx.magic-signs.circle.v1.conjuration.complete	Something happens. Nobody knows what — the wand of wonder.
+item:water-ring-of-elemental-command	Close match	spell:conjure-animals	jb2a.liquid.splash.blue	psfx.casting.water.001	The ring commands water.
+item:water-fresh-pint	No proposed FX				Food. Nothing happens at the table.
+item:water-salt-pint	No proposed FX				Food. Nothing happens at the table.
+item:well-of-many-worlds	Close match	spell:dimension-door	jb2a.portals.horizontal.ring.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	The cloth is unfolded and a hole opens onto another world.
+item:wind-fan	Close match	spell:conjure-animals	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	Gust of Wind from the fan.
+item:wine-pint	No proposed FX				Food. Nothing happens at the table.
+item:winged-boots	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	The boots take the wearer off the ground.
+item:wings-of-flying	Close match	effect:heavenly-wings	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.large	The cloak becomes wings.
+item:wraps-of-unarmed-power	Family match	natural:unarmed-strike	jb2a.glint.yellow.few	psfx.impacts.bludgeoning.v1	A glint on the wraps as the fist lands.

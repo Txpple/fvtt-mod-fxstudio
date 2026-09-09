@@ -1,0 +1,127 @@
+effect:ancient-armor	Close match	spell:mage-armor	jb2a.markers.shield_rampart.loop.02.green	psfx.magic-signs.rune.v1.abjuration.intro	Ancient Armor: old bark and stone close over.
+effect:attack-and-save-disadvantage	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.psychic	The dread reaches everyone near.
+effect:avenger-spirit	Close match	spell:magic-missile	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.necrotic	The Avenger's spirit strikes — every soul trinket reads by what it was in life.
+effect:bloated-size-and-burst	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Bloated: it will burst.
+effect:cursed-path-to-the-grave	Close match	effect:banished	jb2a.condition.curse.01.001.green	psfx.impacts.magicaleffects.necrotic	Path to the Grave: the target is opened to the next blow.
+effect:d20-test-advantage	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	The Fortune Teller's spirit steadies a roll.
+effect:death-burst-improvement	Close match	spell:raise-dead	jb2a.impact.004.green	psfx.impacts.magicaleffects.necrotic	The reanimated companion bursts when it falls.
+effect:escaped-death	No proposed FX				A passive trait — no moment to play.
+effect:extrasensory-perception	Close match	effect:alertness	jb2a.particles.swirl.purple.01.01	psfx.impacts.magicaleffects.psychic	Extrasensory Perception: it knows more than it should.
+effect:eyes-of-the-dark	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.illusion.intro	Eyes of the Dark: it sees in the black.
+effect:ferocity-die	No proposed FX				A die added — no moment to play.
+effect:form-of-dread	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.purple	psfx.impacts.magicaleffects.psychic	Form of Dread: the blood hunter turns into the thing you fear.
+effect:form-of-dread-necrotic-husk	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.green	psfx.impacts.magicaleffects.necrotic	Form of Dread, necrotic husk.
+effect:form-of-superior-dread	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.purple	psfx.impacts.magicaleffects.psychic	Form of Superior Dread.
+effect:frightened-menacing-aura	Close match	effect:frightened	jb2a.template_circle.aura.01.loop.large.orangepurple	psfx.impacts.magicaleffects.psychic	A menacing aura: everyone near is afraid.
+effect:gaunt	No proposed FX				A passive trait — no moment to play.
+effect:ghastly-form	Close match	effect:ethereal	jb2a.shimmer.01.green	psfx.impacts.magicaleffects.necrotic	Ghastly Form: it goes half-dead.
+effect:ghost-walk	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	Ghost Walk: it walks through.
+effect:half-cover-spirit-guardians	Close match	spell:mage-armor	jb2a.spirit_guardians.dark_whiteblue.no_ring	psfx.magic-signs.circle.v1.conjuration.loop	The spirits give cover.
+effect:hungering-might	No proposed FX				A passive trait — no moment to play.
+effect:innate-sorcery-umbral-form	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Umbral Form: it goes to shadow.
+effect:intrusive-echoes-incapacitated	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.incantations.whispers.fem.001.forward.slow.001	Intrusive Echoes: the voices stop it.
+effect:involuntary-change-stunned	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.magic-signs.rune.v1.transmutation.intro	Involuntary Change: the flesh moves on its own.
+effect:life-essence	Close match	spell:raise-dead	jb2a.energy_strands.range.multiple.bluepink.02.30ft	psfx.impacts.magicaleffects.necrotic	A soul trinket is spent: the life goes across.
+effect:moist	No proposed FX				A passive trait — no moment to play.
+effect:ominous-strikes	Close match	effect:regenerating	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Ominous Strikes: the blow feeds the striker.
+effect:ominous-will-incapacitated	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Ominous Will: it takes hold.
+effect:paranoia	Close match	effect:frightened	jb2a.markers.horror.purple.03	psfx.impacts.magicaleffects.psychic	Paranoia: it will not settle.
+effect:pull-of-the-grave	Close match	effect:banished	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Pull of the Grave: the grave wants it back.
+effect:remote-viewing-incapacitated	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.divination.intro	Remote Viewing: the body is left behind.
+effect:spider-climb-hands-free	No proposed FX				A passive trait — no moment to play.
+effect:strengthened-attack-or-check	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	Vampiric Bite: the drinker is stronger for it.
+effect:symbiotic-agenda-charmed	Close match	effect:charmed	jb2a.markers.heart.dark_red.03	psfx.impacts.magicaleffects.psychic	Symbiotic Agenda: the passenger wants something.
+effect:token-created	Close match	spell:find-familiar	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	An eerie token is made.
+effect:voices-from-beyond-deafened	Close match	effect:frightened	jb2a.icon.mute.purple	psfx.incantations.whispers.fem.001.forward.slow.001	Voices from Beyond: it cannot hear over them.
+effect:warping-flesh-stunned	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.magic-signs.rune.v1.transmutation.intro	Warping Flesh: the body will not hold still.
+effect:wayfarer-spirit	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.1st-level-spells.cure-wounds.v1.001	The Wayfarer's spirit gives temporary hit points.
+feature:aberrant-anatomy	No proposed FX				A passive trait — no moment to play.
+feature:ancient-might	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.casting.earth.001	Ancient Might: the old strength answers.
+feature:arcane-conduit	Close match	spell:magic-missile	jb2a.energy_beam.normal.bluepink.02.30ft	psfx.impacts.magicaleffects.generic.002.001	Arcane Conduit: the magic goes through it.
+feature:beasts-of-ill-omen	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	Beasts of Ill Omen: something dark answers.
+feature:bloated	No proposed FX				A passive trait — no moment to play.
+feature:channeler	Close match	spell:conjure-animals	jb2a.spirit_guardians.dark_whiteblue.spirits	psfx.magic-signs.circle.v1.conjuration.loop	Channeler: the spirits come through.
+feature:circle-of-mortality	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.impacts.magicaleffects.necrotic	Circle of Mortality: it heals best at the edge.
+feature:college-of-spirits	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:college-spirits	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:deaths-friend	No proposed FX				A passive trait — no moment to play.
+feature:dhampir	No proposed FX				A lineage name, not an ability — nothing to play.
+feature:divine-reaper	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_purple	psfx.impacts.magicaleffects.necrotic	Divine Reaper: the god takes its due.
+feature:echoing-soul	No proposed FX				A passive trait — no moment to play.
+feature:eerie-token	Close match	spell:find-familiar	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	An eerie token is made.
+feature:empowered-channeling	Close match	spell:conjure-animals	jb2a.spirit_guardians.dark_whiteblue.spirits	psfx.magic-signs.circle.v1.conjuration.loop	Empowered Channeling: the spirits come harder.
+feature:escaped-death	No proposed FX				A passive trait — no moment to play.
+feature:everlasting	No proposed FX				A passive trait — no moment to play.
+feature:ferocity	No proposed FX				A passive trait — no moment to play.
+feature:form-of-dread	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.purple	psfx.impacts.magicaleffects.psychic	Form of Dread: the blood hunter turns into the thing you fear.
+feature:gathered-whispers	Close match	effect:carrying-message	jb2a.markers.runes.dark_black.03	psfx.incantations.whispers.fem.001.forward.slow.001	Gathered Whispers: the dead have something to say.
+feature:gaunt	No proposed FX				A passive trait — no moment to play.
+feature:ghost-walk	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	Ghost Walk: it walks through.
+feature:grave-domain	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:grave-domain-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:grave-touched	No proposed FX				A passive trait — no moment to play.
+feature:haunted-one	No proposed FX				A background name, not an ability — nothing to play.
+feature:hexblood	No proposed FX				A lineage name, not an ability — nothing to play.
+feature:hollow-warden	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:hollow-warden-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:hungering-might	No proposed FX				A passive trait — no moment to play.
+feature:improved-reanimation	No proposed FX				A better companion — the companion has its own FX.
+feature:investigator	No proposed FX				A background name, not an ability — nothing to play.
+feature:knowledge-from-a-past-life	Close match	effect:comprehension	jb2a.markers.runes.white.03	psfx.magic-signs.rune.v1.divination.intro	Knowledge from a Past Life: it remembers something it never learned.
+feature:lupin	No proposed FX				A lineage name, not an ability — nothing to play.
+feature:macabre-modifications	No proposed FX				A passive trait — no moment to play.
+feature:mist-walker	Close match	spell:misty-step	jb2a.misty_step.01.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Mist Walker: it steps into the mist.
+feature:mist-wanderer	No proposed FX				A background name, not an ability — nothing to play.
+feature:moist	No proposed FX				A passive trait — no moment to play.
+feature:mystical-connection	No proposed FX				A passive trait — no moment to play.
+feature:necrotic-husk	Close match	effect:lingering-acid	jb2a.template_circle.aura.01.loop.large.green	psfx.impacts.magicaleffects.necrotic	Necrotic Husk: the rot comes off it.
+feature:path-to-the-grave	Close match	effect:banished	jb2a.condition.curse.01.001.green	psfx.impacts.magicaleffects.necrotic	Path to the Grave: the target is opened to the next blow.
+feature:phantom	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:power-of-shadow	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Power of Shadow: the shadow answers.
+feature:reanimated-companion	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	Reanimated Companion: it gets up again.
+feature:reanimator	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:reanimator-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:reanimators-skill-set	No proposed FX				A proficiency — no moment to play.
+feature:reborn	No proposed FX				A lineage name, not an ability — nothing to play.
+feature:refined-reanimation	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	Refined Reanimation: it gets up better.
+feature:rot-and-violence	No proposed FX				A passive trait — no moment to play.
+feature:second-skin	Close match	effect:bark-like-skin	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.transmutation.intro	Second Skin: the symbiote covers it.
+feature:sentinel-at-deaths-door	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	Sentinel at Death's Door: a critical hit is made ordinary.
+feature:shadow-sorcery	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:shadow-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:shadow-walk	Close match	spell:misty-step	jb2a.misty_step.01.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Shadow Walk: it steps through shadow.
+feature:sharp-eye	No proposed FX				A passive trait — no moment to play.
+feature:spider-climb-improvement	No proposed FX				A passive trait — no moment to play.
+feature:spirit-medium	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:spirits-from-beyond	Close match	spell:conjure-animals	jb2a.spirit_guardians.dark_whiteblue.spirits	psfx.magic-signs.circle.v1.conjuration.loop	Spirits from Beyond: they come when called.
+feature:strange-modifications	No proposed FX				A passive trait — no moment to play.
+feature:superior-dread	No proposed FX				A better Form of Dread, which has a proposal of its own.
+feature:symbiotic-being	Close match	effect:bark-like-skin	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.transmutation.intro	Symbiotic Being: the passenger acts.
+feature:tokens-departed	Close match	spell:find-familiar	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	Tokens of the Departed: the trinket is spent.
+feature:tokens-of-the-departed	Close match	spell:find-familiar	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	Tokens of the Departed: the trinket is spent.
+feature:touch-of-death	Close match	effect:banished	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Touch of Death: the grave answers.
+feature:umbral-form	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Umbral Form: it goes to shadow.
+feature:undead-patron	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:undead-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:voice-of-death	Close match	effect:frightened	jb2a.soundwave.01.purple	psfx.impacts.magicaleffects.necrotic	Voice of Death: the grave speaks.
+feature:wails-from-the-grave	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_purple	psfx.impacts.magicaleffects.necrotic	Wails from the Grave: the dead strike a second target.
+feature:watchers	Close match	effect:foresight	jb2a.eyes.01.dark_purple.many	psfx.impacts.magicaleffects.psychic	Watchers: something is always looking.
+feature:whispers-of-the-dead	No proposed FX				A proficiency — no moment to play.
+feature:wrath-of-the-wild	Close match	effect:ensnared	jb2a.entangle.green	psfx.1st-level-spells.entangle.vines.v1.001.intro	Wrath of the Wild: the ground takes them.
+item:arsonist-spirit	Close match	spell:fireball	jb2a.impact.fire.01.orange	psfx.casting.fire.001	The Arsonist's spirit burns — every soul trinket reads by what it was in life.
+item:avenger-spirit	Close match	spell:magic-missile	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.necrotic	The Avenger's spirit strikes.
+item:beloved-spirit	Close match	spell:cure-wounds	jb2a.healing_generic.200px.purple	psfx.1st-level-spells.cure-wounds.v1.001	The Beloved's spirit heals.
+item:brute-spirit	Close match	spell:shatter	jb2a.thunderwave.center.blue	psfx.cantrips.thunderclap.v1	The Brute's spirit knocks them back.
+item:coward-spirit	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.psychic	The Coward's spirit frightens.
+item:fortune-teller-spirit	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	The Fortune Teller's spirit steadies a roll.
+item:magical-token	Close match	spell:find-familiar	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	A magical token is made.
+item:priest-spirit	Close match	spell:cure-wounds	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	The Priest's spirit heals.
+item:renegade-spirit	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	The Renegade's spirit moves them.
+item:shade-spirit	Close match	spell:darkness	jb2a.darkness.black	psfx.impacts.magicaleffects.necrotic	The Shade's spirit puts out the light.
+item:sharpshooter-spirit	Close match	spell:magic-missile	jb2a.impact.004.blue	psfx.impacts.magicaleffects.generic.002.001	The Sharpshooter's spirit strikes at range.
+item:soul-trinkets	Close match	spell:raise-dead	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	A soul trinket, held.
+item:trickster-spirit	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	The Trickster's spirit muddles.
+item:wayfarer-spirit	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.1st-level-spells.cure-wounds.v1.001	The Wayfarer's spirit gives temporary hit points.
+natural:feral-pounce	Close match	natural:claws	jb2a.claws.400px.red	psfx.impacts.slashing.v1	Feral Pounce: it comes down on you.
+natural:vampiric-bite	Close match	natural:bite	jb2a.bite.400px.red	psfx.impacts.magicaleffects.necrotic	Vampiric Bite: it drinks.
+spell:jolt-to-life	Close match	spell:cure-wounds	jb2a.static_electricity.01.blue	psfx.cantrips.shocking-grasp.v1.001	Jolt to Life: a shock that starts the heart.

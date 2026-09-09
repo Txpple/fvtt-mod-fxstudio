@@ -1,0 +1,150 @@
+natural:arcane-tentacles	Close match	natural:tentacle	jb2a.black_tentacles.dark_purple	psfx.impacts.magicaleffects.psychic	The arcanist's tentacles take hold.
+natural:attach	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.slashing.v1	The cloaker wraps around you.
+natural:bite-bat-or-vampire-form-only	Close match	natural:bite	jb2a.bite.400px.red	psfx.impacts.magicaleffects.necrotic	The vampire bites.
+natural:bite-bear-or-hybrid-form-only	Close match	natural:bite	jb2a.bite.400px.orange	psfx.impacts.slashing.v1	The werebear bites.
+natural:bite-rat-or-hybrid-form-only	Close match	natural:bite	jb2a.bite.200px.grey	psfx.impacts.slashing.v1	The wererat bites.
+natural:bite-tiger-or-hybrid-form-only	Close match	natural:bite	jb2a.bite.400px.orange	psfx.impacts.slashing.v1	The weretiger bites.
+natural:bite-wolf-or-hybrid-form-only	Close match	natural:bite	jb2a.bite.400px.grey	psfx.impacts.slashing.v1	The werewolf bites.
+natural:bites	Close match	natural:bite	jb2a.bite.200px.grey	psfx.impacts.slashing.v1	The swarm of bats bites.
+natural:bladed-arm	Close match	weapon:longsword	jb2a.melee_generic.slashing.one_handed	psfx.impacts.slashing.v1	The iron golem's blade comes round.
+natural:bone-cudgel	Close match	weapon:club	jb2a.melee_attack.02.club.01	psfx.impacts.bludgeoning.v1	The grimlock swings its cudgel.
+natural:branch	Close match	natural:slam	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.impacts.bludgeoning.v1	The tree blight swings a branch.
+natural:channel-negative-energy	Close match	spell:raise-dead	jb2a.energy_beam.normal.bluepink.02.30ft	psfx.impacts.magicaleffects.necrotic	The mummy lord pours the grave into you.
+natural:charged-tendril	Close match	natural:tentacle	jb2a.static_electricity.01.blue	psfx.weapon-swooshes.lightning.v1.group01	The shambling mound's tendril crackles.
+natural:chromatic-spittle	Close match	spell:acid-arrow	jb2a.liquid.splash.bright_green	psfx.cantrips.acid-splash.v1	The winged kobold spits.
+natural:conjure-slimy-glob	Close match	effect:ensnared	jb2a.liquid.splash.bright_green	psfx.cantrips.acid-splash.v1	The kuo-toa whip throws a glob.
+natural:constricting-vine	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.1st-level-spells.entangle.vines.v1.001.intro	The vine blight squeezes.
+natural:corrupting-touch	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.necrotic	The banshee's touch corrupts.
+natural:cursed-touch	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.psychic	The rakshasa's touch curses.
+natural:deathly-ray	Close match	spell:magic-missile	jb2a.spell_projectile.skull.pinkpurple.30ft	psfx.impacts.magicaleffects.necrotic	The cultist throws a ray of death.
+natural:divine-ray	Close match	spell:guiding-bolt	jb2a.guiding_bolt.01.yellow	psfx.class-features.divine-smite.v1.001.target	The empyrean throws a ray of light.
+natural:draining-swipe	Close match	natural:claws	jb2a.claws.400px.bright_purple	psfx.impacts.magicaleffects.necrotic	The shadow's swipe drains.
+natural:fiendish-touch	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.psychic	The succubus touches.
+natural:flame-scepter	Close match	spell:magic-missile	jb2a.fire_bolt.orange	psfx.casting.fire.001	The flaming skeleton points and fire goes out.
+natural:flash-of-light	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	The cyclops oracle's eye flashes.
+natural:gears-launcher	Close match	weapon:heavycrossbow	jb2a.bullet.01	psfx.ambient.tools.gears.001	The quadrone fires its gears.
+natural:grab	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	The bugbear grabs you.
+natural:hammer-throw	Close match	weapon:warhammer	jb2a.hammer.throw.30ft	psfx.weapon-swooshes.fire.v1.group01	The fire giant throws its hammer.
+natural:horrific-necrosis	Close match	natural:claws	jb2a.claws.400px.bright_green	psfx.impacts.magicaleffects.necrotic	The gravecaller's touch rots.
+natural:icy-bite	Close match	natural:bite	jb2a.bite.400px.blue	psfx.impacts.magicaleffects.cold	The lacedon's bite is cold.
+natural:necrotic-ray	Close match	spell:magic-missile	jb2a.spell_projectile.skull.pinkpurple.30ft	psfx.impacts.magicaleffects.necrotic	The spirit naga throws a ray.
+natural:paralyzing-tentacles	Close match	natural:tentacle	jb2a.black_tentacles.dark_purple	psfx.impacts.magicaleffects.psychic	The grell's tentacles hold you.
+natural:paralyzing-touch	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.necrotic	The lich's touch stops you.
+natural:petrifying-bite	Close match	natural:bite	jb2a.bite.200px.grey	psfx.casting.earth.001	The cockatrice bites and the flesh sets.
+natural:prance	Close match	effect:hasted	jb2a.markers.music.pink	psfx.musical-instruments.flute.01.long.keyOfA.A6	The satyr prances in.
+natural:psychic-warp	Close match	spell:magic-missile	jb2a.impact_themed.skull.pinkpurple	psfx.impacts.magicaleffects.psychic	The psion warps the space round you.
+natural:restless-touch	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.psychic	The incubus touches.
+natural:rotting-touch	Close match	natural:slam	jb2a.impact.004.green	psfx.impacts.magicaleffects.necrotic	The violet fungus rots what it touches.
+natural:shred	Close match	natural:claws	jb2a.claws.400px.bright_green	psfx.impacts.slashing.v1	The vrock shreds.
+natural:smother	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	The rug of smothering wraps you.
+natural:spectral-jaws	Close match	natural:bite	jb2a.bite.400px.blue	psfx.impacts.magicaleffects.psychic	The sahuagin priest's spectral jaws close.
+natural:strange-scepter	Close match	spell:magic-missile	jb2a.energy_beam.normal.bluegreen.01.30ft	psfx.impacts.magicaleffects.psychic	The archpriest points its scepter.
+natural:suffocate	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.necrotic	The revenant chokes you.
+natural:sun-ray	Close match	spell:guiding-bolt	jb2a.guiding_bolt.01.yellow	psfx.class-features.divine-smite.v1.001.target	The centaur warden throws a ray of sun.
+natural:swarm-of-grasping-hands	Close match	natural:claws	jb2a.claws.200px.brown	psfx.impacts.slashing.v1	The crawling claws grab.
+natural:swarm-of-proboscises	Close match	natural:bite	jb2a.bite.200px.red	psfx.impacts.slashing.v1	The stirges drink.
+natural:tail-spine	Close match	natural:sting	jb2a.melee_generic.piercing.one_handed	psfx.impacts.slashing.v1	The spined devil's tail spine goes in.
+natural:tentacles	Close match	natural:tentacle	jb2a.black_tentacles.dark_purple	psfx.impacts.bludgeoning.v1	The giant octopus takes you.
+natural:thorn-volley	Close match	weapon:longbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	The gulthias blight throws thorns.
+natural:thrash	Close match	natural:slam	jb2a.impact.004.orange	psfx.impacts.bludgeoning.v1	The barlgura thrashes.
+natural:tormenting-bite	Close match	natural:bite	jb2a.bite.400px.red	psfx.impacts.slashing.v1	The barlgura bites.
+natural:verdant-wisp	Close match	spell:magic-missile	jb2a.spell_projectile.earth.01.browngreen.30ft	psfx.casting.earth.001	The druid throws a verdant wisp.
+natural:vile-slime	Close match	spell:acid-arrow	jb2a.liquid.splash.bright_green	psfx.cantrips.acid-splash.v1	The lemure's slime lands.
+natural:wind-swipe	Close match	natural:slam	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The invisible stalker strikes with wind.
+feature:shard-fed	Close match	effect:heated-metal	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	House scope: a shard-fed creature of this world.
+item:kestrel-company-brooch	No proposed FX				House scope: a keepsake with no rules of its own.
+feature:martial-advantage	No proposed FX				Extra damage on a swing that has its own FX.
+effect:shard-hardened-natural-armor	No proposed FX				House scope: a bonus to AC — no moment to play.
+feature:necrofire-reach	Close match	spell:burning-hands	jb2a.fire_jet.green	psfx.impacts.magicaleffects.necrotic	House scope: Morgash's necrotic fire reaches out.
+item:travelers-clothes--blue-cloak	No proposed FX				House scope: clothing — nothing to play.
+item:homespun-dress-autumn-leaf-shawl	No proposed FX				House scope: clothing — nothing to play.
+item:arrows-embedded--the-shafts-that-felled-him	No proposed FX				House scope: set dressing — nothing to play.
+item:guards-tabard-blue--gold	No proposed FX				House scope: clothing — nothing to play.
+effect:spell-changes	No proposed FX				House scope: a spell's modifiers — the spell has its own FX.
+item:copyists-ledger-leaf	No proposed FX				House scope: set dressing — nothing to play.
+item:everseed-acorn	No proposed FX				House scope: a keepsake with no rules of its own.
+item:singe-marked-childs-mitten	No proposed FX				House scope: set dressing — nothing to play.
+item:the-bolt-that-missed-its-grave	No proposed FX				House scope: set dressing — nothing to play.
+item:wand-of-the-war-mage-1	No proposed FX				House scope: a spellcasting focus. The spell it helps cast is its own FX.
+effect:the-duskheart	Close match	effect:shining	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.evocation.intro	House scope: the Duskheart is awake.
+effect:vesper-staff	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.evocation.intro	House scope: the Vesper Staff is charged. Its swing is already a house FX.
+feature:legendary-actions	No proposed FX				A pool of actions — each has its own record.
+item:holy-symbol	No proposed FX				House scope: a spellcasting focus. The spell it helps cast is its own FX.
+item:robe-of-protection	No proposed FX				House scope: worn, always on — no moment to play.
+item:the-duskheart	Close match	effect:shining	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.evocation.intro	House scope: the Duskheart is used.
+weapon:first-light	Close match	weapon:longsword	jb2a.sword.melee.fire.yellow	psfx.class-features.divine-smite.v1.001.caster	House scope: First Light. It already plays as an Item Hook in house.json; this key would give it a named FX as well.
+item:arrows-1	No proposed FX				House scope: a plus on the head — the shot is the bow's FX.
+item:chaunteas-barley-token	No proposed FX				House scope: a keepsake with no rules of its own.
+item:moonstone-necklace	No proposed FX				House scope: a keepsake with no rules of its own.
+item:trail-worn-map-journal	No proposed FX				House scope: set dressing — nothing to play.
+item:wren-bone-whistle	No proposed FX				House scope: a keepsake with no rules of its own.
+weapon:1-dagger	Close match	weapon:dagger	jb2a.dagger.melee.02.white	psfx.weapon-attacks.sword.v1	House scope: Jetten's +1 Dagger. This is the key that was weeded out of Stock on 8 September; a house FX is where it belongs.
+weapon:goldthorn	Close match	weapon:scimitar	jb2a.melee_attack.04.scimitar.01	psfx.weapon-attacks.sword.v1	House scope: Goldthorn. It already plays as an Item Hook in house.json; this key would give it a named FX as well.
+effect:the-graveheart	Close match	effect:shining	jb2a.markers.light.complete.green	psfx.impacts.magicaleffects.necrotic	House scope: the Graveheart is awake.
+effect:unstoppable-drive	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	House scope: the Maul of Momentum is rolling.
+item:astral-steel-buckle	No proposed FX				House scope: a keepsake with no rules of its own.
+item:campaign-coin--the-battle-of-baldurs-gate	No proposed FX				House scope: a keepsake with no rules of its own.
+item:flaming-fist-service-badge	No proposed FX				House scope: a keepsake with no rules of its own.
+item:hespers-bone-key	No proposed FX				House scope: a keepsake with no rules of its own.
+item:small-cask-of-southern-wine	No proposed FX				House scope: trade goods — nothing to play.
+item:the-graveheart	Close match	effect:shining	jb2a.markers.light.complete.green	psfx.impacts.magicaleffects.necrotic	House scope: the Graveheart is used.
+weapon:ember-touched-greatsword	Close match	weapon:greatsword	jb2a.greatsword.melee.fire.orange	psfx.weapon-swooshes.fire.v1.group01	House scope: the Ember-Touched Greatsword swings alight.
+weapon:maul-of-momentum	Close match	weapon:maul	jb2a.melee_attack.03.maul.01	psfx.impacts.bludgeoning.v1	House scope: the Maul of Momentum.
+item:1-chain-mail	No proposed FX				House scope: worn armour with no activation.
+item:1-plate-armor	No proposed FX				House scope: worn armour with no activation.
+item:1-splint-armor	No proposed FX				House scope: worn armour with no activation.
+item:1-studded-leather-armor	No proposed FX				House scope: worn armour with no activation.
+item:bolt-of-fine-cloth	No proposed FX				House scope: trade goods — nothing to play.
+item:pouch-of-cut-gems	No proposed FX				House scope: treasure — nothing to play.
+item:seras-studded-leather	No proposed FX				House scope: worn armour with no activation.
+weapon:marns-light-crossbow	Close match	weapon:light-crossbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	House scope: Marn's light crossbow.
+weapon:seras-shortsword	Close match	weapon:shortsword	jb2a.melee_attack.01.shortsword.01	psfx.weapon-attacks.sword.v1	House scope: Sera's shortsword.
+effect:bloodied	No proposed FX				House scope: a hit-point threshold — no moment to play.
+weapon:seras-longbow	Close match	weapon:longbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	House scope: Sera's longbow.
+item:holy-symbol-of-shar	No proposed FX				House scope: a spellcasting focus. The spell it helps cast is its own FX.
+effect:the-tideheart	Close match	effect:shining	jb2a.markers.light.complete.blue	psfx.casting.water.001	House scope: the Tideheart is awake.
+item:acorn	No proposed FX				House scope: a keepsake with no rules of its own.
+item:bag-of-emberspice-chai	No proposed FX				House scope: trade goods — nothing to play.
+item:bag-of-fen-orchid-oolong	No proposed FX				House scope: trade goods — nothing to play.
+item:bag-of-golden-needle-tea	No proposed FX				House scope: trade goods — nothing to play.
+item:bag-of-moonpetal-white-tea	No proposed FX				House scope: trade goods — nothing to play.
+item:bag-of-smoked-ashenleaf-tea	No proposed FX				House scope: trade goods — nothing to play.
+item:bolt-of-water-stained-silk	No proposed FX				House scope: trade goods — nothing to play.
+item:carved-whalebone-comb-set	No proposed FX				House scope: a keepsake with no rules of its own.
+item:charcoal-sketch-of-a-weeping-woman	No proposed FX				House scope: set dressing — nothing to play.
+item:everbloom-petal	No proposed FX				House scope: a keepsake with no rules of its own.
+item:fey-ring-cap	No proposed FX				House scope: a keepsake with no rules of its own.
+item:gilt-framed-portrait-of-a-stern-merchant	No proposed FX				House scope: set dressing — nothing to play.
+item:jar-of-greenrest-preserves	No proposed FX				House scope: food — nothing to play.
+item:jar-of-mourners-teeth	No proposed FX				House scope: set dressing — nothing to play.
+item:jar-of-widows-tears	No proposed FX				House scope: set dressing — nothing to play.
+item:jar-a-mothers-little-finger	No proposed FX				House scope: set dressing — nothing to play.
+item:kestrel-company-locket	No proposed FX				House scope: a keepsake with no rules of its own.
+item:marns-journal	No proposed FX				House scope: set dressing — nothing to play.
+item:marns-travelers-clothes	No proposed FX				House scope: clothing — nothing to play.
+item:marns-unsent-letter	No proposed FX				House scope: set dressing — nothing to play.
+item:oil-painting-sunlit-wetlands	No proposed FX				House scope: set dressing — nothing to play.
+item:oil-painting-three-ladies-at-tea	No proposed FX				House scope: set dressing — nothing to play.
+item:ornate-teacup-black-and-silver	No proposed FX				House scope: set dressing — nothing to play.
+item:ornate-teacup-bone-porcelain	No proposed FX				House scope: set dressing — nothing to play.
+item:ornate-teacup-sea-glass-green	No proposed FX				House scope: set dressing — nothing to play.
+item:peryton-feather	No proposed FX				House scope: trade goods — nothing to play.
+item:riverside-teahouse-keepsake	No proposed FX				House scope: a keepsake with no rules of its own.
+item:roll-of-embroidered-tapestry	No proposed FX				House scope: trade goods — nothing to play.
+item:seras-map-of-the-four-ruins	No proposed FX				House scope: set dressing — nothing to play.
+item:sheaf-of-charcoal-sketches	No proposed FX				House scope: set dressing — nothing to play.
+item:silver-kestrel-locket	No proposed FX				House scope: a keepsake with no rules of its own.
+item:small-dragon-bones-wired	No proposed FX				House scope: set dressing — nothing to play.
+item:tarnished-silver-tea-service	No proposed FX				House scope: set dressing — nothing to play.
+item:the-sisters-notes	No proposed FX				House scope: set dressing — nothing to play.
+item:the-tideheart	Close match	effect:shining	jb2a.markers.light.complete.blue	psfx.casting.water.001	House scope: the Tideheart is used.
+item:the-widows-ledger	No proposed FX				House scope: set dressing — nothing to play.
+item:volos-guide-to-monsters-annotated	No proposed FX				House scope: set dressing — nothing to play.
+item:1-shield	No proposed FX				House scope: worn, always on — no moment to play.
+item:a-dose-of-greenrest-tonic	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.potions-vials.drink-liquid.001	House scope: the tonic is drunk.
+item:holy-symbol-of-lathander	No proposed FX				House scope: a spellcasting focus. The spell it helps cast is its own FX.
+item:holy-symbol-of-oghma	No proposed FX				House scope: a spellcasting focus. The spell it helps cast is its own FX.
+item:pocket-psalter	No proposed FX				House scope: set dressing — nothing to play.
+item:scriveners-seal-ring	No proposed FX				House scope: a keepsake with no rules of its own.
+item:silver-gauntlet-vault-key	No proposed FX				House scope: a keepsake with no rules of its own.
+item:silverpoint-quill	No proposed FX				House scope: a keepsake with no rules of its own.

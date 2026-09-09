@@ -1,0 +1,20 @@
+feature:web-walker	No proposed FX				A passive trait — no moment to play.
+feature:whirlwind-of-sand	Close match	spell:shatter	jb2a.whirlwind.bluegrey	psfx.cantrips.gust.v1	Whirlwind of Sand: it becomes a column of sand.
+feature:wishes	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	Wishes: the djinni grants one.
+spell:great-old-one-hex	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex from the Great Old One: the skull mark on the quarry.
+spell:hex-powerful	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex, upcast: the skull mark on the quarry.
+weapon:book-of-shadows	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+feature:battle-ready	No proposed FX				A passive trait — no moment to play.
+feature:beast-whisperer	No proposed FX				A passive trait — no moment to play.
+feature:death-jinx	Close match	effect:banished	jb2a.condition.curse.01.001.green	psfx.impacts.magicaleffects.necrotic	Death Jinx: a parting curse when it dies.
+feature:dimensional-disruption	Close match	effect:banished	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.magic-signs.circle.v1.abjuration.loop	Dimensional Disruption: nothing teleports near it.
+feature:disciple-of-the-nine-hells	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	Disciple of the Nine Hells: something answers.
+feature:emissary-of-juiblex	No proposed FX				A passive trait — no moment to play.
+feature:gloom-shroud	Close match	spell:darkness	jb2a.darkness.black	psfx.magic-signs.rune.v1.illusion.intro	Gloom Shroud: the light dies near it.
+feature:poison-tolerant	No proposed FX				A passive trait — no moment to play.
+feature:resonant-connection	No proposed FX				A passive trait — no moment to play.
+feature:slaad-host	No proposed FX				A passive trait — no moment to play.
+feature:steadfast	No proposed FX				A passive trait — no moment to play.
+feature:ventriloquism	No proposed FX				A voice thrown — nothing on a token to play.
+feature:warriors-wrath	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Warrior's Wrath: it goes at you harder.
+feature:wild-talent	No proposed FX				A passive trait — no moment to play.

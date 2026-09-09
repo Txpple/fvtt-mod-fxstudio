@@ -1,0 +1,57 @@
+item:magical-berries	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.food-and-drink.consume.food.bite.juicy.001	Goodberry: a berry eaten, a small green healing light.
+spell:antilife-shell	Close match	spell:mage-armor	jb2a.antilife_shell.blue_with_circle	psfx.magic-signs.rune.v1.abjuration.intro	Antilife Shell: the shell JB2A drew for this exact spell.
+spell:antimagic-field	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.grey	psfx.magic-signs.circle.v1.abjuration.complete	Antimagic Field: a grey sphere where magic stops.
+spell:aura-of-life	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.green	psfx.magic-signs.circle.v1.abjuration.intro	Aura of Life: a green aura held around the caster.
+spell:aura-of-purity	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.circle.v1.abjuration.intro	Aura of Purity: a clean gold aura around the caster.
+spell:aura-of-vitality	Close match	spell:cure-wounds	jb2a.healing_generic.loop.greenorange	psfx.1st-level-spells.cure-wounds.v1.001	Aura of Vitality: healing light held over the aura.
+spell:banishing-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.purplepink	psfx.class-features.divine-smite.v1.001.target	A smite in force violet — one of seven smites, all built on the divine smite strike.
+spell:barkskin	Close match	effect:bark-like-skin	jb2a.swirling_leaves.complete.01.green	psfx.casting.earth.001	Barkskin: bark closes over the skin. Its own effect already has an FX; this is the cast.
+spell:blinding-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.yellowwhite	psfx.class-features.divine-smite.v1.001.target	A smite in blinding white.
+spell:blur	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.circle.v1.illusion.intro	Blur: the outline goes soft.
+spell:conjure-minor-elementals	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A conjuration circle at the caster, as Conjure Animals already reads.
+spell:conjure-woodland-beings	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	A conjuration circle in green, for the fey.
+spell:crown-of-madness	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.complete.red	psfx.magic-signs.circle.v1.enchantment.complete	Crown of Madness: an enchantment circle in red at the target.
+spell:crusaders-mantle	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.class-features.divine-smite.v1.001.caster	Crusader's Mantle: a gold aura around the crusader.
+spell:detect-evil-and-good	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.1st-level-spells.detect-magic.v1.001	The detection circle at the caster, in gold.
+spell:detect-magic	Close match	spell:dispel-magic	jb2a.detect_magic.circle.blue	psfx.1st-level-spells.detect-magic.v1.001	Detect Magic: the circle JB2A and PSFX both drew for this exact spell.
+spell:detect-poison-and-disease	Close match	spell:dispel-magic	jb2a.detect_magic.circle.green	psfx.1st-level-spells.detect-magic.v1.001	The detection circle at the caster, in green.
+spell:drawmijs-instant-summons	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	A conjuration circle as the chest arrives.
+spell:evards-black-tentacles	Close match	spell:black-tentacles	jb2a.black_tentacles.dark_purple	psfx.1st-level-spells.arms-of-hadar.v1.001	The same tentacles the corpus already plays for Black Tentacles — this is the 2024 PHB's record of it.
+spell:fire-shield	Close match	spell:mage-armor	jb2a.shield_themed.above.fire.01.orange	psfx.casting.fire.001	Fire Shield: fire held around the caster. The cold version is the blue variant of the same asset.
+spell:fount-of-moonlight	Close match	spell:moonbeam	jb2a.moonbeam.01.loop.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Fount of Moonlight: cold moonlight around the caster.
+spell:heal	Close match	spell:cure-wounds	jb2a.healing_generic.400px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Heal: the big healing light — Cure Wounds, at sixth level.
+spell:holy-aura	Close match	spell:bless	jb2a.bless.400px.loop.yellow	psfx.magic-signs.circle.v1.abjuration.complete	Holy Aura: gold light held over the warded.
+spell:jallarzis-storm-of-radiance	Close match	spell:moonbeam	jb2a.template_circle.out_pulse.01.loop.yellowwhite	psfx.cantrips.thunderclap.v1	A storm of light and thunder in the template.
+spell:leomunds-secret-chest	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.complete.purple	psfx.magic-signs.circle.v1.conjuration.complete	A conjuration circle as the chest comes and goes.
+spell:leomunds-tiny-hut	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.blue	psfx.magic-signs.circle.v1.evocation.intro	Leomund's Tiny Hut: a blue dome over the party.
+spell:lesser-restoration	Close match	spell:cure-wounds	jb2a.cure_wounds.400px.green	psfx.1st-level-spells.cure-wounds.v1.001	Lesser Restoration: a clean green light at the target.
+spell:locate-animals-or-plants	Close match	spell:dispel-magic	jb2a.detect_magic.circle.green	psfx.1st-level-spells.detect-magic.v1.001	The detection circle, in green, seeking the wild.
+spell:locate-object	Close match	spell:dispel-magic	jb2a.detect_magic.circle.grey	psfx.1st-level-spells.detect-magic.v1.001	The detection circle, seeking a thing.
+spell:mass-healing-word	Close match	spell:healing-word	jb2a.healing_generic.400px.blue	psfx.1st-level-spells.cure-wounds.v1.001	Healing Word on everyone in range — the same light, at each target.
+spell:mass-suggestion	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.complete.pink	psfx.magic-signs.circle.v1.enchantment.complete	Suggestion on many: an enchantment circle at each target.
+spell:melfs-acid-arrow	Close match	spell:acid-arrow	jb2a.arrow.poison.green.02	psfx.cantrips.acid-splash.v1	The same acid arrow the corpus already plays — this is the 2024 PHB's record of it.
+spell:mordenkainens-faithful-hound	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	A conjuration circle where the hound appears.
+spell:mordenkainens-magnificent-mansion	Close match	spell:dimension-door	jb2a.portals.vertical.vortex.purple	psfx.magic-signs.circle.v1.conjuration.complete	A door opens onto the mansion.
+spell:mordenkainens-private-sanctum	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.purple	psfx.magic-signs.circle.v1.abjuration.complete	A violet sphere seals the sanctum.
+spell:nystuls-magic-aura	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.illusion.intro	A false aura laid over the subject.
+spell:otilukes-freezing-sphere	Close match	spell:cone-of-cold	jb2a.ice_spikes.radial.burst.blue	psfx.5th-level-spells.cone-of-cold.v1.001	A sphere of cold bursts in the template.
+spell:otilukes-resilient-sphere	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.blue	psfx.magic-signs.circle.v1.abjuration.complete	A blue sphere closes around the target.
+spell:ottos-irresistible-dance	Close match	effect:irresistible-dance	jb2a.markers.music.blueyellow	psfx.musical-instruments.flute.01.long.keyOfC.C6	Otto's Irresistible Dance: music marks the dancer. Its own effect already has an FX; this is the cast.
+spell:pass-without-trace	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.circle.v1.abjuration.intro	Pass without Trace: the party goes quiet and dim.
+spell:protection-from-energy	Close match	effect:acid-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Protection from Energy: the same shield the five elemental protections already use.
+spell:rarys-telepathic-bond	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.circle.v1.divination.intro	Linked runes at each mind in the bond.
+spell:resistance	Close match	effect:acid-protection	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	Resistance: a small blue shield at the target.
+spell:searing-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.orange	psfx.class-features.divine-smite.v1.001.target	A smite in fire orange.
+spell:shield	Close match	effect:imperceptible-barrier	jb2a.shield.01.intro.blue	psfx.1st-level-spells.shield-spell.intro.v1	Shield: the barrier snaps up. PSFX drew intro, loop and outro for this exact spell.
+spell:shield-of-faith	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	Shield of Faith: a gold shield held at the target.
+spell:shining-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.greenyellow	psfx.class-features.divine-smite.v1.001.target	A smite that leaves the target lit.
+spell:spirit-guardians	Close match	spell:bless	jb2a.spirit_guardians.blue.spirits	psfx.magic-signs.circle.v1.conjuration.loop	Spirit Guardians: the spirits JB2A drew for this exact spell, in eleven colours.
+spell:staggering-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_purple	psfx.class-features.divine-smite.v1.001.target	A smite in psychic violet.
+spell:steel-wind-strike	Close match	spell:misty-step	jb2a.ranged_slash.instant.001.blue.30ft	psfx.impacts.slashing.v1	Steel Wind Strike: a flash of cuts across every target.
+spell:stoneskin	Close match	effect:stoneskin	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Stoneskin: stone closes over the skin. Its own effect already has an FX; this is the cast.
+spell:tashas-hideous-laughter	Close match	effect:uncontrollable-laughter	jb2a.markers.music.pink	psfx.musical-instruments.flute.01.long.keyOfA.A6	Hideous Laughter: the target folds up laughing.
+spell:thunderous-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.blueyellow	psfx.class-features.divine-smite.v1.001.target	A smite that lands with thunder.
+spell:true-polymorph	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.complete.yellow	psfx.magic-signs.circle.v1.transmutation.complete	Polymorph's circle, at ninth level.
+spell:true-resurrection	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	Raise Dead's circle, at ninth level.
+spell:wrathful-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_red	psfx.class-features.divine-smite.v1.001.target	A smite in necrotic red.
+spell:yolandes-regal-presence	Close match	spell:dominate-person	jb2a.template_circle.out_pulse.02.burst.purplepink	psfx.magic-signs.circle.v1.enchantment.complete	A pulse of regal presence pushes outward from the caster.

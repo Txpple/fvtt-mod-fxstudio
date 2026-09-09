@@ -1,0 +1,195 @@
+effect:acrobatic-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:altered-appearance	Close match	effect:bark-like-skin	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.transmutation.intro	Alter Self: the body shifts, a green shimmer over the token.
+effect:animal-handling-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:antipathy	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.magic-signs.rune.v1.enchantment.intro	Antipathy: a repulsion mark on the one driven away.
+effect:aquatic-adaptation	Close match	effect:bark-like-skin	jb2a.shimmer.01.blue	psfx.casting.water.001	Alter Self, gills and fins: a blue shimmer over the token.
+effect:arcana-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:arguing	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.purple	psfx.magic-signs.rune.v1.abjuration.loop	Forcecage, arguing within: chains hold the token in place.
+effect:asleep	Close match	effect:sleeping	jb2a.sleep.symbol.purple	psfx.1st-level-spells.sleep.v1.001	Asleep: the sleeping symbol over the token.
+effect:athletic-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:aura-of-life	Close match	effect:blessed	jb2a.template_circle.aura.01.loop.large.green	psfx.magic-signs.rune.v1.abjuration.loop	Aura of Life: a green aura held around the caster.
+effect:aura-of-purity	Close match	effect:blessed	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.rune.v1.abjuration.loop	Aura of Purity: a clean gold aura held around the caster.
+effect:befuddled	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Feeblemind: the stun mark, in psychic purple.
+effect:bestial-communication	Close match	effect:universal-communication	jb2a.markers.runes.green02.03	psfx.magic-signs.rune.v1.divination.intro	Speak with Animals: runes at the token, green for the wild tongue.
+effect:blinded	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	Blinded by radiance: a burst of white light at the eyes.
+effect:blinded-deafened	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.impacts.magicaleffects.psychic	Blinded and deafened: light at the token, and silence.
+effect:blinded-deafened-stunned	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.impacts.magicaleffects.psychic	Power Word Stun's full measure: the stun mark.
+effect:blinded-violet	Close match	effect:searing-radiance	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.abjuration.intro	Prismatic Wall, the violet layer: a violet blindness at the token.
+effect:blindness	Close match	effect:searing-radiance	jb2a.icon.runes.dark_black	psfx.magic-signs.rune.v1.transmutation.intro	Blindness: the eyes go dark.
+effect:blocked-healing	Close match	effect:lingering-acid	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Chill Touch: a green skull marks the one who cannot be healed.
+effect:bludgeoning-protection	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to bludgeoning: the rampart shield, as the five elemental protections already read.
+effect:blurred	Close match	effect:ethereal	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Blur: the token's outline goes soft.
+effect:bonded-telepathy	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	Rary's Telepathic Bond: linked runes at each mind.
+effect:booming-voice	Close match	effect:stonecunning	jb2a.soundwave.01.orangeyellow	psfx.cantrips.thunderclap.v1	Thaumaturgy: the voice booms outward.
+effect:bravery	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	Heroism: a boon mark, temporary hit points and no fear.
+effect:brief-enfeeblement	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Ray of Enfeeblement: a purple wasting mark.
+effect:burial	Close match	effect:turning-to-stone	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Imprisonment, buried: earth closes over the token.
+effect:buried-in-rubble	Close match	effect:turning-to-stone	jb2a.falling_rocks.top.2x1.grey	psfx.casting.earth.001	Earthquake: rubble falls on the token.
+effect:calmed	Close match	effect:charmed	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.enchantment.intro	Calm Emotions: a cool blue light settles the token.
+effect:cannot-lie	Close match	effect:comprehension	jb2a.markers.runes.white.03	psfx.magic-signs.rune.v1.enchantment.intro	Zone of Truth: white runes bind the tongue.
+effect:cataleptic	Close match	effect:suspended-animation	jb2a.sleep.symbol.green	psfx.1st-level-spells.sleep.v1.001	Feign Death: the body goes still.
+effect:catatonic	Close match	effect:suspended-animation	jb2a.sleep.symbol.purple	psfx.impacts.magicaleffects.psychic	Magic Jar, the body left behind: the sleeping symbol.
+effect:chaining	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.loop	Imprisonment, chained: chains hold the token.
+effect:changed-appearance	Close match	effect:bark-like-skin	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Seeming: a violet shimmer as the look changes.
+effect:compelled	Close match	effect:dominated	jb2a.markers.heart.dark_red.03	psfx.magic-signs.rune.v1.enchantment.intro	Command: the compelled heart.
+effect:concealed	Close match	effect:protected	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.abjuration.intro	Pass without Trace: the token goes quiet and dim.
+effect:contingency-spell	Close match	effect:warded	jb2a.magic_signs.rune.02.complete.01.blue	psfx.magic-signs.rune.v1.abjuration.intro	Contingency: the held spell sits as a rune on the caster.
+effect:crusaders-mantle	Close match	effect:blessed	jb2a.template_circle.aura.01.loop.large.yellow	psfx.class-features.divine-smite.v1.001.caster	Crusader's Mantle: a gold aura around the crusader.
+effect:cursed-actions	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-attacks	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-charisma	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-constitution	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-dexterity	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-intelligence	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-resilience	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-strength	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:cursed-wisdom	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Bestow Curse: the curse mark — all eight of its curses read the same.
+effect:darkvision	Close match	effect:foresight	jb2a.eyes.01.dark_green.single	psfx.magic-signs.rune.v1.transmutation.intro	Darkvision: the eyes catch the dark.
+effect:deafened	Close match	effect:frightened	jb2a.icon.mute.blue	psfx.impacts.magicaleffects.psychic	Deafened: the mute icon over the token.
+effect:deafness	Close match	effect:frightened	jb2a.icon.mute.blue	psfx.magic-signs.rune.v1.transmutation.intro	Deafness: the mute icon over the token.
+effect:death	Close match	effect:banished	jb2a.markers.skull.dark_red.03	psfx.cantrips.toll-the-dead.ominous-bell.001	Power Word Kill: the skull, and the bell.
+effect:deception-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:detect-evil-and-good	Close match	effect:alertness	jb2a.detect_magic.circle.yellow	psfx.1st-level-spells.detect-magic.v1.001	Detect Evil and Good: the detection circle, in gold.
+effect:detect-magic	Close match	effect:alertness	jb2a.detect_magic.circle.blue	psfx.1st-level-spells.detect-magic.v1.001	Detect Magic: the detection circle at the caster.
+effect:detect-poison-and-disease	Close match	effect:alertness	jb2a.detect_magic.circle.green	psfx.1st-level-spells.detect-magic.v1.001	Detect Poison and Disease: the detection circle, in green.
+effect:disguised	Close match	effect:bark-like-skin	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Disguise Self: a violet shimmer as the face changes.
+effect:distracted	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.magic-signs.rune.v1.enchantment.intro	Distracted: the stun mark, lightly.
+effect:duplicate-a	Close match	effect:ethereal	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Mirror Image: one of three duplicates — all three read the same.
+effect:duplicate-b	Close match	effect:ethereal	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Mirror Image: one of three duplicates — all three read the same.
+effect:duplicate-c	Close match	effect:ethereal	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Mirror Image: one of three duplicates — all three read the same.
+effect:elemental-acid-1	Close match	effect:heated-metal	jb2a.markers.runes.green02.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, acid: green runes on the weapon — the fifteen tiers read as five colours.
+effect:elemental-acid-2	Close match	effect:heated-metal	jb2a.markers.runes.green02.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, acid: green runes on the weapon — the fifteen tiers read as five colours.
+effect:elemental-acid-3	Close match	effect:heated-metal	jb2a.markers.runes.green02.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, acid: green runes on the weapon — the fifteen tiers read as five colours.
+effect:elemental-cold-1	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, cold: blue runes on the weapon.
+effect:elemental-cold-2	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, cold: blue runes on the weapon.
+effect:elemental-cold-3	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, cold: blue runes on the weapon.
+effect:elemental-fire-1	Close match	effect:heated-metal	jb2a.markers.runes.red.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, fire: red runes on the weapon.
+effect:elemental-fire-2	Close match	effect:heated-metal	jb2a.markers.runes.red.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, fire: red runes on the weapon.
+effect:elemental-fire-3	Close match	effect:heated-metal	jb2a.markers.runes.red.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, fire: red runes on the weapon.
+effect:elemental-lightning-1	Close match	effect:heated-metal	jb2a.markers.runes.yellow.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, lightning: yellow runes on the weapon.
+effect:elemental-lightning-2	Close match	effect:heated-metal	jb2a.markers.runes.yellow.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, lightning: yellow runes on the weapon.
+effect:elemental-lightning-3	Close match	effect:heated-metal	jb2a.markers.runes.yellow.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, lightning: yellow runes on the weapon.
+effect:elemental-thunder-1	Close match	effect:heated-metal	jb2a.markers.runes.orange.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, thunder: orange runes on the weapon.
+effect:elemental-thunder-2	Close match	effect:heated-metal	jb2a.markers.runes.orange.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, thunder: orange runes on the weapon.
+effect:elemental-thunder-3	Close match	effect:heated-metal	jb2a.markers.runes.orange.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Weapon, thunder: orange runes on the weapon.
+effect:endless-ammunition	Close match	effect:divine-favor	jb2a.glint.yellow.few	psfx.magic-signs.rune.v1.conjuration.intro	Conjure Barrage's quiver: a glint at the quiver as an arrow replaces itself.
+effect:enervated	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Ray of Enfeeblement: a purple wasting mark at the token.
+effect:enhanced-charisma	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Enhance Ability: a gold boon mark — all five abilities read the same.
+effect:enhanced-dexterity	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Enhance Ability: a gold boon mark — all five abilities read the same.
+effect:enhanced-intelligence	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Enhance Ability: a gold boon mark — all five abilities read the same.
+effect:enhanced-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Enhance Ability: a gold boon mark — all five abilities read the same.
+effect:enhanced-wisdom	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Enhance Ability: a gold boon mark — all five abilities read the same.
+effect:enlarged	Close match	effect:bark-like-skin	jb2a.particles.outward.orange.01.03	psfx.magic-signs.rune.v1.transmutation.intro	Enlarge: the token swells, particles pushing outward.
+effect:etherealness	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	Etherealness: the token half-fades.
+effect:fear	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.magic-signs.rune.v1.illusion.intro	Fear: the fear mark over the token.
+effect:fears-manifested	Close match	effect:frightened	jb2a.markers.horror.purple.03	psfx.impacts.magicaleffects.psychic	Phantasmal Killer: the horror mark, psychic.
+effect:feasts-benefits	Close match	effect:blessed	jb2a.condition.boon.01.001.green	psfx.conditions.boon.002.01	Heroes' Feast: a green boon mark that lasts the day.
+effect:flying-steed	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.large	Find Steed, in flight: wind under the steed.
+effect:frightening-terrors	Close match	effect:frightened	jb2a.markers.horror.dark_teal.03	psfx.impacts.magicaleffects.psychic	Weird: the horror mark, at its worst.
+effect:glib	Close match	effect:comprehension	jb2a.markers.runes.white.03	psfx.magic-signs.rune.v1.enchantment.intro	Glibness: white runes at the tongue.
+effect:half-speed	Close match	effect:reduced-movement	jb2a.token_border.circle.static.purple.004	psfx.magic-signs.rune.v1.necromancy.intro	Halved speed: the slow border on the token.
+effect:healed-by-prayer	Close match	effect:blessed	jb2a.cure_wounds.400px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Prayer of Healing: healing light at the token.
+effect:hedged-prison	Close match	effect:enclosed-in-sphere	jb2a.wall_of_force.sphere.purple	psfx.magic-signs.rune.v1.abjuration.loop	Imprisonment, hedged: a sphere closes around the token.
+effect:hexed-charisma	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex: the warlock's skull mark — all six abilities read the same.
+effect:hexed-constitution	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex: the warlock's skull mark — all six abilities read the same.
+effect:hexed-dexterity	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex: the warlock's skull mark — all six abilities read the same.
+effect:hexed-intelligence	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex: the warlock's skull mark — all six abilities read the same.
+effect:hexed-strength	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex: the warlock's skull mark — all six abilities read the same.
+effect:hexed-wisdom	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex: the warlock's skull mark — all six abilities read the same.
+effect:hidden-from-divination	Close match	effect:protected	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.abjuration.intro	Nondetection: the token goes opaque to scrying.
+effect:history-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:holy-protection	Close match	effect:warded	jb2a.bless.400px.loop.yellow	psfx.magic-signs.rune.v1.abjuration.loop	Holy Aura: gold light held over the warded.
+effect:hopeful	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.003.01	Beacon of Hope: a gold boon mark.
+effect:hunters-mark	Close match	effect:outlined	jb2a.hunters_mark.loop.01.green	psfx.magic-signs.rune.v1.divination.loop	Hunter's Mark: the quarry is marked.
+effect:incapacitated	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.impacts.magicaleffects.psychic	Incapacitated: the stun mark.
+effect:indifference	Close match	effect:charmed	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.enchantment.intro	Calm Emotions, indifferent: a cool blue light.
+effect:infected-charisma	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Contagion: the sickness mark — all six read the same.
+effect:infected-constitution	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Contagion: the sickness mark — all six read the same.
+effect:infected-dexterity	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Contagion: the sickness mark — all six read the same.
+effect:infected-intelligence	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Contagion: the sickness mark — all six read the same.
+effect:infected-strength	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Contagion: the sickness mark — all six read the same.
+effect:infected-wisdom	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Contagion: the sickness mark — all six read the same.
+effect:insight-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:intimidation-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:investigation-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:invisible	Close match	effect:ethereal	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Invisibility: the token shimmers out.
+effect:lethargy	Close match	effect:slowed	jb2a.token_border.circle.static.purple.004	psfx.magic-signs.rune.v1.transmutation.intro	Slow: the slow border on the token.
+effect:level-2-5-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-3-10-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-4-15-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-5-20-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-6-25-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-7-30-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-8-35-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:level-9-40-max-hp	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Aid: a lift in maximum hit points — all eight tiers read the same.
+effect:magic-weapon-1	Close match	effect:heated-metal	jb2a.glint.blue.few	psfx.magic-signs.rune.v1.transmutation.intro	Magic Weapon: a glint on the blade — all three tiers read the same.
+effect:magic-weapon-2	Close match	effect:heated-metal	jb2a.glint.blue.few	psfx.magic-signs.rune.v1.transmutation.intro	Magic Weapon: a glint on the blade — all three tiers read the same.
+effect:magic-weapon-3	Close match	effect:heated-metal	jb2a.glint.blue.few	psfx.magic-signs.rune.v1.transmutation.intro	Magic Weapon: a glint on the blade — all three tiers read the same.
+effect:masked	Close match	effect:protected	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Magic Mouth's mask: the token shimmers.
+effect:medicine-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:memory-modification	Close match	effect:hypnotized	jb2a.markers.stun.purple.03	psfx.magic-signs.rune.v1.enchantment.intro	Modify Memory: the mind is worked on.
+effect:mind-blanked	Close match	effect:protected	jb2a.markers.runes.white.03	psfx.magic-signs.rune.v1.abjuration.intro	Mind Blank: white runes seal the mind.
+effect:minimus-containment	Close match	effect:enclosed-in-sphere	jb2a.wall_of_force.sphere.grey	psfx.magic-signs.rune.v1.abjuration.loop	Imprisonment, minimus: the token is shrunk into a gem.
+effect:natural-weapon	Close match	effect:bark-like-skin	jb2a.melee_generic.creature_attack.claw.001.green	psfx.impacts.slashing.v1	Alter Self, natural weapons: claws instead of a blade.
+effect:nature-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:necrotic-protection	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to necrotic: the shield in violet, as the five elemental protections already read.
+effect:no-movement	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.enchantment.intro	Power Word Stun's hold: chains at the feet.
+effect:no-reactions	Close match	effect:slowed	jb2a.token_border.circle.static.purple.004	psfx.impacts.magicaleffects.necrotic	Cause Fear's grip: the token cannot react.
+effect:panicked	Close match	effect:frightened	jb2a.markers.fear.red.03	psfx.impacts.magicaleffects.psychic	Panicked: the fear mark, in red.
+effect:paralyzed	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.magic-signs.rune.v1.enchantment.intro	Hold Person and Hold Monster: the paralysis mark. Both spells apply this today and neither has an FX.
+effect:perception-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:performance-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:persuasion-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:petrifying-indigo	Close match	effect:turning-to-stone	jb2a.markers.simple.001.complete.001.purple	psfx.magic-signs.rune.v1.abjuration.intro	Prismatic Wall, the indigo layer: the token begins to petrify.
+effect:piercing-protection	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to piercing: the rampart shield.
+effect:poisoned	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Poisoned: the poison mark over the token.
+effect:prismatic-blinding	Close match	effect:searing-radiance	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.abjuration.intro	Prismatic Wall: blinded by every colour at once.
+effect:prone	Close match	effect:slowed	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	Knocked prone: the token goes down.
+effect:protection-from-death	Close match	effect:warded	jb2a.bless.400px.loop.yellow	psfx.magic-signs.rune.v1.abjuration.loop	Death Ward: gold light held over the warded.
+effect:pursuing-suggestion	Close match	effect:dominated	jb2a.markers.heart.dark_red.03	psfx.magic-signs.rune.v1.enchantment.intro	Suggestion: the planted idea holds.
+effect:radiant-protection	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: the shield in white, as the five elemental protections already read.
+effect:reduced	Close match	effect:bark-like-skin	jb2a.particles.inward.blue.01.03	psfx.magic-signs.rune.v1.transmutation.intro	Reduce: the token shrinks, particles pulling inward.
+effect:religion-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:restrained	Close match	effect:ensnared	jb2a.entangle.green	psfx.1st-level-spells.entangle.vines.v1.001.intro	Ensnaring Strike: the token is restrained.
+effect:restrained-indigo	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.purple	psfx.magic-signs.rune.v1.abjuration.intro	Prismatic Wall, the indigo layer: the token is held.
+effect:resurrection-sickness-day-1	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Raise Dead's toll: a wasting mark — all four days read the same.
+effect:resurrection-sickness-day-2	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Raise Dead's toll: a wasting mark — all four days read the same.
+effect:resurrection-sickness-day-3	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Raise Dead's toll: a wasting mark — all four days read the same.
+effect:resurrection-sickness-day-4	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Raise Dead's toll: a wasting mark — all four days read the same.
+effect:see-invisibility	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.1st-level-spells.detect-magic.v1.001	See Invisibility: the eye that sees through.
+effect:seeing-illusions	Close match	effect:hypnotized	jb2a.markers.stun.purple.03	psfx.magic-signs.rune.v1.illusion.intro	Phantasmal Force: the token believes what is not there.
+effect:senses-overwhelmed	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.impacts.magicaleffects.psychic	Jallarzi's Storm of Radiance: light and thunder together.
+effect:sequestered	Close match	effect:suspended-animation	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.transmutation.intro	Sequester: the token goes out of the world.
+effect:shillelagh-1d10	Close match	effect:bark-like-skin	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	Shillelagh: leaves at the club — all four dice read the same.
+effect:shillelagh-1d12	Close match	effect:bark-like-skin	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	Shillelagh: leaves at the club — all four dice read the same.
+effect:shillelagh-1d8	Close match	effect:bark-like-skin	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	Shillelagh: leaves at the club — all four dice read the same.
+effect:shillelagh-2d6	Close match	effect:bark-like-skin	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	Shillelagh: leaves at the club — all four dice read the same.
+effect:shocked	Close match	effect:heated-metal	jb2a.static_electricity.01.blue	psfx.cantrips.shocking-grasp.v1.001	Shocking Grasp: the token crackles.
+effect:sickened	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Sickened: the poison mark.
+effect:silenced	Close match	effect:frightened	jb2a.icon.mute.purple	psfx.magic-signs.rune.v1.illusion.intro	Silence: the mute icon over the token.
+effect:slashing-protection	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to slashing: the rampart shield.
+effect:sleight-of-hand-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:slivered	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.cantrips.mind-sliver.v1	Mind Sliver: the mind is nicked.
+effect:slumber	Close match	effect:sleeping	jb2a.sleep.symbol.purple	psfx.1st-level-spells.sleep.v1.001	Imprisonment, slumber: the token sleeps.
+effect:speaking-with-plants	Close match	effect:universal-communication	jb2a.markers.runes.green02.03	psfx.magic-signs.rune.v1.transmutation.intro	Speak with Plants: green runes at the token.
+effect:spell-taxed	Close match	effect:stunned	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	Power Word Pain's tax: the caster is drained.
+effect:spider-climb	Close match	effect:unrestricted-movement	jb2a.web.loop.002.white	psfx.magic-signs.rune.v1.transmutation.intro	Spider Climb: webbing at the hands and feet.
+effect:spiked	Close match	effect:confused	jb2a.icon.runes.dark_red	psfx.impacts.magicaleffects.psychic	Mind Spike: the mind is pinned.
+effect:stabilized	Close match	effect:blessed	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Spare the Dying: the dying are held at zero.
+effect:stealth-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:stinking-poison	Close match	effect:lingering-acid	jb2a.fog_cloud.02.green	psfx.cantrips.poison-spray.v1	Stinking Cloud: green fumes over the token.
+effect:survival-guidance	Close match	effect:divine-favor	jb2a.markers.light.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Guidance: a small light at the token, one of eighteen skills — all eighteen read the same.
+effect:sustained-lightning	Close match	effect:heated-metal	jb2a.static_electricity.02.blue	psfx.weapon-swooshes.lightning.v1.group01	Witch Bolt sustained: the arc keeps crackling on the target.
+effect:sympathy	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Sympathy: the token is drawn in.
+effect:telepathically-linked	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	Telepathy: linked runes at each mind.
+effect:teleporting-violet	Close match	effect:banished	jb2a.misty_step.01.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Prismatic Wall, the violet layer: the token is sent elsewhere.
+effect:trapped-in-ice	Close match	effect:chill-shield	jb2a.ice_spikes.radial.loop.blue	psfx.5th-level-spells.cone-of-cold.v1.001	Otiluke's Freezing Sphere: the token is frozen in place.
+effect:trapped-soul	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Magic Jar: the soul is held elsewhere.
+effect:true-strike	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	True Strike: the next blow is guided.
+effect:truesight	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.1st-level-spells.detect-magic.v1.001	True Seeing: the eye that sees everything.
+effect:unable-to-move	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.transmutation.intro	Flesh to Stone and its kin: the token cannot move.
+effect:under-orders	Close match	effect:dominated	jb2a.markers.heart.dark_red.03	psfx.impacts.magicaleffects.psychic	Dominate Person: the token takes orders.
+effect:water-breathing	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	Water Breathing: bubbles at the token.
+effect:water-walking	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	Water Walking: the surface holds.
+effect:wish-stress	Close match	effect:stunned	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	Wish's price: the caster is worn down.
+effect:wreathed-in-light	Close match	effect:shining	jb2a.markers.light.complete.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Fount of Moonlight: the token is wreathed in cold light.

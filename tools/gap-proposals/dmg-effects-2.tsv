@@ -1,0 +1,163 @@
+effect:knocked-down	Close match	effect:slowed	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	The shield shoves and the target goes down.
+effect:leader	No proposed FX				An ability score raised by a book — no moment to play.
+effect:lit-candle-of-invocation	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	The candle is lit.
+effect:longsword-form	No proposed FX				The cane is a longsword now — the swing has an FX on the weapon record.
+effect:luck-blade	No proposed FX				A bonus to saves — no moment to play.
+effect:lucky	No proposed FX				Carried, always on — no moment to play.
+effect:mariners-armor	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	The armour keeps its wearer afloat.
+effect:mastiff-figurine	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	The figurine becomes a mastiff.
+effect:metal-shell	Close match	effect:stoneskin	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.intro	Armor of Invulnerability: nothing gets through.
+effect:might-of-giants	No proposed FX				A strength score set by the hammer — no moment to play.
+effect:mithral-armor	No proposed FX				Worn, always on — no moment to play.
+effect:moon-touched-sword	Close match	spell:light	jb2a.markers.light.complete.blue	psfx.cantrips.light.v1.001	The Moon-Touched Sword sheds moonlight.
+effect:moonblade	Close match	effect:shining	jb2a.markers.light.complete.blue	psfx.weapon-swooshes.light.v1.group01	The Moonblade wakes for its bearer.
+effect:movement-swim-speed	No proposed FX				A swim speed — no moment to play.
+effect:necrotic-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to necrotic: the shield in violet.
+effect:nine-lives-stealer	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
+effect:oathbow	No proposed FX				A property of the bow — the shot has a proposal on the weapon record.
+effect:obedient	Close match	effect:dominated	jb2a.markers.heart.dark_red.03	psfx.magic-signs.rune.v1.enchantment.intro	The Rod of Rulership: the target obeys.
+effect:ogre-strength	No proposed FX				A strength score set by gauntlets — no moment to play.
+effect:oiled	Family match	weapon:longsword	jb2a.glint.blue.few	psfx.consumables.potions-vials.cork-bottle.001	Oil of Sharpness on the blade: a glint on the edge.
+effect:oiled-ammunition	Family match	weapon:longbow	jb2a.glint.blue.few	psfx.consumables.potions-vials.cork-bottle.001	Oil of Sharpness on the head: a glint on the point.
+effect:pact-keeper-bonus-1	No proposed FX				A bonus to spell save DC — no moment to play.
+effect:pact-keeper-bonus-2	No proposed FX				A bonus to spell save DC — no moment to play.
+effect:pact-keeper-bonus-3	No proposed FX				A bonus to spell save DC — no moment to play.
+effect:piercing-resistance	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to piercing: the rampart shield.
+effect:plate-armor-of-etherealness	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.transmutation.intro	The plate takes its wearer half out of the world.
+effect:poison-coat	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.magic-signs.rune.v1.transmutation.intro	The Dagger of Venom coats itself.
+effect:poisoned-and-blinded	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Malice takes: poisoned and blinded.
+effect:poisoned-and-paralyzed	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Carrion crawler mucus takes: poisoned and paralysed.
+effect:poisoned-and-reduce-max	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Pale tincture takes: poisoned, and the maximum comes down.
+effect:poisoned-and-unconscious	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Essence of ether takes: poisoned and unconscious.
+effect:poisoned-needle	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	The needle takes.
+effect:protected-against-poison	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Immunity to poison: the shield in green.
+effect:protection-emanation	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle holds one kind of creature out.
+effect:protective-aura	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.circle.v1.abjuration.loop	The Rod of Alertness spreads its aura.
+effect:psychic-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to psychic: the shield in violet.
+effect:quick-acting	No proposed FX				An ability score raised by a book — no moment to play.
+effect:radiant-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: the shield in white.
+effect:ranged-attack-ac-bonus	No proposed FX				A bonus to AC against ranged attacks — no moment to play.
+effect:red-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
+effect:resistance-force	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to force: the shield in white.
+effect:resistance-to-cold	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold from the Staff of Frost.
+effect:resistant	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Potion of Invulnerability: resistance to everything.
+effect:restrained-arrow-of-restraint	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.blue	psfx.magic-signs.rune.v1.abjuration.intro	The Energy Bow's arrow of restraint holds the target.
+effect:restrained-by-iron	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.intro	The Iron Bands of Bilarro close.
+effect:riding-broom-high-weight	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	The broom flies, loaded.
+effect:riding-broom-low-weight	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	The broom flies, light.
+effect:ring-of-protection	No proposed FX				Worn, always on — no moment to play.
+effect:ring-of-resistance-acid	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to acid: the shield in green — all ten rings read as the ten protections.
+effect:ring-of-resistance-cold	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold: the shield in blue.
+effect:ring-of-resistance-fire	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to fire: the shield in red.
+effect:ring-of-resistance-force	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to force: the shield in white.
+effect:ring-of-resistance-lightning	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to lightning: the shield in yellow.
+effect:ring-of-resistance-necrotic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to necrotic: the shield in violet.
+effect:ring-of-resistance-poison	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to poison: the shield in green.
+effect:ring-of-resistance-psychic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to psychic: the shield in violet.
+effect:ring-of-resistance-radiant	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: the shield in white.
+effect:ring-of-resistance-thunder	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to thunder: the shield in violet.
+effect:river-styx-effects	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.psychic	The Styx takes the memory.
+effect:rod-of-the-pact-keeper-1	No proposed FX				A bonus to spell save DC — no moment to play.
+effect:rod-of-the-pact-keeper-2	No proposed FX				A bonus to spell save DC — no moment to play.
+effect:rod-of-the-pact-keeper-3	No proposed FX				A bonus to spell save DC — no moment to play.
+effect:rogue-card-hostility	Close match	effect:banished	jb2a.condition.curse.01.001.red	psfx.magic-signs.rune.v1.enchantment.intro	The Rogue card: an NPC now hates the drawer.
+effect:ruby-resistance	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	The Helm of Brilliance's ruby: resistance to fire.
+effect:rune-1-bonus	No proposed FX				A Moonblade rune's bonus — the blade itself has a proposal.
+effect:rune-blinding-flash	Close match	effect:searing-radiance	jb2a.markers.light.complete.blue	psfx.class-features.divine-smite.v1.001.target	The Moonblade's blinding flash.
+effect:rune-conjure-entity	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	The Moonblade conjures its guardian.
+effect:rune-critical-range	No proposed FX				A widened critical range — no moment to play.
+effect:rune-force-damage	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.impacts.magicaleffects.generic.002.001	The Moonblade's force rune.
+effect:rune-spell-storing	Close match	effect:warded	jb2a.magic_signs.rune.02.complete.01.blue	psfx.magic-signs.rune.v1.evocation.intro	The Moonblade holds a spell.
+effect:rune-thrown-20-60	No proposed FX				A thrown range the rune grants — no moment to play.
+effect:saving-throw-bonus	No proposed FX				A bonus to saves — no moment to play.
+effect:scroll-of-protection-aberrations	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out — all fourteen read the same.
+effect:scroll-of-protection-beasts	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-celestials	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-constructs	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-dragons	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-elementals	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-fey	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-fiends	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-giants	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-humanoids	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-monstrosities	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-oozes	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-plants	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-protection-undead	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle keeps one kind out.
+effect:scroll-of-titan-summoning-animal-lord	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives — all seven read the same.
+effect:scroll-of-titan-summoning-blob-of-annihilation	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives.
+effect:scroll-of-titan-summoning-colossus	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives.
+effect:scroll-of-titan-summoning-elemental-cataclysm	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives.
+effect:scroll-of-titan-summoning-empyrean	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives.
+effect:scroll-of-titan-summoning-kraken	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives.
+effect:scroll-of-titan-summoning-tarrasque	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	A titan arrives.
+effect:seeing	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.1st-level-spells.detect-magic.v1.001	The Gem of Seeing: truesight.
+effect:shield-1	No proposed FX				A plus on the shield — no moment to play.
+effect:shield-2	No proposed FX				A plus on the shield — no moment to play.
+effect:shield-3	No proposed FX				A plus on the shield — no moment to play.
+effect:silver-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
+effect:silvered-weapon	No proposed FX				A property of the edge — the swing has a proposal on the weapon record.
+effect:slashing-resistance	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to slashing: the rampart shield.
+effect:smoldering-armor	No proposed FX				Armour that smokes but never burns — a look, not a moment.
+effect:special-senses	Close match	effect:foresight	jb2a.eyes.01.bluegreen.many	psfx.magic-signs.rune.v1.divination.intro	The Robe of Eyes sees everything.
+effect:spell-attack-bonus	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:spider-movement-and-resistance	Close match	effect:unrestricted-movement	jb2a.web.loop.002.white	psfx.magic-signs.rune.v1.transmutation.intro	The Cloak of Arachnida: webbing at the hands and feet.
+effect:stealth-advantage	No proposed FX				Worn, always on — no moment to play.
+effect:stone-giant-strength	No proposed FX				Worn, always on — no moment to play.
+effect:storm-giant-strength	No proposed FX				Worn, always on — no moment to play.
+effect:strength-of-clouds	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	The potion holds: giant's strength — all six read the same.
+effect:strength-of-fire	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	The potion holds: giant's strength.
+effect:strength-of-frost	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	The potion holds: giant's strength.
+effect:strength-of-hills	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	The potion holds: giant's strength.
+effect:strength-of-stone	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	The potion holds: giant's strength.
+effect:strength-of-storms	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	The potion holds: giant's strength.
+effect:sun-card-daily-temp-hp	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	The Sun card's daily boon.
+effect:supernatural-readiness-initiative-advantage	No proposed FX				Advantage on initiative — no moment to play.
+effect:suppressed-condition-deafened	No proposed FX				A deafness lifted — the absence is the point.
+effect:sustained	No proposed FX				No need for food or drink — no moment to play.
+effect:swimmer	No proposed FX				A swim speed — no moment to play.
+effect:sword-of-life-stealing	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
+effect:sword-of-sharpness	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
+effect:sword-of-vengeance	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
+effect:sword-of-wounding	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
+effect:sworn-enemy	Close match	effect:outlined	jb2a.hunters_mark.loop.01.red	psfx.magic-signs.rune.v1.divination.loop	The Oathbow names its enemy.
+effect:sylvan-talon	Close match	effect:bark-like-skin	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	The Sylvan Talon wakes.
+effect:telepathy	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	The helm sends a word mind to mind.
+effect:thunderous-strength	Close match	effect:heated-metal	jb2a.markers.runes.orange.03	psfx.cantrips.thunderclap.v1	The Thunderous Greatclub is charged.
+effect:tireless-form	No proposed FX				No need for sleep — no moment to play.
+effect:transferred-ac-bonus-1	No proposed FX				Points moved to AC — no moment to play.
+effect:transferred-ac-bonus-2	No proposed FX				Points moved to AC — no moment to play.
+effect:transferred-ac-bonus-3	No proposed FX				Points moved to AC — no moment to play.
+effect:unarmed-strike-1	No proposed FX				A plus on the fist — the strike has an FX on the natural-attack record.
+effect:unarmed-strike-2	No proposed FX				A plus on the fist — the strike has an FX on the natural-attack record.
+effect:unarmed-strike-3	No proposed FX				A plus on the fist — the strike has an FX on the natural-attack record.
+effect:unburdened-movement	No proposed FX				A jump distance — no moment to play.
+effect:under-rocks	Close match	spell:shatter	jb2a.falling_rocks.top.2x1.grey	psfx.impacts.bludgeoning.v1	The rockslide has them.
+effect:understanding	No proposed FX				A blessing of understanding — no moment to play.
+effect:upgraded-constitution	No proposed FX				A constitution score set by an amulet — no moment to play.
+effect:vecnas-eye-alignment-truesight	Close match	effect:foresight	jb2a.eyes.01.dark_red.single	psfx.impacts.magicaleffects.necrotic	Vecna's eye sees, and takes its price.
+effect:vecnas-eye-and-hand-initiative-immunity	No proposed FX				A passive gift of the relics — no moment to play.
+effect:vecnas-hand-alignment-strength	No proposed FX				A strength score set by the hand — no moment to play.
+effect:vicious-weapon	No proposed FX				A property of the weapon — the swing has a proposal on the weapon record.
+effect:void-card-contained-soul	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.magic-signs.circle.v1.necromancy.complete	The Void card: the soul is elsewhere and the body walks on.
+effect:vorpal-sword	No proposed FX				A property of the blade — the head coming off is an outcome, not a swing.
+effect:walloping-ammunition	Close match	effect:slowed	jb2a.impact.004.blue	psfx.impacts.bludgeoning.v1	The shot knocks the target down.
+effect:wand-of-the-war-mage-1	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:wand-of-the-war-mage-2	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:wand-of-the-war-mage-3	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:war-mage	No proposed FX				The robe's passive bonuses — no moment to play.
+effect:war-mage-1	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:war-mage-2	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:war-mage-3	No proposed FX				A bonus to spell attacks — no moment to play.
+effect:water-breather	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	Bubbles at the drinker.
+effect:weapon-1	No proposed FX				A plus on the weapon — the swing has a proposal on the weapon record.
+effect:weapon-2	No proposed FX				A plus on the weapon — the swing has a proposal on the weapon record.
+effect:weapon-3	No proposed FX				A plus on the weapon — the swing has a proposal on the weapon record.
+effect:weapon-of-warning	No proposed FX				A warning that cannot be surprised — no moment to play.
+effect:webbed	Close match	effect:ensnared	jb2a.web.loop.002.white	psfx.magic-signs.rune.v1.conjuration.intro	Caught in the webs.
+effect:well-exercised	No proposed FX				An ability score raised by a book — no moment to play.
+effect:white-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
+effect:withered	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	The Staff of Withering: the target wastes.
+effect:wounded-and-cannot-heal	Close match	effect:lingering-acid	jb2a.markers.drop.red.03	psfx.impacts.slashing.v1	The Sword of Wounding: the cut will not close.
+effect:wrapped-in-vines	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.1st-level-spells.entangle.vines.v1.001.intro	The vicious vine has the target.
+effect:x-ray-vision	Close match	effect:foresight	jb2a.eyes.01.dark_red.single	psfx.magic-signs.rune.v1.divination.intro	Vecna's eye sees through the wall.

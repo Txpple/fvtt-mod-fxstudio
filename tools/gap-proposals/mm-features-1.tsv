@@ -1,0 +1,100 @@
+feature:abduct	No proposed FX				A trait with no moment of its own.
+feature:aberrant-ground	Close match	effect:reduced-movement	jb2a.template_circle.vortex.loop.purple	psfx.impacts.magicaleffects.psychic	Aberrant Ground: the floor near it is wrong.
+feature:absorb-body	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.necrotic	Absorb Body: the creature takes the target in.
+feature:acid-absorption	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Acid Absorption: the acid is drunk instead of felt.
+feature:acid-spray	Close match	spell:acid-arrow	jb2a.breath_weapons.acid	psfx.cantrips.acid-splash.v1	Acid Spray: a line of acid.
+feature:adhesive	No proposed FX				A passive trait — no moment to play.
+feature:adhesive-object-form-only	No proposed FX				A passive trait — no moment to play.
+feature:advanced-telepathy	No proposed FX				A passive trait — no moment to play.
+feature:agile	No proposed FX				A passive trait — no moment to play.
+feature:aim	Close match	effect:outlined	jb2a.markers.light.complete.red	psfx.magic-signs.rune.v1.divination.intro	Aim: the shot is lined up.
+feature:air-form	No proposed FX				A passive trait — no moment to play.
+feature:amorphous	No proposed FX				A passive trait — no moment to play.
+feature:amphibious	No proposed FX				A passive trait — no moment to play.
+feature:animal-lordship	No proposed FX				A passive trait — no moment to play.
+feature:animate-boulders	Close match	spell:conjure-animals	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Animate Boulders: the stones get up.
+feature:animate-trees	Close match	spell:conjure-animals	jb2a.plant_growth.03.round.4x4.complete.greenyellow	psfx.casting.earth.001	Animate Trees: the trees stand up.
+feature:animating-spores	Close match	spell:conjure-animals	jb2a.fog_cloud.02.green02	psfx.magic-signs.circle.v1.necromancy.complete	Animating Spores: the spores raise the dead.
+feature:antennae	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.acid-splash.v1	Antennae: the armour is damaged.
+feature:astral-implosion	No proposed FX				A passive trait — no moment to play.
+feature:aura-of-authority	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.circle.v1.enchantment.loop	Aura of Authority: everyone near obeys.
+feature:aura-of-bravery	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.circle.v1.abjuration.loop	Aura of Bravery: nothing here can charm or frighten.
+feature:aversion-to-fire	No proposed FX				A passive trait — no moment to play.
+feature:avoidance	No proposed FX				A passive trait — no moment to play.
+feature:awestruck	Close match	effect:charmed	jb2a.markers.light.complete.pink	psfx.magic-signs.rune.v1.enchantment.intro	Awestruck: the target cannot look away.
+feature:baleful-command	Close match	effect:frightened	jb2a.template_circle.out_pulse.02.burst.purplepink	psfx.impacts.magicaleffects.psychic	Baleful Command: a wave of dread.
+feature:barbed-hide	Close match	natural:claws	jb2a.impact.004.dark_red	psfx.impacts.slashing.v1	Barbed Hide: what touches it bleeds.
+feature:beast-of-burden	No proposed FX				A carrying capacity — no moment to play.
+feature:beguile	Close match	effect:charmed	jb2a.magic_signs.circle.02.enchantment.complete.pink	psfx.magic-signs.circle.v1.enchantment.complete	Beguile: the target is charmed.
+feature:beguiling-song	Close match	effect:charmed	jb2a.soundwave.01.orangepurple	psfx.musical-instruments.flute.01.long.keyOfA.A6	Beguiling Song: the song reaches everyone near.
+feature:berserk	Close match	effect:berserk	jb2a.markers.on_token_mask.loop.01.red	psfx.impacts.magicaleffects.necrotic	Berserk: the creature loses control.
+feature:blazing-light	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	Blazing Light: the creature lights up.
+feature:blazing-movement	Close match	effect:burning	jb2a.fire_ring.500px	psfx.casting.fire.001	Blazing Movement: fire in its wake.
+feature:blight-seeds	No proposed FX				A passive trait — no moment to play.
+feature:blinding-gaze	Close match	effect:searing-radiance	jb2a.eyes.01.dark_yellow.single	psfx.class-features.divine-smite.v1.001.target	Blinding Gaze: the eye that blinds.
+feature:blinding-spittle	Close match	effect:searing-radiance	jb2a.liquid.splash.bright_green	psfx.cantrips.acid-splash.v1	Blinding Spittle: spat into the eyes.
+feature:blood-frenzy	No proposed FX				A passive trait — no moment to play.
+feature:bloodied-frenzy	No proposed FX				A passive trait — no moment to play.
+feature:bloodied-fury	No proposed FX				A passive trait — no moment to play.
+feature:blurred-form	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Blurred Form: the outline goes soft.
+feature:boulder-toss	Close match	spell:shatter	jb2a.boulder.toss	psfx.impacts.bludgeoning.v1	Boulder Toss: a rock thrown a long way.
+feature:bound	No proposed FX				A passive trait — no moment to play.
+feature:burst-of-wonder	Close match	spell:fireball	jb2a.firework.02.orangeyellow.01	psfx.magic-signs.circle.v1.conjuration.complete	Burst of Wonder: something bright happens.
+feature:captains-charm	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Captain's Charm: the target is won over.
+feature:captivated	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Captivated: the target cannot look away.
+feature:cataclysmic-event	Close match	spell:fireball	jb2a.explosion.08.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	Cataclysmic Event: fire, cold, storm or earth, whichever it rolls.
+feature:celestial-restoration	No proposed FX				A passive trait — no moment to play.
+feature:charge	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	Charge: it comes at you.
+feature:charging-horn	Close match	effect:hasted	jb2a.impact.004.orange	psfx.impacts.bludgeoning.v1	Charging Horn: the horn goes in on the charge.
+feature:charming	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Charming: the target is won over.
+feature:chill	Close match	spell:cone-of-cold	jb2a.impact.frost.blue.01	psfx.impacts.magicaleffects.cold	Chill: the cold reaches out.
+feature:chilling-gaze	Close match	spell:cone-of-cold	jb2a.eyes.01.bluegreen.single	psfx.impacts.magicaleffects.cold	Chilling Gaze: the eye that freezes.
+feature:cloaked-flight	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	Cloaked Flight: it flies unseen.
+feature:compression	No proposed FX				A passive trait — no moment to play.
+feature:confer-fire-resistance	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Confer Fire Resistance: the shield in red.
+feature:confusing-gaze	Close match	effect:confused	jb2a.eyes.01.dark_purple.single	psfx.impacts.magicaleffects.psychic	Confusing Gaze: the eye that muddles.
+feature:conjure-infernal-chain	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.red	psfx.casting.fire.001	Conjure Infernal Chain: a burning chain down a line.
+feature:conjured-dragons-breath	Close match	spell:burning-hands	jb2a.breath_weapons.fire	psfx.creature.dragons.attacks.breath.large.fire	Conjured Dragon's Breath: a cone of fire.
+feature:contortionist	No proposed FX				A passive trait — no moment to play.
+feature:corrosive-form	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.acid-splash.v1	Corrosive Form: what touches it corrodes.
+feature:counterattack	No proposed FX				A bonus to AC on a reaction — no moment to play.
+feature:coven-magic	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_green	psfx.magic-signs.circle.v1.conjuration.complete	Coven Magic: the hags cast together.
+feature:create-specter	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	Create Specter: the dead get up.
+feature:create-whirlwind	Close match	spell:shatter	jb2a.whirlwind.bluegrey	psfx.cantrips.gust.v1	Create Whirlwind: a column of wind.
+feature:darkness-aura	Close match	spell:darkness	jb2a.darkness.black	psfx.magic-signs.rune.v1.illusion.intro	Darkness Aura: the light goes out around it.
+feature:deadly-leap	Close match	effect:hasted	jb2a.impact.004.orange	psfx.impacts.bludgeoning.v1	Deadly Leap: it lands on you.
+feature:death-glare	Close match	effect:frightened	jb2a.eyes.01.dark_red.single	psfx.impacts.magicaleffects.psychic	Death Glare: the eye that kills fear into you.
+feature:death-throes	Close match	spell:fireball	jb2a.explosion.02.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	Death Throes: it goes up when it dies.
+feature:deathless-agility	No proposed FX				A passive trait — no moment to play.
+feature:deathless-strike	No proposed FX				A passive trait — no moment to play.
+feature:decay	Close match	effect:lingering-acid	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Decay: what touches it rots.
+feature:defensive-stance	No proposed FX				A bonus to AC — no moment to play.
+feature:deflect-missile	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.impacts.bludgeoning.v1	Deflect Missile: the shot is caught.
+feature:demonic-restoration	No proposed FX				A passive trait — no moment to play.
+feature:destroy-metal	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.acid-splash.v1	Destroy Metal: the metal is eaten.
+feature:detect-intelligence	No proposed FX				A passive trait — no moment to play.
+feature:detect-life	No proposed FX				A passive trait — no moment to play.
+feature:diabolical-restoration	No proposed FX				A passive trait — no moment to play.
+feature:disintegration	No proposed FX				A passive trait — no moment to play.
+feature:displacement	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Displacement: it is not where it looks.
+feature:divine-aid	Close match	spell:bless	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Divine Aid: the god helps.
+feature:divine-awareness	No proposed FX				A passive trait — no moment to play.
+feature:draconic-origin	No proposed FX				A passive trait — no moment to play.
+feature:dread-authority	Close match	effect:dominated	jb2a.magic_signs.circle.02.enchantment.complete.dark_red	psfx.impacts.magicaleffects.psychic	Dread Authority: everyone near obeys.
+feature:dread-command	Close match	effect:dominated	jb2a.magic_signs.circle.02.enchantment.complete.dark_red	psfx.impacts.magicaleffects.psychic	Dread Command: the order lands.
+feature:dreadful-glare	Close match	effect:frightened	jb2a.eyes.01.dark_red.single	psfx.impacts.magicaleffects.psychic	Dreadful Glare: the eye that terrifies.
+feature:dreadful-howl	Close match	effect:frightened	jb2a.soundwave.01.red	psfx.impacts.magicaleffects.psychic	Dreadful Howl: the howl reaches everyone near.
+feature:drone	Close match	effect:sleeping	jb2a.soundwave.01.purple	psfx.1st-level-spells.sleep.v1.001	Drone: the sound puts you under.
+feature:earth-glide	No proposed FX				A passive trait — no moment to play.
+feature:eldritch-lantern	Close match	spell:light	jb2a.markers.light_orb.loop.green	psfx.cantrips.light.v1.001	Eldritch Lantern: a light that is not right.
+feature:eldritch-restoration	No proposed FX				A passive trait — no moment to play.
+feature:elemental-absorption	Close match	effect:acid-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: the element is drunk instead of felt.
+feature:elemental-restoration	No proposed FX				A passive trait — no moment to play.
+feature:engulf	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.generic.002.001	Engulf: the target is inside.
+feature:entangling-plants	Close match	effect:ensnared	jb2a.entangle.green	psfx.1st-level-spells.entangle.vines.v1.001.intro	Entangling Plants: the ground grows and takes them.
+feature:entangling-rope	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.generic.002.001	Entangling Rope: the rope goes out and wraps.
+feature:enthralling-panache	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Enthralling Panache: the target is won over.
+feature:ephemeral	No proposed FX				A passive trait — no moment to play.
+feature:eruption	Close match	spell:fireball	jb2a.eruption.orange	psfx.casting.fire.001	Eruption: the ground opens.
+feature:ethereal-jaunt	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	Ethereal Jaunt: it steps out of the world.
+feature:ethereal-stride	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	Ethereal Stride: it walks through.

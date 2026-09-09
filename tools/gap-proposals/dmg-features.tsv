@@ -1,0 +1,34 @@
+feature:arcane-study-charm	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	A charm grants a spell: a rune at the one who carries it — every charm reads the same.
+feature:blessing-of-health	No proposed FX				A constitution score raised — no moment to play.
+feature:blessing-of-magic-resistance	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	A blessing: advantage against magic.
+feature:blessing-of-protection	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	A blessing: a bonus to AC and saves.
+feature:blessing-of-understanding	No proposed FX				A wisdom score raised — no moment to play.
+feature:blessing-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	A blessing: the berserkers come.
+feature:blessing-of-weapon-enchantment	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.magic-signs.rune.v1.transmutation.intro	A blessing on the weapon: a gold glint on the swing.
+feature:blessing-of-weapon-enhancement	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.magic-signs.rune.v1.transmutation.intro	A blessing on the weapon: a gold glint on the swing.
+feature:blessing-of-wound-closure	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.1st-level-spells.cure-wounds.v1.001	A blessing: the wounds close.
+feature:brown-mold	Close match	spell:cone-of-cold	jb2a.template_square.raindrops.001.5x5.instant.combined.blue	psfx.5th-level-spells.cone-of-cold.v1.001	Brown mold: the cold comes off it in a square.
+feature:charm-of-animal-conjuring	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	A charm grants Conjure Animals.
+feature:charm-of-darkvision	Close match	effect:foresight	jb2a.eyes.01.dark_green.single	psfx.magic-signs.rune.v1.transmutation.intro	A charm grants darkvision.
+feature:charm-of-feather-falling	Close match	effect:levitating	jb2a.swirling_feathers.outburst	psfx.cantrips.gust.v1	A charm: the fall slows.
+feature:charm-of-heroism	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	A charm grants Heroism.
+feature:charm-of-restoration	Close match	spell:cure-wounds	jb2a.cure_wounds.400px.green	psfx.1st-level-spells.cure-wounds.v1.001	A charm grants a restoration.
+feature:charm-of-the-boreal-ball	Close match	spell:cone-of-cold	jb2a.ice_spikes.radial.burst.blue	psfx.5th-level-spells.cone-of-cold.v1.001	A charm grants a ball of cold.
+feature:charm-of-the-slayer	Close match	effect:outlined	jb2a.hunters_mark.loop.01.red	psfx.magic-signs.rune.v1.divination.loop	A charm marks a slayer's quarry.
+feature:charm-of-vitality	Close match	spell:cure-wounds	jb2a.healing_generic.400px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	A charm grants vitality.
+feature:fireball-fungus	Close match	spell:fireball	jb2a.fireball.explosion.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	The fungus goes off like a fireball.
+feature:green-slime	Close match	spell:acid-arrow	jb2a.liquid.splash.bright_green	psfx.cantrips.acid-splash.v1	Green slime drops and eats.
+feature:inferno	Close match	spell:burning-hands	jb2a.wall_of_fire.200x100.yellow	psfx.casting.fire.001	The room is on fire.
+feature:observatory-charm	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	A charm grants a spell.
+feature:poisonous-gas	Close match	spell:fog-cloud	jb2a.fog_cloud.02.green	psfx.cantrips.poison-spray.v1	Poison gas fills the space.
+feature:quicksand-pit	Close match	spell:shatter	jb2a.liquid.splash.brown	psfx.casting.earth.001	The ground gives and pulls down.
+feature:razorvine	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.impacts.slashing.v1	Razorvine cuts whoever pushes through it.
+feature:reliquary-charm	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	A charm grants a spell.
+feature:river-styx	Close match	effect:stunned	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.psychic	The Styx takes the memory of whoever touches it.
+feature:rockslide	Close match	spell:shatter	jb2a.falling_rocks.top.2x1.grey	psfx.impacts.bludgeoning.v1	The slope comes down.
+feature:sanctuary-charm	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	A charm grants a spell.
+feature:sanctum-charm	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.conjuration.intro	A charm grants a spell.
+feature:vicious-vine	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.1st-level-spells.entangle.vines.v1.001.intro	The vine takes hold and squeezes.
+feature:webs	Close match	spell:web	jb2a.web.complete.002.white	psfx.magic-signs.rune.v1.conjuration.intro	Webs across the passage.
+feature:yellow-mold	Close match	spell:fog-cloud	jb2a.fog_cloud.02.green02	psfx.cantrips.poison-spray.v1	Yellow mold puffs out spores.
+natural:clawed-gauntlet	Close match	natural:claws	jb2a.claws.400px.red	psfx.impacts.slashing.v1	The clawed gauntlet rakes.

@@ -22,13 +22,20 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 ### The gap — what the books hold that has no FX (2026-09-08)
 
 The pass the user asked for: read every addressed key no FX answers, and propose one where the
-record itself suggests it. They run in this order, and everything they write lands in `dist/`.
+record itself suggests it. They run in this order; everything they write lands in `dist/`.
+
+⚠ **`gap-proposals/` IS THE WORK, and it is tracked** (the user, 2026-09-09: *"make those tracked
+we dont want to lose that work"*). Twenty-two TSVs, 3155 hand-written judgments, one line per
+addressed key: 1845 with a proposed FX, 1310 marked *No proposed FX*. **Nothing regenerates them** —
+the tools find the gaps and prove the paths, but what an ability should look like was decided a row
+at a time. They sit beside the tool that reads them and **not** under `recipes/`, which the module
+serves to the game at boot.
 
 | Tool | What it does |
 | --- | --- |
 | `gaps.mjs` | **the gap**: every key `records.json` addresses that no FX answers, with the record's own words and the mechanics that say what it does (the school and level, the base weapon, what its activities roll and in what damage type). Stands on exactly the evidence the corpus does, so a book added to `LIST_PACKS` shows up here as new gaps on the next run. `--write` writes `dist/gaps.json`. |
 | `gap-pool.mjs` | the pool a proposal may draw from, written flat so a person can read all of it: `dist/pool-corpus.txt` (every FX there is and what its scenes actually play), `dist/pool-jb2a.txt` and `dist/pool-psfx.txt` (the libraries collapsed to families, with the variants each one has). It exists so a proposed variant names a path that REALLY EXISTS. |
-| `gap-assemble.mjs` | joins the hand-written batches in `dist/batches/*.tsv` into `dist/proposals.tsv` (`key · confidence · basis · vfx · sfx · sentence`). |
+| `gap-assemble.mjs` | joins the batches in `gap-proposals/*.tsv` into `dist/proposals.tsv` (`key · confidence · basis · vfx · sfx · sentence`). Add a batch or edit a line there; never edit `dist/proposals.tsv`, which is thrown away and rebuilt. |
 | `gap-check.mjs` | **nothing leaves unchecked**: every VFX and SFX path met against the loaded JB2A and PSFX databases (a node prefix counts, Sequencer resolves one), every `basis` met against a key the corpus really answers, no duplicate keys, and no proposal for a key that is not a gap. |
 | `gap-report.mjs` | joins the gaps to the proposals and names each basis the way the screens do (`nameForKey`) → `dist/gap-report.json`. |
 | `gap-xlsx.py` | the workbook, grouped by compendium: a Summary, one sheet per book with ten or more gaps, `This world` and `Other books`, and an `All gaps` sheet for filtering. Takes the output path; defaults to the desktop. Needs `openpyxl`. |

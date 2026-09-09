@@ -1,0 +1,163 @@
+effect:antitoxin	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.potions-vials.drink-liquid.001	Antitoxin: advantage against poison for an hour.
+effect:caught-in-net	Close match	effect:ensnared	jb2a.web.complete.002.white	psfx.impacts.bludgeoning.v1	Caught in the net.
+effect:manacled	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Manacled: the irons are on.
+effect:trapped	Close match	effect:ensnared	jb2a.spike_trap.05x05ft.side.base.normal.01.01	psfx.impacts.slashing.v1	The hunting trap closes.
+effect:tripped	Close match	effect:slowed	jb2a.caltrops.01.grey	psfx.impacts.bludgeoning.v1	Tripped: caltrops or a ball bearing.
+item:alchemists-fire	Close match	spell:fireball	jb2a.impact.fire.01.orange	psfx.casting.fire.001	Alchemist's fire: the flask breaks and burns.
+item:alchemists-supplies	No proposed FX				A tool kit — no moment at the table.
+item:ammunition-varies	No proposed FX				Mundane gear — nothing to play.
+item:amulet	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:antitoxin	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.potions-vials.drink-liquid.001	Antitoxin is drunk.
+item:arcane-focus-varies	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:arrows	No proposed FX				Ammunition. The shot is the bow's FX.
+item:backpack	No proposed FX				Mundane gear — nothing to play.
+item:bagpipes	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	Bagpipes played — every instrument gets its own sound.
+item:barrel	No proposed FX				Mundane gear — nothing to play.
+item:basket	No proposed FX				Mundane gear — nothing to play.
+item:bedroll	No proposed FX				Mundane gear — nothing to play.
+item:bell	No proposed FX				Mundane gear — nothing to play.
+item:blanket	No proposed FX				Mundane gear — nothing to play.
+item:block-and-tackle	No proposed FX				Mundane gear — nothing to play.
+item:bolts	No proposed FX				Ammunition. The shot is the crossbow's FX.
+item:book	No proposed FX				Mundane gear — nothing to play.
+item:bottle-glass	No proposed FX				Mundane gear — nothing to play.
+item:breastplate	No proposed FX				Worn armour with no activation.
+item:brewers-supplies	No proposed FX				A tool kit — no moment at the table.
+item:bucket	No proposed FX				Mundane gear — nothing to play.
+item:bullets-firearm	No proposed FX				Ammunition. The shot is the firearm's FX.
+item:bullets-sling	No proposed FX				Ammunition. The shot is the sling's FX.
+item:bullseye-lantern	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A lantern opened: light down a cone.
+item:burglars-pack	No proposed FX				A pack of gear — nothing to play.
+item:calligraphers-supplies	No proposed FX				A tool kit — no moment at the table.
+item:candle	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A candle lit.
+item:carpenters-tools	No proposed FX				A tool kit — no moment at the table.
+item:cartographers-tools	No proposed FX				A tool kit — no moment at the table.
+item:case-crossbow-bolt	No proposed FX				Mundane gear — nothing to play.
+item:case-map-or-scroll	No proposed FX				Mundane gear — nothing to play.
+item:chain	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	A chain used to bind.
+item:chain-mail	No proposed FX				Worn armour with no activation.
+item:chain-shirt	No proposed FX				Worn armour with no activation.
+item:chest	No proposed FX				Mundane gear — nothing to play.
+item:climbers-kit	No proposed FX				Mundane gear — nothing to play.
+item:clothes-fine	No proposed FX				Clothing — nothing to play.
+item:clothes-travelers	No proposed FX				Clothing — nothing to play.
+item:cobblers-tools	No proposed FX				A tool kit — no moment at the table.
+item:component-pouch	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:constellations-scroll	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:star-map-scroll	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:cooks-utensils	No proposed FX				A tool kit — no moment at the table.
+item:costume	No proposed FX				Clothing — nothing to play.
+item:crowbar	No proposed FX				Mundane gear — nothing to play.
+item:crystal	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:dice	No proposed FX				A game — nothing to play.
+item:diplomats-pack	No proposed FX				A pack of gear — nothing to play.
+item:disguise-kit	No proposed FX				A tool kit — no moment at the table.
+item:dragonchess	No proposed FX				A game — nothing to play.
+item:druidic-focus-varies	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:drum	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.drum.01.001	A drum played.
+item:dulcimer	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	A dulcimer played.
+item:dungeoneers-pack	No proposed FX				A pack of gear — nothing to play.
+item:ebony-bound-atlas	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:star-map-bound-in-ebony-cover	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:emblem	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:engraved-crystal	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:star-map-crystal-engraved-with-starry-patterns	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:entertainers-pack	No proposed FX				A pack of gear — nothing to play.
+item:etched-glass-disk	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:star-map-glass-disk-etched-with-constellations	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:explorers-pack	No proposed FX				A pack of gear — nothing to play.
+item:fine-clothes	No proposed FX				Clothing — nothing to play.
+item:flask	No proposed FX				Mundane gear — nothing to play.
+item:flute	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.flute.01.long.keyOfC.C6	A flute played.
+item:forgery-kit	No proposed FX				A tool kit — no moment at the table.
+item:glassblowers-tools	No proposed FX				A tool kit — no moment at the table.
+item:grappling-hook	No proposed FX				Mundane gear — nothing to play.
+item:half-plate-armor	No proposed FX				Worn armour with no activation.
+item:healers-kit	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.consumables.potions-vials.cork-bottle.001	A healer's kit used: the dying are stabilised.
+item:herbalism-kit	No proposed FX				A tool kit — no moment at the table.
+item:hide-armor	No proposed FX				Worn armour with no activation.
+item:holy-symbol-varies	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:hooded-lantern	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A lantern opened: light all round.
+item:horn	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	A horn played.
+item:hunting-trap	Close match	effect:ensnared	jb2a.spike_trap.05x05ft.side.base.normal.01.01	psfx.impacts.slashing.v1	A hunting trap set and sprung.
+item:ink-pen	No proposed FX				Mundane gear — nothing to play.
+item:jewelers-tools	No proposed FX				A tool kit — no moment at the table.
+item:jug	No proposed FX				Mundane gear — nothing to play.
+item:ladder	No proposed FX				Mundane gear — nothing to play.
+item:lamp	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A lamp lit.
+item:lantern-bullseye	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A lantern opened: light down a cone.
+item:lantern-hooded	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A lantern opened: light all round.
+item:leather-armor	No proposed FX				Worn armour with no activation.
+item:leatherworkers-tools	No proposed FX				A tool kit — no moment at the table.
+item:lock	No proposed FX				Mundane gear — nothing to play.
+item:lute	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	A lute played.
+item:lyre	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	A lyre played.
+item:magnifying-glass	No proposed FX				Mundane gear — nothing to play.
+item:manacles	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	The irons go on.
+item:map	No proposed FX				Mundane gear — nothing to play.
+item:map-or-scroll-case	No proposed FX				Mundane gear — nothing to play.
+item:masons-tools	No proposed FX				A tool kit — no moment at the table.
+item:mirror	No proposed FX				Mundane gear — nothing to play.
+item:navigators-tools	No proposed FX				A tool kit — no moment at the table.
+item:needles	No proposed FX				Ammunition. The shot is the blowgun's FX.
+item:oil	Close match	spell:fireball	jb2a.impact.fire.01.orange	psfx.casting.fire.001	A flask of oil thrown and lit.
+item:orb	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:padded-armor	No proposed FX				Worn armour with no activation.
+item:painters-supplies	No proposed FX				A tool kit — no moment at the table.
+item:pan-flute	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.flute.01.long.keyOfA.A6	A pan flute played.
+item:paper	No proposed FX				Mundane gear — nothing to play.
+item:parchment	No proposed FX				Mundane gear — nothing to play.
+item:perfume	No proposed FX				Mundane gear — nothing to play.
+item:plate-armor	No proposed FX				Worn armour with no activation.
+item:playing-cards	No proposed FX				A game — nothing to play.
+item:poison-basic	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Basic poison on the blade.
+item:poisoners-kit	No proposed FX				A tool kit — no moment at the table.
+item:pole	No proposed FX				Mundane gear — nothing to play.
+item:pot-iron	No proposed FX				Mundane gear — nothing to play.
+item:potters-tools	No proposed FX				A tool kit — no moment at the table.
+item:pouch	No proposed FX				Mundane gear — nothing to play.
+item:priests-pack	No proposed FX				A pack of gear — nothing to play.
+item:quiver	No proposed FX				Mundane gear — nothing to play.
+item:ram-portable	No proposed FX				Mundane gear — nothing to play.
+item:rations	No proposed FX				Food — nothing to play.
+item:reliquary	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:ring-mail	No proposed FX				Worn armour with no activation.
+item:robe	No proposed FX				Clothing — nothing to play.
+item:rod	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:rope	No proposed FX				Mundane gear — nothing to play.
+item:sack	No proposed FX				Mundane gear — nothing to play.
+item:scale-mail	No proposed FX				Worn armour with no activation.
+item:scholars-pack	No proposed FX				A pack of gear — nothing to play.
+item:shawm	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.flute.01.long.keyOfF.F6	A shawm played.
+item:shield	No proposed FX				Worn, always on — no moment to play.
+item:shovel	No proposed FX				Mundane gear — nothing to play.
+item:signal-whistle	No proposed FX				A whistle — nothing on a token to play.
+item:smiths-tools	No proposed FX				A tool kit — no moment at the table.
+item:spell-scroll-cantrip	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-level-1	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spikes-iron	No proposed FX				Mundane gear — nothing to play.
+item:splint-armor	No proposed FX				Worn armour with no activation.
+item:sprig-of-mistletoe	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:spyglass	No proposed FX				Mundane gear — nothing to play.
+item:star-map-stone-tablet	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:stone-tablet	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:string	No proposed FX				Mundane gear — nothing to play.
+item:studded-leather-armor	No proposed FX				Worn armour with no activation.
+item:tent	No proposed FX				Mundane gear — nothing to play.
+item:thieves-tools	No proposed FX				A tool kit — no moment at the table.
+item:three-dragon-ante	No proposed FX				A game — nothing to play.
+item:tinderbox	No proposed FX				Mundane gear — nothing to play.
+item:tinkers-tools	No proposed FX				A tool kit — no moment at the table.
+item:star-map-owlbear-hide	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:tooled-owlbear-hide	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:torch	Close match	spell:light	jb2a.impact.fire.01.orange	psfx.casting.fire.001	A torch swung as a weapon, or lit.
+item:vial	No proposed FX				Mundane gear — nothing to play.
+item:viol	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.violin.01.sforzando.keyOfC.C6	A viol played.
+item:wand	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:water-pint	No proposed FX				Food — nothing to play.
+item:waterskin	No proposed FX				Mundane gear — nothing to play.
+item:weavers-tools	No proposed FX				A tool kit — no moment at the table.
+item:woodcarvers-tools	No proposed FX				A tool kit — no moment at the table.
+item:yew-wand	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+weapon:battleaxe	Close match	weapon:greataxe	jb2a.melee_attack.02.handaxe.01	psfx.weapon-attacks.sword.v1	The battleaxe swing. This is a BASE WEAPON with no FX — worth doing before any of the magic ones.
+weapon:improvised-weapon	Close match	weapon:club	jb2a.melee_generic.bludgeoning.one_handed	psfx.impacts.bludgeoning.v1	Whatever came to hand, swung.

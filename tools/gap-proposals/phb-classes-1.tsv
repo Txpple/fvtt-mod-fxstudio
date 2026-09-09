@@ -1,0 +1,191 @@
+effect:abjured	Close match	effect:banished	jb2a.magic_signs.circle.02.abjuration.complete.blue	psfx.magic-signs.circle.v1.abjuration.complete	Abjure Foes: the target is driven back.
+effect:acid-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to acid: the same green shield Acid Protection already plays.
+effect:active-attunement	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.transmutation.intro	Elemental attunement: runes at the monk.
+effect:active-attunement-stride	Close match	effect:hasted	jb2a.token_border.circle.static.blue.004	psfx.magic-signs.rune.v1.transmutation.intro	Stride of the Elements: the monk moves on the element.
+effect:addled	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Addled: the stun mark.
+effect:aerial	No proposed FX				A summoned companion's form — the summon itself is where an FX belongs.
+effect:agonizing-blast	No proposed FX				Extra damage on Eldritch Blast, which already has its own FX.
+effect:alacrity	No proposed FX				A passive trait — no moment to play.
+effect:ambushers-leap	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	The ambusher moves first and fast.
+effect:aquatic	No proposed FX				A summoned companion's form — the summon itself is where an FX belongs.
+effect:aquatic-affinity	No proposed FX				A passive trait — no moment to play.
+effect:aspect-of-the-owl	No proposed FX				A passive trait — no moment to play.
+effect:aspect-of-the-panther	No proposed FX				A passive trait — no moment to play.
+effect:aspect-of-the-salmon	No proposed FX				A passive trait — no moment to play.
+effect:assasinate	Close match	effect:outlined	jb2a.sneak_attack.dark_red	psfx.impacts.slashing.v1	Assassinate: the first strike lands hard.
+effect:attunement-bonus	No proposed FX				A bonus with no moment of its own.
+effect:baited-ac-1	No proposed FX				A bonus to AC from Bait and Switch — no moment to play. All twelve tiers read the same.
+effect:baited-ac-10	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-11	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-12	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-2	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-3	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-4	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-5	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-6	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-7	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-8	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:baited-ac-9	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
+effect:battering-roots	Close match	effect:bark-like-skin	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.casting.earth.001	Battering Roots: the staff grows reach.
+effect:beguiling-charm	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Beguiling Magic: the target is charmed.
+effect:beguiling-fear	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.magic-signs.rune.v1.enchantment.intro	Beguiling Magic: the target is frightened.
+effect:blessing-of-the-trickster	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Blessing of the Trickster: advantage on Stealth.
+effect:branches-of-the-tree	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.1st-level-spells.entangle.vines.v1.001.intro	Branches of the Tree: the target is pulled in.
+effect:bulwark-of-force	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	Bulwark of Force: half cover for everyone chosen.
+effect:clairvoyant-combatant	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.magic-signs.rune.v1.divination.intro	Clairvoyant Combatant: the psi warrior reads the target.
+effect:cloak-of-shadows	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Cloak of Shadows: the monk steps out of sight.
+effect:cold-resistance	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold: the same blue shield Cold Protection already plays.
+effect:concentration-advantage	No proposed FX				A passive trait — no moment to play.
+effect:corona-of-light	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Corona of Light: the cleric blazes.
+effect:cunning-strike-poisoned	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Cunning Strike: the target is poisoned.
+effect:cunning-strike-tripped	Close match	effect:slowed	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	Cunning Strike: the target goes down.
+effect:danger-sense	No proposed FX				A passive trait — no moment to play.
+effect:dazzling-footwork	No proposed FX				A passive trait — no moment to play.
+effect:defy-death	Close match	spell:cure-wounds	jb2a.healing_generic.400px.red	psfx.1st-level-spells.cure-wounds.v1.001	Defy Death: the barbarian gets back up.
+effect:devils-sight	No proposed FX				A passive trait — no moment to play.
+effect:devious-strikes-blinded	Close match	effect:searing-radiance	jb2a.icon.runes.dark_black	psfx.impacts.slashing.v1	Devious Strikes: the target is blinded.
+effect:devious-strikes-dazed	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.slashing.v1	Devious Strikes: the target is dazed.
+effect:devious-strikes-knocked-out	Close match	effect:sleeping	jb2a.sleep.symbol.purple	psfx.impacts.bludgeoning.v1	Devious Strikes: the target is knocked out.
+effect:devoted	No proposed FX				A passive trait — no moment to play.
+effect:dexterous-attacks--martial-arts-damage	No proposed FX				A passive trait — no moment to play.
+effect:diminished-defiance	No proposed FX				A spent use of a feature — no moment to play.
+effect:disappearing-step	Close match	spell:misty-step	jb2a.misty_step.01.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Disappearing Step: the soulknife blinks away.
+effect:disciplined-survivor	No proposed FX				A passive trait — no moment to play.
+effect:disengaged	No proposed FX				A disengage — no moment to play.
+effect:divine-sense	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.1st-level-spells.detect-magic.v1.001	Divine Sense: the paladin feels what is near.
+effect:draconic-resilience-armor	No proposed FX				A passive trait — no moment to play.
+effect:draconic-resilience-hp	No proposed FX				A passive trait — no moment to play.
+effect:dragon-form	Close match	effect:heavenly-wings	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.large	Dragon Wings: the sorcerer takes the dragon's shape.
+effect:dragon-form-twinkling	Close match	effect:heavenly-wings	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.large	Dragon Wings, twinkling.
+effect:dread-ambusher	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	Dread Ambusher: the ranger moves first and fast.
+effect:eldritch-spear	No proposed FX				An extended range on Eldritch Blast, which has its own FX.
+effect:evasive-ac	No proposed FX				A bonus to AC — no moment to play.
+effect:exceptionally-trained	No proposed FX				A passive trait — no moment to play.
+effect:fast-movement	No proposed FX				A passive trait — no moment to play.
+effect:feinting-attack	Close match	effect:outlined	jb2a.markers.light.complete.blue	psfx.impacts.slashing.v1	Feinting Attack: the feint lands.
+effect:feral-instinct	No proposed FX				A passive trait — no moment to play.
+effect:feral-senses	No proposed FX				A passive trait — no moment to play.
+effect:fiendish-resilience-acid	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to acid — all twelve types read as the protections.
+effect:fiendish-resilience-bludgeoning	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to bludgeoning.
+effect:fiendish-resilience-cold	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to cold.
+effect:fiendish-resilience-fire	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to fire.
+effect:fiendish-resilience-lightning	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to lightning.
+effect:fiendish-resilience-necrotic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to necrotic.
+effect:fiendish-resilience-piercing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to piercing.
+effect:fiendish-resilience-poison	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to poison.
+effect:fiendish-resilience-psychic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to psychic.
+effect:fiendish-resilience-radiant	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to radiant.
+effect:fiendish-resilience-slashing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to slashing.
+effect:fiendish-resilience-thunder	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to thunder.
+effect:fire-resistance	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to fire: the same red shield Fire Protection already plays.
+effect:full-of-stars	Close match	effect:starry-form	jb2a.markers.circle_of_stars.yellowblue	psfx.casting.sound.001	Full of Stars: the druid's starry form.
+effect:glamorous	Close match	effect:charmed	jb2a.markers.light.complete.pink	psfx.magic-signs.rune.v1.enchantment.intro	Glamorous: the bard is hard to look away from.
+effect:glistening-flight	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	Glistening Flight: the fey wanderer flies.
+effect:goaded	Close match	effect:dominated	jb2a.markers.fear.orange.03	psfx.impacts.magicaleffects.psychic	Goaded: the target must come for you.
+effect:grappled	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Grappled: the target is held.
+effect:hamstrung	Close match	effect:slowed	jb2a.token_border.circle.static.purple.004	psfx.impacts.slashing.v1	Hamstrung: the target is slowed.
+effect:hiding	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	Hidden: the token goes quiet.
+effect:holy-nimbus	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Holy Nimbus: the paladin blazes.
+effect:hunters-defense-acid	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to acid — all thirteen types read as the protections.
+effect:hunters-defense-bludgeoning	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to bludgeoning.
+effect:hunters-defense-cold	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to cold.
+effect:hunters-defense-fire	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to fire.
+effect:hunters-defense-force	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to force.
+effect:hunters-defense-lightning	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to lightning.
+effect:hunters-defense-necrotic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to necrotic.
+effect:hunters-defense-piercing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to piercing.
+effect:hunters-defense-poison	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to poison.
+effect:hunters-defense-psychic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to psychic.
+effect:hunters-defense-radiant	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to radiant.
+effect:hunters-defense-slashing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to slashing.
+effect:hunters-defense-thunder	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Hunter's Defense: resistance to thunder.
+effect:improved-circle-forms	No proposed FX				A passive trait — no moment to play.
+effect:improved-critical	No proposed FX				A widened critical range — no moment to play.
+effect:innate-sorcery	Close match	effect:heated-metal	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.evocation.intro	Innate Sorcery: the sorcerer's magic runs hot.
+effect:inspired	Close match	effect:courageous	jb2a.bardic_inspiration.blueyellow	psfx.class-features.bardic-inspiration.v1.keyOfC.001	Bardic Inspiration: JB2A and PSFX both drew this exact feature.
+effect:intimidated	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.psychic	Intimidated: the fear mark.
+effect:jack-of-all-trades	No proposed FX				A passive trait — no moment to play.
+effect:lethal-vibrations	Close match	effect:heated-metal	jb2a.static_electricity.01.purple	psfx.impacts.magicaleffects.psychic	Lethal Vibrations: the quivering palm is set.
+effect:lightning-resistance	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to lightning: the same yellow shield Lightning Protection already plays.
+effect:living-legend-charismatic	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Living Legend: the paladin is unstoppable for a minute.
+effect:magician-checks--cantrip	No proposed FX				A passive trait — no moment to play.
+effect:manifesting-ocean-spray	Close match	spell:cone-of-cold	jb2a.water_splash.cone.01.blue	psfx.casting.water.001	Manifest Ocean: a spray of cold water.
+effect:mastered	No proposed FX				A weapon mastery — the swing has its own FX.
+effect:mindless-rage	No proposed FX				A passive trait of Rage, which has its own FX.
+effect:moonlight-step	Close match	spell:misty-step	jb2a.misty_step.01.blue	psfx.2nd-level-spells.misty-step.v1.complete.generic	Moonlight Step: the druid blinks in moonlight.
+effect:multiattack-defense	No proposed FX				A bonus to AC — no moment to play.
+effect:natures-ward-arid	No proposed FX				A ward against a climate — no moment at the table. All four read the same.
+effect:natures-ward-polar	No proposed FX				A ward against a climate — no moment at the table.
+effect:natures-ward-temperate	No proposed FX				A ward against a climate — no moment at the table.
+effect:natures-ward-tropical	No proposed FX				A ward against a climate — no moment at the table.
+effect:natures-wrath	Close match	effect:ensnared	jb2a.entangle.green	psfx.1st-level-spells.entangle.vines.v1.001.intro	Nature's Wrath: vines take everyone near.
+effect:pact-weapon	Family match	weapon:longsword	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	Pact of the Blade: the weapon is summoned.
+effect:patient-defense-focus-point	No proposed FX				A spent focus point — no moment to play.
+effect:poisoned-hand-of-harm	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Hand of Harm: the target is poisoned.
+effect:power-of-the-wilds-ram	Close match	effect:courageous	jb2a.condition.boon.01.001.green	psfx.conditions.boon.001.01	Power of the Wilds: the ram's strength.
+effect:primal-knowledge	No proposed FX				A passive trait — no moment to play.
+effect:psi-powered-leap	Close match	effect:jump	jb2a.wind_stream.400.white	psfx.impacts.magicaleffects.psychic	Psi-Powered Leap: the psi warrior flies.
+effect:psychic-whispers	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.incantations.whispers.fem.001.forward.slow.001	Psychic Whispers: a word sent mind to mind.
+effect:radiant-strikes	No proposed FX				Extra radiant damage on a swing that has its own FX.
+effect:rage-of-the-bear	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Rage of the Bear: the totem's strength.
+effect:rage-of-the-gods	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.yellow	psfx.class-features.divine-smite.v1.001.caster	Rage of the Gods: the barbarian is a demigod.
+effect:rage-of-the-wolf	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.blue	psfx.conditions.boon.001.01	Rage of the Wolf: the totem's speed.
+effect:reckless	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Reckless Attack: everything hits harder, both ways.
+effect:relentless-avenger	No proposed FX				Movement after an opportunity attack — no moment to play.
+effect:reliable-talent	No proposed FX				A passive trait — no moment to play.
+effect:remarkable-athlete	No proposed FX				A passive trait — no moment to play.
+effect:rend-mind	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Rend Mind: the target is stunned.
+effect:repelling-blast	No proposed FX				A push on Eldritch Blast, which has its own FX.
+effect:resist-acid	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to acid — all thirteen types read as the protections.
+effect:resist-bludgeoning	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to bludgeoning: the rampart shield.
+effect:resist-cold	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold: the shield in blue.
+effect:resist-fire	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to fire: the shield in red.
+effect:resist-force	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to force: the shield in white.
+effect:resist-lightning	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to lightning: the shield in yellow.
+effect:resist-necrotic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to necrotic: the shield in violet.
+effect:resist-piercing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to piercing: the rampart shield.
+effect:resist-poison	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to poison: the shield in green.
+effect:resist-psychic	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to psychic: the shield in violet.
+effect:resist-radiant	Close match	effect:acid-protection	jb2a.shield.01.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: the shield in white.
+effect:resist-slashing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to slashing: the rampart shield.
+effect:resist-thunder	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to thunder: the shield in violet.
+effect:roving	No proposed FX				A passive trait — no moment to play.
+effect:sacred-weapon	Family match	weapon:longsword	jb2a.sword.melee.fire.yellow	psfx.class-features.divine-smite.v1.001.caster	Sacred Weapon: the blade burns holy gold.
+effect:searing-vengeance	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	Searing Vengeance: the paladin gets up in a burst of light.
+effect:second-story-work	No proposed FX				A passive trait — no moment to play.
+effect:see-the-invisible	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.1st-level-spells.detect-magic.v1.001	See Invisibility: the eye that sees through.
+effect:shadow-art-vision	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.illusion.intro	Shadow Arts: the monk sees in the dark.
+effect:signature	No proposed FX				A signature manoeuvre — no moment of its own.
+effect:smite-of-protection	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.class-features.divine-smite.v1.001.caster	Smite of Protection: half cover for everyone near.
+effect:staggered	Close match	effect:slowed	jb2a.token_border.circle.static.purple.004	psfx.impacts.bludgeoning.v1	Staggered: the target is off balance.
+effect:step-of-the-wind-bonus	Close match	effect:hasted	jb2a.token_border.circle.static.blue.004	psfx.cantrips.gust.v1	Step of the Wind: the monk moves.
+effect:stolen-spell	Close match	spell:counterspell	jb2a.magic_signs.rune.02.complete.01.purple	psfx.magic-signs.rune.v1.abjuration.complete	A spell taken from another caster.
+effect:stormborn	Close match	spell:cone-of-cold	jb2a.template_circle.out_pulse.01.burst.bluewhite	psfx.5th-level-spells.cone-of-cold.v1.001	Stormborn: cold comes off the druid.
+effect:stride-of-the-elements	Close match	effect:hasted	jb2a.token_border.circle.static.blue.004	psfx.magic-signs.rune.v1.transmutation.intro	Stride of the Elements: the monk moves on the element.
+effect:struck	No proposed FX				A marker with no rules of its own.
+effect:sundered	Close match	effect:slowed	jb2a.markers.shield_cracked.dark_red.03	psfx.impacts.slashing.v1	Sundered: the target's armour is opened up.
+effect:superior-critical	No proposed FX				A widened critical range — no moment to play.
+effect:superior-defense	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Empty Body: resistance to everything but force.
+effect:tactical-master	No proposed FX				A passive trait — no moment to play.
+effect:taunted	Close match	effect:dominated	jb2a.markers.fear.orange.03	psfx.impacts.magicaleffects.psychic	Taunted: the target must come for you.
+effect:thaumaturge	No proposed FX				A passive trait — no moment to play.
+effect:third-eye-darkvision	Close match	effect:foresight	jb2a.eyes.01.dark_green.single	psfx.magic-signs.rune.v1.divination.intro	Third Eye: darkvision.
+effect:third-eye-greater-comprehension	Close match	effect:comprehension	jb2a.markers.runes.white.03	psfx.magic-signs.rune.v1.divination.intro	Third Eye: every language read.
+effect:thought-shield	No proposed FX				A passive trait — no moment to play.
+effect:thunder-resistance	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to thunder: the same violet shield Thunder Protection already plays.
+effect:toppled	Close match	effect:slowed	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	Toppled: the target goes down.
+effect:trance-of-order	Close match	effect:alertness	jb2a.particles.swirl.blue.01.01	psfx.magic-signs.rune.v1.divination.intro	Trance of Order: the sorcerer sees the pattern.
+effect:truesight-30-ft	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.magic-signs.rune.v1.divination.intro	Truesight to thirty feet.
+effect:turn-undead	Close match	spell:raise-dead	jb2a.template_circle.out_pulse.01.burst.yellowwhite	psfx.class-features.divine-smite.v1.001.caster	Turn Undead: a pulse of holy light off the cleric.
+effect:turned	Close match	effect:frightened	jb2a.markers.fear.dark_orange.03	psfx.class-features.divine-smite.v1.001.target	Turned: the undead runs.
+effect:umbral-sight	No proposed FX				A passive trait — no moment to play.
+effect:unarmored-defense	No proposed FX				A passive trait — no moment to play.
+effect:unarmored-movement	No proposed FX				A passive trait — no moment to play.
+effect:unearthly-appearance	Close match	effect:charmed	jb2a.markers.light.complete.pink	psfx.magic-signs.rune.v1.enchantment.intro	Unearthly Appearance: the fey warlock is hard to look at.
+effect:veiled	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Veiled: the token is hidden.
+effect:vow-of-enmity	Close match	effect:outlined	jb2a.hunters_mark.loop.01.red	psfx.magic-signs.rune.v1.divination.loop	Vow of Enmity: the paladin names an enemy.
+effect:war-bond	Family match	weapon:longsword	jb2a.markers.runes.dark_red.03	psfx.magic-signs.rune.v1.conjuration.intro	War Bond: the weapon comes back to the hand.
+effect:water-breathing--swim-speed	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	A swim speed and water breathing.
+effect:winged	No proposed FX				A summoned companion's form — the summon itself is where an FX belongs.
+effect:wormlike-movement	Close match	effect:unrestricted-movement	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Burrowing movement.
+effect:zealous-presence	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	Zealous Presence: everyone near takes heart.

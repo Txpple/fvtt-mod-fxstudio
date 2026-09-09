@@ -1,0 +1,166 @@
+effect:harkons-bite	Close match	effect:bark-like-skin	jb2a.shimmer.01.orange	psfx.impacts.magicaleffects.necrotic	Harkon's Bite: the bitten start to change.
+effect:influence-over-lord-soth	Close match	effect:dominated	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	Charm of the Black Rose: Soth listens, for now.
+effect:mark-of-sacrifice-removed	No proposed FX				A mark lifted — the absence is the point.
+feature:charm-of-the-black-rose	Close match	effect:dominated	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	Charm of the Black Rose: the rose is spent.
+feature:mark-of-beasts	Close match	effect:banished	jb2a.condition.curse.01.001.green	psfx.impacts.magicaleffects.necrotic	Mark of Beasts: the dark powers set their sign.
+feature:mark-of-obsession	Close match	effect:charmed	jb2a.condition.curse.01.001.purple	psfx.impacts.magicaleffects.psychic	Mark of Obsession: the dark powers set their sign.
+feature:mark-of-sacrifice	Close match	effect:banished	jb2a.condition.curse.01.001.red	psfx.impacts.magicaleffects.necrotic	Mark of Sacrifice: the dark powers set their sign.
+feature:mark-of-the-dread-lord	Close match	effect:banished	jb2a.condition.curse.01.001.blue	psfx.impacts.magicaleffects.necrotic	Mark of the Dread Lord: the dark powers set their sign.
+item:animated-digits	No proposed FX				A Mist Talisman: a trinket with no rules of its own — all fifty-odd read the same.
+item:ashes-of-a-corpse	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:barovian-wine-bottle	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:black-rose	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:blood-faction-gear	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:bloodstained-farm-implement	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:broken-holy-symbol	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:broken-jewelry	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:burnt-armor	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:canopic-jar	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:coin-from-darkon	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:death-mask	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:displacer-beast-skin	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:dram-of-sweet-smelling-poison	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:dried-crown-of-white-camellias	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:eye-of-hazlik-amulet	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:faded-love-letter	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:family-portrait	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:feathered-mask	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:flame-singed-love-letter	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:glass-shoe	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:glowing-minerals	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:gold-shoe	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:great-cthulhu-effigy	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:gremishka-foot	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:handbill	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:harkons-bite	Close match	effect:bark-like-skin	jb2a.shimmer.01.orange	psfx.impacts.magicaleffects.necrotic	Harkon's Bite: the bitten start to change.
+item:jeweled-mask	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:lapis-lazuli-scarab	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:letter-from-leka	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:mark-of-the-raven-talisman	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:poisonous-flower-blossom	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:polished-skull	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:preserved-humanoid-limb	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:red-robe-scrap	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:religious-relic	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:rusted-tulwar	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:rusty-foot-trap	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:sahuagin-tooth-fishing-lure	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:scrap-of-black-fabric	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:scroll-of-hieroglyphics	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:spell-scroll-protection-from-evil-and-good	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:starmetal-amulet	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:starmetal-rod	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:straw-doll	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:symbol-of-the-circle	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:tainted-spring-water	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:tarnished-signet-ring	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:three-thorns	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:unbreakable-heart	No proposed FX				A trinket with no rules of its own.
+item:von-zarovich-crest	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:wolfs-tooth-necklace	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:woodcut-of-hunting-wolves	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:worn-fine-clothing	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:wyvern-and-lotus-shield	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+item:zombie-flesh	No proposed FX				A Mist Talisman: a trinket with no rules of its own.
+weapon:ebonbane	Close match	weapon:longsword	jb2a.sword.melee.fire.black	psfx.weapon-swooshes.necrotic.v1.group01	Ebonbane: the longsword swing in black.
+natural:barb	Close match	natural:sting	jb2a.melee_generic.piercing.one_handed	psfx.impacts.slashing.v1	The nightgaunt's barb goes in.
+natural:bite-dire-wolf-or-hybrid-form-only	Close match	natural:bite	jb2a.bite.400px.purple	psfx.impacts.magicaleffects.necrotic	Harkon's bite, in wolf shape.
+natural:bite-individual-form-only	Close match	natural:bite	jb2a.bite.200px.blue	psfx.impacts.magicaleffects.generic.002.001	The gremishka bites.
+natural:brain-rending-bite	Close match	natural:bite	jb2a.bite.400px.purple	psfx.impacts.magicaleffects.psychic	The death's head bites, and the mind goes.
+natural:coagulated-nodule	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.bludgeoning.v1	The emissary's nodule lands.
+natural:crushing-stone	Close match	natural:slam	jb2a.impact.004.orange	psfx.impacts.bludgeoning.v1	The juggernaut brings the stone down.
+natural:dreadful-swipe	Close match	natural:claws	jb2a.claws.400px.bright_green	psfx.impacts.magicaleffects.necrotic	The reanimated companion rakes.
+natural:fiery-skull	Close match	natural:slam	jb2a.impact.fire.01.orange	psfx.casting.fire.001	The dullahan throws its burning head.
+natural:forsaken-brand	Close match	weapon:longsword	jb2a.sword.melee.fire.green	psfx.weapon-swooshes.necrotic.v1.group01	Soth's brand: the blade burns green.
+natural:lashing-maw	Close match	natural:bite	jb2a.bite.400px.green	psfx.cantrips.acid-splash.v1	The emissary's maw comes down.
+natural:lightning-rod	Close match	natural:slam	jb2a.static_electricity.01.blue	psfx.weapon-swooshes.lightning.v1.group01	Mordenheim's rod throws a spark.
+natural:necrotic-bolt	Close match	spell:magic-missile	jb2a.spell_projectile.skull.pinkpurple.30ft	psfx.impacts.magicaleffects.necrotic	The priest of Osybus throws a bolt of the grave.
+natural:phantasmic-assault	Close match	spell:magic-missile	jb2a.impact_themed.skull.pinkpurple	psfx.impacts.magicaleffects.psychic	The horror strikes at the mind.
+natural:radiant-wisp	Close match	spell:guiding-bolt	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	A radiant wisp goes out.
+natural:ravenous-bites	Close match	natural:bite	jb2a.bite.200px.red	psfx.impacts.slashing.v1	The swarm bites everything in reach.
+natural:rotten-flesh	Close match	natural:slam	jb2a.impact.004.green	psfx.impacts.magicaleffects.necrotic	The swarm of limbs lands on you.
+natural:soothing-tentacle	Close match	natural:tentacle	jb2a.black_tentacles.dark_purple	psfx.impacts.magicaleffects.psychic	The elder thing's tentacle touches.
+natural:swarming-bites-swarm-form-only	Close match	natural:bite	jb2a.bite.200px.blue	psfx.impacts.slashing.v1	The gremishka swarm bites.
+natural:swipe-dire-wolf-or-hybrid-form-only	Close match	natural:claws	jb2a.claws.400px.red	psfx.impacts.slashing.v1	Harkon's swipe, in wolf shape.
+natural:toxic-touch	Close match	effect:lingering-acid	jb2a.liquid.splash.bright_green	psfx.cantrips.poison-spray.v1	Ivana's touch is poison.
+natural:vine	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.1st-level-spells.entangle.vines.v1.001.intro	The bodytaker's vine takes hold.
+item:adventurers-ring	No proposed FX				A ring with no combat moment — nothing to play.
+item:bandore	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	A bandore played.
+item:black-coach-service	No proposed FX				A service bought, not an item used — nothing to play.
+item:bright-fungal-cloak	Close match	spell:light	jb2a.markers.light.complete.green	psfx.cantrips.light.v1.001	The fungal cloak glows.
+item:cittern	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	A cittern played.
+item:covered-wagon	No proposed FX				Mundane gear — nothing to play.
+item:desert-clothing	No proposed FX				Clothing — nothing to play.
+item:devil-mask	No proposed FX				Clothing — nothing to play.
+item:domestic-wonder	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	A domestic wonder unfolds and gets to work.
+item:garb-of-light-and-shadow	No proposed FX				Clothing — nothing to play.
+item:genie-robe	No proposed FX				Clothing — nothing to play.
+item:locking-spellbook	No proposed FX				A book that locks — nothing to play.
+item:mechanical-wonder	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	A mechanical wonder unfolds and gets to work.
+item:monster-camouflage	No proposed FX				A disguise — nothing to play.
+item:sled-services	No proposed FX				A service bought, not an item used — nothing to play.
+item:thayan-spell-tattoo	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.red	psfx.magic-signs.rune.v1.evocation.intro	A Thayan spell tattoo burns as its spell goes off.
+item:warm-fungal-clothing	No proposed FX				Clothing — nothing to play.
+item:windskiff	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The windskiff takes off.
+item:winter-camouflage	No proposed FX				Clothing — nothing to play.
+item:yarting	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6	A yarting played.
+effect:boots-of-elvenkind	No proposed FX				Worn, always on — no moment to play.
+effect:cloak-of-elvenkind	Close match	spell:invisibility	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.illusion.intro	The hood goes up and the wearer fades.
+effect:free-action	No proposed FX				Worn, always on — no moment to play.
+effect:ignore-difficult-terrain	No proposed FX				A mount's footing — no moment to play.
+effect:robe-of-stars	Close match	spell:mage-armor	jb2a.twinkling_stars.points06.white	psfx.magic-signs.rune.v1.abjuration.intro	The Robe of Stars: a bonus to saves while it is worn.
+effect:staff-of-power	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.casting.generic-v2.001.01	The Staff of Power's bonuses, while it is held.
+effect:water-focus	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	The ring's attunement to water.
+effect:winter-strider	No proposed FX				Worn, always on — no moment to play.
+item:apparatus-of-the-crab	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	The barrel unfolds into the crab, gears turning.
+item:central-pouch	No proposed FX				A container. Nothing happens at the table.
+item:dragon-orb	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.complete.dark_red	psfx.creature.dragons.roar.large	The orb calls a dragon to heel.
+item:efficient-quiver	No proposed FX				A container. Reaching into it is not a moment the table watches.
+item:feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.intro	A feather token is used — all seven read the same.
+item:anchor-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.intro	The anchor token.
+item:feather-token-anchor	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.intro	The anchor token.
+item:bird-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.complete	The bird token becomes a roc.
+item:feather-token-bird	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.magic-signs.circle.v1.conjuration.complete	The bird token becomes a roc.
+item:fan-feather-token	Close match	spell:conjure-animals	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The fan token raises a wind.
+item:feather-token-fan	Close match	spell:conjure-animals	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The fan token raises a wind.
+item:feather-token-swan-boat	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.casting.water.001	The swan boat token unfolds on the water.
+item:swan-boat-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst	psfx.casting.water.001	The swan boat token unfolds on the water.
+item:feather-token-tree	Close match	spell:conjure-animals	jb2a.plant_growth.04.round.4x4.complete.greenwhite	psfx.casting.earth.001	The tree token grows an oak.
+item:tree-feather-token	Close match	spell:conjure-animals	jb2a.plant_growth.04.round.4x4.complete.greenwhite	psfx.casting.earth.001	The tree token grows an oak.
+item:feather-token-whip	Close match	spell:conjure-animals	jb2a.melee_generic.slashing.two_handed	psfx.impacts.slashing.v1	The whip token lashes.
+item:whip-feather-token	Close match	spell:conjure-animals	jb2a.melee_generic.slashing.two_handed	psfx.impacts.slashing.v1	The whip token lashes.
+item:handy-haversack	No proposed FX				A container. Reaching into it is not a moment the table watches.
+item:instant-fortress	Close match	spell:conjure-animals	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	The cube is thrown and a tower grows out of the ground.
+item:regeneration-ioun-stone	Close match	effect:regenerating	jb2a.ioun_stones.01.white.regeneration	psfx.1st-level-spells.cure-wounds.v1.001	Regeneration: the stone orbits, and the wounds close.
+item:iron-bands	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.intro	The sphere is thrown and bands wrap the target.
+item:left-pouch	No proposed FX				A container. Nothing happens at the table.
+item:marvelous-pigments	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.pink	psfx.magic-signs.circle.v1.conjuration.complete	What is painted becomes real.
+item:mysterious-deck	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.divination.complete.purple	psfx.magic-signs.circle.v1.divination.complete	A card is drawn from the Deck.
+item:right-pouch	No proposed FX				A container. Nothing happens at the table.
+item:spell-scroll-1st-level	No proposed FX				A scroll. The spell it casts is that spell's own FX — all nine levels the same.
+item:spell-scroll-2nd-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-3rd-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-4th-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-5th-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-6th-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-7th-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-8th-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spell-scroll-9th-level	No proposed FX				A scroll. The spell it casts is that spell's own FX.
+item:spiders-sting	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Spider's sting: the poison takes.
+effect:divine-order-protector	No proposed FX				A proficiency — no moment to play.
+effect:eldritch-mind	No proposed FX				A passive trait — no moment to play.
+effect:investment-of-flight	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	The familiar is given flight.
+effect:investment-of-swimming	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	The familiar is given a swim speed.
+effect:magician	No proposed FX				A passive trait — no moment to play.
+effect:natures-ward	No proposed FX				A ward against a climate — no moment at the table.
+effect:primal-order-warden	No proposed FX				A proficiency — no moment to play.
+effect:tactial-master	No proposed FX				A passive trait — no moment to play.
+effect:witch-sight	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.divination.intro	Witch Sight: the true form is seen.
+feature:channel-divinity-cleric	Close match	spell:raise-dead	jb2a.template_circle.out_pulse.01.burst.yellowwhite	psfx.class-features.divine-smite.v1.001.caster	Channel Divinity: the god answers.
+feature:channel-divinity-paladin	Close match	spell:bless	jb2a.template_circle.out_pulse.01.burst.yellowwhite	psfx.class-features.divine-smite.v1.001.caster	Channel Divinity: the oath answers.
+effect:antilife-shell	Close match	spell:mage-armor	jb2a.antilife_shell.blue_with_circle	psfx.magic-signs.rune.v1.abjuration.intro	Antilife Shell: the shell JB2A drew for this exact spell.
+effect:dispelling-evil-and-good	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.complete.yellow	psfx.magic-signs.circle.v1.abjuration.complete	Dispel Evil and Good: the ward around the caster.
+effect:ranged-weapon	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	True Strike with a ranged weapon: the shot is guided.
+spell:arcanists-magic-aura	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.illusion.intro	A false aura laid over the subject.
+effect:hit-str-score-1d4	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Draining Swipe: the strength is taken.
+natural:bite-demon-only	Close match	natural:bite	jb2a.bite.400px.purple	psfx.impacts.magicaleffects.necrotic	The fiendish spirit bites, in demon form.

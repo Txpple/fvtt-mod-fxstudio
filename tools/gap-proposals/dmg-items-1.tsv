@@ -1,0 +1,160 @@
+item:activate-alchemy-jug	Close match	spell:conjure-animals	jb2a.liquid.splash.blue	psfx.consumables.potions-vials.drink-liquid.001	The jug pours: a splash of whatever was asked for.
+item:alchemy-jug	Close match	spell:conjure-animals	jb2a.liquid.splash.blue	psfx.consumables.potions-vials.drink-liquid.001	The jug pours: a splash of whatever was asked for.
+item:activate-folding-boat	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.casting.generic.001	The box unfolds into a boat, in a puff of displaced air.
+item:boat-utility	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.casting.generic.001	The box unfolds into a boat, in a puff of displaced air.
+item:adamantine-ammunition	Family match	weapon:longbow	jb2a.glint.yellow.few	psfx.ranged-weapons.longbow.v1	A hard glint as the adamantine head bites.
+item:adm-arrows	Family match	weapon:longbow	jb2a.glint.yellow.few	psfx.ranged-weapons.longbow.v1	A hard glint as the adamantine head bites.
+item:adamantine-armor	No proposed FX				Worn armour with no activation — nothing happens at a moment.
+item:air-ring-of-elemental-command	Close match	spell:conjure-animals	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The ring commands air: wind at the wearer.
+item:ring-of-elemental-command	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	The ring commands an element: a conjuration circle at the wearer.
+item:alchemy-jug-container	No proposed FX				A container. Its pouring is the Activate Alchemy Jug record, which has a proposal.
+item:ammunition-of-slaying	Family match	weapon:longbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	The shot, and a force burst on the creature it was made for.
+item:ammunition-1-2-or-3	Family match	weapon:longbow	jb2a.glint.yellow.few	psfx.ranged-weapons.longbow.v1	A small gold glint marks the enchanted head.
+item:amulet-of-health	No proposed FX				Worn, always on — no moment to play.
+item:amulet-of-proof-against-detection-and-location	No proposed FX				Worn, always on — no moment to play.
+item:amulet-of-the-planes	Close match	spell:dimension-door	jb2a.portals.vertical.vortex.purple	psfx.magic-signs.circle.v1.conjuration.complete	Plane Shift: a portal opens at the wearer.
+item:animated-shield	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	The shield lets go and floats to guard.
+item:anstruth-harp-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	An instrument of the bards is played — one of seven, all the same but for the key.
+item:apparatus-of-kwalish	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	The barrel unfolds into the lobster, gears turning.
+item:armor-of-gleaming	No proposed FX				Armour that stays clean — nothing to play.
+item:armor-of-invulnerability	Close match	spell:mage-armor	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.intro	Invulnerability: the rampart shield over the wearer.
+item:armor-of-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to one damage type: the same shield the elemental protections use.
+item:armor-of-vulnerability	Close match	effect:acid-protection	jb2a.markers.shield_cracked.dark_red.03	psfx.magic-signs.rune.v1.necromancy.intro	The cursed twin: a cracked shield instead of a whole one.
+item:armor-1-2-or-3	No proposed FX				Worn armour with no activation.
+item:arrow-catching-shield	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.impacts.bludgeoning.v1	The shield pulls an arrow out of the air.
+item:art-object-2000-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:jewelry-2000-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:art-object-2500-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:jewelry2500gp	No proposed FX				Treasure. Nothing happens at the table.
+item:art-object-25-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:jewelry25gp	No proposed FX				Treasure. Nothing happens at the table.
+item:art-object-250-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:jewelry250gp	No proposed FX				Treasure. Nothing happens at the table.
+item:art-object-7500-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:jewelry7500gp	No proposed FX				Treasure. Nothing happens at the table.
+item:art-object-750-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:jewelry750gp	No proposed FX				Treasure. Nothing happens at the table.
+item:baba-yagas-dancing-broom	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	The broom animates and sweeps into the fight.
+item:bag-of-beans	Close match	spell:conjure-animals	jb2a.explosion.02.green	psfx.casting.earth.001	A bean is planted and something bursts out of the ground.
+item:bag-of-devouring	Close match	spell:black-tentacles	jb2a.black_tentacles.dark_purple	psfx.impacts.magicaleffects.necrotic	The bag swallows what is put into it.
+item:bag-of-holding	No proposed FX				A container. Reaching into it is not a moment the table watches.
+item:balance	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself, not on each of its cards.
+item:bead-of-force	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.blue	psfx.impacts.magicaleffects.generic.002.001	The bead bursts into a sphere of force.
+item:bead-of-nourishment	No proposed FX				Food in bead form — nothing to play.
+item:bead-of-refreshment	Close match	spell:conjure-animals	jb2a.liquid.splash.blue	psfx.consumables.potions-vials.drink-liquid.001	The bead becomes a pint of liquid.
+item:beer-pint	Close match	spell:cure-wounds	jb2a.liquid.splash.brown	psfx.consumables.food-and-drink.consume.drink.sip.polite.001	A pint drunk.
+item:belt-of-dwarvenkind	No proposed FX				Worn, always on — no moment to play.
+item:belt-of-giant-strength	No proposed FX				Worn, always on — no moment to play. Seven belts, all the same in this respect.
+item:belt-of-giant-strength-cloud	No proposed FX				Worn, always on — no moment to play.
+item:belt-of-giant-strength-fire	No proposed FX				Worn, always on — no moment to play.
+item:belt-of-giant-strength-frost	No proposed FX				Worn, always on — no moment to play.
+item:belt-of-giant-strength-hill	No proposed FX				Worn, always on — no moment to play.
+item:hil-belt-of-giant-strength	No proposed FX				Worn, always on — no moment to play.
+item:belt-of-giant-strength-stone	No proposed FX				Worn, always on — no moment to play.
+item:belt-of-giant-strength-storm	No proposed FX				Worn, always on — no moment to play.
+item:book-of-exalted-deeds	Close match	spell:bless	jb2a.markers.light.complete.yellow	psfx.magic-signs.circle.v1.abjuration.complete	The book is read: gold light on the reader.
+item:book-of-vile-darkness	Close match	spell:raise-dead	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.psychic	The book is read: black runes on the reader.
+item:boots-of-elvenkind	No proposed FX				Worn, always on — no moment to play.
+item:boots-of-false-tracks	No proposed FX				Worn, always on — no moment to play.
+item:boots-of-levitation	Close match	effect:levitating	jb2a.wind_stream.400.white	psfx.magic-signs.rune.v1.transmutation.intro	Levitate: the wearer lifts.
+item:boots-of-speed	Close match	spell:haste	jb2a.token_border.circle.static.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	The heels click and the wearer is fast — the Haste border.
+item:boots-of-striding-and-springing	No proposed FX				Worn, always on — no moment to play.
+item:boots-of-the-winterlands	No proposed FX				Worn, always on — no moment to play.
+item:bowl-of-commanding-water-elementals	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.casting.water.001	A water elemental is summoned from the bowl.
+item:bracers-of-archery	No proposed FX				Worn, always on — no moment to play.
+item:bracers-of-defense	No proposed FX				Worn, always on — no moment to play.
+item:brass-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come — one of four horns, all the same.
+item:brazier-of-commanding-fire-elementals	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.casting.fire.001	A fire elemental is summoned from the brazier.
+item:bronze-griffon	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast — every figurine reads the same.
+item:bronze-griffon-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast — every figurine reads the same.
+item:bronze-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come.
+item:brooch-of-shielding	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	Force damage turned aside: a small blue shield.
+item:broom-of-flying	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	The broom takes off.
+item:canaith-mandolin-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	An instrument of the bards is played.
+item:candle-of-invocation	Close match	spell:bless	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	The candle is lit and a wish is granted.
+item:candle-of-the-deep	Close match	spell:light	jb2a.markers.light.complete.blue	psfx.cantrips.light.v1.001	A candle that burns underwater.
+item:cap-of-water-breathing	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	Bubbles at the wearer as they breathe water.
+item:cape-of-the-mountebank	Close match	spell:dimension-door	jb2a.misty_step.01.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Dimension Door, and smoke where the wearer was.
+item:carpet-of-flying	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The carpet lifts.
+item:carrion-crawler-mucus	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	The poison takes: the paralysing mucus.
+item:cast-off-armor	No proposed FX				Armour that comes off quickly — nothing to play.
+item:cauldron-of-rebirth	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	The dead come back out of the cauldron.
+item:censer-of-controlling-air-elementals	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.cantrips.gust.v1	An air elemental is summoned from the censer.
+item:charlatans-die	No proposed FX				A die that rolls what you want — nothing to play.
+item:chime-of-opening	Close match	spell:dispel-magic	jb2a.soundwave.01.blue	psfx.doors.clean.unlock.wooden.01	The chime is struck and the lock opens.
+item:circlet-of-blasting	Close match	spell:guiding-bolt	jb2a.guiding_bolt.01.yellow	psfx.class-features.divine-smite.v1.001.target	Scorching Ray from the circlet.
+item:cli-lyre-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6	An instrument of the bards is played.
+item:cloak-of-arachnida	Close match	spell:web	jb2a.web.complete.002.white	psfx.magic-signs.rune.v1.conjuration.intro	Web from the cloak.
+item:cloak-of-billowing	No proposed FX				A cloak that billows on command — a joke item, not a moment.
+item:cloak-of-displacement	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	The wearer appears to stand somewhere else.
+item:cloak-of-elvenkind	Close match	spell:invisibility	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.illusion.intro	The hood goes up and the wearer fades.
+item:cloak-of-invisibility	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.circle.v1.illusion.intro	The cloak wraps and the wearer is gone.
+item:cloak-of-many-fashions	No proposed FX				A cloak that changes colour — nothing that needs playing.
+item:cloak-of-protection	No proposed FX				Worn, always on — no moment to play.
+item:cloak-of-the-bat	Close match	effect:flight	jb2a.bats.complete.01.green	psfx.creature.movement.flight.landing.impact.small	The wearer becomes a bat, or flies as one.
+item:cloak-of-the-manta-ray	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	The hood goes up and the wearer swims.
+item:clockwork-amulet	No proposed FX				A once-a-day reroll — nothing visible.
+item:clothes-of-mending	No proposed FX				Clothes that repair themselves — nothing to play.
+item:collapsing-roof	Close match	spell:shatter	jb2a.falling_rocks.top.2x1.grey	psfx.casting.earth.001	The roof comes down on whoever is under it.
+item:comet	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:crystal-ball	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.divination.intro	Scrying: the ball shows somewhere else.
+item:crystal-ball-of-mind-reading	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.divination.intro	Scrying, and the mind of what is seen.
+item:mind-reading-crystal-ball-of	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.divination.intro	Scrying, and the mind of what is seen.
+item:crystal-ball-of-telepathy	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.divination.intro	Scrying, and a word sent to what is seen.
+item:telepathy-crystal-ball-of	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.magic-signs.circle.v1.divination.intro	Scrying, and a word sent to what is seen.
+item:crystal-ball-of-true-seeing	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.magic-signs.circle.v1.divination.intro	Scrying, and the truth of what is seen.
+item:true-seeing-crystal-ball-of	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.magic-signs.circle.v1.divination.intro	Scrying, and the truth of what is seen.
+item:cube-of-force	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.blue	psfx.magic-signs.rune.v1.abjuration.intro	A field of force around the holder.
+item:cube-of-summoning	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.purple	psfx.magic-signs.circle.v1.conjuration.complete	Something is called out of the cube.
+item:cubic-gate	Close match	spell:dimension-door	jb2a.portals.vertical.vortex.purple	psfx.magic-signs.circle.v1.conjuration.complete	A gate opens onto another plane.
+item:daerns-instant-fortress	Close match	spell:conjure-animals	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	The cube is thrown and a tower grows out of the ground.
+item:dark-shard-amulet	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:decanter-of-endless-water	Close match	spell:conjure-animals	jb2a.liquid.splash.blue	psfx.casting.water.001	Water pours, or gushes, from the decanter.
+item:deck-of-illusions	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.illusion.complete.purple	psfx.magic-signs.circle.v1.illusion.complete	A card is thrown and an illusion stands up.
+item:deck-of-many-things	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.divination.complete.purple	psfx.magic-signs.circle.v1.divination.complete	A card is drawn from the Deck — this is where the draw plays; its twenty-two cards need none of their own.
+item:demon-armor	Close match	spell:mage-armor	jb2a.markers.runes.dark_red.03	psfx.impacts.magicaleffects.necrotic	Demon Armor: red runes on the plate.
+item:demonomicon-of-iggwilv	Close match	spell:raise-dead	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.psychic	The book is read: black runes on the reader.
+item:dimensional-shackles	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.loop	The shackles close and nothing can step out of the world.
+item:donjon	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:doss-lute-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	An instrument of the bards is played.
+item:dragon-scale-mail	No proposed FX				Worn armour with no activation.
+item:dread-helm	No proposed FX				A helm with glowing eyes — worn, always on.
+item:driftglobe	Close match	spell:light	jb2a.markers.light_orb.loop.white	psfx.cantrips.light.v1.001	The globe lights and floats.
+item:dust-of-disappearance	Close match	spell:invisibility	jb2a.smoke.puff.centered.grey	psfx.magic-signs.rune.v1.illusion.intro	The dust is thrown and everyone in it vanishes.
+item:dust-of-dryness	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.casting.earth.001	The dust is thrown and the water is gone.
+item:dust-of-sneezing-and-choking	Close match	spell:conjure-animals	jb2a.fog_cloud.02.green	psfx.cantrips.poison-spray.v1	The dust is thrown and everyone in it chokes.
+item:dwarven-plate	No proposed FX				Worn armour with no activation.
+item:dynamite-stick	Close match	spell:fireball	jb2a.explosion.02.orange	psfx.ranged-weapons.guns.single-fire.musket	A stick of dynamite goes off.
+item:ear-horn-of-hearing	No proposed FX				A hearing aid — nothing to play.
+item:earth-ring-of-elemental-command	Close match	spell:conjure-animals	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	The ring commands earth.
+item:ebony-fly	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:ebony-fly-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:efreeti-bottle	Close match	spell:conjure-animals	jb2a.smoke.plumes.01.dark_red	psfx.casting.fire.001	The stopper comes out and smoke becomes an efreeti.
+item:efreeti-chain	No proposed FX				Worn armour with no activation.
+item:elemental-gem	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	The gem is broken and an elemental stands up — all nine gems read the same but for colour.
+item:blue-elemental-gem	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	The blue sapphire: an air elemental.
+item:elemental-gem-blue-sapphire	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.blue	psfx.magic-signs.circle.v1.conjuration.complete	The blue sapphire: an air elemental.
+item:elemental-gem-emerald	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.casting.water.001	The emerald: a water elemental.
+item:emerald-elemental-gem	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.casting.water.001	The emerald: a water elemental.
+item:elemental-gem-red-corundum	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.casting.fire.001	The red corundum: a fire elemental.
+item:red-elemental-gem	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.casting.fire.001	The red corundum: a fire elemental.
+item:elemental-gem-yellow-diamond	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.casting.earth.001	The yellow diamond: an earth elemental.
+item:yellow-elemental-gem	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.casting.earth.001	The yellow diamond: an earth elemental.
+item:elixir-of-health	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.potions-vials.drink-liquid.001	The elixir is drunk and every ill is gone.
+item:elven-chain	No proposed FX				Worn armour with no activation.
+item:enduring-spellbook	No proposed FX				A book that does not rot — nothing to play.
+item:enspelled-armor	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.blue	psfx.magic-signs.rune.v1.evocation.intro	The bound spell shows as a rune on the armour.
+item:ersatz-eye	No proposed FX				A false eye that sees — worn, always on.
+item:euryale	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:eversmoking-bottle	Close match	spell:fog-cloud	jb2a.smoke.plumes.01.grey	psfx.casting.generic.001	The stopper comes out and smoke pours.
+item:eye-and-hand-of-vecna	Close match	spell:raise-dead	jb2a.markers.runes.dark_red.03	psfx.impacts.magicaleffects.necrotic	Vecna's relics: red runes at the bearer.
+item:eye-of-vecna	Close match	spell:raise-dead	jb2a.eyes.01.dark_red.single	psfx.impacts.magicaleffects.necrotic	Vecna's eye opens.
+item:eyes-of-charming	Close match	spell:dominate-person	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Charm Person from a look.
+item:eyes-of-minute-seeing	No proposed FX				Worn, always on — no moment to play.
+item:eyes-of-the-eagle	No proposed FX				Worn, always on — no moment to play.
+item:falling-net	Close match	effect:ensnared	jb2a.web.complete.002.white	psfx.impacts.bludgeoning.v1	A net falls on whoever tripped it.
+item:fates	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:figurine-of-wondrous-power	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast — every figurine reads the same.
+item:fire-ring-of-elemental-command	Close match	spell:conjure-animals	jb2a.fire_jet.orange	psfx.casting.fire.001	The ring commands fire.
+item:fire-casting-statue	Close match	spell:burning-hands	jb2a.breath_weapons.fire	psfx.casting.fire.001	The statue breathes fire down a cone.
+item:flames	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.

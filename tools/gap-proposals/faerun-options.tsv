@@ -1,0 +1,178 @@
+effect:acid-shielding	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Shielding, acid: the shield in green — all five elements read as the protections.
+effect:acid-sphere	Close match	spell:magic-missile	jb2a.ioun_stones.01.green.mastery	psfx.cantrips.acid-splash.v1	Orbiting Spheres, acid: a green sphere circles the caster.
+effect:acid-suffusion--flight	Close match	effect:flight	jb2a.liquid.splash.bright_green	psfx.cantrips.acid-splash.v1	Elemental Suffusion, acid: the caster becomes the element and flies.
+effect:adv-next-attack	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	The next attack is guided.
+effect:bane-psychic-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Bane's gift: resistance to psychic.
+effect:bhaal-poison-resistance	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Bhaal's gift: resistance to poison.
+effect:bladesong	Close match	effect:hasted	jb2a.token_border.circle.static.blue.004	psfx.musical-instruments.violin.01.sforzando.keyOfA.A6	Bladesong: the elf's blade sings.
+effect:blessed-by-moonlight	Close match	effect:blessed	jb2a.markers.light.complete.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Blessed by Moonlight: cold light on the blessed.
+effect:blessing-of-moonlight	Close match	effect:blessed	jb2a.markers.light.complete.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Blessing of Moonlight: cold light on the blessed.
+effect:bolstered	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Bolstered: a boon mark.
+effect:cold-shielding	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Shielding, cold: the shield in blue.
+effect:cold-sphere	Close match	spell:magic-missile	jb2a.ioun_stones.01.blue.awareness	psfx.impacts.magicaleffects.cold	Orbiting Spheres, cold: a blue sphere circles the caster.
+effect:cold-suffusion--flight	Close match	effect:flight	jb2a.impact.frost.blue.01	psfx.impacts.magicaleffects.cold	Elemental Suffusion, cold: the caster becomes the element and flies.
+effect:crown-of-spellfire	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Crown of Spellfire: the spellfire crowns its wielder.
+effect:crushed-grappled--restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.red	psfx.impacts.bludgeoning.v1	Crushed: the target is held and squeezed.
+effect:damage-immunity-bloodied	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.dark_red	psfx.magic-signs.rune.v1.abjuration.outro	Bloodied and immune: the rampart shield in red.
+effect:damage-resistance-bloodied	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.dark_red	psfx.magic-signs.rune.v1.abjuration.outro	Bloodied and resistant: the rampart shield in red.
+effect:daylight-presence	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	Daylight Presence: the sun comes with them.
+effect:death-armor	Close match	effect:burning	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	Death Armor: what touches the caster rots.
+effect:dirge-of-healing	Close match	effect:carrying-message	jb2a.markers.music.dark_red	psfx.musical-instruments.violin.01.sforzando.keyOfA.Am6	The dirge: no healing while it plays.
+effect:dirge-of-speed	Close match	effect:slowed	jb2a.markers.music.dark_red	psfx.musical-instruments.violin.01.sforzando.keyOfA.Am6	The dirge: the target slows while it plays.
+effect:disoriented	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.generic.002.001	Disoriented: the target loses its bearings.
+effect:divine-foreknowledge	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.magic-signs.rune.v1.divination.intro	Divine Foreknowledge: it knows what is coming.
+effect:doomed	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.impacts.magicaleffects.psychic	Doomed: the mark of a bad end.
+effect:fire-shielding	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Shielding, fire: the shield in red.
+effect:fire-sphere	Close match	spell:magic-missile	jb2a.ioun_stones.01.red.intellect	psfx.casting.fire.001	Orbiting Spheres, fire: a red sphere circles the caster.
+effect:fire-suffusion--flight	Close match	effect:flight	jb2a.markers.runes.red.03	psfx.casting.fire.001	Elemental Suffusion, fire: the caster becomes the element and flies.
+effect:flustered	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.magic-signs.rune.v1.enchantment.intro	Flustered: the target is put off.
+effect:fly-60-ft	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.creature.movement.flight.landing.impact.small	A flying speed: wind under the token.
+effect:fortifying-soul	Close match	spell:cure-wounds	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Fortifying Soul: the wounds close.
+effect:frozen-haunt	Close match	effect:chill-shield	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Frozen Haunt: the cold hangs around it.
+effect:frozen-soul	Close match	effect:chill-shield	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Frozen Soul: the cold is in it.
+effect:genies-splendor	No proposed FX				A passive trait — no moment to play.
+effect:harper-training-deception	No proposed FX				A proficiency — no moment to play.
+effect:harper-training-investigation	No proposed FX				A proficiency — no moment to play.
+effect:harper-training-performance	No proposed FX				A proficiency — no moment to play.
+effect:helpful-homunculi	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.loop.yellow	psfx.magic-signs.rune.v1.conjuration.complete	Helpful Homunculi: little helpers appear.
+effect:holy-star-of-mystra	Close match	spell:guiding-bolt	jb2a.twinkling_stars.points06.white	psfx.class-features.divine-smite.v1.001.target	Holy Star of Mystra: a star orbits and strikes.
+effect:killers-fortune-attack-advantage	Close match	effect:outlined	jb2a.markers.light.complete.red	psfx.magic-signs.rune.v1.divination.intro	Killer's Fortune: the next blow finds the mark.
+effect:lightning-shielding	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Shielding, lightning: the shield in yellow.
+effect:lightning-sphere	Close match	spell:magic-missile	jb2a.ioun_stones.01.blue.strength	psfx.weapon-swooshes.lightning.v1.group01	Orbiting Spheres, lightning: a yellow sphere circles the caster.
+effect:lightning-suffusion--flight	Close match	effect:flight	jb2a.static_electricity.01.yellow	psfx.weapon-swooshes.lightning.v1.group01	Elemental Suffusion, lightning: the caster becomes the element and flies.
+effect:lunar-vitality	Close match	spell:cure-wounds	jb2a.healing_generic.200px.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Lunar Vitality: moonlight closes the wounds.
+effect:mental-communication	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	Mental Communication: a word sent mind to mind.
+effect:moonlight	Close match	effect:shining	jb2a.markers.light.complete.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Moonlight: cold light around the caster.
+effect:murderous-intent	Close match	effect:outlined	jb2a.markers.light.complete.red	psfx.impacts.magicaleffects.necrotic	Murderous Intent: it means to kill.
+effect:myrkul-necrotic-resistance	Close match	effect:acid-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Myrkul's gift: resistance to necrotic.
+effect:noble-scion	No proposed FX				A background trait — no moment to play.
+effect:orbiting-spheres	Close match	spell:magic-missile	jb2a.ioun_stones.01.purple.reserve	psfx.magic-signs.rune.v1.evocation.intro	Orbiting Spheres: spheres circle the caster.
+effect:polar-strikes-damage	Close match	effect:heated-metal	jb2a.impact.frost.blue.01	psfx.impacts.magicaleffects.cold	Polar Strikes: the blow carries cold.
+effect:power-from-pain-bloodied-damage	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Power from Pain: bloodied and stronger for it.
+effect:rimed-hunters-mark	Close match	effect:outlined	jb2a.hunters_mark.loop.01.blue	psfx.impacts.magicaleffects.cold	Rimed Hunter's Mark: the quarry is marked in frost.
+effect:semi-incorporeal-form	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.transmutation.intro	Semi-Incorporeal: half here, half not.
+effect:simbuls-synostodweomer	Close match	spell:cure-wounds	jb2a.healing_generic.200px.purple	psfx.1st-level-spells.cure-wounds.v1.001	Simbul's Synostodweomer: a slot becomes healing.
+effect:strike-fear-terrify	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.psychic	Strike Fear: the target is afraid.
+effect:stronger-together	Close match	effect:courageous	jb2a.condition.boon.01.001.green	psfx.conditions.boon.001.01	Stronger Together: standing near an ally helps.
+effect:stunned-chilled	Close match	effect:stunned	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Chilled and stunned: the cold stops the target.
+effect:sylunes-viper	Close match	spell:magic-missile	jb2a.spell_projectile.poison.greenyellow.15ft	psfx.cantrips.poison-spray.v1	Sylune's Viper: a spectral snake strikes.
+effect:team-tactics	Close match	spell:cure-wounds	jb2a.healing_generic.burst.greenorange	psfx.1st-level-spells.cure-wounds.v1.001	Team Tactics: the group is patched up.
+effect:thunder-shielding	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Shielding, thunder: the shield in violet.
+effect:thunder-sphere	Close match	spell:magic-missile	jb2a.ioun_stones.01.purple.absorption	psfx.cantrips.thunderclap.v1	Orbiting Spheres, thunder: a violet sphere circles the caster.
+effect:thunder-suffusion--flight	Close match	effect:flight	jb2a.thunderwave.center.blue	psfx.cantrips.thunderclap.v1	Elemental Suffusion, thunder: the caster becomes the element and flies.
+effect:unfettered-mind	No proposed FX				A passive trait — no moment to play.
+effect:venom	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Venom: the target is poisoned.
+effect:vigilant	Close match	effect:alertness	jb2a.particles.swirl.blue.01.01	psfx.magic-signs.rune.v1.divination.intro	Vigilant: nothing gets past.
+effect:withering-wordplay	Close match	effect:mocked	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.psychic	Withering Wordplay: the words land.
+effect:zhentarim-reconnaissnace	No proposed FX				A proficiency — no moment to play.
+feature:absorb-spells	Close match	spell:counterspell	jb2a.shield.01.intro.purple	psfx.magic-signs.rune.v1.abjuration.complete	Absorb Spells: the spell is drunk.
+feature:aura-of-elemental-shielding	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.magic-signs.circle.v1.abjuration.loop	Aura of Elemental Shielding: an aura against the elements.
+feature:aura-of-malevolence	Close match	effect:lingering-acid	jb2a.template_circle.aura.01.loop.large.green	psfx.impacts.magicaleffects.necrotic	Aura of Malevolence: what is near it withers.
+feature:banneret	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:bladesinger	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:bladesong	Close match	effect:hasted	jb2a.token_border.circle.static.blue.004	psfx.musical-instruments.violin.01.sforzando.keyOfA.A6	Bladesong: the elf's blade sings.
+feature:blessing-of-moonlight	Close match	effect:blessed	jb2a.markers.light.complete.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Blessing of Moonlight: cold light on the blessed.
+feature:blessings-of-knowledge	No proposed FX				A proficiency — no moment to play.
+feature:bloodthirst	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.impacts.magicaleffects.necrotic	Bloodthirst: it wants more.
+feature:boon-of-bloodshed	No proposed FX				A passive trait — no moment to play.
+feature:boon-of-bountiful-health	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.1st-level-spells.cure-wounds.v1.001	Boon of Bountiful Health: temporary hit points and healing.
+feature:boon-of-communication	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	Boon of Communication: a word sent mind to mind.
+feature:boon-of-desperate-resilience	No proposed FX				A passive trait — no moment to play.
+feature:boon-of-exquisite-radiance	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Boon of Exquisite Radiance: it shines.
+feature:boon-of-fluid-forms	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.complete.blue	psfx.magic-signs.circle.v1.transmutation.complete	Boon of Fluid Forms: it changes shape.
+feature:boon-of-fortunes-favor	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	Boon of Fortune's Favor: luck turns its way.
+feature:boon-of-poison-mastery	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Boon of Poison Mastery: the poison is its own.
+feature:boon-of-revelry	No proposed FX				A background boon — no moment to play.
+feature:boon-of-terror	Close match	effect:frightened	jb2a.template_circle.out_pulse.02.burst.purplepink	psfx.impacts.magicaleffects.psychic	Boon of Terror: a wave of fear.
+feature:boon-of-the-bright-sun	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	Boon of the Bright Sun: the sun comes with them.
+feature:boon-of-the-furious-storm	Close match	spell:lightning-bolt	jb2a.static_electricity.01.blue	psfx.weapon-swooshes.lightning.v1.group01	Boon of the Furious Storm: the storm answers.
+feature:boon-of-the-soul-drinker	Close match	spell:cure-wounds	jb2a.energy_strands.range.multiple.bluepink.02.30ft	psfx.impacts.magicaleffects.necrotic	Boon of the Soul Drinker: it drinks at range.
+feature:chilling-retribution	Close match	effect:chill-shield	jb2a.impact.frost.blue.01	psfx.impacts.magicaleffects.cold	Chilling Retribution: the cold answers back.
+feature:chondathan-freebooter	No proposed FX				A background name, not an ability — nothing to play.
+feature:cold-caster	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.impacts.magicaleffects.cold	Cold Caster: the caster's spells run cold.
+feature:college-moon	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:college-of-the-moon	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:crown-of-spellfire	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Crown of Spellfire: the spellfire crowns its wielder.
+feature:cult-of-the-dragon-initiate	Close match	spell:burning-hands	jb2a.breath_weapons.fire	psfx.creature.dragons.attacks.breath.small.fire	Cult of the Dragon Initiate: a small dragon's breath.
+feature:dead-magic-dweller	No proposed FX				A background name, not an ability — nothing to play.
+feature:divine-foreknowledge	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.magic-signs.rune.v1.divination.intro	Divine Foreknowledge: it knows what is coming.
+feature:dragon-cultist	No proposed FX				A background name, not an ability — nothing to play.
+feature:dragonscarred	Close match	spell:burning-hands	jb2a.breath_weapons.fire	psfx.creature.dragons.attacks.breath.small.fire	Dragonscarred: a breath of its own.
+feature:dread-allegiance	Close match	effect:banished	jb2a.magic_signs.circle.02.necromancy.complete.dark_purple	psfx.impacts.magicaleffects.necrotic	Dread Allegiance: the dead god answers.
+feature:dread-incarnate	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.purple	psfx.impacts.magicaleffects.psychic	Dread Incarnate: it becomes the fear.
+feature:elemental-rebuke	Close match	spell:magic-missile	jb2a.impact.004.blue	psfx.impacts.magicaleffects.generic.002.001	Elemental Rebuke: the element answers back.
+feature:elemental-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.orange	psfx.class-features.divine-smite.v1.001.target	Elemental Smite: the blow carries the element.
+feature:emerald-enclave-caretaker	No proposed FX				A background name, not an ability — nothing to play.
+feature:emerald-enclave-fledgling	No proposed FX				A background feat — no moment to play.
+feature:enclave-magic	No proposed FX				Spells gained — each has its own FX.
+feature:eventides-splendor	Close match	spell:cure-wounds	jb2a.healing_generic.200px.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Eventide's Splendor: moonlight closes the wounds.
+feature:fairy-trickster	Close match	effect:confused	jb2a.fairies.outward_burst.01.bluepurple	psfx.magic-signs.rune.v1.enchantment.intro	Fairy Trickster: fey mischief.
+feature:flaming-fist-mercenary	No proposed FX				A background name, not an ability — nothing to play.
+feature:fortifying-soul	Close match	spell:cure-wounds	jb2a.healing_generic.200px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Fortifying Soul: the wounds close.
+feature:frigid-explorer	Close match	effect:heated-metal	jb2a.impact.frost.blue.01	psfx.impacts.magicaleffects.cold	Frigid Explorer: cold on the blow.
+feature:frozen-haunt	Close match	effect:chill-shield	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Frozen Haunt: the cold hangs around it.
+feature:genie-magic	No proposed FX				Spells gained — each has its own FX.
+feature:genie-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:genie-touched	No proposed FX				A background name, not an ability — nothing to play.
+feature:genies-splendor	No proposed FX				A passive trait — no moment to play.
+feature:group-recovery	Close match	spell:cure-wounds	jb2a.healing_generic.burst.greenorange	psfx.1st-level-spells.cure-wounds.v1.001	Group Recovery: the party is patched up.
+feature:harper	No proposed FX				A background name, not an ability — nothing to play.
+feature:harper-agent	No proposed FX				A background feat — no moment to play.
+feature:harper-teamwork	No proposed FX				A proficiency — no moment to play.
+feature:honed-spellfire	Close match	spell:guiding-bolt	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Honed Spellfire: the spellfire burns or heals.
+feature:hunters-rime	Close match	effect:outlined	jb2a.hunters_mark.loop.01.blue	psfx.impacts.magicaleffects.cold	Hunter's Rime: the quarry is marked in frost.
+feature:ice-fisher	No proposed FX				A background name, not an ability — nothing to play.
+feature:inspiring-commander	No proposed FX				A passive trait — no moment to play.
+feature:knight-of-the-gauntlet	No proposed FX				A background name, not an ability — nothing to play.
+feature:knightly-envoy	No proposed FX				A passive trait — no moment to play.
+feature:knowledge-domain	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:knowledge-domain-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:lordly-resolve	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Lordly Resolve: everyone near takes heart.
+feature:lords-alliance-agent	No proposed FX				A background feat — no moment to play.
+feature:lords-alliance-vassal	No proposed FX				A background name, not an ability — nothing to play.
+feature:mind-magic	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.impacts.magicaleffects.psychic	Mind Magic: it works on the mind.
+feature:moons-inspiration	Close match	spell:cure-wounds	jb2a.healing_generic.200px.blue	psfx.class-features.bardic-inspiration.v1.keyOfC.001	Moon's Inspiration: inspiration in moonlight.
+feature:moonwell-pilgrim	No proposed FX				A background name, not an ability — nothing to play.
+feature:mulhorandi-pilgrim	No proposed FX				A background name, not an ability — nothing to play.
+feature:mulhorandi-tomb-raider	No proposed FX				A background name, not an ability — nothing to play.
+feature:mythal-touched	No proposed FX				A background feat — no moment to play.
+feature:mythalkeeper	No proposed FX				A background name, not an ability — nothing to play.
+feature:noble-scion	No proposed FX				A background trait — no moment to play.
+feature:oath-of-the-noble-genies	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:orders-resilience	No proposed FX				A passive trait — no moment to play.
+feature:primal-lore	No proposed FX				A proficiency — no moment to play.
+feature:purple-dragon-commandant	Close match	effect:courageous	jb2a.condition.boon.01.001.blue	psfx.conditions.boon.001.01	Purple Dragon Commandant: temporary hit points to the company.
+feature:purple-dragon-rook	Close match	effect:courageous	jb2a.condition.boon.01.001.blue	psfx.conditions.boon.001.01	Purple Dragon Rook: the company takes heart.
+feature:purple-dragon-squire	No proposed FX				A background name, not an ability — nothing to play.
+feature:rallying-surge	Close match	effect:courageous	jb2a.template_circle.out_pulse.01.burst.yellowwhite	psfx.conditions.boon.001.01	Rallying Surge: everyone near takes heart.
+feature:rashemi-wanderer	No proposed FX				A background name, not an ability — nothing to play.
+feature:scion-of-the-three	No proposed FX				A background name, not an ability — nothing to play.
+feature:shadowmasters-exile	No proposed FX				A background name, not an ability — nothing to play.
+feature:shared-resilience	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.magic-signs.circle.v1.abjuration.loop	Shared Resilience: the ward covers the party.
+feature:song-of-defense	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.musical-instruments.violin.01.sforzando.keyOfA.A6	Song of Defense: the song turns the blow.
+feature:song-of-victory	No proposed FX				A passive trait — no moment to play.
+feature:spellfire-adept	Close match	effect:shining	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	Spellfire Adept: the spellfire answers.
+feature:spellfire-burst	Close match	spell:guiding-bolt	jb2a.template_circle.out_pulse.01.burst.yellowwhite	psfx.class-features.divine-smite.v1.001.caster	Spellfire Burst: the spellfire goes out in a wave.
+feature:spellfire-initiate	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:spellfire-sorcery	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:spellfire-spark	Close match	spell:cure-wounds	jb2a.healing_generic.200px.yellow	psfx.class-features.divine-smite.v1.001.caster	Spellfire Spark: a spark of spellfire heals.
+feature:spellfire-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:street-justice	No proposed FX				A proficiency — no moment to play.
+feature:strike-fear	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.psychic	Strike Fear: the target is afraid.
+feature:team-tactics	Close match	spell:cure-wounds	jb2a.healing_generic.burst.greenorange	psfx.1st-level-spells.cure-wounds.v1.001	Team Tactics: the group is patched up.
+feature:training-in-war-and-song	No proposed FX				A proficiency — no moment to play.
+feature:tyro-of-the-gauntlet	No proposed FX				A background feat — no moment to play.
+feature:unfettered-mind	No proposed FX				A passive trait — no moment to play.
+feature:winter-walker	No proposed FX				A subclass name, not an ability — nothing to play.
+feature:winter-walker-spells	No proposed FX				A spell list — each spell has its own FX.
+feature:zhentarim-mercenary	No proposed FX				A background name, not an ability — nothing to play.
+feature:zhentarim-ruffian	No proposed FX				A background feat — no moment to play.
+feature:zhentarim-tactics	No proposed FX				A passive trait — no moment to play.
+spell:alustriels-mooncloak	Close match	spell:moonbeam	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.2nd-level-spells.moonbeam.intro.v1.001	Alustriel's Mooncloak: moonlight fills the emanation.
+spell:mooncloak	Close match	spell:moonbeam	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.2nd-level-spells.moonbeam.intro.v1.001	Mooncloak: moonlight fills the emanation.
+spell:cacophonic-shield	Close match	spell:shatter	jb2a.soundwave.01.orangeyellow	psfx.cantrips.thunderclap.v1	Cacophonic Shield: a wall of noise around the caster.
+spell:dirge	Close match	effect:frightened	jb2a.markers.music.dark_red	psfx.musical-instruments.violin.01.sforzando.keyOfA.Am6	Dirge: the song of the grave.
+spell:elminsters-elusion	Close match	effect:elminsters-elusion	jb2a.aura_themed.01.orbit.loop.metal.01.teal	psfx.1st-level-spells.shield-spell.intro.v1	Elminster's Elusion: exactly as its own effect already plays.
+spell:elusion	Close match	effect:elminsters-elusion	jb2a.aura_themed.01.orbit.loop.metal.01.teal	psfx.1st-level-spells.shield-spell.intro.v1	Elusion: the same ward Elminster's Elusion already plays.
+spell:elemental-suffusion	Close match	spell:cone-of-cold	jb2a.template_circle.out_pulse.01.burst.bluewhite	psfx.casting.generic-v2.001.01	Elemental Suffusion: the caster becomes the element.
+spell:songals-elemental-suffusion	Close match	spell:cone-of-cold	jb2a.template_circle.out_pulse.01.burst.bluewhite	psfx.casting.generic-v2.001.01	Songal's Elemental Suffusion: the caster becomes the element.

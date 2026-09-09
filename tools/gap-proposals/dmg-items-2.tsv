@@ -1,0 +1,160 @@
+item:fochlucan-bandore-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	An instrument of the bards is played.
+item:folding-boat	No proposed FX				The box itself. Its unfolding is the Activate Folding Boat record, which has a proposal.
+item:fool	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:fruit-of-restoration	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.food-and-drink.consume.food.bite.juicy.001	The fruit is eaten and a condition lifts.
+item:gauntlets-of-ogre-power	No proposed FX				Worn, always on — no moment to play.
+item:gem	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:gem-of-brightness	Close match	spell:light	jb2a.markers.light.complete.yellow	psfx.cantrips.light.v1.001	A word and the gem blazes down a cone.
+item:gem-of-seeing	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.1st-level-spells.detect-magic.v1.001	True Seeing through the gem.
+item:gemstone-1000-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone-10-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone10gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone-100-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone100gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone-5000-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone5000gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone-50-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone50gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone-500-gp	No proposed FX				Treasure. Nothing happens at the table.
+item:gemstone500gp	No proposed FX				Treasure. Nothing happens at the table.
+item:glamoured-studded-leather	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	The armour changes its look.
+item:gloves-of-missile-snaring	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.impacts.bludgeoning.v1	A missile caught out of the air.
+item:gloves-of-swimming-and-climbing	No proposed FX				Worn, always on — no moment to play.
+item:gloves-of-thievery	No proposed FX				Worn, always on — no moment to play.
+item:goggles-of-night	No proposed FX				Worn, always on — no moment to play.
+item:golden-lions	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:golden-lions-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:bag-of-tricks	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	A ball of fuzz is thrown and becomes a beast.
+item:gray-bag-of-tricks	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	A ball of fuzz is thrown and becomes a beast.
+item:grenade-fragmentation	Close match	spell:fireball	jb2a.explosion.shrapnel.grenade.03.black	psfx.ranged-weapons.guns.single-fire.musket	A fragmentation grenade goes off.
+item:grenade-smoke	Close match	spell:fog-cloud	jb2a.smoke.plumes.01.grey	psfx.casting.generic.001	A smoke grenade fills the area.
+item:gunpowder-keg	Close match	spell:fireball	jb2a.explosion.02.orange	psfx.ranged-weapons.guns.single-fire.musket	A keg of powder goes off.
+item:gunpowder-powder-horn	Close match	spell:fireball	jb2a.explosion.02.orange	psfx.ranged-weapons.guns.single-fire.musket	A powder horn goes off.
+item:hag-eye	Close match	effect:foresight	jb2a.eyes.01.dark_green.single	psfx.magic-signs.rune.v1.divination.intro	The coven's eye watches.
+item:hand-of-vecna	Close match	spell:raise-dead	jb2a.markers.runes.dark_red.03	psfx.impacts.magicaleffects.necrotic	Vecna's hand: red runes at the bearer.
+item:hat-of-disguise	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Disguise Self from the hat.
+item:hat-of-many-spells	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:hat-of-vermin	Close match	spell:conjure-animals	jb2a.markers.poison.dark_green.03	psfx.magic-signs.circle.v1.conjuration.intro	Rats and bats pour out of the hat.
+item:hat-of-wizardry	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
+item:headband-of-intellect	No proposed FX				Worn, always on — no moment to play.
+item:helm-of-brilliance	Close match	spell:guiding-bolt	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.caster	The helm blazes with radiant light.
+item:helm-of-comprehending-languages	Close match	effect:comprehension	jb2a.markers.runes.white.03	psfx.magic-signs.rune.v1.divination.intro	The helm reads what the wearer cannot.
+item:helm-of-telepathy	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	A word sent mind to mind.
+item:helm-of-teleportation	Close match	spell:misty-step	jb2a.misty_step.01.blue	psfx.2nd-level-spells.misty-step.v1.complete.generic	Teleport from the helm.
+item:hewards-handy-haversack	No proposed FX				A container. Reaching into it is not a moment the table watches.
+item:hewards-handy-spice-pouch	No proposed FX				A pouch of spices — nothing to play.
+item:hidden-pit	Close match	spell:shatter	jb2a.impact.earth.01.browngreen	psfx.impacts.bludgeoning.v1	The floor gives way.
+item:honey-pint	No proposed FX				Food. Nothing happens at the table.
+item:horn-of-blasting	Close match	spell:shatter	jb2a.thunderwave.center.blue	psfx.cantrips.thunderclap.v1	The horn is blown and thunder goes down a cone.
+item:horn-of-silent-alarm	No proposed FX				A horn only the party hears — nothing to play.
+item:horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come.
+item:horseshoes-of-a-zephyr	No proposed FX				Worn by a mount, always on — no moment to play.
+item:horseshoes-of-speed	No proposed FX				Worn by a mount, always on — no moment to play.
+item:immovable-rod	No proposed FX				A rod that stops in the air — a position, not a moment.
+item:instrument-of-illusions	Close match	spell:invisibility	jb2a.music_notations.treble_clef.purple	psfx.musical-instruments.flute.01.long.keyOfA.A6	The instrument is played and an illusion moves with it.
+item:instrument-of-scribing	No proposed FX				A pen that writes on a surface — nothing to play.
+item:instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	An instrument of the bards is played.
+item:ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.awareness	psfx.magic-signs.rune.v1.transmutation.intro	An Ioun stone orbits the head. JB2A drew a stone for each kind, so every Ioun stone gets its own.
+item:absorption-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.absorption	psfx.magic-signs.rune.v1.abjuration.intro	Absorption: the stone orbits, and takes a spell.
+item:ioun-stone-of-absorption	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.absorption	psfx.magic-signs.rune.v1.abjuration.intro	Absorption: the stone orbits, and takes a spell.
+item:agility-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.agility	psfx.magic-signs.rune.v1.transmutation.intro	Agility: the stone orbits the head.
+item:ioun-stone-of-agility	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.agility	psfx.magic-signs.rune.v1.transmutation.intro	Agility: the stone orbits the head.
+item:awareness-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.awareness	psfx.magic-signs.rune.v1.divination.intro	Awareness: the stone orbits the head.
+item:ioun-stone-of-awareness	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.awareness	psfx.magic-signs.rune.v1.divination.intro	Awareness: the stone orbits the head.
+item:fortitude-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.fortitude	psfx.magic-signs.rune.v1.transmutation.intro	Fortitude: the stone orbits the head.
+item:ioun-stone-of-fortitude	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.fortitude	psfx.magic-signs.rune.v1.transmutation.intro	Fortitude: the stone orbits the head.
+item:greater-absorption-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.great_absorption	psfx.magic-signs.rune.v1.abjuration.intro	Greater Absorption: the stone orbits, and takes a spell.
+item:ioun-stone-of-greater-absorption	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.great_absorption	psfx.magic-signs.rune.v1.abjuration.intro	Greater Absorption: the stone orbits, and takes a spell.
+item:insight-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.insight	psfx.magic-signs.rune.v1.divination.intro	Insight: the stone orbits the head.
+item:ioun-stone-of-insight	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.insight	psfx.magic-signs.rune.v1.divination.intro	Insight: the stone orbits the head.
+item:intellect-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.red.intellect	psfx.magic-signs.rune.v1.transmutation.intro	Intellect: the stone orbits the head.
+item:ioun-stone-of-intellect	Close match	spell:mage-armor	jb2a.ioun_stones.01.red.intellect	psfx.magic-signs.rune.v1.transmutation.intro	Intellect: the stone orbits the head.
+item:ioun-stone-of-leadership	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.leadership	psfx.magic-signs.rune.v1.transmutation.intro	Leadership: the stone orbits the head.
+item:leadership-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.leadership	psfx.magic-signs.rune.v1.transmutation.intro	Leadership: the stone orbits the head.
+item:ioun-stone-of-mastery	Close match	spell:mage-armor	jb2a.ioun_stones.01.green.mastery	psfx.magic-signs.rune.v1.transmutation.intro	Mastery: the stone orbits the head.
+item:mastery-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.green.mastery	psfx.magic-signs.rune.v1.transmutation.intro	Mastery: the stone orbits the head.
+item:ioun-stone-of-protection	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.protection	psfx.magic-signs.rune.v1.abjuration.intro	Protection: the stone orbits the head.
+item:protection-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.protection	psfx.magic-signs.rune.v1.abjuration.intro	Protection: the stone orbits the head.
+item:ioun-stone-of-regeneration	Close match	effect:regenerating	jb2a.ioun_stones.01.white.regeneration	psfx.1st-level-spells.cure-wounds.v1.001	Regeneration: the stone orbits, and the wounds close.
+item:regneration-ioun-stone	Close match	effect:regenerating	jb2a.ioun_stones.01.white.regeneration	psfx.1st-level-spells.cure-wounds.v1.001	Regeneration: the stone orbits, and the wounds close.
+item:ioun-stone-of-reserve	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.reserve	psfx.magic-signs.rune.v1.conjuration.intro	Reserve: the stone orbits, holding a spell.
+item:reserve-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.reserve	psfx.magic-signs.rune.v1.conjuration.intro	Reserve: the stone orbits, holding a spell.
+item:ioun-stone-of-strength	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.strength	psfx.magic-signs.rune.v1.transmutation.intro	Strength: the stone orbits the head.
+item:strength-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.strength	psfx.magic-signs.rune.v1.transmutation.intro	Strength: the stone orbits the head.
+item:ioun-stone-of-sustenance	Close match	spell:mage-armor	jb2a.ioun_stones.01.white.sustenance	psfx.magic-signs.rune.v1.transmutation.intro	Sustenance: the stone orbits the head.
+item:sustenance-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.white.sustenance	psfx.magic-signs.rune.v1.transmutation.intro	Sustenance: the stone orbits the head.
+item:iron-bands-of-bilarro	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.intro	The sphere is thrown and bands wrap the target.
+item:iron-flask	Close match	spell:conjure-animals	jb2a.smoke.plumes.01.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	The stopper comes out and what was trapped comes out with it.
+item:iron-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come.
+item:ivory-goats	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:jester	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:keoghtoms-ointment	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.potions-vials.cork-bottle.001	The ointment is applied and the wounds close.
+item:key	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:knight	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:lantern-of-revealing	Close match	spell:light	jb2a.markers.light.complete.blue	psfx.cantrips.light.v1.001	The lantern is opened and the invisible is lit.
+item:lock-of-trickery	No proposed FX				A lock that resists picking — nothing to play.
+item:lolths-sting	Close match	effect:lingering-acid	jb2a.markers.poison.purple.03	psfx.cantrips.poison-spray.v1	The poison takes.
+item:long-compartment	No proposed FX				A container. Nothing happens at the table.
+item:mac-fuirmidh-cittern-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	An instrument of the bards is played.
+item:macfuirmidh-citterrn-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	An instrument of the bards is played.
+item:mantle-of-spell-resistance	No proposed FX				Worn, always on — no moment to play.
+item:manual-of-bodily-health	No proposed FX				A book read over six days — no moment at the table.
+item:manual-of-gainful-exercise	No proposed FX				A book read over six days — no moment at the table.
+item:manual-of-golems	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	The golem the manual builds stands up.
+item:manual-of-quickness-of-action	No proposed FX				A book read over six days — no moment at the table.
+item:marble-elephant	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:marble-elephant-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:mariners-armor	Close match	effect:unrestricted-movement	jb2a.liquid.splash.blue	psfx.casting.water.001	The armour keeps the wearer afloat.
+item:mayonnaise-pint	No proposed FX				Food. Nothing happens at the table.
+item:medallion-of-thoughts	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	Detect Thoughts from the medallion.
+item:midsize-compartment	No proposed FX				A container. Nothing happens at the table.
+item:mirror-of-life-trapping	Close match	effect:banished	jb2a.magic_signs.circle.02.abjuration.complete.purple	psfx.magic-signs.circle.v1.abjuration.complete	The mirror takes whoever looked into it.
+item:mithral-armor	No proposed FX				Worn armour with no activation.
+item:moon	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
+item:mystery-key	No proposed FX				A key that fits one lock — nothing to play.
+item:natures-mantle	Close match	spell:invisibility	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.illusion.intro	The wearer blends into the wild.
+item:necklace-of-adaptation	No proposed FX				Worn, always on — no moment to play.
+item:necklace-of-fireballs	Close match	spell:fireball	jb2a.fireball.explosion.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	A bead is torn off and thrown: Fireball.
+item:necklace-of-prayer-beads	Close match	spell:bless	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.abjuration.intro	A bead is spoken to and its spell is cast.
+item:nolzurs-marvelous-pigments	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.pink	psfx.magic-signs.circle.v1.conjuration.complete	What is painted becomes real.
+item:obsidian-steed	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:obsidian-steed-very-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:oil-of-etherealness	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.consumables.potions-vials.cork-bottle.001	The oil is rubbed on and the body half-fades.
+item:oil-of-sharpness	Family match	weapon:longsword	jb2a.glint.blue.few	psfx.consumables.potions-vials.cork-bottle.001	The oil is rubbed on and the edge glints.
+item:oil-of-slipperiness	Close match	spell:grease	jb2a.liquid.splash.grey	psfx.consumables.potions-vials.cork-bottle.001	Freedom of Movement, or a greased floor.
+item:ollam-harp-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6	An instrument of the bards is played.
+item:ollamh-harp-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6	An instrument of the bards is played.
+item:onyx-dog	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:onyx-dog-rare	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	A figurine becomes a beast.
+item:orb-of-direction	No proposed FX				A compass. Nothing to play.
+item:orb-of-dragonkind	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.complete.dark_red	psfx.creature.dragons.roar.large	The orb calls a dragon to heel.
+item:orb-of-time	No proposed FX				A clock. Nothing to play.
+item:pearl-of-power	Close match	spell:mage-armor	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.conjuration.intro	A spell slot comes back.
+item:perfume-of-bewitching	Close match	spell:dominate-person	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	The perfume is worn and everyone is charmed by it.
+item:periapt-of-health	No proposed FX				Worn, always on — no moment to play.
+item:periapt-of-proof-against-poison	No proposed FX				Worn, always on — no moment to play.
+item:periapt-of-wound-closure	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.1st-level-spells.cure-wounds.v1.001	The wounds close on their own.
+item:philter-of-love	Close match	spell:dominate-person	jb2a.markers.heart.pink.03	psfx.consumables.potions-vials.drink-liquid.001	The philter is drunk and the drinker is charmed.
+item:pipe-of-smoke-monsters	Close match	spell:fog-cloud	jb2a.smoke.puff.centered.grey	psfx.casting.generic.001	Smoke shapes come out of the pipe.
+item:pipes-of-haunting	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.musical-instruments.flute.01.long.keyOfA.Am6	The pipes are played and everyone who hears is afraid.
+item:pipes-of-the-sewers	Close match	spell:conjure-animals	jb2a.markers.poison.dark_green.03	psfx.musical-instruments.flute.01.long.keyOfC.C6	The pipes are played and the rats come.
+item:plate-armor-of-etherealness	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.transmutation.intro	Etherealness from the plate.
+item:poisoned-darts	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.weapon-swooshes.light.v1.group01	A dart trap fires and the poison takes.
+item:poisoned-needle	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.slashing.v1	A needle in the lock, and the poison takes.
+item:pole-of-angling	No proposed FX				A fishing rod. Nothing to play.
+item:pole-of-collapsing	No proposed FX				A pole that folds up. Nothing to play.
+item:portable-hole	Close match	spell:dimension-door	jb2a.portals.horizontal.ring.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	The cloth is unfolded and a hole opens.
+item:pot-of-awakening	Close match	spell:conjure-animals	jb2a.plant_growth.03.round.2x2.complete.greenyellow	psfx.casting.earth.001	What is planted in the pot wakes up.
+item:potion-of-animal-friendship	Close match	spell:dominate-person	jb2a.markers.heart.teal.03	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Animal Friendship — every potion drinks the same, the colour says which.
+item:potion-of-clairvoyance	Close match	spell:dispel-magic	jb2a.detect_magic.circle.purple	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Clairvoyance.
+item:potion-of-climbing	Close match	effect:unrestricted-movement	jb2a.markers.light.complete.green	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: a climbing speed.
+item:potion-of-comprehension	Close match	effect:comprehension	jb2a.markers.runes.white.03	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Comprehend Languages.
+item:potion-of-diminution	Close match	effect:bark-like-skin	jb2a.particles.inward.blue.01.03	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the drinker shrinks.
+item:potion-of-fire-breath	Close match	spell:burning-hands	jb2a.breath_weapons.fire	psfx.creature.dragons.attacks.breath.small.fire	The potion is drunk and the drinker breathes fire.
+item:potion-of-flying	Close match	effect:flight	jb2a.wind_stream.400.white	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: a flying speed.
+item:potion-of-gaseous-form	Close match	effect:gaseous-form	jb2a.fog_cloud.01.white	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the drinker becomes mist.
+item:potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength — all seven read the same.
+item:cloud-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-giant-strength-cloud	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:fire-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.
+item:potion-of-giant-strength-fire	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.

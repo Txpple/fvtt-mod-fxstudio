@@ -1,0 +1,110 @@
+effect:0-ft-speed	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Frozen in place: the snowflake mark.
+effect:1-2-speed	Close match	effect:reduced-movement	jb2a.token_border.circle.static.orange.004	psfx.impacts.magicaleffects.fire	Scorching Sands: the target is slowed.
+effect:1-2-speed--action-restrictions	Close match	effect:reduced-movement	jb2a.token_border.circle.static.blue.004	psfx.impacts.magicaleffects.cold	Slowing Breath: the target is slowed and limited.
+effect:1-charmed	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.impacts.magicaleffects.necrotic	Chaos Blade: the target is charmed — one of four faces the blade turns up.
+effect:2-ac	No proposed FX				A bonus to AC — no moment to play.
+effect:2-frightened	Close match	effect:frightened	jb2a.markers.fear.dark_purple.03	psfx.impacts.magicaleffects.necrotic	Chaos Blade: the target is frightened.
+effect:3-ac	No proposed FX				A bonus to AC — no moment to play.
+effect:3-poisoned	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.impacts.magicaleffects.necrotic	Chaos Blade: the target is poisoned.
+effect:4-incapacitated	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.impacts.magicaleffects.necrotic	Chaos Blade: the target is incapacitated.
+effect:acid-absorption	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Acid Absorption: the acid is drunk instead of felt.
+effect:adv-attacks--saves	Close match	effect:courageous	jb2a.condition.boon.01.001.green	psfx.impacts.magicaleffects.necrotic	Marshal Undead: the dead are steadied.
+effect:aiming-attack-advantage	Close match	effect:outlined	jb2a.markers.light.complete.red	psfx.magic-signs.rune.v1.divination.intro	Aim: the shot is lined up.
+effect:animate-trees	Close match	spell:conjure-animals	jb2a.plant_growth.03.round.4x4.complete.greenyellow	psfx.casting.earth.001	Animate Trees: the trees stand up.
+effect:apply-hide-action-to-target	Close match	spell:invisibility	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.illusion.intro	Nimble Escape: the goblin is gone.
+effect:attached-blinded	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.slashing.v1	Attached: the thing is on the target's face.
+effect:attack-advantage	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	War Cry: the pack takes heart.
+effect:attacks-disadvantage	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	Flash of Light: the target cannot see straight.
+effect:averse	Close match	effect:frightened	jb2a.markers.fear.orange.03	psfx.casting.fire.001	Aversion to Fire: the creature shies away.
+effect:banished-incapacitated	Close match	effect:banished	jb2a.magic_signs.circle.02.abjuration.complete.purple	psfx.magic-signs.circle.v1.abjuration.complete	Banish: the target is put out of the world.
+effect:beast-of-burden	No proposed FX				A carrying capacity — no moment to play.
+effect:bewildered	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Lordly Presence: the target is bewildered.
+effect:blinded--deafened	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.weapon-swooshes.lightning.v1.group01	Thunderbolt: blinded and deafened.
+effect:blinded--poisoned	Close match	effect:lingering-acid	jb2a.fog_cloud.02.green	psfx.cantrips.poison-spray.v1	Toxic Ink: blinded and poisoned.
+effect:blinded--suffocating	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Crush: the target cannot see or breathe.
+effect:blinded-heavily-obscured	Close match	spell:darkness	jb2a.darkness.black	psfx.casting.water.001	Ink Cloud: everything goes dark.
+effect:blinded-restrained-and-total-cover	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.generic.002.001	Swallowed: the target is inside.
+effect:bolstered-test-advantage	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Bolster: temporary hit points and a steadier hand.
+effect:charmed--frightened	Close match	effect:courageous	jb2a.condition.boon.01.001.yellow	psfx.conditions.boon.001.01	Aura of Bravery: nothing here can charm or frighten.
+effect:charmed--incapacitated	Close match	effect:charmed	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	Captivated: the target cannot look away.
+effect:clinging-flames-burning	Close match	effect:burning	jb2a.markers.runes.red.03	psfx.casting.fire.001	Cataclysm, the fire: the target burns.
+effect:clouded	Close match	effect:lingering-acid	jb2a.fog_cloud.02.green	psfx.cantrips.poison-spray.v1	Cloud of Insects: the swarm is on the target.
+effect:concentrating	No proposed FX				Concentration held — no moment to play.
+effect:cursed	Close match	effect:banished	jb2a.condition.curse.01.001.purple	psfx.magic-signs.rune.v1.necromancy.intro	Curse of the Riddle: the curse sits on the target.
+effect:cursed-disadv-checks--saves	Close match	effect:banished	jb2a.condition.curse.01.001.green	psfx.magic-signs.rune.v1.necromancy.intro	Spiteful Escape: the parting curse.
+effect:cursed-no-reaction	Close match	effect:heated-metal	jb2a.static_electricity.01.blue	psfx.weapon-swooshes.lightning.v1.group01	Crackling Wave: the target cannot react.
+effect:damaged-1-ac	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.acid-splash.v1	Dissolving Pseudopod: the armour is eaten away.
+effect:damaged-1-ac-attack	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.acid-splash.v1	Antennae: the armour is damaged.
+effect:damaged-1-attack	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.acid-splash.v1	Corrosive Form: what touches it corrodes.
+effect:damaged-2-ac	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.03	psfx.cantrips.poison-spray.v1	Noxious Miasma: the armour is eaten away.
+effect:deafened--frightened	Close match	effect:frightened	jb2a.markers.fear.dark_orange.03	psfx.cantrips.thunderclap.v1	Thunderous Bellow: deafened and afraid.
+effect:deafened-and-disadvantaged	Close match	effect:frightened	jb2a.icon.mute.dark_red	psfx.cantrips.thunderclap.v1	Cacophony: the target cannot hear itself think.
+effect:defense-4-ac	No proposed FX				A bonus to AC — no moment to play.
+effect:disadv-attacks	Close match	effect:burning	jb2a.markers.runes.red.03	psfx.weapon-swooshes.fire.v1.group01	Hammer Throw: the target is scorched and unsteady.
+effect:disadv-attacks--checks	Close match	effect:frightened	jb2a.markers.fear.orange.03	psfx.casting.fire.001	Fear of Fire: the creature cannot look at it.
+effect:disadv-attacks--saves	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	Sunlight: the creature is weakened by daylight.
+effect:exhaustion	Close match	effect:stunned	jb2a.markers.skull.dark_orange.03	psfx.casting.fire.001	Inferno Blast: the exhaustion after — all six levels read the same.
+effect:exhaustion-1	Close match	effect:stunned	jb2a.markers.skull.dark_orange.03	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion — all six levels read the same.
+effect:exhaustion-2	Close match	effect:stunned	jb2a.markers.skull.dark_orange.03	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion.
+effect:exhaustion-3	Close match	effect:stunned	jb2a.markers.skull.dark_orange.03	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion.
+effect:exhaustion-4	Close match	effect:stunned	jb2a.markers.skull.dark_orange.03	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion.
+effect:exhaustion-5	Close match	effect:stunned	jb2a.markers.skull.dark_orange.03	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion.
+effect:exhaustion-dead	Close match	effect:stunned	jb2a.markers.skull.dark_red.03	psfx.cantrips.toll-the-dead.ominous-bell.001	Loathsome Limbs: the sixth level, and the creature is gone.
+effect:failure-dead	Close match	effect:stunned	jb2a.markers.skull.dark_red.03	psfx.cantrips.toll-the-dead.ominous-bell.001	Consume Life: the target dies.
+effect:forager-appearance	No proposed FX				A change of appearance — no moment to play.
+effect:freezing-waves-zero-speed	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.5th-level-spells.cone-of-cold.v1.001	Cataclysm, the cold: the target is frozen in place.
+effect:frightened--incapacitated	Close match	effect:frightened	jb2a.markers.horror.purple.03	psfx.impacts.magicaleffects.psychic	Baleful Command: the target is undone.
+effect:frightened--paralyzed	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.impacts.magicaleffects.psychic	Terrifying Glare: the target cannot move.
+effect:giggling	Close match	effect:uncontrollable-laughter	jb2a.markers.music.pink	psfx.impacts.magicaleffects.psychic	Giggling Magic: the target cannot stop laughing.
+effect:glob-restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.cantrips.acid-splash.v1	Restraining Glob: the target is stuck.
+effect:grafted-con-saves-and-restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.necrotic	Absorb Body: the target is being taken in.
+effect:grappled--other-conditions	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Smother: the target is held.
+effect:grappled--restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Chained: the target is held.
+effect:grappled--suffocating	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.necrotic	Suffocate: the target cannot breathe.
+effect:grappled-and-restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.slashing.v1	Claws: the target is caught.
+effect:half-speed-no-reactions	Close match	effect:slowed	jb2a.token_border.circle.static.purple.004	psfx.impacts.magicaleffects.psychic	An eye ray: the target is slowed.
+effect:healing-restriction	Close match	effect:lingering-acid	jb2a.markers.skull.dark_green.03	psfx.weapon-swooshes.necrotic.v1.group01	Dread Scythe: the wound will not close.
+effect:hide	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Shadow Stealth: the shadow is gone.
+effect:hit-str-score-1	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Draining Swipe: the strength is taken — all four tiers read the same.
+effect:hit-str-score-2	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Draining Swipe: the strength is taken.
+effect:hit-str-score-3	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Draining Swipe: the strength is taken.
+effect:hit-str-score-4	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Draining Swipe: the strength is taken.
+effect:hunter-appearance	No proposed FX				A change of appearance — no moment to play.
+effect:hunter-marked-as-prey	Close match	effect:outlined	jb2a.hunters_mark.loop.01.red	psfx.magic-signs.rune.v1.divination.loop	Animal Spirit: the prey is marked.
+effect:languages	No proposed FX				A language taken with the body — no moment to play.
+effect:living-shadow	No proposed FX				A passive trait — no moment to play.
+effect:no-opportunity-attacks	Close match	effect:heated-metal	jb2a.static_electricity.01.blue	psfx.weapon-swooshes.lightning.v1.group01	Bone Whip: the target cannot make opportunity attacks.
+effect:no-reaction	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Confusing Gaze: the target cannot react.
+effect:petrified	Close match	effect:turning-to-stone	modules/dnd5e-animations/assets/graphics/textures/Stone.webp	psfx.casting.earth.001	Petrified: the target turns to stone.
+effect:poison-resistance	Close match	effect:poison-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Draconic Origin: resistance to poison.
+effect:poisoned--blinded	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Poison Spray: poisoned and blinded.
+effect:poisoned--paralyzed	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.cantrips.poison-spray.v1	Paralyzing Tentacles: poisoned and held.
+effect:poisoned-and-incapacitated	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Toxic Escape: poisoned and undone.
+effect:prey-attack-advantage	Close match	effect:outlined	jb2a.hunters_mark.loop.01.red	psfx.magic-signs.rune.v1.divination.loop	Marked as Prey: the quarry is named.
+effect:prone--restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.red	psfx.casting.fire.001	Smelting Charge: the target is down and pinned.
+effect:raging-storm-blind-deaf-verbal-components	Close match	effect:searing-radiance	jb2a.markers.light.complete.blue	psfx.cantrips.thunderclap.v1	Cataclysm, the storm: nobody can see or hear.
+effect:rallied	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	Rally: the troops take heart.
+effect:resistance-acid	Close match	effect:acid-protection	jb2a.shield.01.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to acid.
+effect:resistance-cold	Close match	effect:cold-protection	jb2a.shield.01.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to cold.
+effect:resistance-fire	Close match	effect:fire-protection	jb2a.shield.01.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Confer Fire Resistance: resistance to fire.
+effect:resistance-lightning	Close match	effect:lightning-protection	jb2a.shield.01.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to lightning.
+effect:resistance-thunder	Close match	effect:thunder-protection	jb2a.shield.01.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to thunder.
+effect:response-4-ac	No proposed FX				A bonus to AC — no moment to play.
+effect:sage-appearance	No proposed FX				A change of appearance — no moment to play.
+effect:sage-pesky-swarm	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Animal Spirit: the swarm is on the target.
+effect:self-attack-adv0-speed	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Crush: the target is pinned.
+effect:shielded	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	Shimmering Shield: temporary hit points and a ward.
+effect:speed-10	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Ice Spear: the cold slows the target.
+effect:speed-10-feet	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Ocean Spear: the cold slows the target.
+effect:speed-10-ft	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Great Bow: the cold arrow slows the target.
+effect:speed-20-ft	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Freeze: the target slows.
+effect:speed-5-ft	Close match	effect:reduced-movement	jb2a.markers.snowflake.blue.03	psfx.impacts.magicaleffects.cold	Icy Bite: the target slows.
+effect:swallowing-earth-restrained-cover-suffocating	Close match	effect:ensnared	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Cataclysm, the earth: the ground takes the target.
+effect:target-disadvantage	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Pesky Swarm: the swarm is in the target's face.
+effect:target-grappled--restrained	Close match	effect:ensnared	jb2a.vine.loop.elemental.group.01.dark_orange	psfx.impacts.magicaleffects.necrotic	Life-Draining Root: the root has the target.
+effect:telepathy-30-ft	Close match	effect:carrying-message	jb2a.markers.runes.green02.03	psfx.magic-signs.rune.v1.divination.intro	Rapport Spores: the spores carry a thought.
+effect:total-cover	No proposed FX				Cover taken — no moment to play.
+effect:total-cover-suffocating--restrained	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.magicaleffects.generic.002.001	Engulf: the target is inside.
+effect:trapped-incapacitated	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.purple	psfx.impacts.magicaleffects.psychic	Banishing Claw: the target is put elsewhere.
+effect:unconscious	Close match	effect:sleeping	jb2a.sleep.symbol.purple	psfx.1st-level-spells.sleep.v1.001	Drone: the target goes under.
+effect:weakened	Close match	effect:stunned	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Weakening Breath: the target is weakened.
