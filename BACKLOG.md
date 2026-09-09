@@ -4,6 +4,23 @@
 
 What is parked, and why. Nothing here is owed; each line says who decides.
 
+## The cast hold (2026-09-09) - a patch that should become the rule
+
+- **What stands:** `scripts/readers/dnd5e.js` - the REGION reader alone asks Battle Flow's api
+  (`castHold(activityUuid)`, a promise that settles when a held cast's card posts) and awaits it
+  before an area picture plays, bounded at five minutes. Battle Flow holds a cast while its caster
+  answers a question the area raised (Careful Spell: who does the spell spare?). The user: "the
+  animation fires early" - then "ok good". Both repos committed 2026-09-09.
+- **Why it is a patch:** one reader, one call site. The message and effect readers never ask (harmless
+  today - Battle Flow holds the card itself - but the rule lives in a branch). The timing policy at
+  the top of the reader still reads "an area plays on the template placement" and does not name the
+  hold; Battle Flow's ARCHITECTURE does not list the api surface.
+- **The systemic shape (the user, asked 2026-09-09; not yet ruled):** the wait moves into the DISPATCHER
+  so every moment checks the hold by its activity; the timing policy gains one line - *a moment Battle
+  Flow holds plays when the hold lifts*; Battle Flow's ARCHITECTURE records `api.castHold` beside the
+  volley registry. About an hour, mostly docs. ⚠ This module is in active development - re-read this
+  row before touching the reader or the dispatcher, and keep the hold's contract whichever way it goes.
+
 ## Waiting on the user (from the migration report, 2026-09-06)
 
 - **Read `recipes/migration-report.md` before cutover.** It holds the family rows expanded
