@@ -19,6 +19,20 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 | `pull-corpus.mjs` | brings what the Corpus tab shipped back into the repo: compares the module folder on the sandbox (`--from <dir>` for another) with `recipes/**` as FX added, changed and removed; `--write` copies the files in and takes the shipped version (from `recipes/shipped.json`) into `module.json` and its download URL. Then the release ritual. |
 | `export-fx.mjs` | the offline path: shows the world buffer (the FX written in the game) as sentences with who wrote them; `--write` folds them into `recipes/house.json`. Only for a server that forbids uploads; the Corpus tab is the way. |
 
+### The gap — what the books hold that has no FX (2026-09-08)
+
+The pass the user asked for: read every addressed key no FX answers, and propose one where the
+record itself suggests it. They run in this order, and everything they write lands in `dist/`.
+
+| Tool | What it does |
+| --- | --- |
+| `gaps.mjs` | **the gap**: every key `records.json` addresses that no FX answers, with the record's own words and the mechanics that say what it does (the school and level, the base weapon, what its activities roll and in what damage type). Stands on exactly the evidence the corpus does, so a book added to `LIST_PACKS` shows up here as new gaps on the next run. `--write` writes `dist/gaps.json`. |
+| `gap-pool.mjs` | the pool a proposal may draw from, written flat so a person can read all of it: `dist/pool-corpus.txt` (every FX there is and what its scenes actually play), `dist/pool-jb2a.txt` and `dist/pool-psfx.txt` (the libraries collapsed to families, with the variants each one has). It exists so a proposed variant names a path that REALLY EXISTS. |
+| `gap-assemble.mjs` | joins the hand-written batches in `dist/batches/*.tsv` into `dist/proposals.tsv` (`key · confidence · basis · vfx · sfx · sentence`). |
+| `gap-check.mjs` | **nothing leaves unchecked**: every VFX and SFX path met against the loaded JB2A and PSFX databases (a node prefix counts, Sequencer resolves one), every `basis` met against a key the corpus really answers, no duplicate keys, and no proposal for a key that is not a gap. |
+| `gap-report.mjs` | joins the gaps to the proposals and names each basis the way the screens do (`nameForKey`) → `dist/gap-report.json`. |
+| `gap-xlsx.py` | the workbook, grouped by compendium: a Summary, one sheet per book with ten or more gaps, `This world` and `Other books`, and an `All gaps` sheet for filtering. Takes the output path; defaults to the desktop. Needs `openpyxl`. |
+
 `lib/stage.mjs` is the offline stage: enough of the canvas and Sequencer's API for an FX to build
 in node, with a recording Sequence the proof compares. `lib/recipes.mjs` reads the recipes the way
 the module does and wires the engine's asset database to the registration files. `lib/dnd5e.mjs`
