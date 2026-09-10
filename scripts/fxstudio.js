@@ -4,7 +4,9 @@
 // authoring API on game.modules.get('fvtt-mod-fxstudio').api. Wires the layers and nothing else.
 import { MODULE_ID, SETTINGS, carryOverLegacyBuffer, getWorldFx, logging, playing, registerSettings } from './settings.js';
 import { buildIndex } from './core/corpus.js';
+import { heldUntil, registerGate } from './core/gates.js';
 import { registerReader } from './readers/dnd5e.js';
+import { battleflowGate } from './readers/battleflow.js';
 import { endPicturesOf, play, useSettings } from './engine/render.js';
 import { makeApi } from './api.js';
 import { registerScreens } from './ui/index.js';
@@ -28,12 +30,29 @@ function rebuild() {
   return state.index;
 }
 
+/**
+ * The dispatcher: one place where a moment becomes a picture, and the one place a HOLD is asked
+ * about. Every gate (core/gates.js) is asked once, before the moment plays; nothing registered —
+ * which is every table without a module that holds — is the straight road, unchanged.
+ */
+async function dispatch(moment) {
+  const held = heldUntil(moment, { log });
+  if (held) {
+    log(`${moment.subject?.name ?? moment.id}: held by ${held.names.join(', ')} — waiting`);
+    if (!(await held.wait)) return;
+  }
+  await play(state.index ?? rebuild(), moment);
+}
+
 Hooks.once('init', () => {
   registerSettings();
   state.open = registerScreens({ moduleId: MODULE_ID });
   useSettings({ playing, logging });
+  // Battle Flow, when the table has it: it holds a cast while its caster answers a question the
+  // area raised, and the picture plays when the answer does. Not installed — no gate, no wait.
+  registerGate('Battle Flow', battleflowGate);
   registerReader({
-    dispatch: (moment) => play(state.index ?? rebuild(), moment).catch((e) => console.error('FX Studio |', e)),
+    dispatch: (moment) => dispatch(moment).catch((e) => console.error('FX Studio |', e)),
     end: (origin, token) => endPicturesOf(origin, token),
   });
 });

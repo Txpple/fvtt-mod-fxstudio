@@ -190,7 +190,7 @@ handoff or a plan — which is the rule the shelved redesign broke.
 - **The suites here** are `tools/smoke-fx.mjs` (every FX builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
   `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
   compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
-  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs` and `check-legacy.mjs` after any edit under `scripts/`; `check-fx.mjs` after any edit under `recipes/`.
+  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs`, `check-legacy.mjs` and `check-gates.mjs` (the hold contract) after any edit under `scripts/`; `check-fx.mjs` after any edit under `recipes/`.
   ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
   before measuring anything from it (the suite's `moveTo`).
 - **Suites** go in `tools/` and use the MCP repo's Foundry client

@@ -3,6 +3,7 @@
 // back as a sentence, previews it on chosen tokens, saves it to the world buffer with provenance,
 // and asks what plays nothing. The screens (phase 3) are built on this, so it is always complete.
 import { sentence, validate, provenance } from './core/fx.js';
+import { gateNames, registerGate } from './core/gates.js';
 import { stampRecord } from './core/records.js';
 import { LAYER_WORDS, allFx, fxFor, resolve } from './core/corpus.js';
 import { keyLabel, keysFor, keyWords } from './core/subjects.js';
@@ -234,5 +235,12 @@ export function makeApi(state) {
     rebuild: () => state.rebuild(),
     /** the records: read once (resolves true when the map is here), the map as it is, and whether it is here */
     records: { read: readRecords, map: () => records, ready: () => !!records },
+    /**
+     * THE GATES (core/gates.js): how another module asks this table to wait. `register(name, ask)`
+     * takes a function called once per moment, before it plays, which answers null (not held), or a
+     * promise — settling truthy to play, or null/false to say the thing never happened and nothing
+     * should play. It returns a function that unregisters it. The wait is always bounded here.
+     */
+    gates: { register: registerGate, names: gateNames },
   };
 }

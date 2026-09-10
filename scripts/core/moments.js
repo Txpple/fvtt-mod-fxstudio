@@ -12,6 +12,12 @@
 //   tie          the document persistent pictures live and die with (an active effect, a Region)
 //   origin       the uuid Sequencer effects are stamped with (the item's, the effect's)
 //   id           the message or document id (the ledger keys on it)
+//   activity     the dnd5e activity uuid the moment came from, or null (what a GATE asks by)
+//   flags        the flags of the document the moment was read from (a gate may read them)
+
+// A moment may also be HELD: another module can ask this table to wait until an answer is known
+// (core/gates.js). That is the timing policy's other half and nothing here needs to know about it —
+// a moment is the same record held or not.
 
 /** the closed vocabulary of moment kinds; phase 4 adds the outcomes and the table's events */
 export const WHEN = ['use', 'effect'];

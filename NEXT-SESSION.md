@@ -10,24 +10,32 @@ and green. **The next session continues on migration work.**
 
 ---
 
-## 0. What changed since — the cast hold (2026-09-09, from the Battle Flow session)
+## 0. What changed since — the hold became a seam (2026-09-09)
 
-One edit landed here from the sister repo's work, on the user's word ("ok good"), and the user asked
-that the note be kept because this module is in active development:
+The cast hold arrived here as a patch from the sister repo's metamagic pass, and the user then ruled
+the systemic version: *"i want a systemic version that hopefully improves fxstudio, and creates
+compatability with battleflow … but i do not want to break existing functionality or have a
+dependency on battleflow. some users may not install battleflow."* Built with the Battle Flow
+session as the advisor (its corrections are in [BACKLOG.md](BACKLOG.md), first section).
 
-- `scripts/readers/dnd5e.js`, the `createRegion` handler (commit `8ea90d0`): before an area picture
-  plays, the reader asks Battle Flow's api for a **cast hold** — `game.modules.get('fvtt-mod-battleflow')
-  ?.api?.castHold(originUuid)`, a promise that settles when a cast Battle Flow is holding (Careful
-  Spell: the caster is asked who the area spares AFTER the template lands, and the usage card is held
-  back until they answer) posts its real card — and awaits it, bounded at five minutes. No hold, no
-  wait. Deployed to the sandbox, pushed. `check-imports`, `check-layers`, `check-legacy` green.
-- **It is a patch, not the rule** (the user asked which): one reader, one call site; the timing policy
-  at the top of the reader does not name the hold; the message and effect readers never ask. The
-  systemic shape — the wait in the dispatcher for every moment, one timing-policy line (*a moment
-  Battle Flow holds plays when the hold lifts*), the api recorded in Battle Flow's ARCHITECTURE — is
-  drawn in [BACKLOG.md](BACKLOG.md) (first section) and **not ruled**. Do not start it unasked; do not
-  let a refactor of the reader or the dispatcher drop the hold.
-- The Battle Flow side is in `../fvtt-mod-battleflow/HANDOFF.md` §3.
+- **A GATE** (`scripts/core/gates.js`, ARCHITECTURE §2) is the timing policy's other half: *a moment
+  another module holds plays when the hold lifts*. One function, `(moment) => promise | null`, asked
+  ONCE per moment at read time, in the **dispatcher** — not in a reader, not around the player.
+  `null` = not held; a promise = held, and its resolution decides: **truthy plays** (the card that
+  lifted it, or a bare sentinel meaning "lifted, nothing known"), `null`/`false` means the thing
+  never happened and **nothing plays**.
+- **The bound is ours**: five minutes, and an expired bound **PLAYS**. A gate that throws is ignored.
+  A hold may delay a picture; it can never swallow one by going quiet.
+- **No dependency, structurally.** `scripts/readers/battleflow.js` is the only Battle Flow-shaped
+  code: one feature detect (`holdFor`, falling back to `castHold`), no import, no manifest
+  relationship. Not installed → nothing registered → the straight road, which is the default path.
+- **The seam is ours too**: `api.gates.register(name, ask)` is public, so any future FX Studio reason
+  to defer a moment needs no new machinery. Battle Flow is the first tenant, not the reason.
+- Moments now carry `activity` (the activity uuid, what a gate asks by) and `flags` (the source
+  document's flags). ⚠ **A hold is client-local** on Battle Flow's side — a `null` on a remote client
+  may be a false negative; BACKLOG says what that costs and what is not ruled.
+- Proof: `check-gates` **22 of 22** offline; `smoke-replay` **50 of 50** with §15 driving a real hold at
+  the table; screens 184, fx 1026, author 15; imports/layers/legacy green. Deployed to the sandbox.
 
 ## 1. How this work happens
 
@@ -84,7 +92,7 @@ re-run `tools/migrate-aa.mjs --write` **and** `tools/records.mjs --write`.
 | Records | `recipes/records.json`, **4179 keys** addressed, 786 KB; read when the window opens, never by the engine |
 | `ui/records.js` | `recordFor()`, `nameForKey()` (what every screen calls to name an FX), `openRecord()` |
 | `ui/fxtab.js` | the Library: search · facets · rows, each row **Record · Delete · Editor** |
-| Suites | `smoke-screens` **182** · `smoke-fx` **1026** · `smoke-replay` **45** · `smoke-author` **15** · `check-fx` 1036 fx / 0 invalid · imports/layers/legacy green |
+| Suites | `smoke-screens` **184** · `smoke-fx` **1026** · `smoke-replay` **50** · `smoke-author` **15** · `check-fx` 1036 fx / 0 invalid · `check-gates` **22** · imports/layers/legacy green |
 
 Sandbox byte-identical to the repo. The user has **`FX Studio stock report.xlsx`** on their desktop
 (1022 rows: FX · record · type · source compendium, plus a By-compendium tally) — rebuild it from

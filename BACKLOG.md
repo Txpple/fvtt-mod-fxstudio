@@ -4,22 +4,53 @@
 
 What is parked, and why. Nothing here is owed; each line says who decides.
 
-## The cast hold (2026-09-09) - a patch that should become the rule
+## The hold, and what is left of it (2026-09-09) - the patch became the rule
 
-- **What stands:** `scripts/readers/dnd5e.js` - the REGION reader alone asks Battle Flow's api
-  (`castHold(activityUuid)`, a promise that settles when a held cast's card posts) and awaits it
-  before an area picture plays, bounded at five minutes. Battle Flow holds a cast while its caster
-  answers a question the area raised (Careful Spell: who does the spell spare?). The user: "the
-  animation fires early" - then "ok good". Both repos committed 2026-09-09.
-- **Why it is a patch:** one reader, one call site. The message and effect readers never ask (harmless
-  today - Battle Flow holds the card itself - but the rule lives in a branch). The timing policy at
-  the top of the reader still reads "an area plays on the template placement" and does not name the
-  hold; Battle Flow's ARCHITECTURE does not list the api surface.
-- **The systemic shape (the user, asked 2026-09-09; not yet ruled):** the wait moves into the DISPATCHER
-  so every moment checks the hold by its activity; the timing policy gains one line - *a moment Battle
-  Flow holds plays when the hold lifts*; Battle Flow's ARCHITECTURE records `api.castHold` beside the
-  volley registry. About an hour, mostly docs. ⚠ This module is in active development - re-read this
-  row before touching the reader or the dispatcher, and keep the hold's contract whichever way it goes.
+**BUILT and green.** The wait moved out of the region reader and into the DISPATCHER as a GATE
+(`scripts/core/gates.js`, `scripts/readers/battleflow.js`, ARCHITECTURE §2): every moment is asked
+about once, before it plays; Battle Flow is one feature-detected tenant, not a branch; a table
+without it registers nothing and takes the straight road. `api.gates.register(name, ask)` is the
+seam, so this module's own future reasons to defer a moment need no new machinery.
+`check-gates.mjs` 20 of 20 offline, `smoke-replay` §15 drives a real hold at the table (50 of 50).
+
+What is NOT closed, and what to re-read before touching the reader or the dispatcher:
+
+- **A hold is client-local** (Battle Flow's own correction, 2026-09-09): its `castHolds` is an
+  in-memory Map on the casting client. On any other client the answer is `null`, which means "I
+  cannot SEE a hold", not "nothing holds this". Today the roads that matter are read on the caster's
+  client, so this costs nothing; **a GM placing a template on a player's behalf would play early.**
+  Making it a real cross-client guarantee means promoting the hold to observable state on Battle
+  Flow's side - it offered to cost that and would rather not do it speculatively. **Not ruled.**
+- **Battle Flow SHIPPED the general surface** the same day (`1b916c5`, its `scripts/holds.js`,
+  ARCHITECTURE §7): `holdFor(subject)`, `castHold` kept **forever** as an alias of it,
+  `api.holds = {version: 1, keys: [activity, message, document]}`, and the hooks
+  `battleflow.holdOpened` (⚠ NOT `castHoldOpened`, which is what its advisory had said) and
+  `battleflow.castReleased`. Its holds are refcounted, because a modal SEQUENCE of windows may hold
+  one subject later. **Nothing here changed for it** - our gate asks `holdFor` first and falls back -
+  and the fallback is proved live: the sandbox still carries the older Battle Flow, so `smoke-replay`
+  50 of 50 ran through the `castHold` road with the gate registered and no error.
+- **A hold settles THREE ways, not two** (Battle Flow's own correction, `5c7a282`, found by reviewing
+  its contract against this gate): the CARD (play it), an explicit `null` (nothing was posted, play
+  nothing), or a truthy SENTINEL (the hold lifted, nothing is known - carry on). Its self-bound used
+  to settle `null`, which under our rule would have cost the picture **for good** on a merely LATE
+  answer, when the points are already spent and the template is already on the map. **Nothing here
+  changed** - a sentinel is truthy, so "truthy plays" was already right - but the `null` row now
+  fires only when a cast genuinely produced no card, which is the case it was written for.
+  `check-gates` pins all three.
+- ⚠ **`holdFor` accepts any subject but every hold raised TODAY is keyed by activity uuid** - Battle
+  Flow deliberately did not write the aliasing until a real caller needs it. Asking by
+  `activity || id` is right; a message-keyed ask just answers null until then.
+- ⚠ **An unbounded wait is reachable by SETTING, not only by bug** (Battle Flow, when it shipped): a
+  hold timer of 0 is a clockless ask on purpose, so its hold is clockless on purpose. **Our
+  five-minute bound then plays the picture while the question is still on the caster's screen.**
+  Safe (a picture is never lost) but it is the one place our rule and their setting disagree. The
+  bound is one argument in `core/gates.js` (`heldUntil(moment, { bound })`); a per-gate bound, or a
+  setting, is small if the user ever sees it happen. **Not ruled, not owed.**
+- **Two holes Battle Flow found reading its own code for us** (a stranded hold when the carrier
+  whisper is deleted; another when `postUseActivity` never fires) are its bugs to fix. Ours is
+  unaffected because the bound is ours: five minutes, and **an expired bound PLAYS**.
+- **A modal sequence of windows** is Battle Flow's stated long-term want - the picture waiting for a
+  whole sequence to drain, not one window. That is this gate generalised and needs nothing new here.
 
 ## Waiting on the user (from the migration report, 2026-09-06)
 

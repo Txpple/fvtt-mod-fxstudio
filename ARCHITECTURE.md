@@ -105,6 +105,39 @@ everything else. This is what AA did on this world by accident of its hooks; her
 in `readers/dnd5e.js` and one paragraph in the docs, and Battle Flow's verdict hook can replace
 "after the attack roll" in phase 4 without any look changing.
 
+**The policy's other half: a moment can be HELD** (ruled 2026-09-09; `core/gates.js`). Some answers
+are not known when the table's own event fires — Battle Flow asks a Careful Spell's caster who the
+area spares *after* the template lands, and holds the cast's card until they answer, so the picture
+would otherwise play before the question (the user: *"the animation fires early"*). So:
+
+> *A moment another module holds plays when the hold lifts.*
+
+A **gate** is one function, `(moment) => promise | null`, registered by the entry or by any module
+through `api.gates.register(name, ask)`. It is asked **once per moment, at read time, before the
+moment plays** — never around the player, so nothing can wait twice. `null` means not held; a
+promise means held, and its resolution decides: truthy plays, `null` or `false` says the thing never
+happened and **nothing plays**. The dispatcher asks; the readers do not (they only carry `activity`
+and `flags` on the moment, so a gate has something to ask by). Nothing registered — which is every
+table without a module that holds — is the straight road, unchanged: not-installed is not a branch,
+it is the default with an empty registry.
+
+**The hold's contract, in Battle Flow's words and ours, so the two repos say the same sentences:**
+
+> **The hold.** A hold is client-local, in-memory, keyed by subject. `holdFor(subject)` answers with
+> a promise or `null`; `null` means nothing here is holding, which on a remote client may mean
+> nothing here can *see* a hold. A hold always settles: with the **card** that lifted it (play it),
+> with **`null`** meaning nothing was posted and nothing should play, or with a truthy **sentinel**
+> meaning the hold lifted and nothing is known — carry on. The consumer bounds its own wait; a hold
+> is a courtesy, never a guarantee of liveness.
+
+⚠ **The wait is bounded here (five minutes) and a bound that expires PLAYS.** A gate may delay a
+picture; it must never be able to swallow one by going quiet. A gate that throws is logged and
+ignored — another module's bug never costs this table a picture. `readers/battleflow.js` is the only
+Battle Flow-shaped code in the module: one feature detect (`holdFor`, falling back to the older
+`castHold`), no import, no manifest relationship, nothing required. Battle Flow's side of the
+contract is its `scripts/holds.js` and its ARCHITECTURE §7; `api.holds.version` tells the two
+contracts apart if it is ever needed, and `castHold` is kept there for good.
+
 ## 3. Subjects — what acted, by identity, not by name
 
 The user's two bugs are one rule: **a look is keyed by what the thing IS, in a vocabulary dnd5e
@@ -353,10 +386,11 @@ reads fifty sentences and keeps the ones that read right.
 | `migrate-aa.mjs` | one-time | AA's corpus into looks, the family expansions, the oracle proof (§6.2), the asset nativisation count (§6.3), the census, the report |
 | `check-fx.mjs` | offline, seconds | every look validates; every asset resolves against the libraries' registration and the disk |
 | `check-imports.mjs`, `check-layers.mjs` | offline | every module loads; every import points down the layer order |
+| `check-gates.mjs` | offline, a second | the gate contract (§2): not held, held, held-and-came-to-nothing, a gate that throws, a bound that expires plays, asked once; and the Battle Flow gate with Battle Flow absent, disabled, old and current |
 | `census.mjs` | offline or live | every subject in the world and the compendia → which look answers, what plays nothing |
 | `assets.mjs` | offline | the catalogue search |
 | `smoke-fx.mjs` | live | every look builds on the sandbox against a synthetic moment and every path resolves live |
-| `smoke-replay.mjs` | live | one look of every shape and moment through real dnd5e flows |
+| `smoke-replay.mjs` | live | one look of every shape and moment through real dnd5e flows; §15 drives a real hold at the table |
 | `smoke-author.mjs` | live | the assistant's round trip: a look written as data, validated, previewed, saved, read back as a sentence, exported |
 | `preview.mjs` | live | plays a look on the fixture for a person or an assistant to see |
 | `check-legacy.mjs` | offline | no Automated Animations vocabulary in `scripts/` or `recipes/` (§0's mechanical half) |

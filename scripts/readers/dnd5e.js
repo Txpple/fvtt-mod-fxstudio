@@ -9,8 +9,13 @@
 //   a save or a heal     on the damage roll (the targets known; a heal's roll is flagged "healing")
 //   an area              on the template placement (the Region drawn)
 //   everything else      on the usage card
+//   a moment another module HOLDS      when the hold lifts (core/gates.js, readers/battleflow.js)
 // This is what Automated Animations did on this world by accident of its hooks; here it is one
 // table. Battle Flow's verdict hook can replace "on the attack roll" in phase 4 without any FX changing.
+//
+// Every moment carries what a gate asks by: `activity` (the activity uuid the moment came from,
+// when it has one) and `flags` (the flags of the document it was read from). The reader never asks
+// a gate itself — the dispatcher does, once per moment.
 //
 // WHO PLAYS. One client plays and Sequencer carries the picture to every other client: the
 // message's author for a message, the user who placed the template or created the effect otherwise;
@@ -116,7 +121,7 @@ export function readMessage(message) {
   }
   const ammunition = kind === 'attack' && f.roll?.ammunition ? source.actor?.items?.get(f.roll.ammunition) ?? null : null;
   const subject = subjectOfItem(item, { activity, ammunition });
-  return { when: 'use', kind, subject, source, targets, origin: item.uuid, id: message.id, user: message.author?.id ?? null };
+  return { when: 'use', kind, subject, source, targets, origin: item.uuid, id: message.id, activity: f.activity.uuid, flags: message.flags ?? {}, user: message.author?.id ?? null };
 }
 
 /** a placed template (a Region with a dnd5e origin) → a moment */
@@ -129,7 +134,7 @@ export function readRegion(region) {
   const actor = item.actor ?? item.parent;
   const source = actor?.token?.object ?? actor?.getActiveTokens?.()[0] ?? null;
   const targets = Array.from(game.user.targets).map((token) => ({ token }));
-  return { when: 'use', kind: 'template', subject: subjectOfItem(item, { activity }), source, targets, place: region, tie: region, origin: item.uuid, id: region.id, user: game.user.id };
+  return { when: 'use', kind: 'template', subject: subjectOfItem(item, { activity }), source, targets, place: region, tie: region, origin: item.uuid, id: region.id, activity: originUuid, flags: region.flags ?? {}, user: game.user.id };
 }
 
 /** an active effect created or switched on → a moment */
@@ -138,7 +143,7 @@ export function readEffect(effect) {
   if (!actor) return null;
   const token = actor.token?.object ?? actor.getActiveTokens?.()[0] ?? null;
   if (!token) return { skip: 'no token for the effect' };
-  return { when: 'effect', kind: 'effect', subject: subjectOfEffect(effect), source: token, targets: [{ token }], tie: effect, origin: effect.uuid, id: effect.id, user: game.user.id };
+  return { when: 'effect', kind: 'effect', subject: subjectOfEffect(effect), source: token, targets: [{ token }], tie: effect, origin: effect.uuid, id: effect.id, activity: null, flags: effect.flags ?? {}, user: game.user.id };
 }
 
 /** register the hooks; `dispatch(moment)` plays it, `end(origin, token)` ends standing pictures */
@@ -156,17 +161,8 @@ export function registerReader({ dispatch, end }) {
     if (userId !== game.user.id) return;
     const moment = readRegion(region);
     if (!moment || moment.skip) { if (moment?.skip) log(`template ${region.id}: ${moment.skip}`); return; }
-    // The timing policy, kept: an area plays as late as the answer is known. Battle Flow may HOLD a cast
-    // while its caster answers a question the area raised (Careful Spell: who does the spell spare?) —
-    // its api hands out a promise that settles when the cast's card posts; the picture waits for it
-    // (the user, 2026-09-09: "the animation fires early"). Bounded, so a hold nobody lifts never
-    // swallows a picture. No hold, no wait.
-    const hold = game.modules.get('fvtt-mod-battleflow')?.api?.castHold?.(region.flags?.dnd5e?.origin ?? '');
-    if (hold) {
-      log(`template ${region.id}: held by Battle Flow — waiting for the answer`);
-      await Promise.race([hold, new Promise((r) => setTimeout(r, 5 * 60 * 1000))]);
-    }
     // half a second for the Region to be drawn before a picture is sized to it
+    // (a hold on this cast is the dispatcher's business now, not the reader's — core/gates.js)
     await new Promise((r) => setTimeout(r, 500));
     handle(moment, `template ${region.id}`);
   });

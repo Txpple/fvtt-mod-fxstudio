@@ -28,6 +28,7 @@ const SECTIONS = {
   12: 'no FX: an ability with no FX plays nothing and the ledger lists its keys',
   13: 'identity over names: a "Maul of Momentum" plays the maul fx by its base weapon; a Shield spell plays nothing (no bash)',
   14: 'the heal: Cure Wounds plays on its healing roll (dnd5e flags it "healing", not "damage"), on the target when one is aimed and on the caster when none is',
+  15: 'the hold: a gate holds a moment — nothing plays while the hold stands, it plays when the hold lifts, a hold that lifts on nothing plays nothing, and with no gate the same cast plays straight away',
 };
 const DEPENDS = {};
 const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds'];
@@ -268,6 +269,30 @@ try {
         await aim(false);
         const alone = await rollDamage('Cure Wounds');
         ok('§14 Cure Wounds with nothing targeted: the healing roll plays the FX on the caster', alone.e?.fx === 'cure-wounds' && alone.e.played && !alone.e.targets?.length, `${alone.e?.fx} ${alone.e?.why || ''} ${files(alone.e)}`);
+      }
+      if (want(15)) {
+        // The gate seam, driven at the table: this suite plays the part another module (Battle Flow)
+        // plays when it holds a cast while its caster answers a question the area raised.
+        await aim();
+        await setAC(1);
+        let lift = null;
+        const off = api.gates.register('the suite', (moment) => (moment.subject?.name === 'Fire Bolt' ? new Promise((r) => { lift = r; }) : null));
+        try {
+          const held = await rollAttack('Fire Bolt');
+          ok('§15 held: nothing plays while the hold stands', !!held.m && !ledgerFor(held.m.id), held.m ? `no ledger entry for ${held.m.id}` : 'no message');
+          lift?.({ id: 'the card that lifted it' });
+          await settle();
+          const e = held.m ? ledgerFor(held.m.id) : null;
+          ok('§15 and it plays when the hold lifts', e?.played === true && e?.fx === 'fire-bolt', files(e));
+          lift = null;
+          const dropped = await rollAttack('Fire Bolt');
+          lift?.(null);
+          await settle();
+          ok('§15 a hold that lifts on NOTHING plays nothing', !!dropped.m && !ledgerFor(dropped.m.id), dropped.m ? `no ledger entry for ${dropped.m.id}` : 'no message');
+        } finally { off(); }
+        ok('§15 the gate unregisters itself', !api.gates.names().includes('the suite'), api.gates.names().join(', ') || 'none');
+        const plain = await rollAttack('Fire Bolt');
+        ok('§15 with nothing holding it, the same cast plays straight away', plain.e?.played === true, files(plain.e));
       }
     } finally {
       await setAC(startAC);
