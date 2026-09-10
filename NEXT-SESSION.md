@@ -125,7 +125,7 @@ Other things standing, none of them started or owed:
   gaps are fine for now.
 - **Hold Person / Hold Monster now apply "Paralyzed"**, and Guidance applies eighteen "… Guidance"
   effects; none of those effect names has an FX. New FX, not repairs.
-- Phase 4 — outcomes and moments (PLAN §6). Cutover — AA off on prod (PLAN §6 phase 5).
+- Phase 4 — outcomes and moments (PLAN §6). Cutover is DONE: AA and D&D5e Animations are OFF on prod (read off prod 2026-09-10), and **v0.2.0 is released and deployed to prod** (the first tagged release; `tools/build-release.ps1`).
 - The window **scrolls sideways below about 780px**; **a modal dialog swallows every later click**.
 
 ## 6. How to work here

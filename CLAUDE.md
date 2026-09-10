@@ -107,7 +107,8 @@ anything clicked while it is up does nothing).
 **NEXT: the migrated data, on the user's word.** Read [NEXT-SESSION.md](NEXT-SESSION.md) first —
 it is the handoff. Candidates, none of them started or owed: reading the exception lists and
 re-making by hand what is wanted, the 502 migrated assets keyed `file` (BACKLOG), phase 4 (outcomes
-and moments, PLAN §6), cutover (PLAN §6 phase 5). **Wait for them to say which.**
+and moments, PLAN §6). Cutover is DONE on prod (AA off; v0.2.0 deployed 2026-09-10). **Wait for them
+to say which.**
 
 **The documents.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
 stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,
@@ -212,8 +213,10 @@ Sequencer 4.2.3 · JB2A Patreon 0.9.2 (209 styles, 10052 database paths, registe
 PSFX Patreon 0.17.0 on prod as module id `psfx-patreon` (1230 paths, registers `psfx.*`; the sandbox still
 has the free `psfx` 0.16.0 until the next refresh) · Automated
 Animations 7.0.22 and D&D5e Animations 3.3.0 — **installed but switched OFF on the sandbox since
-2026-09-06** (still on on prod until cutover, PLAN §6 phase 5; the migration still needs AA's
-sourcemap, so neither is uninstalled) · dnd5e 5.3.3 on Foundry 14. AA's world settings hold the
+2026-09-06 AND OFF ON PROD** (read off prod 2026-09-10 with `configure-modules.mjs --dry-run`: both
+`active=false`; the user: *"aa is disabled on prod, see for yourself"*) — so FX Studio is the only
+thing playing at the table and the cutover of PLAN §6 phase 5 is a fact, not a phase to come; the
+migration still needs AA's sourcemap, so neither is uninstalled · dnd5e 5.3.3 on Foundry 14. AA's world settings hold the
 1290-row autorec; leave them alone.
 
 ## Prod
