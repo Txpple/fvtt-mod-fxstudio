@@ -1,5 +1,13 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-11, later still — Battle Flow's contract is VERSION 2, a GATE (its repo, the user's "go").**
+> Every resolve publishes now — riders, folds, masteries, shields, spends, receipts, saves, breaks —
+> seventeen words, `kind` / `marker` / `momentId` on the payload, `api.moments.version === 2`. Nothing
+> changed in THIS repo's code: `readMoment` hears the five words it knows and logs the twelve new ones
+> as skips, which is the contract working. What to read, what to play and how to dedupe against the
+> card (`momentId`) is the next commission here, on the user's word — ARCHITECTURE §2 carries the
+> shape. Battle Flow is not released with it yet.
+
 > **2026-09-11, later — Battle Flow's moments landed (both repos, the user's "go"), RELEASED as v0.3.0 and deployed to prod the same day beside Battle Flow v1.38.0.**
 > `readers/battleflow.js` now also READS: Battle Flow publishes `battleflow.moment` (a plain
 > payload, five words) at its resolves that post no card, this module turns it into a moment

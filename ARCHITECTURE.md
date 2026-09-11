@@ -171,6 +171,25 @@ answers a hold (Shield) posts its own usage card, which already plays the `use` 
 fallback would play it twice. `tools/check-moments.mjs` proves the reading and the fallback offline
 (29 rules); `smoke-replay` §16 fires the payload at the table and reads the ledger.
 
+**Battle Flow's contract went to VERSION 2 the same day (2026-09-11, later) — a GATE, every resolve
+published.** Its three hand-placed publishers became a registry over its own message records
+(`decide/moments.js` there): every record that means *something resolved* publishes when it lands,
+so the riders (Dreadful Strike), the d20 folds, the weapon masteries, the damage shields, the chip
+and pool spends, the damage and effect receipts, the save verdicts and concentration breaks all
+fire now. The vocabulary grew from five words to seventeen — `maneuver` · `sneak` · `fold` ·
+`rider` · `hold-answered` · `mastery` · `shield` · `spend` · `damage` · `effect` · `save` · `break`
+· `use` · `cast` · `volley` · `choice` · `metamagic` — and the payload gained **`kind`** (the exact
+record: `clockRiders`, `receipt`, …), **`marker`** and **`momentId`** (`<messageId>|<kind>|<marker>`,
+unique per resolve). `api.moments` is `{ version: 2, events, kinds, hooks }`. ⚠ **What this module
+does with that is ITS MANAGER'S CALL** (the user: *"if it is shown or not, that is up to the manager
+of fx studio"*): `readMoment` hears the five words it knows and logs the twelve new ones as skips,
+correctly, until a reader for them is authored here; `hold-answered` now also arrives for a **pass**
+(`payload.details.answer`), so a reader keyed to it should read the answer. ⚠ **Dedupe against the
+card.** `damage`, `effect`, `spend` and `save` fire for resolves dnd5e ALSO posts a card for (a plain
+weapon hit's receipt, a cast's effect); Battle Flow's contract names `momentId` as the key to dedupe
+on, and this module's ledger id (`<messageId>:<event>`) should become it when those words are read —
+several resolves of one kind can share a message (one `save` per target).
+
 ## 3. Subjects — what acted, by identity, not by name
 
 The user's two bugs are one rule: **a look is keyed by what the thing IS, in a vocabulary dnd5e

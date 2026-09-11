@@ -41,6 +41,11 @@
 //   { event, module, version, actorUuid, actorName, tokenUuid, itemUuid, itemName, activityUuid,
 //     ability, messageId, attackId, targets: [{actorUuid, tokenUuid, name, hit?}], spend, details, at }
 //   event   one of maneuver · sneak · fold · rider · hold-answered — our WHEN words, one for one
+//   ⚠ VERSION 2 (2026-09-11, later): Battle Flow publishes EVERY resolve through a gate over its
+//   records — seventeen words (the five above plus mastery · shield · spend · damage · effect · save ·
+//   break · use · cast · volley · choice · metamagic), and `kind` (the record), `marker`, `momentId`
+//   (`<messageId>|<kind>|<marker>`, unique per resolve — the dedupe key) on the payload. This reader
+//   hears the five it knows and logs the rest as skips; reading more is this module's manager's call.
 //
 // THE SUBJECT: the item's own keys when the item resolves (feature:sneak-attack — so a look authored
 // for the ability answers), then `event:<event>` last, so a look can also be keyed to the moment
