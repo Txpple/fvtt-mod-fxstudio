@@ -14,7 +14,7 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-10): v0.2.0 is RELEASED and ON PROD, the only thing playing at the table (AA off),
+**Status (2026-09-11): v0.3.0 is RELEASED and ON PROD (Battle Flow's moments play; v0.2.0 the day before), the only thing playing at the table (AA off),
 with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
 — it is the handoff. Nothing is owed; the user says what is next.**
 

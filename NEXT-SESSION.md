@@ -1,6 +1,6 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
-> **2026-09-11, later — Battle Flow's moments landed (both repos, the user's "go"; not released).**
+> **2026-09-11, later — Battle Flow's moments landed (both repos, the user's "go"), RELEASED as v0.3.0 and deployed to prod the same day beside Battle Flow v1.38.0.**
 > `readers/battleflow.js` now also READS: Battle Flow publishes `battleflow.moment` (a plain
 > payload, five words) at its resolves that post no card, this module turns it into a moment
 > through the same dispatcher, and a moment whose ability posts no card falls back to the ability's
