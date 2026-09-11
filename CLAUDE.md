@@ -14,9 +14,9 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**Status (2026-09-08): the reset held, and both the UI and the DATA were rebuilt from the user's
-own judgment, a message at a time. Read [NEXT-SESSION.md](NEXT-SESSION.md) — it is the handoff.
-The next session continues on the migrated data.**
+**Status (2026-09-10): v0.2.0 is RELEASED and ON PROD, the only thing playing at the table (AA off),
+with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
+— it is the handoff. Nothing is owed; the user says what is next.**
 
 **The UI redesign that ran off a Claude Design brief is SHELVED, on the user's word:**
 

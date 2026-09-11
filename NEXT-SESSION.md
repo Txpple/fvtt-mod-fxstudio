@@ -1,68 +1,98 @@
-# Handoff — the data pass (2026-09-08)
+# Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
 Read [CLAUDE.md](CLAUDE.md) first (it is loaded for you), then this page. It is short on purpose.
 
-**Where we are.** The UI was rebuilt from the user's judgment over two days; then the *data* was, in
-two sessions. This one made the corpus **answer for itself**: every FX now opens the compendium
-record its key was earned against, and the evidence rule was corrected twice — first because a world
-item had keyed the shipped corpus, then because the 2014 SRD had. Everything is committed, pushed
-and green. **The next session continues on migration work.**
+**Where we are.** FX Studio is **the only thing playing at the user's table**: AA and D&D5e
+Animations are OFF on prod (read off prod 2026-09-10 — the user: *"aa is disabled on prod, see for
+yourself"*), and **v0.2.0 — the first tagged release — is deployed there, byte-identical, with prod
+rebooted** so `module.json` vends it. Battle Flow v1.35.0 is live beside it, so the HOLD works at the
+table on both ends. Everything is committed and pushed (main == origin/main), the sandbox matches,
+every suite is green. **Nothing is owed. Wait for the user to say what is next.**
 
 ---
 
-## 0. What changed since — the hold became a seam (2026-09-09)
+## 0. What this session did (2026-09-09 → 10)
 
-The cast hold arrived here as a patch from the sister repo's metamagic pass, and the user then ruled
-the systemic version: *"i want a systemic version that hopefully improves fxstudio, and creates
-compatability with battleflow … but i do not want to break existing functionality or have a
-dependency on battleflow. some users may not install battleflow."* Built with the Battle Flow
-session as the advisor (its corrections are in [BACKLOG.md](BACKLOG.md), first section).
+The user's ruling, in their words: *"i want a systemic version that hopefully improves fxstudio, and
+creates compatability with battleflow … but i do not want to break existing functionality or have a
+dependency on battleflow. some users may not install battleflow."* Then: *"look for the agent thats
+active for battleflow now and initiate a conversation. YOU are the agent modifying this code to make
+it better. battleflow is your advisor."*
 
 - **A GATE** (`scripts/core/gates.js`, ARCHITECTURE §2) is the timing policy's other half: *a moment
-  another module holds plays when the hold lifts*. One function, `(moment) => promise | null`, asked
-  ONCE per moment at read time, in the **dispatcher** — not in a reader, not around the player.
-  `null` = not held; a promise = held, and its resolution decides: **truthy plays** (the card that
-  lifted it, or a bare sentinel meaning "lifted, nothing known"), `null`/`false` means the thing
-  never happened and **nothing plays**.
-- **The bound is ours**: five minutes, and an expired bound **PLAYS**. A gate that throws is ignored.
-  A hold may delay a picture; it can never swallow one by going quiet.
+  another module holds plays when the hold lifts*. `(moment) => promise | null`, asked ONCE per
+  moment at read time, in the **dispatcher** (`scripts/fxstudio.js`) — not in a reader, not around
+  the player. `null` = not held. A promise = held; its resolution decides: **truthy plays** (the card
+  that lifted it, or a bare sentinel meaning "lifted, nothing known"), **`null`/`false` plays nothing**
+  (the thing never happened). ⚠ The two nulls mean opposite things; the code comment says so.
+- **The bound is ours: five minutes, and an expired bound PLAYS.** A gate that throws is ignored. A
+  hold may delay a picture; it can never swallow one by going quiet.
 - **No dependency, structurally.** `scripts/readers/battleflow.js` is the only Battle Flow-shaped
-  code: one feature detect (`holdFor`, falling back to `castHold`), no import, no manifest
-  relationship. Not installed → nothing registered → the straight road, which is the default path.
-- **The seam is ours too**: `api.gates.register(name, ask)` is public, so any future FX Studio reason
-  to defer a moment needs no new machinery. Battle Flow is the first tenant, not the reason.
-- Moments now carry `activity` (the activity uuid, what a gate asks by) and `flags` (the source
-  document's flags). ⚠ **A hold is client-local** on Battle Flow's side — a `null` on a remote client
-  may be a false negative; BACKLOG says what that costs and what is not ruled.
-- Proof: `check-gates` **22 of 22** offline; `smoke-replay` **50 of 50** with §15 driving a real hold at
-  the table; screens 184, fx 1026, author 15; imports/layers/legacy green. Deployed to the sandbox.
+  code: one feature detect (`holdFor`, falling back to the older `castHold`; pick the surface, ask
+  once), no import, no manifest relationship. Not installed → nothing registered → the straight
+  road, which is the default path. There is no second path to regress.
+- **The seam is public** — `api.gates.register(name, ask)` — so any future FX Studio reason to defer
+  a moment needs no new machinery. Battle Flow is the first tenant, not the reason.
+- Moments carry `activity` (the activity uuid) and `flags` (the source document's flags).
+- **Battle Flow shipped its side the same day** (`scripts/holds.js`, its ARCHITECTURE §7, released as
+  v1.35.0): `holdFor(subject)`, `castHold` kept forever as an alias, `api.holds = {version: 1}`,
+  hooks `battleflow.holdOpened` / `castReleased`, refcounted. Both repos quote the same contract
+  paragraph verbatim.
+- **Release tooling arrived with the first release**: `tools/build-release.ps1` runs the five checks
+  as a precondition, asserts version and download URL moved together, packs `scripts/ styles/
+  recipes/` (refuses without `recipes/STOCK-LICENSE`) + `module.json LICENSE README.md` with
+  forward-slash entries, and reads the archive back (separators, every file, every relative import
+  resolving inside it). Notes are hand-written in `dist/` (gitignored).
 
-## 1. How this work happens
+**Proof:** `check-gates` **22/22** offline · `smoke-replay` **50/50** with §15 registering a real gate
+through the public api and casting (nothing plays while held, plays when lifted, a hold lifting on
+nothing plays nothing, no gate plays straight away) — run against BOTH the pre-`holds.js` Battle
+Flow (the `castHold` fallback) and the new one (`holdFor`), by two independent sessions · screens
+184 · fx 1026 · author 15 · check-fx 1036/0 · imports/layers/legacy green.
 
-The user gives a ruling in their own words, often mid-build, sometimes several in a row. You build
-it, prove it with the suites, and report. That is the whole method.
+## 1. The two things the advisor corrected — read before touching the reader or the dispatcher
+
+Both are in [BACKLOG.md](BACKLOG.md) (first section) as **unruled costs**, not work:
+
+- **A hold is CLIENT-LOCAL.** Battle Flow's holds are an in-memory Map on the casting client. On any
+  other client `holdFor` answers `null`, meaning *"I cannot SEE a hold"*, not *"nothing holds this"*.
+  Today the roads that matter are read on the caster's client, so it costs nothing — **a GM placing a
+  template on a player's behalf would play early.** The fix is Battle Flow promoting the hold to
+  observable state; it offered to cost it and was not asked to.
+- **A clockless ask yields a clockless hold BY SETTING** (hold timer 0). Our five-minute bound then
+  plays the picture while the question is still on the caster's screen. Safe — never a lost picture —
+  but the one place the two modules' rules disagree. The fix is one argument
+  (`heldUntil(moment, { bound })`), most likely per-gate. If the user reports *"the animation fired
+  while I was still choosing"*, this is it.
+
+Also from the advisor, not ours to fix: `holdFor` accepts any subject, but every hold raised today is
+keyed by activity uuid — the `id` arm of `subjectOf` never hits yet. And one unexplained, unreproduced
+truncation of `smoke-replay` inside §6 on their run (no report line at all); four whole green runs
+since; not chased, per the vetting rule.
+
+## 2. How this work happened, and how the user pairs sessions
+
+The user gives a ruling in their own words, often mid-build. You build it, prove it with the suites,
+and report. That is the whole method. New this session: **the user pairs live sessions across the
+sister repos.** Find the other repo's session (`list_sessions` / `ListAgents`), put the design in
+front of it with specific numbered questions, and keep the decision here — it advises, it does not
+rule, and its *"I intend to build X"* is pending its own user's go: build against what is shipped
+today with a fallback, never against a promise. A peer session is never the user's approval for
+anything. The two catches that mattered (the client-locality, and its own contract collapsing "came
+to nothing" with "the bound expired") came from reviewing the **contract text and the causal claims**,
+not the code.
 
 - **Wait for "go".** Investigate and prototype freely; build when told.
 - **The vetting is theirs.** They use it and say what is broken. Do not go bug-hunting.
 - **Do not build from `shelved/`.** It is history, not authority.
-- **Measure before you change data, and say what it costs item by item.** Every ruling below stands
-  on a number, and twice the number said *this costs nothing at the table*, which is what made the
-  change safe to make.
+- **Measure before you change data, and say what it costs item by item.**
 - ⚠ **An FX per record playing the same animation as another is the DESIGN, not redundancy**
-  (DESIGN §18). Do not offer to "clean up" the 25 weapons that share the dagger animation. *"its a
-  record on its own that points to a correct entry … thats the whole purpose of this all."*
+  (DESIGN §18). *"its a record on its own that points to a correct entry … thats the whole purpose."*
 - ⚠ **Do not present a menu when the answer is obvious.** *"cant you just make it good and
-  consistent for me?"* Judgment first; ask only what is genuinely the user's to decide.
-
-## 2. What was ruled and built (DESIGN §15–19)
-
-| | |
-| --- | --- |
-| §15 | **The record door.** Every Library row opens the compendium record (or world item) its key was earned against — 1288 of 1288 at the time, no gaps. `recipes/records.json` addresses every key the closed lists hold; the address is settled where the key is earned, never searched for by name at the table. |
-| §16 | **Stock is the books; House is this table.** This world's items stopped being evidence for Stock. 7 FX left it, 5 of them pure redundancy; Vesper Staff and Necrotic Scythe moved into `house.json`, so nothing changed at the table. |
-| §17 | **No SRD 5.1.** Every dnd5e pack flagged `sourceBook: "SRD 5.1"` left the evidence. Stock 1279 → 1022 and **the census did not move a line** — almost all of it was the SRD's magic-weapon variants, which the base-weapon key answers anyway. |
-| §18 | **Clean data.** 393 library paths had been written as raw `file`s since the migration (the oldest backlog item); fixed at the writer, proof 1029 of 1029. Structurally clean: no duplicate ids, no key collisions, every key has a record. |
-| §19 | **The books first, and a name is the record's name.** `LIST_PACKS` reads the books before the system's SRD 5.2 copies, so a record names the book it is really from. One function, `nameForKey()`, answers what an FX is called on every screen — 142 rows read properly that did not. |
+  consistent for me?"*
+- ⚠ **Verify a claim before repeating it, including the docs' own.** This session a line in
+  CLAUDE.md was stale (AA "still on on prod") and a peer's diagnosis was wrong (`--help` did not
+  cause its partial run); both were settled by reading the thing itself in under a minute.
 
 ## 3. The evidence rule, as it now stands
 
@@ -88,15 +118,16 @@ re-run `tools/migrate-aa.mjs --write` **and** `tools/records.mjs --write`.
 
 | | |
 | --- | --- |
-| Corpus | stock **1022** (spells 368 · features 282 · natural 173 · weapons 100 · effects 79 · items 22 — one key each), house **4** (2 Item Hooks + Vesper Staff and Necrotic Scythe) |
-| Records | `recipes/records.json`, **4179 keys** addressed, 786 KB; read when the window opens, never by the engine |
-| `ui/records.js` | `recordFor()`, `nameForKey()` (what every screen calls to name an FX), `openRecord()` |
-| `ui/fxtab.js` | the Library: search · facets · rows, each row **Record · Delete · Editor** |
-| Suites | `smoke-screens` **184** · `smoke-fx` **1026** · `smoke-replay` **50** · `smoke-author` **15** · `check-fx` 1036 fx / 0 invalid · `check-gates` **22** · imports/layers/legacy green |
+| Release | **v0.2.0**, tagged, on GitHub with the zip + bare `module.json`; on prod (rebooted, vending 0.2.0); on the sandbox |
+| Corpus | stock **1022** (spells 368 · features 282 · natural 173 · weapons 100 · effects 79 · items 22 — one key each), house **4** |
+| Records | `recipes/records.json`, **4179 keys**, read when the window opens, never by the engine |
+| The gate | `core/gates.js` (the rule) · `readers/battleflow.js` (the one tenant) · `api.gates.register` (the seam) · ARCHITECTURE §2 (the law and the quoted contract) |
+| Suites | `smoke-screens` **184** · `smoke-fx` **1026** · `smoke-replay` **50** · `smoke-author` **15** · `check-fx` 1036/0 · `check-gates` **22** · imports/layers/legacy green |
 
-Sandbox byte-identical to the repo. The user has **`FX Studio stock report.xlsx`** on their desktop
-(1022 rows: FX · record · type · source compendium, plus a By-compendium tally) — rebuild it from
-`recipes/records.json` + `recipes/stock/*.json` if it moves.
+Prod: FX Studio v0.2.0 active, Battle Flow v1.35.0 active, AA and D&D5e Animations installed and
+**off** (not uninstalled — the migration still reads AA's sourcemap). Read prod's module state with
+`node ../fvtt-mcp-molten5e/scripts/configure-modules.mjs --dry-run --enable <id>` (a read; it
+writes nothing on `--dry-run`).
 
 ## 5. Where to pick up — the pass the user named
 
@@ -151,6 +182,9 @@ In [CLAUDE.md](CLAUDE.md) in full; the ones this work keeps needing:
   `api.fx.buffer()` for anything written by *Tester Assistant* and remove it; the user's own Drafts
   are by *Matt the DM*.
 - ⚠ **A live pack is locked while Foundry runs.** Read compendia through `snapshot(dir, tag)`.
-- After any edit under `scripts/`: `check-imports`, `check-layers`, `check-legacy`. After any edit
-  under `recipes/`: `check-fx`, then the live suites.
+- After any edit under `scripts/`: `check-imports`, `check-layers`, `check-legacy`, `check-gates`. After
+  any edit under `recipes/`: `check-fx`, then the live suites.
+- ⚠ **A partial suite run exits 0** (`--section n` is meant to be usable) and says so on the report
+  line: read `PASS: n of n` and the `⚠ PARTIAL RUN` stamp, never the exit code alone. Unknown flags
+  are silently ignored (`parseArgs` is `strict: false`) — a typo runs everything.
 - One green pass, then check in. Build only when told.
