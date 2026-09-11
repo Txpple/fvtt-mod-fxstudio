@@ -29,9 +29,10 @@ const SECTIONS = {
   13: 'identity over names: a "Maul of Momentum" plays the maul fx by its base weapon; a Shield spell plays nothing (no bash)',
   14: 'the heal: Cure Wounds plays on its healing roll (dnd5e flags it "healing", not "damage"), on the target when one is aimed and on the caster when none is',
   15: 'the hold: a gate holds a moment — nothing plays while the hold stands, it plays when the hold lifts, a hold that lifts on nothing plays nothing, and with no gate the same cast plays straight away',
+  16: "Battle Flow's moments: a `sneak` payload on battleflow.moment plays Sneak Attack's use look on the dice (the fallback), a moment with no look plays nothing and names its event key, an unknown word is skipped without an error, and hold-answered never falls back",
 };
 const DEPENDS = {};
-const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds'];
+const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack'];
 
 const { plan, pulled, watch } = sectionPlan(SECTIONS, DEPENDS);
 const { f, dispose } = await connectSandbox({ tag: 'replay', watchdogMs: 900_000 });
@@ -293,6 +294,32 @@ try {
         ok('§15 the gate unregisters itself', !api.gates.names().includes('the suite'), api.gates.names().join(', ') || 'none');
         const plain = await rollAttack('Fire Bolt');
         ok('§15 with nothing holding it, the same cast plays straight away', plain.e?.played === true, files(plain.e));
+      }
+      if (want(16)) {
+        // Battle Flow's moments, the other direction (readers/battleflow.js): this suite plays the part
+        // Battle Flow plays when it publishes a resolve that posted no card — a plain payload on the
+        // `battleflow.moment` hook, on the client that resolved it. No Battle Flow is needed to prove it.
+        await aim(false);
+        const sneakItem = item('Sneak Attack');
+        const fire = async (payload) => { const before = api.ledger.length; Hooks.callAll('battleflow.moment', Object.freeze(payload)); await settle(); return api.ledger.length - before; };
+        const base = { module: 'fvtt-mod-battleflow', version: 1, actorUuid: caster.actor.uuid, actorName: caster.actor.name, tokenUuid: caster.document.uuid,
+          itemUuid: sneakItem?.uuid ?? null, itemName: 'Sneak Attack', activityUuid: null, ability: 'Sneak Attack', attackId: 'bf-attack',
+          targets: [{ actorUuid: target.actor.uuid, tokenUuid: target.document.uuid, name: target.name, hit: true }], spend: null, details: { formula: '6d6', picks: [] }, at: Date.now() };
+        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-1' });
+        const e = ledgerFor('bf-sneak-1:sneak');
+        ok("§16 a `sneak` moment plays Sneak Attack's USE look on the dice (the fallback), keyed feature:sneak-attack, the target marked hit", e?.played === true && e?.fx === 'sneak-attack' && e?.key === 'feature:sneak-attack' && e?.when === 'sneak' && e?.targets?.[0]?.hit === true, `${e?.fx} (${e?.key}) when=${e?.when} ${files(e)}`);
+        ok('§16 the ledger keys it by the message and the word, and lists the event key last', e?.keys?.at(-1) === 'event:sneak', JSON.stringify(e?.keys));
+        await fire({ ...base, event: 'fold', itemUuid: null, itemName: null, ability: 'Bardic Inspiration', messageId: 'bf-fold-1' });
+        const fold = ledgerFor('bf-fold-1:fold');
+        ok('§16 a moment with no item and no look plays nothing, and the ledger names its event key', !!fold && !fold.played && fold.keys?.join() === 'event:fold', JSON.stringify({ played: fold?.played, keys: fold?.keys, why: fold?.why }));
+        const errorsBefore = errors.length;
+        const n = await fire({ ...base, event: 'emanation', messageId: 'bf-x' });
+        ok('§16 a word this build does not know is skipped: no ledger entry, no error', n === 0 && errors.length === errorsBefore, `entries=${n} errors=${errors.length - errorsBefore}`);
+        const garbage = await fire({ hello: 'world' });
+        ok('§16 a payload that is not a moment is ignored: no ledger entry, no error', garbage === 0 && errors.length === errorsBefore, `entries=${garbage}`);
+        await fire({ ...base, event: 'hold-answered', messageId: 'bf-held-1' });
+        const held = ledgerFor('bf-held-1:hold-answered');
+        ok("§16 hold-answered does NOT fall back to the use look (the cast's own card already plays it): nothing plays", !!held && !held.played && held.fx === null, JSON.stringify({ played: held?.played, fx: held?.fx, why: held?.why }));
       }
     } finally {
       await setAC(startAC);

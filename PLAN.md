@@ -268,6 +268,12 @@ emanation members gained or lost — can only ever arrive as hooks from it, and 
 shape; fxstudio never reads its internal flags) is parked in [BACKLOG.md](BACKLOG.md). Until it
 lands those abilities play nothing, which is what the no-guessing rule already says.
 
+✅ **Landed 2026-09-11 (both repos, the user's "go"):** Battle Flow publishes `battleflow.moment`
+at three resolves (a maneuver die, Parry, Sneak Attack) and this module reads it
+(`readers/battleflow.js`; ARCHITECTURE §2 *Battle Flow's moments*; `tools/check-moments.mjs`;
+`smoke-replay` §16). Riposte, `shield-paid` and `emanation` stay in BACKLOG until Battle Flow
+publishes them.
+
 ## 6. Phases, each with an exit measurement
 
 **Re-cut 2026-09-06** on the user's ruling to abandon AA's model; phases 0 and 1 stand as built,

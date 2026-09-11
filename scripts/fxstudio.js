@@ -6,7 +6,7 @@ import { MODULE_ID, SETTINGS, carryOverLegacyBuffer, getWorldFx, logging, playin
 import { buildIndex } from './core/corpus.js';
 import { heldUntil, registerGate } from './core/gates.js';
 import { registerReader } from './readers/dnd5e.js';
-import { battleflowGate } from './readers/battleflow.js';
+import { battleflowGate, registerBattleflowReader } from './readers/battleflow.js';
 import { endPicturesOf, play, useSettings } from './engine/render.js';
 import { makeApi } from './api.js';
 import { registerScreens } from './ui/index.js';
@@ -51,10 +51,12 @@ Hooks.once('init', () => {
   // Battle Flow, when the table has it: it holds a cast while its caster answers a question the
   // area raised, and the picture plays when the answer does. Not installed — no gate, no wait.
   registerGate('Battle Flow', battleflowGate);
-  registerReader({
-    dispatch: (moment) => dispatch(moment).catch((e) => console.error('FX Studio |', e)),
-    end: (origin, token) => endPicturesOf(origin, token),
-  });
+  const dispatchSafely = (moment) => dispatch(moment).catch((e) => console.error('FX Studio |', e));
+  registerReader({ dispatch: dispatchSafely, end: (origin, token) => endPicturesOf(origin, token) });
+  // Battle Flow's moments, the other direction (readers/battleflow.js): the resolves that post no
+  // card — a maneuver die, Sneak Attack, a hold answered — published on a hook nobody has to listen
+  // to. Not installed → the hook never fires; the road it takes here is the same dispatcher.
+  registerBattleflowReader({ dispatch: dispatchSafely });
 });
 
 /** the corpora as the module's files hold them; `fresh` reads the server past the browser's cache (after a ship) */

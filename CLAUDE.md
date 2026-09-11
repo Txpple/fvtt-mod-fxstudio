@@ -191,7 +191,7 @@ handoff or a plan — which is the rule the shelved redesign broke.
 - **The suites here** are `tools/smoke-fx.mjs` (every FX builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
   `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
   compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
-  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs`, `check-legacy.mjs` and `check-gates.mjs` (the hold contract) after any edit under `scripts/`; `check-fx.mjs` after any edit under `recipes/`.
+  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs`, `check-legacy.mjs`, `check-gates.mjs` (the hold contract) and `check-moments.mjs` (Battle Flow's moment payloads) after any edit under `scripts/`; `check-fx.mjs` after any edit under `recipes/`.
   ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
   before measuring anything from it (the suite's `moveTo`).
 - **Suites** go in `tools/` and use the MCP repo's Foundry client
@@ -240,9 +240,11 @@ public API only — presets, custom sections, our own database namespace — nev
 
 ## Battle Flow relationship
 
-Zero dependency either way. Battle Flow will emit a small set of public hooks at its resolve
-points (its own commission, in its repo, walked and batteried there); fxstudio listens and never
-reads Battle Flow's internal message flags. Anything that is a rule of the game belongs to Battle
+Zero dependency either way. Battle Flow emits a small set of public hooks at its resolve
+points (`battleflow.moment`, a plain payload, five words — its ARCHITECTURE §7 *The moment events*,
+built 2026-09-11); fxstudio listens in `readers/battleflow.js` and never reads Battle Flow's
+internal message flags. Not installed → the hook never fires; the hold gate answers null. Both are
+feature-detected, neither is required, neither is in the manifest. Anything that is a rule of the game belongs to Battle
 Flow; anything that is a platform fix belongs to Misc Patches; this module only plays pictures
 and sounds.
 

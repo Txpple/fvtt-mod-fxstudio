@@ -19,11 +19,35 @@
 // (core/gates.js). That is the timing policy's other half and nothing here needs to know about it —
 // a moment is the same record held or not.
 
-/** the closed vocabulary of moment kinds; phase 4 adds the outcomes and the table's events */
-export const WHEN = ['use', 'effect'];
+/**
+ * The closed vocabulary of moment kinds; phase 4 adds the outcomes and the table's events. The five
+ * after `effect` are BATTLE FLOW'S MOMENTS (readers/battleflow.js, 2026-09-11): the resolves that
+ * exist only in its rules and post no card of their own — a maneuver die riding a hit or answering
+ * a hold, Sneak Attack's dice, a die folded into a d20 test, a clock rider's damage, a held roll
+ * answered by a cast. The words are Battle Flow's contract (`api.moments.events`), one for one.
+ */
+export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
 
 /** what the sentence says for each kind */
-export const WHEN_WORDS = { use: 'when used', effect: 'while the effect stands' };
+export const WHEN_WORDS = {
+  use: 'when used',
+  effect: 'while the effect stands',
+  maneuver: 'when its maneuver die rides',
+  sneak: 'when Sneak Attack rides',
+  fold: 'when its die folds into a roll',
+  rider: 'when its damage rides a hit',
+  'hold-answered': 'when it answers a held roll',
+};
+
+/**
+ * A Battle Flow moment whose ability never posts a card falls back to the ability's `use` look when
+ * no look names the moment's own word (engine/render.js resolveMoment): the picture for "Sneak
+ * Attack, used" IS the picture for Sneak Attack's dice riding a hit, and a table that authored one
+ * for the card gets it on the dice with nothing to write. `hold-answered` is NOT here on purpose: a
+ * cast that answers a hold (Shield) posts its own usage card, which already plays the `use` look —
+ * a fallback would play it twice.
+ */
+export const FALLS_BACK_TO_USE = ['maneuver', 'sneak', 'fold', 'rider'];
 
 /** every target that was hit; a moment with no verdict (a use, a save) counts every target as hit */
 export const hitTargets = (moment) => (moment.targets ?? []).filter((t) => t.hit !== false);

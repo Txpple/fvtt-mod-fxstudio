@@ -1,5 +1,13 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-11, later — Battle Flow's moments landed (both repos, the user's "go"; not released).**
+> `readers/battleflow.js` now also READS: Battle Flow publishes `battleflow.moment` (a plain
+> payload, five words) at its resolves that post no card, this module turns it into a moment
+> through the same dispatcher, and a moment whose ability posts no card falls back to the ability's
+> `use` look (so Sneak Attack's migrated look plays on the dice with nothing authored). ARCHITECTURE
+> §2 *Battle Flow's moments*, `tools/check-moments.mjs` (29/29), `smoke-replay` §16. Nothing is
+> released on either side; the sandbox carries both. The rest of this page stands as written.
+
 Read [CLAUDE.md](CLAUDE.md) first (it is loaded for you), then this page. It is short on purpose.
 
 **Where we are.** FX Studio is **the only thing playing at the user's table**: AA and D&D5e

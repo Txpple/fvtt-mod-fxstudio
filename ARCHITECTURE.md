@@ -87,10 +87,11 @@ A moment is a plain record every reader produces the same way:
 { when, subject, source, targets: [{token, outcome?}], place?, tie?, id, user }
 ```
 
-- `when` is one of a closed vocabulary. Now: `use`, `effect`. Phase 4 adds the outcomes and
-  events: `hit`, `miss`, `saved`, `failed-save`, `damaged` (with the damage type), `healed`,
-  `status` (on and off), `downed`, `critical`, `fumble`, and Battle Flow's moments (`riposte`,
-  `shield-paid`, `hold-answered`, `maneuver`, `fold`, `emanation`), plus core's (`turn-start`,
+- `when` is one of a closed vocabulary. Now: `use`, `effect`, and **Battle Flow's five** (built
+  2026-09-11, below): `maneuver`, `sneak`, `fold`, `rider`, `hold-answered`. Phase 4 adds the
+  outcomes and events: `hit`, `miss`, `saved`, `failed-save`, `damaged` (with the damage type),
+  `healed`, `status` (on and off), `downed`, `critical`, `fumble`, the rest of Battle Flow's
+  (`riposte`, `shield-paid`, `emanation` — when it publishes them), plus core's (`turn-start`,
   `combat-start`, `rest`). Each is a word a sentence can use.
 - `subject` is what acted, with its identity keys (§3).
 - `source` is the acting token; `targets` the targeted tokens, each with its outcome when the
@@ -137,6 +138,38 @@ Battle Flow-shaped code in the module: one feature detect (`holdFor`, falling ba
 `castHold`), no import, no manifest relationship, nothing required. Battle Flow's side of the
 contract is its `scripts/holds.js` and its ARCHITECTURE §7; `api.holds.version` tells the two
 contracts apart if it is ever needed, and `castHold` is kept there for good.
+
+**Battle Flow's moments — the other direction (2026-09-11).** The hold tells this table *not yet*;
+Battle Flow's moment events tell it *now, and here is what*. An ability used through one of Battle
+Flow's own popups posts no dnd5e card — a maneuver die rides the damage roll, Parry rides the hold's
+answer, Sneak Attack's dice write a record on a message that already exists — so the dnd5e reader
+never sees it, though the same ability used from the sheet would play. Battle Flow publishes a
+Foundry hook at the resolve, **`battleflow.moment`** (and `battleflow.<event>` beside it), with a
+**plain payload** — uuids and ids, never documents, never its flag shape — on the client that
+resolved the moment. The user's ruling: *"from the battleflow perspective, no real dependency because
+fx studio is optional. events would just fail silently … from the fx studio, it does its normal card
+processing, but should have an additional event hook to accept battleflow pushes like sneakattack."*
+
+> `readers/battleflow.js` `readMoment(payload)` turns the payload into a moment — `when` is the
+> event's word; the subject is the **item's own keys** when the item resolves (`feature:sneak-attack`,
+> so a look authored for the ability answers) with **`event:<word>` last** (so a look can be keyed to
+> the moment itself); source and targets are the tokens the payload names, `hit` carried when known;
+> `id` is `<messageId>:<event>` (the same message may also carry a `use`); `flags` is **empty by
+> contract** (no Battle Flow flag is read — the payload rides as `event` for a gate or a tool). It goes
+> to the **same dispatcher** as every other reader: the gates are asked, the play switch is honoured,
+> the ledger keeps it. Not installed → the hook never fires → nothing runs. A word this build does not
+> know is a logged skip, so a newer Battle Flow never throws here.
+
+**The fallback, ruled with it:** a Battle Flow moment whose ability posts **no card of its own**
+(`maneuver`, `sneak`, `fold`, `rider` — `core/moments.js` `FALLS_BACK_TO_USE`) is answered by the
+ability's **`use` look** when nothing names the moment's own word (`engine/render.js`
+`resolveMoment`): the picture for "Sneak Attack, used" *is* the picture for Sneak Attack's dice
+riding a hit, so a table that authored one for the card gets it on the dice with nothing to write —
+the migration's feature looks included. The word wins when it is authored; an `off` on the word is
+a silence, never fallen past. `hold-answered` does **not** fall back, on purpose: a cast that
+answers a hold (Shield) posts its own usage card, which already plays the `use` look, and a
+fallback would play it twice. `tools/check-moments.mjs` proves the reading and the fallback offline
+(29 rules); `smoke-replay` §16 fires the payload at the table and reads the ledger.
 
 ## 3. Subjects — what acted, by identity, not by name
 

@@ -1,7 +1,7 @@
 // The renderer: one FX against one moment → one Sequence, scene by scene, through the nine
 // shapes; plays it on the client that owns the moment; keeps the ledger the suites and the Check
 // screen read. Nothing here knows what a menu, a preset or an option blob was.
-import { describe } from '../core/moments.js';
+import { describe, FALLS_BACK_TO_USE } from '../core/moments.js';
 import { resolve } from '../core/corpus.js';
 import { SEQUENCE_OPTIONS, contextFor } from './common.js';
 import * as strike from './shapes/strike.js';
@@ -49,9 +49,18 @@ export function build(fx, moment) {
   return { seq: empty ? null : seq, ctx };
 }
 
-/** the FX that answers a moment, through the corpus index */
+/**
+ * The FX that answers a moment, through the corpus index. A Battle Flow moment whose ability posts
+ * no card of its own (core/moments.js FALLS_BACK_TO_USE) is answered by its `use` look when nothing
+ * names the moment's own word — the word wins when it is authored, and an `off` on it is honoured.
+ */
 export function resolveMoment(index, moment) {
-  return resolve(index, moment.subject?.keys ?? [], moment.when, { hasPlace: !!moment.place, pointer: moment.subject?.pointer ?? null });
+  const opts = { hasPlace: !!moment.place, pointer: moment.subject?.pointer ?? null };
+  const keys = moment.subject?.keys ?? [];
+  const own = resolve(index, keys, moment.when, opts);
+  if (own.fx || own.off || !FALLS_BACK_TO_USE.includes(moment.when)) return own;
+  const fallback = resolve(index, keys, 'use', opts);
+  return fallback.fx ? { ...fallback, fellBackFrom: moment.when } : own;
 }
 
 /**

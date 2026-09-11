@@ -150,10 +150,16 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
   for one item only" (an off look needs a key; one item's silence is a look with no scenes, not yet
   offered); the migration's technical notes on the seven house looks show as written.
 - Phase 4: the core reader (statuses, combat, movement) and the outcome FX, on dnd5e and core alone.
-- **Battle Flow's hooks (ruled backlog 2026-09-06: "yes battleflow is backlog").** The moments that
-  exist only in Battle Flow's rules — Riposte, a held Shield, a maneuver die spent, a shield paid,
-  a fold, emanation members gained or lost — need Battle Flow to emit public hooks with plain
-  payloads at its resolve points (its own commission, in its repo; no dependency, no setting, no
-  flag shape; fxstudio never reads its internal flags). Parked until the user wants those moments
-  to play; until then those abilities play nothing, per the no-guessing rule. PLAN §5.
+- ~~**Battle Flow's hooks (ruled backlog 2026-09-06: "yes battleflow is backlog").**~~ ✅ **BUILT
+  2026-09-11 on the user's word ("go"), both halves the same day.** Battle Flow publishes
+  `battleflow.moment` with a plain payload at three resolves (a maneuver die on the hit menu, Parry
+  at the hold's answer, Sneak Attack's dice) under a closed vocabulary of five words (`maneuver`,
+  `sneak`, `fold`, `rider`, `hold-answered`; `fold` and `rider` named, not yet published); this
+  module reads it in `readers/battleflow.js` through the same dispatcher, with the `use`-look
+  fallback for the four that post no card (ARCHITECTURE §2 *Battle Flow's moments*). Still parked
+  here, waiting on Battle Flow publishing them: Riposte (its attack already posts an attack roll and
+  plays), `shield-paid`, `emanation` members gained or lost. The survey that led here: the moments
+  that exist only in Battle Flow's rules need Battle Flow to emit public hooks with plain payloads
+  at its resolve points (no dependency, no setting, no flag shape; fxstudio never reads its internal
+  flags). PLAN §5.
 - Phase 5: cutover.

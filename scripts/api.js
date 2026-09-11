@@ -10,6 +10,7 @@ import { keyLabel, keysFor, keyWords } from './core/subjects.js';
 import { build, ledger, play, resolveMoment } from './engine/render.js';
 import { coloursOf, database, familyOf, recoloured, resolveAsset, search } from './engine/assets.js';
 import { readEffect, readMessage, readRegion, subjectOfEffect, subjectOfItem } from './readers/dnd5e.js';
+import { readMoment } from './readers/battleflow.js';
 import { MODULE_ID, getWorldFx, setWorldFx } from './settings.js';
 import { TO_WORDS, stockFile, nextVersions, pending, ship, stage, erase } from './ship.js';
 
@@ -231,7 +232,7 @@ export function makeApi(state) {
     open,
     build,
     play: (moment, opts) => play(state.index, moment, opts),
-    read: { message: readMessage, region: readRegion, effect: readEffect },
+    read: { message: readMessage, region: readRegion, effect: readEffect, battleflow: readMoment },
     rebuild: () => state.rebuild(),
     /** the records: read once (resolves true when the map is here), the map as it is, and whether it is here */
     records: { read: readRecords, map: () => records, ready: () => !!records },
