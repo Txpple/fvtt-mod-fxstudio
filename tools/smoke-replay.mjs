@@ -320,6 +320,16 @@ try {
         await fire({ ...base, event: 'hold-answered', messageId: 'bf-held-1' });
         const held = ledgerFor('bf-held-1:hold-answered');
         ok("§16 hold-answered does NOT fall back to the use look (the cast's own card already plays it): nothing plays", !!held && !held.played && held.fx === null, JSON.stringify({ played: held?.played, fx: held?.fx, why: held?.why }));
+        // contract v2 (2026-09-11): Battle Flow publishes `use` and `effect` too — the card and the
+        // effect the dnd5e reader already plays from. Off the hook they are skips, never a second picture.
+        const useN = await fire({ ...base, event: 'use', messageId: 'bf-use-1', momentId: 'bf-use-1|bashOffer|whole' });
+        const effectN = await fire({ ...base, event: 'effect', messageId: 'bf-effect-1', momentId: 'bf-effect-1|effectReceipt|t|e' });
+        ok('§16 `use` and `effect` off the hook are skipped: the card and the effect reader already play them, no ledger entry, no error', useN === 0 && effectN === 0 && errors.length === errorsBefore, `entries=${useN + effectN} errors=${errors.length - errorsBefore}`);
+        // the ticket: one resolve, one picture on this client, however many times the payload arrives
+        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-2', momentId: 'bf-sneak-2|sneakAttack|whole' });
+        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-2', momentId: 'bf-sneak-2|sneakAttack|whole' });
+        const twice = api.ledger.filter((x) => x.id === 'bf-sneak-2:sneak');
+        ok('§16 the same momentId arriving twice plays ONCE; the second is in the ledger as already played', twice.length === 2 && twice.filter((x) => x.played).length === 1 && twice.some((x) => /already played/.test(x.why ?? '')), JSON.stringify(twice.map((x) => ({ played: x.played, why: x.why }))));
       }
     } finally {
       await setAC(startAC);

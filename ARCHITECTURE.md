@@ -190,6 +190,21 @@ weapon hit's receipt, a cast's effect); Battle Flow's contract names `momentId` 
 on, and this module's ledger id (`<messageId>:<event>`) should become it when those words are read —
 several resolves of one kind can share a message (one `save` per target).
 
+**The debt paid the same day (2026-09-11, v0.3.1 — the user: *"i dont mind paying the debt now"*).**
+Two of the twelve "new" words were not skips at all: `use` and `effect` are moment kinds here, and
+`readMoment` gated on WHEN, so Battle Flow's `use` (a bash offer answered) and `effect` (every effect
+receipt landing, and every revert) passed the filter and dispatched against the item's keys — the
+second picture the paragraph above warns of, live, for any ability with an `effect` look and a
+receipt. Two things, nothing else: **the reader hears `BATTLEFLOW_WORDS`** (core/moments.js — the
+five, a closed list of its own, never WHEN; a word joins it only with a reader that knows what the
+table should see), and **a ticket plays once**: `momentId` rides on the moment and
+`engine/render.js` `firstTime()` remembers the last 500 on this client, so a resolve that reaches
+the dispatcher twice is one picture and a ledger line that says *already played*. A moment with no
+ticket — every dnd5e card, a v1 Battle Flow — is always new. Inert until a word that sits beside a
+card is read on purpose; when one is, the ticket check is already there. Proof: check-moments
+38/38, smoke-replay §16 8/8 (`use` and `effect` off the hook: no ledger entry; the same momentId
+twice: played once).
+
 ## 3. Subjects — what acted, by identity, not by name
 
 The user's two bugs are one rule: **a look is keyed by what the thing IS, in a vocabulary dnd5e

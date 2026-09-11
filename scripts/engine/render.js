@@ -18,6 +18,19 @@ export const SHAPES = { strike, shoot, mark, fill, aura, beam, move, sound, cust
 
 const LEDGER_MAX = 100;
 export const ledger = [];
+// THE TICKETS. A Battle Flow resolve carries a momentId unique to it (readers/battleflow.js); a
+// ticket plays once on this client, however many roads carry it here. Bounded like the ledger.
+const TICKETS_MAX = 500;
+const tickets = new Set();
+/** true the first time a ticket is seen, false after — a moment with no ticket is always new */
+export function firstTime(moment) {
+  const id = moment?.momentId;
+  if (!id) return true;
+  if (tickets.has(id)) return false;
+  tickets.add(id);
+  if (tickets.size > TICKETS_MAX) tickets.delete(tickets.values().next().value);
+  return true;
+}
 const log = (...a) => console.log('FX Studio |', ...a);
 let settings = { playing: () => true, logging: () => false };
 export function useSettings(s) { settings = { ...settings, ...s }; }
@@ -73,6 +86,7 @@ export async function play(index, moment, { dryRun = false, fx: given = null } =
   const d = describe(moment);
   const base = { when: d.when, subject: d.subject, keys: d.keys, id: d.id, targets: d.targets, place: d.place, files: [], sounds: [] };
   if (!dryRun && !settings.playing()) return record({ ...base, fx: null, why: 'playing is switched off' });
+  if (!dryRun && !firstTime(moment)) return record({ ...base, fx: null, why: `already played (ticket ${moment.momentId})` });
   const found = given ? { fx: given, key: given.for?.[0] ?? null, source: 'given' } : resolveMoment(index, moment);
   if (!found.fx) return record({ ...base, fx: null, why: found.why ?? 'no FX in any corpus', key: found.key ?? null });
   const { fx, key, source } = found;

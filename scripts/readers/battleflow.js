@@ -45,14 +45,17 @@
 //   records — seventeen words (the five above plus mastery · shield · spend · damage · effect · save ·
 //   break · use · cast · volley · choice · metamagic), and `kind` (the record), `marker`, `momentId`
 //   (`<messageId>|<kind>|<marker>`, unique per resolve — the dedupe key) on the payload. This reader
-//   hears the five it knows and logs the rest as skips; reading more is this module's manager's call.
+//   hears the five in core/moments.js BATTLEFLOW_WORDS and logs the rest as skips — INCLUDING `use`
+//   and `effect`, which are moment kinds here but name what the dnd5e reader already plays. The
+//   momentId rides on the moment; engine/render.js plays a ticket once, so a word read beside a card
+//   can be taken later without a second picture.
 //
 // THE SUBJECT: the item's own keys when the item resolves (feature:sneak-attack — so a look authored
 // for the ability answers), then `event:<event>` last, so a look can also be keyed to the moment
 // itself; with no item, the event key alone. WHEN is the event's word; a moment whose ability posts no
 // card falls back to the ability's `use` look (core/moments.js FALLS_BACK_TO_USE, engine/render.js).
 import { keysFor } from '../core/subjects.js';
-import { WHEN } from '../core/moments.js';
+import { BATTLEFLOW_WORDS } from '../core/moments.js';
 import { subjectOfItem, tokenForActorUuid } from './dnd5e.js';
 
 const MODULE = 'fvtt-mod-battleflow';
@@ -79,7 +82,7 @@ const LIVE = {
  */
 export function readMoment(payload, resolve = LIVE) {
   if (!payload || typeof payload !== 'object' || typeof payload.event !== 'string') return null;
-  if (!WHEN.includes(payload.event)) return { skip: `"${payload.event}" is not a moment kind this build knows` };
+  if (!BATTLEFLOW_WORDS.includes(payload.event)) return { skip: `"${payload.event}" is not a Battle Flow word this build reads` };
   const item = payload.itemUuid ? resolve.item(payload.itemUuid) : null;
   const subject = item ? subjectOfItem(item, { activity: null }) : { kind: 'event', name: payload.ability ?? payload.event, eventId: payload.event, keys: [] };
   if (!item) subject.keys = keysFor(subject);
@@ -100,6 +103,7 @@ export function readMoment(payload, resolve = LIVE) {
     origin: item?.uuid ?? `battleflow.${payload.event}`,
     id: `${payload.messageId ?? payload.at ?? 'battleflow'}:${payload.event}`,
     activity: payload.activityUuid ?? null,
+    momentId: typeof payload.momentId === 'string' ? payload.momentId : null,
     // no Battle Flow flag is read, by contract; the payload rides for a gate or a tool that wants the plain facts
     flags: {}, event: payload,
     user: resolve.user(),

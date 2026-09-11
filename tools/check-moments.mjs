@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { REPO } from './lib/env.mjs';
 
 const { readMoment } = await import(toUrl(join(REPO, 'scripts/readers/battleflow.js')));
-const { WHEN, FALLS_BACK_TO_USE, WHEN_WORDS } = await import(toUrl(join(REPO, 'scripts/core/moments.js')));
+const { WHEN, BATTLEFLOW_WORDS, FALLS_BACK_TO_USE, WHEN_WORDS } = await import(toUrl(join(REPO, 'scripts/core/moments.js')));
 const { buildIndex } = await import(toUrl(join(REPO, 'scripts/core/corpus.js')));
 const { resolve } = await import(toUrl(join(REPO, 'scripts/core/corpus.js')));
 
@@ -68,15 +68,26 @@ is('a target that is gone is dropped, the moment stands', missingTarget?.targets
 console.log('\nwhat is refused');
 is('a payload that is not one: null', readMoment(null, world), null);
 is('a payload with no event: null', readMoment({ actorUuid: 'Actor.rogue' }, world), null);
-is('a word this build does not know: a skip, so a newer Battle Flow never throws here', readMoment(payload({ event: 'emanation' }), world)?.skip?.startsWith('"emanation" is not a moment kind'), true);
+is('a word this build does not know: a skip, so a newer Battle Flow never throws here', readMoment(payload({ event: 'emanation' }), world)?.skip?.startsWith('"emanation" is not a Battle Flow word'), true);
+is('the words read are a closed list of their own, every one a moment kind', BATTLEFLOW_WORDS.every((w) => WHEN.includes(w)), true);
+is('`use` off the hook is a skip: the card already plays it', typeof readMoment(payload({ event: 'use' }), world)?.skip, 'string');
+is('`effect` off the hook is a skip: the effect reader already plays it (and a revert would play it again)', typeof readMoment(payload({ event: 'effect' }), world)?.skip, 'string');
+is('the momentId rides on the moment', readMoment(payload({ momentId: 'msgDamage|sneak|whole' }), world)?.momentId, 'msgDamage|sneak|whole');
+is('no momentId (a v1 Battle Flow): null, never undefined', readMoment(payload(), world)?.momentId, null);
 
 console.log('\nthe fallback, through the corpus index');
 const index = buildIndex({
   stock: [{ id: 'sneak-attack', for: ['feature:sneak-attack'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'jb2a.sneak_attack.dark_green' } }] }],
   house: [], world: [], starters: [],
 });
-const { resolveMoment } = await import(toUrl(join(REPO, 'scripts/engine/render.js'))).catch(() => ({ resolveMoment: null }));
+const { resolveMoment, firstTime } = await import(toUrl(join(REPO, 'scripts/engine/render.js'))).catch(() => ({ resolveMoment: null }));
 if (resolveMoment) {
+  console.log('\nthe tickets');
+  const ticketed = readMoment(payload({ momentId: 'msgDamage|sneak|whole' }), world);
+  is('a ticket plays the first time', firstTime(ticketed), true);
+  is('and never a second time on this client', firstTime(ticketed), false);
+  is('a different ticket is new', firstTime(readMoment(payload({ momentId: 'msgDamage|rider|whole' }), world)), true);
+  is('a moment with no ticket is always new (the card readers, a v1 Battle Flow)', firstTime(m) && firstTime(m), true);
   const r = resolveMoment(index, m);
   is('a sneak moment with only a use look plays the use look', r?.fx?.id, 'sneak-attack');
   is('and says it fell back', r?.fellBackFrom, 'sneak');

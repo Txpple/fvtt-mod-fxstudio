@@ -1,5 +1,14 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-11, last — the dedupe debt is PAID, v0.3.1, on prod (the user: *"i dont mind paying the
+> debt now … go … push and release and deploy to prod"*).** The note below said `readMoment` skipped
+> the twelve new words; it did not — `use` and `effect` are WHEN words and passed the filter, so
+> Battle Flow's effect receipts (and reverts) would have replayed any ability's `effect` look beside
+> the dnd5e effect reader. Now: the reader hears `BATTLEFLOW_WORDS` (core/moments.js, the five, a
+> closed list of its own), and a `momentId` ticket plays once per client (engine/render.js
+> `firstTime`). ARCHITECTURE §2 carries it. Reading more words is still a design call per word, on
+> the user's word — the ticket check is already there for the ones that sit beside a card.
+
 > **2026-09-11, later still — Battle Flow's contract is VERSION 2, a GATE (its repo, the user's "go").**
 > Every resolve publishes now — riders, folds, masteries, shields, spends, receipts, saves, breaks —
 > seventeen words, `kind` / `marker` / `momentId` on the payload, `api.moments.version === 2`. Nothing

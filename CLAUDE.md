@@ -243,8 +243,9 @@ public API only — presets, custom sections, our own database namespace — nev
 Zero dependency either way. Battle Flow emits a small set of public hooks at its resolve
 points (`battleflow.moment`, a plain payload — its ARCHITECTURE §7 *The moment events*, built
 2026-09-11; **version 2 the same day is a GATE over its records: seventeen words, `kind` / `momentId`
-on the payload, every resolve published** — this module reads the five words it knows and skips the
-rest until its manager authors readers, ARCHITECTURE §2); fxstudio listens in `readers/battleflow.js` and never reads Battle Flow's
+on the payload, every resolve published** — this module reads `BATTLEFLOW_WORDS`, a closed list of
+five, and skips the rest INCLUDING `use` and `effect`, which the card readers already play; a
+`momentId` ticket plays once per client (v0.3.1, 2026-09-11), ARCHITECTURE §2); fxstudio listens in `readers/battleflow.js` and never reads Battle Flow's
 internal message flags. Not installed → the hook never fires; the hold gate answers null. Both are
 feature-detected, neither is required, neither is in the manifest. Anything that is a rule of the game belongs to Battle
 Flow; anything that is a platform fix belongs to Misc Patches; this module only plays pictures

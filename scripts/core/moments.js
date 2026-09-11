@@ -28,6 +28,16 @@
  */
 export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
 
+/**
+ * The Battle Flow words this build READS (readers/battleflow.js) — a closed list of its own, not
+ * WHEN. Battle Flow's contract v2 (2026-09-11) publishes seventeen words, and two of the rest, `use`
+ * and `effect`, are also moment kinds here: they name the card and the effect the dnd5e reader
+ * already plays from, so hearing them off the hook would play the same picture twice (the effect
+ * receipt lands a beat after the effect is created; a revert would land it a third time). A word is
+ * added here only with a reader that knows what the table should see for it.
+ */
+export const BATTLEFLOW_WORDS = ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
+
 /** what the sentence says for each kind */
 export const WHEN_WORDS = {
   use: 'when used',
