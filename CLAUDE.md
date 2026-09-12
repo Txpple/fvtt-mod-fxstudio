@@ -206,7 +206,7 @@ handoff or a plan — which is the rule the shelved redesign broke.
 - **The suites here** are `tools/smoke-fx.mjs` (every FX builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
   `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
   compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
-  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs`, `check-legacy.mjs`, `check-gates.mjs` (the hold contract) and `check-moments.mjs` (Battle Flow's moment payloads) after any edit under `scripts/`; `check-fx.mjs` after any edit under `recipes/`.
+  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs`, `check-legacy.mjs`, `check-gates.mjs` (the hold contract), `check-moments.mjs` (Battle Flow's moment payloads), `check-engine.mjs` (every shape, place and the play path on the offline stage) and `check-reader.mjs` (the dnd5e reader's timing policy on a stand-in world) after any edit under `scripts/`; `check-fx.mjs` and `check-build.mjs` (every FX builds offline) after any edit under `recipes/`. The nine are the release gate (`build-release.ps1`). Built 2026-09-12; the stand-ins live in `tools/lib/stage.mjs` and `world.mjs`, which is where a data-model change lands first.
   ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
   before measuring anything from it (the suite's `moveTo`).
 - **Suites** go in `tools/` and use the MCP repo's Foundry client

@@ -454,6 +454,9 @@ reads fifty sentences and keeps the ones that read right.
 | `migrate-aa.mjs` | one-time | AA's corpus into looks, the family expansions, the oracle proof (§6.2), the asset nativisation count (§6.3), the census, the report |
 | `check-fx.mjs` | offline, seconds | every look validates; every asset resolves against the libraries' registration and the disk |
 | `check-imports.mjs`, `check-layers.mjs` | offline | every module loads; every import points down the layer order |
+| `check-engine.mjs` | offline, a second | the engine's contract with the sentence (§5): every place word, every shape knob by knob as the Sequencer calls it makes, the build path, resolving a moment, the play path — on the stage with a recording Sequence and a fake library |
+| `check-reader.mjs` | offline, a second | the dnd5e reader's timing policy (§2) on a stand-in world: when a use fires, the verdict per target, the subject's keys (§3), templates, effects, who plays, the hooks |
+| `check-build.mjs` | offline, two seconds | every FX in the corpus builds through the engine against a fitted moment, assets resolved — `smoke-fx`'s proof with nothing running |
 | `check-gates.mjs` | offline, a second | the gate contract (§2): not held, held, held-and-came-to-nothing, a gate that throws, a bound that expires plays, asked once; and the Battle Flow gate with Battle Flow absent, disabled, old and current |
 | `census.mjs` | offline or live | every subject in the world and the compendia → which look answers, what plays nothing |
 | `assets.mjs` | offline | the catalogue search |
@@ -464,7 +467,7 @@ reads fifty sentences and keeps the ones that read right.
 | `check-legacy.mjs` | offline | no Automated Animations vocabulary in `scripts/` or `recipes/` (§0's mechanical half) |
 | `pull-corpus.mjs` | offline | the corpus files the game wrote (Save writes them in the module folder on the server) brought into the repo |
 
-All of these exist as of phase 2 (2026-09-06); tools/README.md is the reference.
+All of these exist as of phase 2 (2026-09-06; the engine, reader and build checks 2026-09-12); tools/README.md is the reference. The offline checks stand on three small libraries — `tools/lib/check.mjs` (the harness), `stage.mjs` (the canvas and Sequencer stand-ins) and `world.mjs` (the dnd5e stand-ins) — which are the one place a data-model change is spelt out for them.
 
 ## 9. What changes for the user, and what does not
 

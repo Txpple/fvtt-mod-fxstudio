@@ -5,6 +5,10 @@
 //
 //   install({dbs})       sets the globals (canvas, game, ui, Sequencer, Sequence, Item, CONFIG, fromUuidSync)
 //   token({...})         a stand-in Token placeable; region({...}) a stand-in placed-template Region
+//   table()              the canonical layout every offline proof stands on: a caster, a target
+//                        adjacent, one six squares away, one below, and a template of each type
+//   sections(seq)        a recorded sequence read back: [{kind, get(method), all(method), has(method)}]
+//   click(x, y)          a left click on the stage, for a move's picker (canvas.app.stage remembers listeners)
 //   standing             the list Sequencer.EffectManager.getEffects answers from (empty by default)
 import { filesUnder, nodeAt, resolvePath } from './libraries.mjs';
 import { ROOTS } from './env.mjs';
@@ -20,7 +24,7 @@ function section(kind, sequence) {
   const proxy = new Proxy(rec, {
     get(t, p) {
       if (p in t) return t[p];
-      if (p === 'then' || typeof p === 'symbol') return undefined;
+      if (p === 'then' || p === 'toJSON' || typeof p === 'symbol') return undefined; // a promise probe or JSON's probe is not a call
       if (p === 'constructor') return { name: kind === 'sound' ? 'SoundSection' : kind === 'effect' ? 'EffectSection' : 'AnimationSection' };
       // a section method that starts another section (AA chains seq.effect().file(...).then more)
       if (p === 'effect' || p === 'sound' || p === 'animation' || p === 'thenDo' || p === 'wait' || p === 'play') return (...args) => sequence[p](...args);
@@ -99,7 +103,8 @@ export function install({ dbs = {} } = {}) {
     },
     dimensions: { size: GRID, distance: DISTANCE, distancePixels: GRID / DISTANCE },
     scene: { id: 'stage', grid: { type: 1 }, regions: new Map(), deleteEmbeddedDocuments: async () => [] },
-    app: { stage: { addListener() {}, removeListener() {} } },
+    app: { stage: { listeners: new Map(), addListener(name, fn) { this.listeners.set(name, fn); }, removeListener(name) { this.listeners.delete(name); } } },
+    ready: false,
     tokens: { get: () => null, controlled: [] },
   };
   globalThis.game = {
@@ -131,4 +136,39 @@ export function install({ dbs = {} } = {}) {
     Helpers: { random_int_between: (a, b) => Math.floor((a + b) / 2) },
   };
   return db;
+}
+
+/** the canonical table: a caster at (500,500), Near one square right, Far six squares right, Other one square down; a template of each type */
+export function table() {
+  const caster = token({ id: 'caster', name: 'Caster', x: 500, y: 500 });
+  const near = token({ id: 'near', name: 'Near', x: 600, y: 500 });
+  const far = token({ id: 'far', name: 'Far', x: 1100, y: 500 });
+  const other = token({ id: 'other', name: 'Other', x: 500, y: 600 });
+  const regions = {
+    circle: region({ id: 'circle', type: 'circle', distance: 20, x: 1100, y: 500 }),
+    cone: region({ id: 'cone', type: 'cone', distance: 15, x: 600, y: 550 }),
+    line: region({ id: 'line', type: 'line', distance: 100, width: 5, x: 600, y: 550 }),
+    rectangle: region({ id: 'rect', type: 'rectangle', distance: 15, x: 1000, y: 400 }),
+  };
+  return { caster, near, far, other, regions };
+}
+
+/** a recorded sequence read back, section by section: `get` the first call's arguments, `all` every call's, `has` whether it was called */
+export function sections(seq) {
+  return (seq?.sections ?? []).map((s) => ({
+    kind: s.kind,
+    calls: s.calls,
+    fn: s.fn ?? null,
+    get: (method) => s.calls.find(([m]) => m === method)?.[1],
+    all: (method) => s.calls.filter(([m]) => m === method).map(([, a]) => a),
+    has: (method) => s.calls.some(([m]) => m === method),
+  }));
+}
+
+/** a left click at a scene point, delivered to whatever listens on the stage (a move's picker) */
+export function click(x, y, { button = 0 } = {}) {
+  const fn = globalThis.canvas?.app?.stage?.listeners?.get('pointerdown');
+  if (!fn) return false;
+  fn({ data: { button, getLocalPosition: () => ({ x, y }) } });
+  return true;
 }

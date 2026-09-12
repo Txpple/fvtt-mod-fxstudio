@@ -4,6 +4,16 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 (`FOUNDRY_DATA`, `FXS_WORLD`, `FXS_MCP_REPO` override the defaults). LevelDB is read through
 `classic-level` from the MCP repo's `node_modules`.
 
+**The offline checks share three small libraries, and they are where a data-model change lands
+first:** `lib/check.mjs` (the harness: numbered sections, `is` / `same` / `ok` / `throws`, `--section`
+with a PARTIAL stamp, one report line), `lib/stage.mjs` (enough of the canvas and Sequencer for an FX
+to build: `install()`, `table()` — the canonical caster, Near, Far, Other and a template of each type —
+`sections(seq)` to read a build back, `click()` for a move's picker) and `lib/world.mjs` (a stand-in
+dnd5e world for the reader: users, actors with a token, items with activities, effects, the messages
+dnd5e posts, the Region a template becomes, each reachable by uuid). When dnd5e's flags or a moment's
+shape change, change the builder there and every check follows; a check never writes a flag by hand.
+A new check is a plain script on the harness — no framework, no runner, no config.
+
 ## Offline — no Foundry, seconds
 
 | Tool | What it does |
@@ -14,7 +24,10 @@ Development tooling; none of it ships in the module zip. Paths live in `lib/env.
 | `check-imports.mjs` | every module under `scripts/` loads in plain node with Foundry's globals stubbed. Run after any edit under `scripts/`. |
 | `check-layers.mjs` | every import points down the layer order (core ← readers, engine ← ui). |
 | `check-legacy.mjs` | no Automated Animations vocabulary in `scripts/` or `recipes/` (ARCHITECTURE §0's mechanical half). |
-| `build-release.ps1` | the release zip (`dist/fvtt-mod-fxstudio.zip`): runs the five checks as a precondition, asserts `module.json`'s version and download URL moved together, packs `scripts/`, `styles/`, `recipes/` (with `STOCK-LICENSE`), `module.json`, `LICENSE`, `README.md` with FORWARD-SLASH entry names (never `Compress-Archive`), and reads the archive back: separators, every file asked for, every relative import resolving inside it. Then `gh release create vX.Y.Z ... dist/fvtt-mod-fxstudio.zip module.json` with hand-written notes from `dist/`. |
+| `build-release.ps1` | the release zip (`dist/fvtt-mod-fxstudio.zip`): runs the nine offline checks as a precondition, asserts `module.json`'s version and download URL moved together, packs `scripts/`, `styles/`, `recipes/` (with `STOCK-LICENSE`), `module.json`, `LICENSE`, `README.md` with FORWARD-SLASH entry names (never `Compress-Archive`), and reads the archive back: separators, every file asked for, every relative import resolving inside it. Then `gh release create vX.Y.Z ... dist/fvtt-mod-fxstudio.zip module.json` with hand-written notes from `dist/`. |
+| `check-engine.mjs` | **the engine's contract with the sentence**, offline on the stage with a recording Sequence and a fake library (no JB2A, no PSFX, no canvas): the places (every place word against a moment), the knobs every shape shares, each of the nine shapes knob by knob as the Sequencer calls it makes, the build path (scenes in order, the empty rules), resolving a moment (the word, the fallback, the silence, the pointer) and the play path (the ledger, the settings, the tickets, the move's click picker). `--section <n|word>` runs one section (the report line is stamped PARTIAL). Run after any edit under `scripts/engine/`. |
+| `check-reader.mjs` | **the dnd5e reader's timing policy** on a stand-in world (`lib/world.mjs`): an attack on its attack roll, a save or a heal on the damage roll, an area on the template, everything else on the card; the verdict per target from dnd5e's numbers; the subject's keys (the activity, a cast's linked spell, ammunition, the pointer flag, reach); a placed template; an active effect; who plays; and the hooks (what is dispatched, ended, ignored). Run after any edit under `scripts/readers/dnd5e.js` or `scripts/core/subjects.js`. |
+| `check-build.mjs` | **every FX in the corpus builds offline**: each Stock and House FX through the engine against a moment fitted to its scenes (targets, a template, a destination), assets resolved against the libraries' registration — the same proof `smoke-fx` makes live, in two seconds with nothing running. `<file.json>` builds an FX file; `--show <id>` prints one FX's sections as built. Run after any edit under `scripts/engine/` or `recipes/`. |
 | `check-gates.mjs` | the GATE contract (ARCHITECTURE §2), offline and without Battle Flow: not held, held, a hold that lifts on nothing (the moment is dropped), a gate that throws (ignored), a bound that expires (it PLAYS), asked once per moment — and the Battle Flow gate with Battle Flow absent, disabled, old (`castHold`) and current (`holdFor`). |
 | `census.mjs` | every ability on the world's actors (`--all`, `--actor "Gren"`, `--packs` for the PHB) keyed by identity and resolved: which FX answers, what plays nothing, `--json` as data. |
 | `assets.mjs` | the catalogue: `"misty step"` searches the libraries' registration; `jb2a.fire_bolt` lists a path's colours and what it plays; `--sounds`, `--json`. A path is looked up, never guessed. |

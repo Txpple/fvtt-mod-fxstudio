@@ -5,9 +5,19 @@
 > `house.json` no longer holds Sorcerous Burst, Dimension Door or the shortbow test hook; it still holds
 > Abyssal Glaive and a Necrotic Scythe edit the user saved 2026-09-12, not yet pulled (`pull-corpus`).
 > `tools/world-buffer.json` is gone from the repo with them. `check-fx --sentences` no longer crashes
-> and `check-moments` no longer swallows a failed engine import. Still unproved offline: the shapes,
-> places, the build path and the dnd5e reader (live suites only); the stage in `tools/lib/stage.mjs`
-> could carry that, not started, not owed.
+> and `check-moments` no longer swallows a failed engine import. **Then, on the user's word ("build
+> our offline suite … a good, long term sustainable architecture … versatile enough where we can edit
+> it if we still have to make data model changes"): THE OFFLINE SUITE IS BUILT.** Three checks on
+> three small libraries: `tools/lib/check.mjs` (the harness: sections, `is`/`same`/`ok`/`throws`,
+> `--section` with a PARTIAL stamp), `stage.mjs` (now with `table()`, `sections()`, `click()`) and
+> `world.mjs` (a stand-in dnd5e world: users, actors, items, activities, effects, messages, template
+> Regions, by uuid). `check-engine` 204/204 (every place word, every shape knob by knob, the build
+> path, resolving, the play path with the move's picker driven by a click), `check-reader` 86/86 (the
+> timing policy, the verdict, the subject's keys, templates, effects, who plays, the hooks),
+> `check-build` 1026/1026 (every FX in the corpus built offline against a fitted moment through the
+> real libraries, in two seconds). Nine offline checks are the release gate now. A data-model change
+> lands in the two stand-in libraries first and the checks follow. Not deployed (tools only; nothing
+> under `scripts/` changed).
 
 > **2026-09-12 — THE DRAFT LAYER IS GONE (the user: *"no more concept of draft … either its a file or
 > not … if someone edits a stock file, they should be given a choice to save as a house override, or

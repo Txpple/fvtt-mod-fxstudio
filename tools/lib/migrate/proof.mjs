@@ -23,7 +23,7 @@
 //   · thenDo sections are compared by count, not position (they run when the sequence starts)
 import { metadataAt, resolvePath } from '../libraries.mjs';
 import { ROOTS } from '../env.mjs';
-import { token, region, standing } from '../stage.mjs';
+import { table, standing } from '../stage.mjs';
 import { oracleMoment, buildRow } from '../oracle/index.mjs';
 import { build as engineBuild } from '../../../scripts/engine/render.js';
 
@@ -128,15 +128,11 @@ export function diff(a, b, { labelA = 'AA', labelB = 'the engine' } = {}) {
 // ---------------------------------------------------------------------------------------------
 // the canonical moments, one set per kind of row
 // ---------------------------------------------------------------------------------------------
-/** the stage: a caster and two targets, one adjacent and one six squares away */
+/** the stage: the canonical table (stage.mjs table()), its token centres kept so a named spot compares as a point */
 export function stageTokens() {
-  const caster = token({ id: 'caster', name: 'Caster', x: 500, y: 500 });
-  const near = token({ id: 'near', name: 'Near', x: 600, y: 500 });
-  const far = token({ id: 'far', name: 'Far', x: 1100, y: 500 });
-  const other = token({ id: 'other', name: 'Other', x: 500, y: 600 });
-  const regions = { circle: region({ id: 'circle', type: 'circle', distance: 20, x: 1100, y: 500 }), cone: region({ id: 'cone', type: 'cone', distance: 15, x: 600, y: 550 }), line: region({ id: 'line', type: 'line', distance: 100, width: 5, x: 600, y: 550 }), rectangle: region({ id: 'rect', type: 'rectangle', distance: 15, x: 1000, y: 400 }) };
-  for (const t of [caster, near, far, other]) spotCentres.set(t.id, { x: round(t.center.x), y: round(t.center.y) });
-  return { caster, near, far, other, regions };
+  const T = table();
+  for (const t of [T.caster, T.near, T.far, T.other]) spotCentres.set(t.id, { x: round(t.center.x), y: round(t.center.y) });
+  return T;
 }
 
 /**

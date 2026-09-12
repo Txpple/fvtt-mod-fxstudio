@@ -26,7 +26,7 @@ $repo = Split-Path -Parent $PSScriptRoot
 # release. There is no skip flag on purpose: they take seconds.
 Push-Location $repo
 try {
-  foreach ($check in @("check-imports", "check-layers", "check-legacy", "check-gates", "check-moments", "check-fx")) {
+  foreach ($check in @("check-imports", "check-layers", "check-legacy", "check-gates", "check-moments", "check-fx", "check-engine", "check-reader", "check-build")) {
     Write-Output "gate: $check"
     & node (Join-Path $repo "tools/$check.mjs") | Select-Object -Last 1
     if ($LASTEXITCODE -ne 0) { throw "tools/$check.mjs failed - refusing to build a release from this tree" }
