@@ -1,5 +1,14 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-12, later — housekeeping on the user's word.** The two dead files (`scripts/ship.js`,
+> `recipes/shipped.json`) are DELETED from prod over WebDAV; the sandbox never had them. The sandbox's
+> `house.json` no longer holds Sorcerous Burst, Dimension Door or the shortbow test hook; it still holds
+> Abyssal Glaive and a Necrotic Scythe edit the user saved 2026-09-12, not yet pulled (`pull-corpus`).
+> `tools/world-buffer.json` is gone from the repo with them. `check-fx --sentences` no longer crashes
+> and `check-moments` no longer swallows a failed engine import. Still unproved offline: the shapes,
+> places, the build path and the dnd5e reader (live suites only); the stage in `tools/lib/stage.mjs`
+> could carry that, not started, not owed.
+
 > **2026-09-12 — THE DRAFT LAYER IS GONE (the user: *"no more concept of draft … either its a file or
 > not … if someone edits a stock file, they should be given a choice to save as a house override, or
 > edit the stock file directly"*). Built and green: Save writes the corpus file in the module folder

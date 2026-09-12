@@ -57,7 +57,7 @@ for (const [source, list] of sets) {
         }
       }
     }
-    if (sentences) console.log(`  ${sentence(full)}`);
+    if (sentences) console.log(`  ${sentence(fx)}`);
   }
 }
 // every file the frozen table names must be on disk
