@@ -1,8 +1,9 @@
 // FX Studio — entry point. Loads the corpora (the stock per kind, the house FX, the starters,
-// the frozen asset table if any) and the world buffer, indexes them by subject key, listens to the
+// the frozen asset table if any), indexes them by subject key, listens to the
 // table through the dnd5e reader and plays what the corpus answers through the engine. Exposes the
 // authoring API on game.modules.get('fvtt-mod-fxstudio').api. Wires the layers and nothing else.
-import { MODULE_ID, SETTINGS, carryOverLegacyBuffer, getWorldFx, logging, playing, registerSettings } from './settings.js';
+import { MODULE_ID, SETTINGS, clearOldBuffers, logging, oldBufferFx, playing, registerSettings } from './settings.js';
+import { writeFx } from './files.js';
 import { buildIndex } from './core/corpus.js';
 import { heldUntil, registerGate } from './core/gates.js';
 import { registerReader } from './readers/dnd5e.js';
@@ -15,7 +16,7 @@ export { MODULE_ID };
 const log = (...a) => console.log('FX Studio |', ...a);
 
 const STOCK_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects'];
-const state = { corpora: { stock: [], house: [], starters: [], frozen: null, shipped: [] }, index: null, rebuild, reload, open: null };
+const state = { corpora: { stock: [], house: [], starters: [], frozen: null }, index: null, rebuild, reload, open: null };
 
 async function loadJson(path, { fresh = false } = {}) {
   const r = await fetch(`modules/${MODULE_ID}/${path}${fresh ? `?t=${Date.now()}` : ''}`, fresh ? { cache: 'no-store' } : {});
@@ -24,7 +25,7 @@ async function loadJson(path, { fresh = false } = {}) {
 }
 
 function rebuild() {
-  state.index = buildIndex({ stock: state.corpora.stock, house: state.corpora.house, world: getWorldFx(), starters: state.corpora.starters });
+  state.index = buildIndex({ stock: state.corpora.stock, house: state.corpora.house, starters: state.corpora.starters });
   for (const p of state.index.problems) console.warn('FX Studio |', p);
   Hooks.callAll('fxstudio.rebuilt', state.index);
   return state.index;
@@ -66,7 +67,6 @@ async function loadCorpora(fresh = false) {
   state.corpora.stock = files.flatMap((f) => f.fx ?? []);
   state.corpora.house = (await loadJson('recipes/house.json', o).catch(() => ({ fx: [] }))).fx ?? [];
   state.corpora.starters = (await loadJson('recipes/starters.json', o).catch(() => ({ fx: [] }))).fx ?? [];
-  state.corpora.shipped = (await loadJson('recipes/shipped.json', o).catch(() => ({ shipped: [] }))).shipped ?? [];
   if (!fresh) state.corpora.frozen = await loadJson('recipes/aa-assets.json').catch(() => null);
 }
 
@@ -79,7 +79,7 @@ async function reload() {
 Hooks.once('setup', async () => {
   await loadCorpora();
   rebuild();
-  log(`corpus ready: ${state.corpora.stock.length} stock FX, ${state.corpora.house.length} house FX, ${getWorldFx().length} in the world buffer, ${state.corpora.starters.length} starters`);
+  log(`corpus ready: ${state.corpora.stock.length} stock FX, ${state.corpora.house.length} house FX, ${state.corpora.starters.length} starters`);
 });
 
 // The frozen asset table: what the migration could not point at the libraries' own paths, kept
@@ -91,8 +91,28 @@ Hooks.on('sequencer.ready', () => {
   log(`registered the frozen asset table (${frozen.meta?.entries ?? '?'} entries the libraries do not hold natively)`);
 });
 
+/**
+ * The old world buffer, folded into the files ONCE (the draft layer is gone, 2026-09-12). A GM's
+ * client at ready: every FX the setting still holds goes into the corpus it was staged for (House
+ * when it was a plain Draft), the setting is emptied, the corpora are read again. Nothing is lost
+ * and nothing is asked: what played from the buffer plays from the file now.
+ */
+async function drainBuffer() {
+  if (!game.user?.isGM) return 0;
+  const held = oldBufferFx();
+  if (!held.length) return 0;
+  let n = 0;
+  for (const { fx, to } of held) {
+    const { to: _staged, ...plain } = fx;
+    try { await writeFx(plain, to); n++; } catch (e) { console.warn('FX Studio | the old buffer held an FX that could not be written to its file:', fx.id, e.message); }
+  }
+  await clearOldBuffers();
+  if (n) await reload();
+  return n;
+}
+
 Hooks.once('ready', async () => {
-  if (await carryOverLegacyBuffer()) { log('the world buffer was carried over from its old key'); rebuild(); }
   game.modules.get(MODULE_ID).api = makeApi(state);
   game.modules.get(MODULE_ID).api.SETTINGS = SETTINGS;
+  drainBuffer().then((n) => { if (n) log(`the old world buffer was folded into the corpus files: ${n} FX`); }).catch((e) => console.error('FX Studio |', e));
 });

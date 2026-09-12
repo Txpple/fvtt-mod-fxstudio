@@ -4,10 +4,11 @@
 // every edit of an FX is made here and nowhere else, the tab is in the strip whether an FX is open
 // or not, and walking off to another tab leaves it open, unsaved changes and all. Back is still
 // here as the shortcut to the tab the sheet was opened from; it does not close the sheet.
-// An Edit switch is the guard: off, the sheet is read-only and offers Duplicate,
-// Export and Delete (or Revert, when a Draft sits over Stock or House); on, every control unlocks
-// and the buttons are Cancel and Save. Save always writes a Draft (the world buffer) through the
-// API — Stock and House files are never touched here.
+// An Edit switch is the guard: off, the sheet is read-only and offers Duplicate, Export and
+// Delete; on, every control unlocks and the buttons are Cancel and Save. SAVE WRITES THE FILE
+// (the user, 2026-09-12: "no more concept of draft"): a new FX and a House FX go to House; a
+// Stock FX asks — a House override with the same id (Stock untouched, the override wins), or
+// Stock itself. An Item Hook is House only.
 //
 // FIVE BANDS, top to bottom (rebuilt 2026-09-07, HANDOFF step 4). Only the inspector's contents
 // ever change:
@@ -184,13 +185,14 @@ export function renderSheet(app) {
   const fx = safeDraft(app);
   const problems = edit ? problemsOf(app) : [];
   const name = sheetName(app);
-  const under = s.id && s.source === 'world' ? (a.corpora.house.some((h) => h.id === s.id) ? 'house' : a.corpora.stock.some((b) => b.id === s.id) ? 'stock' : null) : null;
+  // a House FX with a Stock FX's id is its override: the tag says so, and Delete shows Stock again
+  const under = s.id && s.source === 'house' ? a.corpus.under(s.id) : null;
   const tags = [
-    s.source ? `<span class="tag ${s.source === 'world' ? 'yours' : ''}">${SOURCE_TAG[s.source]}</span>` : '<span class="tag yours">New</span>',
+    s.source ? `<span class="tag ${s.source === 'house' ? 'yours' : ''}">${SOURCE_TAG[s.source]}${under ? ' override' : ''}</span>` : '<span class="tag yours">New</span>',
     `<span class="tag">${s.onlyThis ? HOOK_WORDS.item : HOOK_WORDS.global}</span>`,
     s.off ? '<span class="tag off">Off</span>' : '',
   ].join('');
-  const deleteWord = under ? `Revert to ${SOURCE_TAG[under]}` : 'Delete';
+  const deleteWord = 'Delete';
   // the bar never reflows: every control keeps its place, and what the mode does not offer is greyed
   const onSaved = !edit && !!s.id;
   const lockbar = `<div class="lockbar">
@@ -203,7 +205,8 @@ export function renderSheet(app) {
       <button type="button" class="quiet" data-act="sh-cancel" ${edit ? '' : 'disabled'}>Cancel</button>
       <button type="button" class="primary" data-act="sh-save" ${edit && !problems.length ? '' : 'disabled'}>Save</button>
     </div>`;
-  const banner = edit && (s.source === 'stock' || s.source === 'house') ? `<div class="banner">Editing ${SOURCE_TAG[s.source]}. Save writes a <b>Draft</b> that overrides it; ${SOURCE_TAG[s.source]} itself is not changed.</div>` : '';
+  const banner = edit && s.source === 'stock' ? `<div class="banner">Editing ${SOURCE_TAG.stock}. Save asks: a <b>${SOURCE_TAG.house} override</b> (${SOURCE_TAG.stock} untouched; the override wins), or ${SOURCE_TAG.stock} itself.</div>`
+    : edit && under ? `<div class="banner">Editing the ${SOURCE_TAG.house} override. Save writes ${SOURCE_TAG.house}; ${SOURCE_TAG.stock} is not changed.</div>` : '';
   // every problem, each one the button that takes you to the scene it names
   const problemList = problems.length ? `<ul class="problems">${problems.map((p) => {
     const m = /\bscene (\d+)\b/.exec(p);
@@ -821,11 +824,10 @@ export async function onSheetClick(app, b, act) {
     case 'sh-export': return app.exportFx(s.id);
     case 'sh-record': return openRecord(b.dataset.uuid, b.dataset.name);
     case 'sh-delete': {
-      const under = s.source === 'world' && (a.corpora.house.some((h) => h.id === s.id) || a.corpora.stock.some((b2) => b2.id === s.id));
-      if (under) { await app.removeFx(s.id); openSheet(app, { id: s.id }); break; }
-      // deleteFx unpins whatever pointed at it — what the detail pane's Revert used to do by hand
+      // deleteFx asks, and unpins whatever pointed at it; a House override deleted leaves the
+      // Stock FX of that id showing, so the sheet reopens on it
       await app.deleteFx(s.id);
-      if (!a.fx.get(s.id)) { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
+      if (a.fx.get(s.id)) openSheet(app, { id: s.id }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
       break;
     }
     case 'sh-key-del': s.keys = s.keys.filter((k) => k !== b.dataset.key); s.newKeys = s.newKeys.filter((k) => k !== b.dataset.key); break;
@@ -1035,13 +1037,37 @@ export function onSheetKey(app, ev) {
   return false;
 }
 
+/**
+ * Where a Save goes: House for a new FX, a House FX or an Item Hook; a Stock FX asks — the House
+ * override (the same id in House, which wins; Stock untouched) or Stock itself. Null: not saved.
+ */
+async function whereToSave(app, fx) {
+  const s = app.sheet;
+  if (s.source !== 'stock' || !fx.for?.length) return 'house';
+  const D = foundry.applications.api.DialogV2;
+  const choice = await D.wait({
+    window: { title: `Save ${esc(sheetName(app))}` },
+    content: `<p>This FX is ${SOURCE_TAG.stock}. Where does the change go?</p>`,
+    buttons: [
+      { action: 'house', label: `${SOURCE_TAG.house} override`, icon: 'fa-solid fa-house', default: true },
+      { action: 'stock', label: `Edit ${SOURCE_TAG.stock}`, icon: 'fa-solid fa-book' },
+      { action: 'cancel', label: 'Cancel', icon: 'fa-solid fa-xmark' },
+    ],
+    rejectClose: false, modal: true,
+  });
+  return choice === 'house' || choice === 'stock' ? choice : null;
+}
+
 async function saveSheet(app) {
   const a = api();
   const s = app.sheet;
   const problems = problemsOf(app);
   if (problems.length) return app.toast(problems[0]);
   const fx = draftFx(app);
-  const r = await a.fx.save(fx, { by: game.user.name });
+  const to = await whereToSave(app, fx);
+  if (!to) return undefined;
+  let r;
+  try { r = await a.fx.save(fx, { by: game.user.name, to }); } catch (err) { return app.toast(`Could not save it: ${err.message}`); }
   if (!r.ok) return app.toast(r.problems.join(' '));
   const sub = s.subject;
   const item = sub?.uuid ? fromUuidSync(sub.uuid) : null;
@@ -1058,5 +1084,5 @@ async function saveSheet(app) {
   app.sheet.pick = pick;
   app.sheet.band = band;
   await app.render();
-  return app.toast(`Saved: ${name} (${SOURCE_TAG.world}).`);
+  return app.toast(`Saved: ${name} (${SOURCE_TAG[to]}).`);
 }

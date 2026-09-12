@@ -14,7 +14,7 @@ const HEX = {
 export const swatch = (colour) => (colour && HEX[colour] ? `<span class="sw" style="background:${HEX[colour]}"></span>` : '');
 export const colourWords = (colour) => String(colour ?? '').replace(/_/g, ' ');
 
-/** the term for where an FX lives: Draft (this world's buffer) · House · Stock */
+/** the term for where an FX lives: House · Stock (the two files; there is no draft layer, 2026-09-12) */
 export const SOURCE_TAG = LAYER_WORDS;
 
 /** the status of an ability, for the dot and the term: custom | stock | none | off */
@@ -32,7 +32,7 @@ export const HOOK_WORDS = { global: 'Global Hook', item: 'Item Hook' };
 export const KIND_WORDS = { spell: 'Spell', weapon: 'Weapon', feature: 'Feature', item: 'Item', effect: 'Effect' };
 
 /** the same kinds as a facet on the FX tab: what a list of them is called */
-export const KIND_PLURAL = { spell: 'Spells', weapon: 'Weapons', natural: 'Natural', feature: 'Features', item: 'Items', effect: 'Effects', status: 'Statuses', damage: 'Damage', event: 'Events' };
+export const KIND_PLURAL = { spell: 'Spells', weapon: 'Weapons', natural: 'Natural', feature: 'Features', item: 'Items', effect: 'Effects' };
 
 export const dot = (status) => `<span class="dot ${status}"></span>`;
 

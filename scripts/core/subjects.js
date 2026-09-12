@@ -5,7 +5,9 @@
 //
 // A subject, as a reader describes it:
 //   { kind, name, identifier?, baseItem?, activityType?, spell?: {name, identifier}, ammunition?: subject, origin?: subject, statusId? }
-//   kind        spell | weapon | natural | feature | item | effect | status | damage | event
+//   kind        spell | weapon | natural | feature | item | effect | event
+//               (status and damage were placeholders for phase 4's outcomes and went on the user's
+//               word, 2026-09-12; `event` stays because Battle Flow's moments key by it)
 //   name        the thing's own name (the item's, the effect's)
 //   identifier  dnd5e's identifier for the item (system.identifier when set; else the slug of its name)
 //   baseItem    a weapon's base weapon (system.type.baseItem): "longsword", "maul"
@@ -16,9 +18,11 @@
 //
 // KEYS are `<kind>:<id>`, optionally `/<activity type>` for the most specific form:
 //   spell:fire-bolt/attack  spell:fire-bolt  ·  weapon:maul-of-momentum  weapon:maul  ·  natural:bite
-//   feature:brutal-strike  ·  item:potion-of-healing  ·  effect:shield  then the origin's key  ·  status:prone
+//   feature:brutal-strike  ·  item:potion-of-healing  ·  effect:shield  then the origin's key  ·  event:sneak
 
-export const KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect', 'status', 'damage', 'event'];
+export const KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect', 'event'];
+/** the kinds a person authors against and the Library lists: every kind but the moment word (`event:<word>` is Battle Flow's) */
+export const AUTHORED_KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect'];
 
 /** which kind a dnd5e item type is, before the weapon/natural split */
 export const KIND_OF_ITEM_TYPE = { spell: 'spell', weapon: 'weapon', feat: 'feature', consumable: 'item', equipment: 'item', tool: 'item', loot: 'item', container: 'item' };
@@ -89,8 +93,6 @@ export function keysFor(subject) {
       for (const id of idsFor(subject.name)) push(`effect:${id}`);
       if (subject.origin) for (const k of keysFor(subject.origin)) push(k);
       break;
-    case 'status': push(`status:${subject.statusId ?? slug(subject.name)}`); break;
-    case 'damage': push(`damage:${subject.damageType ?? slug(subject.name)}`); break;
     case 'event': push(`event:${subject.eventId ?? slug(subject.name)}`); break;
     default: break;
   }
@@ -131,8 +133,6 @@ export function keyWords(key) {
     case 'feature': return `the feature ${titleCase(name)}${act}`;
     case 'item': return `the item ${titleCase(name)}${act}`;
     case 'effect': return `the effect ${titleCase(name)}`;
-    case 'status': return `the ${name} condition`;
-    case 'damage': return `${name} damage`;
     case 'event': return `${name}`;
     default: return key;
   }

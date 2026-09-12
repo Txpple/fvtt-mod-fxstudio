@@ -1,11 +1,10 @@
 // The screens, live on the sandbox: a person's round trip through the window, driven on the DOM —
-// fx an ability up and read its sentence; type a spell the sheet does not know yet; give it a
-// fx through the Create-a-fx walk (for what, start from: duplicate Misty Step, the FX: dark
-// black, when it plays, save to: the house corpus); read it on Overrides with who wrote it; bind
-// and unbind it on Corpus; give one item its own FX through the walk and take it back; switch a
-// fx off and on; SHIP from Corpus — the corpus files and the version written into the module on
-// the sandbox, read back, then restored byte for byte; find the button on the item sheet. Builds
-// and tears down its own fixture; leaves the world buffer and the module's files as it found them.
+// fx an ability up and read its sentence; type a spell the sheet does not know yet; give it an
+// FX through the sheet (copy Misty Step, paint it dark black, Save — which WRITES house.json on
+// the sandbox, there being no draft layer since 2026-09-12); read it in the House group; edit a
+// Stock FX and choose the House override, then Stock itself; give one item its own FX and take it
+// back; the facets; Coverage; the Asset Library; Play; find the button on the item sheet. Builds
+// and tears down its own fixture; leaves the module's files as it found them, byte for byte.
 //
 //   node tools/smoke-screens.mjs
 import { connectSandbox } from './lib/foundry.mjs';
@@ -23,7 +22,8 @@ try {
     const ok = (name, pass, detail = '') => results.push({ name, pass: !!pass, detail: String(detail).slice(0, 300) });
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const caster = canvas.tokens.get(fx.casterTokenId);
-    const before = api.fx.buffer().map((l) => l.id);
+    const houseIds = () => api.corpora.house.map((l) => l.id);
+    const before = houseIds();
     const made = [];
     let tmp = null;
     let app = null;
@@ -47,13 +47,15 @@ try {
     const openEditor = async (id) => { api.open({ tab: 'editor', id }); await sleep(450); };
     // Delete asks first (DialogV2.confirm). The suite answers yes for one action, then puts it back
     const sayYes = async (fn) => { const D = foundry.applications.api.DialogV2; const was = D.confirm; D.confirm = async () => true; try { await fn(); await sleep(700); } finally { D.confirm = was; } };
+    // Save uploads a file and reads the corpora again, Delete likewise: wait for the fact, never a clock
+    const until = async (fn, ms = 15000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { try { if (fn()) return true; } catch { /* not yet */ } await sleep(100); } return false; };
     const openEditorForSubject = async () => { app.openFor(app.view.subject); await app.render(); await sleep(350); };
     const band = async (b) => click(`[data-act="sh-band"][data-band="${b}"]`);
     const cells = (b) => [...$$(`.inspector[data-band="${b}"] .knobs .f`)].map((x) => x.className.replace('f f-', '').replace(' wide', ''));
     // the module's files on the server, read fresh and written back (what Corpus does, for the restore)
     const readFile = async (p) => (await fetch(`modules/${MOD}/${p}?t=${Date.now()}`, { cache: 'no-store' })).text();
     const writeFile = async (p, textValue) => { const FP = foundry.applications.apps.FilePicker.implementation; const parts = p.split('/'); const name = parts.pop(); return FP.upload('data', [`modules/${MOD}`, ...parts].join('/'), new File([textValue], name, { type: 'application/json' }), {}, { notify: false }); };
-    const FILES = ['recipes/house.json', 'recipes/shipped.json'];
+    const FILES = ['recipes/house.json', 'recipes/stock/spells.json'];
     const snapshot = {};
     for (const p of FILES) snapshot[p] = await readFile(p);
     try {
@@ -139,7 +141,7 @@ try {
       await pick(1);
       await click('[data-act="cw-up"]');
       ok('§3 and back up, and the inspector follows the scene it moved', /misty step 01/.test(text('.inspector .line')) && $('.rail .pickbtn')?.getAttribute('aria-current') === 'true', text('.inspector .line'));
-      ok('§3 nothing has been saved yet', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
+      ok('§3 nothing has been saved yet', houseIds().length === before.length, `${houseIds().length}`);
 
       // 4 · the hook block and Save
       ok('§4 the Hook strip is one row of four: Answers · Reach · Moment · State', $$('.hookstrip .hcol').length === 4 && [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · ') === 'Answers · Reach · Moment · State' && $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false' && !/phase 4/.test(text('.hookstrip')), [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · '));
@@ -148,15 +150,16 @@ try {
       ok('§4 the id is shown, derived from the ability', text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       ok('§4 Save is enabled now the sequence has scenes', $('[data-act="sh-save"]')?.disabled === false && !$('.sheet .problem'), text('.sheet .problem'));
       await click('[data-act="sh-save"]');
-      await sleep(500);
-      const saved = api.fx.buffer().find((l) => l.id === 'sharran-step');
+      await until(() => api.fx.get('sharran-step') && $('.sheet')?.dataset.edit === 'false');
+      const saved = api.fx.get('sharran-step')?.original;
       if (saved) made.push(saved.id);
-      ok('§4 Save writes the FX to the world buffer with its scenes, a draft, with provenance', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && !saved.to && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /copied from Misty Step/.test(saved.note), JSON.stringify(saved ?? null).slice(0, 300));
+      const house4 = JSON.parse(await readFile('recipes/house.json'));
+      ok('§4 Save writes the FX into house.json on the server with its scenes and provenance, no dialog for a new FX', saved && Array.isArray(saved.scenes) && saved.scenes.length >= 2 && saved.to === undefined && saved.for?.[0] === 'spell:sharran-step' && saved.by === game.user.name && /^\d{4}-\d{2}-\d{2}$/.test(saved.at) && /copied from Misty Step/.test(saved.note) && house4.fx.some((l) => l.id === 'sharran-step'), JSON.stringify(saved ?? null).slice(0, 300));
       ok('§4 what Copy from wrote is a full copy, standing on its own: no shortcut of any kind', saved && saved.like === undefined && saved.with === undefined, `like ${saved?.like} · with ${JSON.stringify(saved?.with)}`);
-      ok('§4 the sheet stays open, locked, tagged Draft, with the sentence', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'false' && /Draft/.test(text('.sheet h2')) && /dark black/.test(text('.sheet .preview')) && !!$('[data-act="sh-dup"]') && /Delete/.test(text('[data-act="sh-delete"]')), `${text('.sheet h2')} | ${text('[data-act="sh-delete"]')}`);
+      ok('§4 the sheet stays open, locked, tagged House, with the sentence', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'false' && /House/.test(text('.sheet h2')) && /dark black/.test(text('.sheet .preview')) && !!$('[data-act="sh-dup"]') && /Delete/.test(text('[data-act="sh-delete"]')), `${text('.sheet h2')} | ${text('[data-act="sh-delete"]')}`);
       ok('§4 locked: the knobs are read-only and the tools are hidden', $$('.inspector .knobs select').every((x) => x.disabled) && !$('[data-act="cw-drop"]'), '');
       ok('§4 locked: the same bar, Save and Cancel greyed instead, nothing moved', $$('.lockbar button').length === 7 && $('[data-act="sh-save"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === true && $('[data-act="sh-dup"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
-      ok('§4 the spell resolves to it from the world layer', api.resolve(tmp).fx?.id === 'sharran-step' && api.resolve(tmp).source === 'world', api.resolve(tmp).source);
+      ok('§4 the spell resolves to it from House', api.resolve(tmp).fx?.id === 'sharran-step' && api.resolve(tmp).source === 'house', api.resolve(tmp).source);
       const r4 = api.sentenceFor(tmp);
       ok('§4 the API reads the same sentence the sheet shows, in the What plays box', text('.sheet .preview') === `What plays${r4.sentence}`, `${r4.sentence} | ${text('.sheet .preview')}`);
       ok('§4 the sentence is said once: What plays at the top, none under the sequence', $$('.sheet .preview').length === 1 && !$('.sheet .sentence') && /^What plays/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 60));
@@ -167,15 +170,16 @@ try {
       ok('§4 the Editor tab still holds the FX the sheet was on: leaving a tab does not close it', tabNow() === 'editor' && paneNow() === 'editor' && text('.sheet code.id') === 'sharran-step', `${tabNow()} · ${text('.sheet code.id')}`);
       await click('[data-tab="fx"]');
 
-      // 5 · ONE FX tab (HANDOFF step 5): one list of every FX, grouped Draft → House → Stock
+      // 5 · ONE FX tab: one list of every FX, grouped House → Stock (no Draft group, 2026-09-12)
       await type('.fx-q', '');
       await sleep(450);
       const rows5 = () => $$('.fxlist .row');
       const groups5 = () => $$('.fxlist .grouphead').map((g) => g.textContent.replace(/\s+/g, ' ').trim());
       ok('§5 there is no Stock FX, House FX or Look up tab: one FX tab holds them, and editing is the Editor tab', !$('[data-tab="stock"]') && !$('[data-tab="house"]') && !$('[data-tab="lookup"]') && !!$('[data-tab="fx"]') && !!$('[data-tab="editor"]'), $$('[role=tab]').map((t) => t.dataset.tab).join(', '));
-      ok('§5 the list is grouped in resolution order, later wins: Draft, then House, then Stock', groups5().map((g) => g.split(' ')[0]).join(',') === 'Draft,House,Stock' && /^Draft · \d+ FX$/.test(groups5()[0]), `${groups5().join(' | ')} · ${rows5().length} rows shown`);
+      ok('§5 the list is grouped in resolution order, later wins: House, then Stock — and no Draft group', groups5().map((g) => g.split(' ')[0]).join(',') === 'House,Stock' && /^House · \d+ FX$/.test(groups5()[0]) && !/Draft/.test(text('.fxlist')), `${groups5().join(' | ')} · ${rows5().length} rows shown`);
       const first5 = rows5()[0];
-      ok('§5 the Draft this world wrote is the first row of all', first5?.querySelector('.n')?.textContent.trim() === 'Sharran Step', first5?.querySelector('.n')?.textContent.trim() ?? '');
+      const houseRows5 = rows5().slice(0, api.corpora.house.length);
+      ok('§5 the FX this world wrote is in the House group, by name among its peers', houseRows5.some((r) => r.querySelector('.n')?.textContent.trim() === 'Sharran Step') && groups5()[0] === `House · ${api.corpora.house.length} FX`, houseRows5.map((r) => r.querySelector('.n')?.textContent.trim()).join(', '));
       ok('§5 a row is the name and NOTHING else: no sentence, no layer pill, no shape tags', rows5().every((r) => r.querySelectorAll('.n').length === 1 && !r.querySelector('.s') && !r.querySelector('.tag') && !r.querySelector('.shapes')) && !/spell:/.test(text('.fxlist')) && !/when used/.test(text('.fxlist')), first5?.textContent.replace(/\s+/g, ' ') ?? '');
       ok('§5 the list head is the count alone', !$('.fxlist .listhead button') && /^\d+( of \d+)? FX$/.test(text('.fxlist .listhead')), text('.fxlist .listhead'));
       // Import sits on the search row, ending where the list ends, the same height as the box
@@ -185,10 +189,11 @@ try {
       // R3: picking a row opens it in the Editor, and moves nothing in the list it left
       const geom5 = () => rows5().slice(0, 12).map((r) => { const b = r.getBoundingClientRect(); return `${Math.round(b.top)}/${Math.round(b.height)}`; }).join(',');
       const was5 = geom5();
-      const id5 = rows5()[4].querySelector('.pickbtn').dataset.id;
-      await click(rows5()[4].querySelector('.pickbtn'));
+      const row5 = rows5().slice(0, 12).find((r) => r.querySelector('.pickbtn').dataset.id !== app.sheet?.id);
+      const id5 = row5.querySelector('.pickbtn').dataset.id;
+      await click(row5.querySelector('.pickbtn'));
       ok('§5 clicking a row takes NO action: it marks itself, the tab does not move, no sheet opens on it', tabNow() === 'fx' && paneNow() === 'fx' && app.view.fxSel === id5 && app.sheet?.id !== id5, `${tabNow()} · sheet on ${app.sheet?.id ?? 'nothing'} · row ${id5}`);
-      ok('§5 the row is marked, one height, the layout unmoved (R3)', geom5() === was5 && new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1 && $('.fxlist .row[data-now="true"]') === rows5()[4], `${new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size} row height(s)`);
+      ok('§5 the row is marked, one height, the layout unmoved (R3)', geom5() === was5 && new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1 && $('.fxlist .row[data-now="true"]') === row5, `${new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size} row height(s)`);
       // the marked row is the only one showing its two doors, and they cost the row no height (R3)
       const acts5 = rows5()[4].querySelector('.acts');
       ok('§5 every row carries Record, then Delete, then Editor, right-justified', rows5().every((r) => [...r.querySelector('.acts').children].map((x) => x.textContent.trim()).join(',') === 'Record,Delete,Editor') && rows5().every((r) => getComputedStyle(r.querySelector('.acts')).visibility === 'visible') && acts5.getBoundingClientRect().right > rows5()[4].querySelector('.n').getBoundingClientRect().right, `${[...acts5.children].map((x) => x.textContent.trim()).join(', ')} on ${rows5().length} rows`);
@@ -225,15 +230,15 @@ try {
       // the facets, all of them from data the window already had
       ok('§5 three facet groups: Lives in, Kind, Only', [...$$('.facets .sub')].map((x) => x.textContent).join(' · ') === 'Lives in · Kind · Only', [...$$('.facets .sub')].map((x) => x.textContent).join(' · '));
       const live5 = $$('.facets [data-group="lives"]');
-      ok('§5 Lives in counts Draft, House and Stock, and they add up to the corpus', live5.length === 3 && live5.reduce((t, b) => t + Number(b.querySelector('.c').textContent), 0) === api.fx.list().length, live5.map((b) => b.textContent.replace(/\s+/g, ' ')).join(', '));
-      ok('§5 a kind with nothing in it is greyed where it stands, not dropped (R1)', $$('.facets [data-group="kinds"]').length === 9 && $$('.facets [data-group="kinds"][data-na="true"]').every((b) => b.disabled), `${$$('.facets [data-group="kinds"]').length} kinds, ${$$('.facets [data-group="kinds"][data-na="true"]').length} at zero`);
+      ok('§5 Lives in counts House and Stock, and they add up to the corpus', live5.length === 2 && live5.reduce((t, b) => t + Number(b.querySelector('.c').textContent), 0) === api.fx.list().length, live5.map((b) => b.textContent.replace(/\s+/g, ' ')).join(', '));
+      ok('§5 Kind lists the six authored kinds: no Statuses, Damage or Events (2026-09-12)', $$('.facets [data-group="kinds"]').length === 6 && !$('[data-group="kinds"][data-v="status"]') && !$('[data-group="kinds"][data-v="event"]') && $$('.facets [data-group="kinds"][data-na="true"]').every((b) => b.disabled), `${$$('.facets [data-group="kinds"]').length} kinds, ${$$('.facets [data-group="kinds"][data-na="true"]').length} at zero`);
       const all5 = rows5().length;
-      await click('[data-group="lives"][data-v="world"]');
-      ok('§5 a facet narrows the list to that layer alone', rows5().length < all5 && groups5().length === 1 && /^Draft · /.test(groups5()[0]), `${all5} → ${rows5().length} rows · ${groups5().join(' | ')}`);
+      await click('[data-group="lives"][data-v="house"]');
+      ok('§5 a facet narrows the list to that layer alone', rows5().length < all5 && groups5().length === 1 && /^House · /.test(groups5()[0]), `${all5} → ${rows5().length} rows · ${groups5().join(' | ')}`);
       // a filter that is on must LOOK on: it lost to the base rule on specificity until 2026-09-07
-      const on5 = $('.facets [data-group="lives"][data-v="world"]');
+      const on5 = $('.facets [data-group="lives"][data-v="house"]');
       const paint5 = getComputedStyle(on5);
-      const flat5 = getComputedStyle($('.facets [data-group="lives"][data-v="house"]'));
+      const flat5 = getComputedStyle($('.facets [data-group="lives"][data-v="stock"]'));
       ok('§5 an active filter stays highlighted, plainly different from an inactive one', on5.getAttribute('aria-pressed') === 'true' && paint5.backgroundColor !== flat5.backgroundColor && paint5.borderTopColor !== flat5.borderTopColor && !/rgba\(0, 0, 0, 0\)|transparent/.test(paint5.backgroundColor), `on ${paint5.backgroundColor} / ${paint5.borderTopColor} · off ${flat5.backgroundColor}`);
       await click('[data-group="kinds"][data-v="spell"]');
       ok('§5 the facets stack, and Clear counts what is on', groups5().length === 1 && rows5().length >= 1 && /Clear · 2/.test(text('[data-act="fx-clear"]')), `${text('[data-act="fx-clear"]')} · ${rows5().length} rows`);
@@ -245,7 +250,7 @@ try {
       await type('.fx-q', '');
       await sleep(450);
       ok('§5 and emptying the box puts every FX back', rows5().length === all5, `${rows5().length} rows`);
-      ok('§5 Broken assets is a facet, counted by the same check the tools run', !!$('[data-group="only"][data-v="broken"]') && /^\d+$/.test($('[data-group="only"][data-v="broken"] .c')?.textContent ?? ''), text('[data-group="only"][data-v="broken"]').replace(/\s+/g, ' '));
+      ok('§5 Only offers Item Hooks and Switched off, nothing else: On my actors and Broken assets went (2026-09-12)', $$('[data-group="only"]').length === 2 && !$('[data-group="only"][data-v="broken"]') && !$('[data-group="only"][data-v="mine"]'), $$('[data-group="only"]').map((b) => b.dataset.v).join(', '));
       // the search, which belongs to this tab now, narrows the same list
       const box5 = $('.fx-q');
       await type('.fx-q', 'sharran');
@@ -303,17 +308,38 @@ try {
       await type('.fx-q', '');
       await sleep(450);
 
-      // 6 · staging: the detail pane took its select with it, so Maintain is the one door again
-      ok('§6 staging is nowhere on the FX tab: no select, and no Maintain card either', !$('[data-pane="fx"] select') && !/Maintain · /.test(text('[data-pane="fx"]')), text('[data-pane="fx"] .fxlist .listhead'));
-      ok('§6 Stock is in the same list as everything else', Number($$('.facets [data-group="lives"]')[2].querySelector('.c').textContent) > 200, $$('.facets [data-group="lives"]')[2].textContent.replace(/\s+/g, ' '));
+      // 6 · no staging, no ship (2026-09-12); a Stock FX edited asks: House override, or Stock itself
+      ok('§6 staging is nowhere: no select on the FX tab, no Stage, no Ship', !$('[data-pane="fx"] select') && !$('[data-act="co-stage"]') && !$('[data-act="co-ship"]') && !/Draft/.test(text('[data-pane="fx"]')), text('[data-pane="fx"] .fxlist .listhead'));
+      ok('§6 Stock is in the same list as everything else', Number($$('.facets [data-group="lives"]')[1].querySelector('.c').textContent) > 200, $$('.facets [data-group="lives"]')[1].textContent.replace(/\s+/g, ' '));
       await click('[data-tab="coverage"]');
-      ok('§6 the Maintain band sits at the top of Coverage', /Maintain · /.test(text('[data-pane="coverage"]')) && $('.coverage').firstElementChild.classList.contains('maintain'), text('[data-pane="coverage"]').match(/Maintain · [^\s]+/)?.[0] ?? 'no band');
-      const row6 = $$('.maintain .row').find((r) => /Sharran Step/.test(r.textContent));
-      ok('§6 Not yet shipped lists Sharran Step as a Draft, with Stage: House', row6 && /Draft/.test(row6.textContent) && !!row6.querySelector('[data-act="co-stage"][data-to="house"]'), row6?.textContent.replace(/\s+/g, ' ').slice(0, 160));
-      ok('§6 with nothing staged the ship keeps its place, greyed with the reason (R1)', $('[data-act="co-ship"]')?.disabled === true && $('.co-version')?.disabled === true && /Stage a Draft/.test(text('.maintain .mcol:nth-child(2)')), text('.maintain .mcol:nth-child(2)').replace(/\s+/g, ' ').slice(0, 120));
-      await click(row6.querySelector('[data-act="co-stage"][data-to="house"]'));
-      await sleep(300);
-      ok('§6 Stage: House stages it, and the Ship button names the version, the card the file', api.fx.buffer().find((l) => l.id === 'sharran-step')?.to === 'house' && /^Ship /.test(text('[data-act="co-ship"]')) && /house\.json/.test(text('[data-pane="coverage"]')), text('[data-act="co-ship"]'));
+      ok('§6 the Maintain band sits at the top of Coverage: Import to Stock and the corpus line, no columns to stage or ship', /Maintain · /.test(text('[data-pane="coverage"]')) && $('.coverage').firstElementChild.classList.contains('maintain') && !!$('.maintain [data-act="import-fx"][data-to="stock"]') && !$('.maintain .mcol') && !$('.maintain .co-version'), text('.maintain').replace(/\s+/g, ' ').slice(0, 160));
+      // the Stock choice, through the sheet's own Save: the dialog is answered for it
+      const stock6 = 'fire-bolt';
+      const stockNote6 = api.fx.get(stock6)?.original?.note ?? '';
+      const answerSave = async (choice, fn) => { const D = foundry.applications.api.DialogV2; const was = D.wait; let asked = false; D.wait = async () => { asked = true; return choice; }; try { await fn(); if (choice === 'cancel') await sleep(400); else await until(() => $('.sheet')?.dataset.edit === 'false'); } finally { D.wait = was; } return asked; };
+      const editNote = async (note) => { const sw = $('.sh-edit'); if (!sw.checked) { sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300); } await type('.sh-note', note); };
+      await openEditor(stock6);
+      ok('§6 a Stock FX opens tagged Stock', api.fx.get(stock6)?.source === 'stock' && /Stock/.test(text('.sheet h2')), text('.sheet h2'));
+      await editNote('override by the suite');
+      ok('§6 editing Stock, the banner says Save will ask: House override or Stock', /House override/.test(text('.sheet .banner')) && /Stock itself/.test(text('.sheet .banner')), text('.sheet .banner'));
+      const asked6 = await answerSave('house', () => click('[data-act="sh-save"]'));
+      made.push(stock6);
+      ok('§6 Save asked, and House override writes the same id into house.json: House wins, Stock is untouched', asked6 && api.fx.get(stock6)?.source === 'house' && api.fx.get(stock6)?.original?.note === 'override by the suite' && api.corpus.under(stock6) === 'stock' && api.corpora.stock.find((l) => l.id === stock6)?.note === stockNote6 && JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · under ${api.corpus.under(stock6)}`);
+      ok('§6 the sheet reopens on the override, tagged House override', /House override/.test(text('.sheet h2')) && $('.sheet')?.dataset.edit === 'false', text('.sheet h2'));
+      await sayYes(() => click('[data-act="sh-delete"]'));
+      await until(() => api.fx.get(stock6)?.source === 'stock' && text('.sheet code.id') === stock6);
+      ok('§6 Delete on the override shows Stock again, and the sheet reopens on it', api.fx.get(stock6)?.source === 'stock' && api.fx.get(stock6)?.original?.note === stockNote6 && text('.sheet code.id') === stock6 && /Stock/.test(text('.sheet h2')), `${api.fx.get(stock6)?.source} · ${text('.sheet h2')}`);
+      await editNote('stock edited by the suite');
+      const asked6b = await answerSave('stock', () => click('[data-act="sh-save"]'));
+      ok('§6 Edit Stock writes the Stock file itself: no override, the books changed', asked6b && api.fx.get(stock6)?.source === 'stock' && api.fx.get(stock6)?.original?.note === 'stock edited by the suite' && JSON.parse(await readFile('recipes/stock/spells.json')).fx.find((l) => l.id === stock6)?.note === 'stock edited by the suite' && !JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · ${api.fx.get(stock6)?.original?.note}`);
+      await editNote(stockNote6);
+      await answerSave('stock', () => click('[data-act="sh-save"]'));
+      ok('§6 and written back as it was', api.fx.get(stock6)?.original?.note === stockNote6, api.fx.get(stock6)?.original?.note ?? '');
+      await editNote('cancelled');
+      const asked6c = await answerSave('cancel', () => click('[data-act="sh-save"]'));
+      ok('§6 Cancel in the dialog saves nothing and leaves the sheet unlocked', asked6c && $('.sheet')?.dataset.edit === 'true' && api.fx.get(stock6)?.original?.note === stockNote6, `${$('.sheet')?.dataset.edit}`);
+      await click('[data-act="sh-cancel"]');
+      await click('[data-tab="fx"]');
 
       // 7 · one item's own FX, through the sheet (Open FX from the card, unlock, Item Hook, Save)
       api.open({ item: tmp });
@@ -327,11 +353,11 @@ try {
       await click(only);
       ok('§7 with the Item Hook the sheet says so and the id is the item\'s own', /Item Hook/.test(text('.sheet h2')) && text('.sheet code.id') === 'sharran-step-fx-test-caster', `${text('.sheet h2')} · ${text('.sheet code.id')}`);
       await click('[data-act="sh-save"]');
-      await sleep(500);
-      const own = api.fx.buffer().find((l) => l.id === 'sharran-step-fx-test-caster');
+      await until(() => api.fx.get('sharran-step-fx-test-caster') && $('.sheet')?.dataset.edit === 'false');
+      const own = api.fx.get('sharran-step-fx-test-caster')?.original;
       if (own) made.push(own.id);
       const flag = tmp.getFlag(MOD, 'fx');
-      ok('§7 the item now points at an FX of its own, keyed to nothing, a draft in this world', own && own.for?.length === 0 && !own.to && flag === own.id, `flag ${flag} · ${JSON.stringify(own ?? null).slice(0, 200)}`);
+      ok('§7 the item now points at an FX of its own, keyed to nothing, in House', own && own.for?.length === 0 && api.fx.get(own.id)?.source === 'house' && flag === own.id, `flag ${flag} · ${JSON.stringify(own ?? null).slice(0, 200)}`);
       const r7 = api.sentenceFor(tmp);
       ok('§7 the item plays its own FX ahead of the spell\'s, and says so', r7.fx?.id === own?.id && /Item Hook/.test(r7.why), `${r7.sentence} | ${r7.why}`);
       const other = await caster.actor.createEmbeddedDocuments('Item', [{ name: 'Sharran Step', type: 'spell', system: { level: 2, school: 'con' } }]);
@@ -350,38 +376,27 @@ try {
       await openEditor(own.id);
       ok('§7 the Editor opens on it, an Item Hook', paneNow() === 'editor' && text('.sheet code.id') === own.id && /Item Hook/.test(text('.sheet h2')), text('.sheet code.id'));
       await sayYes(() => click('[data-act="sh-delete"]'));
-      ok('§7 Delete erases it and leaves no item pointing at a dead id: the spell\'s fx answers again', !tmp.getFlag(MOD, 'fx') && !api.fx.buffer().some((l) => l.id === own?.id) && api.resolve(tmp).fx?.id === 'sharran-step', `flag ${tmp.getFlag(MOD, 'fx')} · ${api.resolve(tmp).fx?.id}`);
+      await until(() => !api.fx.get(own.id) && !tmp.getFlag(MOD, 'fx'));
+      ok('§7 Delete erases it and leaves no item pointing at a dead id: the spell\'s fx answers again', !tmp.getFlag(MOD, 'fx') && !api.fx.get(own?.id) && api.resolve(tmp).fx?.id === 'sharran-step', `flag ${tmp.getFlag(MOD, 'fx')} · ${api.resolve(tmp).fx?.id}`);
       await click('[data-tab="fx"]');
-      // the guard: a locked sheet's Cancel drops changes; Delete on a plain draft is Delete
+      // the guard: a locked sheet's Cancel drops changes
       await openEditor('sharran-step');
       const sw2 = $('.sh-edit'); sw2.checked = true; sw2.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       await pick(1); await band('timing');
       await choose('.cw-delay', '900');
       ok('§7 a change unlocks Save', /after 900 ms/.test(text('.sheet .preview')) && $('[data-act="sh-save"]')?.disabled === false, '');
       await click('[data-act="sh-cancel"]');
-      ok('§7 Cancel drops the change and locks the sheet again', $('.sheet')?.dataset.edit === 'false' && /after 500 ms/.test(text('.sheet .preview')) && api.fx.buffer().find((l) => l.id === 'sharran-step')?.scenes?.[1]?.delay === 500, text('.sheet .preview').slice(0, 120));
+      ok('§7 Cancel drops the change and locks the sheet again', $('.sheet')?.dataset.edit === 'false' && /after 500 ms/.test(text('.sheet .preview')) && api.fx.get('sharran-step')?.original?.scenes?.[1]?.delay === 500, text('.sheet .preview').slice(0, 120));
 
-      // 9 · the ship: the corpus files and the version written into the module on this server, then restored
-      api.open({ tab: 'audit' })  // the old name still lands on Coverage;
+      // 9 · there is no ship (2026-09-12): Save wrote house.json in §4. The old name still lands on
+      //     Coverage; the module's manifest is never touched by a Save; then the files are put back
+      api.open({ tab: 'audit' });
       await sleep(300);
-      const versionBefore = api.corpus.version();
-      const next = api.corpus.nextVersions(versionBefore);
-      await choose('.co-version', next.patch);
-      await type('.co-note', 'the suite shipped Sharran Step');
-      ok('§9 the Ship button names the version chosen', text('[data-act="co-ship"]').includes(next.patch), text('[data-act="co-ship"]'));
-      let shipped;
-      try { shipped = await api.corpus.ship({ version: next.patch, note: 'the suite shipped Sharran Step' }); } catch (e) { shipped = { ok: false, problems: [e.message] }; }
-      ok('§9 the ship writes house.json and the record, and says so', shipped.ok && shipped.version === next.patch && shipped.previous === versionBefore && shipped.written.some((w) => w.file === 'recipes/house.json' && w.fx.includes('sharran-step')), JSON.stringify(shipped).slice(0, 300));
+      ok('§9 the old tab name lands on Coverage, whose Maintain band has no Ship', tabNow() === 'coverage' && !$('[data-act="co-ship"]') && !/Shipped/.test(text('.maintain')), text('.maintain').replace(/\s+/g, ' ').slice(0, 100));
       const houseNow = JSON.parse(await readFile('recipes/house.json'));
-      const recordNow = JSON.parse(await readFile('recipes/shipped.json'));
-      ok('§9 the server\'s house.json now holds Sharran Step, with no "to" left on it', houseNow.fx.some((l) => l.id === 'sharran-step' && l.to === undefined && l.by === game.user.name), `${houseNow.fx.length} fx`);
-      ok('§9 the record\'s first line is this ship, with the version stamped', recordNow.shipped[0]?.version === next.patch && recordNow.shipped[0].by === game.user.name && recordNow.shipped[0].fx.some((l) => l.id === 'sharran-step' && l.to === 'house'), JSON.stringify(recordNow.shipped[0]));
-      ok('§9 the module\'s own manifest is left alone (the pull tool stamps the repo)', JSON.parse(await readFile('module.json')).version === game.modules.get(MOD).version, '');
-      ok('§9 the shipped fx has left the world buffer and answers from the house corpus now', !api.fx.buffer().some((l) => l.id === 'sharran-step') && api.resolve(tmp).source === 'house' && api.resolve(tmp).fx?.id === 'sharran-step', `${api.resolve(tmp).source}`);
-      app.refresh();
-      await app.render();
-      await sleep(300);
-      ok('§9 Audit lists the ship in Shipped from here and shows the new version', /the suite shipped Sharran Step/.test(text('[data-pane="coverage"]')) && text('[data-pane="coverage"]').includes(`Maintain · ${next.patch}`), text('[data-pane="coverage"]').match(/Maintain · [^\s]+/)?.[0] ?? 'no version line');
+      ok('§9 the server\'s house.json holds Sharran Step from §4, with no staging field', houseNow.fx.some((l) => l.id === 'sharran-step' && l.to === undefined && l.by === game.user.name), `${houseNow.fx.length} fx`);
+      ok('§9 the module\'s own manifest is left alone (a Save writes corpus files only)', JSON.parse(await readFile('module.json')).version === game.modules.get(MOD).version, '');
+      ok('§9 nothing is pending anywhere: no corpus.pending, stage or ship on the API', !api.corpus.pending && !api.corpus.stage && !api.corpus.ship && !api.fx.buffer && !api.fx.remove, Object.keys(api.corpus).join(', '));
       // restore the module's files byte for byte, and read the corpora again
       for (const p of FILES) await writeFile(p, snapshot[p]);
       await api.corpus.reload();
@@ -397,7 +412,7 @@ try {
       await sleep(250);
       const cvKids = () => [...$('.coverage').children].map((c) => (c.className.match(/maintain|cvscope|tiles|cvlist/) ?? ['?'])[0]);
       ok('§12 four bands in one order: Maintain, the scope, the tiles, the rows', cvKids().join(' > ') === 'maintain > cvscope > tiles > cvlist', cvKids().join(' > '));
-      ok('§12 Maintain is the band at the top, whole: Waiting, Ship, Shipped, and the import', $$('.maintain .mcol').length === 3 && [...$$('.maintain .mcol .sub')].map((x) => x.textContent.split(' ·')[0]).join(' · ') === 'Waiting · Ship · Shipped' && !!$('[data-act="import-fx"][data-to="stock"]') && !!$('.maintain .co-version') && !!$('.maintain .co-note'), [...$$('.maintain .mcol .sub')].map((x) => x.textContent).join(' · '));
+      ok('§12 Maintain is the band at the top: Import to Stock and the corpus line, no columns', !$('.maintain .mcol') && !!$('.maintain [data-act="import-fx"][data-to="stock"]') && /corpus files read clean|corpus problem/.test(text('.maintain')), text('.maintain').replace(/\s+/g, ' ').slice(0, 120));
       const tileL = () => $$('.tiles .tile').map((t) => t.querySelector('.l').textContent.trim());
       const tileN = () => $$('.tiles .tile').map((t) => t.querySelector('.num').textContent.trim());
       ok('§12 four tiles at permanent addresses: Abilities · With FX · No FX · Errors', tileL().join(' · ') === 'Abilities · With FX · No FX · Errors', tileL().join(' · '));
@@ -408,7 +423,7 @@ try {
       const overflows12 = (sel) => { const el = $(sel); return !!el && el.scrollHeight > el.clientHeight + 1; };
       ok('§12 one scroll region: the rows (R4)', getComputedStyle($('.cvlist .rows')).overflowY === 'auto' && !overflows12('.maintain') && !overflows12('.cvscope') && !overflows12('.tiles'), `band ${overflows12('.maintain')} · scope ${overflows12('.cvscope')} · tiles ${overflows12('.tiles')}`);
       const content12 = app.element.querySelector('.fxstudio-content');
-      ok('§12 nothing wraps: four tiles across, three columns in the band, no sideways scroll (R2)', getComputedStyle($('.tiles')).gridTemplateColumns.split(' ').length === 4 && getComputedStyle($('.mgrid')).gridTemplateColumns.split(' ').length === 3 && content12.scrollWidth <= content12.clientWidth + 1, `${getComputedStyle($('.tiles')).gridTemplateColumns} · ${content12.scrollWidth} vs ${content12.clientWidth}`);
+      ok('§12 nothing wraps: four tiles across, no band columns left, no sideways scroll (R2)', getComputedStyle($('.tiles')).gridTemplateColumns.split(' ').length === 4 && !$('.mgrid') && content12.scrollWidth <= content12.clientWidth + 1, `${getComputedStyle($('.tiles')).gridTemplateColumns} · ${content12.scrollWidth} vs ${content12.clientWidth}`);
       // every No FX row is the door to a sheet for it
       const first12 = cvRows()[0];
       const name12 = first12?.querySelector('.n')?.textContent.trim() ?? '';
@@ -439,20 +454,19 @@ try {
       await click('[data-act="cv-pick"]');
       ok('§12 Books goes back to the picking with the pick remembered, and both scopes hold their place', !!$('[data-act="cv-book"][aria-pressed="true"]') && /Books · 1/.test(text('[data-act="cv-pick"]')) && $$('[data-act="cv-scope"]').length === 2, text('[data-act="cv-pick"]'));
       await click('[data-act="cv-scope"][data-scope="mine"]');
-      // the Errors tile: the check tools/check-fx.mjs runs, on screen, and the door to the FX list
+      // the Errors tile: the check tools/check-fx.mjs runs, on screen — a count, not a door (2026-09-12)
       const broke0 = Number(tileN()[3]);
-      ok('§12 the Errors tile counts the check the tools run, greyed in place when it is zero (R1)', /^\d+$/.test(tileN()[3]) && $('[data-act="cv-broken"]').disabled === (broke0 === 0), `${broke0} broken · disabled ${$('[data-act="cv-broken"]').disabled}`);
+      ok('§12 the Errors tile counts the check the tools run, and is not a door', /^\d+$/.test(tileN()[3]) && !$('[data-act="cv-broken"]') && $$('.tiles .tile')[3].tagName === 'DIV', `${broke0} broken`);
       const probe = { id: 'fx-broken-probe', for: ['spell:fx-broken-probe'], on: 'use', scenes: [{ shape: 'mark', at: 'source', asset: { path: 'jb2a.no_such_asset_here.blue' } }] };
       const savedProbe = await api.fx.save(probe, { by: game.user.name });
       if (savedProbe.ok) made.push(probe.id);
       app.refresh();
       await app.render();
       await sleep(250);
-      ok('§12 an FX naming an asset the libraries do not have is counted there', savedProbe.ok && Number(tileN()[3]) === broke0 + 1 && $('[data-act="cv-broken"]').disabled === false, `${JSON.stringify(savedProbe.problems ?? [])} · ${broke0} → ${tileN()[3]}`);
-      await click('[data-act="cv-broken"]');
-      ok('§12 the tile is the door to the FX list on Broken assets, and nothing else is pressed', tabNow() === 'fx' && $('[data-group="only"][data-v="broken"]')?.getAttribute('aria-pressed') === 'true' && $$('.facets [aria-pressed="true"]').length === 1 && $$('.fxlist .row').length === broke0 + 1 && /Fx Broken Probe/.test(text('.fxlist')) && $('.fx-q')?.value === '', `${$$('.fxlist .row').length} rows · box "${$('.fx-q')?.value}"`);
-      await api.fx.remove(probe.id);
+      ok('§12 an FX naming an asset the libraries do not have is counted there, and the tooltip names it', savedProbe.ok && Number(tileN()[3]) === broke0 + 1 && /fx-broken-probe/.test($$('.tiles .tile')[3].dataset.tooltip ?? ''), `${JSON.stringify(savedProbe.problems ?? [])} · ${broke0} → ${tileN()[3]}`);
+      await api.corpus.erase(probe.id);
       await sleep(300);
+      await click('[data-tab="fx"]');
       await click('[data-act="fx-clear"]');
 
       // the Item Hook gap step 7 closed: pinning an FX to one item without arriving from its sheet
@@ -471,13 +485,13 @@ try {
       const like12 = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
       await click(like12);
       await click('[data-act="sh-save"]');
-      await sleep(500);
-      const pinned12 = api.fx.buffer().find((l) => l.id === 'misty-step-fx-test-caster');
+      await until(() => api.fx.get('misty-step-fx-test-caster') && $('.sheet')?.dataset.edit === 'false');
+      const pinned12 = api.fx.get('misty-step-fx-test-caster')?.original;
       if (pinned12) made.push(pinned12.id);
       const misty12 = caster.actor.items.getName('Misty Step');
       ok('§12 Save writes it as an Item Hook and the item points at it — the hole step 7 closed', !!pinned12 && pinned12.for?.length === 0 && misty12?.getFlag(MOD, 'fx') === pinned12?.id && api.resolve(misty12).fx?.id === pinned12?.id, `flag ${misty12?.getFlag(MOD, 'fx')} · for ${JSON.stringify(pinned12?.for)}`);
       await misty12.unsetFlag(MOD, 'fx');
-      await api.fx.remove('misty-step-fx-test-caster');
+      await api.corpus.erase('misty-step-fx-test-caster');
       await sleep(300);
 
       // 13 · the Asset Library: browse, step the variants, sounds, the unused filter, and the picker door from the walk
@@ -546,7 +560,7 @@ try {
       await click($$('[data-act="lib-sel"]').find((r) => r.dataset.id === 'jb2a.arcane_hand'));
       await click('[data-act="lib-pick-use"]');
       ok('§13 Use returns to the sheet with the scene playing it', paneNow() === 'editor' && /arcane hand/i.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 160));
-      ok('§13 editing Misty Step (House) says Save writes a Draft over it', /Draft/.test(text('.sheet .banner')), text('.sheet .banner'));
+      ok('§13 editing Misty Step (Stock) says Save will ask: House override, or Stock', /House override/.test(text('.sheet .banner')) && !/Draft/.test(text('.sheet .banner')), text('.sheet .banner'));
       // the same door for the SFX slot, in the Sound band: Browse lands on the sound the scene carries
       await band('sound');
       await click('[data-act="cw-browse"][data-slot="sound"]');
@@ -605,7 +619,7 @@ try {
       await click('[data-act="cw-tint-off"]');
       ok('§13 the tint clears again', !/tinted/.test(text('.sheet .preview')), '');
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
-      ok('§13 the sheet is dropped, nothing saved', api.fx.buffer().length === before.length, `${api.fx.buffer().length}`);
+      ok('§13 the sheet is dropped, nothing saved', houseIds().length === before.length, `${houseIds().length}`);
 
       // 14 · Play: the sheet plays through api.preview and saves nothing (HANDOFF step 2)
       app = api.open({ tab: 'editor', id: 'misty-step' });
@@ -635,15 +649,15 @@ try {
       ok('§14 picking a scene in the rail changes colour, never layout (R3)', $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',') === geom14 && $('.rail .row[data-now="true"]') === $$('.rail .row')[1] && $('.inspector .ihead .num')?.textContent === '2', `${geom14} · now ${[...$$('.rail .row')].findIndex((r) => r.dataset.now === 'true')}`);
       ok('§14 the sentence marks the clause of the scene the inspector is on', !!$('.sentence-box mark') && text('.inspector .line').includes(text('.sentence-box mark')), text('.sentence-box mark'));
       await click($$('.rail .pickbtn')[0]);
-      const buf14 = api.fx.buffer().length;
+      const buf14 = houseIds().length;
       await click($$('[data-act="sh-play-scene"]')[0]);
       await sleep(1200);
       const e14 = api.ledger[0];
-      ok('§14 the row ▶ plays that one scene through the preview, and saves nothing', e14?.fx === 'preview' && e14.played && String(e14.id).startsWith('preview-') && api.fx.buffer().length === buf14, `${e14?.fx} · played ${e14?.played} · ${(e14?.files ?? []).join(', ').slice(0, 70)}`);
+      ok('§14 the row ▶ plays that one scene through the preview, and saves nothing', e14?.fx === 'preview' && e14.played && String(e14.id).startsWith('preview-') && houseIds().length === buf14, `${e14?.fx} · played ${e14?.played} · ${(e14?.files ?? []).join(', ').slice(0, 70)}`);
       await click('[data-act="sh-play"]');
       await sleep(1200);
       const e14b = api.ledger[0];
-      ok('§14 ▶ Play all plays the whole FX, still saving nothing', e14b?.fx === 'misty-step' && String(e14b.id).startsWith('preview-') && api.fx.buffer().length === buf14, `${e14b?.fx} · played ${e14b?.played} · ${e14b?.why ?? ''}`);
+      ok('§14 ▶ Play all plays the whole FX, still saving nothing', e14b?.fx === 'misty-step' && String(e14b.id).startsWith('preview-') && houseIds().length === buf14, `${e14b?.fx} · played ${e14b?.played} · ${e14b?.why ?? ''}`);
       Sequencer.EffectManager.endEffects({ name: 'fxstudio-move-range' });
       canvas.app.stage.removeAllListeners?.('pointerdown');
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
@@ -688,15 +702,15 @@ try {
     } catch (err) {
       results.push({ name: 'THROW', pass: false, detail: String(err.stack ?? err).slice(0, 600) });
     } finally {
-      for (const id of made) if (api.fx.buffer().some((l) => l.id === id)) await api.fx.remove(id).catch(() => null);
+      for (const id of made) if (api.fx.get(id)?.source === 'house') await api.corpus.erase(id).catch(() => null);
       let restored = true;
       for (const p of FILES) if ((await readFile(p)) !== snapshot[p]) { restored = false; await writeFile(p, snapshot[p]).catch(() => null); }
       if (!restored) await api.corpus.reload().catch(() => null);
       if (tmp) await tmp.delete().catch(() => null);
       try { await app?.close(); } catch { /* fine */ }
     }
-    const after = api.fx.buffer().map((l) => l.id);
-    results.push({ name: '§11 the world buffer is as it was', pass: JSON.stringify(after) === JSON.stringify(before), detail: `${before.length} → ${after.length}` });
+    const after = houseIds();
+    results.push({ name: '§11 House is as it was', pass: JSON.stringify(after) === JSON.stringify(before), detail: `${before.length} → ${after.length}` });
     return { results };
   }, { fx: fixture });
   report('screens', out, null);

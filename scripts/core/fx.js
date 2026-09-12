@@ -18,7 +18,8 @@
 //   off     a house fx that silences whatever answered before it (its `for` keys play nothing)
 //   scenes  the pictures and sounds, in start order — always stated, always this FX's own
 //   by, at, note   who wrote it (a name, an assistant, "the migration"), when (ISO date), why
-//   to      an FX written in this world only: the corpus it is staged for (house | stock) until shipped
+//   (There is no draft or staging field: an FX lives in its corpus file, House or Stock, and Save
+//   writes the file — ruled 2026-09-12.)
 //
 // A SCENE — every knob is named for what it does and means the same thing in every shape
 //   shape    strike | shoot | mark | fill | aura | beam | move | sound | custom
@@ -54,7 +55,6 @@ export const ON_MISS = ['fly-past', 'play', 'skip'];
 export const PICK = ['click', 'movement'];
 export const SIZE_KINDS = ['tokenWidths', 'radius', 'squares', 'fit'];
 export const FIT = ['shape', 'object'];
-export const TO = ['house', 'stock'];
 
 /** the knobs each shape reads; anything else on a scene is a problem the validator names */
 const COMMON = ['shape', 'asset', 'sound', 'delay', 'wait', 'repeat', 'every', 'rate', 'fadeIn', 'fadeOut', 'opacity', 'tint', 'below', 'elevation', 'zIndex', 'anchor', 'note'];
@@ -182,7 +182,7 @@ export function validate(fx) {
     else for (const k of fx.for) if (!isKey(k)) out.push(`"${k}" is not a subject key (kind:id, e.g. spell:fire-bolt or weapon:maul)`);
   }
   if (fx.on !== undefined && !WHEN.includes(fx.on)) out.push(`"on" must be one of ${WHEN.join(', ')}`);
-  if (fx.to !== undefined && !TO.includes(fx.to)) out.push(`"to" must be one of ${TO.join(', ')} (the corpus a draft is staged for)`);
+  if (fx.to !== undefined) out.push('"to" is not part of the grammar any more: an FX lives in House or Stock, and Save writes the file');
   if (fx.off) {
     if (!fx.for?.length) out.push('an "off" fx needs the keys it silences in "for"');
     out.push(...recordProblems(fx.record));

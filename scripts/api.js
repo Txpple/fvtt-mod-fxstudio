@@ -1,7 +1,7 @@
 // The authoring API (ARCHITECTURE §7): the second door. Anything that can run script in the game
 // — a macro, a bridge, an assistant at the table — writes an FX as data, validates it, reads it
-// back as a sentence, previews it on chosen tokens, saves it to the world buffer with provenance,
-// and asks what plays nothing. The screens (phase 3) are built on this, so it is always complete.
+// back as a sentence, previews it on chosen tokens, saves it into its corpus FILE with provenance
+// (House, or Stock — there is no draft layer, ruled 2026-09-12), and asks what plays nothing. The screens (phase 3) are built on this, so it is always complete.
 import { sentence, validate, provenance } from './core/fx.js';
 import { gateNames, registerGate } from './core/gates.js';
 import { stampRecord } from './core/records.js';
@@ -11,14 +11,13 @@ import { build, ledger, play, resolveMoment } from './engine/render.js';
 import { coloursOf, database, familyOf, recoloured, resolveAsset, search } from './engine/assets.js';
 import { readEffect, readMessage, readRegion, subjectOfEffect, subjectOfItem } from './readers/dnd5e.js';
 import { readMoment } from './readers/battleflow.js';
-import { MODULE_ID, getWorldFx, setWorldFx } from './settings.js';
-import { TO_WORDS, stockFile, nextVersions, pending, ship, stage, erase } from './ship.js';
+import { MODULE_ID } from './settings.js';
+import { erase, fileFor, stockFile, writeFx } from './files.js';
 
 /**
- * @param state  {get index, corpora: {stock, house, starters, shipped}, rebuild(), reload()}
+ * @param state  {get index, corpora: {stock, house, starters}, rebuild(), reload()}
  */
 export function makeApi(state) {
-  const sameFx = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
   // THE RECORDS (recipes/records.json): where every key's evidence lives. Read once, lazily — when
   // a screen opens or an FX is saved — and never by the engine, which plays without it. It is the
@@ -54,69 +53,37 @@ export function makeApi(state) {
     starters: () => [...state.index.starters.values()],
     /** the FX that answer a key, on any moment kind */
     for: (key) => fxFor(state.index, key),
-    /** the world buffer as it is */
-    buffer: () => getWorldFx(),
     /**
-     * Save an FX to the world buffer with provenance (replacing one with the same id). Returns
-     * {ok, problems, fx}. `to` binds it for a corpus (house | stock); without it the FX is a
-     * draft that plays in this world only. Nothing reaches the corpus files until Corpus ships.
+     * Save an FX into its corpus file with provenance (the same id there is replaced), then read
+     * the corpora again. `to` is the corpus: 'house' (the default — this table's own FX, and the
+     * only home of an Item Hook) or 'stock' (the books' file of the FX's kind). A house FX with a
+     * stock FX's id is the House OVERRIDE: it wins by id. Returns {ok, problems, fx, file}.
      */
-    save: async (fx, { by = null, note = null, to = undefined } = {}) => {
+    save: async (fx, { by = null, note = null, to = 'house' } = {}) => {
       const problems = validate(fx);
       if (problems.length) return { ok: false, problems, fx };
+      if (!fileFor(fx, to)) return { ok: false, problems: [to === 'stock' ? 'an Item Hook (no ability key) lives in House, not Stock' : `"${to}" is not a corpus (house or stock)`], fx };
       // the record is stamped from this install's address book by the FX's key, never typed (core/records.js)
       await readRecords();
       const stamped = stampRecord({ ...fx, by: by ?? fx.by ?? game.user?.name ?? 'someone', at: fx.at ?? new Date().toISOString().slice(0, 10) }, records);
       if (note) stamped.note = note;
-      if (to) stamped.to = to; else if (to === null) delete stamped.to;
-      if (stamped.to === 'stock' && !stockFile(stamped)) return { ok: false, problems: ['an Item Hook (no ability key) can be staged for House, not Stock'], fx };
-      const buffer = getWorldFx().filter((l) => l.id !== stamped.id);
-      buffer.push(stamped);
-      await setWorldFx(buffer);
-      state.rebuild();
-      return { ok: true, problems: [], fx: stamped, sentence: sentence(stamped) };
-    },
-    /** take an FX out of the world buffer (a house or stock fx of that id shows through again) */
-    remove: async (id) => {
-      const buffer = getWorldFx();
-      const next = buffer.filter((l) => l.id !== id);
-      if (next.length === buffer.length) return { ok: false, problems: [`no FX "${id}" in the world buffer`] };
-      await setWorldFx(next);
-      state.rebuild();
-      return { ok: true };
-    },
-    /** the buffer's FX that recipes/house.json already holds word for word (the export has run and been deployed) */
-    exported: () => getWorldFx().filter((l) => state.corpora.house.some((h) => h.id === l.id && sameFx(h, l))),
-    /** drop from the buffer what the house file already holds; what it does not hold stays. Returns how many went. */
-    clearExported: async () => {
-      const gone = fx.exported().map((l) => l.id);
-      if (!gone.length) return { ok: true, cleared: 0 };
-      await setWorldFx(getWorldFx().filter((l) => !gone.includes(l.id)));
-      state.rebuild();
-      return { ok: true, cleared: gone.length };
+      const file = await writeFx(stamped, to);
+      await state.reload();
+      return { ok: true, problems: [], fx: stamped, file, sentence: sentence(stamped) };
     },
   };
 
-  /** the corpus: what is written here and where it is staged, staging, shipping, the record */
-  const cmpVersion = (a, b) => { const x = String(a).split('.').map(Number); const y = String(b).split('.').map(Number); for (let i = 0; i < 3; i++) if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) - (y[i] ?? 0); return 0; };
+  /** the corpus: the two files, what may go where, deleting, reading again */
   const corpus = {
-    pending,
-    stage: async (id, to) => { const r = await stage(id, to); if (r.ok) state.rebuild(); return r; },
-    /** ship every staged FX into the module's corpus files, stamp the version, keep the record, read the corpora again */
-    ship: async ({ version = null, note = '' } = {}) => {
-      const r = await ship({ version, note, by: game.user?.name ?? null });
-      if (r.ok) await state.reload();
-      return r;
-    },
-    /** may this FX go to the main corpus? (it needs an ability key to pick its file) */
+    /** may this FX go to Stock? (it needs an ability key to pick its file; an Item Hook is House only) */
     canStock: (fx) => !!stockFile(fx),
-    /** delete an FX for good: the world buffer and the module's corpus files, then the corpora read again */
-    erase: async (id) => { const r = await erase(id, { corpora: state.corpora }); if (r.written.length) await state.reload(); else state.rebuild(); return r; },
-    shipped: () => state.corpora.shipped ?? [],
-    /** the version the module runs, or the last one shipped from here when that is newer */
-    version: () => { const running = game.modules.get(MODULE_ID)?.version ?? '0.0.0'; const last = state.corpora.shipped?.[0]?.version; return last && cmpVersion(last, running) > 0 ? last : running; },
-    nextVersions: (current) => nextVersions(current ?? corpus.version()),
-    words: TO_WORDS,
+    /** the file an FX would be written to for a corpus */
+    fileFor,
+    /** delete an FX for good, out of the file of the layer that wins (House over Stock; `from` names one), then the corpora read again */
+    erase: async (id, { from = null } = {}) => { const r = await erase(id, { corpora: state.corpora, from }); if (r.written.length) await state.reload(); return r; },
+    /** does a Stock FX sit under this id? (a House FX with the same id is its override; deleting it shows Stock again) */
+    under: (id) => (state.corpora.stock.some((l) => l.id === id) ? 'stock' : null),
+    words: LAYER_WORDS,
     reload: () => state.reload(),
   };
 

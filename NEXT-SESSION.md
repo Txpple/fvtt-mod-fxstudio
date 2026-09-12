@@ -1,5 +1,24 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-12 — THE DRAFT LAYER IS GONE (the user: *"no more concept of draft … either its a file or
+> not … if someone edits a stock file, they should be given a choice to save as a house override, or
+> edit the stock file directly"*). Built and green: Save writes the corpus file in the module folder
+> on the server (`scripts/files.js`; House by default, the only home of an Item Hook); a Stock FX's
+> Save asks House override or Edit Stock (`ui/sheet.js whereToSave`); Delete takes the winning layer
+> only (`erase` — it used to take the id out of EVERY file, which the author suite caught by deleting
+> Misty Step from Stock on the sandbox; put back). Stage, Ship, the world buffer, `shipped.json`,
+> `world-fx.mjs`, `export-fx.mjs`, Revert, the Draft group and facet, the Statuses/Damage/Events kinds,
+> On my actors and Broken assets are gone; the old buffer setting is drained into the files once at
+> ready by a GM. Proof: author 20/20, screens 184/185 (the one is the sandbox process still reporting
+> v0.3.0 until it is restarted, which a connected user blocks), fx 1026, the six offline checks.
+> **Not touched, for the user:** the sandbox's `house.json` holds the two parked drafts the drain
+> folded in (Sorcerous Burst, Dimension Door) and one Item Hook the user saved today
+> (`shortbow-bf-test-rogue`) — `node tools/pull-corpus.mjs` shows them; `tools/world-buffer.json`
+> still holds the two parked drafts as a file Import can read, if the sandbox is ever refreshed
+> first. `smoke-boot`'s "Shield effect" probe has been stale since the SRD cut (no `effect:shield`
+> in Stock) and is not this change's. Nothing released. DESIGN §21, CLAUDE.md carry the ruling.
+
+
 > **2026-09-11, cold session after — the two unruled costs are RULED, on the user's "ok": leave both.**
 > Client-local holds: the fix is Battle Flow's (observable hold state), asked for only if a GM placing
 > a template for a player ever sees the picture early. The five-minute bound stays; a per-gate bound
@@ -208,10 +227,10 @@ In [CLAUDE.md](CLAUDE.md) in full; the ones this work keeps needing:
   changes or the migration is re-run.
 - ⚠ **Never run two suites against the sandbox at once.** They build fixtures on the same world and
   collide — one dies mid-`fixtureUp` with *"The Actor … does not exist"*, and because its teardown
-  never runs it **leaves its FX in the world buffer**, where it then shadows Stock and fails the
-  next run for a reason that looks like a product defect. If a suite fails oddly, check
-  `api.fx.buffer()` for anything written by *Tester Assistant* and remove it; the user's own Drafts
-  are by *Matt the DM*.
+  never runs it **leaves its FX in `recipes/house.json` on the sandbox** (there is no world buffer
+  since 2026-09-12), where it then shadows Stock and fails the next run for a reason that looks like
+  a product defect. If a suite fails oddly, check `api.corpora.house` for anything written by
+  *Tester Assistant* and `api.corpus.erase` it; the user's own FX are by *Matt the DM*.
 - ⚠ **A live pack is locked while Foundry runs.** Read compendia through `snapshot(dir, tag)`.
 - After any edit under `scripts/`: `check-imports`, `check-layers`, `check-legacy`, `check-gates`. After
   any edit under `recipes/`: `check-fx`, then the live suites.

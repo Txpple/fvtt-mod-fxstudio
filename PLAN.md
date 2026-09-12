@@ -185,9 +185,11 @@ JB2A + PSFX ──register paths──► Sequencer.Database
   looks, committed, MIT, portable across campaigns ("house", not "campaign": it is the DM's corpus
   across games, and it is where everything AA never had gets built). It starts with the four
   preset edits and the six item-flag looks the import finds on prod, each as an override of a
-  stock row. The **world layer** (`fxstudio.looks`, one world setting) is the live edit
+  stock row. ~~The **world layer** (`fxstudio.looks`, one world setting) is the live edit
   buffer the screens write; `tools/export-fx.mjs` folds it into `house.json` so it is
-  versioned and readable by an assistant. `recipes/colours.json` holds the outcome layers'
+  versioned and readable by an assistant.~~ **Superseded 2026-09-12: there is no world layer. Save
+  writes `house.json` or the stock file itself in the module folder on the server; `tools/pull-corpus.mjs`
+  brings the files into the repo (DESIGN §21).** `recipes/colours.json` holds the outcome layers'
   colour defaults. An optional item pointer `flags.fvtt-mod-fxstudio.look` names a look. A row was `{name, like?, fx: [{preset, file, sound?, options?}...]}` — **superseded**: that shape
   was AA's, replaced by the grammar in [ARCHITECTURE.md](ARCHITECTURE.md) §4 (§0.7), and the `like`
   shortcut in it was ruled out entirely on 2026-09-07 (DESIGN §9): every FX states its scenes in

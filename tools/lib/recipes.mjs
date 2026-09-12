@@ -31,9 +31,9 @@ export function readRecipes() {
   return { stock, house, starters, frozen, records, files };
 }
 
-/** the corpus index over the recipes (plus `world` fx when given: the buffer, or a file under test) */
-export function indexRecipes(recipes, world = []) {
-  return buildIndex({ stock: recipes.stock, house: recipes.house, world, starters: recipes.starters });
+/** the corpus index over the recipes (plus `extra` fx when given — a file under test — read as House) */
+export function indexRecipes(recipes, extra = []) {
+  return buildIndex({ stock: recipes.stock, house: [...recipes.house, ...extra], starters: recipes.starters });
 }
 
 /** the libraries' registration as the engine's database; returns the stage database and the raw dbs */

@@ -78,7 +78,7 @@ is('no momentId (a v1 Battle Flow): null, never undefined', readMoment(payload()
 console.log('\nthe fallback, through the corpus index');
 const index = buildIndex({
   stock: [{ id: 'sneak-attack', for: ['feature:sneak-attack'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'jb2a.sneak_attack.dark_green' } }] }],
-  house: [], world: [], starters: [],
+  house: [], starters: [],
 });
 const { resolveMoment, firstTime } = await import(toUrl(join(REPO, 'scripts/engine/render.js'))).catch(() => ({ resolveMoment: null }));
 if (resolveMoment) {
@@ -94,14 +94,14 @@ if (resolveMoment) {
   const own = buildIndex({ stock: [
     { id: 'sneak-attack', for: ['feature:sneak-attack'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'a' } }] },
     { id: 'sneak-attack-dice', for: ['feature:sneak-attack'], on: 'sneak', scenes: [{ shape: 'mark', asset: { path: 'b' } }] },
-  ], house: [], world: [], starters: [] });
+  ], house: [], starters: [] });
   is('a look authored for the word wins over the use look', resolveMoment(own, m)?.fx?.id, 'sneak-attack-dice');
   const off = buildIndex({ stock: [{ id: 'sneak-attack', for: ['feature:sneak-attack'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'a' } }] }],
     house: [{ id: 'sneak-quiet', for: ['feature:sneak-attack'], on: 'sneak', off: true }], world: [], starters: [] });
   is('an off on the word silences it — no fallback past a silence', resolveMoment(off, m)?.fx ?? null, null);
   const held = readMoment(payload({ event: 'hold-answered', itemUuid: sneak.uuid }), world);
   is('hold-answered with only a use look plays nothing (the card already did)', resolveMoment(index, held)?.fx ?? null, null);
-  is('the event key answers on its own when a look is keyed to it', resolveMoment(buildIndex({ stock: [{ id: 'any-sneak', for: ['event:sneak'], on: 'sneak', scenes: [{ shape: 'mark', asset: { path: 'c' } }] }], house: [], world: [], starters: [] }), m)?.fx?.id, 'any-sneak');
+  is('the event key answers on its own when a look is keyed to it', resolveMoment(buildIndex({ stock: [{ id: 'any-sneak', for: ['event:sneak'], on: 'sneak', scenes: [{ shape: 'mark', asset: { path: 'c' } }] }], house: [], starters: [] }), m)?.fx?.id, 'any-sneak');
 } else {
   console.log('  (engine/render.js needs the canvas; the fallback is proved through resolve() below)');
   const r = resolve(index, m.subject.keys, 'use', {});

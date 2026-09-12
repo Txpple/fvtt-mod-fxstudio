@@ -1,9 +1,9 @@
-// Pull the corpus the game shipped back into the repo (DESIGN §8). The Corpus tab writes the corpus
-// files and the version into the module's own folder on the server; this brings them here, where
-// git, the tag and the release live. Reads the sandbox's module folder by default.
+// Pull the corpus files the game wrote back into the repo. Save writes an FX into its corpus file
+// in the module's own folder on the server (there is no draft layer, 2026-09-12); this brings the
+// files here, where git, the tag and the release live. Reads the sandbox's module folder by default.
 //
 //   node tools/pull-corpus.mjs                 # what differs between the module on the sandbox and the repo, as fx
-//   node tools/pull-corpus.mjs --write         # copy recipes/** in; take the shipped version into module.json (and its download URL)
+//   node tools/pull-corpus.mjs --write         # copy recipes/house.json and recipes/stock/*.json in
 //   node tools/pull-corpus.mjs --from <dir>    # another module folder (a prod copy fetched by hand)
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
@@ -21,13 +21,13 @@ const rel = (p, base) => relative(base, p).replace(/\\/g, '/');
 const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : null);
 const fxOf = (text) => { try { const j = JSON.parse(text); return Array.isArray(j.fx) ? j.fx : null; } catch { return null; } };
 
-// only what a ship writes travels this way (the docs and the licence go the other way, with the deploy)
-const SHIPPED = (r) => r === 'recipes/house.json' || r === 'recipes/shipped.json' || /^recipes\/stock\/[a-z]+\.json$/.test(r);
+// only what a Save writes travels this way (the docs and the licence go the other way, with the deploy)
+const CORPUS = (r) => r === 'recipes/house.json' || /^recipes\/stock\/[a-z]+\.json$/.test(r);
 let changed = 0;
 const pending = [];
 for (const src of walk(join(FROM, 'recipes'))) {
   const r = rel(src, FROM);
-  if (!SHIPPED(r)) continue;
+  if (!CORPUS(r)) continue;
   const dst = join(REPO, r);
   const theirs = read(src);
   const ours = read(dst);
@@ -47,20 +47,7 @@ for (const src of walk(join(FROM, 'recipes'))) {
     for (const l of gone) console.log(`  - ${l.id}`);
   } else console.log(`${r}: ${ours === null ? 'new' : 'differs'}`);
 }
-// the version the game stamped lives in the shipping record (the module's own manifest is never rewritten under it)
-const record = JSON.parse(read(join(FROM, 'recipes', 'shipped.json')) ?? '{"shipped":[]}');
-const theirManifest = { version: record.shipped?.[0]?.version ?? null };
-const ourManifest = JSON.parse(read(join(REPO, 'module.json')));
-const newer = (a, b) => { const x = String(a).split('.').map(Number); const y = String(b).split('.').map(Number); for (let i = 0; i < 3; i++) if ((x[i] ?? 0) !== (y[i] ?? 0)) return (x[i] ?? 0) > (y[i] ?? 0); return false; };
-const versionDiffers = theirManifest.version && newer(theirManifest.version, ourManifest.version);
-if (versionDiffers) console.log(`version: the last ship stamped ${theirManifest.version}, the repo says ${ourManifest.version}`);
-if (!changed && !versionDiffers) { console.log('the repo already holds what the module on the sandbox holds'); process.exit(0); }
-if (!WRITE) { console.log(`\n${changed} file(s) differ. Pass --write to pull them in${versionDiffers ? ' and take the version' : ''}.`); process.exit(0); }
+if (!changed) { console.log('the repo already holds what the module on the sandbox holds'); process.exit(0); }
+if (!WRITE) { console.log(`\n${changed} file(s) differ. Pass --write to pull them in.`); process.exit(0); }
 for (const [src, dst] of pending) { mkdirSync(dirname(dst), { recursive: true }); writeFileSync(dst, readFileSync(src)); console.log(`wrote ${rel(dst, REPO)}`); }
-if (versionDiffers) {
-  ourManifest.version = theirManifest.version;
-  if (typeof ourManifest.download === 'string') ourManifest.download = ourManifest.download.replace(/\/v[\d.]+\//, `/v${theirManifest.version}/`);
-  writeFileSync(join(REPO, 'module.json'), `${JSON.stringify(ourManifest, null, 2)}\n`);
-  console.log(`module.json: version ${theirManifest.version} and its download URL`);
-}
 console.log('pulled. Read the diff, then commit and follow the release ritual (CLAUDE.md).');

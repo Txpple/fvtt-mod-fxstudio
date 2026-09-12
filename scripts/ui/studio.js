@@ -1,6 +1,6 @@
 // FX Studio — the screens (ARCHITECTURE §7, the first door), built on the API and nothing else.
-// FOUR TABS (the user's ruling, 2026-09-07): FX (every FX in one list, grouped Draft → House →
-// Stock, ui/fxtab.js), EDITOR (the FX sheet, ui/sheet.js — where every edit of an FX is made),
+// FOUR TABS (the user's ruling, 2026-09-07): FX (every FX in one list, grouped House → Stock,
+// ui/fxtab.js), EDITOR (the FX sheet, ui/sheet.js — where every edit of an FX is made),
 // Assets (ui/library.js) and Coverage (ui/coverage.js: what has an FX and what does not, over my
 // actors or the compendiums picked, with Maintain the band at the top). Stock FX and House FX were
 // the same list twice, differing by a filter on `source`, and Look up was a search with a card.
@@ -16,7 +16,7 @@ import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { SOURCE_TAG, STATUS_WORDS, esc, idWords, statusOf } from './html.js';
 import { hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
-import { onCorpusChange, onCorpusClick, onCorpusInput } from './corpus.js';
+import { onCorpusClick } from './corpus.js';
 import { onCoverageClick, renderCoverage } from './coverage.js';
 import { onFxClick, renderFx, renderList } from './fxtab.js';
 import { nameForKey, readRecords, recordsRead } from './records.js';
@@ -48,7 +48,6 @@ export class Studio extends ApplicationV2 {
     super(options);
     this.view = { tab: 'fx', subject: null, fxSel: null, q: '' };
     this.sheet = null;
-    this.co = null;
     this._bound = false;
     // THE RECORDS ARE READ WHEN THE WINDOW OPENS, not at boot (ui/records.js): they say where each
     // key's evidence lives, nothing but the screens reads them, and they are the biggest file the
@@ -281,11 +280,12 @@ export class Studio extends ApplicationV2 {
     return this.toast(`Exported: ${idWords(id)}${item ? ' (Item Hook)' : ''}.`);
   }
 
-  /** a file of FX read from the local machine into this world, or bound for the main corpus */
+  /** a file of FX read from the local machine into a corpus file: House (the default) or Stock */
   async importFx(to) {
     const a = api();
+    to = to === 'stock' ? 'stock' : 'house';
     const file = await foundry.applications.api.DialogV2.prompt({
-      window: { title: to === 'stock' ? 'Import to Stock' : 'Import FX' },
+      window: { title: `Import to ${SOURCE_TAG[to]}` },
       content: '<input type="file" name="file" accept=".json,application/json">',
       ok: { label: 'Import', callback: (ev, button) => button.form.elements.file?.files?.[0] ?? null },
       rejectClose: false, modal: true,
@@ -298,22 +298,23 @@ export class Studio extends ApplicationV2 {
     let saved = 0, items = 0;
     const problems = [];
     for (const fx of list) {
-      const r = await a.fx.save(fx, { by: fx.by ?? game.user.name, to: to === 'stock' ? 'stock' : undefined });
+      const r = await a.fx.save(fx, { by: fx.by ?? game.user.name, to });
       if (!r.ok) { problems.push(`${fx.id ?? '?'}: ${r.problems.join('; ')}`); continue; }
       saved++;
       if (!(fx.for?.length)) items++;
     }
     this.refresh();
     await this.render();
-    return this.toast(`Imported ${saved} FX${to === 'stock' ? ', staged: Stock' : ''}${items ? ` (${items} Item Hook)` : ''}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}`);
+    return this.toast(`Imported ${saved} FX to ${SOURCE_TAG[to]}${items ? ` (${items} Item Hook)` : ''}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}`);
   }
 
-  /** delete an FX for good: out of this world and out of the module's corpus files */
+  /** delete an FX for good, out of its corpus file; a House override deleted shows the Stock FX under it again */
   async deleteFx(id) {
     const a = api();
     const e = a.fx.get(id);
     if (!e) return undefined;
-    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source}${e.source === 'world' ? '' : ' file'}. Deletes it permanently.</p>`, rejectClose: false, modal: true });
+    const under = e.source === 'house' ? a.corpus.under(id) : null;
+    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${under ? ` The ${SOURCE_TAG[under]} FX of that id shows through again.` : ''}</p>`, rejectClose: false, modal: true });
     if (!ok) return undefined;
     let r;
     try { r = await a.corpus.erase(id); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
@@ -359,11 +360,10 @@ export class Studio extends ApplicationV2 {
       case 'effect': { const row = this.census.actors.find((r) => r.name === b.dataset.actor); const ef = row?.effects[Number(b.dataset.i)]; if (!ef) return undefined; this.showEntry({ name: ef.name, keys: ef.keys, owner: row.name, on: 'effect' }); return this.render(); }
       case 'key': this.openFor(this.subjectForKey(b.dataset.key), { edit: true }); return this.render();
       case 'create-new': openSheet(this, { subject: S.subject, edit: true }); return this.render();
-      // remove-fx · delete-fx · export-fx · create-new · new-kind were the detail pane's, and the
-      // pane is gone (2026-09-07). The methods are what the sheet and the API call; the acts have
-      // no door until the user says where they belong. (`remove` is gone for good: the sheet's
-      // Delete unpins whatever points at the FX, which is all Revert did that Delete did not.)
-      case 'remove-fx': return this.removeFx(b.dataset.id);
+      // delete-fx · export-fx · create-new · new-kind were the detail pane's, and the pane is gone
+      // (2026-09-07). The methods are what the sheet and the API call; the acts have no door until
+      // the user says where they belong. (Revert went with the draft layer, 2026-09-12: Delete on a
+      // House override is the same thing — the Stock FX under it shows through.)
       case 'delete-fx': return this.deleteFx(b.dataset.id);
       case 'export-fx': return this.exportFx(b.dataset.id);
       case 'import-fx': return this.importFx(b.dataset.to || null);
@@ -374,7 +374,6 @@ export class Studio extends ApplicationV2 {
   onInput(ev) {
     const el = ev.target;
     if (el.className.includes('cw-') || el.className.includes('sh-')) return onSheetInput(this, el);
-    if (el.className.includes('co-')) return onCorpusInput(this, el);
     if (el.classList.contains('lib-q')) return onLibraryInput(this, el);
     // the FX tab's search: the letters narrow its list, and that is all it does
     if (el.classList.contains('fx-q')) {
@@ -404,7 +403,6 @@ export class Studio extends ApplicationV2 {
   onChange(ev) {
     const el = ev.target;
     if (el.className.includes('cw-') || el.className.includes('sh-')) return onSheetChange(this, el);
-    if (el.className.includes('co-')) return onCorpusChange(this, el);
     if (el.className.includes('lib-')) return onLibraryChange(this, el);
     return undefined;
   }
@@ -439,18 +437,6 @@ export class Studio extends ApplicationV2 {
     return STATUS_WORDS[e.status] ?? '';
   }
 
-  // -------------------------------------------------------------------------------------------
-  // doing things: revert (saving is the sheet's, ui/sheet.js)
-  // -------------------------------------------------------------------------------------------
-  async removeFx(id) {
-    const a = api();
-    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: 'Revert FX?' }, content: `<p>${esc(idWords(id))} returns to its previous FX, or to none.</p>`, rejectClose: false });
-    if (!ok) return undefined;
-    await a.fx.remove(id);
-    this.refresh();
-    await this.render();
-    return this.toast(`Reverted: ${idWords(id)}.`);
-  }
 }
 
 // an open window follows the corpus: an FX saved through the API from elsewhere (a macro, an assistant) shows at once

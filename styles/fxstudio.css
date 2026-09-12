@@ -367,19 +367,6 @@
 .fxstudio .band .bhead .spacer { flex: 1; }
 .fxstudio .fx-wrap .band .bhead button { flex: 0 0 auto; padding: 4px 11px; font-size: 12.5px; }
 .fxstudio .band .foot { margin: 8px 0 0; }
-.fxstudio .mgrid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, .8fr); gap: var(--fx-gutter); margin-top: 4px; }
-.fxstudio .mgrid > * { min-width: 0; }
-.fxstudio .mcol .sub { margin: 0 0 2px; }
-.fxstudio .mcol .fields { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-.fxstudio .mcol .field label { margin-bottom: 2px; }
-.fxstudio .fx-wrap .mcol input, .fxstudio .fx-wrap .mcol select { padding: 4px 9px; font-size: 12.5px; }
-.fxstudio .mcol .actions { margin-top: 6px; }
-.fxstudio .fx-wrap .mcol .actions button { padding: 5px 12px; font-size: 12.5px; }
-.fxstudio .mcol p.note { margin: 4px 0 0; }
-.fxstudio .mcol .row.line { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; height: var(--fx-row); border-bottom: 1px solid var(--fx-line2); }
-.fxstudio .mcol .row.line .n { font-size: 13px; font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fxstudio .mcol .row.line .b { display: flex; gap: 4px; align-items: center; flex: 0 0 auto; }
-.fxstudio .fx-wrap .mcol .row.line .b button { padding: 2px 8px; font-size: 12px; }
 /* the scope: two segments at permanent addresses, what the list is, and the two book controls */
 .fxstudio .cvscope { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .fxstudio .cvscope .segs { flex: 0 0 240px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); overflow: hidden; }

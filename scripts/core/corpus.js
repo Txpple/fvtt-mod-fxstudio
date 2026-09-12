@@ -1,27 +1,28 @@
-// The corpus: fx indexed by (subject key, moment kind) across the layers, later wins
-// (world buffer → house → stock), plus the starters the screens stamp
+// The corpus: fx indexed by (subject key, moment kind) across the two layers, later wins
+// (house → stock; there is no draft layer — an FX is in a file or it is nothing, ruled
+// 2026-09-12), plus the starters the screens stamp
 // a fresh scene out of (nothing in a corpus ever refers to one). Resolution is an exact
 // map hit on the first of a subject's keys that has an FX; nothing is derived from a name.
 // Pure: the tools run the very same lookup offline that the module runs at the table.
 import { validate, withDefaults } from './fx.js';
 
 /** the layers in the order they win */
-export const LAYERS = ['world', 'house', 'stock'];
-/** the term for each layer on a screen: the world buffer is a Draft, the files are House and Stock */
-export const LAYER_WORDS = { world: 'Draft', house: 'House', stock: 'Stock' };
+export const LAYERS = ['house', 'stock'];
+/** the term for each layer on a screen: the two corpus files */
+export const LAYER_WORDS = { house: 'House', stock: 'Stock' };
 
 /**
- * @param corpora  {stock: [fx…], house: [fx…], world: [fx…], starters: [fx…]}
+ * @param corpora  {stock: [fx…], house: [fx…], starters: [fx…]}
  * @returns an index {byId, byKey: Map<"key|on", [{fx, source}…]>, starters: Map, problems: [sentences]}
  */
-export function buildIndex({ stock = [], house = [], world = [], starters = [] } = {}) {
+export function buildIndex({ stock = [], house = [], starters = [] } = {}) {
   const problems = [];
   const starterMap = new Map();
   for (const s of starters) if (s?.id) starterMap.set(`starter:${s.id}`, { ...s, id: `starter:${s.id}` });
   // by id, later wins: a house fx with a stock fx's id replaces it
   const raw = new Map();
   const sourceOf = new Map();
-  for (const [source, list] of [['stock', stock], ['house', house], ['world', world]]) {
+  for (const [source, list] of [['stock', stock], ['house', house]]) {
     for (const fx of list) {
       if (!fx?.id) { problems.push(`${source}: an FX with no id`); continue; }
       raw.set(fx.id, fx);
@@ -48,7 +49,7 @@ export function buildIndex({ stock = [], house = [], world = [], starters = [] }
     }
   }
   for (const list of byKey.values()) list.sort((a, b) => rank(a.source) - rank(b.source));
-  return { byId, byKey, starters: starterMap, problems, counts: { stock: stock.length, house: house.length, world: world.length, starters: starters.length } };
+  return { byId, byKey, starters: starterMap, problems, counts: { stock: stock.length, house: house.length, starters: starters.length } };
 }
 
 /** does the FX need what the moment has? An FX with a scene at the template needs a placed template. */

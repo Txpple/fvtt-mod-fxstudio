@@ -12,21 +12,21 @@ header: terms and labels around one generated sentence per FX. It never guesses 
 table, then the UI revamp's steps 2–5 — Play, the layout primitives, the sheet as a rail and an
 inspector, and the six tabs merged into three — 2026-09-07 (DESIGN §8, §9).** FX Studio opens from the Settings sidebar (the GM's "Open FX
 Studio" button) or from the wand on any item sheet. **FX** is every FX in one list, grouped
-Draft → House → Stock — resolution order, later wins — with the search over it (it narrows the list
-as you type, and its dropdown answers what plays for any ability) and facets down the left (where it
-lives, its kind, on my actors, Item Hooks, switched off, broken assets). A row is a name. **The
+House → Stock — resolution order, later wins — with the search over it (it narrows the list
+as you type) and facets down the left (where it lives, its kind, Item Hooks, switched off). A row is a name. **The
 Editor** is where every edit of an FX is made. **The FX sheet** is
 one sheet per FX, the same whether you read it or change it — an Edit switch is the
 guard, and the action bar is the same in both modes with what does not apply greyed out (Back,
-New FX, Duplicate, Export, Delete or Revert, Edit, Cancel, Save); the Hook block (one or more
+New FX, Duplicate, Export, Delete, Edit, Cancel, Save); the Hook block (one or more
 abilities, or one item; On or Off; the moment; on miss), the Sequence (one row per scene in three
 fixed rows that never reflow — the picture: VFX, where, size, opacity, tint, under the tokens; how
 long it lasts with the SFX at the far right; then the timing: delay, times, every, speed and wait
 — with the plain-English line under each and the sentence read back as you go), a Note;
-Save always writes a Draft, so Stock and House are never changed by accident; New FX is a blank
-sheet with Copy from; the maintainer's card sits on *Coverage* — drafts staged for House or Stock, one
-Ship button that writes the corpus files into the module on the server and stamps a version, and
-`tools/pull-corpus.mjs` to bring them into the repo for the release; *Assets* browses
+**Save writes the file** (there is no draft layer, 2026-09-12): a new FX goes to House, and a Stock
+FX asks whether the change is a House override (the same id in House, which wins) or Stock itself;
+Delete takes the FX you see, so deleting an override shows Stock again; New FX is a blank
+sheet with Copy from; the maintainer's band sits on *Coverage* — Import to Stock and the corpus files'
+own problems — and `tools/pull-corpus.mjs` brings the files into the repo for the release; *Assets* browses
 JB2A by style and PSFX by group and sound, each variant stepped by arrows or a dropdown, the picture
 playing on a loop and the sound behind a Play button, with the Sequencer path and the file under it;
 the same browser opens from a scene of the sheet to pick that scene's VFX or SFX — on what that
@@ -50,8 +50,8 @@ Measured on the sandbox: every FX builds and every path resolves live (`tools/sm
 one FX of every shape and moment plays through real dnd5e flows (`tools/smoke-replay.mjs`, 40 of
 40 — a Maul of Momentum plays the maul, the Shield spell no longer bashes, a heal plays on its healing roll), and an assistant's
 round trip through the API — write, validate, read as a sentence, preview, save with provenance,
-export — is green (`tools/smoke-author.mjs`), and the screens are driven on the DOM, a real ship
-included (`tools/smoke-screens.mjs`, 54 of 54). A move is a teleport: the token is placed with
+the House override — is green (`tools/smoke-author.mjs`), and the screens are driven on the DOM,
+the Stock choice included (`tools/smoke-screens.mjs`). A move is a teleport: the token is placed with
 Foundry's own teleport action across walls and creatures, and the spot is judged by the spell's
 words first — an unoccupied space the caster can see (Misc Patches' teleport patch, carried here). Phase 4, the outcomes and Battle Flow's moments, starts on
 the user's word. Read [PLAN.md](PLAN.md) for the phases, [DESIGN.md](DESIGN.md) for what was

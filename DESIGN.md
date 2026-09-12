@@ -1732,3 +1732,53 @@ than only look like it does.
 `nameOf(fx)` joins `nameForKey(key)` from §19 as the second half of the same answer: the screens
 that have an FX in hand (the Library, Assets, Corpus) read its own record; the screens that have
 only a key (the Editor on a new ability, Coverage) read the address book. One name, two doors in.
+
+## 21. No draft layer: an FX is in a file or it is nothing (the user's ruling, 2026-09-12)
+
+> *"one thing i dont understand is why we have a 'draft' type of fx. either its a file or not, its
+> working or not, what is the reason for draft. we should get rid of it it is confusing … no more
+> concept of draft. so lets get rid of that. if someone edits a stock file, they should be given a
+> choice to save as a house override, or edit the stock file directly."*
+
+### What Draft was
+
+Save wrote to a world setting, not a file, and the setting was the top layer of the corpus so an
+edit played at once. The files were reached only through a ritual — Stage marks a Draft for House
+or Stock, Ship uploads the files and stamps a version in `shipped.json`, the repo pulls them back
+(§8). It was built so the corpus files stayed reviewable in git. What it cost was three layers where
+a GM sees two, two verbs that do nothing at the table, an FX in two places under one id, a sandbox
+refresh routine whose whole purpose was to protect the buffer, and — the tell — a browser that
+could already write the files, because Ship did exactly that.
+
+### What stands now
+
+- **Two layers, House over Stock**, `core/corpus.js LAYERS`. `house.json` is this table's file and
+  the only home of an Item Hook; `stock/<kind>.json` are the books'. A House FX with a Stock FX's
+  id is the **House override**: it wins by id, Stock is untouched.
+- **Save writes the file** (`scripts/files.js writeFx`, the same GM upload Ship used), then the
+  corpora are read again. `api.fx.save(fx, {to})`: `house` by default, `stock` for the books' file
+  of the FX's kind. The sheet's Save asks only when the FX open is Stock — **House override** or
+  **Edit Stock** (`ui/sheet.js whereToSave`), never for a new FX, a House FX or an Item Hook.
+- **Delete takes the FX you see**: `erase` removes the id from the winning layer's file only, so
+  deleting an override shows Stock again and the sheet reopens on it. (The first cut removed the id
+  from every file; the author suite caught it deleting Misty Step from Stock on the sandbox.)
+- **Gone**: the world setting as a layer, `to` in the grammar (refused by the validator with the
+  reason), Stage, Ship, `shipped.json`, `api.corpus.pending/stage/ship/version/nextVersions`,
+  `api.fx.buffer/remove/exported/clearExported`, Revert, `tools/world-fx.mjs`, `tools/export-fx.mjs`,
+  the Maintain band's three columns (Import to Stock and the corpus problems line remain).
+- **The old buffer is drained once**: a GM's client at ready folds whatever the two old setting keys
+  hold into the files (`fxstudio.js drainBuffer`; a staged FX to its corpus, a plain Draft to House)
+  and empties them. Proved live on the sandbox: the two parked drafts landed in its `house.json`.
+- **The Library's facets, the same day**: Lives in is House · Stock; Kind is the six authored
+  kinds (Statuses, Damage and Events went — `status` and `damage` left `core/subjects.js KINDS` with
+  them, `event` stays because Battle Flow's moments key by it and the reader lists it last); Only is
+  Item Hooks · Switched off (On my actors and Broken assets went; the broken-asset check moved to
+  Coverage's Errors tile, which counts and names them and is no longer a door).
+
+### The proof
+
+`smoke-author` 20/20 (save into House with provenance, the override over Misty Step and its erase
+leaving Stock untouched, an Item Hook refused for Stock, the files restored byte for byte);
+`smoke-screens` 184/185 (the Stock choice through the sheet's own Save with the dialog answered
+House, then Stock, then Cancel; the House group; the facets; the one miss is the sandbox process
+reporting its pre-restart version); `smoke-fx` 1026; the six offline checks.

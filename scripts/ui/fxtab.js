@@ -15,7 +15,8 @@
 // box, one job (the user, 2026-09-07: "clean the search list"). Creating an FX for an ability that
 // has none went with it — "we'll add new later" — so no door on this screen makes an FX today.
 //
-// One list of every FX, grouped Draft → House → Stock: resolution order, later wins. Where an FX
+// One list of every FX, grouped House → Stock: resolution order, later wins (there is no Draft
+// group any more: an FX is in a file or it is nothing, 2026-09-12). Where an FX
 // lives is a property, not navigation (ruled 2026-09-07) — it is the group it sits under and a
 // facet on the left, never a second list.
 //
@@ -25,8 +26,7 @@
 // colour only (R3). A facet keeps its place whatever is selected;
 // what cannot run right now is greyed WHERE IT STANDS with its reason, never dropped (R1).
 import { MODULE_ID } from '../settings.js';
-import { KINDS, keyLabel, parseKey } from '../core/subjects.js';
-import { assetsOf } from '../core/fx.js';
+import { AUTHORED_KINDS, keyLabel, parseKey } from '../core/subjects.js';
 import { HOOK_WORDS, KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
 import { openSheet } from './sheet.js';
 import { nameOf, openRecord, recordOf, recordWords, recordsRead } from './records.js';
@@ -34,58 +34,17 @@ import { nameOf, openRecord, recordOf, recordWords, recordsRead } from './record
 const api = () => game.modules.get(MODULE_ID).api;
 const PAGE = 200;
 /** the layers in the order they win, which is the order the list is grouped in */
-const RANK = { world: 0, house: 1, stock: 2 };
-const ONLY_WORDS = { mine: 'On my actors', item: HOOK_WORDS.item + 's', off: 'Switched off', broken: 'Broken assets' };
+const RANK = { house: 0, stock: 1 };
+// On my actors and Broken assets went on the user's word (2026-09-12); Coverage counts what is broken
+const ONLY_WORDS = { item: HOOK_WORDS.item + 's', off: 'Switched off' };
 
 const fxState = (app) => (app.fxv ??= { lives: new Set(), kinds: new Set(), only: new Set(), show: PAGE });
-
-/**
- * Coverage's Errors tile, arriving: this list on Broken assets alone, nothing else pressed and the
- * search cleared — the tile asks one question, and a search left over answers another.
- */
-export function showBroken(app) {
-  const V = fxState(app);
-  V.lives.clear();
-  V.kinds.clear();
-  V.only.clear();
-  V.only.add('broken');
-  V.show = PAGE;
-  app.view.q = '';
-  app.view.subject = null;
-  app.view.fxSel = null;
-  app.view.tab = 'fx';
-}
 
 // -----------------------------------------------------------------------------------------------
 // the catalogue: every FX as a row, read once per rebuild
 // -----------------------------------------------------------------------------------------------
-/** the FX that answer something on this world's actors, from the census the window already holds */
-function mineIds(app) {
-  const out = new Set();
-  for (const row of app.census?.actors ?? []) {
-    for (const it of row.items) if (it.fx) out.add(it.fx);
-    for (const ef of row.effects) if (ef.fx) out.add(ef.fx);
-  }
-  return out;
-}
-
-/** the FX naming an asset the libraries do not have — the check tools/check-fx.mjs runs, on screen */
-export function brokenIds(app) {
-  if (app._broken) return app._broken;
-  const a = api();
-  const out = new Set();
-  for (const { fx } of a.fx.list()) {
-    if (fx.off) continue;
-    for (const scene of fx.scenes ?? []) {
-      if (assetsOf(scene).some(({ asset }) => !a.assets.exists(asset))) { out.add(fx.id); break; }
-    }
-  }
-  app._broken = out;
-  return out;
-}
-
 /**
- * One row per FX, sorted Draft (newest first) → House → Stock (by name); cached until the corpus is
+ * One row per FX, sorted House → Stock (by name within each); cached until the corpus is
  * read again. The row shows only its name, and THE SEARCH MATCHES ONLY THAT NAME (the user,
  * 2026-09-07: "just search on the name … why do i get knife here") — it used to match the whole
  * generated sentence too, so typing "Dagger" returned Sculpting Knife, whose sentence names a PSFX
@@ -94,8 +53,6 @@ export function brokenIds(app) {
 function catalogue(app) {
   if (app._catalogue) return app._catalogue;
   const a = api();
-  const mine = mineIds(app);
-  const order = new Map(a.fx.buffer().map((l, i) => [l.id, i]));
   const rows = a.fx.list().map((e) => {
     const fx = e.fx;
     const keys = fx.for ?? [];
@@ -104,14 +61,11 @@ function catalogue(app) {
     const name = keys[0] ? nameOf(fx) : owner ? owner.item : idWords(fx.id);
     return {
       e, id: fx.id, name, keys, kind: p?.kind ?? null, item: !keys.length, owner,
-      off: !!fx.off, source: e.source, at: e.original.at ?? '', mine: mine.has(fx.id),
+      off: !!fx.off, source: e.source, at: e.original.at ?? '',
       text: name.toLowerCase(),
     };
   });
-  rows.sort((x, y) => RANK[x.source] - RANK[y.source]
-    || (x.source === 'world'
-      ? String(y.at).localeCompare(String(x.at)) || (order.get(y.id) ?? -1) - (order.get(x.id) ?? -1)
-      : x.name.localeCompare(y.name)));
+  rows.sort((x, y) => RANK[x.source] - RANK[y.source] || x.name.localeCompare(y.name));
   app._catalogue = rows;
   return rows;
 }
@@ -120,13 +74,10 @@ function catalogue(app) {
 function shownRows(app) {
   const V = fxState(app);
   const q = (app.view.q ?? '').trim().toLowerCase();
-  const broken = V.only.has('broken') ? brokenIds(app) : null;
   return catalogue(app).filter((r) => (!V.lives.size || V.lives.has(r.source))
     && (!V.kinds.size || (r.kind && V.kinds.has(r.kind)))
-    && (!V.only.has('mine') || r.mine)
     && (!V.only.has('item') || r.item)
     && (!V.only.has('off') || r.off)
-    && (!broken || broken.has(r.id))
     && (!q || r.text.includes(q)));
 }
 
@@ -135,12 +86,12 @@ function shownRows(app) {
 // -----------------------------------------------------------------------------------------------
 /**
  * The row over the two columns: the search on the left, and Import on the right, ending where the
- * list ends. Import is here on the user's word (2026-09-07); Maintain keeps Import to Stock, which
- * is a different thing — a file straight into the shipped corpus.
+ * list ends. Import is here on the user's word (2026-09-07) and writes House; Maintain keeps Import
+ * to Stock, which is a different thing — a file straight into the books' corpus.
  */
 const searchBox = (app) => `<div class="fxsearch">
     <div class="search"><input type="search" class="fx-q" placeholder="Search for an FX…" aria-label="Search for an FX" autocomplete="off" value="${esc(app.view.q ?? '')}"></div>
-    <button type="button" class="quiet import" data-act="import-fx" data-to="" data-tooltip="Read a file of FX into this world as Drafts">Import</button>
+    <button type="button" class="quiet import" data-act="import-fx" data-to="house" data-tooltip="Read a file of FX into House">Import</button>
   </div>`;
 
 /** one facet row: a fixed-height toggle with its count, greyed in place when the corpus has none (R1) */
@@ -149,11 +100,10 @@ const facet = (group, value, words, n, on) => `<button type="button" class="frow
 function facets(app) {
   const V = fxState(app);
   const all = catalogue(app);
-  const broken = brokenIds(app);
   const n = (f) => all.filter(f).length;
-  const lives = ['world', 'house', 'stock'].map((s) => facet('lives', s, SOURCE_TAG[s], n((r) => r.source === s), V.lives.has(s))).join('');
-  const kinds = KINDS.map((k) => facet('kinds', k, KIND_PLURAL[k] ?? k, n((r) => r.kind === k), V.kinds.has(k))).join('');
-  const test = { mine: (r) => r.mine, item: (r) => r.item, off: (r) => r.off, broken: (r) => broken.has(r.id) };
+  const lives = ['house', 'stock'].map((s) => facet('lives', s, SOURCE_TAG[s], n((r) => r.source === s), V.lives.has(s))).join('');
+  const kinds = AUTHORED_KINDS.map((k) => facet('kinds', k, KIND_PLURAL[k] ?? k, n((r) => r.kind === k), V.kinds.has(k))).join('');
+  const test = { item: (r) => r.item, off: (r) => r.off };
   const only = Object.entries(ONLY_WORDS).map(([k, w]) => facet('only', k, w, n(test[k]), V.only.has(k))).join('');
   const any = V.lives.size + V.kinds.size + V.only.size;
   return `<div class="facets">
@@ -193,7 +143,7 @@ export function renderList(app) {
   const V = fxState(app);
   const rows = shownRows(app);
   const total = catalogue(app).length;
-  const per = { world: 0, house: 0, stock: 0 };
+  const per = { house: 0, stock: 0 };
   for (const r of rows) per[r.source]++;
   const page = Math.min(V.show, rows.length);
   let last = null;

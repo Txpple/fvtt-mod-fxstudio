@@ -409,7 +409,8 @@ cannot read.
 
 1. **The screens** (phase 3, built 2026-09-06 as ruled on the prototype; DESIGN §8): *Look up* shows a subject's sentence and why;
    *Change the look* starts from a starter or an existing look, offers the family's colours and
-   the sound, previews, and saves to the world buffer; *Custom looks* lists the house first;
+   the sound, previews, and saves into its corpus file (House, or Stock — no draft layer since
+   2026-09-12, DESIGN §21); *Custom looks* lists the house first;
    *Check* shows what plays nothing, per sheet and per compendium, and what does not resolve.
 2. **The API**, in the game, for anything that can run script — a macro, a bridge, an assistant
    at the table: `api.looks.validate(look)` returns problems in sentences; `api.looks.sentence(look)`
@@ -461,7 +462,7 @@ reads fifty sentences and keeps the ones that read right.
 | `smoke-author.mjs` | live | the assistant's round trip: a look written as data, validated, previewed, saved, read back as a sentence, exported |
 | `preview.mjs` | live | plays a look on the fixture for a person or an assistant to see |
 | `check-legacy.mjs` | offline | no Automated Animations vocabulary in `scripts/` or `recipes/` (§0's mechanical half) |
-| `export-fx.mjs` | offline | the world buffer as sentences with who wrote them; `--write` folds it into `house.json` |
+| `pull-corpus.mjs` | offline | the corpus files the game wrote (Save writes them in the module folder on the server) brought into the repo |
 
 All of these exist as of phase 2 (2026-09-06); tools/README.md is the reference.
 

@@ -102,8 +102,9 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
 - **Derived looks**, off by default, never owed: the seven rules in `prototypes/derive*.mjs`.
 - **Retirement** of stock looks a rule reproduces identically. Depends on the option above.
 - **Export as a tool run** (`tools/export-fx.mjs --write`) was the phase 3 decision, reopened
-  and replaced on 2026-09-06: the Corpus tab ships from the game (DESIGN §8), and the tool stays
-  only as the offline path for a server that forbids uploads.
+  and replaced on 2026-09-06 by the Corpus tab's ship — and both went on 2026-09-12 with the draft
+  layer (DESIGN §21): Save writes the corpus file, `tools/pull-corpus.mjs` brings it into the repo.
+  A server that forbids uploads has no path today; none is owed until a table has one.
 - **Misc Patches' teleport patch** is carried here since 2026-09-06 (the move shape, DESIGN §8) and
   stays switched on in Misc Patches for prod, where Automated Animations still moves the token,
   until the cutover (phase 5); then it retires there. Its list (Misty Step, Dimension Door,

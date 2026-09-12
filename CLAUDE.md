@@ -14,6 +14,18 @@ practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §
 same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
+**NO DRAFT LAYER (the user, 2026-09-12: *"no more concept of draft … either its a file or not"*).**
+An FX is in a file or it is nothing: `recipes/house.json` (this table's; the only home of an Item
+Hook) or `recipes/stock/<kind>.json` (the books'). **Save writes the file** in the module folder on
+the server and the corpora are read again; editing a Stock FX asks **House override** (the same id in
+House, which wins; Stock untouched) **or Edit Stock**. Delete takes the FX you see, the winning layer
+only, so deleting an override shows Stock again. Stage, Ship, the world buffer, `shipped.json`,
+`tools/world-fx.mjs` and `tools/export-fx.mjs` are gone; the old buffer setting is folded into the
+files once at ready by a GM's client. The Library's facets are House · Stock, the six authored kinds
+(Statuses, Damage, Events went — `event` stays in the data layer for Battle Flow's moment keys),
+Item Hooks · Switched off (On my actors and Broken assets went; Coverage's Errors tile still counts
+broken assets, without a door). `tools/pull-corpus.mjs` brings the files into the repo. DESIGN §21.
+
 **Status (2026-09-11): v0.3.0 is RELEASED and ON PROD (Battle Flow's moments play; v0.2.0 the day before), the only thing playing at the table (AA off),
 with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
 — it is the handoff. Nothing is owed; the user says what is next.**
@@ -40,14 +52,14 @@ step 2. `shelved/README.md` has the commands and what each redesign commit chang
 **What the window is today** (this is a description of the code, not a plan): four tabs — **Library (the tab is still keyed `fx` in code; renamed on the user's word 2026-09-08) ·
 Editor · Assets · Coverage**. It opens at 1080px.
 **FX** (`ui/fxtab.js`): its own search, then facets · the rows; one list of every FX grouped
-Draft → House → Stock; a search that matches the **name alone** (no dropdown) with **Import**
+House → Stock; a search that matches the **name alone** (no dropdown) with **Import**
 right-justified beside it; group heads painted amber; **a row is a name that takes no action when
 clicked** — it marks itself, and its three right-justified doors are **Record** (opens the compendium
 record, or the world item, its key was earned against — ruled 2026-09-08, DESIGN §15), **Delete**
 (red, asks) and **Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —
 identity + action bar · the sentence · the hook strip · the sequence (a rail, an overlap strip, a
-band-tabbed inspector) · the note; `delay` is *Wait before*, `wait` is *Hold next*; Save is always a
-Draft; Delete is for good. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the
+band-tabbed inspector) · the note; `delay` is *Wait before*, `wait` is *Hold next*; **Save writes the
+file** (House; a Stock FX asks: House override or Stock itself); Delete is for good. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the
 picker the sheet's Browse opens. **Coverage** (`ui/coverage.js`): Maintain at the top, then My
 actors · Compendiums, four tiles, and the rows.
 
@@ -95,8 +107,8 @@ First Light and Goldthorn — after the user cut the rest on 2026-09-08.
 
 **The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
 `with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
-(`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House / Draft,
-Global Hook / Item Hook, staged. FX / VFX / SFX. No JSON or raw library paths in front of a GM. It
+(`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House,
+Global Hook / Item Hook. FX / VFX / SFX. No JSON or raw library paths in front of a GM. It
 never guesses: an ability with no FX plays nothing.
 
 **Known and unfixed, found by driving the window on 2026-09-07** — offered, not owed, and the user
@@ -176,11 +188,12 @@ handoff or a plan — which is the rule the shelved redesign broke.
   The module is registered and enabled on the sandbox since 2026-09-06 (`tools/sandbox-module.mjs`
   writes `core.moduleConfiguration` offline; a refresh wipes that as well as the files).
 - **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes locally deployed modules, the module's
-  enabled flag, Battle Flow's test fixtures, **and the world buffer — every Draft written in the game
-  that has not been Shipped**. The routine (the user, 2026-09-09: *"i dont want to lose any work"*):
-  **before** — `node tools/world-fx.mjs --save` and commit `tools/world-buffer.json`; **after, sandbox
-  stopped** — deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`,
-  `node tools/world-fx.mjs --restore`; then start. Re-deploy after every refresh. The user wants the sandbox an
+  enabled flag, Battle Flow's test fixtures, **and the module folder — every FX saved in the game
+  that has not been pulled into the repo** (Save writes `recipes/house.json` and `recipes/stock/*.json`
+  in the module folder on the server; there is no world buffer since 2026-09-12). The routine (the
+  user, 2026-09-09: *"i dont want to lose any work"*): **before** — `node tools/pull-corpus.mjs --write`
+  and commit; **after, sandbox stopped** — deploy `--local`, `node tools/sandbox-module.mjs --enable
+  fvtt-mod-fxstudio`; then start. Re-deploy after every refresh. The user wants the sandbox an
   EXACT copy of prod after a refresh: add fixtures (`node
   ../fvtt-mod-battleflow/tools/fixture-suite.mjs`) only when a suite run is asked for, and say so.
 - **Two MCP bridges, two worlds.** `foundry-local5e` is the sandbox (localhost:30000).

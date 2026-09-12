@@ -4,7 +4,7 @@
 // before this; only the second was ever on screen.
 //
 // MAINTAIN IS THE BAND AT THE TOP. It is the last step of a workflow — write FX, check the table is
-// covered, ship — not a footnote under a report, which is where it sat.
+// covered, maintain — not a footnote under a report, which is where it sat.
 //
 // One scroll region (R4): the rows. The band, the scope switch and the tiles are fixed height and
 // say "+N more" rather than growing. Four tiles at permanent addresses (R1) — Abilities · With FX ·
@@ -14,7 +14,7 @@ import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey } from '../core/subjects.js';
 import { KIND_WORDS, dot, esc, statusOf } from './html.js';
 import { renderMaintain } from './corpus.js';
-import { brokenIds, showBroken } from './fxtab.js';
+import { assetsOf } from '../core/fx.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const PAGE = 200;
@@ -93,7 +93,22 @@ function counts(app) {
 // -----------------------------------------------------------------------------------------------
 const num = (n) => (n === null ? '—' : String(n));
 
-/** the four numbers over the list. Only Errors is a door, and it greys in place when there are none (R1) */
+/** the FX naming an asset the libraries do not have — the check tools/check-fx.mjs runs, on screen; cached until the corpus is read again */
+function brokenIds(app) {
+  if (app._broken) return app._broken;
+  const a = api();
+  const out = new Set();
+  for (const { fx } of a.fx.list()) {
+    if (fx.off) continue;
+    for (const scene of fx.scenes ?? []) {
+      if (assetsOf(scene).some(({ asset }) => !a.assets.exists(asset))) { out.add(fx.id); break; }
+    }
+  }
+  app._broken = out;
+  return out;
+}
+
+/** the four numbers over the list. Errors counts the FX naming an asset the libraries do not have (the Broken assets facet went, 2026-09-12: the number stays, the door does not) */
 function tiles(app) {
   const { asked, answered } = counts(app);
   const no = asked === null ? null : asked - answered;
@@ -104,7 +119,7 @@ function tiles(app) {
     ${cell('', asked, 'Abilities', `Abilities ${scope} that can play an FX.`)}
     ${cell(answered ? 'good' : '', answered, 'With FX', `Abilities ${scope} that something answers.`)}
     ${cell(no ? 'warn' : 'good', no, 'No FX', `Abilities ${scope} that play nothing. They are the rows below.`)}
-    <button type="button" class="tile ${broken ? 'bad' : 'good'}" data-act="cv-broken" ${broken ? '' : 'disabled'} data-tooltip="${broken ? 'FX naming an asset the libraries do not have. Opens the FX list on Broken assets.' : 'Every FX names an asset the libraries have.'}"><div class="num">${broken}</div><div class="l">Errors</div></button>
+    ${cell(broken ? 'bad' : 'good', broken, 'Errors', broken ? `${broken} FX name an asset the libraries do not have: ${[...brokenIds(app)].slice(0, 6).join(', ')}${broken > 6 ? ', …' : ''}` : 'Every FX names an asset the libraries have.')}
   </div>`;
 }
 
@@ -182,7 +197,6 @@ export async function onCoverageClick(app, b, act) {
     case 'cv-pick': st.picking = true; st.show = PAGE; return app.render();
     case 'cv-check': st.reading = true; st.show = PAGE; await app.render(); try { await checkBooks(app); } finally { st.reading = false; } return app.render();
     case 'cv-more': st.show += PAGE; return app.render();
-    case 'cv-broken': showBroken(app); return app.render();
     default: return undefined;
   }
 }
