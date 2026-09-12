@@ -16,7 +16,7 @@
 > (`shortbow-bf-test-rogue`) — `node tools/pull-corpus.mjs` shows them; `tools/world-buffer.json`
 > still holds the two parked drafts as a file Import can read, if the sandbox is ever refreshed
 > first. `smoke-boot`'s "Shield effect" probe has been stale since the SRD cut (no `effect:shield`
-> in Stock) and is not this change's. Nothing released. DESIGN §21, CLAUDE.md carry the ruling.
+> in Stock) and is not this change's. **RELEASED v0.4.0 and v0.4.1 the same day and DEPLOYED TO PROD, byte-identical** (the user: *"yep push release prod"*); v0.4.1 keeps the Stock row under a House override on the screen (the user found the row vanishing; the files were right). Prod's process has not been restarted, so it vends the old version string until it is; scripts are live on reload. Two dead files linger on prod and the sandbox because the deploy never deletes: `scripts/ship.js` and `recipes/shipped.json`, unreferenced. DESIGN §21, CLAUDE.md carry the ruling.
 
 
 > **2026-09-11, cold session after — the two unruled costs are RULED, on the user's "ok": leave both.**
