@@ -588,7 +588,7 @@ try {
         picture: 'vfx,place,size,opacity,tint,below,mirror,scatter',
         timing: 'delay,times,every,rate,fadein,fadeout,lasts,hold',
         sound: 'sfx,volume,start,sdelay,stimes,severy,spacer',
-        placement: 'rotate,anchor,elevation,zindex,mask,attach,abovelight,xray',
+        placement: 'rotate,anchor,elevation,zindex,mask,attach,spacer,spacer',
       };
       const grids13 = [];
       const heights13 = [];
@@ -607,7 +607,7 @@ try {
       await pick(2); await band('picture'); const naMove13 = na13();
       ok('§13 a Move scene and a Mark scene are that same grid with different cells live', !naMark13.includes('vfx') && naMark13.includes('scatter') && naMove13.includes('vfx') && naMove13.includes('size'), `mark greys ${naMark13.join(',')} · move greys ${naMove13.join(',')}`);
       await band('shape');
-      ok('§13 the shape band is the shape\'s own knobs, and is named for it', cells('shape').join(',') === 'range,spot,jump,fade,pick,speed,after,spacer' && /Move/.test(text('[data-act="sh-band"][data-band="shape"]')), cells('shape').join(','));
+      ok('§13 the shape band is the shape\'s own knobs, and is named for it', cells('shape').join(',') === 'range,spot,jump,fade,speed,after,spacer,spacer' && /Move/.test(text('[data-act="sh-band"][data-band="shape"]')), cells('shape').join(','));
       ok('§13 a greyed cell is switched off, not merely faded', $$('.inspector .f[data-na="true"]').length > 0 && $$('.inspector .f[data-na="true"]').every((c) => [...c.querySelectorAll('input, select, button')].every((x) => x.disabled)), `${$$('.inspector .f[data-na="true"]').length} greyed cells`);
       ok('§13 nothing wraps: a band is four proportional columns (R2)', getComputedStyle($('.inspector .knobs')).display === 'grid' && getComputedStyle($('.inspector .knobs')).gridTemplateColumns.split(' ').length === 4, getComputedStyle($('.inspector .knobs')).gridTemplateColumns);
       ok('§13 the Add pills carry tooltips', $$('[data-act="cw-add"]').every((b) => (b.dataset.tooltip ?? '').length > 20), '');

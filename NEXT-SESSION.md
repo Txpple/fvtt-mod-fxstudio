@@ -1,5 +1,15 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-12, last — THE GRAMMAR IS THE ENGINE (the user: *"i really want this clean, both from a ui
+> and a corpus perspective, and no bloat"*), DESIGN §22.** Every shape's knob list is now exactly what its
+> engine file reads; `aboveLighting`, `xray`, `pick`, `from` on strike, `at` on fill, `persist` on aura,
+> `delay` on move and the sound clause's `wait` are retired; the Editor lost Above lighting, Through
+> walls and Chosen by (cells grey, they do not vanish — R1 stands); the move's Fade box writes a real
+> fade and Reach is in squares. Corpus: 3 aura persists, 5 default fill anchors and Wall of Force's
+> x-ray stripped; every other FX builds call-for-call identical (proved on the stage, before against
+> after). Nine checks green, screens 188/188 after a sandbox restart, migration proof 1029/1029. On the
+> sandbox; NOT released or on prod — the user's word.
+
 > **2026-09-12, later — housekeeping on the user's word.** The two dead files (`scripts/ship.js`,
 > `recipes/shipped.json`) are DELETED from prod over WebDAV; the sandbox never had them. The sandbox's
 > `house.json` no longer holds Sorcerous Burst, Dimension Door or the shortbow test hook; it still holds

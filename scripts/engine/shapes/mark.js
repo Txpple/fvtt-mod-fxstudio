@@ -42,7 +42,6 @@ export function build(seq, scene0, ctx) {
     if (s.fadeOut !== undefined) e.fadeOut(s.fadeOut);
     if (s.face === 'away-from-source' && moment.source) { e.rotateTowards(moment.source); e.rotate(180); }
     if (s.mirror === 'random') e.randomizeMirrorY();
-    if (s.aboveLighting) e.aboveLighting(true);
     if (s.anchor) e.anchor(s.anchor);
     e.playbackRate(s.rate);
     if (p.token) e.name(`${ctx.fx.id} ${p.token.id}`);

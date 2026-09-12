@@ -3,7 +3,7 @@
 // the spot the acting user clicks within range: a ring shows the range, the click is judged, and
 // the FX plays from there.
 //
-//   range feet   pick click | movement   speed   jump (true: the token is placed; false: it travels)
+//   range feet   speed   jump (true: the token is placed; false: it travels)
 //   fade {to, after, back}   after: ms before the token moves
 //   seen (the spot must be a space the caster can see: no sight-blocking wall between)
 //   unoccupied (no creature may stand on the spot)

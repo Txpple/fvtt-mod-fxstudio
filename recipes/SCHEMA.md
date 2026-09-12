@@ -84,13 +84,13 @@ every shape. Only the knobs a shape reads are allowed on it (the validator names
 
 | Shape | The picture | Reads |
 | --- | --- | --- |
-| `strike` | a swing at the caster, rotated toward each target and moved toward it when out of reach; can miss; `thrown` swaps in a flight beyond reach | common, `from`, `to`, `size {tokenWidths}`, `mirror`, `onMiss`, `thrown` |
-| `shoot` | a picture stretched from a place to a place; can miss; a return flight | common, `from`, `to`, `mirror`, `onMiss`, `return`, `scatter`, `clearTemplate` |
-| `mark` | a static picture at a place, sized to the token, as a radius, in squares, or to the placed object; once or persistent | common, `at`, `size`, `mask`, `persist`, `attach`, `follow`, `face`, `rotate`, `aboveLighting`, `mirror`, `onMiss` |
-| `fill` | a picture sized to the placed template's shape (circle, cone, line, rectangle) | common, `at` (always `template`), `size {fit: "shape"}` or `{squares}`, `mask`, `persist`, `rotate`, `aboveLighting`, `xray`, `clearTemplate` |
-| `aura` | a persistent picture attached to a token, sized as a radius, breathing and pulsing | common, `at`, `size {radius}`, `persist`, `attach`, `breathe`, `pulse` |
-| `beam` | a picture attached at both ends, standing until ended | common, `from`, `to`, `persist` |
-| `move` | the token itself: fades, travels or jumps to the destination — a jump is a teleport with Foundry's own `displace` action, across walls and creatures; the spot is judged by the words first | `sound`, `delay`, `range`, `pick`, `speed`, `fade`, `after`, `jump`, `seen`, `unoccupied` |
+| `strike` | a swing at the caster, rotated toward each target and moved toward it when out of reach; can miss; `thrown` swaps in a flight beyond reach | common, `to`, `size {tokenWidths}`, `mirror`, `onMiss`, `thrown` |
+| `shoot` | a picture stretched from a place to a place; can miss; a return flight | common, `from`, `to`, `mirror`, `onMiss`, `return`, `scatter` |
+| `mark` | a static picture at a place, sized to the token, as a radius, in squares, or to the placed object; once or persistent | common, `at`, `size`, `mask`, `persist`, `attach`, `follow`, `face`, `rotate`, `anchor`, `fadeIn`, `fadeOut`, `mirror`, `onMiss` |
+| `fill` | a picture sized to the placed template's shape (circle, cone, line, rectangle) | common, `size {fit: "shape"}` or `{squares}`, `mask`, `persist`, `rotate`, `anchor`, `clearTemplate` |
+| `aura` | a persistent picture attached to a token, sized as a radius, breathing and pulsing | common but `repeat`/`every`, `at`, `size {radius}`, `attach`, `breathe`, `pulse`, `fadeIn`, `fadeOut` (always persistent) |
+| `beam` | a picture attached at both ends, standing until ended | `asset`, `sound`, `rate`, `opacity`, `below`, `elevation`, `from`, `to`, `persist` |
+| `move` | the token itself: fades, travels or jumps to the destination — a jump is a teleport with Foundry's own `displace` action, across walls and creatures; the spot is judged by the words first | `sound`, `range`, `speed`, `fade`, `after`, `jump`, `seen`, `unoccupied` |
 | `sound` | a sound on its own | `asset`, `volume`, `delay`, `start`, `repeat`, `every`, `wait` |
 | `custom` | the escape hatch: Sequencer calls as data against a whitelist; read as "a custom effect" | `calls` |
 
@@ -154,11 +154,10 @@ template's measured shape · `{ "fit": "object", "scale": n }` the placed object
 | `mask` | clipped to the token or the template | false |
 | `scatter` | a bolt lands a little off the mark | false |
 | `clearTemplate` | the placed template is removed once the scene has played | false |
-| `aboveLighting`, `xray` | drawn above lighting; seen through walls | false |
 | `return` | `{ asset }` a flight back from where the bolt landed (shoot) | — |
 | `thrown` | `{ asset, return: {asset}, sound, reach }` what flies when the target is beyond reach; `reach` "auto" (five feet, plus one square for a reach weapon) or squares | — |
 | `breathe`, `pulse` | `{ min, max, every }` an aura's scale and opacity loops | — |
-| `range`, `pick`, `speed`, `fade`, `after`, `jump`, `seen`, `unoccupied` | a move: feet of range; `click` or `movement` (the token's own move); grid squares per second when travelling; `{to, after, back}` the token's fade; ms before the token is placed; place it (true) or travel (false); what the spell's words demand of the spot — `seen`: a space the caster can see (a sight-blocking wall between refuses it; Dimension Door says `false`), `unoccupied`: no creature stands there. A refusal is a notice at the click, or a ledger line for a given destination, and nothing plays | 30, click, 120, none, 0, true, true, true |
+| `range`, `speed`, `fade`, `after`, `jump`, `seen`, `unoccupied` | a move: feet of range; grid squares per second when travelling; `{to, after, back}` the token's fade; ms before the token is placed; place it (true) or travel (false); what the spell's words demand of the spot — `seen`: a space the caster can see (a sight-blocking wall between refuses it; Dimension Door says `false`), `unoccupied`: no creature stands there. A refusal is a notice at the click, or a ledger line for a given destination, and nothing plays | 30, 120, none, 0, true, true, true |
 
 ### Custom
 

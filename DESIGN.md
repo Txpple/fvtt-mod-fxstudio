@@ -1798,3 +1798,40 @@ this*; a row's Editor and Delete act on the row's own layer (`data-source`), so 
 an override can still be read, edited (Save asks as before) or deleted (the override stays and
 keeps playing). Resolution is unchanged: House wins by id. `smoke-screens` §6 proves the two rows
 and the two doors.
+
+## 22. The grammar is the engine, not a wish list (the user's ruling, 2026-09-12)
+
+The user asked for an inventory of what an FX in the stock corpus actually carries, and an audit of
+the Editor for cells with no data behind them: *"i really want this clean, both from a ui and a corpus
+perspective, and no bloat."* The measurement (every knob of every stock scene, against what each
+shape's engine file reads and against its default) said the corpus was nearly clean already — 1394
+scenes, and the only dead weight was a `persist` on the three auras the engine never read, a default
+anchor on five fills, and one fill's `xray` (Wall of Force). The bloat was in the grammar and the sheet:
+a shared "common" list gave every shape `anchor`, `fadeIn` and `fadeOut` whether its engine read them
+or not; `aboveLighting` and `xray` existed because Automated Animations' template menu had those
+boxes and the migration table carried every AA option to a knob; the move's `pick` was designed and
+never built; `clearTemplate` was listed for shoot, which never clears. Where the cut came from: the
+migration table (an AA option carried verbatim) and the grammar's own convenience — ARCHITECTURE §0's
+tells, both.
+
+**The rule now:** a shape's knob list in `core/fx.js` is exactly what its engine file turns into a
+Sequencer call. `check-engine` proves it (a beam or a strike given every unread knob makes no such
+call); `check-fx` refuses a file that carries one. The sheet's cells come from that list and from
+nothing else, so the Placement band lost Above lighting and Through walls, the Move band lost Chosen
+by, "by position" is offered on a fill alone, and Mask says "to the token" on a mark. Two cells that
+wrote the wrong thing are fixed: the move's Fade box wrote a bare `true` the engine read as no fade
+(it writes the stock's own fade now), and Reach was labelled in feet where the engine measures
+squares. Retired outright: `aboveLighting`, `xray`, `pick`, `sound.wait` in a scene's sound clause,
+`from` on strike, `at` on fill, `persist` on aura, `delay` on move. The eight-address grid of the
+inspector is untouched (R1): a cell greys, it does not vanish.
+
+**What it cost at the table:** every one of the 1026 FX was built on the offline stage before and
+after and compared call for call — 1025 identical; Wall of Force alone lost its x-ray, which is the
+retirement, named. The migration proof stands at 1029 of 1029 with that as a named allowance.
+
+**Is the data model locked?** The scene grammar equals the engine and is guarded on both sides, and
+the FX's own fields (`id`, `for`, `record`, `on`, `off`, `scenes`, `by`, `at`, `note`) have not moved
+since v0.4. What can still grow is additive vocabulary, not structure: a new `on` word when phase 4's
+outcomes arrive (WHEN, `event:` keys), and a knob only ever alongside the engine line that reads it,
+the KNOBS entry and a check-engine line, in one commit. `SCHEMA_VERSION` stays 2.
+

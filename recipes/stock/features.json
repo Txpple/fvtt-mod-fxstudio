@@ -7051,10 +7051,6 @@
      },
      "opacity": 0.25,
      "mask": true,
-     "anchor": {
-      "x": 0.5,
-      "y": 0.5
-     },
      "persist": "template"
     }
    ],
@@ -8351,10 +8347,6 @@
      },
      "opacity": 0.25,
      "mask": true,
-     "anchor": {
-      "x": 0.5,
-      "y": 0.5
-     },
      "persist": "template"
     }
    ],
@@ -9230,11 +9222,7 @@
        "y": 2
       }
      },
-     "mask": true,
-     "anchor": {
-      "x": 0.5,
-      "y": 0.5
-     }
+     "mask": true
     }
    ],
    "by": "the migration",
@@ -9414,10 +9402,6 @@
      },
      "size": {
       "fit": "shape"
-     },
-     "anchor": {
-      "x": 0.5,
-      "y": 0.5
      }
     }
    ],

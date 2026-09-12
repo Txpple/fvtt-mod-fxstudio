@@ -27,18 +27,18 @@
 //            at random · {file} a raw file · {family, colour, variant} the same path in parts ·
 //            plus colour? (a colour to swap in) and template? [grid, start, end] (Sequencer's
 //            stretch metadata, only where the migration had to keep AA's)
-//   sound    {asset, volume, delay, start, repeat, every, wait} played as this scene starts
+//   sound    {asset, volume, delay, start, repeat, every} played as this scene starts
 //   at | from, to   places (PLACES); `at` for a picture that stays put, `from`/`to` for one that travels
 //   size     one of, by shape: {tokenWidths} · {radius, plusToken} · {squares} · {fit: "shape" | "object", scale}
 //   delay, wait, repeat, every, rate, fadeIn, fadeOut     timing (ms; `wait` true or ms: the next scene starts after this one)
-//   opacity, tint {colour, contrast, saturation}, mirror ("random"), below (under tokens), elevation {level, absolute}, mask, zIndex, anchor {x, y}, rotate (degrees or "by-position"), face ("away-from-source"), aboveLighting, xray, scatter
+//   opacity, tint {colour, contrast, saturation}, mirror ("random"), below (under tokens), elevation {level, absolute}, mask, zIndex, anchor {x, y}, rotate (degrees or "by-position"), face ("away-from-source"), scatter
 //   persist  none | effect (while the tying effect stands) | template (while the Region stands) | until-removed
 //   attach   {alpha, visibility} whether an attached picture follows the token's alpha and visibility (both true)
 //   onMiss   fly-past | play | skip — for shapes that can miss
 //   return   {asset} a return flight (shoot)
 //   thrown   {asset, return, sound, reach} — strike: what flies when the target is out of reach
 //   breathe {min, max, every}, pulse {min, max, every} — aura
-//   range, pick ("click" | "movement"), speed, fade {to, after, back}, after, jump — move; seen, unoccupied: what the
+//   range, speed, fade {to, after, back}, after, jump — move; seen, unoccupied: what the
 //            spell's words demand of the spot (a space you can see; an unoccupied space), judged before the token moves
 //   clearTemplate   the placed template is removed once the scene has played
 //   calls    custom only: [[method, ...args], …] against a whitelist
@@ -52,33 +52,37 @@ export const SHAPES = ['strike', 'shoot', 'mark', 'fill', 'aura', 'beam', 'move'
 export const PLACES = ['source', 'each-target', 'targets-else-source', 'both', 'template', 'destination', 'impact', 'area'];
 export const PERSIST = ['none', 'effect', 'template', 'until-removed'];
 export const ON_MISS = ['fly-past', 'play', 'skip'];
-export const PICK = ['click', 'movement'];
 export const SIZE_KINDS = ['tokenWidths', 'radius', 'squares', 'fit'];
 export const FIT = ['shape', 'object'];
 
-/** the knobs each shape reads; anything else on a scene is a problem the validator names */
-const COMMON = ['shape', 'asset', 'sound', 'delay', 'wait', 'repeat', 'every', 'rate', 'fadeIn', 'fadeOut', 'opacity', 'tint', 'below', 'elevation', 'zIndex', 'anchor', 'note'];
+/**
+ * The knobs each shape READS — exactly what its engine file turns into a Sequencer call, and nothing
+ * more (audited against scripts/engine/shapes/*.js, 2026-09-12: the user, "no bloat"). A knob here
+ * that the shape did not read was a cell on the sheet that changed nothing at the table. Anything
+ * else on a scene is a problem the validator names. tools/check-engine.mjs proves each one.
+ */
+const COMMON = ['shape', 'asset', 'sound', 'delay', 'wait', 'repeat', 'every', 'rate', 'opacity', 'tint', 'below', 'elevation', 'zIndex', 'note'];
 export const KNOBS = {
-  strike: [...COMMON, 'from', 'to', 'size', 'mirror', 'onMiss', 'thrown'],
-  shoot: [...COMMON, 'from', 'to', 'mirror', 'onMiss', 'return', 'scatter', 'clearTemplate'],
-  mark: [...COMMON, 'at', 'size', 'mask', 'persist', 'attach', 'follow', 'face', 'rotate', 'aboveLighting', 'mirror', 'onMiss'],
-  fill: [...COMMON, 'at', 'size', 'mask', 'persist', 'rotate', 'aboveLighting', 'xray', 'clearTemplate'],
-  aura: [...COMMON, 'at', 'size', 'persist', 'attach', 'breathe', 'pulse'],
-  beam: [...COMMON, 'from', 'to', 'persist'],
-  move: ['shape', 'sound', 'delay', 'range', 'pick', 'speed', 'fade', 'after', 'jump', 'seen', 'unoccupied', 'note'],
+  strike: [...COMMON, 'to', 'size', 'mirror', 'onMiss', 'thrown'],
+  shoot: [...COMMON, 'from', 'to', 'mirror', 'onMiss', 'return', 'scatter'],
+  mark: [...COMMON, 'at', 'size', 'mask', 'persist', 'attach', 'follow', 'face', 'rotate', 'anchor', 'fadeIn', 'fadeOut', 'mirror', 'onMiss'],
+  fill: [...COMMON, 'size', 'mask', 'persist', 'rotate', 'anchor', 'clearTemplate'],
+  aura: ['shape', 'asset', 'sound', 'delay', 'wait', 'rate', 'opacity', 'tint', 'below', 'elevation', 'zIndex', 'fadeIn', 'fadeOut', 'at', 'size', 'attach', 'breathe', 'pulse', 'note'],
+  beam: ['shape', 'asset', 'sound', 'rate', 'opacity', 'below', 'elevation', 'from', 'to', 'persist', 'note'],
+  move: ['shape', 'sound', 'range', 'speed', 'fade', 'after', 'jump', 'seen', 'unoccupied', 'note'],
   sound: ['shape', 'asset', 'volume', 'delay', 'start', 'repeat', 'every', 'wait', 'note'],
   custom: ['shape', 'calls', 'note'],
 };
 
 /** what a scene means when it does not say: the engine reads these, the docs print them */
 export const DEFAULTS = {
-  strike: { from: 'source', to: 'each-target', size: { tokenWidths: 5 }, mirror: 'random', onMiss: 'play', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1 },
+  strike: { to: 'each-target', size: { tokenWidths: 5 }, mirror: 'random', onMiss: 'play', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1 },
   shoot: { from: 'source', to: 'each-target', mirror: 'random', onMiss: 'fly-past', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1 },
   mark: { at: 'targets-else-source', size: { tokenWidths: 1.5 }, persist: 'none', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1, fadeIn: 250, fadeOut: 500, anchor: { x: 0.5, y: 0.5 }, onMiss: 'play' },
-  fill: { at: 'template', size: { fit: 'shape', scale: { x: 1, y: 1 } }, persist: 'none', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1 },
-  aura: { at: 'targets-else-source', size: { radius: 3 }, persist: 'until-removed', opacity: 1, zIndex: 1, rate: 1, fadeIn: 250, fadeOut: 500 },
+  fill: { size: { fit: 'shape', scale: { x: 1, y: 1 } }, persist: 'none', opacity: 1, zIndex: 1, repeat: 1, every: 250, rate: 1 },
+  aura: { at: 'targets-else-source', size: { radius: 3 }, opacity: 1, zIndex: 1, rate: 1, fadeIn: 250, fadeOut: 500 },
   beam: { from: 'source', to: 'each-target', persist: 'until-removed', rate: 1 },
-  move: { range: 30, pick: 'click', speed: 120, jump: true, after: 0, seen: true, unoccupied: true },
+  move: { range: 30, speed: 120, jump: true, after: 0, seen: true, unoccupied: true },
   sound: { volume: 0.75, delay: 0, start: 0, repeat: 1, every: 250 },
   custom: {},
 };
@@ -144,7 +148,6 @@ function sceneProblems(scene, i, fx) {
   }
   if (scene.persist !== undefined && !PERSIST.includes(scene.persist)) out.push(`${where}: persist must be one of ${PERSIST.join(', ')}`);
   if (scene.onMiss !== undefined && !ON_MISS.includes(scene.onMiss)) out.push(`${where}: onMiss must be one of ${ON_MISS.join(', ')}`);
-  if (scene.pick !== undefined && !PICK.includes(scene.pick)) out.push(`${where}: pick must be "click" or "movement"`);
   for (const k of ['delay', 'repeat', 'every', 'rate', 'fadeIn', 'fadeOut', 'opacity', 'zIndex', 'range', 'speed', 'after', 'volume', 'start']) if (scene[k] !== undefined && !isNum(scene[k])) out.push(`${where}: ${k} must be a number`);
   if (scene.wait !== undefined && !(scene.wait === true || scene.wait === false || isNum(scene.wait))) out.push(`${where}: wait must be true, false or a number of milliseconds`);
   if (scene.opacity !== undefined && (scene.opacity < 0 || scene.opacity > 1)) out.push(`${where}: opacity must be between 0 and 1`);

@@ -107,6 +107,8 @@ AND `node tools/records.mjs --write`** (the records stand on the same evidence, 
 `dist/house-from-migration.json` instead), and it holds **two custom swords as Item Hooks** —
 First Light and Goldthorn — after the user cut the rest on 2026-09-08.
 
+**THE GRAMMAR IS THE ENGINE (the user, 2026-09-12, DESIGN §22).** A shape's knob list in `core/fx.js` is exactly what its engine file reads, `check-engine` proves it and `check-fx` refuses a file that says more; the sheet's cells come from that list. A new knob lands in the engine line, KNOBS and a check-engine line in one commit, never in the sheet first. The data model is otherwise locked: additive `on` words for phase 4, nothing structural.
+
 **The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
 `with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
 (`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House,

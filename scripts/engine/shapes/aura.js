@@ -2,7 +2,7 @@
 // scale) and pulsing (its opacity). A token that already carries a picture of this origin is left alone.
 //
 //   at source | each-target | targets-else-source | both
-//   size {radius, plusToken}   persist effect | until-removed   attach {alpha, visibility}
+//   size {radius, plusToken}   attach {alpha, visibility}   (always persistent: it stands until ended)
 //   breathe {min, max, every}   pulse {min, max, every}
 import { addSound, alreadyOn, elevate, full, gridSize, isLast, persistOn, timing, useAsset } from '../common.js';
 import { spotsFor } from '../places.js';

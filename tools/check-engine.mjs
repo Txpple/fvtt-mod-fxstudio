@@ -217,7 +217,7 @@ if (t.section('mark: a static picture at a place, once or persistent')) {
   const face = built({ ...glow, at: 'each-target', face: 'away-from-source' }, { targets: [hit(near)] });
   t.same('facing away from the source: turned toward it, then half a turn', [face.effects[0].get('rotateTowards')[0].id, face.effects[0].get('rotate')], ['caster', [180]]);
   t.same('mask clips to the token', built({ ...glow, mask: true }).effects[0].get('mask'), [caster]);
-  t.same("rotate, anchor, aboveLighting are Sequencer's own", (() => { const e = built({ ...glow, rotate: 45, anchor: { x: 0, y: 1 }, aboveLighting: true }).effects[0]; return [e.get('rotate'), e.get('anchor'), e.get('aboveLighting')]; })(), [[45], [{ x: 0, y: 1 }], [true]]);
+  t.same("rotate and anchor are Sequencer's own", (() => { const e = built({ ...glow, rotate: 45, anchor: { x: 0, y: 1 } }).effects[0]; return [e.get('rotate'), e.get('anchor')]; })(), [[45], [{ x: 0, y: 1 }]]);
   t.is('onMiss skip on a miss: nothing', built({ ...glow, at: 'each-target', onMiss: 'skip' }, { targets: [hit(near, false)] }).seq, null);
   t.is('onMiss play on a miss: it plays', built({ ...glow, at: 'each-target' }, { targets: [hit(near, false)] }).effects.length, 1);
   t.same("at impact: where the target's own picture landed", built({ ...glow, at: 'impact' }, { targets: [hit(near)] }).effects[0].get('atLocation'), ['spot near']);
@@ -251,7 +251,13 @@ if (t.section('fill: a picture sized to the placed template')) {
   t.same('once: not persisted, repeats honoured, not tied', [once.has('persist'), once.get('repeats'), once.has('tieToDocuments')], [false, [2, 250], false]);
   const byPos = built({ ...f, asset: { byPosition: { center: 'test.cone.center', mid: 'test.cone.mid', left: 'test.cone.left' } }, rotate: 'by-position' }, { place: regions.rectangle }).effects[0];
   t.same('an asset picked by where the template sits against the caster, and turned to match', [byPos.get('file'), byPos.get('rotate')], [['test.cone.mid'], [270]]);
-  t.same("mask, aboveLighting, xray are Sequencer's own", (() => { const x = built({ ...f, mask: true, aboveLighting: true, xray: false }, { place: regions.circle }).effects[0]; return [x.get('mask'), x.get('aboveLighting'), x.get('xray')]; })(), [[regions.circle], [true], [false]]);
+  t.same('mask clips to the Region', built({ ...f, mask: true }, { place: regions.circle }).effects[0].get('mask'), [regions.circle]);
+  t.same('a knob a shape does not list makes no call however the scene is written: the grammar is the engine, not a wish list', (() => {
+    const probe = { fadeIn: 100, fadeOut: 100, anchor: { x: 0, y: 0 }, tint: { colour: '#ff0000' }, zIndex: 9, repeat: 3, every: 100, delay: 100, aboveLighting: true, xray: true };
+    const beam = built({ shape: 'beam', asset: 'test.bolt.orange', ...probe }, { targets: [hit(near)] }).effects[0];
+    const swing = built({ shape: 'strike', asset: 'test.swing', ...probe }, { targets: [hit(near)] }).effects[0];
+    return [['fadeIn', 'fadeOut', 'anchor', 'tint', 'zIndex', 'repeats', 'delay', 'aboveLighting', 'xray'].filter((m) => beam.has(m)), ['fadeIn', 'fadeOut', 'aboveLighting', 'xray'].filter((m) => swing.has(m)), swing.get('anchor')];
+  })(), [[], [], [{ x: 0.4, y: 0.5 }]]);
   const w = built({ ...f, wait: true, delay: 400 }, { place: regions.circle });
   t.same('wait on a fill is a wait on the sequence', w.S[w.S.length - 1].calls, [['wait', [400]]]);
   const clear = built({ ...f, clearTemplate: true }, { place: regions.circle });

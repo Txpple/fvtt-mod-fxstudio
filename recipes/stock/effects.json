@@ -44,7 +44,6 @@
      },
      "below": true,
      "opacity": 0.75,
-     "persist": "effect",
      "wait": true,
      "delay": 1
     }
@@ -138,8 +137,7 @@
      "elevation": {
       "level": 999,
       "absolute": false
-     },
-     "persist": "effect"
+     }
     }
    ],
    "by": "the migration",
@@ -2106,8 +2104,7 @@
       "level": 999,
       "absolute": false
      },
-     "opacity": 0.2,
-     "persist": "effect"
+     "opacity": 0.2
     }
    ],
    "by": "the migration",

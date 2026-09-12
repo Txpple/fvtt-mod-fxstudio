@@ -3,7 +3,7 @@
 // asset picks its variant from where the template sits against the caster (`rotate: "by-position"`).
 //
 //   size {fit: "shape", scale: {x, y}} (the template's measured shape) | {squares}
-//   persist none | template | until-removed   mask   rotate degrees | "by-position"   aboveLighting   xray
+//   persist none | template | until-removed   mask   rotate degrees | "by-position"
 //   clearTemplate: the template is removed once the scene has played
 import { addSound, elevate, full, repeats, timing, tint, useAsset } from '../common.js';
 import { normalise } from '../assets.js';
@@ -39,8 +39,6 @@ export function build(seq, scene0, ctx) {
   if (s.mask) e.mask(region);
   e.playbackRate(s.rate);
   e.name(ctx.fx.id);
-  if (s.aboveLighting !== undefined) e.aboveLighting(!!s.aboveLighting);
-  if (s.xray !== undefined) e.xray(!!s.xray);
   tint(e, s);
 
   const scale = s.size?.scale ?? { x: 1, y: 1 };

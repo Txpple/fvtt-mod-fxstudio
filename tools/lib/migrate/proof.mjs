@@ -180,6 +180,7 @@ export function allowance(a, b, diffs, momentName) {
   if (noTarget && soundCount(a) > soundCount(b) && !diff(withoutSounds(a), withoutSounds(b)).length) return 'a follow-up mark with nothing to land on plays no sound (AA played its sound anyway)';
   if (noTarget && diffs.every((d) => /the engine only \["delay",\[-?\d+\]\]$/.test(d))) return "a mark that falls back to the caster honours the FX's delay (AA dropped it there)";
   if (!hasWait(a) && !hasWait(b) && sortedEqual(a, b)) return 'the same pictures start in a different order with no wait between them (a shield\'s bottom halves first, then its top halves)';
+  if (diffs.every((d) => /AA only (\["xray",\[true\]\]|\["aboveLighting",\[true\]\])( \["(xray|aboveLighting)",\[true\]\])*$/.test(d))) return 'above-lighting and x-ray are retired from the grammar (the user, 2026-09-12: no bloat — one row, Wall of Force, carried x-ray; nothing carried above-lighting)';
   if (diffs.every((d) => /AA only \["atLocation",\[\{"x":500,"y":500\}\]\] · the engine only \["atLocation",\[\{"x":550,"y":550\}\]\]$/.test(d))) return "a bolt from inside a standing area, with none standing, leaves from the caster's centre (AA left from the token's top-left corner)";
   return null;
 }

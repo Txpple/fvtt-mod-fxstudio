@@ -450,7 +450,7 @@ const BAND_CELLS = {
   picture: ['vfx', 'place', 'size', 'opacity', 'tint', 'below', 'mirror', 'scatter'],
   timing: ['delay', 'times', 'every', 'rate', 'fadein', 'fadeout', 'lasts', 'hold'],
   sound: ['sfx', 'volume', 'start', 'sdelay', 'stimes', 'severy'],
-  placement: ['rotate', 'anchor', 'elevation', 'zindex', 'mask', 'attach', 'abovelight', 'xray'],
+  placement: ['rotate', 'anchor', 'elevation', 'zindex', 'mask', 'attach'],
 };
 /** the shape band is the shape's own knobs; it is padded to eight so the frame never resizes */
 const SHAPE_CELLS = {
@@ -459,7 +459,7 @@ const SHAPE_CELLS = {
   mark: ['onmiss', 'follow', 'face'],
   fill: ['cleartemplate'],
   aura: ['breathe', 'pulse'],
-  move: ['range', 'spot', 'jump', 'fade', 'pick', 'speed', 'after'],
+  move: ['range', 'spot', 'jump', 'fade', 'speed', 'after'],
   beam: [], sound: [], custom: [],
 };
 const shapeCells = (shape) => SHAPE_CELLS[shape] ?? [];
@@ -652,7 +652,9 @@ function cellHtml(app, key, scene, i) {
     case 'rotate': {
       const on = may('rotate');
       const byPos = scene.rotate === 'by-position';
-      return field('rotate', 'Rotate', `${num('cw-rotate', on && !byPos, typeof scene.rotate === 'number' ? scene.rotate : 0, 'step="15" aria-label="Rotate (degrees)"')}<span class="suffix">°</span>${check('cw-rotpos', on, byPos, 'by position')}`, !on);
+      // "by position" (turned to where the template sits against the caster) is a fill's alone
+      const pos = scene.shape === 'fill' ? check('cw-rotpos', on, byPos, 'by position') : '';
+      return field('rotate', 'Rotate', `${num('cw-rotate', on && !byPos, typeof scene.rotate === 'number' ? scene.rotate : 0, 'step="15" aria-label="Rotate (degrees)"')}<span class="suffix">°</span>${pos}`, !on);
     }
     case 'anchor': {
       const on = may('anchor');
@@ -670,20 +672,12 @@ function cellHtml(app, key, scene, i) {
     }
     case 'mask': {
       const on = may('mask');
-      return field('mask', 'Mask', check('cw-mask', on, scene.mask, 'to the template'), !on);
+      return field('mask', 'Mask', check('cw-mask', on, scene.mask, scene.shape === 'fill' ? 'to the template' : 'to the token'), !on);
     }
     case 'attach': {
       const on = may('attach');
       const at = scene.attach ?? null;
       return field('attach', 'Attach', `${check('cw-attach-alpha', on, at?.alpha, 'alpha')}${check('cw-attach-vis', on, at?.visibility, 'visible')}`, !on);
-    }
-    case 'abovelight': {
-      const on = may('aboveLighting');
-      return field('abovelight', 'Above lighting', check('cw-abovelight', on, scene.aboveLighting, 'over the light'), !on);
-    }
-    case 'xray': {
-      const on = may('xray');
-      return field('xray', 'Through walls', check('cw-xray', on, scene.xray, 'seen through walls'), !on);
     }
 
     // ---- the shape's own -----------------------------------------------------------------------
@@ -695,7 +689,9 @@ function cellHtml(app, key, scene, i) {
     case 'thrown': return compound('thrown', 'Thrown', may('thrown'), 'thrown', scene.thrown?.asset, 'cw-thrown-off');
     case 'reach': {
       const on = may('thrown') && !!scene.thrown;
-      return field('reach', 'Reach', `${num('cw-reach', on, scene.thrown?.reach ?? 5, 'min="5" step="5" aria-label="Reach (ft)"')}<span class="suffix">ft</span>`, !on);
+      // in grid squares, as the engine measures it ("auto" — the default — is one square, two for a reach weapon)
+      const reach = typeof scene.thrown?.reach === 'number' ? scene.thrown.reach : 1;
+      return field('reach', 'Reach', `${num('cw-reach', on, reach, 'min="1" step="1" aria-label="Reach (squares)"')}<span class="suffix">squares</span>`, !on);
     }
     case 'return': return compound('return', 'Return', may('return'), 'return', scene.return?.asset, 'cw-return-off');
     case 'cleartemplate': {
@@ -728,10 +724,6 @@ function cellHtml(app, key, scene, i) {
     case 'fade': {
       const on = may('fade');
       return field('fade', 'Fade', check('cw-fade', on, scene.fade, 'fades out and in'), !on);
-    }
-    case 'pick': {
-      const on = may('pick');
-      return field('pick', 'Chosen by', select('cw-pick', on, [['click', 'a click on the canvas'], ['movement', 'the token\'s own move']], sc.pick ?? 'click', 'Chosen by'), !on);
     }
     case 'speed': {
       const on = may('speed') && !sc.jump;
@@ -979,12 +971,10 @@ export function onSheetChange(app, el) {
     if (!at.alpha && !at.visibility) delete scene.attach; else scene.attach = at;
     return app.render();
   }
-  if (cls('cw-abovelight')) { if (el.checked) scene.aboveLighting = true; else delete scene.aboveLighting; return app.render(); }
-  if (cls('cw-xray')) { if (el.checked) scene.xray = true; else delete scene.xray; return app.render(); }
 
   // ---- the shape's own ----
   if (cls('cw-onmiss')) { if (el.value === (def.onMiss ?? 'play')) delete scene.onMiss; else scene.onMiss = el.value; return app.render(); }
-  if (cls('cw-reach')) { if (scene.thrown) scene.thrown = { ...scene.thrown, reach: Math.max(0, Math.round(n || 0)) }; return app.render(); }
+  if (cls('cw-reach')) { if (scene.thrown) { const v = Math.max(1, Math.round(n || 1)); scene.thrown = { ...scene.thrown, reach: v }; if (v === 1) delete scene.thrown.reach; } return app.render(); }
   if (cls('cw-cleartemplate')) { if (el.checked) scene.clearTemplate = true; else delete scene.clearTemplate; return app.render(); }
   if (cls('cw-follow')) { if (el.checked) scene.follow = true; else delete scene.follow; return app.render(); }
   if (cls('cw-face')) { if (el.checked) scene.face = 'away-from-source'; else delete scene.face; return app.render(); }
@@ -997,9 +987,8 @@ export function onSheetChange(app, el) {
     return app.render();
   }
   if (cls('cw-jump')) { const v = el.value === 'true'; if (v === (def.jump ?? true)) delete scene.jump; else scene.jump = v; return app.render(); }
-  // a fade written in full ({to, after, back}) is kept as it is: the box only turns it on and off
-  if (cls('cw-fade')) { if (el.checked) { if (!scene.fade) scene.fade = true; } else delete scene.fade; return app.render(); }
-  if (cls('cw-pick')) { if (el.value === (def.pick ?? 'click')) delete scene.pick; else scene.pick = el.value; return app.render(); }
+  // the box writes the fade the stock moves use (dim to nothing after the sound starts, back once the token lands); one written in full is kept as it is
+  if (cls('cw-fade')) { if (el.checked) { if (!scene.fade || typeof scene.fade !== 'object') scene.fade = { to: 0.01, after: 750, back: 250 }; } else delete scene.fade; return app.render(); }
   if (cls('cw-speed')) { setNum(scene, 'speed', n, def.speed ?? 120); return app.render(); }
   if (cls('cw-after')) { setNum(scene, 'after', Math.max(0, Math.round(n || 0)), def.after ?? 0); return app.render(); }
   return undefined;

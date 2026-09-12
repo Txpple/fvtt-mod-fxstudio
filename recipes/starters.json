@@ -56,7 +56,7 @@
    "on": "use",
    "note": "the placed area fills, attached to the template while it stands",
    "scenes": [
-    { "shape": "fill", "asset": { "path": "jb2a.template_circle.aura.01.complete.small.bluepurple" }, "persist": "template", "fadeIn": 500, "fadeOut": 500 }
+    { "shape": "fill", "asset": { "path": "jb2a.template_circle.aura.01.complete.small.bluepurple" }, "persist": "template" }
    ]
   },
   {
@@ -65,7 +65,7 @@
    "on": "effect",
    "note": "an aura around the token for as long as the effect stands",
    "scenes": [
-    { "shape": "aura", "asset": { "path": "jb2a.spirit_guardians.blue.no_ring" }, "at": "source", "size": { "radius": 3 }, "persist": "effect", "opacity": 0.75 }
+    { "shape": "aura", "asset": { "path": "jb2a.spirit_guardians.blue.no_ring" }, "at": "source", "size": { "radius": 3 }, "opacity": 0.75 }
    ]
   },
   {
