@@ -326,6 +326,19 @@ try {
       made.push(stock6);
       ok('§6 Save asked, and House override writes the same id into house.json: House wins, Stock is untouched', asked6 && api.fx.get(stock6)?.source === 'house' && api.fx.get(stock6)?.original?.note === 'override by the suite' && api.corpus.under(stock6) === 'stock' && api.corpora.stock.find((l) => l.id === stock6)?.note === stockNote6 && JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · under ${api.corpus.under(stock6)}`);
       ok('§6 the sheet reopens on the override, tagged House override', /House override/.test(text('.sheet h2')) && $('.sheet')?.dataset.edit === 'false', text('.sheet h2'));
+      // the Stock row is NOT lost (the user, 2026-09-12): both rows are listed, House first, Stock dimmed
+      await click('[data-tab="fx"]');
+      await type('.fx-q', 'fire bolt');
+      await sleep(450);
+      const both6 = $$(`.fxlist .pickbtn[data-id="${stock6}"]`);
+      ok('§6 the Library lists the override AND the Stock FX under it, two rows of one id, Stock marked as overridden', both6.length === 2 && both6.map((b) => b.dataset.source).join(',') === 'house,stock' && both6[1].closest('.row')?.dataset.shadowed === 'true' && /overrides this/.test(both6[1].dataset.tooltip ?? ''), both6.map((b) => `${b.dataset.source}:${b.closest('.row')?.dataset.shadowed}`).join(' · '));
+      await click(both6[1].closest('.row').querySelector('[data-act="fx-editor"]'));
+      ok('§6 the Stock row\'s Editor opens the Stock FX itself, saying House overrides it', paneNow() === 'editor' && app.sheet?.source === 'stock' && app.sheet?.shadowed === true && /House overrides it/.test(text('.sheet h2')) && app.sheet?.note === stockNote6, `${app.sheet?.source} · ${text('.sheet h2')}`);
+      await click('[data-tab="fx"]');
+      await type('.fx-q', '');
+      await sleep(450);
+      await click($(`.fxlist .pickbtn[data-id="${stock6}"][data-source="house"]`).closest('.row').querySelector('[data-act="fx-editor"]'));
+      ok('§6 and the House row\'s Editor opens the override', app.sheet?.source === 'house' && app.sheet?.note === 'override by the suite', `${app.sheet?.source}`);
       await sayYes(() => click('[data-act="sh-delete"]'));
       await until(() => api.fx.get(stock6)?.source === 'stock' && text('.sheet code.id') === stock6);
       ok('§6 Delete on the override shows Stock again, and the sheet reopens on it', api.fx.get(stock6)?.source === 'stock' && api.fx.get(stock6)?.original?.note === stockNote6 && text('.sheet code.id') === stock6 && /Stock/.test(text('.sheet h2')), `${api.fx.get(stock6)?.source} · ${text('.sheet h2')}`);

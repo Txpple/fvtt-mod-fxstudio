@@ -1782,3 +1782,19 @@ leaving Stock untouched, an Item Hook refused for Stock, the files restored byte
 `smoke-screens` 184/185 (the Stock choice through the sheet's own Save with the dialog answered
 House, then Stock, then Cancel; the House group; the facets; the one miss is the sandbox process
 reporting its pre-restart version); `smoke-fx` 1026; the six offline checks.
+
+### The Stock row stays (the user, the same evening, v0.4.1)
+
+> *"i edited abyssal glaive, stock, and saved as house per prompt. the stock one disappeared.
+> essentially the house would be a duplicate of stock, not losing stock, and it would override
+> stock with the same name in order of which fx to pick."*
+
+The files were right — `stock/weapons.json` and `house.json` each held an `abyssal-glaive` — but
+the Library listed one row per id, the winner, so the Stock row vanished from the screen. Now the
+index keeps `all`: every FX of every layer, a Stock FX under a House override marked `shadowed`
+(`core/corpus.js`, `api.fx.list()`); `api.fx.get(id, source)` answers the layer asked for; the
+Library lists both rows, House first and the Stock row dimmed with the tooltip *House overrides
+this*; a row's Editor and Delete act on the row's own layer (`data-source`), so the Stock FX under
+an override can still be read, edited (Save asks as before) or deleted (the override stays and
+keeps playing). Resolution is unchanged: House wins by id. `smoke-screens` §6 proves the two rows
+and the two doors.

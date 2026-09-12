@@ -37,6 +37,19 @@ export function buildIndex({ stock = [], house = [], starters = [] } = {}) {
     if (errs.length) { problems.push(`${sourceOf.get(id)} "${id}": ${errs.join('; ')}`); continue; }
     byId.set(id, { fx: JSON.parse(JSON.stringify(fx)), original: fx, source: sourceOf.get(id) });
   }
+  // EVERY FX of every layer, the shadowed ones too (the user, 2026-09-12: a House override "would
+  // be a duplicate of stock, not losing stock" — the Stock row stays on the screen; House wins
+  // when the FX is picked). `shadowed` marks a Stock FX whose id House also holds.
+  const all = [];
+  for (const [source, list] of [['house', house], ['stock', stock]]) {
+    for (const fx of list) {
+      if (!fx?.id) continue;
+      const winner = byId.get(fx.id);
+      if (winner?.source === source) { all.push(winner); continue; }
+      if (validate(fx).length) continue;
+      all.push({ fx: JSON.parse(JSON.stringify(fx)), original: fx, source, shadowed: true });
+    }
+  }
   // by key and kind, the later layer first
   const byKey = new Map();
   const rank = (source) => LAYERS.indexOf(source);
@@ -49,7 +62,7 @@ export function buildIndex({ stock = [], house = [], starters = [] } = {}) {
     }
   }
   for (const list of byKey.values()) list.sort((a, b) => rank(a.source) - rank(b.source));
-  return { byId, byKey, starters: starterMap, problems, counts: { stock: stock.length, house: house.length, starters: starters.length } };
+  return { byId, all, byKey, starters: starterMap, problems, counts: { stock: stock.length, house: house.length, starters: starters.length } };
 }
 
 /** does the FX need what the moment has? An FX with a scene at the template needs a placed template. */
@@ -88,9 +101,15 @@ export function resolve(index, keys, on, { hasPlace = false, pointer = null } = 
   return { fx: null, why: keys?.length ? `no FX for ${keys.join(', ')}` : 'the subject has no keys' };
 }
 
-/** every FX, later layer winning per id, for the screens and the census */
+/** every FX of every layer for the screens — a Stock FX under a House override is listed too, marked `shadowed` */
 export function allFx(index) {
-  return [...index.byId.values()];
+  return [...index.all];
+}
+
+/** one FX by id: the layer that wins, or the one `source` names (the shadowed Stock FX under an override) */
+export function fxById(index, id, source = null) {
+  if (!source) return index.byId.get(id) ?? null;
+  return index.all.find((e) => e.fx.id === id && e.source === source) ?? null;
 }
 
 /** every FX that answers a key on any moment kind (the Look up card's "why") */

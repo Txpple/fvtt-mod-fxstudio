@@ -19,7 +19,9 @@ An FX is in a file or it is nothing: `recipes/house.json` (this table's; the onl
 Hook) or `recipes/stock/<kind>.json` (the books'). **Save writes the file** in the module folder on
 the server and the corpora are read again; editing a Stock FX asks **House override** (the same id in
 House, which wins; Stock untouched) **or Edit Stock**. Delete takes the FX you see, the winning layer
-only, so deleting an override shows Stock again. Stage, Ship, the world buffer, `shipped.json`,
+only, so deleting an override shows Stock again; **the Library lists BOTH rows** (the override, and the
+Stock FX under it, dimmed "House overrides this") because the override "would be a duplicate of stock,
+not losing stock" (the user, 2026-09-12, v0.4.1). Stage, Ship, the world buffer, `shipped.json`,
 `tools/world-fx.mjs` and `tools/export-fx.mjs` are gone; the old buffer setting is folded into the
 files once at ready by a GM's client. The Library's facets are House · Stock, the six authored kinds
 (Statuses, Damage, Events went — `event` stays in the data layer for Battle Flow's moment keys),

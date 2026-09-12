@@ -263,7 +263,7 @@ export class Studio extends ApplicationV2 {
     const a = api();
     const needle = q.trim().toLowerCase();
     const starters = [...a.index.starters.values()].map((st) => ({ id: st.id, words: `${idWords(st.id)} — ${st.note ?? ''}`, tag: 'starter' }));
-    const fx = a.fx.list().filter((e) => !e.fx.off).map((e) => ({ id: e.fx.id, words: idWords(e.fx.id), tag: SOURCE_TAG[e.source], keys: (e.fx.for ?? []).map(keyLabel).join(', ') }));
+    const fx = a.fx.list().filter((e) => !e.fx.off && !e.shadowed).map((e) => ({ id: e.fx.id, words: idWords(e.fx.id), tag: SOURCE_TAG[e.source], keys: (e.fx.for ?? []).map(keyLabel).join(', ') }));
     if (!needle) return [...starters, ...fx.slice(0, 12)];
     return [...starters, ...fx].filter((h) => h.words.toLowerCase().includes(needle) || (h.keys ?? '').toLowerCase().includes(needle)).slice(0, 12);
   }
@@ -308,16 +308,17 @@ export class Studio extends ApplicationV2 {
     return this.toast(`Imported ${saved} FX to ${SOURCE_TAG[to]}${items ? ` (${items} Item Hook)` : ''}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}`);
   }
 
-  /** delete an FX for good, out of its corpus file; a House override deleted shows the Stock FX under it again */
-  async deleteFx(id) {
+  /** delete an FX for good, out of the file of the layer named (else the winner); a House override deleted shows the Stock FX under it again */
+  async deleteFx(id, source = null) {
     const a = api();
-    const e = a.fx.get(id);
+    const e = a.fx.get(id, source);
     if (!e) return undefined;
     const under = e.source === 'house' ? a.corpus.under(id) : null;
-    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${under ? ` The ${SOURCE_TAG[under]} FX of that id shows through again.` : ''}</p>`, rejectClose: false, modal: true });
+    const note = under ? ` The ${SOURCE_TAG[under]} FX of that id shows through again.` : e.shadowed ? ` The ${SOURCE_TAG.house} override stays and keeps playing.` : '';
+    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${note}</p>`, rejectClose: false, modal: true });
     if (!ok) return undefined;
     let r;
-    try { r = await a.corpus.erase(id); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
+    try { r = await a.corpus.erase(id, { from: e.source }); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
     // no item may be left pointing at a dead id, whichever door pressed Delete (2026-09-07)
     await this.unpinFx(id);
     this.refresh();
@@ -336,7 +337,8 @@ export class Studio extends ApplicationV2 {
     if (sheetDirty(this) && !(await leaveSheet(this))) return undefined;
     const id = b.dataset.id;
     this.view.fxSel = id;
-    openSheet(this, { id, subject: this.subjectForFx(id) });
+    this.view.fxSelSource = b.dataset.source || null;
+    openSheet(this, { id, source: b.dataset.source || null, subject: this.subjectForFx(id) });
     return this.render();
   }
 

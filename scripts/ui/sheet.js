@@ -78,12 +78,12 @@ export const bareKey = (subject) => subject?.keys?.find((k) => !k.includes('/'))
  * FX, or the item an Item Hook pins to); from: an FX id to duplicate; scenes: rows to begin with
  * (the Library's Use); edit: open unlocked}. With nothing, a blank sheet.
  */
-export function openSheet(app, { id = null, subject = null, from = null, scenes = null, edit = false } = {}) {
+export function openSheet(app, { id = null, source = null, subject = null, from = null, scenes = null, edit = false } = {}) {
   const a = api();
-  const s = { id: null, source: null, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, onlyThis: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture' };
-  const e = id ? a.fx.get(id) : null;
+  const s = { id: null, source: null, shadowed: false, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, onlyThis: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture' };
+  const e = id ? a.fx.get(id, source) : null;
   if (e) {
-    s.id = id; s.source = e.source; s.original = e.original;
+    s.id = id; s.source = e.source; s.shadowed = !!e.shadowed; s.original = e.original;
     s.keys = [...(e.original.for ?? [])];
     s.on = e.original.on ?? 'use';
     s.off = !!e.original.off;
@@ -167,7 +167,7 @@ function problemsOf(app) {
 export async function leaveSheet(app) {
   if (!sheetDirty(app)) return true;
   const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: 'Drop unsaved changes?' }, content: `<p>${esc(sheetName(app))} has unsaved changes.</p>`, rejectClose: false, modal: true });
-  if (ok) { app.sheet.edit = false; if (app.sheet.id) openSheet(app, { id: app.sheet.id, subject: app.sheet.subject }); else app.sheet = null; }
+  if (ok) { app.sheet.edit = false; if (app.sheet.id) openSheet(app, { id: app.sheet.id, source: app.sheet.source, subject: app.sheet.subject }); else app.sheet = null; }
   return !!ok;
 }
 
@@ -188,7 +188,7 @@ export function renderSheet(app) {
   // a House FX with a Stock FX's id is its override: the tag says so, and Delete shows Stock again
   const under = s.id && s.source === 'house' ? a.corpus.under(s.id) : null;
   const tags = [
-    s.source ? `<span class="tag ${s.source === 'house' ? 'yours' : ''}">${SOURCE_TAG[s.source]}${under ? ' override' : ''}</span>` : '<span class="tag yours">New</span>',
+    s.source ? `<span class="tag ${s.source === 'house' ? 'yours' : ''}">${SOURCE_TAG[s.source]}${under ? ' override' : ''}${s.shadowed ? ` · ${SOURCE_TAG.house} overrides it` : ''}</span>` : '<span class="tag yours">New</span>',
     `<span class="tag">${s.onlyThis ? HOOK_WORDS.item : HOOK_WORDS.global}</span>`,
     s.off ? '<span class="tag off">Off</span>' : '',
   ].join('');
@@ -818,7 +818,7 @@ export async function onSheetClick(app, b, act) {
   const x = s.scenes[i];
   switch (act) {
     case 'sh-back': { if (!(await leaveSheet(app))) return undefined; app.view.tab = s.cameFrom ?? 'fx'; break; }
-    case 'sh-cancel': { if (s.id) openSheet(app, { id: s.id, subject: s.subject }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; } app.toast('Changes dropped.'); break; }
+    case 'sh-cancel': { if (s.id) openSheet(app, { id: s.id, source: s.source, subject: s.subject }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; } app.toast('Changes dropped.'); break; }
     case 'sh-save': return saveSheet(app);
     case 'sh-dup': { openSheet(app, { subject: s.subject, from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Add its hook, then Save.`); break; }
     case 'sh-export': return app.exportFx(s.id);
@@ -826,7 +826,7 @@ export async function onSheetClick(app, b, act) {
     case 'sh-delete': {
       // deleteFx asks, and unpins whatever pointed at it; a House override deleted leaves the
       // Stock FX of that id showing, so the sheet reopens on it
-      await app.deleteFx(s.id);
+      await app.deleteFx(s.id, s.source);
       if (a.fx.get(s.id)) openSheet(app, { id: s.id }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
       break;
     }

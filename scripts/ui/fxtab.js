@@ -61,7 +61,7 @@ function catalogue(app) {
     const name = keys[0] ? nameOf(fx) : owner ? owner.item : idWords(fx.id);
     return {
       e, id: fx.id, name, keys, kind: p?.kind ?? null, item: !keys.length, owner,
-      off: !!fx.off, source: e.source, at: e.original.at ?? '',
+      off: !!fx.off, source: e.source, shadowed: !!e.shadowed, at: e.original.at ?? '',
       text: name.toLowerCase(),
     };
   });
@@ -132,10 +132,16 @@ function recordDoor(app, r) {
   return `<button type="button" class="link record" data-act="fx-record" data-uuid="${esc(rec.uuid)}" data-name="${esc(rec.name)}" data-tooltip="${esc(recordWords(rec, r.kind))}">Record</button>`;
 }
 
-/** a row is a name; clicking it marks it, and the marked row is the only one showing its doors */
-const rowHtml = (app, r) => `<div class="row" data-now="${app.view.fxSel === r.id}">
-    <button type="button" class="pickbtn" data-act="fx-sel" data-id="${esc(r.id)}" aria-current="${app.view.fxSel === r.id}"><span class="n">${esc(r.name)}</span></button>
-    <span class="acts">${recordDoor(app, r)}<button type="button" class="link danger" data-act="fx-del" data-id="${esc(r.id)}" data-tooltip="Delete ${esc(r.name)} for good">Delete</button><button type="button" class="link" data-act="fx-editor" data-id="${esc(r.id)}" data-tooltip="Open ${esc(r.name)} in the Editor">Editor</button></span>
+/** is this row the marked one? by id AND layer, since a Stock FX and its House override share an id */
+const marked = (app, r) => app.view.fxSel === r.id && (!app.view.fxSelSource || app.view.fxSelSource === r.source);
+
+/**
+ * A row is a name; clicking it marks it, and the marked row is the only one showing its doors. A
+ * Stock FX under a House override keeps its row (the user, 2026-09-12), dimmed, its tooltip saying so.
+ */
+const rowHtml = (app, r) => `<div class="row" data-now="${marked(app, r)}" data-shadowed="${r.shadowed}">
+    <button type="button" class="pickbtn" data-act="fx-sel" data-id="${esc(r.id)}" data-source="${r.source}" aria-current="${marked(app, r)}" ${r.shadowed ? `data-tooltip="${SOURCE_TAG.house} overrides this: the ${SOURCE_TAG.house} FX of the same id plays instead"` : ''}><span class="n">${esc(r.name)}</span></button>
+    <span class="acts">${recordDoor(app, r)}<button type="button" class="link danger" data-act="fx-del" data-id="${esc(r.id)}" data-source="${r.source}" data-tooltip="Delete ${esc(r.name)} (${SOURCE_TAG[r.source]}) for good">Delete</button><button type="button" class="link" data-act="fx-editor" data-id="${esc(r.id)}" data-source="${r.source}" data-tooltip="Open ${esc(r.name)} (${SOURCE_TAG[r.source]}) in the Editor">Editor</button></span>
   </div>`;
 
 /** the list card on its own, so the search can redraw it without redrawing the box being typed in */
@@ -186,17 +192,18 @@ export async function onFxClick(app, b, act2) {
     case 'fx-sel': {
       const id = b.dataset.id;
       app.view.fxSel = id;
+      app.view.fxSelSource = b.dataset.source || null;
       for (const row of app.element.querySelectorAll('.fxlist .row')) {
         const btn = row.querySelector('.pickbtn');
-        const on = String(btn?.dataset.id === id);
+        const on = String(btn?.dataset.id === id && btn?.dataset.source === b.dataset.source);
         row.dataset.now = on;
         btn?.setAttribute('aria-current', on);
       }
       return undefined;
     }
-    case 'fx-editor': { const id = b.dataset.id; app.view.fxSel = id; openSheet(app, { id, subject: app.subjectForFx(id) }); return app.render(); }
-    // deleteFx asks first, and unpins whatever item pointed at it
-    case 'fx-del': return app.deleteFx(b.dataset.id);
+    case 'fx-editor': { const id = b.dataset.id; app.view.fxSel = id; app.view.fxSelSource = b.dataset.source || null; openSheet(app, { id, source: b.dataset.source || null, subject: app.subjectForFx(id) }); return app.render(); }
+    // deleteFx asks first, and unpins whatever item pointed at it; the layer is the row's
+    case 'fx-del': return app.deleteFx(b.dataset.id, b.dataset.source || null);
     // the record opens in its OWN sheet, beside the window — the Library is not a book reader
     case 'fx-record': return openRecord(b.dataset.uuid, b.dataset.name);
     default: return undefined;

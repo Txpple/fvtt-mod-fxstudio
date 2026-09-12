@@ -5,7 +5,7 @@
 import { sentence, validate, provenance } from './core/fx.js';
 import { gateNames, registerGate } from './core/gates.js';
 import { stampRecord } from './core/records.js';
-import { LAYER_WORDS, allFx, fxFor, resolve } from './core/corpus.js';
+import { LAYER_WORDS, allFx, fxById, fxFor, resolve } from './core/corpus.js';
 import { keyLabel, keysFor, keyWords } from './core/subjects.js';
 import { build, ledger, play, resolveMoment } from './engine/render.js';
 import { coloursOf, database, familyOf, recoloured, resolveAsset, search } from './engine/assets.js';
@@ -47,9 +47,10 @@ export function makeApi(state) {
     /** the sentence for an FX */
     sentence: (fx, opts) => sentence(fx, opts),
     provenance,
-    /** every FX the corpus holds, later layer winning per id: [{fx, original, source}] */
+    /** every FX of every layer: [{fx, original, source, shadowed?}] — a Stock FX under a House override is listed, shadowed */
     list: () => allFx(state.index),
-    get: (id) => state.index.byId.get(id) ?? null,
+    /** one FX: the layer that wins, or the one `source` names */
+    get: (id, source = null) => fxById(state.index, id, source),
     starters: () => [...state.index.starters.values()],
     /** the FX that answer a key, on any moment kind */
     for: (key) => fxFor(state.index, key),

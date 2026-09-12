@@ -381,3 +381,6 @@
 /* the list: the one thing on this screen that scrolls */
 .fxstudio .cvlist { display: flex; flex-direction: column; min-height: 0; padding: 10px 12px; }
 .fxstudio .cvlist .rows { flex: 1 1 auto; min-height: 0; overflow: auto; }
+
+/* a Stock FX under a House override keeps its row, dimmed (2026-09-12) */
+.fxstudio .fxlist .row[data-shadowed="true"] .n { opacity: .55; }
