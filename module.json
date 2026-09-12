@@ -2,7 +2,7 @@
   "id": "fvtt-mod-fxstudio",
   "title": "FX Studio",
   "description": "House visual and sound effects for dnd5e, played from what actually happened at the table. Keeps Sequencer as the engine and JB2A and PSFX as the libraries; carries the whole D&D5e Animations corpus over losslessly as its stock, adds the user's own FX on top, and never guesses an FX. No patching, no sockets, no libWrapper.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "authors": [
     {
       "name": "Matthew Sippel"
@@ -42,7 +42,7 @@
   },
   "url": "https://github.com/Txpple/fvtt-mod-fxstudio",
   "manifest": "https://github.com/Txpple/fvtt-mod-fxstudio/releases/latest/download/module.json",
-  "download": "https://github.com/Txpple/fvtt-mod-fxstudio/releases/download/v0.4.1/fvtt-mod-fxstudio.zip",
+  "download": "https://github.com/Txpple/fvtt-mod-fxstudio/releases/download/v0.4.2/fvtt-mod-fxstudio.zip",
   "readme": "https://github.com/Txpple/fvtt-mod-fxstudio#readme",
   "license": "MIT"
 }
