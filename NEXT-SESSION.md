@@ -1,5 +1,11 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-11, cold session after — the two unruled costs are RULED, on the user's "ok": leave both.**
+> Client-local holds: the fix is Battle Flow's (observable hold state), asked for only if a GM placing
+> a template for a player ever sees the picture early. The five-minute bound stays; a per-gate bound
+> read from Battle Flow's hold timer is built only if that timer is 0 at the table and the user reports
+> the animation firing while they were still choosing. Neither can lose a picture. BACKLOG carries both.
+
 > **2026-09-11, last — the dedupe debt is PAID, v0.3.1, on prod (the user: *"i dont mind paying the
 > debt now … go … push and release and deploy to prod"*).** The note below said `readMoment` skipped
 > the twelve new words; it did not — `use` and `effect` are WHEN words and passed the filter, so

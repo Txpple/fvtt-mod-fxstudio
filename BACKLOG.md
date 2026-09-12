@@ -20,7 +20,9 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
   cannot SEE a hold", not "nothing holds this". Today the roads that matter are read on the caster's
   client, so this costs nothing; **a GM placing a template on a player's behalf would play early.**
   Making it a real cross-client guarantee means promoting the hold to observable state on Battle
-  Flow's side - it offered to cost that and would rather not do it speculatively. **Not ruled.**
+  Flow's side - it offered to cost that and would rather not do it speculatively. **RULED 2026-09-11
+  (the user: "ok" to the recommendation): leave it. The fix is Battle Flow's, asked for only if the
+  table ever places a template on a player's behalf and sees the picture early. Nothing here changes.**
 - **Battle Flow SHIPPED the general surface** the same day (`1b916c5`, its `scripts/holds.js`,
   ARCHITECTURE §7): `holdFor(subject)`, `castHold` kept **forever** as an alias of it,
   `api.holds = {version: 1, keys: [activity, message, document]}`, and the hooks
@@ -45,7 +47,10 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
   five-minute bound then plays the picture while the question is still on the caster's screen.**
   Safe (a picture is never lost) but it is the one place our rule and their setting disagree. The
   bound is one argument in `core/gates.js` (`heldUntil(moment, { bound })`); a per-gate bound, or a
-  setting, is small if the user ever sees it happen. **Not ruled, not owed.**
+  setting, is small if the user ever sees it happen. **RULED 2026-09-11 (the user: "ok"): the bound
+  stays five minutes. Built only if the hold timer is 0 at the table AND the user reports "the
+  animation fired while I was still choosing" - then the Battle Flow gate reads its hold timer and
+  passes a per-gate bound, clockless when the setting is 0; every other gate stays bounded.**
 - **Two holes Battle Flow found reading its own code for us** (a stranded hold when the carrier
   whisper is deleted; another when `postUseActivity` never fires) are its bugs to fix. Ours is
   unaffected because the bound is ours: five minutes, and **an expired bound PLAYS**.
