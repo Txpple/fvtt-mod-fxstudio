@@ -56,14 +56,14 @@ export function makeApi(state) {
     for: (key) => fxFor(state.index, key),
     /**
      * Save an FX into its corpus file with provenance (the same id there is replaced), then read
-     * the corpora again. `to` is the corpus: 'house' (the default — this table's own FX, and the
-     * only home of an Item Hook) or 'stock' (the books' file of the FX's kind). A house FX with a
+     * the corpora again. `to` is the corpus: 'house' (the default — this table's own FX) or 'stock'
+     * (the books' file of the FX's kind, which its key names; an FX with no key is House only). A house FX with a
      * stock FX's id is the House OVERRIDE: it wins by id. Returns {ok, problems, fx, file}.
      */
     save: async (fx, { by = null, note = null, to = 'house' } = {}) => {
       const problems = validate(fx);
       if (problems.length) return { ok: false, problems, fx };
-      if (!fileFor(fx, to)) return { ok: false, problems: [to === 'stock' ? 'an Item Hook (no ability key) lives in House, not Stock' : `"${to}" is not a corpus (house or stock)`], fx };
+      if (!fileFor(fx, to)) return { ok: false, problems: [to === 'stock' ? 'an FX with no key has no Stock file: give it a key, or save it to House' : `"${to}" is not a corpus (house or stock)`], fx };
       // the record is stamped from this install's address book by the FX's key, never typed (core/records.js)
       await readRecords();
       const stamped = stampRecord({ ...fx, by: by ?? fx.by ?? game.user?.name ?? 'someone', at: fx.at ?? new Date().toISOString().slice(0, 10) }, records);
@@ -76,7 +76,7 @@ export function makeApi(state) {
 
   /** the corpus: the two files, what may go where, deleting, reading again */
   const corpus = {
-    /** may this FX go to Stock? (it needs an ability key to pick its file; an Item Hook is House only) */
+    /** may this FX go to Stock? (its key picks the file; an FX with no key is House only) */
     canStock: (fx) => !!stockFile(fx),
     /** the file an FX would be written to for a corpus */
     fileFor,
@@ -99,7 +99,7 @@ export function makeApi(state) {
   /** the FX a subject (or an item) resolves to for a moment kind: {fx, key, source} or {fx: null, why} */
   const resolveFor = (subjectOrItem, on = 'use', { hasPlace = false } = {}) => {
     const subject = subjectOrItem?.keys ? subjectOrItem : subjectOrItem?.documentName === 'ActiveEffect' ? subjectOfEffect(subjectOrItem) : subjectOfItem(subjectOrItem);
-    return { subject, ...resolve(state.index, subject?.keys ?? [], on, { hasPlace, pointer: subject?.pointer ?? null }) };
+    return { subject, ...resolve(state.index, subject?.keys ?? [], on, { hasPlace }) };
   };
 
   /** the sentence for what an item (or a subject) would play: "Fire Bolt · when used · …" or "Nothing plays yet." */
@@ -109,9 +109,9 @@ export function makeApi(state) {
     if (!r.fx) return { sentence: 'Nothing plays.', why: whyNothing(r), subject: r.subject, key: r.key ?? null, source: r.source ?? null, off: !!r.off };
     return { sentence: sentence(r.fx, { name }), fx: r.fx, original: r.original ?? null, key: r.key, source: r.source, why: whyFx(r), subject: r.subject };
   };
-  // the "why" as terms: the hook that answered and the layer it lives in (Draft · House · Stock)
+  // the "why" as terms: the key that answered and the layer it lives in (House · Stock)
   const layer = (r) => LAYER_WORDS[r.source] ?? r.source;
-  const whyFx = (r) => r.pointer ? `Item Hook · ${layer(r)}` : `Global Hook · ${keyLabel(r.key)} · ${layer(r)}`;
+  const whyFx = (r) => `${keyLabel(r.key)} · ${layer(r)}`;
   const whyNothing = (r) => {
     if (r.off) return `Off · ${layer(r)}`;
     const keys = r.subject?.keys ?? [];
@@ -151,7 +151,7 @@ export function makeApi(state) {
         if (!acts.length && it.type !== 'weapon') continue;
         const subject = subjectOfItem(it, { activity: acts[0] ?? null });
         const hasPlace = acts.some((a) => a?.target?.template?.type);
-        const r = resolve(state.index, subject.keys, 'use', { hasPlace, pointer: subject.pointer ?? null });
+        const r = resolve(state.index, subject.keys, 'use', { hasPlace });
         out.asked++;
         if (r.fx) out.answered++; else out.nothing.push({ actor: actor.name, name: it.name, type: it.type, keys: subject.keys });
         row.items.push({ name: it.name, type: it.type, id: it.id, uuid: it.uuid, keys: subject.keys, hasPlace, fx: r.fx?.id ?? null, key: r.key ?? null, source: r.source ?? null, why: r.why ?? null, off: !r.fx && /switched off/.test(r.why ?? '') });

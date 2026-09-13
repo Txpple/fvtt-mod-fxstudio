@@ -1,24 +1,28 @@
-// A SUBJECT is what acted, and its identity keys (ARCHITECTURE §3): an FX is found by what the
-// thing IS, in the vocabulary dnd5e already keeps, and only then by what it is called. No
-// substrings, no word rules, no exclude lists — at the table a lookup is an exact map hit on one of
-// these keys, most specific first. Pure: the readers hand this module plain data.
+// A SUBJECT is what acted, and its identity key (ARCHITECTURE §3): an FX is found by what the thing
+// IS, in the vocabulary dnd5e already keeps, never by what it is called. ONE KEY PER ITEM, EXACT OR
+// NOTHING (the user, 2026-09-12, DESIGN §23): an item's key is dnd5e's own identifier for it —
+// `system.identifier` when set, else dnd5e's formatting of the name, which is what `item.identifier`
+// answers in the system — and an FX either holds that key or does not play. No name forms, no
+// base-weapon fallback, no activity suffix, no per-item pointer: two items that should play
+// differently carry different identifiers, which is dnd5e's field and travels with the item.
+// Pure: the readers hand this module plain data.
 //
 // A subject, as a reader describes it:
-//   { kind, name, identifier?, baseItem?, activityType?, spell?: {name, identifier}, ammunition?: subject, origin?: subject, statusId? }
+//   { kind, name, identifier?, spell?: {name, identifier}, ammunition?: subject, origin?: subject }
 //   kind        spell | weapon | natural | feature | item | effect | event
 //               (status and damage were placeholders for phase 4's outcomes and went on the user's
 //               word, 2026-09-12; `event` stays because Battle Flow's moments key by it)
 //   name        the thing's own name (the item's, the effect's)
 //   identifier  dnd5e's identifier for the item (system.identifier when set; else the slug of its name)
-//   baseItem    a weapon's base weapon (system.type.baseItem): "longsword", "maul"
-//   activityType  the activity that acted (attack, save, heal, damage, utility, cast, …)
 //   spell       for a "cast spell" activity: the spell it links (its name and identifier)
-//   ammunition  the ammunition fired, as a subject of its own (its keys come first)
+//   ammunition  the ammunition fired, as a subject of its own (its key comes first)
 //   origin      an effect's origin (the spell or item that made it), as a subject
 //
-// KEYS are `<kind>:<id>`, optionally `/<activity type>` for the most specific form:
-//   spell:fire-bolt/attack  spell:fire-bolt  ·  weapon:maul-of-momentum  weapon:maul  ·  natural:bite
-//   feature:brutal-strike  ·  item:potion-of-healing  ·  effect:shield  then the origin's key  ·  event:sneak
+// KEYS are `<kind>:<identifier>`:
+//   spell:fire-bolt  ·  weapon:maul-of-momentum  ·  natural:bite  ·  feature:brutal-strike  ·
+//   item:potion-of-healing  ·  effect:shield then the origin's key  ·  event:sneak
+// The only orderings left are between DOCUMENTS, each with its own exact key: the ammunition fired
+// before the bow, a cast activity's spell before the wand, an effect's own name before what made it.
 
 export const KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect', 'event'];
 /** the kinds a person authors against and the Library lists: every kind but the moment word (`event:<word>` is Battle Flow's) */
@@ -27,12 +31,14 @@ export const AUTHORED_KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 
 /** which kind a dnd5e item type is, before the weapon/natural split */
 export const KIND_OF_ITEM_TYPE = { spell: 'spell', weapon: 'weapon', feat: 'feature', consumable: 'item', equipment: 'item', tool: 'item', loot: 'item', container: 'item' };
 
-// Foundry's String#slugify({strict: true}) after dnd5e's formatIdentifier: "Blindness/Deafness" →
-// blindness-deafness, "Melf's Minute Meteors" → melfs-minute-meteors, "Acid (vial)" → acid-vial.
+// dnd5e's formatIdentifier: Foundry's String#slugify({strict: true}) after a slash is made a dash —
+// "Blindness/Deafness" → blindness-deafness, "Melf's Minute Meteors" → melfs-minute-meteors,
+// "Acid (vial)" → acid-vial. The same function, so an item with no identifier set keys here exactly
+// as dnd5e's own `item.identifier` would say.
 const CHAR_MAP = { 'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'ø': 'o', 'đ': 'd', 'ł': 'l' };
 export function slug(name) {
   if (!name) return '';
-  let s = String(name).replace(/(\w+)([\\|/])(\w+)/g, '$1-$3');
+  let s = String(name).replace(/(\w+)([\|/])(\w+)/g, '$1-$3');
   s = s.normalize('NFKD').replace(/[̀-ͯ]/g, '');
   s = s.split('').map((c) => CHAR_MAP[c.toLowerCase()] ?? c).join('').trim().toLowerCase();
   s = s.replace(/[\s-]+/g, '-');
@@ -40,57 +46,25 @@ export function slug(name) {
   return s.replace(/^-+|-+$/g, '');
 }
 
-/**
- * The name, then the name with a qualifier dnd5e or the DM appends removed: "Misty Step - Spellcasting"
- * (an NPC's spell), "Bless - Fey-Touched" (a granted spell), "Potion of Healing (Greater)". Still the
- * thing's own name; nothing is derived from anything else.
- */
-export function nameForms(name) {
-  const forms = [name];
-  const dash = name?.match(/^(.+?)\s+[-–—]\s+.+$/);
-  if (dash) forms.push(dash[1]);
-  const paren = name?.match(/^(.+?)\s*\([^)]*\)\s*$/);
-  if (paren) forms.push(paren[1]);
-  return [...new Set(forms.filter(Boolean))];
-}
-
-/** the ids a name stands for: dnd5e's identifier when known, then the slug of each form of the name */
-export function idsFor(name, identifier) {
-  const ids = [];
-  if (identifier) ids.push(identifier);
-  for (const form of nameForms(name)) ids.push(slug(form));
-  return [...new Set(ids.filter(Boolean))];
-}
+/** the one id an item keys by: dnd5e's identifier when set, else what dnd5e would format its name to */
+export const identifierOf = (name, identifier) => identifier || slug(name);
 
 /**
- * A subject's keys, most specific first. `activityType` makes a `<key>/<type>` form ahead of each bare
- * key; a "cast spell" activity puts the linked spell's keys first; ammunition's keys come before the
- * weapon's; an effect's own name comes before its origin's keys.
+ * A subject's keys: its own one key, with the documents that come before it — ammunition fired
+ * before the weapon, a cast activity's spell before the item, an effect's own name before its origin.
  */
 export function keysFor(subject) {
   if (!subject) return [];
   const out = [];
   const push = (k) => { if (k && !out.includes(k)) out.push(k); };
-  const withActivity = (kind, ids) => {
-    for (const id of ids) {
-      if (subject.activityType) push(`${kind}:${id}/${subject.activityType}`);
-      push(`${kind}:${id}`);
-    }
-  };
   if (subject.ammunition) for (const k of keysFor(subject.ammunition)) push(k);
-  if (subject.spell) withActivity('spell', idsFor(subject.spell.name, subject.spell.identifier));
+  if (subject.spell) push(`spell:${identifierOf(subject.spell.name, subject.spell.identifier)}`);
   switch (subject.kind) {
-    case 'spell': withActivity('spell', idsFor(subject.name, subject.identifier)); break;
-    // a weapon, a natural attack and an item go by their own name: dnd5e's identifier on them is a slug of the name that goes stale when the item is renamed
-    case 'weapon':
-      withActivity('weapon', idsFor(subject.name));
-      if (subject.baseItem) withActivity('weapon', [subject.baseItem]);
+    case 'spell': case 'weapon': case 'natural': case 'feature': case 'item':
+      push(`${subject.kind}:${identifierOf(subject.name, subject.identifier)}`);
       break;
-    case 'natural': withActivity('natural', idsFor(subject.name)); break;
-    case 'feature': withActivity('feature', idsFor(subject.name, subject.identifier)); break;
-    case 'item': withActivity('item', idsFor(subject.name)); break;
     case 'effect':
-      for (const id of idsFor(subject.name)) push(`effect:${id}`);
+      push(`effect:${slug(subject.name)}`);
       if (subject.origin) for (const k of keysFor(subject.origin)) push(k);
       break;
     case 'event': push(`event:${subject.eventId ?? slug(subject.name)}`); break;
@@ -100,50 +74,47 @@ export function keysFor(subject) {
 }
 
 /** a subject from a dnd5e item's plain data (the reader and the offline census both use it) */
-export function subjectOfItemData({ name, type, system = {}, activityType = null, spell = null, ammunition = null }) {
+export function subjectOfItemData({ name, type, system = {}, spell = null, ammunition = null }) {
   let kind = KIND_OF_ITEM_TYPE[type] ?? 'item';
   if (type === 'weapon' && system.type?.value === 'natural') kind = 'natural';
-  const s = { kind, name, identifier: system.identifier || null, activityType: activityType || null };
-  if (type === 'weapon' && system.type?.baseItem) s.baseItem = system.type.baseItem;
+  const s = { kind, name, identifier: system.identifier || null };
   if (spell) s.spell = spell;
   if (ammunition) s.ammunition = ammunition;
   s.keys = keysFor(s);
   return s;
 }
 
-/** the kind and id of a key: "spell:fire-bolt/attack" → {kind, id, activity} */
+/** the kind and id of a key: "spell:fire-bolt" → {kind, id} */
 export function parseKey(key) {
-  const m = /^([a-z]+):([^/]+)(?:\/(.+))?$/.exec(key ?? '');
+  const m = /^([a-z]+):([a-z0-9][a-z0-9-]*)$/.exec(key ?? '');
   if (!m) return null;
-  return { kind: m[1], id: m[2], activity: m[3] ?? null };
+  return { kind: m[1], id: m[2] };
 }
 
 export const isKey = (key) => { const p = parseKey(key); return !!p && KINDS.includes(p.kind); };
 
-/** a key as a sentence says it: "the spell Fire Bolt (attack)", "any maul", "the Bite natural attack" */
+/** a key as a sentence says it: "the spell Fire Bolt", "any maul", "the Bite natural attack" */
 export function keyWords(key) {
   const p = parseKey(key);
   if (!p) return String(key);
   const name = p.id.replace(/-/g, ' ');
-  const act = p.activity ? ` (${p.activity})` : '';
   switch (p.kind) {
-    case 'spell': return `the spell ${titleCase(name)}${act}`;
-    case 'weapon': return `a ${name}${act}`;
-    case 'natural': return `a ${name} attack${act}`;
-    case 'feature': return `the feature ${titleCase(name)}${act}`;
-    case 'item': return `the item ${titleCase(name)}${act}`;
+    case 'spell': return `the spell ${titleCase(name)}`;
+    case 'weapon': return `a ${name}`;
+    case 'natural': return `a ${name} attack`;
+    case 'feature': return `the feature ${titleCase(name)}`;
+    case 'item': return `the item ${titleCase(name)}`;
     case 'effect': return `the effect ${titleCase(name)}`;
     case 'event': return `${name}`;
     default: return key;
   }
 }
 
-/** a key as a label on a screen: "Fire Bolt (spell)", "Maul (weapon)", "Bite (natural)", "Blinded (status)" */
+/** a key as a label on a screen: "Fire Bolt (spell)", "Maul (weapon)", "Bite (natural)" */
 export function keyLabel(key) {
   const p = parseKey(key);
   if (!p) return String(key);
-  const act = p.activity ? ` · ${p.activity}` : '';
-  return `${titleCase(p.id.replace(/-/g, ' '))} (${p.kind}${act})`;
+  return `${titleCase(p.id.replace(/-/g, ' '))} (${p.kind})`;
 }
 
 export const titleCase = (s) => String(s ?? '').replace(/\b[a-z]/g, (c) => c.toUpperCase());

@@ -1,7 +1,7 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-08",
+  "generated": "2026-09-13",
   "tool": "tools/migrate-aa.mjs",
   "sources": {
    "aa": "7.0.22",
@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The natural of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 172
+  "fx": 160
  },
  "fx": [
   {
@@ -62,7 +62,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Sword\" (melee)"
   },
   {
@@ -90,7 +90,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
@@ -118,7 +118,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Baton\" (melee)"
   },
   {
@@ -151,7 +151,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Beak\" (melee)"
   },
   {
@@ -184,7 +184,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Beak\" (melee)"
   },
   {
@@ -216,39 +216,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Beak\" (melee)"
-  },
-  {
-   "id": "beak-raven-or-hybrid-form-only",
-   "for": [
-    "natural:beak-raven-or-hybrid-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwWereraven0000.Item.ZNTd4mGBAzqn7jkw",
-    "name": "Beak (Raven or Hybrid Form Only)",
-    "where": "Ravenloft: The Horrors Within · Bestiary",
-    "on": "Wereraven"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Beak\" (melee)"
   },
   {
@@ -282,7 +250,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Beard\" (melee)"
   },
   {
@@ -314,7 +282,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -346,7 +314,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -379,7 +347,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -412,7 +380,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -444,7 +412,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -477,7 +445,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -509,7 +477,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -541,7 +509,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -573,7 +541,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -605,7 +573,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -634,7 +602,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bone Whip\" (melee)"
   },
   {
@@ -665,7 +633,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -696,7 +664,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -726,7 +694,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -757,7 +725,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -788,7 +756,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -819,7 +787,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -849,7 +817,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -879,7 +847,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -909,7 +877,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -939,7 +907,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -969,7 +937,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -999,13 +967,13 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
-   "id": "rotting-claw-putrid-only",
+   "id": "rotting-claw",
    "for": [
-    "natural:rotting-claw-putrid-only"
+    "natural:rotting-claw"
    ],
    "record": {
     "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobUndeadSpir.Item.phbaoiRottingCla",
@@ -1029,37 +997,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
-  },
-  {
-   "id": "rotting-claw",
-   "for": [
-    "natural:rotting-claw"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbudsPutridSpir.Item.phbaoiRottingCla",
-    "name": "Rotting Claw",
-    "where": "Player's Handbook · Actors",
-    "on": "Putrid Spirit"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -1089,7 +1027,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Claw\" (melee)"
   },
   {
@@ -1117,7 +1055,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Club\" (melee)"
   },
   {
@@ -1148,7 +1086,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fist\" (melee)"
   },
   {
@@ -1179,7 +1117,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fist\" (melee)"
   },
   {
@@ -1206,7 +1144,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flail\" (melee)"
   },
   {
@@ -1239,7 +1177,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Foreleg\" (melee)"
   },
   {
@@ -1273,7 +1211,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fork\" (melee)"
   },
   {
@@ -1305,7 +1243,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gear\" (melee)"
   },
   {
@@ -1318,7 +1256,7 @@
     "name": "Gore",
     "where": "Monster Manual · Actors",
     "on": "Boar",
-    "of": 20
+    "of": 2
    },
    "on": "use",
    "scenes": [
@@ -1333,7 +1271,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gore\" (melee)"
   },
   {
@@ -1360,35 +1298,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Gore\" (melee)"
-  },
-  {
-   "id": "gore-boar-or-hybrid-form-only",
-   "for": [
-    "natural:gore-boar-or-hybrid-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWereboar000000.Item.mmGore0000000000",
-    "name": "Gore  (Boar or Hybrid Form Only)",
-    "where": "Monster Manual · Actors",
-    "on": "Wereboar",
-    "of": 2
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gore\" (melee)"
   },
   {
@@ -1419,45 +1329,13 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gouge\" (melee)"
   },
   {
    "id": "grave-strike",
    "for": [
     "natural:grave-strike"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampireUmbralL.Item.mmGraveStrike000",
-    "name": "Grave Strike",
-    "where": "Monster Manual · Actors",
-    "on": "Vampire Umbral Lord",
-    "of": 2
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.green"
-     },
-     "sound": {
-      "asset": "psfx.impacts.magicaleffects.generic.002.003",
-      "start": 250
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Grave Strike\" (melee)"
-  },
-  {
-   "id": "grave-strike-vampire-form-only",
-   "for": [
-    "natural:grave-strike-vampire-form-only"
    ],
    "record": {
     "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampire0000000.Item.mmGraveStrike000",
@@ -1483,7 +1361,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Grave Strike\" (melee)"
   },
   {
@@ -1520,7 +1398,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gythka\" (melee)"
   },
   {
@@ -1556,7 +1434,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hammer\" (melee)"
   },
   {
@@ -1598,7 +1476,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Harpoon\" (melee)"
   },
   {
@@ -1630,7 +1508,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hook\" (melee)"
   },
   {
@@ -1663,7 +1541,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hooves\" (melee)"
   },
   {
@@ -1696,7 +1574,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Horn\" (melee)"
   },
   {
@@ -1738,7 +1616,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Knife\" (melee)"
   },
   {
@@ -1775,7 +1653,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lance\" (melee)"
   },
   {
@@ -1810,7 +1688,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lash\" (melee)"
   },
   {
@@ -1845,7 +1723,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lash\" (melee)"
   },
   {
@@ -1881,7 +1759,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lash\" (melee)"
   },
   {
@@ -1917,7 +1795,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lash\" (melee)"
   },
   {
@@ -1944,34 +1822,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
-  },
-  {
-   "id": "radiant-mace-defender-only",
-   "for": [
-    "natural:radiant-mace-defender-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobCelestialS.Item.phbaoiRadiantMac",
-    "name": "Radiant Mace (Defender Only)",
-    "where": "Player's Handbook · Actors",
-    "on": "Celestial Spirit"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_attack.02.mace.01"
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
   },
   {
@@ -2000,7 +1851,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Maul\" (melee)"
   },
   {
@@ -2031,7 +1882,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pincer\" (melee)"
   },
   {
@@ -2077,7 +1928,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pseudopod\" (melee)"
   },
   {
@@ -2123,7 +1974,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pseudopod\" (melee)"
   },
   {
@@ -2156,7 +2007,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rake\" (melee)"
   },
   {
@@ -2189,7 +2040,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ram\" (melee)"
   },
   {
@@ -2223,7 +2074,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ravage\" (melee)"
   },
   {
@@ -2236,67 +2087,6 @@
     "name": "Rend",
     "where": "Monster Manual · Actors",
     "on": "Adult Black Dragon",
-    "of": 130
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Rend\" (melee)"
-  },
-  {
-   "id": "rend-jackal-or-hybrid-form-only",
-   "for": [
-    "natural:rend-jackal-or-hybrid-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmJackalwere0000.Item.mmRend0000000000",
-    "name": "Rend (Jackal or Hybrid Form Only)",
-    "where": "Monster Manual · Actors",
-    "on": "Jackalwere"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Rend\" (melee)"
-  },
-  {
-   "id": "rend-bear-or-hybrid-form-only",
-   "for": [
-    "natural:rend-bear-or-hybrid-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWerebear000000.Item.mmRend0000000000",
-    "name": "Rend (Bear or Hybrid Form Only)",
-    "where": "Monster Manual · Actors",
-    "on": "Werebear",
     "of": 2
    },
    "on": "use",
@@ -2315,37 +2105,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Rend\" (melee)"
-  },
-  {
-   "id": "rend-dire-wolf-or-hybrid-form-only",
-   "for": [
-    "natural:rend-dire-wolf-or-hybrid-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwLoupGarou0000.Item.PITQF0vi9ChWFXhU",
-    "name": "Rend (Dire Wolf or Hybrid Form Only)",
-    "where": "Ravenloft: The Horrors Within · Bestiary",
-    "on": "Loup Garou"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rend\" (melee)"
   },
   {
@@ -2375,7 +2135,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rend\" (melee)"
   },
   {
@@ -2406,7 +2166,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Scratch\" (melee)"
   },
   {
@@ -2434,7 +2194,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Scythe\" (melee)"
   },
   {
@@ -2463,7 +2223,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sickle\" (melee)"
   },
   {
@@ -2494,7 +2254,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
   },
   {
@@ -2525,7 +2285,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
   },
   {
@@ -2556,7 +2316,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
   },
   {
@@ -2587,7 +2347,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
   },
   {
@@ -2618,37 +2378,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
-  },
-  {
-   "id": "slam-human-or-hybrid-form-only",
-   "for": [
-    "natural:slam-human-or-hybrid-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmJackalwere0000.Item.mmSlam0000000000",
-    "name": "Slam (Human or Hybrid Form Only)",
-    "where": "Monster Manual · Actors",
-    "on": "Jackalwere"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slash.02.001.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
-     "size": {
-      "tokenWidths": 3.75
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slam\" (melee)"
   },
   {
@@ -2682,7 +2412,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slash\" (melee)"
   },
   {
@@ -2715,7 +2445,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slash\" (melee)"
   },
   {
@@ -2748,7 +2478,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Snake Hair\" (melee)"
   },
   {
@@ -2788,7 +2518,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
   },
   {
@@ -2829,7 +2559,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
   },
   {
@@ -2870,7 +2600,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
   },
   {
@@ -2911,7 +2641,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
   },
   {
@@ -2945,7 +2675,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spike\" (melee)"
   },
   {
@@ -2979,7 +2709,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -3012,7 +2742,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -3045,7 +2775,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -3079,7 +2809,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -3112,7 +2842,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Stick\" (melee)"
   },
   {
@@ -3145,7 +2875,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sting\" (melee)"
   },
   {
@@ -3178,7 +2908,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sting\" (melee)"
   },
   {
@@ -3210,7 +2940,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Stinger\" (melee)"
   },
   {
@@ -3243,7 +2973,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Stinger\" (melee)"
   },
   {
@@ -3277,7 +3007,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3310,7 +3040,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3343,7 +3073,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3376,7 +3106,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3409,7 +3139,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3443,7 +3173,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3476,7 +3206,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3510,7 +3240,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3543,7 +3273,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3576,7 +3306,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3609,7 +3339,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Strike\" (melee)"
   },
   {
@@ -3654,7 +3384,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -3699,7 +3429,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -3744,7 +3474,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -3788,7 +3518,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -3821,7 +3551,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tail\" (melee)"
   },
   {
@@ -3849,44 +3579,13 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Talon\" (melee)"
   },
   {
    "id": "tusk",
    "for": [
     "natural:tusk"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTusk0000000000",
-    "name": "Tusk",
-    "where": "Monster Manual · Features"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Tusk\" (melee)"
-  },
-  {
-   "id": "tusk-boar-or-hybrid-form-only",
-   "for": [
-    "natural:tusk-boar-or-hybrid-form-only"
    ],
    "record": {
     "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWereboar000000.Item.mmTusk0000000000",
@@ -3913,7 +3612,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tusk\" (melee)"
   },
   {
@@ -3942,7 +3641,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Whip\" (melee)"
   },
   {
@@ -3969,7 +3668,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Aquatic Burst\" (range)"
   },
   {
@@ -3997,7 +3696,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Burst\" (range)"
   },
   {
@@ -4027,7 +3726,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Boulder\" (range)"
   },
   {
@@ -4056,7 +3755,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
   },
   {
@@ -4084,35 +3783,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
-  },
-  {
-   "id": "radiant-bow-avenger-only",
-   "for": [
-    "natural:radiant-bow-avenger-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobCelestialS.Item.phbaoiRadiantBow",
-    "name": "Radiant Bow (Avenger Only)",
-    "where": "Player's Handbook · Actors",
-    "on": "Celestial Spirit"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.arrow.physical.white.01"
-     },
-     "sound": {
-      "asset": "psfx.ranged-weapons.longbow.v1",
-      "start": 250
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
   },
   {
@@ -4140,7 +3811,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burn\" (range)"
   },
   {
@@ -4168,7 +3839,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4196,7 +3867,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4223,7 +3894,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4251,7 +3922,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4278,7 +3949,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4306,7 +3977,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4334,7 +4005,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4362,7 +4033,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4390,34 +4061,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
-  },
-  {
-   "id": "poison-burst-yuan-ti-form-only",
-   "for": [
-    "natural:poison-burst-yuan-ti-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYuantiMalison3.Item.mmPoisonBurst000",
-    "name": "Poison Burst (Yuan-ti Form Only)",
-    "where": "Monster Manual · Actors",
-    "on": "Yuan-ti Malison (Type 3)"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.ranged.03.projectile.01.bluegreen"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.complete.001"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4444,7 +4088,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4471,7 +4115,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burst\" (range)"
   },
   {
@@ -4501,7 +4145,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Chatkcha\" (range)"
   },
   {
@@ -4529,7 +4173,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Electrical Discharge\" (range)"
   },
   {
@@ -4557,7 +4201,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fiery Bolt\" (range)"
   },
   {
@@ -4585,7 +4229,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fire Ray\" (range)"
   },
   {
@@ -4614,7 +4258,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Force Bolt\" (range)"
   },
   {
@@ -4646,7 +4290,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gear Flinger\" (range)"
   },
   {
@@ -4685,7 +4329,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hail of Bark\" (range)"
   },
   {
@@ -4713,7 +4357,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hurl Flame\" (range)"
   },
   {
@@ -4740,7 +4384,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Javelin\" (range)"
   },
   {
@@ -4768,7 +4412,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lob\" (range)"
   },
   {
@@ -4801,7 +4445,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Needle\" (range)"
   },
   {
@@ -4830,7 +4474,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Nightmare Ray\" (range)"
   },
   {
@@ -4843,35 +4487,6 @@
     "name": "Poison Ray",
     "where": "Monster Manual · Actors",
     "on": "Medusa",
-    "of": 3
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.ranged.04.projectile.01.green"
-     },
-     "sound": {
-      "asset": "psfx.cantrips.poison-spray",
-      "start": 2500
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Poison Ray\" (range)"
-  },
-  {
-   "id": "poison-ray-yuan-ti-form-only",
-   "for": [
-    "natural:poison-ray-yuan-ti-form-only"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYuantiMalison1.Item.mmPoisonRay00000",
-    "name": "Poison Ray  (Yuan-ti Form Only)",
-    "where": "Monster Manual · Actors",
-    "on": "Yuan-ti Malison (Type 1)",
     "of": 2
    },
    "on": "use",
@@ -4888,7 +4503,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Poison Ray\" (range)"
   },
   {
@@ -4922,7 +4537,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Proboscis\" (range)"
   },
   {
@@ -4950,7 +4565,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Radiant Ray\" (range)"
   },
   {
@@ -4977,7 +4592,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
   },
   {
@@ -5007,7 +4622,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rock\" (range)"
   },
   {
@@ -5036,7 +4651,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rock Launch\" (range)"
   },
   {
@@ -5064,7 +4679,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shock\" (range)"
   },
   {
@@ -5091,7 +4706,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Surge\" (range)"
   },
   {
@@ -5119,7 +4734,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Thunderbolt\" (range)"
   },
   {
@@ -5132,7 +4747,7 @@
     "name": "Bite",
     "where": "Monster Manual · Actors",
     "on": "Allosaurus",
-    "of": 200
+    "of": 2
    },
    "on": "use",
    "scenes": [
@@ -5148,7 +4763,35 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Bite\" (ontoken)"
+  },
+  {
+   "id": "bite-demon-only",
+   "for": [
+    "natural:bite-demon-only"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobFiendishSp.Item.phbaoiBiteDemonO",
+    "name": "Bite (Demon Only)",
+    "where": "Player's Handbook · Actors",
+    "on": "Fiendish Spirit"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
+     },
+     "asset": {
+      "path": "jb2a.bite.400px.red"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bite\" (ontoken)"
   },
   {
@@ -5177,7 +4820,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Crush\" (ontoken)"
   },
   {
@@ -5218,7 +4861,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Faerie Dust\" (ontoken)"
   },
   {
@@ -5286,7 +4929,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Infestation\" (ontoken)"
   },
   {
@@ -5320,7 +4963,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Radiant Flame\" (ontoken)"
   },
   {
@@ -5348,7 +4991,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sacred Weapon\" (ontoken)"
   },
   {
@@ -5376,7 +5019,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tendril\" (ontoken)"
   },
   {
@@ -5406,7 +5049,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tentacle\" (ontoken)"
   },
   {
@@ -5439,7 +5082,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Thundercloud\" (ontoken)"
   },
   {
@@ -5474,7 +5117,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Touch\" (ontoken)"
   },
   {
@@ -5520,7 +5163,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Withering Touch\" (ontoken)"
   },
   {
@@ -5579,7 +5222,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ice Throw\" (preset)"
   }
  ]

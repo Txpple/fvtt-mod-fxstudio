@@ -41,12 +41,14 @@ try {
     // the sheet is a rail and an inspector (HANDOFF step 4): pick a scene, then a band of knobs
     const pick = async (n) => click($$('.rail .pickbtn')[n]);
     // a row on the FX tab only marks itself (2026-09-07): clicking one takes no action at all. By
-    // id, not by name — two FX can wear the same name (a spell's, and one item's Item Hook copy)
+    // id, not by name — two FX can wear the same name (a spell's, and one item's own-key copy of it)
     const clickFxRow = async (id) => { const b = $(`.fxlist .pickbtn[data-id="${id}"]`); if (!b) throw new Error(`no FX row for ${id}`); return click(b); };
     // so the Editor is reached the way the API reaches it, or through the subject the search found
     const openEditor = async (id) => { api.open({ tab: 'editor', id }); await sleep(450); };
     // Delete asks first (DialogV2.confirm). The suite answers yes for one action, then puts it back
     const sayYes = async (fn) => { const D = foundry.applications.api.DialogV2; const was = D.confirm; D.confirm = async () => true; try { await fn(); await sleep(700); } finally { D.confirm = was; } };
+    // Own key asks for the identifier (DialogV2.prompt): the suite answers with one, for one action
+    const sayPrompt = async (fn, answer) => { const D = foundry.applications.api.DialogV2; const was = D.prompt; D.prompt = async () => answer; try { await fn(); await sleep(700); } finally { D.prompt = was; } };
     // Save uploads a file and reads the corpora again, Delete likewise: wait for the fact, never a clock
     const until = async (fn, ms = 15000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { try { if (fn()) return true; } catch { /* not yet */ } await sleep(100); } return false; };
     const openEditorForSubject = async () => { app.openFor(app.view.subject); await app.render(); await sleep(350); };
@@ -149,8 +151,8 @@ try {
       ok('§3 nothing has been saved yet', houseIds().length === before.length, `${houseIds().length}`);
 
       // 4 · the hook block and Save
-      ok('§4 the Hook strip is one row of four: Answers · Reach · Moment · State', $$('.hookstrip .hcol').length === 4 && [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · ') === 'Answers · Reach · Moment · State' && $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false' && !/phase 4/.test(text('.hookstrip')), [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · '));
-      ok('§4 Reach offers both hooks with Global Hook pressed, since this sheet came from an item', $('.hookstrip [data-act="sh-global"]')?.getAttribute('aria-pressed') === 'true' && $('.hookstrip [data-act="sh-only"]')?.getAttribute('aria-pressed') === 'false' && /FX Test Caster · Sharran Step/.test(text('.hookstrip')), text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' '));
+      ok('§4 the Key strip is one row of four: Answers · Item · Moment · State', $$('.hookstrip .hcol').length === 4 && [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · ') === 'Answers · Item · Moment · State' && $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false', [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · '));
+      ok('§4 the Item column names the item the sheet came from and offers Own key', /FX Test Caster · Sharran Step/.test(text('.hookstrip [data-act="sh-pick-item"]')) && $('[data-act="sh-own-key"]')?.disabled === false, text('.hookstrip'));
       ok('§4 the bar is static: every control is there, greyed where the mode does not offer it', $$('.lockbar button').length === 7 && !!$('[data-act="sh-new"]') && $('[data-act="sh-dup"]')?.disabled === true && $('[data-act="sh-export"]')?.disabled === true && $('[data-act="sh-delete"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
       ok('§4 the id is shown, derived from the ability', text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       ok('§4 Save is enabled now the sequence has scenes', $('[data-act="sh-save"]')?.disabled === false && !$('.sheet .problem'), text('.sheet .problem'));
@@ -255,7 +257,7 @@ try {
       await type('.fx-q', '');
       await sleep(450);
       ok('§5 and emptying the box puts every FX back', rows5().length === all5, `${rows5().length} rows`);
-      ok('§5 Only offers Item Hooks and Switched off, nothing else: On my actors and Broken assets went (2026-09-12)', $$('[data-group="only"]').length === 2 && !$('[data-group="only"][data-v="broken"]') && !$('[data-group="only"][data-v="mine"]'), $$('[data-group="only"]').map((b) => b.dataset.v).join(', '));
+      ok('§5 Only offers Switched off and nothing else: Item Hooks went with the hook terms (2026-09-12), On my actors and Broken assets before', $$('[data-group="only"]').length === 1 && $('[data-group="only"]')?.dataset.v === 'off', $$('[data-group="only"]').map((b) => b.dataset.v).join(', '));
       // the search, which belongs to this tab now, narrows the same list
       const box5 = $('.fx-q');
       await type('.fx-q', 'sharran');
@@ -289,7 +291,8 @@ try {
       await sleep(450);
       const grey5 = $('.fxlist .row [data-act], .fxlist .row .link.record');
       const rdoor5 = $('.fxlist .row .acts').children[0];
-      ok('§5 an FX for something no book or actor holds is greyed WHERE IT STANDS with its reason (R1)', rdoor5?.textContent.trim() === 'Record' && rdoor5.disabled && rdoor5.dataset.na === 'true' && /Nothing here holds Sharran Step/.test(rdoor5.dataset.tooltip ?? ''), `${rdoor5?.dataset.tooltip} · ${!!grey5}`);
+      // the FX was written from the item's own sheet, so its key was earned against that item and the item IS its record (DESIGN §23) — the door opens it
+      ok('§5 an FX keyed against this world\'s own item opens that item as its Record, on its actor', rdoor5?.textContent.trim() === 'Record' && !rdoor5.disabled && rdoor5.dataset.uuid === tmp.uuid && /this world · FX Test Caster/.test(rdoor5.dataset.tooltip ?? ''), `${rdoor5?.dataset.tooltip} · ${!!grey5}`);
       await type('.fx-q', '');
       await sleep(450);
 
@@ -361,43 +364,45 @@ try {
       await click('[data-act="sh-cancel"]');
       await click('[data-tab="fx"]');
 
-      // 7 · one item's own FX, through the sheet (Open FX from the card, unlock, Item Hook, Save)
+      // 7 · one item's own key, through the sheet (open from the item, unlock, Own key, Save) — DESIGN §23
       api.open({ item: tmp });
       await sleep(300);
       await openEditorForSubject();
       ok('§7 the Editor opens on the FX that answers the item, locked, to read', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'false' && text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       const sw = $('.sh-edit'); sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§7 the Edit switch unlocks the sheet: Save and Cancel appear, the tools too', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="sh-save"]') && !!$('[data-act="sh-cancel"]') && !!$('[data-act="cw-drop"]'), '');
-      const only = $('[data-act="sh-only"]');
-      ok('§7 the Hook block offers an Item Hook for an item on a sheet', !!only && /Item Hook/.test(only.textContent), only?.textContent);
-      await click(only);
-      ok('§7 with the Item Hook the sheet says so and the id is the item\'s own', /Item Hook/.test(text('.sheet h2')) && text('.sheet code.id') === 'sharran-step-fx-test-caster', `${text('.sheet h2')} · ${text('.sheet code.id')}`);
+      const ownBtn = $('[data-act="sh-own-key"]');
+      ok('§7 the Key strip names the item the sheet is on and offers Own key', !!ownBtn && ownBtn.disabled === false && /FX Test Caster · Sharran Step/.test(text('.hookstrip')), text('.hookstrip'));
+      const ownId = 'sharran-step-fx-test-caster';
+      await sayPrompt(() => click(ownBtn), ownId);
+      await until(() => tmp.system?.identifier === ownId && text('.sheet code.id') === ownId);
+      ok('§7 Own key writes the identifier on the item (dnd5e\'s own field, nothing of ours) and the sheet becomes a new House FX for that key alone', tmp.system?.identifier === ownId && !tmp.getFlag(MOD, 'fx') && text('.sheet code.id') === ownId && /Sharran Step Fx Test Caster \(spell\)/.test(text('.sheet .whyline')) && /New/.test(text('.sheet h2')), `${tmp.system?.identifier} · ${text('.sheet code.id')} · ${text('.sheet .whyline')}`);
+      ok('§7 … copied from what answered the item before, so the scenes are there to edit', $$('.rail .row').length >= 1 && /dark black/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 100));
       await click('[data-act="sh-save"]');
-      await until(() => api.fx.get('sharran-step-fx-test-caster') && $('.sheet')?.dataset.edit === 'false');
-      const own = api.fx.get('sharran-step-fx-test-caster')?.original;
+      await until(() => api.fx.get(ownId) && $('.sheet')?.dataset.edit === 'false');
+      const own = api.fx.get(ownId)?.original;
       if (own) made.push(own.id);
-      const flag = tmp.getFlag(MOD, 'fx');
-      ok('§7 the item now points at an FX of its own, keyed to nothing, in House', own && own.for?.length === 0 && api.fx.get(own.id)?.source === 'house' && flag === own.id, `flag ${flag} · ${JSON.stringify(own ?? null).slice(0, 200)}`);
+      ok('§7 Save writes it to House, keyed to the item\'s own identifier, with the item as its record', !!own && own.for?.[0] === `spell:${ownId}` && api.fx.get(own.id)?.source === 'house' && own.record?.uuid === tmp.uuid, JSON.stringify(own ?? null).slice(0, 220));
       const r7 = api.sentenceFor(tmp);
-      ok('§7 the item plays its own FX ahead of the spell\'s, and says so', r7.fx?.id === own?.id && /Item Hook/.test(r7.why), `${r7.sentence} | ${r7.why}`);
+      ok('§7 the item plays its own FX, by its own key, and says so', r7.fx?.id === own?.id && /Sharran Step Fx Test Caster \(spell\) · House/.test(r7.why), `${r7.sentence} | ${r7.why}`);
       const other = await caster.actor.createEmbeddedDocuments('Item', [{ name: 'Sharran Step', type: 'spell', system: { level: 2, school: 'con' } }]);
       const r7b = api.sentenceFor(other[0]);
       ok('§7 another copy of the spell still plays the spell\'s fx', r7b.fx?.id === 'sharran-step' && /dark black/.test(r7b.sentence), r7b.sentence);
       await other[0].delete();
       api.open({ item: tmp });
       await sleep(300);
-      // Revert is Delete now (2026-09-07): the sheet's Delete erases the FX AND unpins the item that
-      // pointed at it, which is the one thing Delete used not to do
       await clickFxRow(own.id);
-      ok('§7 the Item Hook has a row of its own on the FX tab', tabNow() === 'fx' && app.view.fxSel === own.id, app.view.fxSel);
-      // an Item Hook answers no key, so its record is the ITEM it is pinned to, on its own actor
+      ok('§7 the item\'s own FX has a row of its own on the FX tab', tabNow() === 'fx' && app.view.fxSel === own.id, app.view.fxSel);
+      // its key was earned against the item itself, so its record is that item, on its own actor
       const rec7 = $(`.fxlist .row [data-act="fx-record"][data-name="${tmp.name}"]`) ?? [...$$('.fxlist .row')].find((r) => r.querySelector('.pickbtn')?.dataset.id === own.id)?.querySelector('[data-act="fx-record"]');
-      ok('§7 its Record opens the item it is pinned to, not a book', !!rec7 && rec7.dataset.uuid === tmp.uuid && /this world/.test(rec7.dataset.tooltip ?? ''), `${rec7?.dataset.uuid} vs ${tmp.uuid} · ${rec7?.dataset.tooltip}`);
+      ok('§7 its Record opens the item it was keyed against, not a book', !!rec7 && rec7.dataset.uuid === tmp.uuid && /this world/.test(rec7.dataset.tooltip ?? ''), `${rec7?.dataset.uuid} vs ${tmp.uuid} · ${rec7?.dataset.tooltip}`);
       await openEditor(own.id);
-      ok('§7 the Editor opens on it, an Item Hook', paneNow() === 'editor' && text('.sheet code.id') === own.id && /Item Hook/.test(text('.sheet h2')), text('.sheet code.id'));
+      ok('§7 the Editor opens on it: its own key, House', paneNow() === 'editor' && text('.sheet code.id') === own.id && /Sharran Step Fx Test Caster \(spell\) · House/.test(text('.sheet .whyline')), text('.sheet .whyline'));
       await sayYes(() => click('[data-act="sh-delete"]'));
-      await until(() => !api.fx.get(own.id) && !tmp.getFlag(MOD, 'fx'));
-      ok('§7 Delete erases it and leaves no item pointing at a dead id: the spell\'s fx answers again', !tmp.getFlag(MOD, 'fx') && !api.fx.get(own?.id) && api.resolve(tmp).fx?.id === 'sharran-step', `flag ${tmp.getFlag(MOD, 'fx')} · ${api.resolve(tmp).fx?.id}`);
+      await until(() => !api.fx.get(own.id));
+      ok('§7 Delete erases it; the item keeps its identifier and plays nothing until it is keyed again — no fall-through to the spell (DESIGN §23)', !api.fx.get(own?.id) && api.resolve(tmp).fx === null, `${api.resolve(tmp).fx?.id}`);
+      await tmp.update({ 'system.identifier': '' });
+      ok('§7 … and with the identifier cleared, the spell\'s fx answers the item again', api.resolve(tmp).fx?.id === 'sharran-step', `${api.resolve(tmp).fx?.id}`);
       await click('[data-tab="fx"]');
       // the guard: a locked sheet's Cancel drops changes
       await openEditor('sharran-step');
@@ -425,7 +430,7 @@ try {
       ok('§9 restored: the module\'s files are as they were and Sharran Step is gone from the corpus', same && !api.resolve(tmp).fx, `${api.resolve(tmp).why ?? ''}`);
 
       // 12 · COVERAGE (HANDOFF step 7): Maintain at the top, two scopes, four tiles, one list —
-      //      and the Item Hook gap it closed
+      //      and Find an item from a blank sheet (DESIGN §23)
       await click('[data-tab="coverage"]');
       app.refresh();
       await app.render();
@@ -489,30 +494,18 @@ try {
       await click('[data-tab="fx"]');
       await click('[data-act="fx-clear"]');
 
-      // the Item Hook gap step 7 closed: pinning an FX to one item without arriving from its sheet
+      // Find an item from a blank sheet (DESIGN §23): the sheet takes the item and its key, and Own key is then offered
       await click('[data-tab="editor"]');
       await click('[data-act="sh-new"]');
-      const pin12 = $('[data-act="sh-pick-item"]');
-      ok('§12 a new sheet from the Editor knows no item, and Reach offers to choose one', paneNow() === 'editor' && !!pin12 && pin12.disabled === false && pin12.textContent.trim() === 'Item Hook', pin12 ? `${pin12.textContent.trim()} · ${pin12.dataset.tooltip}` : 'no Item Hook control at all');
-      await click(pin12);
+      const find12 = $('[data-act="sh-pick-item"]');
+      ok('§12 a new sheet from the Editor knows no item: the Item column offers Find an item, and Own key waits greyed', paneNow() === 'editor' && !!find12 && find12.disabled === false && find12.textContent.trim() === 'Find an item' && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'Own key', find12 ? `${find12.textContent.trim()} · ${find12.dataset.tooltip}` : 'no Find an item control at all');
+      await click(find12);
       await type('.sh-item-q', 'misty');
       const hits12 = $$('.sh-item-search .hit');
       ok('§12 the chooser lists the items on this world\'s actors, by owner and name', hits12.length >= 1 && hits12.some((h) => /FX Test Caster · Misty Step/.test(h.textContent.replace(/\s+/g, ' '))), hits12.map((h) => h.textContent.replace(/\s+/g, ' ')).join(' | ').slice(0, 160));
       await click(hits12.find((h) => /FX Test Caster · Misty Step/.test(h.textContent.replace(/\s+/g, ' '))));
-      ok('§12 picking one pins the sheet to it: Reach reads the owner and the item, pressed', $('[data-act="sh-only"]')?.getAttribute('aria-pressed') === 'true' && /Item Hook: FX Test Caster · Misty Step/.test(text('.hookstrip').replace(/\s+/g, ' ')) && text('.sheet code.id') === 'misty-step-fx-test-caster', `${text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' ')} · ${text('.sheet code.id')}`);
-      await type('.sh-like', 'misty');
-      await sleep(250);
-      const like12 = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
-      await click(like12);
-      await click('[data-act="sh-save"]');
-      await until(() => api.fx.get('misty-step-fx-test-caster') && $('.sheet')?.dataset.edit === 'false');
-      const pinned12 = api.fx.get('misty-step-fx-test-caster')?.original;
-      if (pinned12) made.push(pinned12.id);
-      const misty12 = caster.actor.items.getName('Misty Step');
-      ok('§12 Save writes it as an Item Hook and the item points at it — the hole step 7 closed', !!pinned12 && pinned12.for?.length === 0 && misty12?.getFlag(MOD, 'fx') === pinned12?.id && api.resolve(misty12).fx?.id === pinned12?.id, `flag ${misty12?.getFlag(MOD, 'fx')} · for ${JSON.stringify(pinned12?.for)}`);
-      await misty12.unsetFlag(MOD, 'fx');
-      await api.corpus.erase('misty-step-fx-test-caster');
-      await sleep(300);
+      ok('§12 picking one puts the sheet on it: the Item column names it, its key is the sheet\'s, and Own key is live', /FX Test Caster · Misty Step/.test(text('.hookstrip').replace(/\s+/g, ' ')) && $$('.hookstrip .pill.key').some((x) => /Misty Step \(spell\)/.test(x.textContent)) && $('[data-act="sh-own-key"]')?.disabled === false && text('.sheet code.id') === 'misty-step', `${text('.hookstrip')} · ${text('.sheet code.id')}`);
+      app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(300);
 
       // 13 · the Asset Library: browse, step the variants, sounds, the unused filter, and the picker door from the walk
       await click('[data-tab="assets"]');
@@ -687,14 +680,14 @@ try {
       // a blank sheet: Reach keeps its place with no item to pin to — and since step 7 it picks one
       api.open({ tab: 'editor' });
       await sleep(400);
-      ok('§14 with no item to pin to, an unlocked Reach offers to choose one (step 7)', $$('.hookstrip .hcol').length === 4 && $('[data-act="sh-pick-item"]')?.disabled === false && $('[data-act="sh-pick-item"]')?.textContent.trim() === 'Item Hook' && ($('[data-act="sh-pick-item"]')?.dataset.tooltip ?? '').length > 20, text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' '));
+      ok('§14 with no item on the sheet, an unlocked Item column offers Find an item and greys Own key where it stands (R1, DESIGN §23)', $$('.hookstrip .hcol').length === 4 && $('[data-act="sh-pick-item"]')?.disabled === false && $('[data-act="sh-pick-item"]')?.textContent.trim() === 'Find an item' && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'Own key', text('.hookstrip'));
       ok('§14 a blank sheet says so and offers no rail', !$('.rail .row') && /No scenes yet/.test(text('.inspector')), text('.inspector').replace(/\s+/g, ' ').slice(0, 80));
       // and locked, with no item and nothing to choose with, it greys where it stands with the reason (R1)
       const owned14 = new Set(app.entries.filter((e) => e.uuid).flatMap((e) => e.keys));
       const orphan14 = api.fx.list().find((e) => e.source === 'stock' && (e.fx.for ?? []).length && !(e.fx.for ?? []).some((k) => owned14.has(k)));
       api.open({ tab: 'editor', id: orphan14.fx.id });
       await sleep(400);
-      ok('§14 locked, with no item at all, Reach greys in place with the reason, never dropped (R1)', $('.sheet')?.dataset.edit === 'false' && $$('.hookstrip .hcol').length === 4 && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'Item Hook' && ($('.hookstrip .pill[data-na="true"]')?.dataset.tooltip ?? '').length > 20, `${orphan14.fx.id} · ${text('.hookstrip .hcol:nth-child(2)').replace(/\s+/g, ' ')}`);
+      ok('§14 locked, with no item at all, the Item column greys in place with the reason, never dropped (R1)', $('.sheet')?.dataset.edit === 'false' && $$('.hookstrip .hcol').length === 4 && $('.hookstrip .pill[data-na="true"]')?.textContent.trim() === 'No item' && ($('.hookstrip .pill[data-na="true"]')?.dataset.tooltip ?? '').length > 20, text('.hookstrip'));
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
 
       // 10 · the item sheet's button

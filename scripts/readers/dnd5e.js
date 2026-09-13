@@ -62,16 +62,12 @@ export function subjectOfItem(item, { activity = null, ammunition = null } = {})
   const s = subjectOfItemData({
     name: item.name,
     type: item.type,
-    system: { identifier: item.system?.identifier, type: item.system?.type ? { value: item.system.type.value, baseItem: item.system.type.baseItem } : undefined },
-    activityType: activity?.type ?? null,
+    system: { identifier: item.system?.identifier, type: item.system?.type ? { value: item.system.type.value } : undefined },
     spell,
     ammunition: ammunition ? subjectOfItem(ammunition) : null,
   });
   s.reach = !!item.system?.properties?.has?.('rch');
   s.uuid = item.uuid;
-  // one specific item's own FX (the item pointer, set from the screens): its id, ahead of every key
-  const pointer = item.flags?.['fvtt-mod-fxstudio']?.fx;
-  if (typeof pointer === 'string' && pointer) s.pointer = pointer;
   return s;
 }
 

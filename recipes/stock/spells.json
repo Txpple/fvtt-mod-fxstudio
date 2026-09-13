@@ -1,7 +1,7 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-08",
+  "generated": "2026-09-13",
   "tool": "tools/migrate-aa.mjs",
   "sources": {
    "aa": "7.0.22",
@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 368
+  "fx": 365
  },
  "fx": [
   {
@@ -52,7 +52,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flame Blade\" (ontoken)"
   },
   {
@@ -81,7 +81,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Light\" (ontoken)"
   },
   {
@@ -129,7 +129,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mass Heal\" (ontoken)"
   },
   {
@@ -187,7 +187,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Delayed Blast Fireball\" (preset)"
   },
   {
@@ -250,7 +250,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fireball\" (preset)"
   },
   {
@@ -306,7 +306,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sleep\" (preset)"
   },
   {
@@ -371,7 +371,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Teleport\" (preset)"
   },
   {
@@ -418,7 +418,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Thunderclap\" (preset)"
   },
   {
@@ -463,7 +463,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Thunderwave\" (preset)"
   },
   {
@@ -495,7 +495,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Witch Bolt\" (preset)"
   },
   {
@@ -542,7 +542,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Acid Arrow\" (range)"
   },
   {
@@ -585,7 +585,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Antipathy/Sympathy\" (range)"
   },
   {
@@ -630,7 +630,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Befuddlement\" (range)"
   },
   {
@@ -657,7 +657,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Call Lightning\" (range)"
   },
   {
@@ -683,7 +683,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Chain Lightning\" (range)"
   },
   {
@@ -750,7 +750,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Chromatic Orb\" (range)"
   },
   {
@@ -807,7 +807,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Contagion\" (range)"
   },
   {
@@ -835,7 +835,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Cordon of Arrows\" (range)"
   },
   {
@@ -867,7 +867,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Disintegrate\" (range)"
   },
   {
@@ -893,7 +893,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Eldritch Blast\" (range)"
   },
   {
@@ -935,7 +935,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Finger of Death\" (range)"
   },
   {
@@ -961,7 +961,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fire Bolt\" (range)"
   },
   {
@@ -1004,7 +1004,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Guiding Bolt\" (range)"
   },
   {
@@ -1032,7 +1032,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Holy Star of Mystra\" (range)"
   },
   {
@@ -1078,7 +1078,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ice Knife\" (range)"
   },
   {
@@ -1109,7 +1109,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Magic Missile\" (range)"
   },
   {
@@ -1151,7 +1151,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Maze\" (range)"
   },
   {
@@ -1182,7 +1182,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Message\" (range)"
   },
   {
@@ -1213,7 +1213,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mind Sliver\" (range)"
   },
   {
@@ -1240,7 +1240,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mind Spike\" (range)"
   },
   {
@@ -1294,7 +1294,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Modify Memory\" (range)"
   },
   {
@@ -1348,7 +1348,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Planar Binding\" (range)"
   },
   {
@@ -1375,7 +1375,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Poison Spray\" (range)"
   },
   {
@@ -1421,7 +1421,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Produce Flame\" (range)"
   },
   {
@@ -1447,7 +1447,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ray of Enfeeblement\" (range)"
   },
   {
@@ -1473,7 +1473,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ray of Frost\" (range)"
   },
   {
@@ -1500,7 +1500,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ray of Sickness\" (range)"
   },
   {
@@ -1526,7 +1526,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Scorching Ray\" (range)"
   },
   {
@@ -1552,7 +1552,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shocking Grasp\" (range)"
   },
   {
@@ -1578,7 +1578,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sorcerous Burst\" (range)"
   },
   {
@@ -1604,7 +1604,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spellfire Flare\" (range)"
   },
   {
@@ -1645,7 +1645,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Starry Wisp\" (range)"
   },
   {
@@ -1680,7 +1680,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Telepathic Bond\" (range)"
   },
   {
@@ -1708,7 +1708,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wardaway\" (range)"
   },
   {
@@ -1757,7 +1757,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Web\" (range)"
   },
   {
@@ -1784,7 +1784,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Aid\" (ontoken)"
   },
   {
@@ -1811,7 +1811,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Alter Self\" (ontoken)"
   },
   {
@@ -1858,7 +1858,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Animal Friendship\" (ontoken)"
   },
   {
@@ -1885,7 +1885,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Animal Messenger\" (ontoken)"
   },
   {
@@ -1926,7 +1926,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Animal Shapes\" (ontoken)"
   },
   {
@@ -1971,7 +1971,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Animate Dead\" (ontoken)"
   },
   {
@@ -2016,7 +2016,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Animate Objects\" (ontoken)"
   },
   {
@@ -2069,7 +2069,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Eye\" (ontoken)"
   },
   {
@@ -2131,7 +2131,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Gate\" (ontoken)"
   },
   {
@@ -2195,7 +2195,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Hand\" (ontoken)"
   },
   {
@@ -2223,7 +2223,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Lock\" (ontoken)"
   },
   {
@@ -2253,7 +2253,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Sword\" (ontoken)"
   },
   {
@@ -2301,7 +2301,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arcane Vigor\" (ontoken)"
   },
   {
@@ -2345,7 +2345,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Armor of Agathys\" (ontoken)"
   },
   {
@@ -2376,7 +2376,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Arms of Hadar\" (ontoken)"
   },
   {
@@ -2421,7 +2421,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Astral Projection\" (ontoken)"
   },
   {
@@ -2448,7 +2448,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Augury\" (ontoken)"
   },
   {
@@ -2497,7 +2497,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Awaken\" (ontoken)"
   },
   {
@@ -2562,7 +2562,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Backlash\" (ontoken)"
   },
   {
@@ -2590,7 +2590,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bane\" (ontoken)"
   },
   {
@@ -2636,7 +2636,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Banishment\" (ontoken)"
   },
   {
@@ -2662,7 +2662,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Beacon of Hope\" (ontoken)"
   },
   {
@@ -2688,7 +2688,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Beast Sense\" (ontoken)"
   },
   {
@@ -2716,7 +2716,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bestow Curse\" (ontoken)"
   },
   {
@@ -2780,7 +2780,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bigby's Hand\" (ontoken)"
   },
   {
@@ -2821,7 +2821,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade Barrier\" (ontoken)"
   },
   {
@@ -2865,7 +2865,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade of Disaster\" (ontoken)"
   },
   {
@@ -2894,7 +2894,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade Ward\" (ontoken)"
   },
   {
@@ -2922,7 +2922,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bless\" (ontoken)"
   },
   {
@@ -2949,7 +2949,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blight\" (ontoken)"
   },
   {
@@ -2977,7 +2977,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blindness/Deafness\" (ontoken)"
   },
   {
@@ -3005,7 +3005,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blink\" (ontoken)"
   },
   {
@@ -3053,7 +3053,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Charm Monster\" (ontoken)"
   },
   {
@@ -3101,7 +3101,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Charm Person\" (ontoken)"
   },
   {
@@ -3131,7 +3131,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Chill Touch\" (ontoken)"
   },
   {
@@ -3172,7 +3172,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Circle of Power\" (ontoken)"
   },
   {
@@ -3222,7 +3222,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Clairvoyance\" (ontoken)"
   },
   {
@@ -3286,7 +3286,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Clone\" (ontoken)"
   },
   {
@@ -3313,7 +3313,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Command\" (ontoken)"
   },
   {
@@ -3358,7 +3358,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Commune\" (ontoken)"
   },
   {
@@ -3408,7 +3408,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Commune with Nature\" (ontoken)"
   },
   {
@@ -3455,7 +3455,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Compelled Duel\" (ontoken)"
   },
   {
@@ -3482,7 +3482,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Comprehend Languages\" (ontoken)"
   },
   {
@@ -3522,7 +3522,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Compulsion\" (ontoken)"
   },
   {
@@ -3549,7 +3549,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Confusion\" (ontoken)"
   },
   {
@@ -3576,7 +3576,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Animals\" (ontoken)"
   },
   {
@@ -3603,7 +3603,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Constructs\" (ontoken)"
   },
   {
@@ -3633,7 +3633,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Elemental\" (ontoken)"
   },
   {
@@ -3663,7 +3663,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Fey\" (ontoken)"
   },
   {
@@ -3727,7 +3727,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Contact Other Plane\" (ontoken)"
   },
   {
@@ -3782,7 +3782,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Contingency\" (ontoken)"
   },
   {
@@ -3808,7 +3808,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Continual Flame\" (ontoken)"
   },
   {
@@ -3860,7 +3860,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Control Weather\" (ontoken)"
   },
   {
@@ -3889,7 +3889,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Counterspell\" (ontoken)"
   },
   {
@@ -3916,7 +3916,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Create Food and Water\" (ontoken)"
   },
   {
@@ -3972,7 +3972,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Create Undead\" (ontoken)"
   },
   {
@@ -4001,7 +4001,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Cure Wounds\" (ontoken)"
   },
   {
@@ -4028,7 +4028,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dancing Lights\" (ontoken)"
   },
   {
@@ -4059,7 +4059,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Darkvision\" (ontoken)"
   },
   {
@@ -4088,7 +4088,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Death Armor\" (ontoken)"
   },
   {
@@ -4122,7 +4122,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Death Ward\" (ontoken)"
   },
   {
@@ -4183,7 +4183,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Demiplane\" (ontoken)"
   },
   {
@@ -4211,35 +4211,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Deryan's Helpful Homunculi\" (ontoken)"
-  },
-  {
-   "id": "deryans-helpful-homunculi",
-   "for": [
-    "spell:deryans-helpful-homunculi"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDeryansHelpfu",
-    "name": "Deryan's Helpful Homunculi",
-    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.magic-signs.rune.v1.conjuration.intro-fade",
-      "start": 600
-     },
-     "asset": {
-      "path": "jb2a.spirit_guardians.orange.no_ring"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Deryan's Helpful Homunculi\" (ontoken)"
   },
   {
@@ -4266,7 +4238,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Detect Thoughts\" (ontoken)"
   },
   {
@@ -4293,7 +4265,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Disguise Self\" (ontoken)"
   },
   {
@@ -4335,7 +4307,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dispel Evil and Good\" (ontoken)"
   },
   {
@@ -4364,7 +4336,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dispel Magic\" (ontoken)"
   },
   {
@@ -4413,7 +4385,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dissonant Whispers\" (ontoken)"
   },
   {
@@ -4464,7 +4436,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Divination\" (ontoken)"
   },
   {
@@ -4491,7 +4463,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Divine Favor\" (ontoken)"
   },
   {
@@ -4518,7 +4490,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Divine Smite\" (ontoken)"
   },
   {
@@ -4589,7 +4561,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Divine Word\" (ontoken)"
   },
   {
@@ -4635,7 +4607,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dominate Beast\" (ontoken)"
   },
   {
@@ -4693,7 +4665,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dominate Monster\" (ontoken)"
   },
   {
@@ -4739,7 +4711,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dominate Person\" (ontoken)"
   },
   {
@@ -4784,7 +4756,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dream\" (ontoken)"
   },
   {
@@ -4815,7 +4787,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Druidcraft\" (ontoken)"
   },
   {
@@ -4862,7 +4834,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Earthquake\" (ontoken)"
   },
   {
@@ -4888,7 +4860,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Elemental Weapon\" (ontoken)"
   },
   {
@@ -4918,37 +4890,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Elminster's Effulgent Spheres\" (ontoken)"
-  },
-  {
-   "id": "elminsters-effulgent-spheres",
-   "for": [
-    "spell:elminsters-effulgent-spheres"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersEff",
-    "name": "Elminster's Effulgent Spheres",
-    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.conditions.generic-layer.002"
-     },
-     "size": {
-      "tokenWidths": 3
-     },
-     "asset": {
-      "path": "jb2a.cast_shape.circle.01.purple"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Elminster's Effulgent Spheres\" (ontoken)"
   },
   {
@@ -4993,7 +4935,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Enhance Ability\" (ontoken)"
   },
   {
@@ -5022,7 +4964,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Enlarge/Reduce\" (ontoken)"
   },
   {
@@ -5054,7 +4996,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ensnaring Strike\" (ontoken)"
   },
   {
@@ -5097,7 +5039,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Enthrall\" (ontoken)"
   },
   {
@@ -5138,7 +5080,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Etherealness\" (ontoken)"
   },
   {
@@ -5185,7 +5127,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Expeditious Retreat\" (ontoken)"
   },
   {
@@ -5237,7 +5179,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Eyebite\" (ontoken)"
   },
   {
@@ -5291,7 +5233,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fabricate\" (ontoken)"
   },
   {
@@ -5338,7 +5280,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Faithful Hound\" (ontoken)"
   },
   {
@@ -5365,7 +5307,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"False Life\" (ontoken)"
   },
   {
@@ -5410,7 +5352,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Feather Fall\" (ontoken)"
   },
   {
@@ -5453,7 +5395,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Feign Death\" (ontoken)"
   },
   {
@@ -5481,7 +5423,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Find Familiar\" (ontoken)"
   },
   {
@@ -5509,7 +5451,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Find Steed\" (ontoken)"
   },
   {
@@ -5539,7 +5481,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Find the Path\" (ontoken)"
   },
   {
@@ -5583,7 +5525,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Find Traps\" (ontoken)"
   },
   {
@@ -5627,7 +5569,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fire Storm\" (ontoken)"
   },
   {
@@ -5676,7 +5618,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flesh to Stone\" (ontoken)"
   },
   {
@@ -5704,35 +5646,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Floating Disk\" (ontoken)"
-  },
-  {
-   "id": "floating-disk",
-   "for": [
-    "spell:floating-disk"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd5e.spells24.Item.phbsplTensersFlo",
-    "name": "Floating Disk",
-    "where": "dnd5e · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.magic-signs.circle.v1.conjuration.complete",
-      "start": 500
-     },
-     "asset": {
-      "path": "jb2a.portals.vertical.ring.dark_yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Floating Disk\" (ontoken)"
   },
   {
@@ -5781,7 +5695,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fly\" (ontoken)"
   },
   {
@@ -5837,7 +5751,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Forbiddance\" (ontoken)"
   },
   {
@@ -5879,7 +5793,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Forcecage\" (ontoken)"
   },
   {
@@ -5934,7 +5848,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Foresight\" (ontoken)"
   },
   {
@@ -5976,7 +5890,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Freedom of Movement\" (ontoken)"
   },
   {
@@ -6006,7 +5920,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Friends\" (ontoken)"
   },
   {
@@ -6032,7 +5946,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gaseous Form\" (ontoken)"
   },
   {
@@ -6093,7 +6007,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gate\" (ontoken)"
   },
   {
@@ -6151,7 +6065,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Geas\" (ontoken)"
   },
   {
@@ -6178,7 +6092,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gentle Repose\" (ontoken)"
   },
   {
@@ -6221,7 +6135,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Giant Insect\" (ontoken)"
   },
   {
@@ -6264,7 +6178,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Glibness\" (ontoken)"
   },
   {
@@ -6293,7 +6207,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Glyph of Warding\" (ontoken)"
   },
   {
@@ -6321,7 +6235,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Goodberry\" (ontoken)"
   },
   {
@@ -6387,7 +6301,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Grasping Vine\" (ontoken)"
   },
   {
@@ -6416,7 +6330,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Greater Invisibility\" (ontoken)"
   },
   {
@@ -6464,7 +6378,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Greater Restoration\" (ontoken)"
   },
   {
@@ -6505,7 +6419,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Guardian of Faith\" (ontoken)"
   },
   {
@@ -6561,7 +6475,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Guards and Wards\" (ontoken)"
   },
   {
@@ -6609,7 +6523,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Guidance\" (ontoken)"
   },
   {
@@ -6637,7 +6551,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hail of Thorns\" (ontoken)"
   },
   {
@@ -6692,7 +6606,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Harm\" (ontoken)"
   },
   {
@@ -6719,7 +6633,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Haste\" (ontoken)"
   },
   {
@@ -6748,7 +6662,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Healing Word\" (ontoken)"
   },
   {
@@ -6785,7 +6699,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Heat Metal\" (ontoken)"
   },
   {
@@ -6813,7 +6727,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hellish Rebuke\" (ontoken)"
   },
   {
@@ -6866,7 +6780,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Heroes' Feast\" (ontoken)"
   },
   {
@@ -6911,7 +6825,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Heroism\" (ontoken)"
   },
   {
@@ -6939,7 +6853,35 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Hex\" (ontoken)"
+  },
+  {
+   "id": "great-old-one-hex",
+   "for": [
+    "spell:great-old-one-hex"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.n2qsI3p9HBVQIjeK",
+    "name": "Hex (Powerful)",
+    "where": "Player's Handbook · Character Classes"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.complete",
+      "start": 500
+     },
+     "asset": {
+      "path": "jb2a.markers.01.purplepink"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hex\" (ontoken)"
   },
   {
@@ -6966,7 +6908,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hideous Laughter\" (ontoken)"
   },
   {
@@ -7015,7 +6957,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hold Monster\" (ontoken)"
   },
   {
@@ -7061,7 +7003,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hold Person\" (ontoken)"
   },
   {
@@ -7092,7 +7034,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hunger of Hadar\" (ontoken)"
   },
   {
@@ -7120,7 +7062,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hunter's Mark\" (ontoken)"
   },
   {
@@ -7146,7 +7088,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Identify\" (ontoken)"
   },
   {
@@ -7173,7 +7115,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Illusory Script\" (ontoken)"
   },
   {
@@ -7218,7 +7160,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Imprisonment\" (ontoken)"
   },
   {
@@ -7264,7 +7206,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Inflict Wounds\" (ontoken)"
   },
   {
@@ -7310,7 +7252,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Instant Summons\" (ontoken)"
   },
   {
@@ -7336,7 +7278,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Invisibility\" (ontoken)"
   },
   {
@@ -7382,7 +7324,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Irresistible Dance\" (ontoken)"
   },
   {
@@ -7426,7 +7368,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Jump\" (ontoken)"
   },
   {
@@ -7452,7 +7394,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Knock\" (ontoken)"
   },
   {
@@ -7493,7 +7435,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Legend Lore\" (ontoken)"
   },
   {
@@ -7537,7 +7479,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Levitate\" (ontoken)"
   },
   {
@@ -7566,7 +7508,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lightning Arrow\" (ontoken)"
   },
   {
@@ -7611,7 +7553,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Locate Creature\" (ontoken)"
   },
   {
@@ -7658,7 +7600,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Longstrider\" (ontoken)"
   },
   {
@@ -7686,7 +7628,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mage Armor\" (ontoken)"
   },
   {
@@ -7713,7 +7655,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mage Hand\" (ontoken)"
   },
   {
@@ -7779,7 +7721,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Magic Jar\" (ontoken)"
   },
   {
@@ -7826,7 +7768,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Magic Mouth\" (ontoken)"
   },
   {
@@ -7871,7 +7813,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Magic Weapon\" (ontoken)"
   },
   {
@@ -7926,7 +7868,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Magnificent Mansion\" (ontoken)"
   },
   {
@@ -7954,7 +7896,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Major Image\" (ontoken)"
   },
   {
@@ -7982,7 +7924,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Meld into Stone\" (ontoken)"
   },
   {
@@ -8009,7 +7951,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mending\" (ontoken)"
   },
   {
@@ -8056,7 +7998,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Meteor Swarm\" (ontoken)"
   },
   {
@@ -8117,7 +8059,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mind Blank\" (ontoken)"
   },
   {
@@ -8143,7 +8085,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Minor Illusion\" (ontoken)"
   },
   {
@@ -8171,7 +8113,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mirror Image\" (ontoken)"
   },
   {
@@ -8215,7 +8157,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mislead\" (ontoken)"
   },
   {
@@ -8245,7 +8187,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mordenkainen's Sword\" (ontoken)"
   },
   {
@@ -8288,7 +8230,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Move Earth\" (ontoken)"
   },
   {
@@ -8315,7 +8257,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Nondetection\" (ontoken)"
   },
   {
@@ -8356,7 +8298,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Passwall\" (ontoken)"
   },
   {
@@ -8402,7 +8344,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Phantasmal Killer\" (ontoken)"
   },
   {
@@ -8429,7 +8371,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Phantom Steed\" (ontoken)"
   },
   {
@@ -8474,7 +8416,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Planar Ally\" (ontoken)"
   },
   {
@@ -8519,7 +8461,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Plane Shift\" (ontoken)"
   },
   {
@@ -8549,7 +8491,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Plant Growth\" (ontoken)"
   },
   {
@@ -8590,7 +8532,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Polymorph\" (ontoken)"
   },
   {
@@ -8649,7 +8591,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Power Word Fortify\" (ontoken)"
   },
   {
@@ -8703,7 +8645,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Power Word Heal\" (ontoken)"
   },
   {
@@ -8774,7 +8716,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Power Word Kill\" (ontoken)"
   },
   {
@@ -8845,7 +8787,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Power Word Stun\" (ontoken)"
   },
   {
@@ -8871,7 +8813,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Prayer of Healing\" (ontoken)"
   },
   {
@@ -8900,7 +8842,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Prestidigitation\" (ontoken)"
   },
   {
@@ -8942,7 +8884,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Private Sanctum\" (ontoken)"
   },
   {
@@ -8988,7 +8930,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Project Image\" (ontoken)"
   },
   {
@@ -9023,7 +8965,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Protection from Evil and Good\" (ontoken)"
   },
   {
@@ -9058,7 +9000,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Protection from Poison\" (ontoken)"
   },
   {
@@ -9130,7 +9072,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Raise Dead\" (ontoken)"
   },
   {
@@ -9179,7 +9121,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Regenerate\" (ontoken)"
   },
   {
@@ -9251,7 +9193,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Reincarnate\" (ontoken)"
   },
   {
@@ -9280,7 +9222,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Remove Curse\" (ontoken)"
   },
   {
@@ -9307,7 +9249,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Resilient Sphere\" (ontoken)"
   },
   {
@@ -9378,7 +9320,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Resurrection\" (ontoken)"
   },
   {
@@ -9444,7 +9386,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Revivify\" (ontoken)"
   },
   {
@@ -9471,7 +9413,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rope Trick\" (ontoken)"
   },
   {
@@ -9524,7 +9466,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sacred Flame\" (ontoken)"
   },
   {
@@ -9560,7 +9502,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sanctuary\" (ontoken)"
   },
   {
@@ -9614,7 +9556,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Scrying\" (ontoken)"
   },
   {
@@ -9643,7 +9585,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Secret Chest\" (ontoken)"
   },
   {
@@ -9675,7 +9617,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"See Invisibility\" (ontoken)"
   },
   {
@@ -9721,7 +9663,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Seeming\" (ontoken)"
   },
   {
@@ -9749,7 +9691,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sending\" (ontoken)"
   },
   {
@@ -9808,7 +9750,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sequester\" (ontoken)"
   },
   {
@@ -9851,7 +9793,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shapechange\" (ontoken)"
   },
   {
@@ -9888,7 +9830,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shillelagh\" (ontoken)"
   },
   {
@@ -9914,7 +9856,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Silent Image\" (ontoken)"
   },
   {
@@ -9961,7 +9903,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Simbul's Synostodweomer\" (ontoken)"
   },
   {
@@ -10005,7 +9947,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Simulacrum\" (ontoken)"
   },
   {
@@ -10032,7 +9974,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spare the Dying\" (ontoken)"
   },
   {
@@ -10081,7 +10023,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Speak with Animals\" (ontoken)"
   },
   {
@@ -10134,7 +10076,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Speak with Dead\" (ontoken)"
   },
   {
@@ -10180,7 +10122,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Speak with Plants\" (ontoken)"
   },
   {
@@ -10237,7 +10179,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spider Climb\" (ontoken)"
   },
   {
@@ -10304,7 +10246,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spiritual Weapon\" (ontoken)"
   },
   {
@@ -10352,7 +10294,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Stone Shape\" (ontoken)"
   },
   {
@@ -10422,7 +10364,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Storm of Vengeance\" (ontoken)"
   },
   {
@@ -10485,7 +10427,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Suggestion\" (ontoken)"
   },
   {
@@ -10515,7 +10457,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Aberration\" (ontoken)"
   },
   {
@@ -10545,7 +10487,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Beast\" (ontoken)"
   },
   {
@@ -10575,7 +10517,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Celestial\" (ontoken)"
   },
   {
@@ -10605,7 +10547,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Construct\" (ontoken)"
   },
   {
@@ -10635,7 +10577,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Dragon\" (ontoken)"
   },
   {
@@ -10665,7 +10607,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Elemental\" (ontoken)"
   },
   {
@@ -10695,7 +10637,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Fey\" (ontoken)"
   },
   {
@@ -10725,7 +10667,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Fiend\" (ontoken)"
   },
   {
@@ -10755,7 +10697,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Summon Undead\" (ontoken)"
   },
   {
@@ -10796,7 +10738,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Swift Quiver\" (ontoken)"
   },
   {
@@ -10866,7 +10808,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Syluné's Viper\" (ontoken)"
   },
   {
@@ -10907,7 +10849,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Symbol\" (ontoken)"
   },
   {
@@ -10957,7 +10899,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Telekinesis\" (ontoken)"
   },
   {
@@ -11030,7 +10972,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Telepathy\" (ontoken)"
   },
   {
@@ -11078,7 +11020,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Teleportation Circle\" (ontoken)"
   },
   {
@@ -11139,7 +11081,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Thaumaturgy\" (ontoken)"
   },
   {
@@ -11193,7 +11135,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Thorn Whip\" (ontoken)"
   },
   {
@@ -11241,7 +11183,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Time Stop\" (ontoken)"
   },
   {
@@ -11269,7 +11211,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Toll the Dead\" (ontoken)"
   },
   {
@@ -11315,7 +11257,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tongues\" (ontoken)"
   },
   {
@@ -11364,7 +11306,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Transport via Plants\" (ontoken)"
   },
   {
@@ -11414,7 +11356,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tree Stride\" (ontoken)"
   },
   {
@@ -11467,7 +11409,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"True Seeing\" (ontoken)"
   },
   {
@@ -11518,7 +11460,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"True Strike\" (ontoken)"
   },
   {
@@ -11569,7 +11511,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tsunami\" (ontoken)"
   },
   {
@@ -11601,7 +11543,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Unseen Servant\" (ontoken)"
   },
   {
@@ -11646,7 +11588,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Vicious Mockery\" (ontoken)"
   },
   {
@@ -11681,7 +11623,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Warding Bond\" (ontoken)"
   },
   {
@@ -11708,7 +11650,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Water Breathing\" (ontoken)"
   },
   {
@@ -11736,7 +11678,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Water Walk\" (ontoken)"
   },
   {
@@ -11776,7 +11718,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wind Walk\" (ontoken)"
   },
   {
@@ -11847,7 +11789,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wish\" (ontoken)"
   },
   {
@@ -11878,7 +11820,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Word of Radiance\" (ontoken)"
   },
   {
@@ -11924,7 +11866,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Word of Recall\" (ontoken)"
   },
   {
@@ -11956,7 +11898,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Acid Splash\" (templatefx)"
   },
   {
@@ -11988,7 +11930,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Alarm\" (templatefx)"
   },
   {
@@ -12019,7 +11961,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Black Tentacles\" (templatefx)"
   },
   {
@@ -12048,7 +11990,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burning Hands\" (templatefx)"
   },
   {
@@ -12078,7 +12020,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Calm Emotions\" (templatefx)"
   },
   {
@@ -12127,7 +12069,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Circle of Death\" (templatefx)"
   },
   {
@@ -12161,7 +12103,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Cloud of Daggers\" (templatefx)"
   },
   {
@@ -12192,7 +12134,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Cloudkill\" (templatefx)"
   },
   {
@@ -12228,7 +12170,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Color Spray\" (templatefx)"
   },
   {
@@ -12258,7 +12200,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Cone of Cold\" (templatefx)"
   },
   {
@@ -12295,7 +12237,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Barrage\" (templatefx)"
   },
   {
@@ -12332,7 +12274,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Celestial\" (templatefx)"
   },
   {
@@ -12392,7 +12334,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Conjure Volley\" (templatefx)"
   },
   {
@@ -12442,7 +12384,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Control Water\" (templatefx)"
   },
   {
@@ -12473,7 +12415,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Create or Destroy Water\" (templatefx)"
   },
   {
@@ -12506,7 +12448,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Creation\" (templatefx)"
   },
   {
@@ -12537,7 +12479,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Darkness\" (templatefx)"
   },
   {
@@ -12569,7 +12511,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Daylight\" (templatefx)"
   },
   {
@@ -12618,7 +12560,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Destructive Wave\" (templatefx)"
   },
   {
@@ -12649,7 +12591,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Doomtide\" (templatefx)"
   },
   {
@@ -12708,7 +12650,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dragon's Breath\" (templatefx)"
   },
   {
@@ -12738,7 +12680,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Elementalism\" (templatefx)"
   },
   {
@@ -12769,7 +12711,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Entangle\" (templatefx)"
   },
   {
@@ -12803,7 +12745,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Faerie Fire\" (templatefx)"
   },
   {
@@ -12834,11 +12776,15 @@
       }
      },
      "mask": true,
+     "anchor": {
+      "x": 0.5,
+      "y": 0.5
+     },
      "persist": "template"
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fear\" (templatefx)"
   },
   {
@@ -12872,7 +12818,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flame Strike\" (templatefx)"
   },
   {
@@ -12907,7 +12853,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flaming Sphere\" (templatefx)"
   },
   {
@@ -12939,7 +12885,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fog Cloud\" (templatefx)"
   },
   {
@@ -12974,7 +12920,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Globe of Invulnerability\" (templatefx)"
   },
   {
@@ -13011,7 +12957,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Grease\" (templatefx)"
   },
   {
@@ -13043,7 +12989,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Gust of Wind\" (templatefx)"
   },
   {
@@ -13117,7 +13063,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hallow\" (templatefx)"
   },
   {
@@ -13148,7 +13094,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hallucinatory Terrain\" (templatefx)"
   },
   {
@@ -13186,7 +13132,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hypnotic Pattern\" (templatefx)"
   },
   {
@@ -13217,7 +13163,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ice Storm\" (templatefx)"
   },
   {
@@ -13256,7 +13202,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Incendiary Cloud\" (templatefx)"
   },
   {
@@ -13287,7 +13233,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Insect Plague\" (templatefx)"
   },
   {
@@ -13325,45 +13271,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Laeral's Silver Lance\" (templatefx)"
-  },
-  {
-   "id": "laerals-silver-lance",
-   "for": [
-    "spell:laerals-silver-lance"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofLaeralsSilver",
-    "name": "Laeral's Silver Lance",
-    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "path": "jb2a.ranged_helix.Helix_only.001.white.90ft"
-     },
-     "sound": {
-      "asset": "psfx.ranged-magic.generic.missile.only.001",
-      "start": 350
-     },
-     "size": {
-      "fit": "shape",
-      "scale": {
-       "x": 1.5,
-       "y": 1.5
-      }
-     },
-     "anchor": {
-      "x": 0.19,
-      "y": 0.5
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Laeral's Silver Lance\" (templatefx)"
   },
   {
@@ -13392,7 +13300,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lightning Bolt\" (templatefx)"
   },
   {
@@ -13423,7 +13331,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Magic Circle\" (templatefx)"
   },
   {
@@ -13469,7 +13377,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mass Cure Wounds\" (templatefx)"
   },
   {
@@ -13516,7 +13424,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mirage Arcane\" (templatefx)"
   },
   {
@@ -13548,7 +13456,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Moonbeam\" (templatefx)"
   },
   {
@@ -13578,7 +13486,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Phantasmal Force\" (templatefx)"
   },
   {
@@ -13628,7 +13536,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Prismatic Spray\" (templatefx)"
   },
   {
@@ -13658,7 +13566,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Prismatic Wall\" (templatefx)"
   },
   {
@@ -13690,7 +13598,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Programmed Illusion\" (templatefx)"
   },
   {
@@ -13721,7 +13629,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Purify Food and Drink\" (templatefx)"
   },
   {
@@ -13758,7 +13666,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Reverse Gravity\" (templatefx)"
   },
   {
@@ -13789,7 +13697,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shatter\" (templatefx)"
   },
   {
@@ -13824,7 +13732,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Silence\" (templatefx)"
   },
   {
@@ -13855,7 +13763,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sleet Storm\" (templatefx)"
   },
   {
@@ -13885,7 +13793,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Slow\" (templatefx)"
   },
   {
@@ -13926,7 +13834,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spellfire Storm\" (templatefx)"
   },
   {
@@ -13957,7 +13865,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spike Growth\" (templatefx)"
   },
   {
@@ -13988,7 +13896,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Stinking Cloud\" (templatefx)"
   },
   {
@@ -14030,7 +13938,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sunbeam\" (templatefx)"
   },
   {
@@ -14060,7 +13968,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sunburst\" (templatefx)"
   },
   {
@@ -14090,7 +13998,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Synaptic Static\" (templatefx)"
   },
   {
@@ -14124,7 +14032,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tasha's Bubbling Cauldron\" (templatefx)"
   },
   {
@@ -14176,7 +14084,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Tiny Hut\" (templatefx)"
   },
   {
@@ -14206,7 +14114,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wall of Fire\" (templatefx)"
   },
   {
@@ -14237,7 +14145,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wall of Force\" (templatefx)"
   },
   {
@@ -14269,7 +14177,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wall of Ice\" (templatefx)"
   },
   {
@@ -14304,7 +14212,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wall of Stone\" (templatefx)"
   },
   {
@@ -14336,7 +14244,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wall of Thorns\" (templatefx)"
   },
   {
@@ -14376,7 +14284,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Weird\" (templatefx)"
   },
   {
@@ -14406,7 +14314,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wind Wall\" (templatefx)"
   },
   {
@@ -14437,7 +14345,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Zone of Truth\" (templatefx)"
   },
   {
@@ -14503,7 +14411,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dimension Door\" (preset)"
   },
   {
@@ -14561,7 +14469,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Freezing Sphere\" (preset)"
   },
   {
@@ -14623,7 +14531,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Misty Step\" (preset)"
   },
   {
@@ -14653,7 +14561,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Vampiric Touch\" (preset)"
   },
   {
@@ -14710,7 +14618,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Vitriolic Sphere\" (preset)"
   }
  ]

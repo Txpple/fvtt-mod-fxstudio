@@ -83,7 +83,7 @@ try {
       ok('§6 changing what it was copied from does not change it', JSON.stringify(api.fx.get('sharran-step').fx.scenes) === before6, `${api.fx.sentence(api.fx.get('sharran-step').fx).slice(0, 70)}`);
       const gone = await api.corpus.erase('misty-step');
       ok('§6 erasing the override takes the House copy alone: Stock shows again, untouched', gone.ok && gone.written.length === 1 && gone.written[0] === 'recipes/house.json' && api.fx.get('misty-step')?.source === 'stock' && !/green/.test(api.fx.sentence(api.fx.get('misty-step').fx)), JSON.stringify(gone));
-      ok('§6 an Item Hook cannot go to Stock, and is told so', !(await api.fx.save({ id: 'hook-probe', for: [], on: 'use', scenes: variant.scenes }, { to: 'stock' })).ok, '');
+      ok('§6 an FX with no key cannot go to Stock, and is told so', !(await api.fx.save({ id: 'hook-probe', for: [], on: 'use', scenes: variant.scenes }, { to: 'stock' })).ok, '');
       // 7 · erased again: the file is as it was
       const r7 = await api.corpus.erase('sharran-step');
       ok('§7 erased from House; the key resolves to nothing again', r7.ok && !api.fx.get('sharran-step') && api.resolve({ keys: ['spell:sharran-step'] }).fx === null, JSON.stringify(r7));

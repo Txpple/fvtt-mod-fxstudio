@@ -54,9 +54,9 @@ if (t.section('the timing policy: a use fires as late as the answer is known and
   t.same('… and plays on the damage roll', [readMessage(rolled(saveDamage, 'damage')).kind, readMessage(rolled(saveDamage, 'damage')).subject.name], ['damage', 'Poison Spray']);
   t.is('a heal: the card is skipped', readMessage(usage(cureWounds)).skip, 'plays on the damage roll');
   t.same("… and plays on the healing roll (dnd5e flags a heal's roll 'healing'; the same moment)", [readMessage(rolled(cureWounds, 'healing')).kind, readMessage(rolled(cureWounds, 'healing')).subject.name], ['damage', 'Cure Wounds']);
-  t.same('a feature that heals plays on its healing roll too', readMessage(rolled(secondWind, 'healing')).subject.keys[0], 'feature:second-wind/heal');
+  t.same('a feature that heals plays on its healing roll too', readMessage(rolled(secondWind, 'healing')).subject.keys[0], 'feature:second-wind');
   t.same('a save with no damage plays on the card', [readMessage(usage(holdPerson)).kind, readMessage(usage(holdPerson)).subject.name], ['use', 'Hold Person']);
-  t.same('a utility plays on the card', [readMessage(usage(mistyStep)).kind, readMessage(usage(mistyStep)).subject.keys[0]], ['use', 'spell:misty-step/utility']);
+  t.same('a utility plays on the card', [readMessage(usage(mistyStep)).kind, readMessage(usage(mistyStep)).subject.keys[0]], ['use', 'spell:misty-step']);
   t.is('an area: every message is skipped for the template', readMessage(rolled(fireball, 'damage')).skip, 'plays on the template');
   t.is('… the card too', readMessage(usage(fireball)).skip, 'plays on the template');
   t.is('a message that is not dnd5e\'s is not a moment', readMessage({ id: 'x', flags: {} }), null);
@@ -79,28 +79,33 @@ if (t.section('the verdict: hit or miss per target, from dnd5e\'s own numbers'))
 }
 
 // ---------------------------------------------------------------------------------------------
-if (t.section('the subject: what acted, by identity, with the activity, the spell, the ammunition, the pointer')) {
-  t.same('a weapon: its name, then its base weapon, each with the activity first', subjectOfItem(bow, { activity: act(bow) }).keys, ['weapon:longbow/attack', 'weapon:longbow']);
+if (t.section('the subject: what acted, by identity — one key per item, dnd5e\'s identifier, exact or nothing')) {
+  t.same('a weapon: one key, its identifier (its name formatted, when none is set); no base weapon, no activity', subjectOfItem(bow, { activity: act(bow) }).keys, ['weapon:longbow']);
   const named = W.item(caster, { id: 'vesper', name: 'Vesper Staff', type: 'weapon', system: { type: { value: 'simpleM', baseItem: 'quarterstaff' } }, activities: [{ id: 'atk', type: 'attack' }] });
-  t.same('… a named weapon: its own name ahead of its base', subjectOfItem(named, { activity: act(named) }).keys, ['weapon:vesper-staff/attack', 'weapon:vesper-staff', 'weapon:quarterstaff/attack', 'weapon:quarterstaff']);
-  t.same('a natural weapon is natural', subjectOfItem(bite, { activity: act(bite) }).keys, ['natural:bite/attack', 'natural:bite']);
-  t.same("a spell: dnd5e's identifier, then the slug of its name", subjectOfItem(fireBolt, { activity: act(fireBolt) }).keys, ['spell:fire-bolt/attack', 'spell:fire-bolt']);
+  t.same('… a named weapon keys as itself alone: its base weapon is not a rung', subjectOfItem(named, { activity: act(named) }).keys, ['weapon:vesper-staff']);
+  const copied = W.item(caster, { id: 'flame', name: 'Flame Tongue', type: 'weapon', system: { identifier: 'longsword', type: { value: 'martialM', baseItem: 'longsword' } }, activities: [{ id: 'atk', type: 'attack' }] });
+  t.same('… a weapon copied from the Longsword and renamed keeps the identifier it carries', subjectOfItem(copied).keys, ['weapon:longsword']);
+  const own = W.item(caster, { id: 'gold', name: 'Goldthorn', type: 'weapon', system: { identifier: 'goldthorn-bob' }, activities: [{ id: 'atk', type: 'attack' }] });
+  t.same('… an item given an identifier of its own keys by it and by nothing else', subjectOfItem(own).keys, ['weapon:goldthorn-bob']);
+  t.same('a natural weapon is natural', subjectOfItem(bite, { activity: act(bite) }).keys, ['natural:bite']);
+  t.same("a spell: dnd5e's identifier", subjectOfItem(fireBolt, { activity: act(fireBolt) }).keys, ['spell:fire-bolt']);
+  const renamed = W.item(caster, { id: 'marks', name: "Mark's Firebolt", type: 'spell', system: { identifier: 'fire-bolt' }, activities: [{ id: 'atk', type: 'attack' }] });
+  t.same('… a renamed spell still keys by the identifier the book gave it', subjectOfItem(renamed).keys, ['spell:fire-bolt']);
   t.same('a feature', subjectOfItem(secondWind).keys, ['feature:second-wind']);
   t.same('a consumable is an item', subjectOfItem(arrows).keys, ['item:arrow-1']);
-  t.same('a cast activity puts the linked spell first', subjectOfItem(wand, { activity: act(wand) }).keys.slice(0, 2), ['spell:fire-bolt/cast', 'spell:fire-bolt']);
-  t.same('ammunition fired comes before the weapon', subjectOfItem(bow, { activity: act(bow), ammunition: arrows }).keys.slice(0, 2), ['item:arrow-1', 'weapon:longbow/attack']);
+  t.same('a cast activity puts the linked spell before the item', subjectOfItem(wand, { activity: act(wand) }).keys, ['spell:fire-bolt', 'item:wand-of-fire-bolts']);
+  t.same('ammunition fired comes before the weapon', subjectOfItem(bow, { activity: act(bow), ammunition: arrows }).keys, ['item:arrow-1', 'weapon:longbow']);
   const withAmmo = readMessage(rolled(bow, 'attack', { roll: { type: 'attack', ammunition: 'arrows' }, targets: [{ actor: goblin, ac: 10 }] }));
   t.same("… read off the attack roll's ammunition flag", withAmmo.subject.keys[0], 'item:arrow-1');
   t.is('… but only on an attack roll', readMessage(rolled(holdPerson, 'damage', { roll: { type: 'damage', ammunition: 'arrows' } })).subject.ammunition ?? null, null);
   t.is('a reach weapon says so', subjectOfItem(glaive).reach, true);
   t.is('… and a plain one does not', subjectOfItem(bow).reach, false);
   t.is("the item's uuid rides along", subjectOfItem(bow).uuid, bow.uuid);
-  const pointed = W.item(caster, { id: 'sword', name: 'First Light', type: 'weapon', flags: { 'fvtt-mod-fxstudio': { fx: 'first-light' } }, activities: [{ id: 'atk', type: 'attack' }] });
-  t.is("an item's own FX (the pointer flag) is on the subject, ahead of every key", subjectOfItem(pointed).pointer, 'first-light');
-  t.is('… and absent when the flag is empty', subjectOfItem(W.item(caster, { id: 'p2', name: 'Plain', flags: { 'fvtt-mod-fxstudio': { fx: '' } } })).pointer, undefined);
+  const flagged = W.item(caster, { id: 'sword', name: 'First Light', type: 'weapon', flags: { 'fvtt-mod-fxstudio': { fx: 'first-light' } }, activities: [{ id: 'atk', type: 'attack' }] });
+  t.same('a flag of ours on an item is not read: nothing of this module lives on an item (DESIGN §23)', [subjectOfItem(flagged).pointer, subjectOfItem(flagged).keys], [undefined, ['weapon:first-light']]);
   t.is('no item: no subject', subjectOfItem(null), null);
   const qualified = W.item(goblin, { id: 'ms', name: 'Misty Step - Spellcasting', type: 'spell' });
-  t.same("an NPC's qualified spell name keys by its own name first", subjectOfItem(qualified).keys, ['spell:misty-step-spellcasting', 'spell:misty-step']);
+  t.same('a qualified name with no identifier set keys exactly as dnd5e formats it: no form of the name is tried', subjectOfItem(qualified).keys, ['spell:misty-step-spellcasting']);
   const m = readMessage(usage(mistyStep));
   t.same('a moment carries what a gate asks by: the activity uuid and the flags', [m.activity, Object.keys(m.flags)], [act(mistyStep).uuid, ['dnd5e']]);
   t.same("… the item's uuid as the origin, the message id, the author", [m.origin, m.id, m.user], [mistyStep.uuid, m.id, 'gm']);
@@ -111,7 +116,7 @@ if (t.section('a placed template: the Region is the moment, with the user\'s tar
   gm.targets = new Set([goblin.tokens[0]]);
   const region = W.template(act(fireball), { type: 'circle', distance: 20 });
   const m = readRegion(region);
-  t.same('a template with a dnd5e origin is a use of its spell', [m.when, m.kind, m.subject.keys[0]], ['use', 'template', 'spell:fireball/save']);
+  t.same('a template with a dnd5e origin is a use of its spell', [m.when, m.kind, m.subject.keys[0]], ['use', 'template', 'spell:fireball']);
   t.same("the caster's token is the source; the user's targets are the targets", [m.source.name, m.targets.map((x) => x.token.name)], ['Aria', ['Goblin']]);
   t.same('the Region is the place and what persistent pictures are tied to', [m.place, m.tie], [region, region]);
   t.same('the activity and the flags ride along for a gate', [m.activity, m.flags.dnd5e.origin], [act(fireball).uuid, act(fireball).uuid]);

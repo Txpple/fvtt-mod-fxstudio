@@ -15,8 +15,8 @@ same author, same conventions — plain ES modules, no build step, no patching, 
 socketlib, MIT.
 
 **NO DRAFT LAYER (the user, 2026-09-12: *"no more concept of draft … either its a file or not"*).**
-An FX is in a file or it is nothing: `recipes/house.json` (this table's; the only home of an Item
-Hook) or `recipes/stock/<kind>.json` (the books'). **Save writes the file** in the module folder on
+An FX is in a file or it is nothing: `recipes/house.json` (this table's; an FX keyed to this
+world's own item lives here) or `recipes/stock/<kind>.json` (the books'). **Save writes the file** in the module folder on
 the server and the corpora are read again; editing a Stock FX asks **House override** (the same id in
 House, which wins; Stock untouched) **or Edit Stock**. Delete takes the FX you see, the winning layer
 only, so deleting an override shows Stock again; **the Library lists BOTH rows** (the override, and the
@@ -25,8 +25,8 @@ not losing stock" (the user, 2026-09-12, v0.4.1). Stage, Ship, the world buffer,
 `tools/world-fx.mjs` and `tools/export-fx.mjs` are gone; the old buffer setting is folded into the
 files once at ready by a GM's client. The Library's facets are House · Stock, the six authored kinds
 (Statuses, Damage, Events went — `event` stays in the data layer for Battle Flow's moment keys),
-Item Hooks · Switched off (On my actors and Broken assets went; Coverage's Errors tile still counts
-broken assets, without a door). `tools/pull-corpus.mjs` brings the files into the repo. DESIGN §21.
+Switched off (Item Hooks went with the hook terms on 2026-09-12; On my actors and Broken assets
+before; Coverage's Errors tile still counts broken assets, without a door). `tools/pull-corpus.mjs` brings the files into the repo. DESIGN §21.
 
 **Status (2026-09-11): v0.3.0 is RELEASED and ON PROD (Battle Flow's moments play; v0.2.0 the day before), the only thing playing at the table (AA off),
 with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
@@ -59,8 +59,8 @@ right-justified beside it; group heads painted amber; **a row is a name that tak
 clicked** — it marks itself, and its three right-justified doors are **Record** (opens the compendium
 record, or the world item, its key was earned against — ruled 2026-09-08, DESIGN §15), **Delete**
 (red, asks) and **Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —
-identity + action bar · the sentence · the hook strip · the sequence (a rail, an overlap strip, a
-band-tabbed inspector) · the note; `delay` is *Wait before*, `wait` is *Hold next*; **Save writes the
+identity + action bar · the sentence · the Key strip (Answers · Item with Own key · Moment · State) ·
+the sequence (a rail, a band-tabbed inspector); `delay` is *Wait before*, `wait` is *Hold next*; **Save writes the
 file** (House; a Stock FX asks: House override or Stock itself); Delete is for good. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the
 picker the sheet's Browse opens. **Coverage** (`ui/coverage.js`): Maintain at the top, then My
 actors · Compendiums, four tiles, and the rows.
@@ -90,10 +90,10 @@ Seven FX had come in that way (the user found `weapon:1-dagger`, which is Jetten
 were pure redundancy, and **Vesper Staff and Necrotic Scythe moved into `recipes/house.json`** on
 the user's word, so nothing changed at the table. DESIGN §16.
 
-**ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key, or none when it is
-an Item Hook. AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
+**ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key (none only on a
+starter; an FX with no key plays nothing and is House only). AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
 is not carried: the migration fans a row out into one FX per key it earned, and **a key no list
-holds is not carried at all**. Stock is **1022 FX**, one key each (house 4). The 351 rows no list
+holds is not carried at all**. Stock is **1005 FX** since DESIGN §23, one key each (house 4). The 351 rows no list
 holds and the 82 keys a row lost to an earlier one are EXCEPTION tables in
 `recipes/migration-report.md`. The census did not move: 694 of 736 abilities answer as under AA,
 exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is the record.
@@ -104,15 +104,28 @@ and Heroes of Faerûn entirely). **Install a new book → add its packs there �
 AND `node tools/records.mjs --write`** (the records stand on the same evidence, DESIGN §15).
 
 **`recipes/house.json` is the USER'S file**: `migrate-aa.mjs` no longer writes it (it offers
-`dist/house-from-migration.json` instead), and it holds **two custom swords as Item Hooks** —
+`dist/house-from-migration.json` instead), and it holds **two custom swords keyed to their items' own identifiers** —
 First Light and Goldthorn — after the user cut the rest on 2026-09-08.
+
+**ONE KEY PER ITEM, DND5E'S IDENTIFIER, EXACT OR NOTHING (the user, 2026-09-12, DESIGN §23).** Global
+Hook and Item Hook are GONE — *"thats the old AA way of thinking"*. An item has exactly one key,
+`<kind>:<identifier>` (dnd5e's `system.identifier`, else dnd5e's formatting of the name), and an FX
+holds it or the item plays nothing: no name forms, no base-weapon rung, no activity suffix, no flag of
+ours on any item. Two copies of an item that should differ carry different identifiers — the Editor's
+**Own key** writes one (dnd5e's field, travels with the item) and turns the sheet into a House FX for
+that key alone. The name forms live in the migration only (`tools/lib/migrate/keys.mjs`), where a
+qualified record ("Potion of Healing (Greater)") meets the plain label once and gets its own FX.
+Stock 1005 (was 1022: 22 second spellings of keys Stock already held went; 5 records came); the party
+census unmoved at 134 of 225. **Prod needs three item identifiers on the user's word** (Thomas's First
+Light `first-light`, Jetten's Goldthorn `goldthorn`, Cadoc's Necrotic Scythe `necrotic-scythe`) —
+set on the sandbox 2026-09-12; until then those three play their base weapon's Stock FX on prod.
 
 **THE GRAMMAR IS THE ENGINE (the user, 2026-09-12, DESIGN §22).** A shape's knob list in `core/fx.js` is exactly what its engine file reads, `check-engine` proves it and `check-fx` refuses a file that says more; the sheet's cells come from that list. A new knob lands in the engine line, KNOBS and a check-engine line in one commit, never in the sheet first. The data model is otherwise locked: additive `on` words for phase 4, nothing structural.
 
 **The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
 `with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
 (`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House,
-Global Hook / Item Hook. FX / VFX / SFX. No JSON or raw library paths in front of a GM. It
+a key, Own key (Global Hook / Item Hook went on 2026-09-12). FX / VFX / SFX. No JSON or raw library paths in front of a GM. It
 never guesses: an ability with no FX plays nothing.
 
 **Known and unfixed, found by driving the window on 2026-09-07** — offered, not owed, and the user

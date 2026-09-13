@@ -1835,3 +1835,79 @@ since v0.4. What can still grow is additive vocabulary, not structure: a new `on
 outcomes arrive (WHEN, `event:` keys), and a knob only ever alongside the engine line that reads it,
 the KNOBS entry and a check-engine line, in one commit. `SCHEMA_VERSION` stays 2.
 
+
+## 23. One key per item, dnd5e's identifier, exact or nothing (the user's ruling, 2026-09-12)
+
+The user asked whether Global Hook against Item Hook still meant anything *"since every fx is now
+tied to an item, by design"*. It did not, and the question opened the last piece of Automated
+Animations' shape still in the reader. What the two terms were in the code: a Global Hook answered a
+**key** (`spell:misty-step`, shared by every copy of Misty Step), an Item Hook answered one **item
+document** through a flag of ours on it (`flags.fvtt-mod-fxstudio.fx`), read by the reader and handed
+to the resolver ahead of every key. Two matching mechanisms; the second half-outside the file. And the
+key itself was found by a ladder: the item's pointer, its identifier, the slug of its name and of the
+name with a qualifier stripped ("Misty Step - Spellcasting", "Potion of Healing (Greater)"), an
+activity suffix (`spell:fire-bolt/attack`), and for a weapon its base weapon (`weapon:maul`). The
+user: *"i really dont like the idea of global hooks anymore, thats the old AA way of thinking … i do
+not want the name fall throughs anymore either, it needs to exact or it doesnt happen. this is a
+precise system we are making — no fuzzy logic."* And: this is not a table rule but *"a robust system
+that i will share with other people, and maybe this will replace AA some day."*
+
+**The rule now.** An item has exactly one key, `<kind>:<identifier>`, where the identifier is dnd5e's
+own for it: `system.identifier` when set, else dnd5e's formatting of the name — what `item.identifier`
+answers in the system, and what its advancement code keys by. An FX holds that key or the item plays
+nothing. Nothing of this module is written on an item. The only orderings left are between documents,
+each with its own exact key: the ammunition fired before the bow, a cast activity's spell before the
+wand, an effect's own name before what made it (`core/subjects.js`).
+
+**Two Goldthorns.** The one case the ladder and the Item Hook were for: Alice's and Bob's copies of the
+same item that should play differently. The answer is dnd5e's field: Bob's sword gets identifier
+`goldthorn-bob`, its key is `weapon:goldthorn-bob`, and a House FX keyed to it plays for that item
+alone while Alice's keeps answering `weapon:goldthorn`. dnd5e defines the identifier on every item
+type through its description template but shows the field only on class, subclass, background and
+species sheets, so the Editor surfaces it: the Key strip's second column is **Item** (the item the
+sheet is on, or *Find an item* on this world's actors), and **Own key** asks for the identifier
+(suggested `<identifier>-<owner>`), writes it on the item with `item.update`, and turns the sheet into
+a new House FX for the new key with the scenes it was showing copied in — the variant workflow, from
+the item. The FX carries the item as its `record`, so the file is complete on its own. A rename
+changes nothing: the PHB's Fire Bolt carries `identifier: fire-bolt` in its record and every copy
+brings it along, so "Mark's Firebolt" still keys `spell:fire-bolt`.
+
+**Measured before the cut** (a scratch tool, deleted with the cut; the numbers are here): of 4516 item
+records across `LIST_PACKS`, 4444 carry an identifier and 72 leave dnd5e to format the name; 227
+identifiers differ from the name's slug (subclasses, "Hex (Powerful)" → `great-old-one-hex`); all
+1060 natural attacks on the books' creatures carry one, and 33 of those drop a form qualifier the
+name has ("Bite (Wolf or Hybrid Form Only)" → `bite`). Of the 1022 Stock keys, 1005 were a record's
+identifier already; the 17 that were not were every one a *second spelling* of a record the corpus
+also held under its identifier (13 qualified natural names, 4 spells such as `spell:floating-disk`
+beside `spell:tensers-floating-disk`), and 5 base-weapon ids (`weapon:lighthammer` beside
+`weapon:light-hammer`) stood for no record at all. The party census under the strict key moved by
+one ability, Morgash's Potion of Healing (Greater), which the name form had been answering.
+
+**What changed.** `core/subjects.js` is one key per item and the shared `identifierOf`; the reader
+no longer reads the flag; `resolve()` has no pointer; the API's why line is the key and the layer
+("Misty Step (spell) · House"). The Editor lost Reach (Global Hook · Item Hook) for Item (the item ·
+Own key), the Library lost the Item Hooks facet, Delete no longer unpins, export and import no longer
+count hooks; `HOOK_WORDS`, `onlyThis`, `unpinFx`, `ownerOfFx` and `tools/bind-item-fx.mjs` are gone.
+The migration (`lib/migrate/keys.mjs`) keys every record by its identifier alone, no base-weapon list,
+and holds the name forms itself: a record whose name carries a qualifier also meets the plain label
+(`alsoBy`), so an AA row "Potion of Healing" fans out to the Greater, Superior and Supreme records —
+what the reader used to do at the table, done once, offline, written as exact keys. Stock 1022 →
+**1005**: 22 second-spelling keys gone, 5 records gained (the three potions, `natural:bite-demon-only`,
+`spell:great-old-one-hex`). `records.json` re-keyed on the same rule (3965 keys). The party census
+is **unmoved: 134 of 225**, before and after. House: First Light and Goldthorn are keyed
+`weapon:first-light` and `weapon:goldthorn` with their items as records, and the items carry those
+identifiers (set on the sandbox; **prod needs the same three edits on the user's word** — Thomas's
+First Light `first-light`, Jetten's Goldthorn `goldthorn`, Cadoc's Necrotic Scythe `necrotic-scythe`,
+which had been copied from the Wight's Necrotic Sword and still said so). `check-reader` proves the
+rule (a flag of ours is not read; a copied Longsword renamed keeps `longsword`; a qualified name with
+no identifier keys exactly as dnd5e formats it); the screens suite walks Own key end to end (§7) and
+Find an item from a blank sheet (§12). The stale boot probe that expected a Shield effect FX no Stock
+ever held now expects the Greater potion.
+
+**Not carried, named.** A hand-made world item with the identifier field empty keys by its formatted
+name, so an NPC's "Misty Step - Spellcasting" plays nothing until its identifier is set or it has an
+FX of its own — Coverage shows it. The base-weapon rung was never answering the 2024 books (the DMG's
+Flame Tongue is "Any Melee Weapon", no base item, identifier `flame-tongue`); a magic weapon a DM
+makes by copying the PHB Longsword keeps `longsword` and plays the longsword FX, which is the copy
+theory the user stated, and one dragged from the DMG plays nothing until keyed. That is the
+never-guesses rule reaching the reader.

@@ -1,18 +1,18 @@
 # Migration report — Automated Animations → FX Studio fx
 
-Run 2026-09-08 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e Animations 3.3.0) against JB2A 0.9.3, PSFX 0.17.0, Sequencer 4.2.3, dnd5e null. Regenerate with `node tools/migrate-aa.mjs --write`.
+Run 2026-09-13 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e Animations 3.3.0) against JB2A 0.9.3, PSFX 0.17.0, Sequencer 4.2.3, dnd5e null. Regenerate with `node tools/migrate-aa.mjs --write`.
 
 ## Numbers
 
 | Measure | Count |
 | --- | --- |
 | Rows in (stock / house) | 1289 / 7 |
-| Fx out (stock / house) | 1022 / 7 |
+| Fx out (stock / house) | 1005 / 7 |
 | · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | 686 |
 | · family rows expanded against the base weapons, the natural attacks and the world's weapons | 143 |
 | · effect rows, keyed by the effect's name | 79 |
 | · names no list holds — NOT carried, see the exceptions below | 388 |
-| · weapon words that also caught a spell, a feat or an item under AA (listed, not carried) | 67 |
+| · weapon words that also caught a spell, a feat or an item under AA (listed, not carried) | 68 |
 | AA paths | 437 |
 | · now the libraries' own path with the same files and structure | 17 |
 | · now a list of the libraries' own leaves | 317 |
@@ -21,10 +21,10 @@ Run 2026-09-08 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e 
 | · AA's stretch metadata carried on the scene (`template`) | 61 |
 | **· still on the frozen table (the measurement; goal zero)** | **10** (loop markers differ 10, picked by distance 0, no such node 0) |
 | Frozen table entries shipped | 15 |
-| **Render-level proof: fx equal to AA's own sequence** | **1029 of 1029** (2802 of 2907 moments exactly, 105 by a named allowance below) |
-| Abilities on the world's actors | 738 |
-| · same answer as under AA | 701 |
-| · a different fx now | 25 |
+| **Render-level proof: fx equal to AA's own sequence** | **1012 of 1012** (2736 of 2845 moments exactly, 109 by a named allowance below) |
+| Abilities on the world's actors | 796 |
+| · same answer as under AA | 742 |
+| · a different fx now | 42 |
 | · play now, played nothing under AA | 2 |
 | · play nothing now, played under AA | 10 |
 | Fx that can never answer (a same-key fx of the same layer comes first) | 1 |
@@ -37,9 +37,10 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 
 - **6** × a bolt from inside a standing area, with none standing, leaves from the caster's centre (AA left from the token's top-left corner)
 - **6** × a follow-up mark with nothing to land on plays no sound (AA played its sound anyway)
-- **84** × an FX whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)
+- **86** × an FX whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)
 - **4** × a mark that falls back to the caster honours the FX's delay (AA dropped it there)
 - **5** × the same pictures start in a different order with no wait between them (a shield's bottom halves first, then its top halves)
+- **2** × above-lighting and x-ray are retired from the grammar (the user, 2026-09-12: no bloat — one row, Wall of Force, carried x-ray; nothing carried above-lighting)
 - a swing and a bolt at several targets some in reach and some beyond: the engine plays all the swings, then all the flights, then the follow-up marks once over every target; AA interleaved them per group and played the follow-up sound per group (the proof's mixed-reach case is not in the canonical moments; the single-reach cases are)
 - a follow-up mark that waits: the engine waits after the last target it plays on; AA waited after the last of all the moment's targets
 - a picture on both the caster and the targets: the follow-up mark plays once over both with one sound; AA played it twice, once per group, with its sound each time
@@ -47,7 +48,7 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - the hundred-millisecond pause before every animation (AA's "global delay" world setting) is gone; the reader's own half-second wait for a Region to be drawn stays
 - the range ring of a move is shown to everyone and measured alternating; AA's switches for hiding it and measuring equidistant were used by no row
 
-## Rows translated with a note (169)
+## Rows translated with a note (158)
 
 - Axe [melee] → natural:mercurial-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Axe [melee] → weapon:frost-axe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -58,7 +59,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Beak [melee] → natural:beak: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Beak [melee] → natural:beaks: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Beak [melee] → natural:sharpened-beak: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Beak [melee] → natural:beak-raven-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Beard [melee] → natural:beard: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Blade [melee] → natural:chaos-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Blade [melee] → natural:clockwork-blade: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -90,7 +90,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Claw [melee] → natural:spectral-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:umbral-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:claws-yugoloth-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Claw [melee] → natural:rotting-claw-putrid-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:rotting-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Claw [melee] → natural:eldritch-claw: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Club [melee] → weapon:club: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -110,10 +109,8 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Glaive [melee] → weapon:infernal-glaive: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Gore [melee] → natural:gore: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Gore [melee] → natural:brutal-gore: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Gore [melee] → natural:gore-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Gouge [melee] → natural:gouge: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Grave Strike [melee] → natural:grave-strike: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Grave Strike [melee] → natural:grave-strike-vampire-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Greataxe [melee] → weapon:greataxe: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Greatclub [melee] → weapon:greatclub: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Greatclub [melee] → weapon:thunderous-greatclub: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -128,13 +125,11 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Lash [melee] → natural:vine-lash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → natural:radiant-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Mace [melee] → natural:radiant-mace-defender-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:fiery-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:holy-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Mace [melee] → weapon:thunderous-mace: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → weapon:maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Maul [melee] → natural:earthen-maul: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Pick [melee] → weapon:warpick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pick [melee] → weapon:war-pick: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pincer [melee] → natural:pincer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Pseudopod [melee] → natural:pseudopod: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -147,9 +142,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Rapier [melee] → weapon:insectile-rapier: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Ravage [melee] → natural:ravage: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rend [melee] → natural:rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Rend [melee] → natural:rend-jackal-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Rend [melee] → natural:rend-bear-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Rend [melee] → natural:rend-dire-wolf-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Rend [melee] → natural:mind-rend: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scimitar [melee] → weapon:scimitar: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Scratch [melee] → natural:scratch: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -162,7 +154,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Slam [melee] → natural:object-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Slam [melee] → natural:rotting-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Slam [melee] → natural:thunderous-slam: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Slam [melee] → natural:slam-human-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Slash [melee] → natural:slash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Slash [melee] → natural:darkflame-slash: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Snake Hair [melee] → natural:snake-hair: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -196,7 +187,6 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 - Talon [melee] → natural:talons: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Talon [melee] → weapon:sylvan-talon: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Tusk [melee] → natural:tusk: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
-- Tusk [melee] → natural:tusk-boar-or-hybrid-form-only: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Warhammer [melee] → weapon:warhammer: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Whip [melee] → weapon:whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
 - Whip [melee] → natural:flame-whip: thrown: the switch was on but named no flight; nothing is thrown (as under AA)
@@ -234,12 +224,11 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - weapon:executioners-axe ← Executioner's Axe (dmg/equipment)
 - **Baton** [melee] → natural:bejeweled-baton
   - natural:bejeweled-baton ← Bejeweled Baton (2 creatures (Performer Legend))
-- **Beak** [melee] → natural:beak, natural:beaks, natural:sharpened-beak, natural:beak-raven-or-hybrid-form-only
+- **Beak** [melee] → natural:beak, natural:beaks, natural:sharpened-beak
   - natural:beak (18 creatures)
   - natural:beak ← Beak (18 creatures (Axe Beak, Blood Hawk, Grell))
   - natural:beaks ← Beaks (2 creatures (Swarm of Ravens))
   - natural:sharpened-beak ← Sharpened Beak (1 creatures (Giant Axe Beak))
-  - natural:beak-raven-or-hybrid-form-only ← Beak (Raven or Hybrid Form Only) (1 creatures (Wereraven))
 - **Beard** [melee] → natural:beard
   - natural:beard (2 creatures)
   - natural:beard ← Beard (2 creatures (Bearded Devil))
@@ -267,7 +256,7 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Chain** [melee] → weapon:chain
   - weapon:chain (mm/features)
   - weapon:chain ← Chain (mm/features)
-- **Claw** [melee] → natural:claw, natural:banishing-claw, natural:chaos-claw, natural:claws, natural:devilish-claw, natural:elemental-claw, natural:fearsome-claw, natural:injecting-claw, natural:mutating-claw, natural:spectral-claw, natural:umbral-claw, natural:claws-yugoloth-only, natural:rotting-claw-putrid-only, natural:rotting-claw, natural:eldritch-claw
+- **Claw** [melee] → natural:claw, natural:banishing-claw, natural:chaos-claw, natural:claws, natural:devilish-claw, natural:elemental-claw, natural:fearsome-claw, natural:injecting-claw, natural:mutating-claw, natural:spectral-claw, natural:umbral-claw, natural:claws-yugoloth-only, natural:rotting-claw, natural:eldritch-claw
   - natural:claw (80 creatures)
   - natural:banishing-claw ← Banishing Claw (2 creatures (Arcanaloth))
   - natural:chaos-claw ← Chaos Claw (1 creatures (Gray Slaad))
@@ -281,26 +270,25 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:spectral-claw ← Spectral Claw (1 creatures (Arch-hag))
   - natural:umbral-claw ← Umbral Claw (1 creatures (Shadow Demon))
   - natural:claws-yugoloth-only ← Claws (Yugoloth Only) (1 creatures (Fiendish Spirit))
-  - natural:rotting-claw-putrid-only ← Rotting Claw (Putrid Only) (1 creatures (Undead Spirit))
-  - natural:rotting-claw ← Rotting Claw (1 creatures (Putrid Spirit))
+  - natural:rotting-claw ← Rotting Claw (Putrid Only) (1 creatures (Undead Spirit))
   - natural:eldritch-claw ← Eldritch Claw (1 creatures (Cthulhu))
 - **Club** [melee] → weapon:club, natural:stone-club, weapon:tree-club
-  - weapon:club (the base weapons)
-  - weapon:club ← Club (the base weapons)
+  - weapon:club (phb/equipment)
   - natural:stone-club ← Stone Club (2 creatures (Stone Giant))
+  - weapon:club ← Club (phb/equipment)
   - weapon:tree-club ← Tree Club (mm/features)
 - **Dagger** [melee] → weapon:dagger, weapon:umbral-dagger
-  - weapon:dagger (the base weapons)
-  - weapon:dagger ← Dagger (the base weapons)
+  - weapon:dagger (phb/equipment)
+  - weapon:dagger ← Dagger (phb/equipment)
   - weapon:umbral-dagger ← Umbral Dagger (mm/features)
 - **Fist** [melee] → natural:fist, natural:rotting-fist
   - natural:fist (7 creatures)
   - natural:fist ← Fist (7 creatures (Ape, Giant Ape, Shield Guardian))
   - natural:rotting-fist ← Rotting Fist (5 creatures (Mummy, Mummy Lord))
 - **Flail** [melee] → weapon:flail, natural:bone-flail, weapon:elemental-flail
-  - weapon:flail (the base weapons)
-  - weapon:flail ← Flail (the base weapons)
+  - weapon:flail (phb/equipment)
   - natural:bone-flail ← Bone Flail (1 creatures (Gnoll Fang of Yeenoghu))
+  - weapon:flail ← Flail (phb/equipment)
   - weapon:elemental-flail ← Elemental Flail (mm/features)
 - **Foreleg** [melee] → natural:foreleg
   - natural:foreleg (2 creatures)
@@ -312,45 +300,42 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:gear (1 creatures)
   - natural:gear ← Gear (1 creatures (Modron Monodrone))
 - **Glaive** [melee] → weapon:glaive, weapon:abyssal-glaive, weapon:infernal-glaive
-  - weapon:glaive (the base weapons)
-  - weapon:glaive ← Glaive (the base weapons)
+  - weapon:glaive (phb/equipment)
+  - weapon:glaive ← Glaive (phb/equipment)
   - weapon:abyssal-glaive ← Abyssal Glaive (mm/features)
   - weapon:infernal-glaive ← Infernal Glaive (mm/features)
-- **Gore** [melee] → natural:gore, natural:brutal-gore, natural:gore-boar-or-hybrid-form-only
+- **Gore** [melee] → natural:gore, natural:brutal-gore
   - natural:gore (20 creatures)
   - natural:brutal-gore ← Brutal Gore (1 creatures (Goristro))
   - natural:gore ← Gore (20 creatures (Boar, Brazen Gorgon, Elephant))
-  - natural:gore-boar-or-hybrid-form-only ← Gore  (Boar or Hybrid Form Only) (2 creatures (Wereboar))
 - **Gouge** [melee] → natural:gouge
   - natural:gouge (2 creatures)
   - natural:gouge ← Gouge (2 creatures (Giant Vulture))
-- **Grave Strike** [melee] → natural:grave-strike, natural:grave-strike-vampire-form-only
+- **Grave Strike** [melee] → natural:grave-strike
   - natural:grave-strike (2 creatures)
   - natural:grave-strike ← Grave Strike (2 creatures (Vampire Umbral Lord))
-  - natural:grave-strike-vampire-form-only ← Grave Strike (Vampire Form Only) (2 creatures (Vampire))
 - **Greataxe** [melee] → weapon:greataxe
-  - weapon:greataxe (the base weapons)
-  - weapon:greataxe ← Greataxe (the base weapons)
+  - weapon:greataxe (phb/equipment)
+  - weapon:greataxe ← Greataxe (phb/equipment)
 - **Greatclub** [melee] → weapon:greatclub, weapon:thunderous-greatclub
-  - weapon:greatclub (the base weapons)
-  - weapon:greatclub ← Greatclub (the base weapons)
+  - weapon:greatclub (phb/equipment)
+  - weapon:greatclub ← Greatclub (phb/equipment)
   - weapon:thunderous-greatclub ← Thunderous Greatclub (dmg/equipment)
 - **Greatsword** [melee] → weapon:greatsword
-  - weapon:greatsword (the base weapons)
-  - weapon:greatsword ← Greatsword (the base weapons)
+  - weapon:greatsword (phb/equipment)
+  - weapon:greatsword ← Greatsword (phb/equipment)
 - **Gythka** [melee] → natural:gythka
   - natural:gythka (1 creatures)
   - natural:gythka ← Gythka (1 creatures (Thri-kreen Marauder))
 - **Halberd** [melee] → weapon:halberd
-  - weapon:halberd (the base weapons)
-  - weapon:halberd ← Halberd (the base weapons)
-- **Hammer** [melee] → weapon:lighthammer, natural:burning-hammer, weapon:light-hammer
-  - weapon:lighthammer ← Light Hammer (the base weapons)
+  - weapon:halberd (phb/equipment)
+  - weapon:halberd ← Halberd (phb/equipment)
+- **Hammer** [melee] → natural:burning-hammer, weapon:light-hammer
   - natural:burning-hammer ← Burning Hammer (2 creatures (Azer Sentinel))
   - weapon:light-hammer ← Light Hammer (phb/equipment)
 - **Handaxe** [melee] → weapon:handaxe
-  - weapon:handaxe (the base weapons)
-  - weapon:handaxe ← Handaxe (the base weapons)
+  - weapon:handaxe (phb/equipment)
+  - weapon:handaxe ← Handaxe (phb/equipment)
 - **Harpoon** [melee] → natural:harpoon
   - natural:harpoon (2 creatures)
   - natural:harpoon ← Harpoon (2 creatures (Merrow))
@@ -365,38 +350,36 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Knife** [melee] → natural:sculpting-knife
   - natural:sculpting-knife ← Sculpting Knife (1 creatures (Waxwork))
 - **Lance** [melee] → weapon:lance, natural:psionic-lance
-  - weapon:lance (the base weapons)
-  - weapon:lance ← Lance (the base weapons)
+  - weapon:lance (phb/equipment)
   - natural:psionic-lance ← Psionic Lance (1 creatures (Thri-kreen Psion))
+  - weapon:lance ← Lance (phb/equipment)
 - **Lash** [melee] → natural:aquatic-lash, natural:caustic-lash, natural:tentacle-lash, natural:vine-lash
   - natural:aquatic-lash ← Aquatic Lash (1 creatures (Marid))
   - natural:caustic-lash ← Caustic Lash (1 creatures (Yochlol))
   - natural:tentacle-lash ← Tentacle Lash (2 creatures (Aberrant Cultist))
   - natural:vine-lash ← Vine Lash (2 creatures (Dryad))
 - **Longsword** [melee] → weapon:longsword
-  - weapon:longsword (the base weapons)
-  - weapon:longsword ← Longsword (the base weapons)
-- **Mace** [melee] → weapon:mace, natural:radiant-mace, natural:radiant-mace-defender-only, weapon:fiery-mace, weapon:holy-mace, weapon:thunderous-mace
-  - weapon:mace (the base weapons)
-  - weapon:mace ← Mace (the base weapons)
+  - weapon:longsword (phb/equipment)
+  - weapon:longsword ← Longsword (phb/equipment)
+- **Mace** [melee] → weapon:mace, natural:radiant-mace, weapon:fiery-mace, weapon:holy-mace, weapon:thunderous-mace
+  - weapon:mace (phb/equipment)
   - natural:radiant-mace ← Radiant Mace (1 creatures (Defender Spirit))
-  - natural:radiant-mace-defender-only ← Radiant Mace (Defender Only) (1 creatures (Celestial Spirit))
+  - weapon:mace ← Mace (phb/equipment)
   - weapon:fiery-mace ← Fiery Mace (mm/features)
   - weapon:holy-mace ← Holy Mace (mm/features)
   - weapon:thunderous-mace ← Thunderous Mace (mm/features)
 - **Maul** [melee] → weapon:maul, natural:earthen-maul
-  - weapon:maul (the base weapons)
-  - weapon:maul ← Maul (the base weapons)
+  - weapon:maul (phb/equipment)
   - natural:earthen-maul ← Earthen Maul (4 creatures (Dao, Lizardfolk Sovereign))
+  - weapon:maul ← Maul (phb/equipment)
 - **Morningstar** [melee] → weapon:morningstar
-  - weapon:morningstar (the base weapons)
-  - weapon:morningstar ← Morningstar (the base weapons)
-- **Pick** [melee] → weapon:warpick, weapon:war-pick
-  - weapon:warpick ← War Pick (the base weapons)
+  - weapon:morningstar (phb/equipment)
+  - weapon:morningstar ← Morningstar (phb/equipment)
+- **Pick** [melee] → weapon:war-pick
   - weapon:war-pick ← War Pick (phb/equipment)
 - **Pike** [melee] → weapon:pike
-  - weapon:pike (the base weapons)
-  - weapon:pike ← Pike (the base weapons)
+  - weapon:pike (phb/equipment)
+  - weapon:pike ← Pike (phb/equipment)
 - **Pincer** [melee] → natural:pincer
   - natural:pincer (6 creatures)
   - natural:pincer ← Pincer (6 creatures (Chuul, Glabrezu, Mi-Go))
@@ -405,8 +388,8 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:dissolving-pseudopod ← Dissolving Pseudopod (2 creatures (Black Pudding))
   - natural:pseudopod ← Pseudopod (12 creatures (Blob of Annihilation, Gelatinous Cube, Gray Ooze))
 - **Quarterstaff** [melee] → weapon:quarterstaff
-  - weapon:quarterstaff (the base weapons)
-  - weapon:quarterstaff ← Quarterstaff (the base weapons)
+  - weapon:quarterstaff (phb/equipment)
+  - weapon:quarterstaff ← Quarterstaff (phb/equipment)
 - **Rake** [melee] → natural:rake
   - natural:rake (2 creatures)
   - natural:rake ← Rake (2 creatures (Awakened Shrub))
@@ -416,42 +399,38 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:ram ← Ram (14 creatures (Chimera, Deer, Elk))
   - weapon:ram ← Ram (dmg/equipment)
 - **Rapier** [melee] → weapon:rapier, weapon:insectile-rapier
-  - weapon:rapier (the base weapons)
-  - weapon:rapier ← Rapier (the base weapons)
+  - weapon:rapier (phb/equipment)
+  - weapon:rapier ← Rapier (phb/equipment)
   - weapon:insectile-rapier ← Insectile Rapier (mm/features)
 - **Ravage** [melee] → natural:ravage
   - natural:ravage (1 creatures)
   - natural:ravage ← Ravage (1 creatures (Primeval Owlbear))
-- **Rend** [melee] → natural:rend, natural:rend-jackal-or-hybrid-form-only, natural:rend-bear-or-hybrid-form-only, natural:rend-dire-wolf-or-hybrid-form-only, natural:mind-rend
+- **Rend** [melee] → natural:rend, natural:mind-rend
   - natural:rend (130 creatures)
   - natural:rend ← Rend (130 creatures (Adult Black Dragon, Adult Blue Dragon, Adult Brass Dragon))
-  - natural:rend-jackal-or-hybrid-form-only ← Rend (Jackal or Hybrid Form Only) (1 creatures (Jackalwere))
-  - natural:rend-bear-or-hybrid-form-only ← Rend (Bear or Hybrid Form Only) (2 creatures (Werebear))
-  - natural:rend-dire-wolf-or-hybrid-form-only ← Rend (Dire Wolf or Hybrid Form Only) (1 creatures (Loup Garou))
   - natural:mind-rend ← Mind Rend (1 creatures (Mist Horror))
 - **Scimitar** [melee] → weapon:scimitar
-  - weapon:scimitar (the base weapons)
-  - weapon:scimitar ← Scimitar (the base weapons)
+  - weapon:scimitar (phb/equipment)
+  - weapon:scimitar ← Scimitar (phb/equipment)
 - **Scratch** [melee] → natural:scratch
   - natural:scratch (10 creatures)
   - natural:scratch ← Scratch (10 creatures (Cat, Wererat, Weretiger))
 - **Scythe** [melee] → natural:dread-scythe
   - natural:dread-scythe ← Dread Scythe (2 creatures (Death Cultist))
 - **Shortsword** [melee] → weapon:shortsword
-  - weapon:shortsword (the base weapons)
-  - weapon:shortsword ← Shortsword (the base weapons)
+  - weapon:shortsword (phb/equipment)
+  - weapon:shortsword ← Shortsword (phb/equipment)
 - **Sickle** [melee] → weapon:sickle, natural:ritual-sickle
-  - weapon:sickle (the base weapons)
-  - weapon:sickle ← Sickle (the base weapons)
+  - weapon:sickle (phb/equipment)
   - natural:ritual-sickle ← Ritual Sickle (2 creatures (Cultist))
-- **Slam** [melee] → natural:slam, natural:avalanche-slam, natural:object-slam, natural:rotting-slam, natural:thunderous-slam, natural:slam-human-or-hybrid-form-only
+  - weapon:sickle ← Sickle (phb/equipment)
+- **Slam** [melee] → natural:slam, natural:avalanche-slam, natural:object-slam, natural:rotting-slam, natural:thunderous-slam
   - natural:slam (48 creatures)
   - natural:avalanche-slam ← Avalanche Slam (2 creatures (Animated Boulder, Galeb Duhr))
   - natural:object-slam ← Object Slam (5 creatures (Haunting Revenant, Poltergeist, Wilfred Godefroy))
   - natural:rotting-slam ← Rotting Slam (2 creatures (Violet Fungus Necrohulk))
   - natural:slam ← Slam (48 creatures (Animated Armor, Animated Broom, Awakened Tree))
   - natural:thunderous-slam ← Thunderous Slam (2 creatures (Air Elemental))
-  - natural:slam-human-or-hybrid-form-only ← Slam (Human or Hybrid Form Only) (1 creatures (Jackalwere))
 - **Slash** [melee] → natural:slash, natural:darkflame-slash
   - natural:slash (2 creatures)
   - natural:slash ← Slash (2 creatures (Animated Flying Sword))
@@ -460,12 +439,12 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:snake-hair (2 creatures)
   - natural:snake-hair ← Snake Hair (2 creatures (Medusa))
 - **Spear** [melee] → weapon:spear, natural:clockwork-spear, natural:flame-spear, natural:ice-spear, natural:ocean-spear
-  - weapon:spear (the base weapons)
-  - weapon:spear ← Spear (the base weapons)
+  - weapon:spear (phb/equipment)
   - natural:clockwork-spear ← Clockwork Spear (1 creatures (Modron Tridrone))
   - natural:flame-spear ← Flame Spear (2 creatures (Salamander))
   - natural:ice-spear ← Ice Spear (2 creatures (Ice Devil))
   - natural:ocean-spear ← Ocean Spear (2 creatures (Merfolk Skirmisher))
+  - weapon:spear ← Spear (phb/equipment)
 - **Spike** [melee] → natural:tail-spike
   - natural:tail-spike ← Tail Spike (2 creatures (Manticore))
 - **Staff** [melee] → weapon:staff, natural:bog-staff, natural:chaos-staff, natural:pincer-staff, natural:vine-staff, weapon:wooden-staff, weapon:forest-staff, weapon:wind-staff, weapon:enspelled-staff
@@ -489,7 +468,7 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:stinger (1 creatures)
   - natural:tail-stinger ← Tail Stinger (2 creatures (Purple Worm))
   - natural:stinger ← Stinger (1 creatures (Carrion Stalker))
-- **Strike** [melee] → natural:unarmed-strike, natural:abyssal-strike, natural:beguiling-strike, natural:draconic-strike, natural:grave-strike, natural:otherworldly-strike, natural:psi-strike, natural:shadow-strike, natural:grave-strike-vampire-form-only, natural:beasts-strike, natural:fiery-strike, natural:fiery-strike-devil-only, natural:death-strike
+- **Strike** [melee] → natural:unarmed-strike, natural:abyssal-strike, natural:beguiling-strike, natural:draconic-strike, natural:grave-strike, natural:otherworldly-strike, natural:psi-strike, natural:shadow-strike, natural:beasts-strike, natural:fiery-strike, natural:fiery-strike-devil-only, natural:death-strike
   - natural:unarmed-strike ← Unarmed Strike (10 creatures (Barbarian, Monk, Merric))
   - natural:abyssal-strike ← Abyssal Strike (1 creatures (Gnoll Demoniac))
   - natural:beguiling-strike ← Beguiling Strike (1 creatures (Noble Prodigy))
@@ -498,7 +477,6 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:otherworldly-strike ← Otherworldly Strike (1 creatures (Empyrean Iota))
   - natural:psi-strike ← Psi Strike (2 creatures (Githzerai Monk, Githzerai Zerth))
   - natural:shadow-strike ← Shadow Strike (1 creatures (Vampire Nightbringer))
-  - natural:grave-strike-vampire-form-only ← Grave Strike (Vampire Form Only) (2 creatures (Vampire))
   - natural:beasts-strike ← Beast's Strike (3 creatures (Beast of the Land, Beast of the Sea, Beast of the Sky))
   - natural:fiery-strike ← Fiery Strike (1 creatures (Devil Spirit))
   - natural:fiery-strike-devil-only ← Fiery Strike (Devil Only) (1 creatures (Fiendish Spirit))
@@ -523,30 +501,27 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:talons ← Talons (16 creatures (Aarakocra Skirmisher, Cockatrice Regent, Eagle))
   - weapon:sylvan-talon ← Sylvan Talon (dmg/equipment)
 - **Trident** [melee] → weapon:trident, weapon:flame-trident, weapon:mercurial-trident
-  - weapon:trident (the base weapons)
-  - weapon:trident ← Trident (the base weapons)
+  - weapon:trident (phb/equipment)
+  - weapon:trident ← Trident (phb/equipment)
   - weapon:flame-trident ← Flame Trident (mm/features)
   - weapon:mercurial-trident ← Mercurial Trident (mm/features)
-- **Tusk** [melee] → natural:tusk, natural:tusk-boar-or-hybrid-form-only
+- **Tusk** [melee] → natural:tusk
   - natural:tusk (0 creatures)
   - natural:tusk ← Tusk (0 creatures ())
-  - natural:tusk-boar-or-hybrid-form-only ← Tusk (Boar or Hybrid Form Only) (2 creatures (Wereboar))
 - **Unarmed Strike** [melee] → natural:unarmed-strike
   - natural:unarmed-strike (10 creatures)
   - natural:unarmed-strike ← Unarmed Strike (10 creatures (Barbarian, Monk, Merric))
-- **War Pick** [melee] → weapon:warpick, weapon:war-pick
-  - weapon:warpick (the base weapons)
+- **War Pick** [melee] → weapon:war-pick
   - weapon:war-pick (phb/equipment)
-  - weapon:warpick ← War Pick (the base weapons)
   - weapon:war-pick ← War Pick (phb/equipment)
 - **Warhammer** [melee] → weapon:warhammer
-  - weapon:warhammer (the base weapons)
-  - weapon:warhammer ← Warhammer (the base weapons)
+  - weapon:warhammer (phb/equipment)
+  - weapon:warhammer ← Warhammer (phb/equipment)
 - **Whip** [melee] → weapon:whip, natural:bone-whip, natural:flame-whip, weapon:mercurial-whip
-  - weapon:whip (the base weapons)
-  - weapon:whip ← Whip (the base weapons)
+  - weapon:whip (phb/equipment)
   - natural:bone-whip ← Bone Whip (2 creatures (Gnoll Pack Lord, Kuo-toa Monitor))
   - natural:flame-whip ← Flame Whip (2 creatures (Balor))
+  - weapon:whip ← Whip (phb/equipment)
   - weapon:mercurial-whip ← Mercurial Whip (mm/features)
 - **Acid Arrow** [range] → spell:acid-arrow
   - spell:acid-arrow (dnd5e/spells24)
@@ -565,8 +540,8 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Beguiling Defenses** [range] → feature:beguiling-defenses
   - feature:beguiling-defenses (phb/classes)
 - **Blowgun** [range] → weapon:blowgun
-  - weapon:blowgun (the base weapons)
-  - weapon:blowgun ← Blowgun (the base weapons)
+  - weapon:blowgun (phb/equipment)
+  - weapon:blowgun ← Blowgun (phb/equipment)
 - **Bomb** [range] → item:bomb
   - item:bomb (dmg/equipment)
 - **Bone Bow** [range] → weapon:bone-bow
@@ -575,17 +550,16 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Boulder** [range] → natural:boulder
   - natural:boulder (2 creatures)
   - natural:boulder ← Boulder (2 creatures (Stone Giant))
-- **Bow** [range] → natural:enchanting-bow, natural:radiant-bow, natural:radiant-bow-avenger-only, weapon:bone-bow, weapon:great-bow, weapon:necrotic-bow, weapon:energy-bow
+- **Bow** [range] → natural:enchanting-bow, natural:radiant-bow, weapon:bone-bow, weapon:great-bow, weapon:necrotic-bow, weapon:energy-bow
   - natural:enchanting-bow ← Enchanting Bow (3 creatures (Sprite))
   - natural:radiant-bow ← Radiant Bow (1 creatures (Avenger Spirit))
-  - natural:radiant-bow-avenger-only ← Radiant Bow (Avenger Only) (1 creatures (Celestial Spirit))
   - weapon:bone-bow ← Bone Bow (mm/features)
   - weapon:great-bow ← Great Bow (mm/features)
   - weapon:necrotic-bow ← Necrotic Bow (mm/features)
   - weapon:energy-bow ← Energy Bow (dmg/equipment)
 - **Burnt Othur Fumes** [range] → item:burnt-othur-fumes
   - item:burnt-othur-fumes (dmg/equipment)
-- **Burst** [range] → natural:aquatic-burst, natural:arcane-burst, natural:earth-burst, natural:eldritch-burst, natural:elemental-burst, natural:fiendish-burst, natural:flame-burst, natural:necrotic-burst, natural:poison-burst, natural:radiant-burst, natural:thorn-burst, natural:poison-burst-yuan-ti-form-only, natural:negative-energy-burst, natural:disrupting-burst
+- **Burst** [range] → natural:aquatic-burst, natural:arcane-burst, natural:earth-burst, natural:eldritch-burst, natural:elemental-burst, natural:fiendish-burst, natural:flame-burst, natural:necrotic-burst, natural:poison-burst, natural:radiant-burst, natural:thorn-burst, natural:negative-energy-burst, natural:disrupting-burst
   - natural:aquatic-burst ← Aquatic Burst (1 creatures (Merfolk Wavebender))
   - natural:arcane-burst ← Arcane Burst (6 creatures (Archmage, Mage, Mage Apprentice))
   - natural:earth-burst ← Earth Burst (3 creatures (Dao, Lizardfolk Geomancer))
@@ -597,7 +571,6 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:poison-burst ← Poison Burst (2 creatures (Drider))
   - natural:radiant-burst ← Radiant Burst (3 creatures (Archpriest, Mist Wanderer))
   - natural:thorn-burst ← Thorn Burst (2 creatures (Dryad))
-  - natural:poison-burst-yuan-ti-form-only ← Poison Burst (Yuan-ti Form Only) (1 creatures (Yuan-ti Malison (Type 3)))
   - natural:negative-energy-burst ← Negative Energy Burst (1 creatures (Ankhtepot))
   - natural:disrupting-burst ← Disrupting Burst (1 creatures (Brain in a Jar))
 - **Chatkcha** [range] → natural:chatkcha
@@ -609,16 +582,13 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - feature:consume-life (mm/features)
 - **Cordon of Arrows** [range] → spell:cordon-of-arrows
   - spell:cordon-of-arrows (phb/spells)
-- **Crossbow** [range] → weapon:handcrossbow, weapon:heavycrossbow, weapon:lightcrossbow, weapon:hand-crossbow, weapon:heavy-crossbow, weapon:light-crossbow
-  - weapon:handcrossbow ← Hand Crossbow (the base weapons)
-  - weapon:heavycrossbow ← Heavy Crossbow (the base weapons)
-  - weapon:lightcrossbow ← Light Crossbow (the base weapons)
+- **Crossbow** [range] → weapon:hand-crossbow, weapon:heavy-crossbow, weapon:light-crossbow
   - weapon:hand-crossbow ← Hand Crossbow (phb/equipment)
   - weapon:heavy-crossbow ← Heavy Crossbow (phb/equipment)
   - weapon:light-crossbow ← Light Crossbow (phb/equipment)
 - **Dart** [range] → weapon:dart
-  - weapon:dart (the base weapons)
-  - weapon:dart ← Dart (the base weapons)
+  - weapon:dart (phb/equipment)
+  - weapon:dart ← Dart (phb/equipment)
 - **Devour Intellect** [range] → feature:devour-intellect
   - feature:devour-intellect (mm/features)
 - **Dominate Mind** [range] → feature:dominate-mind
@@ -646,9 +616,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Ice Knife** [range] → spell:ice-knife
   - spell:ice-knife (phb/spells)
 - **Javelin** [range] → weapon:javelin, natural:bone-javelin, weapon:wind-javelin
-  - weapon:javelin (the base weapons)
-  - weapon:javelin ← Javelin (the base weapons)
+  - weapon:javelin (phb/equipment)
   - natural:bone-javelin ← Bone Javelin (1 creatures (Gnoll Pack Lord))
+  - weapon:javelin ← Javelin (phb/equipment)
   - weapon:wind-javelin ← Wind Javelin (mm/features)
 - **Life Drain** [range] → feature:life-drain
   - feature:life-drain (mm/features)
@@ -656,8 +626,8 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:wax-lob ← Wax Lob (1 creatures (Waxwork))
   - weapon:trash-lob ← Trash Lob (mm/features)
 - **Longbow** [range] → weapon:longbow
-  - weapon:longbow (the base weapons)
-  - weapon:longbow ← Longbow (the base weapons)
+  - weapon:longbow (phb/equipment)
+  - weapon:longbow ← Longbow (phb/equipment)
 - **Malice** [range] → item:malice
   - item:malice (dmg/equipment)
 - **Maze** [range] → spell:maze
@@ -673,22 +643,21 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Mud Breath** [range] → feature:mud-breath
   - feature:mud-breath (mm/features)
 - **Musket** [range] → weapon:musket
-  - weapon:musket (the base weapons)
-  - weapon:musket ← Musket (the base weapons)
+  - weapon:musket (phb/equipment)
+  - weapon:musket ← Musket (phb/equipment)
 - **Needle** [range] → natural:silver-needle, weapon:needles
   - natural:silver-needle ← Silver Needle (1 creatures (Carrionette))
   - weapon:needles ← Needles (mm/features)
 - **Pistol** [range] → weapon:pistol, weapon:laser-pistol, weapon:semiautomatic-pistol
-  - weapon:pistol (the base weapons)
-  - weapon:pistol ← Pistol (the base weapons)
+  - weapon:pistol (phb/equipment)
+  - weapon:pistol ← Pistol (phb/equipment)
   - weapon:laser-pistol ← Laser Pistol (dmg/equipment)
   - weapon:semiautomatic-pistol ← Semiautomatic Pistol (dmg/equipment)
 - **Planar Binding** [range] → spell:planar-binding
   - spell:planar-binding (phb/spells)
-- **Poison Ray** [range] → natural:poison-ray, natural:poison-ray-yuan-ti-form-only
+- **Poison Ray** [range] → natural:poison-ray
   - natural:poison-ray (3 creatures)
   - natural:poison-ray ← Poison Ray (3 creatures (Medusa, Yuan-ti Infiltrator))
-  - natural:poison-ray-yuan-ti-form-only ← Poison Ray  (Yuan-ti Form Only) (2 creatures (Yuan-ti Malison (Type 1)))
 - **Poison Spray** [range] → spell:poison-spray, feature:poison-spray
   - spell:poison-spray (phb/spells)
   - feature:poison-spray (mm/features)
@@ -719,14 +688,14 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:rock-launch (2 creatures)
   - natural:rock-launch ← Rock Launch (2 creatures (Earth Elemental))
 - **Shortbow** [range] → weapon:shortbow
-  - weapon:shortbow (the base weapons)
-  - weapon:shortbow ← Shortbow (the base weapons)
+  - weapon:shortbow (phb/equipment)
+  - weapon:shortbow ← Shortbow (phb/equipment)
 - **Shotgun** [range] → weapon:shotgun
   - weapon:shotgun (dmg/equipment)
   - weapon:shotgun ← Shotgun (dmg/equipment)
 - **Sling** [range] → weapon:sling
-  - weapon:sling (the base weapons)
-  - weapon:sling ← Sling (the base weapons)
+  - weapon:sling (phb/equipment)
+  - weapon:sling ← Sling (phb/equipment)
 - **Sorcerous Burst** [range] → spell:sorcerous-burst
   - spell:sorcerous-burst (phb/spells)
 - **Stench Spray** [range] → feature:stench-spray
@@ -749,14 +718,14 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Web** [range] → spell:web, feature:web
   - spell:web (phb/spells)
   - feature:web (mm/features)
-- **First Light** [melee] → weapon:first-light
-  - weapon:first-light (the world (Hobgoblin Captain))
-  - weapon:first-light ← First Light (the world (Hobgoblin Captain))
-- **Goldthorn** [melee] → weapon:goldthorn
-  - weapon:goldthorn (the world (Jetten Elisedil))
-  - weapon:goldthorn ← Goldthorn (the world (Jetten Elisedil))
+- **First Light** [melee] → weapon:longsword
+  - weapon:longsword (the world (Hobgoblin Captain))
+  - weapon:longsword ← First Light (the world (Hobgoblin Captain))
+- **Goldthorn** [melee] → weapon:scimitar
+  - weapon:scimitar (the world (Jetten Elisedil))
+  - weapon:scimitar ← Goldthorn (the world (Jetten Elisedil))
 
-## Caught by a weapon word under AA, not carried (67 words)
+## Caught by a weapon word under AA, not carried (68 words)
 
 Automated Animations' weapon and creature-attack rows matched their word inside any name — a feat, a wand, a spell. Those catches are accidents of the word and are not carried: a weapon fx never answers a spell, a feature or an item. Each is one house fx away if it was wanted ("like the Burst fx, for feature:spellfire-burst").
 
@@ -764,7 +733,7 @@ Automated Animations' weapon and creature-attack rows matched their word inside 
 - **Chain** [melee]: Chain [consumable] on Mother Wend
 - **Claw** [melee]: Claw [weapon] on Ettercap — this world's own; Claw [weapon] on Twig Blight — this world's own; Claw [weapon] on Hazel — this world's own; Claw [weapon] on Mabel — this world's own; Claw [weapon] on Ettercap Broodmother — this world's own; Claw [weapon] on Ettercap Broodling — this world's own
 - **Club** [melee]: Club [weapon] on Rurik Dunn — this world's own; Club [weapon] on Brother Aldous — this world's own; Club [weapon] on Garrison 08 — this world's own; Club [weapon] on Garrison 04 — this world's own; Club [weapon] on Villager 04 — this world's own; Club [weapon] on Tam Harrow — this world's own; Club [weapon] on Rue — this world's own; Club [weapon] on Tessa the Drummer — this world's own; Club [weapon] on Militia 04 — this world's own; Club [weapon] on Pip — this world's own; Club [weapon] on Ellie the Waitress — this world's own; Club [weapon] on Garrison 03 — this world's own; Club [weapon] on Lord Hargrove — this world's own; Club [weapon] on Garvin the Merchant — this world's own; Club [weapon] on Gorm Alder — this world's own; Club [weapon] on Villager 05 — this world's own; Club [weapon] on Dellan the Bartender — this world's own; Club [weapon] on Warden Brill — this world's own; Club [weapon] on Harrow Child (Boy) — this world's own; Club [weapon] on Nell Alder — this world's own; Club [weapon] on Mother Wend — this world's own; Club [weapon] on Maddoc the Seer — this world's own; Club [weapon] on Ambrose Featherstone — this world's own; Club [weapon] on Pib — this world's own; Club [weapon] on Garrison 07 — this world's own; Club [weapon] on Harrow Child (Girl) — this world's own; Club [weapon] on Brother Tobin — this world's own; Club [weapon] on Nessa the Waitress — this world's own; Club [weapon] on Greenrest Militia — Spearman — this world's own; Club [weapon] on Dame Ryla — this world's own; Club [weapon] on Militia 01 — this world's own; Club [weapon] on Denby Cobble — this world's own; Club [weapon] on Mother Ziska — this world's own; Club [weapon] on Osric the Bartender — this world's own; Club [weapon] on Marisel — this world's own; Club [weapon] on Inn Hand 02 — this world's own; Club [weapon] on Masie — this world's own; Club [weapon] on Petra the Merchant — this world's own; Club [weapon] on Garrison 05 — this world's own; Club [weapon] on Selise the Courtesan — this world's own; Club [weapon] on Garrison 01 — this world's own; Club [weapon] on Villager 08 — this world's own; Club [weapon] on Torvald the Sellsword — this world's own; Club [weapon] on Old Crake — this world's own; Club [weapon] on Corwin Vale — this world's own; Club [weapon] on Villager 06 — this world's own; Club [weapon] on Villager 07 — this world's own; Club [weapon] on Garrison 11 — this world's own; Club [weapon] on Fenwick the List-Keeper — this world's own; Club [weapon] on Granny Fell — this world's own; Club [weapon] on Merek — this world's own; Club [weapon] on Edrin the Scholar — this world's own; Club [weapon] on Mayor Oswin Applewhite — this world's own; Club [weapon] on Durgan — this world's own; Club [weapon] on Worshipper 02 — this world's own; Club [weapon] on Garrison 10 — this world's own; Club [weapon] on Goody Till — this world's own; Club [weapon] on Constable Warin Holt — this world's own; Club [weapon] on Villager 02 — this world's own; Club [weapon] on Selma — this world's own; Club [weapon] on Inn Hand 01 — this world's own; Club [weapon] on Ordella Vance — this world's own; Club [weapon] on Militia 02 — this world's own; Club [weapon] on Worshipper 01 — this world's own; Club [weapon] on Fern the Druidling — this world's own; Club [weapon] on Militia 03 — this world's own; Club [weapon] on Garrison 09 — this world's own; Club [weapon] on Acolyte Enid — this world's own; Club [weapon] on Josk — this world's own; Club [weapon] on Sister Wynn — this world's own; Club [weapon] on Faelar the Sorcerer — this world's own; Club [weapon] on Tibby — this world's own; Club [weapon] on Garrison 02 — this world's own; Club [weapon] on Lyra the Musician — this world's own; Club [weapon] on Hensel — this world's own; Club [weapon] on Villager 01 — this world's own; Club [weapon] on Greenrest Militia — Archer — this world's own; Club [weapon] on Sergeant Dunmar — this world's own; Club [weapon] on Villager 03 — this world's own; Club [weapon] on Garrison 06 — this world's own; Club [weapon] on Coll — this world's own; Club [weapon] on Oswin's Butler — this world's own; Club [weapon] on Weslo Crane — this world's own; Club [weapon] on Old Bramwell — this world's own; Club [weapon] on Halgar Vos — this world's own; Club [weapon] on Wick — this world's own
-- **Dagger** [melee]: Dagger [weapon] on Gren Greenmantle — this world's own; Dagger [weapon] on Mother Wend — this world's own; Dagger [weapon] on Salyth — this world's own; Dagger [weapon] on Corpse — this world's own; Dagger [weapon] on BF Test Bard — this world's own; Dagger [weapon] on BF Test Shielder — this world's own; Dagger [weapon] on Dead Traveler — this world's own; +1 Dagger [weapon] on Jetten Elisedil — this world's own; Dagger [weapon] on Jetten Elisedil — this world's own; Cloud of Daggers [spell] (phb/spells)
+- **Dagger** [melee]: Dagger [weapon] on Gren Greenmantle — this world's own; Dagger [weapon] on Mother Wend — this world's own; Dagger [weapon] on Salyth — this world's own; Dagger [weapon] on Corpse — this world's own; Dagger [weapon] on BF Test Sorcerer — this world's own; Dagger [weapon] on BF Test Bard — this world's own; Dagger [weapon] on BF Test Shielder — this world's own; Dagger [weapon] on Dead Traveler — this world's own; Dagger [weapon] on Rogue — this world's own; +1 Dagger [weapon] on Jetten Elisedil — this world's own; Dagger [weapon] on Jetten Elisedil — this world's own; Cloud of Daggers [spell] (phb/spells)
 - **Flail** [melee]: Flail [weapon] on Mother Wend — this world's own
 - **Glaive** [melee]: Glaive [weapon] on Mother Wend — this world's own
 - **Gore** [melee]: Gore [weapon] on Peryton — this world's own; Gore [weapon] on Longshadow — this world's own
@@ -777,7 +746,7 @@ Automated Animations' weapon and creature-attack rows matched their word inside 
 - **Horn** [melee]: Horn [tool] on Mother Wend
 - **Knife** [melee]: Ice Knife [spell] on Skeletal Mage; Ice Knife [spell] (phb/spells)
 - **Lance** [melee]: Lance [weapon] on Mother Wend — this world's own; Laeral's Silver Lance [spell] (faerun/options)
-- **Longsword** [melee]: Longsword [weapon] on BF Test PC Attacker — this world's own; Longsword [weapon] on BF Test Attacker — this world's own; Longsword [weapon] on BF Test Victim — this world's own; Longsword [weapon] on Mother Wend — this world's own; Longsword [weapon] on BF Test Paladin — this world's own; Longsword [weapon] on BF Test Rogue — this world's own; Longsword [weapon] on Hobgoblin Archer — this world's own; Longsword [weapon] on Hobgoblin Warrior — this world's own; Longsword [weapon] on Sharran Enforcer — this world's own; Longsword [weapon] on BF Test Ranger — this world's own
+- **Longsword** [melee]: Longsword [weapon] on BF Test PC Attacker — this world's own; Longsword [weapon] on BF Test Attacker — this world's own; Longsword [weapon] on BF Test Victim — this world's own; Longsword [weapon] on Mother Wend — this world's own; Longsword [weapon] on BF Test Paladin — this world's own; Longsword [weapon] on BF Test Rogue — this world's own; Longsword [weapon] on Hobgoblin Archer — this world's own; Longsword [weapon] on Hobgoblin Warrior — this world's own; Longsword [weapon] on Sharran Enforcer — this world's own; Longsword [weapon] on BF Test Fighter — this world's own; Longsword [weapon] on BF Test Ranger — this world's own
 - **Mace** [melee]: Mace [weapon] on Sharran Acolyte — this world's own; Mace [weapon] on Mother Wend — this world's own; Mace [weapon] on BF Test Cleric — this world's own
 - **Maul** [melee]: Maul [weapon] on Mother Wend — this world's own
 - **Morningstar** [melee]: Morningstar [weapon] on Mother Wend — this world's own
@@ -785,19 +754,19 @@ Automated Animations' weapon and creature-attack rows matched their word inside 
 - **Pike** [melee]: Pike [weapon] on Morgash the Gravemaker — this world's own; Pike [weapon] on Mother Wend — this world's own; Pike [weapon] on BF Test Fighter — this world's own
 - **Quarterstaff** [melee]: Quarterstaff [weapon] on Mother Wend — this world's own
 - **Rapier** [melee]: Insectile Rapier [weapon] on Enthralled Bullywug Warrior — this world's own; Rapier [weapon] on Mother Wend — this world's own; Rapier [weapon] on BF Test Rogue — this world's own
-- **Rend** [melee]: Rend [weapon] on Alpha Displacer Beast — this world's own; Rend [weapon] on Displacer Beast — this world's own
+- **Rend** [melee]: Rend [weapon] on Alpha Displacer Beast — this world's own; Rend [weapon] on Displacer Beast — this world's own; Rend [weapon] on Adult Green Dragon — this world's own
 - **Scimitar** [melee]: Scimitar [weapon] on Mother Wend — this world's own; Scimitar [weapon] on Jetten Elisedil — this world's own
 - **Scratch** [melee]: Scratch [weapon] on Sleeping Cat — this world's own
 - **Scythe** [melee]: Necrotic Scythe [weapon] on Cadoc, the Guardian — this world's own
 - **Shield** [melee]: Shield [spell] on Gren Greenmantle; Shield [equipment] on BF Test Attacker; Shield [equipment] on BF Test Victim; Shield [equipment] on Mother Wend; Sentinel Shield [equipment] on Mother Wend; Shield [spell] on Skeletal Mage; Shield [equipment] on Hobgoblin Warrior; Shield [equipment] on Sharran Enforcer; +1 Shield [equipment] on Thomas A. Invictus; Shield [spell] on BF Test Shielder; Fire Shield [spell] (phb/spells); Cacophonic Shield [spell] (faerun/options)
-- **Shortsword** [melee]: Shortsword [weapon] on Skeleton 1 — this world's own; Shortsword [weapon] on Skeleton 4 — this world's own; Shortsword [weapon] on Mother Wend — this world's own; Sera's Shortsword [weapon] on Mother Wend — this world's own; Shortsword [weapon] on Skeletal Mage — this world's own; Shortsword [weapon] on Skeleton 5 — this world's own; Shortsword [weapon] on Skeletal Archer — this world's own; Shortsword [weapon] on Skeleton 3 — this world's own; Shortsword [weapon] on Jetten Elisedil — this world's own
+- **Shortsword** [melee]: Shortsword [weapon] on Skeleton 1 — this world's own; Shortsword [weapon] on Skeleton 4 — this world's own; Shortsword [weapon] on Mother Wend — this world's own; Sera's Shortsword [weapon] on Mother Wend — this world's own; Shortsword [weapon] on Skeletal Mage — this world's own; Shortsword [weapon] on Skeleton 5 — this world's own; Shortsword [weapon] on Skeletal Archer — this world's own; Shortsword [weapon] on Skeleton 3 — this world's own; Shortsword [weapon] on Rogue — this world's own; Shortsword [weapon] on Jetten Elisedil — this world's own
 - **Sickle** [melee]: Sickle [weapon] on Mother Wend — this world's own
 - **Slam** [melee]: Slam [weapon] on Zombie 6 — this world's own; Slam [weapon] on Animated Armor — this world's own; Slam [weapon] on Zombie 1 — this world's own; Slam [weapon] on Zombie 4 — this world's own; Slam [weapon] on Zombie 2 — this world's own; Slam [weapon] on Zombie 3 — this world's own; Slam [weapon] on Animated Broom — this world's own; Slam [weapon] on Zombie 5 — this world's own
 - **Slash** [melee]: Slash [weapon] on Animated Flying Sword — this world's own
 - **Spear** [melee]: Spear [weapon] on Gren Greenmantle — this world's own; Spear [weapon] on Mother Wend — this world's own; Spear [weapon] on BF Test Shielder — this world's own
-- **Spike** [melee]: Mind Spike [spell] (phb/spells)
+- **Spike** [melee]: Mind Spike [spell] on Adult Green Dragon; Mind Spike [spell] (phb/spells)
 - **Staff** [melee]: Bog Staff [weapon] on Gren Greenmantle — this world's own; Vesper Staff [weapon] on Harrow Vane — this world's own; Vine Staff [weapon] on Hobgoblin Shaman — this world's own; Staff [weapon] on Mother Wend — this world's own; Wooden staff [weapon] on Mother Wend — this world's own; Bog Staff [weapon] on Enthralled Bullywug Bog Sage — this world's own; Bog Staff [weapon] on BF Test Shielder — this world's own
-- **Strike** [melee]: Flame Strike [spell] on Harrow Vane; True Strike [spell] on Sharran Acolyte; Cunning Strike [feat] on BF Test Rogue; Devious Strikes [feat] on BF Test Rogue; Improved Cunning Strike [feat] on BF Test Rogue; Ensnaring Strike [spell] (phb/spells); Flame Strike [spell] (phb/spells); Steel Wind Strike [spell] (phb/spells); True Strike [spell] (phb/spells)
+- **Strike** [melee]: Flame Strike [spell] on Harrow Vane; True Strike [spell] on Sharran Acolyte; Cunning Strike [feat] on BF Test Rogue; Devious Strikes [feat] on BF Test Rogue; Improved Cunning Strike [feat] on BF Test Rogue; Cunning Strike [feat] on Rogue; Ensnaring Strike [spell] (phb/spells); Flame Strike [spell] (phb/spells); Steel Wind Strike [spell] (phb/spells); True Strike [spell] (phb/spells)
 - **Sword** [melee]: Necrotic Sword [weapon] on Aldous — this world's own; Necrotic Sword [weapon] on Osric, the Keeper — this world's own; Necrotic Sword [weapon] on Wight — this world's own; Necrotic Sword [weapon] on The Party — this world's own; Necrotic Sword [weapon] on Edda — this world's own; Necrotic Sword [weapon] on Hesper, the Mortician — this world's own; Mordenkainen's Sword [spell] (phb/spells); Arcane Sword [spell] (dnd5e/spells24)
 - **Talon** [melee]: Talons [weapon] on Peryton — this world's own; Talons [weapon] on Longshadow — this world's own
 - **Trident** [melee]: Trident [weapon] on Mother Wend — this world's own
@@ -816,11 +785,12 @@ Automated Animations' weapon and creature-attack rows matched their word inside 
 - **Life Drain** [range]: Life Drain [feat] on Aldous; Life Drain [feat] on Osric, the Keeper; Life Drain [feat] on Wight; Life Drain [feat] on Cadoc, the Guardian; Life Drain [feat] on Edda; Life Drain [feat] on Hesper, the Mortician
 - **Longbow** [range]: Longbow [weapon] on BF Test Attacker — this world's own; Longbow [weapon] on BF Test Victim — this world's own; Longbow [weapon] on Mother Wend — this world's own; Longbow [weapon] on Hobgoblin Archer — this world's own; Longbow [weapon] on Hobgoblin Warrior — this world's own; Sera's Longbow [weapon] on Selma — this world's own; Longbow [weapon] on BF Test Ranger — this world's own; Longbow [weapon] on Jetten Elisedil — this world's own
 - **Mind Sliver** [range]: Mind Sliver [spell] on Gren Greenmantle; Mind Sliver [spell] on BF Test Shielder
+- **Mind Spike** [range]: Mind Spike [spell] on Adult Green Dragon
 - **Missile** [range]: Magic Missile [spell] on Gren Greenmantle; Wand of Magic Missiles [equipment] on Gren Greenmantle; Magic Missile [spell] on Skeletal Mage; Magic Missile [spell] on BF Test Shielder; Wand of Magic Missiles [equipment] on BF Test Shielder; Magic Missile [spell] (phb/spells)
 - **Modify Memory** [range]: Modify Memory [spell] on Harrow Vane
 - **Needle** [range]: Needles [consumable] on Mother Wend
 - **Ray of Enfeeblement** [range]: Ray of Enfeeblement [spell] on Salyth; Ray of Enfeeblement [spell] on BF Test Bard
-- **Shortbow** [range]: Shortbow [weapon] on Skeleton 1 — this world's own; Shortbow [weapon] on Skeleton 4 — this world's own; Shortbow [weapon] on Mother Wend — this world's own; Shortbow [weapon] on BF Test Rogue — this world's own; Shortbow [weapon] on Skeletal Mage — this world's own; Shortbow [weapon] on Skeleton 5 — this world's own; Shortbow [weapon] on Skeletal Archer — this world's own; Shortbow [weapon] on Skeleton 3 — this world's own
+- **Shortbow** [range]: Shortbow [weapon] on Skeleton 1 — this world's own; Shortbow [weapon] on Skeleton 4 — this world's own; Shortbow [weapon] on Mother Wend — this world's own; Shortbow [weapon] on BF Test Rogue — this world's own; Shortbow [weapon] on Skeletal Mage — this world's own; Shortbow [weapon] on Skeleton 5 — this world's own; Shortbow [weapon] on Skeletal Archer — this world's own; Shortbow [weapon] on Skeleton 3 — this world's own; Shortbow [weapon] on Rogue — this world's own
 - **Sling** [range]: Bullets, Sling [consumable] on Mother Wend; Sling [weapon] on Mother Wend — this world's own
 - **Sorcerous Burst** [range]: Sorcerous Burst [spell] on Gren Greenmantle; Sorcerous Burst [spell] on BF Test Shielder
 - **Surge** [range]: Action Surge [feat] on Morgash the Gravemaker; Action Surge [feat] on BF Test Fighter
@@ -1228,7 +1198,7 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Wreathed in Moonlight | aefx |
 | Yolande's Regal Presence: Prone | aefx |
 
-## EXCEPTION · keys a row lost to an earlier one, NOT carried (72)
+## EXCEPTION · keys a row lost to an earlier one, NOT carried (70)
 
 One FX answers one key. Where two rows both earned the same key, Automated Animations' own precedence keeps it — its exact-match rows first, then its menu order — which is what answered at the table under AA. The losing row's FX for THAT key is not written; where the row earned other keys, those are.
 
@@ -1236,10 +1206,8 @@ One FX answers one key. Where two rows both earned the same key, Automated Anima
 | --- | --- | --- |
 | `weapon:shadow-blade` | Shadow Blade [ontoken] → shadow-blade | Blade [melee] |
 | `natural:grave-strike` | Grave Strike [melee] → grave-strike | Strike [melee] |
-| `natural:grave-strike-vampire-form-only` | Grave Strike [melee] → grave-strike-vampire-form-only | Strike [melee] |
 | `natural:arcane-sword` | Arcane Sword [melee] → arcane-sword | Sword [melee] |
 | `natural:unarmed-strike` | Strike [melee] → unarmed-strike | Unarmed Strike [melee] |
-| `weapon:warpick` | Pick [melee] → warpick | War Pick [melee] |
 | `weapon:war-pick` | Pick [melee] → war-pick | War Pick [melee] |
 | `natural:bone-whip` | Bone Whip [melee] → bone-whip | Whip [melee] |
 | `weapon:bone-bow` | Bone Bow [range] → bone-bow | Bow [range] |
@@ -1332,71 +1300,91 @@ These play through AA's own metadata because the libraries' own registration hol
 
 Every ability on the world's actors, keyed by identity and resolved against the new corpus, beside what Automated Animations' name search answered.
 
-### A different fx now (25)
+### A different fx now (42)
 
-- Enthralled Bullywug Warrior (npc) / Insectile Rapier [weapon] · keys weapon:insectile-rapier/attack, weapon:insectile-rapier, weapon:rapier/attack, weapon:rapier · was Rapier [melee] · now insectile-rapier (weapon:insectile-rapier)
-- Gren Greenmantle (character) / Bog Staff [weapon] · keys natural:bog-staff/attack, natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
-- Harrow Vane (npc) / Vesper Staff [weapon] · keys weapon:vesper-staff/attack, weapon:vesper-staff, weapon:quarterstaff/attack, weapon:quarterstaff · was Staff [melee] · now quarterstaff (weapon:quarterstaff)
-- Hobgoblin Shaman (npc) / Vine Staff [weapon] · keys natural:vine-staff/attack, natural:vine-staff · was Staff [melee] · now vine-staff (natural:vine-staff)
-- Aldous (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Aldous (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
-- Osric, the Keeper (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Osric, the Keeper (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
-- Mother Wend (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow/attack, weapon:heavy-crossbow, weapon:heavycrossbow/attack, weapon:heavycrossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
-- Mother Wend (npc) / Wooden staff [weapon] · keys weapon:wooden-staff/attack, weapon:wooden-staff, weapon:quarterstaff/attack, weapon:quarterstaff · was Staff [melee] · now wooden-staff (weapon:wooden-staff)
-- Mother Wend (npc) / Light Crossbow [weapon] · keys weapon:light-crossbow/attack, weapon:light-crossbow, weapon:lightcrossbow/attack, weapon:lightcrossbow · was Crossbow [range] · now light-crossbow (weapon:light-crossbow)
-- Mother Wend (npc) / Hand Crossbow [weapon] · keys weapon:hand-crossbow/attack, weapon:hand-crossbow, weapon:handcrossbow/attack, weapon:handcrossbow · was Crossbow [range] · now hand-crossbow (weapon:hand-crossbow)
-- Mother Wend (npc) / Marn's Light Crossbow [weapon] · keys weapon:marns-light-crossbow/attack, weapon:marns-light-crossbow, weapon:lightcrossbow/attack, weapon:lightcrossbow · was Crossbow [range] · now lightcrossbow (weapon:lightcrossbow)
-- Mother Wend (npc) / Light Hammer [weapon] · keys weapon:light-hammer/attack, weapon:light-hammer, weapon:lighthammer/attack, weapon:lighthammer · was Hammer [melee] · now light-hammer (weapon:light-hammer)
-- Wight (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Wight (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
-- Sharran Enforcer (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow/attack, weapon:heavy-crossbow, weapon:heavycrossbow/attack, weapon:heavycrossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
-- Enthralled Bullywug Bog Sage (npc) / Bog Staff [weapon] · keys natural:bog-staff/attack, natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
-- The Party (group) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
-- BF Test Shielder (character) / Bog Staff [weapon] · keys natural:bog-staff/attack, natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
-- Cadoc, the Guardian (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Edda (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Edda (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
-- Hesper, the Mortician (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow/attack, weapon:necrotic-bow, weapon:longbow/attack, weapon:longbow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Hesper, the Mortician (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword/attack, natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Enthralled Bullywug Warrior (npc) / Insectile Rapier [weapon] · keys weapon:insectile-rapier · was Rapier [melee] · now insectile-rapier (weapon:insectile-rapier)
+- Gren Greenmantle (character) / Bog Staff [weapon] · keys natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
+- Harrow Vane (npc) / Necrotic Burst [weapon] · keys natural:radiant-burst · was Necrotic Burst [range] · now radiant-burst (natural:radiant-burst)
+- Hobgoblin Shaman (npc) / Vine Staff [weapon] · keys natural:vine-staff · was Staff [melee] · now vine-staff (natural:vine-staff)
+- Morgash the Gravemaker (character) / Potion of Healing (Greater) [consumable] · keys item:greater-potion-of-healing · was Potion of Healing [ontoken] · now greater-potion-of-healing (item:greater-potion-of-healing)
+- Aldous (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Aldous (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Osric, the Keeper (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Osric, the Keeper (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- BF Test PC Attacker (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- BF Test Attacker (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- BF Test Victim (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- Mother Wend (npc) / Scimitar [weapon] · keys weapon:scimitar · was Scimitar [melee] · now goldthorn-jetten-elisedil (weapon:scimitar)
+- Mother Wend (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
+- Mother Wend (npc) / Wooden staff [weapon] · keys weapon:wooden-staff · was Staff [melee] · now wooden-staff (weapon:wooden-staff)
+- Mother Wend (npc) / Light Crossbow [weapon] · keys weapon:light-crossbow · was Crossbow [range] · now light-crossbow (weapon:light-crossbow)
+- Mother Wend (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- Mother Wend (npc) / Marn's Light Crossbow [weapon] · keys weapon:light-crossbow · was Crossbow [range] · now light-crossbow (weapon:light-crossbow)
+- Mother Wend (npc) / Light Hammer [weapon] · keys weapon:light-hammer · was Hammer [melee] · now light-hammer (weapon:light-hammer)
+- BF Test Paladin (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- BF Test Rogue (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- Hobgoblin Archer (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- Hobgoblin Warrior (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- Wight (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Wight (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Sharran Enforcer (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
+- Sharran Enforcer (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- BF Test Fighter (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- BF Test Fighter (character) / Potion of Healing (Greater) [consumable] · keys item:greater-potion-of-healing · was Potion of Healing [ontoken] · now greater-potion-of-healing (item:greater-potion-of-healing)
+- Enthralled Bullywug Bog Sage (npc) / Bog Staff [weapon] · keys natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
+- Selma (npc) / Potion of Healing (Superior) [consumable] · keys item:superior-potion-of-healing · was Potion of Healing [ontoken] · now superior-potion-of-healing (item:superior-potion-of-healing)
+- Selma (npc) / Potion of Healing (Greater) [consumable] · keys item:greater-potion-of-healing · was Potion of Healing [ontoken] · now greater-potion-of-healing (item:greater-potion-of-healing)
+- The Party (group) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- BF Test Shielder (character) / Bog Staff [weapon] · keys natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
+- Cadoc, the Guardian (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Cadoc, the Guardian (npc) / Necrotic Scythe [weapon] · keys natural:necrotic-sword · was Scythe [melee] · now necrotic-sword (natural:necrotic-sword)
+- Edda (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Edda (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- Hesper, the Mortician (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
+- Hesper, the Mortician (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
+- BF Test Ranger (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
+- Jetten Elisedil (character) / Scimitar [weapon] · keys weapon:scimitar · was Scimitar [melee] · now goldthorn-jetten-elisedil (weapon:scimitar)
 
 ### Play now, played nothing under AA (2)
 
-- Morgash the Gravemaker (character) / Maul of Momentum [weapon] · keys weapon:maul-of-momentum/attack, weapon:maul-of-momentum, weapon:maul/attack, weapon:maul · was nothing · now maul (weapon:maul)
-- BF Test Fighter (character) / Maul of Momentum [weapon] · keys weapon:maul-of-momentum/attack, weapon:maul-of-momentum, weapon:maul/attack, weapon:maul · was nothing · now maul (weapon:maul)
+- Morgash the Gravemaker (character) / Maul of Momentum [weapon] · keys weapon:maul · was nothing · now maul (weapon:maul)
+- BF Test Fighter (character) / Maul of Momentum [weapon] · keys weapon:maul · was nothing · now maul (weapon:maul)
 
 ### Play nothing now, played under AA (10)
 
-- Gren Greenmantle (character) / Spellfire Burst [feat] · keys feature:spellfire-burst/heal, feature:spellfire-burst · was Burst [range] · now nothing
-- Gren Greenmantle (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles/cast, item:wand-of-magic-missiles · was Missile [range] · now nothing
-- Gren Greenmantle (character) / Shield [spell] · keys spell:shield/utility, spell:shield · was Shield [melee] · now nothing
-- Mother Wend (npc) / Horn [tool] · keys item:horn/check, item:horn · was Horn [melee] · now nothing
-- Mother Wend (npc) / Chain [consumable] · keys item:chain/check, item:chain · was Chain [melee] · now nothing
-- Skeletal Mage (npc) / Shield [spell] · keys spell:shield/utility, spell:shield · was Shield [melee] · now nothing
-- BF Test Shielder (character) / Spellfire Burst [feat] · keys feature:spellfire-burst/heal, feature:spellfire-burst · was Burst [range] · now nothing
-- BF Test Shielder (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles/cast, item:wand-of-magic-missiles · was Missile [range] · now nothing
-- BF Test Shielder (character) / Shield [spell] · keys spell:shield/utility, spell:shield · was Shield [melee] · now nothing
-- Cadoc, the Guardian (npc) / Necrotic Scythe [weapon] · keys natural:necrotic-scythe/attack, natural:necrotic-scythe · was Scythe [melee] · now nothing
+- Gren Greenmantle (character) / Spellfire Burst [feat] · keys feature:spellfire-burst · was Burst [range] · now nothing
+- Gren Greenmantle (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles · was Missile [range] · now nothing
+- Gren Greenmantle (character) / Shield [spell] · keys spell:shield · was Shield [melee] · now nothing
+- Harrow Vane (npc) / Vesper Staff [weapon] · keys weapon:vesper-staff · was Staff [melee] · now nothing
+- Mother Wend (npc) / Horn [tool] · keys item:horn · was Horn [melee] · now nothing
+- Mother Wend (npc) / Chain [consumable] · keys item:chain · was Chain [melee] · now nothing
+- Skeletal Mage (npc) / Shield [spell] · keys spell:shield · was Shield [melee] · now nothing
+- BF Test Shielder (character) / Spellfire Burst [feat] · keys feature:spellfire-burst · was Burst [range] · now nothing
+- BF Test Shielder (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles · was Missile [range] · now nothing
+- BF Test Shielder (character) / Shield [spell] · keys spell:shield · was Shield [melee] · now nothing
 
 ### NPC attacks
 
-202 attack weapons on the world's NPCs: 157 answered by the weapon's own name, 4 by its base weapon, 35 as a natural attack, 6 nothing.
+204 attack weapons on the world's NPCs: 160 answered by the weapon's own name, 0 by its base weapon, 37 as a natural attack, 7 nothing.
 
-- by base weapon, e.g. Vesper Staff → weapon:quarterstaff; Sera's Shortsword → weapon:shortsword; Marn's Light Crossbow → weapon:lightcrossbow; Sera's Longbow → weapon:longbow
-- as a natural attack, e.g. Claw → natural:claw; Bite → natural:bite; Necrotic Burst → natural:necrotic-burst; Vine Staff → natural:vine-staff; Slam → natural:slam; Necrotic Sword → natural:necrotic-sword; Claw → natural:claw; Necrotic Sword → natural:necrotic-sword; Gore → natural:gore; Talons → natural:talons
-- nothing: Battleaxe; Smother; Necrotic Scythe; Constricting Vine
+- as a natural attack, e.g. Claw → natural:claw; Bite → natural:bite; Necrotic Burst → natural:radiant-burst; Vine Staff → natural:vine-staff; Slam → natural:slam; Necrotic Sword → natural:necrotic-sword; Claw → natural:claw; Necrotic Sword → natural:necrotic-sword; Gore → natural:gore; Talons → natural:talons
+- nothing: Vesper Staff; Battleaxe; Smother (Copy); Smother; Constricting Vine
 
 ### Nothing plays yet — the party's sheets
 
-- **Gren Greenmantle** (37 of 57 play; 20 nothing): Spellfire Burst [feat]; Driftglobe [equipment]; Wand of the War Mage +1 [equipment]; Torch [consumable]; Fey-Touched [feat]; Candle [consumable]; Tinderbox [equipment]; Manacles [consumable]; Aura of Vitality [spell]; Oil [consumable]; Wand of Magic Missiles [equipment]; Subtle Spell [feat]; Three-dragon ante [tool]; Magic Initiate [feat]; Pearl of Power [equipment]; Shield [spell]; Rope [consumable]; Antitoxin [consumable]; Lesser Restoration [spell]; Careful Spell [feat]
+- **Gren Greenmantle** (40 of 69 play; 29 nothing): Spellfire Burst [feat]; Driftglobe [equipment]; Wand of the War Mage +1 [equipment]; Torch [consumable]; Fey-Touched [feat]; Candle [consumable]; Extended Spell [feat]; Quickened Spell [feat]; Tinderbox [equipment]; Manacles [consumable]; Aura of Vitality [spell]; Oil [consumable]; Fey-Touched (Copy) [feat]; Transmuted Spell [feat]; Wand of Magic Missiles [equipment]; Heightened Spell [feat]; Subtle Spell [feat]; Three-dragon ante [tool]; Magic Initiate [feat]; Pearl of Power [equipment]; Shield [spell]; Twinned Spell [feat]; Distant Spell [feat]; Rope [consumable]; Seeking Spell [feat]; Antitoxin [consumable]; Empowered Spell [feat]; Lesser Restoration [spell]; Careful Spell [feat]
 - **Morgash the Gravemaker** (11 of 25 play; 14 nothing): Riposte [feat]; Smith's Tools [tool]; Tinderbox [equipment]; Cook's Utensils [tool]; Great Weapon Master [feat]; The Graveheart [equipment]; Precision Attack [feat]; Healer's Kit [consumable]; Keoghtom's Ointment [consumable]; Torch [consumable]; Rope [consumable]; Rally [feat]; Antitoxin [consumable]; Dice [tool]
 - **Salyth** (21 of 30 play; 9 nothing): Flute [tool]; Lute [tool]; The Graveheart [equipment]; Bullseye Lantern [consumable]; Moon's Inspiration [feat]; Tinderbox [equipment]; Blessing of Moonlight [feat]; Water (Pint) [consumable]; Oil [consumable]
 - **Thomas A. Invictus** (30 of 47 play; 17 nothing): Shield Master [feat]; Lantern, Hooded [equipment]; Fine Clothes [equipment]; Healer [feat]; Wrathful Smite [spell]; Thunderous Smite [spell]; Lantern of Revealing [equipment]; Searing Smite [spell]; Resourceful [feat]; Detect Magic [spell]; Healer's Kit [consumable]; Shield of Faith [spell]; Detect Evil and Good [spell]; Detect Poison and Disease [spell]; Shining Smite [spell]; Torch [consumable]; Antitoxin [consumable]
+- **Rogue** (9 of 19 play; 10 nothing): Candle [consumable]; Hooded Lantern [consumable]; Oil [consumable]; Tinderbox [equipment]; Poisoner's Kit [tool]; Assassinate [feat]; Water (Pint) [consumable]; Thieves’ Tools [tool]; Disguise Kit [tool]; Rope [consumable]
 - **Jetten Elisedil** (23 of 35 play; 12 nothing): Torch [consumable]; Favored Enemy [feat]; Rope [consumable]; Healer's Kit [consumable]; Tinderbox [equipment]; Bullseye Lantern [consumable]; Antitoxin [consumable]; Magic Initiate [feat]; Cartographer's Tools [tool]; Elven Lineage, Wood Elf [feat]; Pass without Trace [spell]; Oil [consumable]
 
-### Effects on the world's actors (162 names, 27 with an FX)
+### Effects on the world's actors (169 names, 27 with an FX)
 
 - Bloodied: nothing
+- Inspired: nothing
+- Dead: nothing
+- Concentrating: Hold Person: nothing
 - Shard-Hardened (Natural Armor): nothing
 - War Mage +3: nothing
 - War Mage +1: nothing
@@ -1469,7 +1457,6 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - Assasinate: nothing
 - Grappled + Other Conditions: nothing
 - Blocked Healing: nothing
-- Inspired: nothing
 - Enervated: nothing
 - Brief Enfeeblement: nothing
 - Poisoned: nothing
@@ -1523,6 +1510,11 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - Deafness: nothing
 - Grappled: nothing
 - Failure: Dead: nothing
+- Spiked: nothing
+- Damaged: −2 AC: nothing
+- Under Orders: nothing
+- Hiding: nothing
+- Alert: nothing
 - Ambusher's Leap: nothing
 - Dread Ambusher: nothing
 - Archery Style: nothing

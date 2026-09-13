@@ -212,46 +212,51 @@ already keeps, and only then by what it is called.** No substring, no whole-word
 "exclude" lists. Matching happens once, at migration and at authoring, against closed lists; at
 the table a lookup is an exact map hit.
 
-A subject has an ordered list of keys, most specific first. The resolver takes the first key that
-has a look (unless that look is switched off). Keys are `<kind>:<id>`:
+**ONE KEY PER ITEM, DND5E'S IDENTIFIER, EXACT OR NOTHING (the user, 2026-09-12, DESIGN §23).** An
+item has exactly one key, `<kind>:<identifier>`, where the identifier is dnd5e's own for it —
+`system.identifier` when set, else dnd5e's formatting of the name, which is what `item.identifier`
+answers in the system. An FX holds that key or the item plays nothing. There is no ladder: no name
+forms, no base-weapon fallback, no activity suffix, and no per-item pointer. Two copies of an item
+that should play differently carry different identifiers — dnd5e's field, which travels with the item
+and which the Editor's **Own key** writes — and the FX for one is keyed to that identifier alone.
 
-| Kind | Id, most specific first | Where dnd5e keeps it |
+| Kind | Id | Where dnd5e keeps it |
 | --- | --- | --- |
-| `spell` | the spell's identifier (`fire-bolt`) | `system.identifier` (every item has one; dnd5e slugs the name) |
-| `weapon` | the name slug (`maul-of-momentum`), then the base weapon (`maul`) | `system.type.baseItem`, one of 43 in the 2024 list |
-| `natural` | the name slug (`bite`) | a weapon whose `type.value` is `natural` (monster attacks) |
+| `spell` | the identifier (`fire-bolt`) | `system.identifier`; the books set it on every record |
+| `weapon` | the identifier (`maul`, `maul-of-momentum`, `goldthorn-bob`) | `system.identifier`, else the name formatted; a copy of the Longsword renamed keeps `longsword` |
+| `natural` | the identifier (`bite`) | a weapon whose `type.value` is `natural`; the Monster Manual sets it on every attack |
 | `feature` | the identifier (`brutal-strike`) | `system.identifier` |
-| `item` | the name slug (`potion-of-healing`) | consumables, equipment, tools, loot |
+| `item` | the identifier (`potion-of-healing`, `greater-potion-of-healing`) | consumables, equipment, tools, loot |
 | `effect` | the effect's name slug, then its origin's key (`spell:shield`) | `ActiveEffect.name`, `origin` |
-| `status` | the status id (`prone`) | `CONFIG.statusEffects`, the token's statuses |
-| `damage` | the damage type (`fire`) | phase 4 |
 | `event` | the event name (`riposte`, `turn-start`) | the reader that emits it |
 
-Two refinements, ruled with the rest on 2026-09-06: a subject's most specific key may
-name the activity (`spell:fire-bolt/attack`), so one item can carry a different look per activity
-without the activity's *name* ever being consulted; and a "cast spell" activity is keyed by the
-spell it links, so a staff that casts Fireball plays Fireball's look.
+The only orderings left are between documents, each with its own exact key: the ammunition fired
+before the bow, a "cast spell" activity's spell before the wand, an effect's own name before what
+made it. (`status` and `damage` were placeholders for phase 4 and went on 2026-09-12; a kind is
+added with the reader that produces it.)
 
-One normalisation rule, documented and testable: a slug is the lower-cased name with a trailing
-qualifier removed — "Misty Step - Spellcasting", "Bless - Fey-Touched", "Potion of Healing
-(Greater)" — after the full name has been tried first. It is still the thing's own name.
+What this does at the table: a Maul of Momentum made by copying the PHB Maul carries `maul` and
+plays the maul FX; one dragged from the DMG carries `maul-of-momentum` and plays nothing until it
+has an FX or its identifier is set — which Coverage shows and never guesses past. Gren's Shield is
+`spell:shield`; the shield-bash FX is keyed `weapon:shield` and can never meet it. A player who
+renames Fire Bolt "Mark's Firebolt" changes nothing, because the record's identifier rides along.
 
-What this does to the two bugs: "Maul of Momentum" is `weapon:maul-of-momentum` then
-`weapon:maul`, and the migrated Maul look answers the second. Gren's Shield is `spell:shield`; the
-shield-bash look is keyed `weapon:shield` and can never meet it. Nothing about names had to be
-patched, and nothing about it will need patching when the next oddly named weapon or spell arrives.
+The name forms the reader used to try ("Misty Step - Spellcasting" → misty-step, "Potion of
+Healing (Greater)" → potion-of-healing) now live in the migration alone (`tools/lib/migrate/keys.mjs`):
+an AA row's label meets the records through them ONCE, offline, and what is written is each record's
+exact key — so the Greater potion has an FX of its own, keyed to its own identifier.
 
 **AA's family rows** ("Sword" for anything with sword in it, "Bite" for any bite) do not survive
-as rules. The migration expands each one, once, against the closed lists: the 43 base weapons'
-names, the natural-attack names across the installed compendia (a census), and the world's own
-items — and writes explicit keys: the Sword look is `for: [weapon:longsword, weapon:shortsword,
-weapon:greatsword]`. The census lists every expansion so the user reads what AA's substring would
+as rules. The migration expands each one, once, against the closed lists: the books' weapons,
+the natural-attack names across the installed compendia (a census), and the world's own items —
+and writes one FX per key it earned (the Sword row becomes a longsword FX, a shortsword FX, a
+greatsword FX, each keyed to that record's identifier). The census lists every expansion so the user reads what AA's substring would
 and would not have caught before it becomes data. Where AA's rule caught something by accident
 ("Axe" for Battleaxe, "Shield" for Shield of Faith), the census shows it and it is not carried;
 where it caught something wanted, the user keeps it with one word.
 
 **No guessing, still.** Keying a maul as a maul is identity, not derivation: the look for
-`weapon:maul` exists because the corpus has one, and a subject with no key in the corpus plays
+`weapon:maul` exists because the corpus has one, and a subject whose key is not in the corpus plays
 nothing and is listed. The derivation rules (a look from a spell's school or damage type) stay
 parked exactly as PLAN §7 says.
 
@@ -322,8 +327,8 @@ recipes/
   SCHEMA.md      the grammar above with every knob's range and default, for people and assistants
 ```
 
-plus the world setting `looks` as the live edit buffer, and an item pointer `flags.fvtt-mod-fxstudio.look`
-naming a look id for one specific item (phase 3; the flag's scope is the module id, as Foundry requires). Every file carries `schema: 2`; a future change to the
+(the world setting that was the edit buffer, and the item pointer flag that named one item's own
+look, are both gone: DESIGN §21 and §23 — nothing of this module lives outside its files). Every file carries `schema: 2`; a future change to the
 shape is a migration function in the tools, never a hand edit. **As built (phase 2, 2026-09-06):**
 `recipes/stock/` holds 1289 looks (spells 586, weapons 132, natural 87, features 277, items 23,
 effects 184), `house.json` 7, `starters.json` 10, `aa-assets.json` 15 paths; `migration-report.md`
@@ -483,9 +488,10 @@ All of these exist as of phase 2 (2026-09-06; the engine, reader and build check
 
 ## 10. Decisions — ruled 2026-09-06 ("those are fine")
 
-1. **Identity keys replace name matching** (§3): weapons by base weapon after their own name,
-   spells and features by dnd5e's identifier, effects by name then origin. The family rows are
-   expanded once at migration and listed.
+1. **Identity keys replace name matching** (§3): one key per item, dnd5e's identifier, exact or
+   nothing (amended 2026-09-12, DESIGN §23 — the base-weapon, name-form and activity rungs and the
+   per-item pointer went); effects by name then origin. The family rows are expanded once at
+   migration and listed.
 2. **The look grammar** (§4) is the corpus's shape from here, and the sentence is generated from
    it, never parsed.
 3. **Eight shapes** (§5); AA's presets become compositions in data; the ported presets are

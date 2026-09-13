@@ -33,7 +33,7 @@ export async function writeModuleFile(path, data) {
   return r.path;
 }
 
-/** the stock file an FX belongs in, by the kind of its first key; null when it has none (an Item Hook is House only) */
+/** the stock file an FX belongs in, by the kind of its key; null when it has none (House only) */
 export function stockFile(fx) {
   const kind = parseKey(fx?.for?.[0] ?? '')?.kind;
   const f = KIND_FILES[kind];
@@ -49,7 +49,7 @@ export const fileFor = (fx, to) => (to === 'stock' ? stockFile(fx) : to === 'hou
  */
 export async function writeFx(fx, to) {
   const file = fileFor(fx, to);
-  if (!file) throw new Error(to === 'stock' ? 'an Item Hook (no ability key) lives in House, not Stock' : `"${to}" is not a corpus (house or stock)`);
+  if (!file) throw new Error(to === 'stock' ? 'an FX with no key has no Stock file: give it a key, or save it to House' : `"${to}" is not a corpus (house or stock)`);
   const json = await readModuleFile(file);
   json.fx = [...(json.fx ?? []).filter((l) => l.id !== fx.id), fx];
   json._meta = { ...(json._meta ?? {}), fx: json.fx.length, written: today() };

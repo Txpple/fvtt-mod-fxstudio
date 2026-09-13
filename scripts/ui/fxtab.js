@@ -27,7 +27,7 @@
 // what cannot run right now is greyed WHERE IT STANDS with its reason, never dropped (R1).
 import { MODULE_ID } from '../settings.js';
 import { AUTHORED_KINDS, keyLabel, parseKey } from '../core/subjects.js';
-import { HOOK_WORDS, KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
+import { KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
 import { openSheet } from './sheet.js';
 import { nameOf, openRecord, recordOf, recordWords, recordsRead } from './records.js';
 
@@ -36,7 +36,7 @@ const PAGE = 200;
 /** the layers in the order they win, which is the order the list is grouped in */
 const RANK = { house: 0, stock: 1 };
 // On my actors and Broken assets went on the user's word (2026-09-12); Coverage counts what is broken
-const ONLY_WORDS = { item: HOOK_WORDS.item + 's', off: 'Switched off' };
+const ONLY_WORDS = { off: 'Switched off' };
 
 const fxState = (app) => (app.fxv ??= { lives: new Set(), kinds: new Set(), only: new Set(), show: PAGE });
 
@@ -57,10 +57,9 @@ function catalogue(app) {
     const fx = e.fx;
     const keys = fx.for ?? [];
     const p = keys[0] ? parseKey(keys[0]) : null;
-    const owner = keys.length ? null : app.ownerOfFx(fx.id);
-    const name = keys[0] ? nameOf(fx) : owner ? owner.item : idWords(fx.id);
+    const name = keys[0] ? nameOf(fx) : idWords(fx.id);
     return {
-      e, id: fx.id, name, keys, kind: p?.kind ?? null, item: !keys.length, owner,
+      e, id: fx.id, name, keys, kind: p?.kind ?? null,
       off: !!fx.off, source: e.source, shadowed: !!e.shadowed, at: e.original.at ?? '',
       text: name.toLowerCase(),
     };
@@ -76,7 +75,6 @@ function shownRows(app) {
   const q = (app.view.q ?? '').trim().toLowerCase();
   return catalogue(app).filter((r) => (!V.lives.size || V.lives.has(r.source))
     && (!V.kinds.size || (r.kind && V.kinds.has(r.kind)))
-    && (!V.only.has('item') || r.item)
     && (!V.only.has('off') || r.off)
     && (!q || r.text.includes(q)));
 }
@@ -103,7 +101,7 @@ function facets(app) {
   const n = (f) => all.filter(f).length;
   const lives = ['house', 'stock'].map((s) => facet('lives', s, SOURCE_TAG[s], n((r) => r.source === s), V.lives.has(s))).join('');
   const kinds = AUTHORED_KINDS.map((k) => facet('kinds', k, KIND_PLURAL[k] ?? k, n((r) => r.kind === k), V.kinds.has(k))).join('');
-  const test = { item: (r) => r.item, off: (r) => r.off };
+  const test = { off: (r) => r.off };
   const only = Object.entries(ONLY_WORDS).map(([k, w]) => facet('only', k, w, n(test[k]), V.only.has(k))).join('');
   const any = V.lives.size + V.kinds.size + V.only.size;
   return `<div class="facets">
@@ -119,16 +117,14 @@ function facets(app) {
  * world … a link that opens the compendium object/record"). One word on every row, so the row stays
  * the name it was stripped back to — the record's own name and the book it is in are the tooltip's.
  * The address was settled offline when the key was earned (recipes/records.json, ui/records.js);
- * nothing is searched for by name here. An Item Hook has no key, so its record is the item it is
- * pinned to. Nothing to open is greyed WHERE IT STANDS with its reason (R1), never dropped.
+ * nothing is searched for by name here. A key earned against this world's own item carries that
+ * item as its record. Nothing to open is greyed WHERE IT STANDS with its reason (R1), never dropped.
  */
 function recordDoor(app, r) {
   const grey = (why) => `<button type="button" class="link record" disabled data-na="true" data-tooltip="${esc(why)}">Record</button>`;
   if (!recordsRead()) return grey('Reading the records…');
-  const rec = r.owner
-    ? (r.owner.uuid ? { uuid: r.owner.uuid, name: r.owner.item, where: `this world · ${r.owner.actor}` } : null)
-    : recordOf(r.e.fx);
-  if (!rec?.uuid) return grey(r.item ? 'No item here points at this FX' : `Nothing here holds ${r.keys[0] ? keyLabel(r.keys[0]) : 'a record for this FX'}`);
+  const rec = recordOf(r.e.fx);
+  if (!rec?.uuid) return grey(`Nothing here holds ${r.keys[0] ? keyLabel(r.keys[0]) : 'a record for this FX'}`);
   return `<button type="button" class="link record" data-act="fx-record" data-uuid="${esc(rec.uuid)}" data-name="${esc(rec.name)}" data-tooltip="${esc(recordWords(rec, r.kind))}">Record</button>`;
 }
 

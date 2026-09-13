@@ -1,7 +1,7 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-08",
+  "generated": "2026-09-12",
   "tool": "curated by hand",
   "sources": {
    "aa": "7.0.22",
@@ -12,13 +12,20 @@
    "dnd5e": null
   },
   "licence": "MIT, except the two FX noted as D&D5e Animations 3.3.0 (Vesper Staff, Necrotic Scythe), which are derived from that GPL-3 work — see STOCK-LICENSE",
-  "note": "The user's own FX. Two custom swords, each an Item Hook: it answers that one item and nothing else. Then two Global Hooks moved out of Stock on 2026-09-08, because their keys are this world's own items and Stock is the books. Not written by tools/migrate-aa.mjs — that tool leaves this file alone. Add to it from the window (Save writes a Draft; Coverage stages and ships it) or with tools/export-fx.mjs.",
+  "note": "The user's own FX. Two custom swords, each keyed to the identifier its item carries (DESIGN §23: one key per item, dnd5e's identifier; the item was given an identifier of its own). Then two FX moved out of Stock on 2026-09-08, because their keys are this world's own items and Stock is the books. Not written by tools/migrate-aa.mjs — that tool leaves this file alone. Add to it from the window (Save writes this file) or import a file into House.",
   "fx": 4
  },
  "fx": [
   {
    "id": "first-light-thomas-a-invictus",
-   "for": [],
+   "for": [
+    "weapon:first-light"
+   ],
+   "record": {
+    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.1BCiPSQ1nDeDqPHt",
+    "name": "First Light",
+    "where": "this world · Thomas A. Invictus"
+   },
    "on": "use",
    "scenes": [
     {
@@ -44,11 +51,18 @@
    ],
    "by": "the migration",
    "at": "2026-09-06",
-   "note": "the item's own look (Thomas A. Invictus / First Light) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
+   "note": "the item's own look (Thomas A. Invictus / First Light) (Automated Animations 7.0.22) · re-keyed 2026-09-12 to the item's own identifier (DESIGN §23): the item carries identifier first-light, and this FX answers that key alone"
   },
   {
    "id": "goldthorn-jetten-elisedil",
-   "for": [],
+   "for": [
+    "weapon:goldthorn"
+   ],
+   "record": {
+    "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
+    "name": "Goldthorn",
+    "where": "this world · Jetten Elisedil"
+   },
    "on": "use",
    "scenes": [
     {
@@ -69,7 +83,7 @@
    ],
    "by": "the migration",
    "at": "2026-09-06",
-   "note": "the item's own look (Jetten Elisedil / Goldthorn) (Automated Animations 7.0.22) · re-keyed 2026-09-06: one item’s own FX, the item points at it (tools/bind-item-fx.mjs)"
+   "note": "the item's own look (Jetten Elisedil / Goldthorn) (Automated Animations 7.0.22) · re-keyed 2026-09-12 to the item's own identifier (DESIGN §23): the item carries identifier goldthorn, and this FX answers that key alone"
   },
   {
    "id": "vesper-staff",

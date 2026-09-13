@@ -111,14 +111,14 @@ export class Studio extends ApplicationV2 {
   }
 
   // -------------------------------------------------------------------------------------------
-  // subjects: what a card or a walk is about — {name, keys, pointer, uuid, owner, actor, hasPlace, on, kind, isNew}
+  // subjects: what a card or a walk is about — {name, keys, uuid, owner, actor, hasPlace, on, kind, isNew}
   // -------------------------------------------------------------------------------------------
   subjectFromItem(item) {
     const a = api();
     const acts = item.system?.activities?.contents ?? [];
     const hasPlace = acts.some((x) => x?.target?.template?.type);
     const subject = a.subjects.ofItem(item, { activity: acts[0] ?? null });
-    return { name: item.name, keys: subject.keys, pointer: subject.pointer ?? null, uuid: item.uuid, owner: item.actor?.name ?? null, actor: item.actor ?? null, hasPlace, on: 'use', kind: subject.kind };
+    return { name: item.name, keys: subject.keys, uuid: item.uuid, owner: item.actor?.name ?? null, actor: item.actor ?? null, hasPlace, on: 'use', kind: subject.kind };
   }
   subjectFromEntry(e) {
     if (e.uuid) { const item = fromUuidSync(e.uuid); if (item) return this.subjectFromItem(item); }
@@ -149,28 +149,6 @@ export class Studio extends ApplicationV2 {
     return openSheet(this, { subject, edit: true });
   }
 
-  /** the item on a sheet whose pointer names this FX: {actor, item}, or null */
-  ownerOfFx(id) {
-    for (const row of this.census.actors) for (const it of row.items) {
-      const item = it.uuid ? fromUuidSync(it.uuid) : null;
-      if (item?.flags?.[MODULE_ID]?.fx === id) return { actor: row.name, item: item.name, uuid: it.uuid };
-    }
-    return null;
-  }
-
-  /** every item pointing at an FX stops pointing at it: what Delete owes an Item Hook it erases */
-  async unpinFx(id) {
-    let n = 0;
-    for (const row of this.census.actors) for (const it of row.items) {
-      const item = it.uuid ? fromUuidSync(it.uuid) : null;
-      if (item?.flags?.[MODULE_ID]?.fx !== id) continue;
-      await item.unsetFlag(MODULE_ID, 'fx');
-      n++;
-    }
-    if (n) this.refresh();
-    return n;
-  }
-
   /**
    * The search answered: the subject, the FX that answers it selected in the pane, and the
    * box carrying what was asked (so the list is narrowed to it too). Picking a row is not an ask —
@@ -196,7 +174,7 @@ export class Studio extends ApplicationV2 {
       return e ? { sentence: a.fx.sentence(e.original, { name: s.name }), fx: e.fx, original: e.original, source: e.source, key: null, why: `No hook · ${SOURCE_TAG[e.source]}` } : { sentence: 'Nothing plays.', why: '' };
     }
     const item = s.uuid ? fromUuidSync(s.uuid) : null;
-    return a.sentenceFor(item ?? { name: s.name, keys: s.keys, pointer: s.pointer ?? null }, s.on, { hasPlace: s.hasPlace });
+    return a.sentenceFor(item ?? { name: s.name, keys: s.keys }, s.on, { hasPlace: s.hasPlace });
   }
   answer() { return this.answerFor(this.view.subject); }
 
@@ -273,11 +251,10 @@ export class Studio extends ApplicationV2 {
     const a = api();
     const e = a.fx.get(id);
     if (!e) return this.toast('Nothing to export.');
-    const item = !(e.fx.for?.length);
-    const meta = { schema: 2, exported: new Date().toISOString().slice(0, 10), by: game.user.name, from: MODULE_ID, ...(item ? { warning: 'Item Hook: plays nothing until an item points at it.' } : {}) };
+    const meta = { schema: 2, exported: new Date().toISOString().slice(0, 10), by: game.user.name, from: MODULE_ID };
     const text = JSON.stringify({ _meta: meta, fx: [e.original] }, null, 1);
     foundry.utils.saveDataToFile(text, 'application/json', `fx-${id}.json`);
-    return this.toast(`Exported: ${idWords(id)}${item ? ' (Item Hook)' : ''}.`);
+    return this.toast(`Exported: ${idWords(id)}.`);
   }
 
   /** a file of FX read from the local machine into a corpus file: House (the default) or Stock */
@@ -295,17 +272,16 @@ export class Studio extends ApplicationV2 {
     try { j = JSON.parse(await foundry.utils.readTextFromFile(file)); } catch (e) { return this.toast(`Not an FX file: ${e.message}`); }
     const list = Array.isArray(j) ? j : Array.isArray(j.fx) ? j.fx : j.id ? [j] : [];
     if (!list.length) return this.toast('No FX in the file.');
-    let saved = 0, items = 0;
+    let saved = 0;
     const problems = [];
     for (const fx of list) {
       const r = await a.fx.save(fx, { by: fx.by ?? game.user.name, to });
       if (!r.ok) { problems.push(`${fx.id ?? '?'}: ${r.problems.join('; ')}`); continue; }
       saved++;
-      if (!(fx.for?.length)) items++;
     }
     this.refresh();
     await this.render();
-    return this.toast(`Imported ${saved} FX to ${SOURCE_TAG[to]}${items ? ` (${items} Item Hook)` : ''}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}`);
+    return this.toast(`Imported ${saved} FX to ${SOURCE_TAG[to]}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}`);
   }
 
   /** delete an FX for good, out of the file of the layer named (else the winner); a House override deleted shows the Stock FX under it again */
@@ -319,8 +295,6 @@ export class Studio extends ApplicationV2 {
     if (!ok) return undefined;
     let r;
     try { r = await a.corpus.erase(id, { from: e.source }); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
-    // no item may be left pointing at a dead id, whichever door pressed Delete (2026-09-07)
-    await this.unpinFx(id);
     this.refresh();
     if (this.view.subject && this.answer()?.original?.id === id) this.view.subject = { ...this.view.subject };
     await this.render();

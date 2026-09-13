@@ -1,7 +1,7 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-08",
+  "generated": "2026-09-13",
   "tool": "tools/migrate-aa.mjs",
   "sources": {
    "aa": "7.0.22",
@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The weapons of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 99
+  "fx": 94
  },
  "fx": [
   {
@@ -54,7 +54,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shadow Blade\" (ontoken)"
   },
   {
@@ -81,7 +81,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
@@ -108,7 +108,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
@@ -135,7 +135,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
@@ -162,7 +162,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
   },
   {
@@ -193,7 +193,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -224,7 +224,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -255,7 +255,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -286,7 +286,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -317,7 +317,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -348,7 +348,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
   },
   {
@@ -379,7 +379,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Chain\" (melee)"
   },
   {
@@ -405,7 +405,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Club\" (melee)"
   },
   {
@@ -431,7 +431,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Club\" (melee)"
   },
   {
@@ -471,7 +471,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dagger\" (melee)"
   },
   {
@@ -511,7 +511,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dagger\" (melee)"
   },
   {
@@ -537,7 +537,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flail\" (melee)"
   },
   {
@@ -563,7 +563,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Flail\" (melee)"
   },
   {
@@ -595,7 +595,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Fork\" (melee)"
   },
   {
@@ -626,7 +626,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Glaive\" (melee)"
   },
   {
@@ -657,7 +657,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Glaive\" (melee)"
   },
   {
@@ -688,7 +688,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Glaive\" (melee)"
   },
   {
@@ -715,7 +715,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Greataxe\" (melee)"
   },
   {
@@ -741,7 +741,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Greatclub\" (melee)"
   },
   {
@@ -767,7 +767,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Greatclub\" (melee)"
   },
   {
@@ -794,7 +794,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Greatsword\" (melee)"
   },
   {
@@ -825,42 +825,8 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Halberd\" (melee)"
-  },
-  {
-   "id": "lighthammer",
-   "for": [
-    "weapon:lighthammer"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightHamme",
-    "name": "Light Hammer",
-    "where": "Player's Handbook · Equipment"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_attack.02.hammer.01"
-     },
-     "sound": {
-      "asset": "psfx.impacts.bludgeoning.v1"
-     },
-     "thrown": {
-      "asset": {
-       "path": "jb2a.hammer.throw"
-      },
-      "sound": {
-       "asset": "psfx.weapon-swooshes.heavy.v1"
-      }
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Hammer\" (melee)"
   },
   {
    "id": "light-hammer",
@@ -893,7 +859,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Hammer\" (melee)"
   },
   {
@@ -928,7 +894,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Handaxe\" (melee)"
   },
   {
@@ -964,7 +930,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lance\" (melee)"
   },
   {
@@ -1006,7 +972,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Longsword\" (melee)"
   },
   {
@@ -1032,7 +998,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
   },
   {
@@ -1058,7 +1024,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
   },
   {
@@ -1084,7 +1050,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
   },
   {
@@ -1110,7 +1076,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
   },
   {
@@ -1137,7 +1103,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Maul\" (melee)"
   },
   {
@@ -1181,34 +1147,8 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Morningstar\" (melee)"
-  },
-  {
-   "id": "warpick",
-   "for": [
-    "weapon:warpick"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWarPick000",
-    "name": "War Pick",
-    "where": "Player's Handbook · Equipment"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.melee_generic.slashing.one_handed"
-     },
-     "sound": {
-      "asset": "psfx.impacts.slashing.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Pick\" (melee)"
   },
   {
    "id": "war-pick",
@@ -1233,7 +1173,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pick\" (melee)"
   },
   {
@@ -1270,7 +1210,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pike\" (melee)"
   },
   {
@@ -1302,7 +1242,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Quarterstaff\" (melee)"
   },
   {
@@ -1333,7 +1273,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ram\" (melee)"
   },
   {
@@ -1364,7 +1304,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rapier\" (melee)"
   },
   {
@@ -1395,7 +1335,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rapier\" (melee)"
   },
   {
@@ -1422,7 +1362,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Scimitar\" (melee)"
   },
   {
@@ -1449,7 +1389,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shortsword\" (melee)"
   },
   {
@@ -1476,7 +1416,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sickle\" (melee)"
   },
   {
@@ -1515,7 +1455,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
   },
   {
@@ -1547,7 +1487,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -1579,7 +1519,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -1611,7 +1551,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -1643,7 +1583,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -1675,7 +1615,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
   },
   {
@@ -1718,7 +1658,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -1761,7 +1701,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -1804,7 +1744,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -1847,7 +1787,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -1890,7 +1830,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -1933,7 +1873,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -1976,7 +1916,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
   },
   {
@@ -2002,7 +1942,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Talon\" (melee)"
   },
   {
@@ -2041,7 +1981,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Trident\" (melee)"
   },
   {
@@ -2080,7 +2020,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Trident\" (melee)"
   },
   {
@@ -2119,7 +2059,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Trident\" (melee)"
   },
   {
@@ -2146,7 +2086,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Warhammer\" (melee)"
   },
   {
@@ -2173,7 +2113,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Whip\" (melee)"
   },
   {
@@ -2200,7 +2140,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Whip\" (melee)"
   },
   {
@@ -2245,7 +2185,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Antimatter Rifle\" (range)"
   },
   {
@@ -2271,7 +2211,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Blowgun\" (range)"
   },
   {
@@ -2297,7 +2237,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bone Bow\" (range)"
   },
   {
@@ -2324,7 +2264,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
   },
   {
@@ -2351,7 +2291,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
   },
   {
@@ -2378,86 +2318,8 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
-  },
-  {
-   "id": "handcrossbow",
-   "for": [
-    "weapon:handcrossbow"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHandCrossb",
-    "name": "Hand Crossbow",
-    "where": "Player's Handbook · Equipment"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.bolt.physical.white"
-     },
-     "sound": {
-      "asset": "psfx.ranged-weapons.longbow.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
-  },
-  {
-   "id": "heavycrossbow",
-   "for": [
-    "weapon:heavycrossbow"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHeavyCross",
-    "name": "Heavy Crossbow",
-    "where": "Player's Handbook · Equipment"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.bolt.physical.white"
-     },
-     "sound": {
-      "asset": "psfx.ranged-weapons.longbow.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
-  },
-  {
-   "id": "lightcrossbow",
-   "for": [
-    "weapon:lightcrossbow"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightCross",
-    "name": "Light Crossbow",
-    "where": "Player's Handbook · Equipment"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "shoot",
-     "asset": {
-      "path": "jb2a.bolt.physical.white"
-     },
-     "sound": {
-      "asset": "psfx.ranged-weapons.longbow.v1"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
   },
   {
    "id": "hand-crossbow",
@@ -2482,7 +2344,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
   },
   {
@@ -2508,7 +2370,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
   },
   {
@@ -2534,7 +2396,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
   },
   {
@@ -2561,7 +2423,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Dart\" (range)"
   },
   {
@@ -2606,7 +2468,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Grenade Launcher\" (range)"
   },
   {
@@ -2632,7 +2494,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Javelin\" (range)"
   },
   {
@@ -2658,7 +2520,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Javelin\" (range)"
   },
   {
@@ -2685,7 +2547,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Lob\" (range)"
   },
   {
@@ -2712,7 +2574,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Longbow\" (range)"
   },
   {
@@ -2738,7 +2600,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Musket\" (range)"
   },
   {
@@ -2770,7 +2632,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Needle\" (range)"
   },
   {
@@ -2796,7 +2658,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pistol\" (range)"
   },
   {
@@ -2822,7 +2684,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pistol\" (range)"
   },
   {
@@ -2848,7 +2710,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pistol\" (range)"
   },
   {
@@ -2874,7 +2736,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Revolver\" (range)"
   },
   {
@@ -2900,7 +2762,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
   },
   {
@@ -2926,7 +2788,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
   },
   {
@@ -2952,7 +2814,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
   },
   {
@@ -2979,7 +2841,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shortbow\" (range)"
   },
   {
@@ -3005,7 +2867,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Shotgun\" (range)"
   },
   {
@@ -3032,7 +2894,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Sling\" (range)"
   },
   {
@@ -3066,7 +2928,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Whelm\" (ontoken)"
   }
  ]

@@ -1,16 +1,16 @@
 {
  "_meta": {
   "schema": 1,
-  "generated": "2026-09-09",
+  "generated": "2026-09-13",
   "tool": "tools/records.mjs",
-  "keys": 4179,
+  "keys": 3965,
   "kinds": {
-   "effect": 1090,
-   "feature": 1365,
-   "item": 862,
-   "natural": 251,
-   "spell": 436,
-   "weapon": 175
+   "effect": 1092,
+   "feature": 1316,
+   "item": 737,
+   "natural": 230,
+   "spell": 428,
+   "weapon": 162
   },
   "books": [
    "phb/spells",
@@ -1326,6 +1326,11 @@
    "name": "Hunger of Yeenoghu",
    "where": "Monster Manual · Features"
   },
+  "effect:concentrating-hold-person": {
+   "uuid": "Actor.kwoe46bQeSTZNCTN",
+   "name": "BF Test Sorcerer",
+   "where": "this world · BF Test Sorcerer"
+  },
   "effect:concentration-advantage": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvEldritchMi",
    "name": "Eldritch Mind",
@@ -1515,6 +1520,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdDazzlingFo",
    "name": "Dazzling Footwork",
    "where": "Player's Handbook · Character Classes"
+  },
+  "effect:dead": {
+   "uuid": "Actor.kwoe46bQeSTZNCTN",
+   "name": "BF Test Sorcerer",
+   "where": "this world · BF Test Sorcerer"
   },
   "effect:deafened": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
@@ -4617,8 +4627,8 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "effect:spell-changes": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.6Y6rh3Hka3AH1PTp",
-   "name": "Bless - Fey-Touched",
+   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.4wR0BZJUCHWGOLl2",
+   "name": "Bless",
    "where": "this world · Gren Greenmantle"
   },
   "effect:spell-taxed": {
@@ -5511,11 +5521,6 @@
    "name": "Aberrant Ground",
    "where": "Monster Manual · Features"
   },
-  "feature:aberrant-sorcery": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrAberrantSo",
-   "name": "Aberrant Sorcery",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:ability-score-improvement": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftAbilityScor",
    "name": "Ability Score Improvement",
@@ -5556,11 +5561,6 @@
    "name": "Acid Breath",
    "where": "Monster Manual · Features"
   },
-  "feature:acid-breath-weapon": {
-   "uuid": "Compendium.dnd-players-handbook.origins.Item.brwAcidBreathWea",
-   "name": "Acid Breath Weapon",
-   "where": "Player's Handbook · Character Origins"
-  },
   "feature:acid-spray": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAcidSpray00000",
    "name": "Acid Spray",
@@ -5592,11 +5592,6 @@
    "where": "Player's Handbook · Character Classes"
   },
   "feature:adhesive": {
-   "uuid": "Compendium.dnd-monster-manual.features.Item.mmAdhesive000000",
-   "name": "Adhesive (Object Form Only)",
-   "where": "Monster Manual · Features"
-  },
-  "feature:adhesive-object-form-only": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAdhesive000000",
    "name": "Adhesive (Object Form Only)",
    "where": "Monster Manual · Features"
@@ -5741,11 +5736,6 @@
    "name": "Arcane Study Charm",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "feature:arcane-trickster": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeArcaneTric",
-   "name": "Arcane Trickster",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:arcane-ward": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdArcaneWard",
    "name": "Arcane Ward",
@@ -5762,11 +5752,6 @@
    "where": "Player's Handbook · Feats"
   },
   "feature:archfey": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkArchfeyPat",
-   "name": "Archfey Patron",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:archfey-patron": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkArchfeyPat",
    "name": "Archfey Patron",
    "where": "Player's Handbook · Character Classes"
@@ -5971,11 +5956,6 @@
    "name": "Beast Master",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:beast-master": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrBeastMaste",
-   "name": "Beast Master",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:beast-of-burden": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBeastOfBurden0",
    "name": "Beast of Burden",
@@ -6127,11 +6107,6 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "feature:blessing-of-weapon-enchantment": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBlessingOfWea",
-   "name": "Blessing of Weapon Enhancement",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "feature:blessing-of-weapon-enhancement": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBlessingOfWea",
    "name": "Blessing of Weapon Enhancement",
    "where": "Dungeon Master's Guide · Equipment"
@@ -6431,11 +6406,6 @@
    "name": "Celestial Patron",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:celestial-patron": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkCelestialP",
-   "name": "Celestial Patron",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:celestial-resilience": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkResilience",
    "name": "Celestial Resilience",
@@ -6606,19 +6576,9 @@
    "name": "Circle of Mortality",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
-  "feature:circle-of-the-land": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdCirland000",
-   "name": "Circle of the Land",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:circle-of-the-land-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdLandSpells",
    "name": "Circle of the Land Spells",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:circle-of-the-moon": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdCirmoon000",
-   "name": "Circle of the Moon",
    "where": "Player's Handbook · Character Classes"
   },
   "feature:circle-of-the-moon-spells": {
@@ -6626,19 +6586,9 @@
    "name": "Circle of the Moon Spells",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:circle-of-the-sea": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdCirsea0000",
-   "name": "Circle of the Sea",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:circle-of-the-sea-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdSeaSpells0",
    "name": "Circle of the Sea Spells",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:circle-of-the-stars": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdCirstars00",
-   "name": "Circle of the Stars",
    "where": "Player's Handbook · Character Classes"
   },
   "feature:clairvoyant-combatant": {
@@ -6671,11 +6621,6 @@
    "name": "Clockwork Cavalcade",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:clockwork-sorcery": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrClockworkS",
-   "name": "Clockwork Sorcery",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:clockwork-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrSpellsCloc",
    "name": "Clockwork Spells",
@@ -6696,11 +6641,6 @@
    "name": "Cold Breath",
    "where": "Monster Manual · Features"
   },
-  "feature:cold-breath-weapon": {
-   "uuid": "Compendium.dnd-players-handbook.origins.Item.brwColdBreathWea",
-   "name": "Cold Breath Weapon",
-   "where": "Player's Handbook · Character Origins"
-  },
   "feature:cold-caster": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofColdCaster000",
    "name": "Cold Caster",
@@ -6715,36 +6655,6 @@
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofComCollegeoft",
    "name": "College of the Moon",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
-  "feature:college-of-dance": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdDance00000",
-   "name": "College of Dance",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:college-of-glamour": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdGlamour000",
-   "name": "College of Glamour",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:college-of-lore": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdLore000000",
-   "name": "College of Lore",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:college-of-spirits": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCollegeofSpir",
-   "name": "College of Spirits",
-   "where": "Ravenloft: The Horrors Within · Character Options"
-  },
-  "feature:college-of-the-moon": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofComCollegeoft",
-   "name": "College of the Moon",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
-  "feature:college-of-valor": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdValor00000",
-   "name": "College of Valor",
-   "where": "Player's Handbook · Character Classes"
   },
   "feature:college-spirits": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCollegeofSpir",
@@ -7264,11 +7174,6 @@
   "feature:draconic-resilience": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrDraconicRe",
    "name": "Draconic Resilience",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:draconic-sorcery": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrDraconicSo",
-   "name": "Draconic Sorcery",
    "where": "Player's Handbook · Character Classes"
   },
   "feature:draconic-spells": {
@@ -7891,22 +7796,12 @@
    "name": "Fey-Touched",
    "where": "Player's Handbook · Feats"
   },
-  "feature:fey-wanderer": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrFeyWander0",
-   "name": "Fey Wanderer",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:fey-wanderer-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrFeyWandere",
    "name": "Fey Wanderer Spells",
    "where": "Player's Handbook · Character Classes"
   },
   "feature:fiend": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkFiendPatro",
-   "name": "Fiend Patron",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:fiend-patron": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkFiendPatro",
    "name": "Fiend Patron",
    "where": "Player's Handbook · Character Classes"
@@ -7995,11 +7890,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFireBreath0000",
    "name": "Fire Breath",
    "where": "Monster Manual · Features"
-  },
-  "feature:fire-breath-weapon": {
-   "uuid": "Compendium.dnd-players-handbook.origins.Item.brwFireBreathWea",
-   "name": "Fire Breath Weapon",
-   "where": "Player's Handbook · Character Origins"
   },
   "feature:fire-form": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFireForm000000",
@@ -8236,11 +8126,6 @@
    "name": "Gloom Shroud",
    "where": "Dungeon Master's Guide · Features"
   },
-  "feature:gloom-stalker": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrGloomStalk",
-   "name": "Gloom Stalker",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:gloom-stalker-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrSpellsGloo",
    "name": "Gloom Stalker Spells",
@@ -8337,11 +8222,6 @@
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
   "feature:great-old-one": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkGreatOldOn",
-   "name": "Great Old One Patron",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:great-old-one-patron": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkGreatOldOn",
    "name": "Great Old One Patron",
    "where": "Player's Handbook · Character Classes"
@@ -9061,11 +8941,6 @@
    "name": "Life Domain",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:life-domain": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcLifeDomain",
-   "name": "Life Domain",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:life-domain-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcLifeSpells",
    "name": "Life Domain Spells",
@@ -9101,11 +8976,6 @@
    "name": "Light Bearer",
    "where": "Player's Handbook · Character Origins"
   },
-  "feature:light-domain": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcLightDomai",
-   "name": "Light Domain",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:light-domain-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcLightSpell",
    "name": "Light Domain Spells",
@@ -9130,11 +9000,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLightningBreat",
    "name": "Lightning Breath",
    "where": "Monster Manual · Features"
-  },
-  "feature:lightning-breath-weapon": {
-   "uuid": "Compendium.dnd-players-handbook.origins.Item.brwLightningBrea",
-   "name": "Lightning Breath Weapon",
-   "where": "Player's Handbook · Character Origins"
   },
   "feature:lightning-storm": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLightningStorm",
@@ -9576,11 +9441,6 @@
    "name": "Mulhorandi Tomb Raider",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
-  "feature:mulhorandi-tomb-raider": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofMulhorandiPil",
-   "name": "Mulhorandi Tomb Raider",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
   "feature:multiattack": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMultiattack000",
    "name": "Multiattack",
@@ -9711,29 +9571,14 @@
    "name": "Noxious Miasma",
    "where": "Monster Manual · Features"
   },
-  "feature:oath-of-devotion": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnOathOfDevo",
-   "name": "Oath of Devotion",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:oath-of-devotion-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnDevotionSp",
    "name": "Oath of Devotion Spells",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:oath-of-glory": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnOathOfGlor",
-   "name": "Oath of Glory",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:oath-of-glory-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnGlorySpell",
    "name": "Oath of Glory Spells",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:oath-of-the-ancients": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnOathOfTheA",
-   "name": "Oath of the Ancients",
    "where": "Player's Handbook · Character Classes"
   },
   "feature:oath-of-the-ancients-spells": {
@@ -9745,11 +9590,6 @@
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofNobleGeniesOa",
    "name": "Oath of the Noble Genies",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
-  "feature:oath-of-vengeance": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnOathOfVeng",
-   "name": "Oath of Vengeance",
-   "where": "Player's Handbook · Character Classes"
   },
   "feature:oath-of-vengeance-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnVengeanceS",
@@ -9881,26 +9721,6 @@
    "name": "Parry",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:path-of-the-berserker": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbBerserker0",
-   "name": "Path of the Berserker",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:path-of-the-wild-heart": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbWildHeart0",
-   "name": "Path of the Wild Heart",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:path-of-the-world-tree": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbWorldTree0",
-   "name": "Path of the World Tree",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:path-of-the-zealot": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbZealot0000",
-   "name": "Path of the Zealot",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:path-to-the-grave": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSPathtotheCb",
    "name": "Path to the Grave",
@@ -9975,11 +9795,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPoisonBreath00",
    "name": "Poison Breath",
    "where": "Monster Manual · Features"
-  },
-  "feature:poison-breath-weapon": {
-   "uuid": "Compendium.dnd-players-handbook.origins.Item.brwPoisonBreathW",
-   "name": "Poison Breath Weapon",
-   "where": "Player's Handbook · Character Origins"
   },
   "feature:poison-spray": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPoisonSpray000",
@@ -10124,16 +9939,6 @@
   "feature:prowl": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmProwl000000000",
    "name": "Prowl (Tiger or Hybrid Form Only)",
-   "where": "Monster Manual · Features"
-  },
-  "feature:prowl-tiger-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.features.Item.mmProwl000000000",
-   "name": "Prowl (Tiger or Hybrid Form Only)",
-   "where": "Monster Manual · Features"
-  },
-  "feature:psi-powered-leap": {
-   "uuid": "Compendium.dnd-monster-manual.features.Item.mmPsiPoweredLeap",
-   "name": "Psi-Powered Leap",
    "where": "Monster Manual · Features"
   },
   "feature:psi-warrior": {
@@ -11616,11 +11421,6 @@
    "name": "Tokens of the Departed",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
-  "feature:tokens-of-the-departed": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwPRTokensoftit",
-   "name": "Tokens of the Departed",
-   "where": "Ravenloft: The Horrors Within · Character Options"
-  },
   "feature:tongue-twister": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTongueTwister0",
    "name": "Tongue Twister",
@@ -11702,11 +11502,6 @@
    "where": "Monster Manual · Features"
   },
   "feature:trickery": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcTrickeryDo",
-   "name": "Trickery Domain",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:trickery-domain": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcTrickeryDo",
    "name": "Trickery Domain",
    "where": "Player's Handbook · Character Classes"
@@ -11981,11 +11776,6 @@
    "name": "War Cry",
    "where": "Monster Manual · Features"
   },
-  "feature:war-domain": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcWarDomain0",
-   "name": "War Domain",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:war-domain-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcWarSpells0",
    "name": "War Domain Spells",
@@ -12036,29 +11826,9 @@
    "name": "Warping Implosion",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:warrior-of-mercy": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkMercyWarri",
-   "name": "Warrior of Mercy",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:warrior-of-shadow": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkShadowWarr",
-   "name": "Warrior of Shadow",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:warrior-of-the-elements": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkElementsWa",
-   "name": "Warrior of the Elements",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:warrior-of-the-gods": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbWarriorOfT",
    "name": "Warrior of the Gods",
-   "where": "Player's Handbook · Character Classes"
-  },
-  "feature:warrior-of-the-open-hand": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkOpenHandWa",
-   "name": "Warrior of the Open Hand",
    "where": "Player's Handbook · Character Classes"
   },
   "feature:warriors-wrath": {
@@ -12201,11 +11971,6 @@
    "name": "Wild Magic Sorcery",
    "where": "Player's Handbook · Character Classes"
   },
-  "feature:wild-magic-sorcery": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrWildMagicS",
-   "name": "Wild Magic Sorcery",
-   "where": "Player's Handbook · Character Classes"
-  },
   "feature:wild-magic-surge": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrSurgeWildM",
    "name": "Wild Magic Surge",
@@ -12311,31 +12076,6 @@
    "name": "Zhentarim Tactics",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
-  "item:1-chain-mail": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.noTf1jYQYeLXzhLD",
-   "name": "+1 Chain Mail",
-   "where": "this world · Mother Wend"
-  },
-  "item:1-plate-armor": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.C1edaJG0kdzcIlb4",
-   "name": "+1 Plate Armor",
-   "where": "this world · Mother Wend"
-  },
-  "item:1-shield": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.Hj8PggFAKxGI9Grq",
-   "name": "+1 Shield",
-   "where": "this world · Thomas A. Invictus"
-  },
-  "item:1-splint-armor": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.88BnOZzuBU9HJvdG",
-   "name": "+1 Splint Armor",
-   "where": "this world · Mother Wend"
-  },
-  "item:1-studded-leather-armor": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.bmulkA1L4j0KqFcR",
-   "name": "+1 Studded Leather Armor",
-   "where": "this world · Mother Wend"
-  },
   "item:1-wand-of-the-war-mage": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmg1WandOfTheWar",
    "name": "Wand of the War Mage, +1, +2, or +3",
@@ -12356,25 +12096,10 @@
    "name": "Acid",
    "where": "Player's Handbook · Equipment"
   },
-  "item:acorn": {
+  "item:acorn-with-squirrel-spit": {
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.zHL0i06urKRVabcO",
    "name": "Acorn",
    "where": "this world · The Party"
-  },
-  "item:activate-alchemy-jug": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAlchemyJug000",
-   "name": "Activate Alchemy Jug",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:activate-folding-boat": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBoatUtility00",
-   "name": "Activate Folding Boat",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:adamantine-ammunition": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAdamantineAmm",
-   "name": "Adamantine Ammunition",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:adamantine-armor": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAdamantineArm",
@@ -12394,11 +12119,6 @@
   "item:agility-ioun-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAgilityIounSt",
    "name": "Ioun Stone of Agility",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:air-ring-of-elemental-command": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAirRingOfElem",
-   "name": "Air Ring of Elemental Command",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:alchemists-fire": {
@@ -12536,50 +12256,10 @@
    "name": "Arrows",
    "where": "Player's Handbook · Equipment"
   },
-  "item:arrows-1": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.jq1mdeZ9mHbqKO4J",
-   "name": "Arrows, +1",
-   "where": "this world · Jetten Elisedil"
-  },
-  "item:arrows-embedded--the-shafts-that-felled-him": {
-   "uuid": "Actor.RtfowHfdrnmcnCZ3.Item.To1UqZnxjZntA34t",
-   "name": "Arrows (embedded — the shafts that felled him)",
-   "where": "this world · Dead Guard"
-  },
   "item:arsonist-spirit": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSArsonistSF5",
    "name": "Arsonist Spirit",
    "where": "Ravenloft: The Horrors Within · Character Options"
-  },
-  "item:art-object-2000-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJewelry2000GP",
-   "name": "Art Object (2,000 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:art-object-25-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJewelry25GP00",
-   "name": "Art Object (25 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:art-object-250-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJewelry250GP0",
-   "name": "Art Object (250 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:art-object-2500-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJewelry2500GP",
-   "name": "Art Object (2,500 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:art-object-750-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJewelry750GP0",
-   "name": "Art Object (750 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:art-object-7500-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJewelry7500GP",
-   "name": "Art Object (7,500 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:ashes-of-a-corpse": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwAshesofaCorps",
@@ -12739,36 +12419,6 @@
   "item:belt-of-giant-strength": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBeltOfGiantSt",
    "name": "Belt of Giant Strength",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:belt-of-giant-strength-cloud": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgcloBeltofGian",
-   "name": "Belt of Giant Strength (cloud)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:belt-of-giant-strength-fire": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgfirBeltofGian",
-   "name": "Belt of Giant Strength (fire)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:belt-of-giant-strength-frost": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgfroBeltofGian",
-   "name": "Belt of Giant Strength (frost)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:belt-of-giant-strength-hill": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmghilBeltofGian",
-   "name": "Belt of Giant Strength (hill)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:belt-of-giant-strength-stone": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgstoBeltofGian",
-   "name": "Belt of Giant Strength (stone)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:belt-of-giant-strength-storm": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgstmBeltofGian",
-   "name": "Belt of Giant Strength (storm)",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:bird-feather-token": {
@@ -12940,11 +12590,6 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwBrokenJewelry",
    "name": "Broken Jewelry",
    "where": "Ravenloft: The Horrors Within · Items"
-  },
-  "item:bronze-griffon": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpBronzeGrif",
-   "name": "Bronze Griffon",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:bronze-griffon-rare": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpBronzeGrif",
@@ -13126,15 +12771,15 @@
    "name": "Chain Shirt",
    "where": "Player's Handbook · Equipment"
   },
-  "item:charcoal-sketch-of-a-weeping-woman": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.90pFslsPagBWgohl",
-   "name": "Charcoal Sketch of a Weeping Woman",
-   "where": "this world · The Party"
-  },
   "item:charlatans-die": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCharlatansDie",
    "name": "Charlatan's Die",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:chart-of-the-four-chambers": {
+   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.hvSgAgJ9QLXyTJm5",
+   "name": "The Sisters' Notes",
+   "where": "this world · The Party"
   },
   "item:chaunteas-barley-token": {
    "uuid": "Actor.ynipTDamO8lCYI80.Item.kolnfsTniVSYrU48",
@@ -13266,11 +12911,6 @@
    "name": "Component Pouch",
    "where": "Player's Handbook · Equipment"
   },
-  "item:constellations-scroll": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapScroll",
-   "name": "Constellations Scroll",
-   "where": "Player's Handbook · Equipment"
-  },
   "item:cooks-utensils": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCooksUtens",
    "name": "Cook's Utensils",
@@ -13314,21 +12954,6 @@
   "item:crystal-ball": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCrystalBall00",
    "name": "Crystal Ball",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:crystal-ball-of-mind-reading": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMindReadingCr",
-   "name": "Crystal Ball of Mind Reading",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:crystal-ball-of-telepathy": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTelepathyCrys",
-   "name": "Crystal Ball of Telepathy",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:crystal-ball-of-true-seeing": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTrueSeeingCry",
-   "name": "Crystal Ball of True Seeing",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:cube-of-force": {
@@ -13521,21 +13146,6 @@
    "name": "Ear Horn of Hearing",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:earth-ring-of-elemental-command": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEarthRingOfEl",
-   "name": "Earth Ring of Elemental Command",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ebony-bound-atlas": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapBoundI",
-   "name": "Ebony-bound Atlas",
-   "where": "Player's Handbook · Equipment"
-  },
-  "item:ebony-fly": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpEbonyFlyRa",
-   "name": "Ebony Fly",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:ebony-fly-rare": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpEbonyFlyRa",
    "name": "Ebony Fly",
@@ -13559,26 +13169,6 @@
   "item:elemental-gem": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgElementalGem0",
    "name": "Elemental Gem",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:elemental-gem-blue-sapphire": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBlueElemental",
-   "name": "Elemental Gem (Blue Sapphire)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:elemental-gem-emerald": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEmeraldElemen",
-   "name": "Elemental Gem (Emerald)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:elemental-gem-red-corundum": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRedElementalG",
-   "name": "Elemental Gem (Red Corundum)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:elemental-gem-yellow-diamond": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgYellowElement",
-   "name": "Elemental Gem (Yellow Diamond)",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:elixir-of-health": {
@@ -13606,11 +13196,6 @@
    "name": "Enduring Spellbook",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:engraved-crystal": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapCrysta",
-   "name": "Engraved Crystal",
-   "where": "Player's Handbook · Equipment"
-  },
   "item:enspelled-armor": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledArmo",
    "name": "Enspelled Armor",
@@ -13630,11 +13215,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEssenceOfEthe",
    "name": "Essence of Ether",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:etched-glass-disk": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapGlassD",
-   "name": "Etched Glass Disk",
-   "where": "Player's Handbook · Equipment"
   },
   "item:euryale": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtEuryale000",
@@ -13670,11 +13250,6 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwEyeofHazlikAm",
    "name": "Eye of Hazlik Amulet",
    "where": "Ravenloft: The Horrors Within · Items"
-  },
-  "item:eye-of-vecna": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEyeofVecna000",
-   "name": "Eye of Vecna",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:eyes-of-charming": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEyesOfCharmin",
@@ -13721,39 +13296,14 @@
    "name": "Fates",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:feather": {
+   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.tmuS8HPoTdZuIpky",
+   "name": "Peryton Feather",
+   "where": "this world · The Party"
+  },
   "item:feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgQuaalsFeather",
    "name": "Feather Token",
-   "where": "dnd5e · Equipment"
-  },
-  "item:feather-token-anchor": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgAnchorQuaalsF",
-   "name": "Feather Token (Anchor)",
-   "where": "dnd5e · Equipment"
-  },
-  "item:feather-token-bird": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgBirdQuaalsFea",
-   "name": "Feather Token (Bird)",
-   "where": "dnd5e · Equipment"
-  },
-  "item:feather-token-fan": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgFanQuaalsFeat",
-   "name": "Feather Token (Fan)",
-   "where": "dnd5e · Equipment"
-  },
-  "item:feather-token-swan-boat": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSwanBoatQuaal",
-   "name": "Feather Token (Swan Boat)",
-   "where": "dnd5e · Equipment"
-  },
-  "item:feather-token-tree": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgTreeQuaalsFea",
-   "name": "Feather Token (Tree)",
-   "where": "dnd5e · Equipment"
-  },
-  "item:feather-token-whip": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgWhipQuaalsFea",
-   "name": "Feather Token (Whip)",
    "where": "dnd5e · Equipment"
   },
   "item:feathered-mask": {
@@ -13784,11 +13334,6 @@
   "item:fire-potion-of-giant-strength": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFirePotionOfG",
    "name": "Potion of Giant Strength (Fire)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:fire-ring-of-elemental-command": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFireRingOfEle",
-   "name": "Fire Ring of Elemental Command",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:flame-singed-love-letter": {
@@ -13881,34 +13426,9 @@
    "name": "Gem of Seeing",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:gemstone-10-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemstone10GP0",
-   "name": "Gemstone (10 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:gemstone-100-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemstone100GP",
-   "name": "Gemstone (100 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:gemstone-1000-gp": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemstone1000G",
    "name": "Gemstone (1,000 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:gemstone-50-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemstone50GP0",
-   "name": "Gemstone (50 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:gemstone-500-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemstone500GP",
-   "name": "Gemstone (500 GP)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:gemstone-5000-gp": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemstone5000G",
-   "name": "Gemstone (5,000 GP)",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:gemstone100gp": {
@@ -13991,11 +13511,6 @@
    "name": "Gold Shoe",
    "where": "Ravenloft: The Horrors Within · Items"
   },
-  "item:golden-lions": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpGoldenLion",
-   "name": "Golden Lions",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:golden-lions-rare": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpGoldenLion",
    "name": "Golden Lions",
@@ -14005,11 +13520,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagGrapplingHo",
    "name": "Grappling Hook",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:gray-bag-of-tricks": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfTricks00",
-   "name": "Gray Bag of Tricks",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:great-cthulhu-effigy": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwGreatCthulhuE",
@@ -14041,11 +13551,6 @@
    "name": "Grenade, Smoke",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:guards-tabard-blue--gold": {
-   "uuid": "Actor.KlNBJbfiV3FTHR2D.Item.Q002fTjnchTh0oG6",
-   "name": "Guard's Tabard (blue & gold)",
-   "where": "this world · Decapitated Guard"
-  },
   "item:gunpowder-keg": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGunpowderKeg0",
    "name": "Gunpowder, Keg",
@@ -14065,11 +13570,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbarmHalfPlateA",
    "name": "Half Plate Armor",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:hand-of-vecna": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHandofVecna00",
-   "name": "Hand of Vecna",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:handbill": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwHandbill00000",
@@ -14176,25 +13676,10 @@
    "name": "Potion of Giant Strength (Hill)",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:holy-symbol": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.w5bNDyLnhs4XFlSd",
-   "name": "Holy Symbol",
-   "where": "this world · Harrow Vane"
-  },
-  "item:holy-symbol-of-lathander": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.d9F5y9begCRWzXcF",
-   "name": "Holy Symbol of Lathander",
-   "where": "this world · Thomas A. Invictus"
-  },
   "item:holy-symbol-of-oghma": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.NwZ9sgKxGyPlQ19V",
    "name": "Holy Symbol of Oghma",
    "where": "this world · Thomas A. Invictus"
-  },
-  "item:holy-symbol-of-shar": {
-   "uuid": "Actor.8RebAbF3PFtGW2Rj.Item.EmVzhXwHzzgIHuje",
-   "name": "Holy Symbol of Shar",
-   "where": "this world · Sharran Acolyte"
   },
   "item:holy-symbol-varies": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHolySymbolV",
@@ -14205,11 +13690,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.nshr9PBVyB03T7wB",
    "name": "Holy Water",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:homespun-dress-autumn-leaf-shawl": {
-   "uuid": "Actor.4VoqvcUTap8fzkiU.Item.rm1KbIUl7SO7plPx",
-   "name": "Homespun Dress (autumn-leaf shawl)",
-   "where": "this world · Dead Elf"
   },
   "item:honey-pint": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgspHoney000000",
@@ -14306,76 +13786,6 @@
    "name": "Ioun Stone",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:ioun-stone-of-absorption": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAbsorptionIou",
-   "name": "Ioun Stone of Absorption",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-agility": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAgilityIounSt",
-   "name": "Ioun Stone of Agility",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-awareness": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAwarenessIoun",
-   "name": "Ioun Stone of Awareness",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-fortitude": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFortitudeIoun",
-   "name": "Ioun Stone of Fortitude",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-greater-absorption": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGreaterAbsorp",
-   "name": "Ioun Stone of Greater Absorption",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-insight": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgInsightIounSt",
-   "name": "Ioun Stone of Insight",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-intellect": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgIntellectIoun",
-   "name": "Ioun Stone of Intellect",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-leadership": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLeadershipIou",
-   "name": "Ioun Stone of Leadership",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-mastery": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMasteryIounSt",
-   "name": "Ioun Stone of Mastery",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-protection": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgProtectionIou",
-   "name": "Ioun Stone of Protection",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-regeneration": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRegnerationIo",
-   "name": "Ioun Stone of Regeneration",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-reserve": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgReserveIounSt",
-   "name": "Ioun Stone of Reserve",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-strength": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStrengthIounS",
-   "name": "Ioun Stone of Strength",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ioun-stone-of-sustenance": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSustenanceIou",
-   "name": "Ioun Stone of Sustenance",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:iron-bands": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgIronBandsOfBi",
    "name": "Iron Bands",
@@ -14404,11 +13814,6 @@
   "item:jar-a-mothers-little-finger": {
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.PDRvQ6MbXACi9NnT",
    "name": "Jar: A Mother's Little Finger",
-   "where": "this world · The Party"
-  },
-  "item:jar-of-greenrest-preserves": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.5B4cPDYrqudULQb4",
-   "name": "Jar of Greenrest Preserves",
    "where": "this world · The Party"
   },
   "item:jar-of-mourners-teeth": {
@@ -14586,11 +13991,6 @@
    "name": "Lyre",
    "where": "Player's Handbook · Equipment"
   },
-  "item:mac-fuirmidh-cittern-instrument-of-the-bards": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMacfuirmidhCi",
-   "name": "Mac-Fuirmidh Cittern Instrument of the Bards",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:macfuirmidh-citterrn-instrument-of-the-bards": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMacfuirmidhCi",
    "name": "Mac-Fuirmidh Cittern Instrument of the Bards",
@@ -14656,11 +14056,6 @@
    "name": "Map or Scroll Case",
    "where": "Player's Handbook · Equipment"
   },
-  "item:marble-elephant": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpMarbleElep",
-   "name": "Marble Elephant",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:marble-elephant-rare": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpMarbleElep",
    "name": "Marble Elephant",
@@ -14675,16 +14070,6 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwMarkoftheRave",
    "name": "Mark of the Raven Talisman",
    "where": "Ravenloft: The Horrors Within · Items"
-  },
-  "item:marns-journal": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.dapYDxdeq4zpTHwQ",
-   "name": "Marn's Journal",
-   "where": "this world · The Party"
-  },
-  "item:marns-travelers-clothes": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.grSMC8bt2AfDLNsi",
-   "name": "Marn's Traveler's Clothes",
-   "where": "this world · The Party"
   },
   "item:marns-unsent-letter": {
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.zOr4QMJygH3H4opU",
@@ -14761,11 +14146,6 @@
    "name": "Moon",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:moonstone-necklace": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.Cb6SIA8Llm8ENpGj",
-   "name": "Moonstone Necklace",
-   "where": "this world · Jetten Elisedil"
-  },
   "item:mysterious-deck": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgDeckOfManyThi",
    "name": "Mysterious Deck",
@@ -14816,11 +14196,6 @@
    "name": "Nolzur's Marvelous Pigments",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:obsidian-steed": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpObsidianSt",
-   "name": "Obsidian Steed",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:obsidian-steed-very-rare": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpObsidianSt",
    "name": "Obsidian Steed",
@@ -14864,16 +14239,6 @@
   "item:ollam-harp-instrument-of-the-bards": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOllamHarpInst",
    "name": "Ollamh Harp Instrument of the Bards",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ollamh-harp-instrument-of-the-bards": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOllamHarpInst",
-   "name": "Ollamh Harp Instrument of the Bards",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:onyx-dog": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpOnyxDogRar",
-   "name": "Onyx Dog",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:onyx-dog-rare": {
@@ -14975,11 +14340,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPeriaptOfWoun",
    "name": "Periapt of Wound Closure",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:peryton-feather": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.tmuS8HPoTdZuIpky",
-   "name": "Peryton Feather",
-   "where": "this world · The Party"
   },
   "item:philter-of-love": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPhilterOfLove",
@@ -15126,36 +14486,6 @@
    "name": "Potion of Giant Strength",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:potion-of-giant-strength-cloud": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCloudPotionOf",
-   "name": "Potion of Giant Strength (Cloud)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-giant-strength-fire": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFirePotionOfG",
-   "name": "Potion of Giant Strength (Fire)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-giant-strength-frost": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFrostPotionOf",
-   "name": "Potion of Giant Strength (Frost)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-giant-strength-hill": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHillPotionOfG",
-   "name": "Potion of Giant Strength (Hill)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-giant-strength-stone": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStonePotionOf",
-   "name": "Potion of Giant Strength (Stone)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-giant-strength-storm": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStormPotionOf",
-   "name": "Potion of Giant Strength (Storm)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:potion-of-greater-invisibility": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfGreat",
    "name": "Potion of Greater Invisibility",
@@ -15170,21 +14500,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPotionofHea",
    "name": "Potion of Healing",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:potion-of-healing-greater": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGreaterPotion",
-   "name": "Potion of Healing (Greater)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-healing-superior": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSuperiorPotio",
-   "name": "Potion of Healing (Superior)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:potion-of-healing-supreme": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSupremePotion",
-   "name": "Potion of Healing (Supreme)",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:potion-of-heroism": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfHeroi",
@@ -15296,36 +14611,6 @@
    "name": "Quaal's Feather Token",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:quaals-feather-token-anchor": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAnchorQuaalsF",
-   "name": "Quaal's Feather Token (Anchor)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:quaals-feather-token-bird": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBirdQuaalsFea",
-   "name": "Quaal's Feather Token (Bird)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:quaals-feather-token-fan": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFanQuaalsFeat",
-   "name": "Quaal's Feather Token (Fan)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:quaals-feather-token-swan-boat": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwanBoatQuaal",
-   "name": "Quaal's Feather Token (Swan Boat)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:quaals-feather-token-tree": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTreeQuaalsFea",
-   "name": "Quaal's Feather Token (Tree)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:quaals-feather-token-whip": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWhipQuaalsFea",
-   "name": "Quaal's Feather Token (Whip)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:quiver": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagQuiver00000",
    "name": "Quiver",
@@ -15390,11 +14675,6 @@
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgRightPouch000",
    "name": "Right Pouch",
    "where": "dnd5e · Equipment"
-  },
-  "item:ring": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgsupRingofResi",
-   "name": "Ring",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:ring-mail": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbarmRingMail00",
@@ -15531,11 +14811,6 @@
    "name": "Robe of Eyes",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:robe-of-protection": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.vw14t7K4NOXxg5bJ",
-   "name": "Robe of Protection",
-   "where": "this world · Harrow Vane"
-  },
   "item:robe-of-scintillating-colors": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRobeOfScintil",
    "name": "Robe of Scintillating Colors",
@@ -15636,11 +14911,6 @@
    "name": "Ruin",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:rust-bag-of-tricks": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRustBagofTric",
-   "name": "Rust Bag of Tricks",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:rusted-tulwar": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwRustedTulwar0",
    "name": "Rusted Tulwar",
@@ -15696,11 +14966,6 @@
    "name": "Scrivener's Seal Ring",
    "where": "this world · Thomas A. Invictus"
   },
-  "item:scroll": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgsupBasicScrol",
-   "name": "Scroll",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:scroll-of-hieroglyphics": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwScrollofHiero",
    "name": "Scroll of Hieroglyphics",
@@ -15726,24 +14991,9 @@
    "name": "Sentinel Shield",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:seras-map-of-the-four-ruins": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.1iVtzCYclfXMkwhS",
-   "name": "Sera's Map of the Four Ruins",
-   "where": "this world · The Party"
-  },
-  "item:seras-studded-leather": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.G5kmy3m1CxI94Tnu",
-   "name": "Sera's Studded Leather",
-   "where": "this world · Mother Wend"
-  },
   "item:serpent-venom": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSerpentVenom0",
    "name": "Serpent Venom",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:serpentine-owl": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpSerpentine",
-   "name": "Serpentine Owl",
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:serpentine-owl-rare": {
@@ -15821,16 +15071,6 @@
    "name": "Silver Horn of Valhalla",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:silver-kestrel-locket": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.PlYrytXwrJYZWNdY",
-   "name": "Silver Kestrel Locket",
-   "where": "this world · The Party"
-  },
-  "item:silver-raven": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpSilverRave",
-   "name": "Silver Raven",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:silver-raven-uncommon": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpSilverRave",
    "name": "Silver Raven",
@@ -15896,51 +15136,6 @@
    "name": "Spell Scroll",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:spell-scroll-1st-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll1s",
-   "name": "Spell Scroll, 1st Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-2nd-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll2n",
-   "name": "Spell Scroll, 2nd Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-3rd-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll3r",
-   "name": "Spell Scroll, 3rd Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-4th-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll4t",
-   "name": "Spell Scroll, 4th Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-5th-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll5t",
-   "name": "Spell Scroll, 5th Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-6th-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll6t",
-   "name": "Spell Scroll, 6th Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-7th-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll7t",
-   "name": "Spell Scroll, 7th Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-8th-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll8t",
-   "name": "Spell Scroll, 8th Level",
-   "where": "dnd5e · Equipment"
-  },
-  "item:spell-scroll-9th-level": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgSpellScroll9t",
-   "name": "Spell Scroll, 9th Level",
-   "where": "dnd5e · Equipment"
-  },
   "item:spell-scroll-cantrip": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCantripScro",
    "name": "Spell Scroll, Cantrip",
@@ -15950,11 +15145,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagSpellScroll",
    "name": "Spell Scroll, Level 1",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:spell-scroll-protection-from-evil-and-good": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.sFkpE6htKlEP4D2I",
-   "name": "Spell Scroll: Protection from Evil and Good",
-   "where": "Ravenloft: The Horrors Within · Items"
   },
   "item:spellguard-shield": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSpellguardShi",
@@ -16061,11 +15251,6 @@
    "name": "Potion of Giant Strength (Stone)",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:stone-tablet": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapStoneT",
-   "name": "Stone Tablet",
-   "where": "Player's Handbook · Equipment"
-  },
   "item:storm-potion-of-giant-strength": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStormPotionOf",
    "name": "Potion of Giant Strength (Storm)",
@@ -16166,11 +15351,6 @@
    "name": "Talons",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:tan-bag-of-tricks": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTanBagofTrick",
-   "name": "Tan Bag of Tricks",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:tankard-of-sobriety": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTankardOfSobr",
    "name": "Tankard of Sobriety",
@@ -16220,11 +15400,6 @@
    "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.KI5sDm8afpKoVgaq",
    "name": "The Graveheart",
    "where": "this world · Morgash the Gravemaker"
-  },
-  "item:the-sisters-notes": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.hvSgAgJ9QLXyTJm5",
-   "name": "The Sisters' Notes",
-   "where": "this world · The Party"
   },
   "item:the-tideheart": {
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.yNlpYimPUdUnAPEB",
@@ -16286,11 +15461,6 @@
    "name": "Tome of Understanding",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:tooled-owlbear-hide": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapOwlbea",
-   "name": "Tooled Owlbear Hide",
-   "where": "Player's Handbook · Equipment"
-  },
   "item:torch": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.PKHfz87DirOHUBHn",
    "name": "Torch",
@@ -16305,11 +15475,6 @@
    "uuid": "Actor.ynipTDamO8lCYI80.Item.RxeXKMFS2UStc9hW",
    "name": "Trail-Worn Map Journal",
    "where": "this world · Jetten Elisedil"
-  },
-  "item:travelers-clothes--blue-cloak": {
-   "uuid": "Actor.UV0lrgTnLGcv453L.Item.wYFDoCHNxf8rqe3J",
-   "name": "Traveler's Clothes & Blue Cloak",
-   "where": "this world · Corpse"
   },
   "item:tree-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgTreeQuaalsFea",
@@ -16356,11 +15521,6 @@
    "name": "Vinegar (Pint)",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:vinegar-pint": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgspVinegar0000",
-   "name": "Vinegar (Pint)",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:viol": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusViol000000",
    "name": "Viol",
@@ -16371,7 +15531,7 @@
    "name": "Void",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:volos-guide-to-monsters-annotated": {
+  "item:volos-guide-annotated": {
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.nAD8npqXUa11PYZx",
    "name": "Volo's Guide to Monsters (Annotated)",
    "where": "this world · The Party"
@@ -16380,11 +15540,6 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwvonZarovichCr",
    "name": "von Zarovich Crest",
    "where": "Ravenloft: The Horrors Within · Items"
-  },
-  "item:walloping-ammunition": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWallopingAmmu",
-   "name": "Walloping Ammunition",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:walloping-arrows": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWallopingAmmu",
@@ -16456,16 +15611,6 @@
    "name": "Wand of Secrets",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:wand-of-the-war-mage-1": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.2Qk0dPh0vK1FqDyP",
-   "name": "Wand of the War Mage +1",
-   "where": "this world · Gren Greenmantle"
-  },
-  "item:wand-of-the-war-mage-1-2-or-3": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmg1WandOfTheWar",
-   "name": "Wand of the War Mage, +1, +2, or +3",
-   "where": "Dungeon Master's Guide · Equipment"
-  },
   "item:wand-of-web": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfWeb0000",
    "name": "Wand of Web",
@@ -16490,11 +15635,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.2nlARB78sJo8Z2W6",
    "name": "Water (Pint)",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:water-ring-of-elemental-command": {
-   "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWaterRingOfEl",
-   "name": "Water Ring of Elemental Command",
-   "where": "Dungeon Master's Guide · Equipment"
   },
   "item:water-salt-pint": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgspWatersalt00",
@@ -16692,12 +15832,6 @@
    "on": "Axe Beak",
    "of": 18
   },
-  "natural:beak-raven-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwWereraven0000.Item.ZNTd4mGBAzqn7jkw",
-   "name": "Beak (Raven or Hybrid Form Only)",
-   "where": "Ravenloft: The Horrors Within · Bestiary",
-   "on": "Wereraven"
-  },
   "natural:beaks": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSwarmOfRavens0.Item.mmBeaks000000000",
    "name": "Beaks",
@@ -16743,20 +15877,6 @@
    "name": "Bite",
    "where": "Monster Manual · Actors",
    "on": "Allosaurus",
-   "of": 200
-  },
-  "natural:bite-bat-or-vampire-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampire0000000.Item.mmBite0000000000",
-   "name": "Bite (Bat or Vampire Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Vampire",
-   "of": 2
-  },
-  "natural:bite-bear-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWerebear000000.Item.mmBite0000000000",
-   "name": "Bite (Bear or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Werebear",
    "of": 2
   },
   "natural:bite-demon-only": {
@@ -16764,40 +15884,6 @@
    "name": "Bite (Demon Only)",
    "where": "Player's Handbook · Actors",
    "on": "Fiendish Spirit"
-  },
-  "natural:bite-dire-wolf-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwHarkonLukas00.Item.bkbAP80CotZv5I6H",
-   "name": "Bite (Dire Wolf or Hybrid Form Only)",
-   "where": "Ravenloft: The Horrors Within · Bestiary",
-   "on": "Harkon Lukas",
-   "of": 2
-  },
-  "natural:bite-individual-form-only": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGremishka0000.Item.LdLxC24yOdJY8Fi5",
-   "name": "Bite (Individual Form Only)",
-   "where": "Ravenloft: The Horrors Within · Bestiary",
-   "on": "Gremishka"
-  },
-  "natural:bite-rat-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWererat0000000.Item.mmBite0000000000",
-   "name": "Bite (Rat or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Wererat",
-   "of": 2
-  },
-  "natural:bite-tiger-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWeretiger00000.Item.mmBite0000000000",
-   "name": "Bite (Tiger or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Weretiger",
-   "of": 2
-  },
-  "natural:bite-wolf-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWerewolf000000.Item.mmBite0000000000",
-   "name": "Bite (Wolf or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Werewolf",
-   "of": 2
   },
   "natural:bites": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSwarmOfBats000.Item.mmBites000000000",
@@ -17306,13 +16392,6 @@
    "name": "Gore",
    "where": "Monster Manual · Actors",
    "on": "Boar",
-   "of": 20
-  },
-  "natural:gore-boar-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWereboar000000.Item.mmGore0000000000",
-   "name": "Gore  (Boar or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Wereboar",
    "of": 2
   },
   "natural:gouge": {
@@ -17330,13 +16409,6 @@
    "of": 2
   },
   "natural:grave-strike": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampireUmbralL.Item.mmGraveStrike000",
-   "name": "Grave Strike",
-   "where": "Monster Manual · Actors",
-   "on": "Vampire Umbral Lord",
-   "of": 2
-  },
-  "natural:grave-strike-vampire-form-only": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVampire0000000.Item.mmGraveStrike000",
    "name": "Grave Strike (Vampire Form Only)",
    "where": "Monster Manual · Actors",
@@ -17512,11 +16584,6 @@
    "on": "Spirit Naga",
    "of": 2
   },
-  "natural:necrotic-scythe": {
-   "uuid": "Actor.oOWorLH5BJ7lQfmE.Item.mmNecroticSword0",
-   "name": "Necrotic Scythe",
-   "where": "this world · Cadoc, the Guardian"
-  },
   "natural:necrotic-sword": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWight000000000.Item.mmNecroticSword0",
    "name": "Necrotic Sword",
@@ -17611,24 +16678,11 @@
    "on": "Drider",
    "of": 2
   },
-  "natural:poison-burst-yuan-ti-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYuantiMalison3.Item.mmPoisonBurst000",
-   "name": "Poison Burst (Yuan-ti Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Yuan-ti Malison (Type 3)"
-  },
   "natural:poison-ray": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMedusa00000000.Item.mmPoisonRay00000",
    "name": "Poison Ray",
    "where": "Monster Manual · Actors",
    "on": "Medusa",
-   "of": 3
-  },
-  "natural:poison-ray-yuan-ti-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmYuantiMalison1.Item.mmPoisonRay00000",
-   "name": "Poison Ray  (Yuan-ti Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Yuan-ti Malison (Type 1)",
    "of": 2
   },
   "natural:prance": {
@@ -17682,12 +16736,6 @@
    "where": "Player's Handbook · Actors",
    "on": "Avenger Spirit"
   },
-  "natural:radiant-bow-avenger-only": {
-   "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobCelestialS.Item.phbaoiRadiantBow",
-   "name": "Radiant Bow (Avenger Only)",
-   "where": "Player's Handbook · Actors",
-   "on": "Celestial Spirit"
-  },
   "natural:radiant-burst": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmArchpriest0000.Item.mmRadiantBurst00",
    "name": "Radiant Burst",
@@ -17714,12 +16762,6 @@
    "name": "Radiant Mace",
    "where": "Player's Handbook · Actors",
    "on": "Defender Spirit"
-  },
-  "natural:radiant-mace-defender-only": {
-   "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobCelestialS.Item.phbaoiRadiantMac",
-   "name": "Radiant Mace (Defender Only)",
-   "where": "Player's Handbook · Actors",
-   "on": "Celestial Spirit"
   },
   "natural:radiant-ray": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimalLord0000.Item.mmRadiantRay0000",
@@ -17765,26 +16807,7 @@
    "name": "Rend",
    "where": "Monster Manual · Actors",
    "on": "Adult Black Dragon",
-   "of": 130
-  },
-  "natural:rend-bear-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWerebear000000.Item.mmRend0000000000",
-   "name": "Rend (Bear or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Werebear",
    "of": 2
-  },
-  "natural:rend-dire-wolf-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwLoupGarou0000.Item.PITQF0vi9ChWFXhU",
-   "name": "Rend (Dire Wolf or Hybrid Form Only)",
-   "where": "Ravenloft: The Horrors Within · Bestiary",
-   "on": "Loup Garou"
-  },
-  "natural:rend-jackal-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmJackalwere0000.Item.mmRend0000000000",
-   "name": "Rend (Jackal or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Jackalwere"
   },
   "natural:restless-touch": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmIncubus0000000.Item.mmRestlessTouch0",
@@ -17821,12 +16844,6 @@
    "on": "Swarm of Zombie Limbs"
   },
   "natural:rotting-claw": {
-   "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbudsPutridSpir.Item.phbaoiRottingCla",
-   "name": "Rotting Claw",
-   "where": "Player's Handbook · Actors",
-   "on": "Putrid Spirit"
-  },
-  "natural:rotting-claw-putrid-only": {
    "uuid": "Compendium.dnd-players-handbook.actors.Actor.phbmobUndeadSpir.Item.phbaoiRottingCla",
    "name": "Rotting Claw (Putrid Only)",
    "where": "Player's Handbook · Actors",
@@ -17923,12 +16940,6 @@
    "where": "Monster Manual · Actors",
    "on": "Animated Armor",
    "of": 48
-  },
-  "natural:slam-human-or-hybrid-form-only": {
-   "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmJackalwere0000.Item.mmSlam0000000000",
-   "name": "Slam (Human or Hybrid Form Only)",
-   "where": "Monster Manual · Actors",
-   "on": "Jackalwere"
   },
   "natural:slash": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimatedFlying.Item.mmSlash000000000",
@@ -18035,13 +17046,13 @@
    "where": "Monster Manual · Actors",
    "on": "Swarm of Stirges"
   },
-  "natural:swarming-bites-swarm-form-only": {
+  "natural:swarming-bites": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGremishka0000.Item.uli0q7C3GFNvjZ2z",
    "name": "Swarming Bites (Swarm Form Only)",
    "where": "Ravenloft: The Horrors Within · Bestiary",
    "on": "Gremishka"
   },
-  "natural:swipe-dire-wolf-or-hybrid-form-only": {
+  "natural:swipe": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwHarkonLukas00.Item.Ow2eLeYz80ZUjEbB",
    "name": "Swipe (Dire Wolf or Hybrid Form Only)",
    "where": "Ravenloft: The Horrors Within · Bestiary",
@@ -18169,11 +17180,6 @@
    "on": "Ivana Boritsi"
   },
   "natural:tusk": {
-   "uuid": "Compendium.dnd-monster-manual.features.Item.mmTusk0000000000",
-   "name": "Tusk",
-   "where": "Monster Manual · Features"
-  },
-  "natural:tusk-boar-or-hybrid-form-only": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWereboar000000.Item.mmTusk0000000000",
    "name": "Tusk (Boar or Hybrid Form Only)",
    "where": "Monster Manual · Actors",
@@ -18282,11 +17288,6 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAlterSelf0",
    "name": "Alter Self",
    "where": "Player's Handbook · Spells"
-  },
-  "spell:alustriels-mooncloak": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofAlustrielsMoo",
-   "name": "Alustriel’s Mooncloak",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
   "spell:animal-friendship": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAnimalFrie",
@@ -18783,11 +17784,6 @@
    "name": "Demiplane",
    "where": "Player's Handbook · Spells"
   },
-  "spell:deryans-helpful-homunculi": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDeryansHelpfu",
-   "name": "Deryan's Helpful Homunculi",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
   "spell:destructive-wave": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDestructiv",
    "name": "Destructive Wave",
@@ -18938,16 +17934,6 @@
    "name": "Elementalism",
    "where": "Player's Handbook · Spells"
   },
-  "spell:elminsters-effulgent-spheres": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersEff",
-   "name": "Elminster's Effulgent Spheres",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
-  "spell:elminsters-elusion": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersElu",
-   "name": "Elminster's Elusion",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
   "spell:elusion": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersElu",
    "name": "Elminster's Elusion",
@@ -19097,11 +18083,6 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFleshtoSto",
    "name": "Flesh to Stone",
    "where": "Player's Handbook · Spells"
-  },
-  "spell:floating-disk": {
-   "uuid": "Compendium.dnd5e.spells24.Item.phbsplTensersFlo",
-   "name": "Floating Disk",
-   "where": "dnd5e · Spells"
   },
   "spell:fly": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFly0000000",
@@ -19308,11 +18289,6 @@
    "name": "Hex",
    "where": "Player's Handbook · Spells"
   },
-  "spell:hex-powerful": {
-   "uuid": "Compendium.dnd-players-handbook.classes.Item.n2qsI3p9HBVQIjeK",
-   "name": "Hex (Powerful)",
-   "where": "Player's Handbook · Character Classes"
-  },
   "spell:hideous-laughter": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplTashasHide",
    "name": "Hideous Laughter",
@@ -19427,11 +18403,6 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplKnock00000",
    "name": "Knock",
    "where": "Player's Handbook · Spells"
-  },
-  "spell:laerals-silver-lance": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofLaeralsSilver",
-   "name": "Laeral's Silver Lance",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
   "spell:legend-lore": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLegendLore",
@@ -20023,11 +18994,6 @@
    "name": "Slow",
    "where": "Player's Handbook · Spells"
   },
-  "spell:songals-elemental-suffusion": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSongalsElemen",
-   "name": "Songal's Elemental Suffusion",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
   "spell:sorcerous-burst": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSorcerousB",
    "name": "Sorcerous Burst",
@@ -20438,11 +19404,6 @@
    "name": "Zone of Truth",
    "where": "Player's Handbook · Spells"
   },
-  "weapon:1-dagger": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.6iOC3urAJr0WbC3L",
-   "name": "+1 Dagger",
-   "where": "this world · Jetten Elisedil"
-  },
   "weapon:abyssal-glaive": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAbyssalGlaive0",
    "name": "Abyssal Glaive",
@@ -20573,11 +19534,6 @@
    "name": "Elemental Flail",
    "where": "Monster Manual · Features"
   },
-  "weapon:ember-touched-greatsword": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.CgU06EQIss09MaZP",
-   "name": "Ember-Touched Greatsword",
-   "where": "this world · Morgash the Gravemaker"
-  },
   "weapon:energy-bow": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnergyBow0000",
    "name": "Energy Bow",
@@ -20602,11 +19558,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFieryMace00000",
    "name": "Fiery Mace",
    "where": "Monster Manual · Features"
-  },
-  "weapon:first-light": {
-   "uuid": "Actor.3l181JACaGIi5wpS.Item.FgOWeBRkXovoBaxW",
-   "name": "First Light",
-   "where": "this world · Hobgoblin Captain"
   },
   "weapon:flail": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepFlail00000",
@@ -20658,11 +19609,6 @@
    "name": "Glaive",
    "where": "Player's Handbook · Equipment"
   },
-  "weapon:goldthorn": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
-   "name": "Goldthorn",
-   "where": "this world · Jetten Elisedil"
-  },
   "weapon:great-bow": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGreatBow000000",
    "name": "Great Bow",
@@ -20708,17 +19654,7 @@
    "name": "Handaxe",
    "where": "Player's Handbook · Equipment"
   },
-  "weapon:handcrossbow": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHandCrossb",
-   "name": "Hand Crossbow",
-   "where": "Player's Handbook · Equipment"
-  },
   "weapon:heavy-crossbow": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHeavyCross",
-   "name": "Heavy Crossbow",
-   "where": "Player's Handbook · Equipment"
-  },
-  "weapon:heavycrossbow": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepHeavyCross",
    "name": "Heavy Crossbow",
    "where": "Player's Handbook · Equipment"
@@ -20798,16 +19734,6 @@
    "name": "Light Hammer",
    "where": "Player's Handbook · Equipment"
   },
-  "weapon:lightcrossbow": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightCross",
-   "name": "Light Crossbow",
-   "where": "Player's Handbook · Equipment"
-  },
-  "weapon:lighthammer": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLightHamme",
-   "name": "Light Hammer",
-   "where": "Player's Handbook · Equipment"
-  },
   "weapon:lightning-cannon": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLightningCann",
    "name": "Lightning Cannon",
@@ -20858,20 +19784,10 @@
    "name": "Mangonel",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "weapon:marns-light-crossbow": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.o9Vbmv33iPU3dHRd",
-   "name": "Marn's Light Crossbow",
-   "where": "this world · Mother Wend"
-  },
   "weapon:maul": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMaul000000",
    "name": "Maul",
    "where": "Player's Handbook · Equipment"
-  },
-  "weapon:maul-of-momentum": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.6bDjeKnZ3ktwq7ce",
-   "name": "Maul of Momentum",
-   "where": "this world · Morgash the Gravemaker"
   },
   "weapon:mercurial-trident": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMercurialTride",
@@ -20997,16 +19913,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSemiautomatic",
    "name": "Semiautomatic Pistol",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "weapon:seras-longbow": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.hfOXpMyP7IvfWTTS",
-   "name": "Sera's Longbow",
-   "where": "this world · Selma"
-  },
-  "weapon:seras-shortsword": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.Sfysjm839hfOzeVu",
-   "name": "Sera's Shortsword",
-   "where": "this world · Mother Wend"
   },
   "weapon:shadow-blade": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShadowBlade000",
@@ -21261,11 +20167,6 @@
   "weapon:warhammer": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWarhammer0",
    "name": "Warhammer",
-   "where": "Player's Handbook · Equipment"
-  },
-  "weapon:warpick": {
-   "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepWarPick000",
-   "name": "War Pick",
    "where": "Player's Handbook · Equipment"
   },
   "weapon:wave": {

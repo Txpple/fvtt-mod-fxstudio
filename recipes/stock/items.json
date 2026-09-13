@@ -1,7 +1,7 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-08",
+  "generated": "2026-09-13",
   "tool": "tools/migrate-aa.mjs",
   "sources": {
    "aa": "7.0.22",
@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 22
+  "fx": 25
  },
  "fx": [
   {
@@ -45,7 +45,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ink\" (ontoken)"
   },
   {
@@ -90,7 +90,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bomb\" (range)"
   },
   {
@@ -139,7 +139,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Burnt Othur Fumes\" (range)"
   },
   {
@@ -188,7 +188,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Essence of Ether\" (range)"
   },
   {
@@ -233,7 +233,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Holy Water\" (range)"
   },
   {
@@ -282,7 +282,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Malice\" (range)"
   },
   {
@@ -309,7 +309,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Acid (vial)\" (ontoken)"
   },
   {
@@ -341,7 +341,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Assassin's Blood\" (ontoken)"
   },
   {
@@ -368,7 +368,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Crawler Mucus\" (ontoken)"
   },
   {
@@ -400,7 +400,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Midnight Tears\" (ontoken)"
   },
   {
@@ -430,7 +430,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Net\" (ontoken)"
   },
   {
@@ -457,7 +457,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Oil of Taggit\" (ontoken)"
   },
   {
@@ -489,7 +489,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Pale Tincture\" (ontoken)"
   },
   {
@@ -555,7 +555,205 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+  },
+  {
+   "id": "greater-potion-of-healing",
+   "for": [
+    "item:greater-potion-of-healing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGreaterPotion",
+    "name": "Potion of Healing (Greater)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "start": 100
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+  },
+  {
+   "id": "superior-potion-of-healing",
+   "for": [
+    "item:superior-potion-of-healing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSuperiorPotio",
+    "name": "Potion of Healing (Superior)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "start": 100
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+  },
+  {
+   "id": "supreme-potion-of-healing",
+   "for": [
+    "item:supreme-potion-of-healing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSupremePotion",
+    "name": "Potion of Healing (Supreme)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "start": 100
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.400px.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.impact.005.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid"
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
   },
   {
@@ -607,7 +805,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Potion of Poison\" (ontoken)"
   },
   {
@@ -635,7 +833,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Purple Worm Poison\" (ontoken)"
   },
   {
@@ -663,7 +861,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Serpent Venom\" (ontoken)"
   },
   {
@@ -695,7 +893,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Torpor\" (ontoken)"
   },
   {
@@ -728,7 +926,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Truth Serum\" (ontoken)"
   },
   {
@@ -756,7 +954,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Wyvern Poison\" (ontoken)"
   },
   {
@@ -784,7 +982,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Ball Bearings\" (templatefx)"
   },
   {
@@ -851,7 +1049,7 @@
     }
    ],
    "by": "the migration",
-   "at": "2026-09-08",
+   "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Caltrops\" (preset)"
   }
  ]

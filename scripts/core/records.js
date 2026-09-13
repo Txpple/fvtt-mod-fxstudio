@@ -33,8 +33,8 @@ export function recordProblems(rec) {
 const tidy = (rec) => Object.fromEntries(RECORD_FIELDS.filter((k) => rec[k] !== undefined).map((k) => [k, rec[k]]));
 
 /**
- * The FX with its record stamped from the records map by its first key. An FX with no key (an
- * Item Hook) carries none. A key the map does not hold keeps whatever record the FX already has
+ * The FX with its record stamped from the records map by its key. An FX with no key carries none.
+ * A key the map does not hold keeps whatever record the FX already has
  * (a foreign FX keeps its own evidence) — nothing is invented. Field order: id, for, record, then
  * the rest as they were.
  */

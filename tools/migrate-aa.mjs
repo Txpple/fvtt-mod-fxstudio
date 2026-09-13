@@ -251,7 +251,7 @@ for (const [actorId, list] of Object.entries(worldItems)) {
       census.npc.attacks++;
       if (!now.fx) { census.npc.none++; if (census.npc.samples.none.length < 14 && !census.npc.samples.none.includes(it.name)) census.npc.samples.none.push(it.name); }
       else if (now.key.startsWith('natural:')) { census.npc.natural++; if (census.npc.samples.natural.length < 10) census.npc.samples.natural.push(`${it.name} → ${now.key}`); }
-      else if (now.key === subject.keys[0] || now.key === subject.keys[1]) census.npc.exact++;
+      else if (now.key === subject.keys[subject.keys.length - 1]) census.npc.exact++;
       else { census.npc.base++; if (census.npc.samples.base.length < 10) census.npc.samples.base.push(`${it.name} → ${now.key}`); }
     }
   }
@@ -277,7 +277,7 @@ for (const name of lists.world.effects) {
   if (r.fx) effectCensus.plays++; else effectCensus.nothing.push(name);
 }
 say(`   ${census.asked} abilities on the world's actors: same answer ${census.same} · changed ${census.changed.length} · now play (were nothing) ${census.gained.length} · play nothing now (were playing) ${census.lost.length}`);
-say(`   NPC attacks ${census.npc.attacks}: by their own name ${census.npc.exact} · by base weapon ${census.npc.base} · by natural attack ${census.npc.natural} · nothing ${census.npc.none}`);
+say(`   NPC attacks ${census.npc.attacks}: by their own key ${census.npc.exact} · by a document before it (ammunition, a cast spell) ${census.npc.base} · by natural attack ${census.npc.natural} · nothing ${census.npc.none}`);
 say(`   effects: ${effectCensus.plays} of ${effectCensus.names} names have an FX · FX that can never answer (shadowed by a same-key fx) ${shadowed.length}`);
 
 // ---------------------------------------------------------------------------------------------
@@ -414,9 +414,8 @@ if (WRITE) {
     writeFileSync(join(RECIPES, 'stock', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see STOCK-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
   }
   // recipes/house.json IS THE USER'S FILE and this tool does not own it (2026-09-08). It was
-  // written once at migration and curated since — the Item Hooks in it were re-keyed by hand
-  // (tools/bind-item-fx.mjs, commit 4d7e3f9), which a regeneration would silently undo, turning an
-  // Item Hook back into a Global Hook. What the migration would have written is offered beside it.
+  // written once at migration and curated since (two swords keyed to their own identifiers, DESIGN
+  // §23), which a regeneration would silently undo. What the migration would have written is offered beside it.
   writeFileSync(join(REPO, 'dist', 'house-from-migration.json'), JSON.stringify({ _meta: meta({ licence: 'MIT', note: 'What the migration makes of this world\'s own AA rows. NOT written to recipes/house.json, which the user curates.', fx: houseFx.length }), fx: houseFx.map((l) => l.fx) }, null, 1));
   writeFileSync(join(RECIPES, 'aa-assets.json'), JSON.stringify({ meta: meta({ licence: 'MIT', source: `Automated Animations ${versions.aa} (c) Otigon and contributors, MIT`, note: 'What the migration could not point at the libraries\' own paths: AA\'s own Sequencer entries for these, verbatim with their metadata, registered as fxstudio.aa. Counted, meant to reach zero.', entries: frozen.entries, paths: frozen.paths.length, missingFiles: twin.meta?.missingFiles ?? [] }), db: frozen.db }));
   writeFileSync(reportPath, report.join('\n'));

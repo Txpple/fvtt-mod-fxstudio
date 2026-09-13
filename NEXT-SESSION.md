@@ -22,6 +22,20 @@
 > footer button), not a menu in place. The header says "N scenes · s". Screens 185/186, the one the
 > version string.
 
+> **2026-09-12, latest — ONE KEY PER ITEM, DND5E'S IDENTIFIER, EXACT OR NOTHING (the user: *"i really
+> dont like the idea of global hooks anymore, thats the old AA way of thinking … it needs to exact or
+> it doesnt happen"*), DESIGN §23.** Global Hook and Item Hook are gone, with the item flag, the name
+> forms, the base-weapon rung and the activity suffix: an item has one key, dnd5e's identifier, and an
+> FX holds it or the item plays nothing. The Editor's Key strip is Answers · **Item** (the item the sheet
+> is on, or Find an item) with **Own key** (writes `system.identifier` on the item, the sheet becomes a
+> new House FX for that key) · Moment · State. Migration re-run: Stock 1005 (22 second-spelling keys
+> gone, 5 records gained — the potion variants keyed by their own identifiers), records re-keyed, the
+> party census unmoved (134 of 225). House: the two swords keyed `weapon:first-light` / `weapon:goldthorn`
+> with their items as records. Nine offline checks green; smoke-author 20/20; smoke-boot green (its stale
+> Shield-effect probe replaced); smoke-screens 187/187 (Own key walked end to end in §7). **On the sandbox,
+> NOT released or on prod.** Prod will need the three item identifiers set (First Light, Goldthorn,
+> Necrotic Scythe) on the user's word, or those three play their base weapon's Stock FX there.
+
 > **2026-09-12, last — THE GRAMMAR IS THE ENGINE (the user: *"i really want this clean, both from a ui
 > and a corpus perspective, and no bloat"*), DESIGN §22.** Every shape's knob list is now exactly what its
 > engine file reads; `aboveLighting`, `xray`, `pick`, `from` on strike, `at` on fill, `persist` on aura,

@@ -181,7 +181,7 @@ async function checkBooks(app) {
       const r = a.resolve(a.subjects.ofItem(d, { activity: acts[0] ?? null }), 'use', { hasPlace });
       row.asked++;
       if (r.fx) row.answered++;
-      else row.nothing.push({ name: d.name, key: r.subject?.keys?.find((k) => !k.includes('/')) ?? r.subject?.keys?.[0] });
+      else row.nothing.push({ name: d.name, key: r.subject?.keys?.[0] });
     }
     out.push(row);
   }

@@ -391,7 +391,7 @@ if (t.section('the build path: scenes in order, the empty rules, every shape rea
 }
 
 // ---------------------------------------------------------------------------------------------
-if (t.section('resolving a moment: the word, the fallback, the silence, the pointer')) {
+if (t.section('resolving a moment: the word, the fallback, the silence')) {
   const glow = [{ shape: 'mark', asset: 'test.glow' }];
   const index = buildIndex({ stock: [{ id: 'sneak-attack', for: ['feature:sneak-attack'], on: 'use', scenes: glow }, { id: 'sneak-dice', for: ['feature:sneak-attack'], on: 'sneak', scenes: glow }, { id: 'fireball', for: ['spell:fireball'], on: 'use', scenes: [{ shape: 'fill', asset: 'test.ring' }] }, { id: 'fireball-flat', for: ['spell:fireball'], on: 'use', scenes: glow }], house: [{ id: 'quiet', for: ['spell:quiet'], on: 'use', off: true }, { id: 'own', for: [], on: 'use', scenes: glow }], starters: [] });
   const m = (keys, when, over = {}) => ({ ...moment({ when, subject: { name: 'x', keys } }), ...over });
@@ -404,7 +404,6 @@ if (t.section('resolving a moment: the word, the fallback, the silence, the poin
   t.same('an off silences, and is not fallen past', (() => { const r = resolveMoment(index, m(['spell:quiet'], 'use')); return [r.fx, r.off]; })(), [null, true]);
   t.is('a placed template picks the FX that uses it', resolveMoment(index, m(['spell:fireball'], 'use', { place: regions.circle })).fx.id, 'fireball');
   t.is('… and no template picks the one that does not', resolveMoment(index, m(['spell:fireball'], 'use')).fx.id, 'fireball-flat');
-  t.is("an item's own FX (the pointer) wins ahead of every key", resolveMoment(index, m(['spell:fireball'], 'use', { subject: { name: 'x', keys: ['spell:fireball'], pointer: 'own' } })).fx.id, 'own');
   t.ok('no keys: nothing, with a reason', /no keys/.test(resolveMoment(index, m([], 'use')).why));
 }
 

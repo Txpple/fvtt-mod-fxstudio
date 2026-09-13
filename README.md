@@ -13,12 +13,13 @@ table, then the UI revamp's steps 2–5 — Play, the layout primitives, the she
 inspector, and the six tabs merged into three — 2026-09-07 (DESIGN §8, §9).** FX Studio opens from the Settings sidebar (the GM's "Open FX
 Studio" button) or from the wand on any item sheet. **FX** is every FX in one list, grouped
 House → Stock — resolution order, later wins — with the search over it (it narrows the list
-as you type) and facets down the left (where it lives, its kind, Item Hooks, switched off). A row is a name. **The
+as you type) and facets down the left (where it lives, its kind, switched off). A row is a name. **The
 Editor** is where every edit of an FX is made. **The FX sheet** is
 one sheet per FX, the same whether you read it or change it — an Edit switch is the
 guard, and the action bar is the same in both modes with what does not apply greyed out (Back,
-New FX, Duplicate, Export, Delete, Edit, Cancel, Save); the Hook block (one or more
-abilities, or one item; On or Off; the moment; on miss), the Sequence (one row per scene in three
+New FX, Duplicate, Export, Delete, Edit, Cancel, Save); the Key strip (the key it answers, the
+item the sheet is on with **Own key** — which gives that one item an identifier of its own, so this
+Bob's Fire Bolt plays differently from Alice's — the moment, On or Off), the Sequence (one row per scene in three
 fixed rows that never reflow — the picture: VFX, where, size, opacity, tint, under the tokens; how
 long it lasts with the SFX at the far right; then the timing: delay, times, every, speed and wait
 — with the plain-English line under each and the sentence read back as you go), a Note;
@@ -33,15 +34,16 @@ the same browser opens from a scene of the sheet to pick that scene's VFX or SFX
 scene names already — every FX that uses an asset opens its sheet from there, and each line of
 *Used in* loads that exact path (down to one file inside a variant) in the viewer; *Coverage* reads
 the compendiums you pick, by source, and shows what plays nothing in them and what did not resolve.
-One item can carry an FX of its own (an Item Hook).
+One copy of an item plays differently from another by carrying an identifier of its own (dnd5e's
+field, written by Own key); the FX is keyed to that identifier and nothing of the module is left on the item.
 Everything the screens do goes through the API, so a macro or an assistant can do the same
 (`tools/smoke-screens.mjs` and `tools/smoke-author.mjs` prove both doors). [ARCHITECTURE.md](ARCHITECTURE.md) is the
-design: an FX is found by what acted and when (identity keys dnd5e already keeps — a spell's
-identifier, a weapon's name then its base weapon, a natural attack, a feature, an item, an
-effect), never by a name rule; an FX is written as the sentence the user would say
+design: an FX is found by what acted and when (one key per item, dnd5e's own identifier for it,
+exact or nothing — a spell, a weapon, a natural attack, a feature, an item; an effect by its name
+then its origin), never by a name rule; an FX is written as the sentence the user would say
 (`recipes/SCHEMA.md` is the grammar); the engine knows eight shapes and one escape hatch
 (`scripts/engine/shapes/`). The corpus is `recipes/stock/` (the D&D5e Animations corpus
-migrated once, one file per kind, 1289 FX), `house.json` (the user's), `starters.json` (what a
+migrated once, one file per kind, 1005 FX), `house.json` (the user's), `starters.json` (what a
 new FX starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
 metadata, counted). The migration (`tools/migrate-aa.mjs`) is proved at the render: for every
 row, the exact Sequencer calls the new engine makes equal the calls AA's own sequence made, with

@@ -25,8 +25,6 @@ export function statusOf({ fx, source, off }) {
 }
 export const STATUS_WORDS = { custom: 'Custom', stock: 'Stock', none: 'No FX', off: 'Off' };
 
-/** the reach of an FX: a Global Hook answers an ability anywhere, an Item Hook one item only */
-export const HOOK_WORDS = { global: 'Global Hook', item: 'Item Hook' };
 
 /** the type of a new ability */
 export const KIND_WORDS = { spell: 'Spell', weapon: 'Weapon', feature: 'Feature', item: 'Item', effect: 'Effect' };

@@ -75,18 +75,11 @@ export function needsPlace(fx) {
  * the placed template when the moment has one, else one that does not; a house fx that is `off`
  * silences the key. Returns {fx, key, source} or {fx: null, why}.
  * @param index   from buildIndex
- * @param keys    the subject's keys, most specific first
+ * @param keys    the subject's keys (its own one, after the documents that come before it — subjects.js)
  * @param on      the moment kind
- * @param opts    {hasPlace: the moment carries a placed template; pointer: the FX id one specific item names (its own FX, ahead of every key)}
+ * @param opts    {hasPlace: the moment carries a placed template}
  */
-export function resolve(index, keys, on, { hasPlace = false, pointer = null } = {}) {
-  if (pointer) {
-    const own = index.byId.get(pointer);
-    if (own && (own.fx.off || own.fx.on === on)) {
-      if (own.fx.off) return { fx: null, off: true, key: 'this item', source: own.source, why: `this item's own FX "${pointer}" is switched off` };
-      return { fx: own.fx, key: 'this item', source: own.source, original: own.original, pointer };
-    }
-  }
+export function resolve(index, keys, on, { hasPlace = false } = {}) {
   for (const key of keys ?? []) {
     const candidates = [...(index.byKey.get(`${key}|${on}`) ?? []), ...(index.byKey.get(`${key}|*`) ?? [])];
     if (!candidates.length) continue;

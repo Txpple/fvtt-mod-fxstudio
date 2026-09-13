@@ -68,7 +68,7 @@ export function build(fx, moment) {
  * names the moment's own word — the word wins when it is authored, and an `off` on it is honoured.
  */
 export function resolveMoment(index, moment) {
-  const opts = { hasPlace: !!moment.place, pointer: moment.subject?.pointer ?? null };
+  const opts = { hasPlace: !!moment.place };
   const keys = moment.subject?.keys ?? [];
   const own = resolve(index, keys, moment.when, opts);
   if (own.fx || own.off || !FALLS_BACK_TO_USE.includes(moment.when)) return own;
