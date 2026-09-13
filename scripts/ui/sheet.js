@@ -88,7 +88,8 @@ export function openSheet(app, { id = null, source = null, subject = null, from 
     s.on = e.original.on ?? 'use';
     s.off = !!e.original.off;
     s.note = e.original.note ?? '';
-    s.scenes = seedFrom(id);
+    // this layer's own scenes, copied — a Stock FX under a House override opens as itself, not as the override (found by the screens suite, 2026-09-12)
+    s.scenes = clone(e.original.scenes ?? []).map((scene) => ({ scene: named(scene) }));
     s.subject = subject ?? app.subjectForFx(id);
     // no keys IS the Item Hook: an FX opened straight by id must read as one, however it was reached
     s.onlyThis = subject?.pointer === id || !(e.original.for ?? []).length;
@@ -222,8 +223,7 @@ export function renderSheet(app) {
     ${banner}${problemList}
     <div class="preview"><div class="sub">What plays</div><div class="sentence-box">${sentenceHtml(app, fx, name)}</div></div>
     <div class="section"><div class="sub">Hook</div>${renderHook(app)}</div>
-    <div class="section sequence"><div class="sechead"><div class="sub">Sequence</div>${playAll(app)}</div>${renderSequence(app)}</div>
-    <div class="section"><div class="sub">Note</div><input type="text" class="sh-note knob" value="${esc(s.note)}" placeholder="${esc(s.from ? `copied from ${idWords(s.from)}` : 'Why this FX, for whoever reads it later')}" ${edit ? '' : 'disabled'}></div>
+    <div class="section sequence"><div class="sub">Sequence</div>${renderSequence(app)}</div>
   </div>`;
 }
 
@@ -279,14 +279,8 @@ export function playWhyOf(scenes, off = false) {
 }
 const playWhy = (app, scene = null) => playWhyOf(scene ? [scene] : app.sheet.scenes.map((x) => x.scene), app.sheet.off);
 
-/** ▶ Play all, in the Sequence header */
-function playAll(app) {
-  const why = playWhy(app);
-  return `<button type="button" class="quiet play" data-act="sh-play" data-tooltip="${esc(why ?? 'Play the whole FX on the selected token. Nothing is saved.')}" ${why ? 'disabled' : ''}>▶ Play all${why ? ` · ${esc(why)}` : ''}</button>`;
-}
-
-/** the first file behind a scene's picture, for its thumbnail */
-function thumbFile(scene) {
+/** the first file behind a scene's picture: what the browser is asked the length of */
+function pictureFile(scene) {
   if (!hasPicture(scene) || !scene.asset) return null;
   const a = api();
   const r = a.assets.resolve(scene.asset);
@@ -295,14 +289,6 @@ function thumbFile(scene) {
 }
 
 const isVideo = (file) => /\.(webm|mp4|m4v)$/i.test(file);
-/** a still of what a scene plays, for the rail and for the FX tab's detail pane */
-export function thumbHtml(scene, cls = 'thumb') {
-  const file = thumbFile(scene);
-  if (!file) return `<span class="${cls} none"></span>`;
-  return isVideo(file)
-    ? `<video class="${cls}" data-file="${esc(file)}" src="${esc(assetUrl(file))}#t=0.1" preload="metadata" muted playsinline></video>`
-    : `<img class="${cls}" src="${esc(assetUrl(file))}" alt="">`;
-}
 
 // -----------------------------------------------------------------------------------------------
 // band 3 — the hook strip: one row, four columns
@@ -370,7 +356,7 @@ function timeline(scenes) {
   let cursor = 0;
   return scenes.map(({ scene }) => {
     const sc = withDefaults(scene);
-    const file = thumbFile(scene);
+    const file = pictureFile(scene);
     const known = file ? DURATIONS.get(file) : undefined;
     const times = Math.max(1, Math.round(sc.repeat ?? 1));
     const one = (known ?? NOMINAL_MS) / (sc.rate && sc.rate > 0 ? sc.rate : 1);
@@ -402,7 +388,7 @@ function stripHtml(app) {
   return `<div class="strip"><div class="lanes">${lanes}</div><div class="axis"><span>0</span><span>${Math.round(hi)} ms</span></div></div>`;
 }
 
-/** the rail: one fixed row per scene — its number, a still, "Shape · place", when it starts, ▶ */
+/** the rail: one fixed row per scene — its number, "Shape · place" over when it starts; it scrolls past four; "+ Add a scene" beneath (the user, 2026-09-12) */
 function railHtml(app) {
   const s = app.sheet;
   const t = timeline(s.scenes);
@@ -410,17 +396,15 @@ function railHtml(app) {
   const rows = s.scenes.map(({ scene }, i) => {
     const sc = withDefaults(scene);
     const place = scene.shape === 'move' ? 'the chosen spot' : PLACE_WORDS[sc.to ?? sc.at] ?? '';
-    const why = playWhy(app, scene);
     return `<div class="row" data-kind="${KIND_OF_SHAPE(scene.shape)}" data-now="${i === now}">
       <button type="button" class="pickbtn" data-act="sh-pick" data-i="${i}" aria-current="${i === now}">
-        <span class="num">${i + 1}</span>${thumbHtml(scene)}
-        <span class="n">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${place ? ` · ${esc(place)}` : ''}</span>
-        <span class="ms">${Math.round(t[i].start)}ms</span>
+        <span class="num">${i + 1}</span>
+        <span class="txt"><span class="n">${esc(SHAPE_WORDS[scene.shape] ?? scene.shape)}${place ? ` · ${esc(place)}` : ''}</span><span class="ms">${Math.round(t[i].start)} ms</span></span>
       </button>
-      <button type="button" class="quiet play" data-act="sh-play-scene" data-i="${i}" data-tooltip="${esc(why ?? `Play scene ${i + 1} now. Nothing is saved.`)}" aria-label="Play scene ${i + 1}" ${why ? 'disabled' : ''}>▶</button>
     </div>`;
   }).join('');
-  return `<div class="rail">${rows || '<p class="note">No scenes yet.</p>'}</div>`;
+  const add = s.edit ? `<button type="button" class="addrow" data-act="cw-add-menu" aria-expanded="${!!s.adding}">+ Add a scene</button>${s.adding ? `<div class="addmenu">${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" class="hit" data-act="cw-add" data-shape="${sh}"><b>${wd}</b><span>${esc(SHAPE_HELP[sh])}</span></button>`).join('')}</div>` : ''}` : '';
+  return `<div class="rail">${rows || '<p class="note">No scenes yet.</p>'}</div>${add}`;
 }
 
 /** the five band tabs; the last is named for the shape, and is off when the shape has no knobs of its own */
@@ -437,9 +421,8 @@ function renderSequence(app) {
   const s = app.sheet;
   if (s.off) return `<p class="note off-note">Switched off: this FX plays nothing, and the abilities it answers fall through to nothing. Switch it back on to write its sequence — the ${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} it had ${s.scenes.length === 1 ? 'is' : 'are'} kept until you do.</p>`;
   const copy = s.edit && !s.scenes.length ? `<div class="field search copy"><label>Copy from</label><input type="text" class="sh-like" placeholder="Search FX… Misty Step, Fire Bolt" autocomplete="off"><div class="suggest" data-open="false"></div></div>` : '';
-  const add = s.edit ? `<div class="pills add"><span class="lbl">Add</span>${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" class="pill" data-act="cw-add" data-shape="${sh}" data-tooltip="${esc(SHAPE_HELP[sh])}">${wd}</button>`).join('')}</div>` : '';
-  if (!s.scenes.length) return `<div class="seq"><div class="railside">${railHtml(app)}</div><div class="inspector empty"><p class="note">No scenes yet. Copy the scenes of an FX you like, or add one.</p></div></div>${copy}${add}`;
-  return `<div class="seq"><div class="railside">${railHtml(app)}${stripHtml(app)}</div>${inspector(app)}</div>${copy}${add}`;
+  if (!s.scenes.length) return `<div class="seq"><div class="railside">${railHtml(app)}</div><div class="inspector empty"><p class="note">No scenes yet. Copy the scenes of an FX you like, or add one.</p></div></div>${copy}`;
+  return `<div class="seq"><div class="railside">${railHtml(app)}${stripHtml(app)}</div>${inspector(app)}</div>${copy}`;
 }
 
 // -----------------------------------------------------------------------------------------------
@@ -447,7 +430,7 @@ function renderSequence(app) {
 // -----------------------------------------------------------------------------------------------
 /** the eight addresses of each band, in one order, for every shape (R1) */
 const BAND_CELLS = {
-  picture: ['vfx', 'place', 'size', 'opacity', 'tint', 'below', 'mirror', 'scatter'],
+  picture: ['vfx', 'place', 'size', 'colour', 'opacity', 'tint', 'below', 'mirror', 'scatter'],
   timing: ['delay', 'times', 'every', 'rate', 'fadein', 'fadeout', 'lasts', 'hold'],
   sound: ['sfx', 'volume', 'start', 'sdelay', 'stimes', 'severy'],
   placement: ['rotate', 'anchor', 'elevation', 'zindex', 'mask', 'attach'],
@@ -463,15 +446,15 @@ const SHAPE_CELLS = {
   beam: [], sound: [], custom: [],
 };
 const shapeCells = (shape) => SHAPE_CELLS[shape] ?? [];
-/** the cells of a band, padded to eight (the SFX cell is two wide, so its band holds seven) */
+/** the cells of a band, padded to eight (the SFX cell is two wide, so its band holds seven; the preview tile makes Picture nine) */
 function cellsOf(band, shape) {
   const list = band === 'shape' ? shapeCells(shape) : BAND_CELLS[band] ?? [];
-  const wanted = band === 'sound' ? 7 : 8;
+  const wanted = band === 'sound' ? 7 : band === 'picture' ? 9 : 8;
   return [...list, ...Array(Math.max(0, wanted - list.length)).fill('spacer')];
 }
 
-/** one cell. `na` greys it and switches it off IN PLACE; a cell is never dropped (R1). */
-const field = (col, label, ctrl, na = false, wide = false) => `<div class="f f-${col}${wide ? ' wide' : ''}"${na ? ' data-na="true"' : ''}><span class="l">${label}</span><div class="c">${ctrl}</div></div>`;
+/** one cell. `na` greys it and switches it off IN PLACE, saying why on hover; a cell is never dropped (R1). */
+const fieldHtml = (col, label, ctrl, na = false, wide = false, why = '') => `<div class="f f-${col}${wide ? ' wide' : ''}"${na ? ` data-na="true" data-tooltip="${esc(why)}"` : ''}><span class="l">${label}</span><div class="c">${ctrl}</div></div>`;
 const placeOptions = (current) => PLACES.filter((p) => !['impact', 'area'].includes(p) || p === current).map((p) => `<option value="${p}"${p === current ? ' selected' : ''}>${esc(PLACE_WORDS[p])}</option>`).join('');
 const options = (list, cur) => list.map(([v, w]) => `<option value="${esc(String(v))}"${String(cur) === String(v) ? ' selected' : ''}>${esc(w)}</option>`).join('');
 
@@ -511,8 +494,11 @@ function cellHtml(app, key, scene, i) {
   const isSound = scene.shape === 'sound';
   const snd = isSound ? scene : (scene.sound ?? null);
   const hasSound = isSound || !!scene.sound?.asset;
+  const word = SHAPE_WORDS[scene.shape] ?? scene.shape;
+  const field = (col, label, ctrl, na = false, wide = false) => fieldHtml(col, label, ctrl, na, wide, na ? `A ${word} does not read ${label}. The cell keeps its place so the grid is the same on every shape.` : '');
   const num = (cls, on, value, extra = '') => `<input type="number" class="${cls}" data-i="${i}" value="${esc(String(value))}" ${extra} ${dis(on)}>`;
-  const check = (cls, on, checked, words) => `<label class="check"><input type="checkbox" class="${cls}" data-i="${i}" ${checked ? 'checked' : ''} ${dis(on)}> ${words}</label>`;
+  // a two-word switch: the checkbox is still there for the writers, the words are what you see (the user, 2026-09-12: checkboxes were impossible to align)
+  const seg = (cls, on, checked, offWord, onWord) => `<label class="seg"><input type="checkbox" class="${cls}" data-i="${i}" ${checked ? 'checked' : ''} ${dis(on)}><span class="off">${offWord}</span><span class="on">${onWord}</span></label>`;
   const select = (cls, on, list, cur, label) => `<select class="${cls}" data-i="${i}" aria-label="${esc(label)}" ${dis(on)}>${options(list, cur)}</select>`;
   // a knob the sheet can show and clear but not yet write (thrown, return, breathe, pulse): what it
   // holds, in words, a door to the Library when it is an asset, and ✕. Writing one is the file's job.
@@ -532,9 +518,21 @@ function cellHtml(app, key, scene, i) {
       const r = on && scene.asset ? a.assets.resolve(scene.asset) : null;
       const path = r ? (r.path ?? (typeof r.file === 'string' ? r.file : '')) : '';
       const shown = pathWords(path) || 'No VFX';
-      return field('vfx', 'VFX', !locked && on
-        ? `<span class="search"><input type="text" class="cw-asset" data-i="${i}" value="${esc(pathWords(path))}" placeholder="VFX" aria-label="VFX" autocomplete="off"><div class="suggest" data-open="false"></div></span><button type="button" class="quiet browse" data-act="cw-browse" data-i="${i}" data-slot="asset" data-tooltip="Asset Library">Browse</button>`
-        : `<button type="button" class="link asset" data-act="cw-show" data-i="${i}" data-slot="asset" data-tooltip="Asset Library" ${naDis(on)}>${esc(shown)}</button>`, !on);
+      const file = on ? pictureFile(scene) : null;
+      const media = file ? (isVideo(file) ? `<video src="${esc(assetUrl(file))}" autoplay loop muted playsinline preload="metadata"></video>` : `<img src="${esc(assetUrl(file))}" alt="">`) : '';
+      const why = playWhy(app, scene);
+      const tile = `<button type="button" class="preview" data-act="cw-show" data-i="${i}" data-slot="asset" data-tooltip="Asset Library" ${naDis(on)}>${media}<span class="cap">${esc(shown)}</span></button>`;
+      const doors = `${!locked && on ? `<button type="button" class="browse" data-act="cw-browse" data-i="${i}" data-slot="asset" data-tooltip="Asset Library">Change</button>` : ''}<button type="button" class="quiet play" data-act="sh-play-scene" data-i="${i}" data-tooltip="${esc(why ?? `Play scene ${i + 1} now. Nothing is saved.`)}" aria-label="Play scene ${i + 1}" ${why || !on ? 'disabled' : ''}>▶</button>`;
+      return `<div class="f f-vfx" data-tile="true"${on ? '' : ` data-na="true" data-tooltip="${esc(`A ${word} has no picture.`)}"`}>${tile}<div class="c">${doors}</div></div>`;
+    }
+    case 'colour': {
+      // the asset's own colour, from the family's registration: a swap, never a tint
+      const path = scene.asset ? a.assets.resolve(scene.asset).path ?? null : null;
+      const family = path ? a.assets.familyOf(path) : null;
+      const colours = family ? a.assets.colours(family) : [];
+      const on = may('asset') && !isSound && colours.length > 1;
+      const current = path && family ? path.slice(family.length + 1) : '';
+      return field('colour', 'Colour', on ? select('cw-colour', on, colours.map((c) => [c, c.replace(/_/g, ' ')]), current, 'Colour') : `<span class="suffix">${colours.length === 1 ? esc(colours[0].replace(/_/g, ' ')) : '—'}</span>`, !on);
     }
     case 'place': {
       const travels = ['strike', 'shoot', 'beam'].includes(scene.shape);
@@ -568,15 +566,15 @@ function cellHtml(app, key, scene, i) {
     }
     case 'below': {
       const on = may('below');
-      return field('below', 'Depth', check('cw-below', on, scene.below, 'under the tokens'), !on);
+      return field('below', 'Depth', seg('cw-below', on, scene.below, 'Over', 'Under'), !on);
     }
     case 'mirror': {
       const on = may('mirror');
-      return field('mirror', 'Mirror', select('cw-mirror', on, [['random', 'Randomly flipped'], ['none', 'Never flipped']], sc.mirror ?? 'random', 'Mirror'), !on);
+      return field('mirror', 'Mirror', seg('cw-mirror', on, (sc.mirror ?? 'random') === 'random', 'Never', 'Random'), !on);
     }
     case 'scatter': {
       const on = may('scatter');
-      return field('scatter', 'Scatter', check('cw-scatter', on, scene.scatter, 'lands off centre'), !on);
+      return field('scatter', 'Scatter', seg('cw-scatter', on, scene.scatter, 'Off', 'On'), !on);
     }
 
     // ---- Timing ------------------------------------------------------------------------------
@@ -614,7 +612,7 @@ function cellHtml(app, key, scene, i) {
       const on = may('wait') && i < s.scenes.length - 1;
       const held = !!scene.wait;
       const offset = typeof scene.wait === 'number' ? scene.wait : 0;
-      return field('hold', 'Hold next', `${check('cw-hold', on, held, 'waits for this')}${num('cw-holdms', on && held, offset, 'step="50" aria-label="Hold next (ms)"')}<span class="suffix">ms</span>`, !on);
+      return field('hold', 'Hold next', `${seg('cw-hold', on, held, 'Off', 'On')}${num('cw-holdms', on && held, offset, 'step="50" aria-label="Hold next (ms)"')}<span class="suffix">ms</span>`, !on);
     }
 
     // ---- Sound -------------------------------------------------------------------------------
@@ -653,7 +651,7 @@ function cellHtml(app, key, scene, i) {
       const on = may('rotate');
       const byPos = scene.rotate === 'by-position';
       // "by position" (turned to where the template sits against the caster) is a fill's alone
-      const pos = scene.shape === 'fill' ? check('cw-rotpos', on, byPos, 'by position') : '';
+      const pos = scene.shape === 'fill' ? seg('cw-rotpos', on, byPos, 'Fixed', 'By position') : '';
       return field('rotate', 'Rotate', `${num('cw-rotate', on && !byPos, typeof scene.rotate === 'number' ? scene.rotate : 0, 'step="15" aria-label="Rotate (degrees)"')}<span class="suffix">°</span>${pos}`, !on);
     }
     case 'anchor': {
@@ -664,7 +662,7 @@ function cellHtml(app, key, scene, i) {
     case 'elevation': {
       const on = may('elevation');
       const el = scene.elevation ?? null;
-      return field('elevation', 'Elevation', `${num('cw-elev', on, el?.level ?? 0, 'step="1" aria-label="Elevation"')}${check('cw-elev-abs', on && !!el, el?.absolute, 'absolute')}`, !on);
+      return field('elevation', 'Elevation', `${num('cw-elev', on, el?.level ?? 0, 'step="1" aria-label="Elevation"')}${seg('cw-elev-abs', on && !!el, el?.absolute, 'Relative', 'Absolute')}`, !on);
     }
     case 'zindex': {
       const on = may('zIndex');
@@ -672,12 +670,12 @@ function cellHtml(app, key, scene, i) {
     }
     case 'mask': {
       const on = may('mask');
-      return field('mask', 'Mask', check('cw-mask', on, scene.mask, scene.shape === 'fill' ? 'to the template' : 'to the token'), !on);
+      return field('mask', 'Mask', seg('cw-mask', on, scene.mask, 'Off', scene.shape === 'fill' ? 'To template' : 'To token'), !on);
     }
     case 'attach': {
       const on = may('attach');
       const at = scene.attach ?? null;
-      return field('attach', 'Attach', `${check('cw-attach-alpha', on, at?.alpha, 'alpha')}${check('cw-attach-vis', on, at?.visibility, 'visible')}`, !on);
+      return field('attach', 'Attach', `<label class="chip"><input type="checkbox" class="cw-attach-alpha" data-i="${i}" ${at?.alpha ? 'checked' : ''} ${dis(on)}>Alpha</label><label class="chip"><input type="checkbox" class="cw-attach-vis" data-i="${i}" ${at?.visibility ? 'checked' : ''} ${dis(on)}>Visible</label>`, !on);
     }
 
     // ---- the shape's own -----------------------------------------------------------------------
@@ -696,15 +694,15 @@ function cellHtml(app, key, scene, i) {
     case 'return': return compound('return', 'Return', may('return'), 'return', scene.return?.asset, 'cw-return-off');
     case 'cleartemplate': {
       const on = may('clearTemplate');
-      return field('cleartemplate', 'Clear template', check('cw-cleartemplate', on, scene.clearTemplate, 'when it has played'), !on);
+      return field('cleartemplate', 'Clear template', seg('cw-cleartemplate', on, scene.clearTemplate, 'Keep', 'When played'), !on);
     }
     case 'follow': {
       const on = may('follow');
-      return field('follow', 'Follow', check('cw-follow', on, scene.follow, 'moves with the token'), !on);
+      return field('follow', 'Follow', seg('cw-follow', on, scene.follow, 'Stays', 'Follows'), !on);
     }
     case 'face': {
       const on = may('face');
-      return field('face', 'Face', check('cw-face', on, scene.face === 'away-from-source', 'away from the caster'), !on);
+      return field('face', 'Face', seg('cw-face', on, scene.face === 'away-from-source', 'As is', 'Away'), !on);
     }
     case 'breathe': return compound('breathe', 'Breathe', may('breathe'), null, scene.breathe ? `${scene.breathe.min ?? 0}–${scene.breathe.max ?? 0} every ${scene.breathe.every ?? 0} ms` : null, 'cw-breathe-off');
     case 'pulse': return compound('pulse', 'Pulse', may('pulse'), null, scene.pulse ? `${scene.pulse.min ?? 0}–${scene.pulse.max ?? 0} every ${scene.pulse.every ?? 0} ms` : null, 'cw-pulse-off');
@@ -719,11 +717,11 @@ function cellHtml(app, key, scene, i) {
     }
     case 'jump': {
       const on = may('jump');
-      return field('jump', 'Travel or jump', select('cw-jump', on, [['true', 'Appears there'], ['false', 'Travels there']], String(sc.jump ?? true), 'Travel or jump'), !on);
+      return field('jump', 'Arrives', seg('cw-jump', on, sc.jump ?? true, 'Travels', 'Appears'), !on);
     }
     case 'fade': {
       const on = may('fade');
-      return field('fade', 'Fade', check('cw-fade', on, scene.fade, 'fades out and in'), !on);
+      return field('fade', 'Fade', seg('cw-fade', on, scene.fade, 'Off', 'On'), !on);
     }
     case 'speed': {
       const on = may('speed') && !sc.jump;
@@ -741,25 +739,28 @@ function cellHtml(app, key, scene, i) {
 // after the render: the strip needs the pictures' own lengths, which only the browser knows
 // -----------------------------------------------------------------------------------------------
 /**
- * Ask each still how long its file runs, once per file, and redraw the strip when an answer comes
- * back. Until then the bar is drawn at a nominal length and marked an estimate — the sheet never
- * states a duration it has not been told.
+ * Ask the browser how long each scene's file runs, once per file (an off-screen video element that
+ * loads metadata only), and redraw the strip when an answer comes back. Until then the bar is
+ * drawn at a nominal length and marked an estimate — the sheet never states a duration it has not
+ * been told.
  */
 export function hydrateSheet(app) {
-  const root = app.element;
-  if (!root) return;
-  for (const v of root.querySelectorAll('video[data-file]')) {
-    const file = v.dataset.file;
-    if (!file || ASKED.has(file)) continue;
+  if (!app.element || !app.sheet) return;
+  for (const { scene } of app.sheet.scenes) {
+    const file = pictureFile(scene);
+    if (!file || !isVideo(file) || ASKED.has(file)) continue;
     ASKED.add(file);
-    const read = () => {
+    const v = document.createElement('video');
+    v.preload = 'metadata';
+    v.muted = true;
+    v.addEventListener('loadedmetadata', () => {
       const d = Number(v.duration);
       if (!Number.isFinite(d) || d <= 0) return;
       DURATIONS.set(file, Math.round(d * 1000));
       clearTimeout(app._stripTimer);
       app._stripTimer = setTimeout(() => { if (app.view?.tab === 'editor' && app.sheet) app.render(); }, 150);
-    };
-    if (v.readyState >= 1) read(); else v.addEventListener('loadedmetadata', read, { once: true });
+    }, { once: true });
+    v.src = `${assetUrl(file)}#t=0.1`;
   }
 }
 
@@ -834,7 +835,6 @@ export async function onSheetClick(app, b, act) {
     case 'sh-pick': s.pick = i; if (s.band === 'shape' && !shapeCells(s.scenes[i]?.scene.shape).length) s.band = 'picture'; break;
     case 'sh-band': s.band = b.dataset.band; break;
     // --- Play (HANDOFF step 2) ---
-    case 'sh-play': { const fx = safeDraft(app); if (!fx) return app.toast('Nothing to play yet.'); return previewFx(app, fx, sheetName(app)); }
     case 'sh-play-scene': {
       if (!x) return undefined;
       return previewFx(app, { id: 'preview', on: s.on, scenes: [clone(x.scene)] }, `scene ${i + 1}`);
@@ -842,11 +842,13 @@ export async function onSheetClick(app, b, act) {
     case 'sh-off': s.off = b.dataset.v === 'true'; break;
     case 'sh-on': s.on = b.dataset.on; break;
     case 'sh-like-hit': s.from = b.dataset.id; s.scenes = seedFrom(b.dataset.id); s.pick = 0; break;
+    case 'cw-add-menu': s.adding = !s.adding; break;
     case 'cw-add': {
       // the starter is a stencil: its scene is stamped out and the FX owns the copy
       const stencil = a.fx.scenesOf(STARTER_OF_SHAPE[b.dataset.shape]);
       const scene = stencil.find((sc) => sc.shape === b.dataset.shape) ?? stencil[0];
       if (scene) { s.scenes.push({ scene: named(scene) }); s.pick = s.scenes.length - 1; s.band = 'picture'; }
+      s.adding = false;
       break;
     }
     case 'cw-drop': s.scenes.splice(i, 1); s.pick = Math.max(0, Math.min(s.pick, s.scenes.length - 1)); break;
@@ -860,7 +862,6 @@ export async function onSheetClick(app, b, act) {
     case 'cw-return-off': if (x) delete x.scene.return; break;
     case 'cw-breathe-off': if (x) delete x.scene.breathe; break;
     case 'cw-pulse-off': if (x) delete x.scene.pulse; break;
-    case 'cw-asset-hit': if (x) x.scene.asset = { path: b.dataset.path }; break;
     case 'cw-sound-hit': {
       if (x) { if (x.scene.shape === 'sound') x.scene.asset = { path: b.dataset.path }; else x.scene.sound = { ...(x.scene.sound ?? {}), asset: b.dataset.path }; }
       break;
@@ -893,12 +894,6 @@ export function onSheetInput(app, el) {
     const hits = app.likeHits(q).filter((h) => h.tag !== 'starter');
     return open(hits.map((h) => `<div class="hit" data-act="sh-like-hit" data-id="${esc(h.id)}"><span>${esc(h.words)}${h.keys ? ` <span class="note">· ${esc(h.keys.slice(0, 60))}</span>` : ''}</span><span class="o">${esc(h.tag)}</span></div>`).join('') || '<div class="hit"><span class="o">No match</span></div>');
   }
-  if (el.classList.contains('cw-asset')) {
-    if (q.length < 2) return open('');
-    const hits = a.assets.search(q, { roots: ['jb2a'], limit: 30 });
-    return open(hits.map((h) => `<div class="hit" data-act="cw-asset-hit" data-i="${el.dataset.i}" data-path="${esc(h.colours.length ? `${h.path}.${h.colours[0]}` : h.path)}"><span>${esc(pathWords(h.path))}</span><span class="o">${h.colours.length ? `${h.colours.length} colour${h.colours.length === 1 ? '' : 's'}` : '1 colour'}</span></div>`).join('') || '<div class="hit"><span class="o">No match</span></div>');
-  }
-  if (el.classList.contains('sh-note')) { s.note = el.value; }
 }
 
 /** a number knob: written when it says something, dropped when it says what the shape already says */
@@ -908,6 +903,7 @@ function setNum(scene, key, value, fallback) {
 }
 
 export function onSheetChange(app, el) {
+  const a = api();
   const s = app.sheet;
   if (!s) return undefined;
   if (el.classList.contains('sh-edit')) {
@@ -935,8 +931,9 @@ export function onSheetChange(app, el) {
   }
   if (cls('cw-opacity')) { const v = Math.min(100, Math.max(0, Math.round(n || 0))); setNum(scene, 'opacity', v / 100, 1); return app.render(); }
   if (cls('cw-tint')) { scene.tint = { ...(scene.tint ?? {}), colour: el.value }; return app.render(); }
+  if (cls('cw-colour')) { const r = a.assets.recoloured(scene.asset, el.value); if (!r.problem) scene.asset = typeof scene.asset === 'string' ? r.path : { ...scene.asset, path: r.path, family: undefined, variant: undefined, colour: undefined }; return app.render(); }
   if (cls('cw-below')) { if (el.checked) scene.below = true; else delete scene.below; return app.render(); }
-  if (cls('cw-mirror')) { if (el.value === (def.mirror ?? 'random')) delete scene.mirror; else scene.mirror = el.value; return app.render(); }
+  if (cls('cw-mirror')) { const v = el.checked ? 'random' : 'none'; if (v === (def.mirror ?? 'random')) delete scene.mirror; else scene.mirror = v; return app.render(); }
   if (cls('cw-scatter')) { if (el.checked) scene.scatter = true; else delete scene.scatter; return app.render(); }
 
   // ---- Timing ----
@@ -986,7 +983,7 @@ export function onSheetChange(app, el) {
     if (unoccupied) delete scene.unoccupied; else scene.unoccupied = false;
     return app.render();
   }
-  if (cls('cw-jump')) { const v = el.value === 'true'; if (v === (def.jump ?? true)) delete scene.jump; else scene.jump = v; return app.render(); }
+  if (cls('cw-jump')) { const v = el.checked; if (v === (def.jump ?? true)) delete scene.jump; else scene.jump = v; return app.render(); }
   // the box writes the fade the stock moves use (dim to nothing after the sound starts, back once the token lands); one written in full is kept as it is
   if (cls('cw-fade')) { if (el.checked) { if (!scene.fade || typeof scene.fade !== 'object') scene.fade = { to: 0.01, after: 750, back: 250 }; } else delete scene.fade; return app.render(); }
   if (cls('cw-speed')) { setNum(scene, 'speed', n, def.speed ?? 120); return app.render(); }

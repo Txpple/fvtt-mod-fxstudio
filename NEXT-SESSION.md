@@ -1,5 +1,23 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-12, evening — THE EDIT FX WINDOW, on the user's screenshots (their own marks, then the
+> sequence block of the shelved mock held up as the target: *"the gui was supposed to look a lot more
+> like this … use your judgment"*).** Built on the sandbox, NOT released: the rail is two-line rows
+> (number badge, "Shape · place", "0 ms") with no still and no ▶, four rows high and scrolling past
+> that so the form never grows; **"+ Add a scene"** beneath it opens the shape menu in place (never a
+> modal); the strip is an **Overlap** card with thin lines and three ticks; the header says "3 scenes ·
+> 1.4 s"; **Play all and the Note box are gone** (the user's X); the Picture band leads with a
+> **preview tile** (the webm looping, its name over it, Change → the Library, ▶ plays the scene) and
+> gains a **Colour** cell (the family's own colours, a path swap — this reverses the 2026-09-07 "no
+> colour knob" test on the user's mock); **every checkbox is a two-word switch** (Over/Under,
+> Random/Never, Off/On …) or a chip, the checkbox hidden inside for the writers; a greyed cell says why
+> on hover. The VFX text search went with its cell (the Library is the one door). Found by the suite
+> and FIXED: a Stock FX under a House override opened with the OVERRIDE's scenes (the sheet took them
+> from the winning layer); a layer opens as itself now. Screens 189/190 (the one is the sandbox's
+> version string until a restart the user's session blocks). Not asked and not done: the arrow the
+> user drew from the Add pills up to the sequence heading was read as the Add row moving up into the
+> rail, which it did; the Note box is gone though the mock shows one — the user's X came first.
+
 > **2026-09-12, last — THE GRAMMAR IS THE ENGINE (the user: *"i really want this clean, both from a ui
 > and a corpus perspective, and no bloat"*), DESIGN §22.** Every shape's knob list is now exactly what its
 > engine file reads; `aboveLighting`, `xray`, `pick`, `from` on strike, `at` on fill, `persist` on aura,

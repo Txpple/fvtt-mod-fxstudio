@@ -92,7 +92,8 @@ try {
       await sleep(450);
       ok('§3 the Editor opens on a new sheet, unlocked, hooked to the spell', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Sharran Step \(spell\)/.test(text('.hookstrip')) && /New/.test(text('.sheet h2')), `pane ${paneNow()} · ${text('.sheet h2')}`);
       ok('§3 Save waits: no scenes yet, the problem is named', $('[data-act="sh-save"]')?.disabled === true && !!$('.sheet .problem'), text('.sheet .problem'));
-      ok('§3 an empty sequence offers Copy from and Add', !!$('.sh-like') && $$('[data-act="cw-add"]').length === 8, `${$$('[data-act="cw-add"]').length} shapes`);
+      await click('.addrow');
+      ok('§3 an empty sequence offers Copy from, and + Add a scene opens the shape menu in place (the user, 2026-09-12)', !!$('.sh-like') && $$('.addmenu [data-act="cw-add"]').length === 8, `${$$('[data-act="cw-add"]').length} shapes`);
       await type('.sh-like', 'misty step');
       const like = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
       ok('§3 Copy from offers the Misty Step FX', !!like, $$('.suggest .hit').map((h) => h.dataset.id).join(', '));
@@ -100,8 +101,8 @@ try {
       const rail = () => $$('.rail .row');
       ok('§3 the rail holds Misty Step\'s scenes, numbered, one row each, the selected one in the inspector', rail().length >= 2 && rail().map((r) => r.querySelector('.num').textContent).join('') === [...Array(rail().length)].map((_, k) => k + 1).join('') && $('.inspector .line').textContent.length > 10, `${rail().length} scenes · ${text('.inspector .line')}`);
       ok('§3 the rail rows are typed and striped by kind: VFX, VFX, Move', rail().map((r) => r.dataset.kind).join(',') === 'vfx,vfx,move', rail().map((r) => r.dataset.kind).join(','));
-      ok('§3 the knobs sit in labelled fields in the Picture band', $$('.inspector .f .l').length === 8 && /VFX/.test(text('.inspector .f-vfx .l')) && $('.inspector')?.dataset.band === 'picture', `${$$('.inspector .f .l').length} fields · band ${$('.inspector')?.dataset.band}`);
-      ok('§3 no colour knob on a scene: the VFX field names the variant and Browse is the door', !$('.cw-colour') && $$('[data-act="cw-browse"][data-slot="asset"]').length === 1 && /misty step 01/i.test($('.inspector .f-vfx input')?.value ?? ''), $('.inspector .f-vfx input')?.value ?? '');
+      ok('§3 the knobs sit in labelled fields in the Picture band, behind the preview tile', $$('.inspector .f .l').length === 8 && !!$('.inspector .f-vfx[data-tile] .preview') && $('.inspector')?.dataset.band === 'picture', `${$$('.inspector .f .l').length} fields · band ${$('.inspector')?.dataset.band}`);
+      ok('§3 the tile names the variant, Change is the door to the Library, and Colour offers the family’s own colours (the user, 2026-09-12)', $$('[data-act="cw-browse"][data-slot="asset"]').length === 1 && /misty step 01/i.test(text('.inspector .f-vfx .cap')) && $('.cw-colour')?.tagName === 'SELECT' && $('.cw-colour').options.length > 1, `${text('.inspector .f-vfx .cap')} · ${$('.cw-colour')?.options.length ?? 0} colours`);
       // paint both marks black through the Library: pick the scene, Browse → the dark black variant → Use
       const blacken = async (n) => {
         await pick(n);
@@ -116,7 +117,7 @@ try {
       };
       await blacken(0);
       await blacken(1);
-      ok('§3 Browse → the dark black variant → Use paints a scene without a colour knob', /dark black/.test($('.inspector .f-vfx input')?.value ?? ''), $('.inspector .f-vfx input')?.value ?? '');
+      ok('§3 Browse → the dark black variant → Use paints the scene, and the tile says so', /dark black/.test(text('.inspector .f-vfx .cap')), text('.inspector .f-vfx .cap'));
       ok('§3 the draft reads back as the sentence, in black, before anything is saved', /dark black/.test(text('.sheet .preview')) && /Sharran Step · when used/.test(text('.sheet .preview')) && !/blue/.test(text('.sheet .preview')), text('.sheet .preview'));
       // the two delays are named apart (HANDOFF step 4): Wait before is `delay`, Hold next is `wait`
       await pick(1); await band('timing');
@@ -315,16 +316,18 @@ try {
       ok('§6 the Maintain band sits at the top of Coverage: Import to Stock and the corpus line, no columns to stage or ship', /Maintain · /.test(text('[data-pane="coverage"]')) && $('.coverage').firstElementChild.classList.contains('maintain') && !!$('.maintain [data-act="import-fx"][data-to="stock"]') && !$('.maintain .mcol') && !$('.maintain .co-version'), text('.maintain').replace(/\s+/g, ' ').slice(0, 160));
       // the Stock choice, through the sheet's own Save: the dialog is answered for it
       const stock6 = 'fire-bolt';
-      const stockNote6 = api.fx.get(stock6)?.original?.note ?? '';
+      const op6 = (fx) => fx?.scenes?.[0]?.opacity ?? 1;
+      const stockOp6 = op6(api.fx.get(stock6)?.original);
       const answerSave = async (choice, fn) => { const D = foundry.applications.api.DialogV2; const was = D.wait; let asked = false; D.wait = async () => { asked = true; return choice; }; try { await fn(); if (choice === 'cancel') await sleep(400); else await until(() => $('.sheet')?.dataset.edit === 'false'); } finally { D.wait = was; } return asked; };
-      const editNote = async (note) => { const sw = $('.sh-edit'); if (!sw.checked) { sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300); } await type('.sh-note', note); };
+      // the Note box is gone (the user, 2026-09-12): the edit that proves a Save is the first scene's opacity
+      const editOpacity = async (pct) => { const sw = $('.sh-edit'); if (!sw.checked) { sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300); } await click($$('.rail .pickbtn')[0]); await click('[data-act="sh-band"][data-band="picture"]'); await choose('.cw-opacity', String(pct)); };
       await openEditor(stock6);
       ok('§6 a Stock FX opens tagged Stock', api.fx.get(stock6)?.source === 'stock' && /Stock/.test(text('.sheet h2')), text('.sheet h2'));
-      await editNote('override by the suite');
+      await editOpacity(80);
       ok('§6 editing Stock, the banner says Save will ask: House override or Stock', /House override/.test(text('.sheet .banner')) && /Stock itself/.test(text('.sheet .banner')), text('.sheet .banner'));
       const asked6 = await answerSave('house', () => click('[data-act="sh-save"]'));
       made.push(stock6);
-      ok('§6 Save asked, and House override writes the same id into house.json: House wins, Stock is untouched', asked6 && api.fx.get(stock6)?.source === 'house' && api.fx.get(stock6)?.original?.note === 'override by the suite' && api.corpus.under(stock6) === 'stock' && api.corpora.stock.find((l) => l.id === stock6)?.note === stockNote6 && JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · under ${api.corpus.under(stock6)}`);
+      ok('§6 Save asked, and House override writes the same id into house.json: House wins, Stock is untouched', asked6 && api.fx.get(stock6)?.source === 'house' && op6(api.fx.get(stock6)?.original) === 0.8 && api.corpus.under(stock6) === 'stock' && op6(api.corpora.stock.find((l) => l.id === stock6)) === stockOp6 && JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · under ${api.corpus.under(stock6)}`);
       ok('§6 the sheet reopens on the override, tagged House override', /House override/.test(text('.sheet h2')) && $('.sheet')?.dataset.edit === 'false', text('.sheet h2'));
       // the Stock row is NOT lost (the user, 2026-09-12): both rows are listed, House first, Stock dimmed
       await click('[data-tab="fx"]');
@@ -333,24 +336,24 @@ try {
       const both6 = $$(`.fxlist .pickbtn[data-id="${stock6}"]`);
       ok('§6 the Library lists the override AND the Stock FX under it, two rows of one id, Stock marked as overridden', both6.length === 2 && both6.map((b) => b.dataset.source).join(',') === 'house,stock' && both6[1].closest('.row')?.dataset.shadowed === 'true' && /overrides this/.test(both6[1].dataset.tooltip ?? ''), both6.map((b) => `${b.dataset.source}:${b.closest('.row')?.dataset.shadowed}`).join(' · '));
       await click(both6[1].closest('.row').querySelector('[data-act="fx-editor"]'));
-      ok('§6 the Stock row\'s Editor opens the Stock FX itself, saying House overrides it', paneNow() === 'editor' && app.sheet?.source === 'stock' && app.sheet?.shadowed === true && /House overrides it/.test(text('.sheet h2')) && app.sheet?.note === stockNote6, `${app.sheet?.source} · ${text('.sheet h2')}`);
+      ok('§6 the Stock row\'s Editor opens the Stock FX itself, saying House overrides it', paneNow() === 'editor' && app.sheet?.source === 'stock' && app.sheet?.shadowed === true && /House overrides it/.test(text('.sheet h2')) && (app.sheet?.scenes?.[0]?.scene.opacity ?? 1) === stockOp6, `${app.sheet?.source} · opacity ${app.sheet?.scenes?.[0]?.scene.opacity ?? 1} vs ${stockOp6} · ${text('.sheet h2')}`);
       await click('[data-tab="fx"]');
       await type('.fx-q', '');
       await sleep(450);
       await click($(`.fxlist .pickbtn[data-id="${stock6}"][data-source="house"]`).closest('.row').querySelector('[data-act="fx-editor"]'));
-      ok('§6 and the House row\'s Editor opens the override', app.sheet?.source === 'house' && app.sheet?.note === 'override by the suite', `${app.sheet?.source}`);
+      ok('§6 and the House row\'s Editor opens the override', app.sheet?.source === 'house' && app.sheet?.scenes?.[0]?.scene.opacity === 0.8, `${app.sheet?.source}`);
       await sayYes(() => click('[data-act="sh-delete"]'));
       await until(() => api.fx.get(stock6)?.source === 'stock' && text('.sheet code.id') === stock6);
-      ok('§6 Delete on the override shows Stock again, and the sheet reopens on it', api.fx.get(stock6)?.source === 'stock' && api.fx.get(stock6)?.original?.note === stockNote6 && text('.sheet code.id') === stock6 && /Stock/.test(text('.sheet h2')), `${api.fx.get(stock6)?.source} · ${text('.sheet h2')}`);
-      await editNote('stock edited by the suite');
+      ok('§6 Delete on the override shows Stock again, and the sheet reopens on it', api.fx.get(stock6)?.source === 'stock' && op6(api.fx.get(stock6)?.original) === stockOp6 && text('.sheet code.id') === stock6 && /Stock/.test(text('.sheet h2')), `${api.fx.get(stock6)?.source} · ${text('.sheet h2')}`);
+      await editOpacity(60);
       const asked6b = await answerSave('stock', () => click('[data-act="sh-save"]'));
-      ok('§6 Edit Stock writes the Stock file itself: no override, the books changed', asked6b && api.fx.get(stock6)?.source === 'stock' && api.fx.get(stock6)?.original?.note === 'stock edited by the suite' && JSON.parse(await readFile('recipes/stock/spells.json')).fx.find((l) => l.id === stock6)?.note === 'stock edited by the suite' && !JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · ${api.fx.get(stock6)?.original?.note}`);
-      await editNote(stockNote6);
+      ok('§6 Edit Stock writes the Stock file itself: no override, the books changed', asked6b && api.fx.get(stock6)?.source === 'stock' && op6(api.fx.get(stock6)?.original) === 0.6 && op6(JSON.parse(await readFile('recipes/stock/spells.json')).fx.find((l) => l.id === stock6)) === 0.6 && !JSON.parse(await readFile('recipes/house.json')).fx.some((l) => l.id === stock6), `${api.fx.get(stock6)?.source} · opacity ${op6(api.fx.get(stock6)?.original)}`);
+      await editOpacity(Math.round(stockOp6 * 100));
       await answerSave('stock', () => click('[data-act="sh-save"]'));
-      ok('§6 and written back as it was', api.fx.get(stock6)?.original?.note === stockNote6, api.fx.get(stock6)?.original?.note ?? '');
-      await editNote('cancelled');
+      ok('§6 and written back as it was', op6(api.fx.get(stock6)?.original) === stockOp6, String(op6(api.fx.get(stock6)?.original)));
+      await editOpacity(50);
       const asked6c = await answerSave('cancel', () => click('[data-act="sh-save"]'));
-      ok('§6 Cancel in the dialog saves nothing and leaves the sheet unlocked', asked6c && $('.sheet')?.dataset.edit === 'true' && api.fx.get(stock6)?.original?.note === stockNote6, `${$('.sheet')?.dataset.edit}`);
+      ok('§6 Cancel in the dialog saves nothing and leaves the sheet unlocked', asked6c && $('.sheet')?.dataset.edit === 'true' && op6(api.fx.get(stock6)?.original) === stockOp6, `${$('.sheet')?.dataset.edit}`);
       await click('[data-act="sh-cancel"]');
       await click('[data-tab="fx"]');
 
@@ -565,7 +568,7 @@ try {
       await openEditorForSubject();
       const sw3 = $('.sh-edit'); sw3.checked = true; sw3.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§13 the sheet is unlocked with a Browse button on the first VFX', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="cw-browse"][data-slot="asset"]'), '');
-      const has13 = $('.sheet .inspector .f-vfx input')?.value ?? '';
+      const has13 = text('.sheet .inspector .f-vfx .cap');
       ok('§13 the VFX field names the variant, not just the family', /misty step 01/i.test(has13), has13.replace(/\s+/g, ' ').slice(0, 80));
       await click('[data-act="cw-browse"][data-slot="asset"]');
       ok('§13 Browse opens the Asset Library as the picker, saying what it picks for', paneNow() === 'assets' && /VFX for Misty Step · scene 1/.test(text('.picking')), text('.picking'));
@@ -585,7 +588,7 @@ try {
       ok('§13 the SFX cell carries Browse and ✕, and no select to hide a door behind', !$('.cw-sound') && !!$('[data-act="cw-browse"][data-slot="sound"]') && !!$('[data-act="cw-sound-off"]') && $('.inspector .f-sfx')?.classList.contains('wide'), text('.inspector .f-sfx').replace(/\s+/g, ' '));
       // R1 in the bands (HANDOFF step 4): the same eight addresses in one order, for every shape
       const BANDS13 = {
-        picture: 'vfx,place,size,opacity,tint,below,mirror,scatter',
+        picture: 'vfx,place,size,colour,opacity,tint,below,mirror,scatter',
         timing: 'delay,times,every,rate,fadein,fadeout,lasts,hold',
         sound: 'sfx,volume,start,sdelay,stimes,severy,spacer',
         placement: 'rotate,anchor,elevation,zindex,mask,attach,spacer,spacer',
@@ -600,7 +603,7 @@ try {
         }
       }
       const wrong13 = grids13.filter((g) => g.split(':')[1] !== BANDS13[g.split('/')[0]]);
-      ok('§13 every band is the same eight cells in one order, for a Mark and for a Move (R1)', !wrong13.length, wrong13.length ? wrong13.join(' | ') : grids13[0]);
+      ok('§13 every band is the same cells in one order, for a Mark and for a Move (R1; Picture leads with the preview tile)', !wrong13.length, wrong13.length ? wrong13.join(' | ') : grids13[0]);
       ok('§13 the inspector frame never resizes: every band is the same height (R3)', new Set(heights13).size === 1, heights13.join(','));
       const na13 = () => [...$$('.inspector .f[data-na="true"]')].map((x) => x.className.replace('f f-', '').replace(' wide', ''));
       await pick(0); await band('picture'); const naMark13 = na13();
@@ -639,11 +642,14 @@ try {
       await sleep(500);
       canvas.tokens.releaseAll();
       await app.render(); await sleep(250);
-      ok('§14 with no token selected Play keeps its place, greyed, and says why', $('[data-act="sh-play"]')?.disabled === true && /select a token/.test(text('[data-act="sh-play"]')) && $$('[data-act="sh-play-scene"]').length === $$('.rail .row').length && $$('[data-act="sh-play-scene"]').every((b) => b.disabled), text('[data-act="sh-play"]'));
+      ok('§14 with no token selected the scene ▶ under the preview keeps its place, greyed, and there is no Play all (the user, 2026-09-12)', !$('[data-act="sh-play"]') && $$('[data-act="sh-play-scene"]').length === 1 && $$('[data-act="sh-play-scene"]').every((b) => b.disabled), `${$$('[data-act="sh-play-scene"]').length} scene plays`);
       caster.control({ releaseOthers: true });
       await app.render(); await sleep(250);
-      ok('§14 with a token selected both Play controls come alive', $('[data-act="sh-play"]')?.disabled === false && text('[data-act="sh-play"]').trim() === '▶ Play all' && $$('[data-act="sh-play-scene"]').every((b) => !b.disabled), text('[data-act="sh-play"]'));
-      ok('§14 every rail row carries a still of what it plays', $$('.rail .thumb').length === $$('.rail .row').length && $$('.rail video.thumb, .rail img.thumb').length >= 1, `${$$('.rail .thumb').length} thumbs of ${$$('.rail .row').length} scenes`);
+      ok('§14 with a token selected the scene ▶ comes alive', $$('[data-act="sh-play-scene"]').every((b) => !b.disabled), `${$$('[data-act="sh-play-scene"]').length} scene plays`);
+      ok('§14 a rail row is a number, a name and a time — no still, no ▶; the preview tile in the Picture band shows the picture (the user, 2026-09-12)', $$('.rail video, .rail img, .rail button.play').length === 0 && $$('.rail .row .num').length === $$('.rail .row').length && !!$('.inspector .f[data-tile] .preview video, .inspector .f[data-tile] .preview img'), `${$$('.rail video, .rail img').length} stills · tile ${!!$('.inspector .f[data-tile]')}`);
+      ok('§14 no checkbox is bare: every boolean is a two-word switch or a chip', $$('.inspector input[type="checkbox"]').every((c) => c.closest('label.seg, label.chip')), `${$$('.inspector input[type="checkbox"]').length} switches`);
+      ok('§14 the rail scrolls past four scenes instead of growing the form', getComputedStyle($('.rail')).overflowY === 'auto' && parseFloat(getComputedStyle($('.rail')).maxHeight) > 0 && !$('.sh-note'), `${getComputedStyle($('.rail')).maxHeight} · note box ${$('.sh-note') ? 'present' : 'gone'}`);
+      ok('§14 the overlap bars are thin lines, not blobs', $$('.strip .bar').every((b) => b.getBoundingClientRect().height <= 5), $$('.strip .bar').map((b) => Math.round(b.getBoundingClientRect().height)).join(','));
       // band 1: the action bar stopped wrapping (noted after step 3, fixed here)
       const content14 = app.element.querySelector('.fxstudio-content');
       const bar14 = Math.round($('.lockbar').getBoundingClientRect().height);
@@ -667,10 +673,6 @@ try {
       await sleep(1200);
       const e14 = api.ledger[0];
       ok('§14 the row ▶ plays that one scene through the preview, and saves nothing', e14?.fx === 'preview' && e14.played && String(e14.id).startsWith('preview-') && houseIds().length === buf14, `${e14?.fx} · played ${e14?.played} · ${(e14?.files ?? []).join(', ').slice(0, 70)}`);
-      await click('[data-act="sh-play"]');
-      await sleep(1200);
-      const e14b = api.ledger[0];
-      ok('§14 ▶ Play all plays the whole FX, still saving nothing', e14b?.fx === 'misty-step' && String(e14b.id).startsWith('preview-') && houseIds().length === buf14, `${e14b?.fx} · played ${e14b?.played} · ${e14b?.why ?? ''}`);
       Sequencer.EffectManager.endEffects({ name: 'fxstudio-move-range' });
       canvas.app.stage.removeAllListeners?.('pointerdown');
       app.sheet = null; app.view.tab = 'fx'; await app.render(); await sleep(200);
