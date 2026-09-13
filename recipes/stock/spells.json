@@ -506,7 +506,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplMelfsAcidA",
     "name": "Acid Arrow",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -1703,7 +1703,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplRarysTelep",
     "name": "Telepathic Bond",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -2224,7 +2224,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplBigbysHand",
     "name": "Arcane Hand",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -2380,7 +2380,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbswdMordenkain",
     "name": "Arcane Sword",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -5356,7 +5356,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbFaithfulHound",
     "name": "Faithful Hound",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -7051,7 +7051,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplTashasHide",
     "name": "Hideous Laughter",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -7403,7 +7403,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplDrawmijsIn",
     "name": "Instant Summons",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -7521,7 +7521,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplOttosIrres",
     "name": "Irresistible Dance",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -8102,7 +8102,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbMagnificentMa",
     "name": "Magnificent Mansion",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -9156,7 +9156,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbPrivateSanctu",
     "name": "Private Sanctum",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -9578,7 +9578,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesRe",
     "name": "Resilient Sphere",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -9939,7 +9939,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsSe",
     "name": "Secret Chest",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -12342,7 +12342,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplEvardsBlac",
     "name": "Black Tentacles",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -14475,7 +14475,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsTi",
     "name": "Tiny Hut",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [
@@ -14906,7 +14906,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesFr",
     "name": "Freezing Sphere",
-    "where": "dnd5e · Spells"
+    "where": "SRD 5.2 · Spells"
    },
    "on": "use",
    "scenes": [

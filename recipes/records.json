@@ -459,7 +459,7 @@
   "effect:antilife-shell": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplAntilifeSh",
    "name": "Antilife Shell",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "effect:antipathy": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntipathyS",
@@ -1049,7 +1049,7 @@
   "effect:boots-of-elvenkind": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgBootsOfElvenk",
    "name": "Boots of Elvenkind",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:boots-of-speed-active": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBootsOfSpeed0",
@@ -1239,7 +1239,7 @@
   "effect:cloak-of-elvenkind": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgCloakOfElvenk",
    "name": "Cloak of Elvenkind",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:cloak-of-shadows": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkCloakOfSha",
@@ -1709,7 +1709,7 @@
   "effect:dispelling-evil-and-good": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplDispelEvil",
    "name": "Dispel Evil and Good",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "effect:displacement-suppressed": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCloakOfDispla",
@@ -1734,7 +1734,7 @@
   "effect:divine-order-protector": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbDivineOrderPr",
    "name": "Divine Order: Protector",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:divine-sense": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnChannelDiv",
@@ -1854,7 +1854,7 @@
   "effect:eldritch-mind": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbinvEldritchMi",
    "name": "Eldritch Mind",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:eldritch-spear": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvEldritchSp",
@@ -2379,7 +2379,7 @@
   "effect:free-action": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgRingOfFreeAct",
    "name": "Ring of Free Action",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:freezing-waves-zero-speed": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCataclysmicEve",
@@ -2739,7 +2739,7 @@
   "effect:hit-str-score-1d4": {
    "uuid": "Compendium.dnd5e.monsterfeatures24.Item.mmDrainingSwipe0",
    "name": "Draining Swipe",
-   "where": "dnd5e · Monster Features"
+   "where": "SRD 5.2 · Monster Features"
   },
   "effect:hit-str-score-2": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDrainingSwipe0",
@@ -2894,7 +2894,7 @@
   "effect:ignore-difficult-terrain": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgHorseshoesOfA",
    "name": "Horseshoes of a Zephyr",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:illuminated": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStarryWisp",
@@ -3024,12 +3024,12 @@
   "effect:investment-of-flight": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbinvInvestment",
    "name": "Investment of the Chain Master",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:investment-of-swimming": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbinvInvestment",
    "name": "Investment of the Chain Master",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:invisible": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGreaterInv",
@@ -3244,7 +3244,7 @@
   "effect:magician": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbPrimalOrderMa",
    "name": "Primal Order: Magician",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:magician-checks--cantrip": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbPrimalOrderMa",
@@ -3414,7 +3414,7 @@
   "effect:natures-ward": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbdrdNaturesWar",
    "name": "Nature's Ward",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:natures-ward-arid": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdNaturesSan",
@@ -3734,7 +3734,7 @@
   "effect:primal-order-warden": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbPrimalOrderWa",
    "name": "Primal Order: Warden",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:prismatic-blinding": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticW",
@@ -3874,7 +3874,7 @@
   "effect:ranged-weapon": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplTrueStrike",
    "name": "True Strike",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "effect:reckless": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbRecklessAt",
@@ -4164,7 +4164,7 @@
   "effect:robe-of-stars": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgRobeOfStars00",
    "name": "Robe of Stars",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:rod-of-the-pact-keeper-1": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfThePactK",
@@ -4664,7 +4664,7 @@
   "effect:staff-of-power": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgStaffOfPower0",
    "name": "Staff of Power",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:staggered": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbImpBrutalS",
@@ -4899,7 +4899,7 @@
   "effect:tactial-master": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbftrTacticalMa",
    "name": "Tactical Master",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:tactical-master": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrTacticalMa",
@@ -5379,7 +5379,7 @@
   "effect:water-focus": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgWaterRingOfEl",
    "name": "Water Ring of Elemental Command",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:water-walking": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWaterWalk0",
@@ -5439,7 +5439,7 @@
   "effect:winter-strider": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgBootsOfTheWin",
    "name": "Boots of the Winterlands",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "effect:wish-stress": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWish000000",
@@ -5449,7 +5449,7 @@
   "effect:witch-sight": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbinvWitchSight",
    "name": "Witch Sight",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "effect:withered": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfWither",
@@ -6444,12 +6444,12 @@
   "feature:channel-divinity-cleric": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbclcChannelDiv",
    "name": "Channel Divinity",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "feature:channel-divinity-paladin": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbpdnChannelDiv",
    "name": "Channel Divinity",
-   "where": "dnd5e · Character Classes"
+   "where": "SRD 5.2 · Character Classes"
   },
   "feature:channeler": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSChannelerlK",
@@ -12179,7 +12179,7 @@
   "item:anchor-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgAnchorQuaalsF",
    "name": "Feather Token (Anchor)",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:anchor-quaals-feather-token": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAnchorQuaalsF",
@@ -12214,7 +12214,7 @@
   "item:apparatus-of-the-crab": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgApparatusOfKw",
    "name": "Apparatus of the Crab",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:arcane-focus-varies": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagArcaneFocus",
@@ -12424,7 +12424,7 @@
   "item:bird-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgBirdQuaalsFea",
    "name": "Feather Token (Bird)",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:bird-quaals-feather-token": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBirdQuaalsFea",
@@ -12754,7 +12754,7 @@
   "item:central-pouch": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgCentralPouch0",
    "name": "Central Pouch",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:chain": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagChain000000",
@@ -12939,7 +12939,7 @@
   "item:crawler-mucus": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgCarrionCrawle",
    "name": "Crawler Mucus",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:crowbar": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.QjcMSfmrMwjPoWKn",
@@ -13064,7 +13064,7 @@
   "item:dragon-orb": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgOrbOfDragonki",
    "name": "Dragon Orb",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:dragon-scale-mail": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDragonScaleMa",
@@ -13154,7 +13154,7 @@
   "item:efficient-quiver": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgQuiverOfEhlon",
    "name": "Efficient Quiver",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:efreeti-bottle": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEfreetiBottle",
@@ -13284,7 +13284,7 @@
   "item:fan-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgFanQuaalsFeat",
    "name": "Feather Token (Fan)",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:fan-quaals-feather-token": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFanQuaalsFeat",
@@ -13304,7 +13304,7 @@
   "item:feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgQuaalsFeather",
    "name": "Feather Token",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:feathered-mask": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwFeatheredMask",
@@ -13579,7 +13579,7 @@
   "item:handy-haversack": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgHewardsHandyH",
    "name": "Handy Haversack",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:harkons-bite": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwHarkonsBite2Q",
@@ -13759,7 +13759,7 @@
   "item:instant-fortress": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgDaernsInstant",
    "name": "Instant Fortress",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:instrument-of-illusions": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgInstrumentOfI",
@@ -13789,7 +13789,7 @@
   "item:iron-bands": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgIronBandsOfBi",
    "name": "Iron Bands",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:iron-bands-of-bilarro": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgIronBandsOfBi",
@@ -13949,7 +13949,7 @@
   "item:left-pouch": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgLeftPouch0000",
    "name": "Left Pouch",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:letter-from-leka": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwLetterfromLek",
@@ -14079,7 +14079,7 @@
   "item:marvelous-pigments": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgNolzursMarvel",
    "name": "Marvelous Pigments",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:masons-tools": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulMasonsTool",
@@ -14149,7 +14149,7 @@
   "item:mysterious-deck": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgDeckOfManyThi",
    "name": "Mysterious Deck",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:mystery-key": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMysteryKey000",
@@ -14644,7 +14644,7 @@
   "item:regeneration-ioun-stone": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgRegnerationIo",
    "name": "Ioun Stone of Regeneration",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:regneration-ioun-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRegnerationIo",
@@ -14674,7 +14674,7 @@
   "item:right-pouch": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgRightPouch000",
    "name": "Right Pouch",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:ring-mail": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbarmRingMail00",
@@ -15159,7 +15159,7 @@
   "item:spiders-sting": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgLolthsSting00",
    "name": "Spider's Sting",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:spiked-pit": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSpikedPit0000",
@@ -15309,7 +15309,7 @@
   "item:swan-boat-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgSwanBoatQuaal",
    "name": "Feather Token (Swan Boat)",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:swan-boat-quaals-feather-token": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwanBoatQuaal",
@@ -15479,7 +15479,7 @@
   "item:tree-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgTreeQuaalsFea",
    "name": "Feather Token (Tree)",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:tree-quaals-feather-token": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTreeQuaalsFea",
@@ -15664,7 +15664,7 @@
   "item:whip-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgWhipQuaalsFea",
    "name": "Feather Token (Whip)",
-   "where": "dnd5e · Equipment"
+   "where": "SRD 5.2 · Equipment"
   },
   "item:whip-quaals-feather-token": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWhipQuaalsFea",
@@ -17272,7 +17272,7 @@
   "spell:acid-arrow": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplMelfsAcidA",
    "name": "Acid Arrow",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:acid-splash": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAcidSplash",
@@ -17347,7 +17347,7 @@
   "spell:arcane-hand": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplBigbysHand",
    "name": "Arcane Hand",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:arcane-lock": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArcaneLock",
@@ -17357,7 +17357,7 @@
   "spell:arcane-sword": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbswdMordenkain",
    "name": "Arcane Sword",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:arcane-vigor": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArcaneVigo",
@@ -17367,7 +17367,7 @@
   "spell:arcanists-magic-aura": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplNystulsMag",
    "name": "Arcanist's Magic Aura",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:armor-of-agathys": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArmorofAga",
@@ -17462,7 +17462,7 @@
   "spell:black-tentacles": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplEvardsBlac",
    "name": "Black Tentacles",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:blade-barrier": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBladeBarri",
@@ -18002,7 +18002,7 @@
   "spell:faithful-hound": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbFaithfulHound",
    "name": "Faithful Hound",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:false-life": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFalseLife0",
@@ -18127,7 +18127,7 @@
   "spell:freezing-sphere": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesFr",
    "name": "Freezing Sphere",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:friends": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFriends000",
@@ -18297,7 +18297,7 @@
   "spell:hideous-laughter": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplTashasHide",
    "name": "Hideous Laughter",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:hold-monster": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHoldMonste",
@@ -18377,7 +18377,7 @@
   "spell:instant-summons": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplDrawmijsIn",
    "name": "Instant Summons",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:invisibility": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInvisibili",
@@ -18387,7 +18387,7 @@
   "spell:irresistible-dance": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplOttosIrres",
    "name": "Irresistible Dance",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:jallarzis-storm-of-radiance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplJallarzisS",
@@ -18507,7 +18507,7 @@
   "spell:magnificent-mansion": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbMagnificentMa",
    "name": "Magnificent Mansion",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:major-image": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMajorImage",
@@ -18767,7 +18767,7 @@
   "spell:private-sanctum": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbPrivateSanctu",
    "name": "Private Sanctum",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:produce-flame": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplProduceFla",
@@ -18847,7 +18847,7 @@
   "spell:resilient-sphere": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesRe",
    "name": "Resilient Sphere",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:resistance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
@@ -18902,7 +18902,7 @@
   "spell:secret-chest": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsSe",
    "name": "Secret Chest",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:see-invisibility": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSeeInvisib",
@@ -19187,7 +19187,7 @@
   "spell:telepathic-bond": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplRarysTelep",
    "name": "Telepathic Bond",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:telepathy": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTelepathy0",
@@ -19242,7 +19242,7 @@
   "spell:tiny-hut": {
    "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsTi",
    "name": "Tiny Hut",
-   "where": "dnd5e · Spells"
+   "where": "SRD 5.2 · Spells"
   },
   "spell:toll-the-dead": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTolltheDea",

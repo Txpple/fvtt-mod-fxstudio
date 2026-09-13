@@ -56,7 +56,8 @@ export function packageMeta(dir) {
   for (const f of ['module.json', 'system.json']) {
     if (!existsSync(`${dir}/${f}`)) continue;
     const j = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
-    const title = String(j.title ?? j.id).replace(/^Dungeons & Dragons /, '').replace(/^Fifth Edition$/, 'dnd5e');
+    // the system's own copies are the SRD 5.2 (the user, 2026-09-13: name the book, as 'Monster Manual' does), not 'dnd5e'
+    const title = String(j.title ?? j.id).replace(/^Dungeons & Dragons /, '').replace(/^Fifth Edition$/, 'SRD 5.2');
     return { id: j.id, title, packs: Object.fromEntries((j.packs ?? []).map((p) => [p.name, p.label ?? p.name])) };
   }
   return null;

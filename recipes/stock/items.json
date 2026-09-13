@@ -352,7 +352,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.equipment24.Item.dmgCarrionCrawle",
     "name": "Crawler Mucus",
-    "where": "dnd5e · Equipment"
+    "where": "SRD 5.2 · Equipment"
    },
    "on": "use",
    "scenes": [

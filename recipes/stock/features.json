@@ -1803,7 +1803,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.classes24.Item.phbclcChannelDiv",
     "name": "Channel Divinity",
-    "where": "dnd5e · Character Classes"
+    "where": "SRD 5.2 · Character Classes"
    },
    "on": "use",
    "scenes": [
@@ -1850,7 +1850,7 @@
    "record": {
     "uuid": "Compendium.dnd5e.classes24.Item.phbpdnChannelDiv",
     "name": "Channel Divinity",
-    "where": "dnd5e · Character Classes"
+    "where": "SRD 5.2 · Character Classes"
    },
    "on": "use",
    "scenes": [
