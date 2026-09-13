@@ -22,6 +22,8 @@
 > footer button), not a menu in place. The header says "N scenes · s". Screens 185/186, the one the
 > version string.
 
+> **2026-09-13 — ANSWERS IS ONE KEY (the user: *"each item should be one to one, not 1-n"*).** The Editor's Answers column is one pill, never a list: no Add ability, no remove button; unlocked, the search box REPLACES the key (Change the ability / Choose an ability). Under the pill, the key itself in mono (spell:acid-arrow) and what it is — "every copy answers it" for a book record, "this world's own item" for an Own key — with the full explanation on hover. The why line lost its +N. On the sandbox, deployed under the running server (the user's window was open); screens 190/190. Not released.
+
 > **2026-09-12, latest — ONE KEY PER ITEM, DND5E'S IDENTIFIER, EXACT OR NOTHING (the user: *"i really
 > dont like the idea of global hooks anymore, thats the old AA way of thinking … it needs to exact or
 > it doesnt happen"*), DESIGN §23.** Global Hook and Item Hook are gone, with the item flag, the name

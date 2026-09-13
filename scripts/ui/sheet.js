@@ -250,7 +250,7 @@ function recordLine(app) {
 /** the key and the layer, in terms: "Misty Step (spell) · House" */
 function whyWords(app) {
   const s = app.sheet;
-  const key = s.keys.length ? `${keyLabel(s.keys[0])}${s.keys.length > 1 ? ` +${s.keys.length - 1}` : ''}` : 'no key yet';
+  const key = s.keys.length ? keyLabel(s.keys[0]) : 'no key yet';
   return `${key} · ${s.source ? SOURCE_TAG[s.source] : 'New'}`;
 }
 
@@ -312,12 +312,19 @@ function renderHook(app) {
   const s = app.sheet;
   const edit = s.edit;
   const sub = s.subject;
-  // read-only, a long key list is a count: the sheet is for reading then. Edit shows every one.
-  const SHOWN = 6;
-  const keys = edit ? s.keys : s.keys.slice(0, SHOWN);
-  const keyPills = keys.map((k) => `<span class="pill key" aria-pressed="true">${esc(keyLabel(k))}${edit ? `<button type="button" class="x" data-act="sh-key-del" data-key="${esc(k)}" aria-label="Remove hook">✕</button>` : ''}</span>`).join('')
-    + (!edit && s.keys.length > SHOWN ? `<span class="pill more">+${s.keys.length - SHOWN} more</span>` : '');
-  const addKey = edit ? `<div class="search sh-key-search"><input type="search" class="sh-key-q" placeholder="Add ability" aria-label="Add ability" autocomplete="off" value="${esc(s.keyQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
+  // ONE FX ANSWERS ONE KEY (2026-09-08), and an item has one key (DESIGN §23) — so Answers is ONE
+  // pill, never a list (the user, 2026-09-13: "each item should be one to one, not 1-n"). Unlocked,
+  // the search box REPLACES the key; there is nothing to add and nothing to remove. Under the pill,
+  // the key itself and what it is, in one line, so a person knows what they are keying to.
+  const key = s.keys[0] ?? null;
+  const p = key ? parseKey(key) : null;
+  const inBooks = key ? !!recordFor(key) : false;
+  const keyTip = !key ? '' : inBooks
+    ? `The key: ${p.kind} and dnd5e's identifier "${p.id}". Every copy of ${keyLabel(key).replace(/ \([a-z]+\)$/, '')} carries it and plays this FX. Own key gives one copy an identifier of its own.`
+    : `The key: ${p.kind} and dnd5e's identifier "${p.id}", which this world's own item carries. Only an item with that identifier plays this FX.`;
+  const keyPills = key ? `<span class="pill key" aria-pressed="true" data-tooltip="${esc(keyTip)}">${esc(keyLabel(key))}</span>` : '';
+  const keyLine = key ? `<code class="key" data-tooltip="${esc(keyTip)}">${esc(key)}</code><span class="note">${inBooks ? 'every copy answers it' : "this world's own item"}</span>` : '';
+  const addKey = edit ? `<div class="search sh-key-search"><input type="search" class="sh-key-q" placeholder="${key ? 'Change the ability' : 'Choose an ability'}" aria-label="${key ? 'Change the ability' : 'Choose an ability'}" autocomplete="off" value="${esc(s.keyQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
   const lastNew = s.newKeys.length ? s.newKeys[s.newKeys.length - 1] : null;
   const kinds = edit && lastNew && s.keys.includes(lastNew) ? `<span class="pills inline kinds"><span class="lbl">Type of ${esc(idWords(parseKey(lastNew)?.id))}</span>${Object.entries(KIND_WORDS).map(([k, w]) => `<button type="button" class="pill" aria-pressed="${parseKey(lastNew)?.kind === k}" data-act="sh-kind" data-kind="${k}">${w}</button>`).join('')}</span>` : '';
   const pills = (list, cur, act, attr) => list.map(([v, w]) => `<button type="button" class="pill" aria-pressed="${cur === v}" data-act="${act}" data-${attr}="${v}">${w}</button>`).join('');
@@ -341,11 +348,31 @@ function renderHook(app) {
     : `<span class="pill" data-na="true" data-tooltip="${esc(ownTip)}">Own key</span>`;
   const pickItem = picking ? `<div class="search sh-item-search"><input type="search" class="sh-item-q" placeholder="Find an item on an actor" aria-label="Find an item on an actor" autocomplete="off" value="${esc(s.itemQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
   return `<div class="hookstrip">
-    <div class="hcol wide"><span class="lbl">Answers</span><div class="pills wrap">${keyPills}${!s.keys.length ? '<span class="note">No key yet</span>' : ''}${addKey}${kinds}</div></div>
+    <div class="hcol wide"><span class="lbl">Answers</span><div class="pills wrap">${keyPills}${!key ? '<span class="note">No key yet</span>' : ''}${addKey}${kinds}</div><div class="keyline">${keyLine}</div></div>
     <div class="hcol"><span class="lbl">Item</span><div class="pills">${itemPill}${ownKey}</div>${pickItem}</div>
     <div class="hcol"><span class="lbl">Moment</span><div class="pills">${pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')}</div></div>
     <div class="hcol"><span class="lbl">State</span><div class="pills">${pills([[false, 'On'], [true, 'Off']], s.off, 'sh-off', 'v')}</div></div>
   </div>`;
+}
+
+/** the sheet's one key becomes an entry's own (an ammunition's or a cast spell's key may sit before it; an effect's own is first) */
+function takeEntry(app, e) {
+  const s = app.sheet;
+  const own = e.effect ? e.keys[0] : e.keys[e.keys.length - 1];
+  if (!own) return;
+  s.keys = [own];
+  s.newKeys = [];
+  s.subject = app.subjectFromEntry(e);
+  if (e.effect) s.on = 'effect';
+}
+
+/** the sheet's one key becomes a new ability's, keyed by its name as a spell until the kind pills say otherwise */
+function takeNew(app, name) {
+  const s = app.sheet;
+  const k = `spell:${slug(name)}`;
+  s.keys = [k];
+  s.newKeys = [k];
+  s.subject = app.subjectNew(name);
 }
 
 /** the sheet moved onto an item: the item is the subject, and its key is the sheet's when the sheet has none yet */
@@ -912,9 +939,9 @@ export async function onSheetClick(app, b, act) {
       if (a.fx.get(s.id)) openSheet(app, { id: s.id }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
       break;
     }
-    case 'sh-key-del': s.keys = s.keys.filter((k) => k !== b.dataset.key); s.newKeys = s.newKeys.filter((k) => k !== b.dataset.key); break;
-    case 'sh-key-hit': { const e = app.entries[i]; if (e) for (const k of e.keys) if (!s.keys.includes(k)) s.keys.push(k); if (!s.subject && e) s.subject = app.subjectFromEntry(e); s.keyQuery = ''; break; }
-    case 'sh-key-new': { const k = `spell:${slug(b.dataset.name)}`; if (!s.keys.includes(k)) { s.keys.push(k); s.newKeys.push(k); } if (!s.subject) s.subject = app.subjectNew(b.dataset.name); s.keyQuery = ''; break; }
+    // the key is REPLACED, never added to: one FX, one key
+    case 'sh-key-hit': { const e = app.entries[i]; if (e) takeEntry(app, e); s.keyQuery = ''; break; }
+    case 'sh-key-new': takeNew(app, b.dataset.name); s.keyQuery = ''; break;
     case 'sh-kind': { const last = s.newKeys[s.newKeys.length - 1]; const p = parseKey(last); if (!p) break; const k = `${b.dataset.kind}:${p.id}`; s.keys = s.keys.map((y) => (y === last ? k : y)); s.newKeys = s.newKeys.map((y) => (y === last ? k : y)); if (s.subject?.isNew) s.subject = app.subjectNew(s.subject.name, b.dataset.kind); s.on = b.dataset.kind === 'effect' ? 'effect' : s.on; break; }
     case 'sh-pick-item': s.itemQuery = s.itemQuery === null || s.itemQuery === undefined ? '' : null; break;
     case 'sh-item-hit': { const item = fromUuidSync(b.dataset.uuid); if (item) takeItem(app, item); else s.itemQuery = null; break; }
@@ -1083,8 +1110,7 @@ export function onSheetKey(app, ev) {
     if (!q) return true;
     const hits = app.searchHits(q);
     const exact = hits.find((h) => h.e.name.toLowerCase() === q.toLowerCase()) ?? hits[0];
-    if (exact) { for (const k of exact.e.keys) if (!s.keys.includes(k)) s.keys.push(k); if (!s.subject) s.subject = app.subjectFromEntry(exact.e); }
-    else { const k = `spell:${slug(q)}`; if (!s.keys.includes(k)) { s.keys.push(k); s.newKeys.push(k); } if (!s.subject) s.subject = app.subjectNew(q); }
+    if (exact) takeEntry(app, exact.e); else takeNew(app, q);
     s.keyQuery = '';
     app.render();
     return true;

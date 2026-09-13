@@ -233,7 +233,8 @@
 .fxstudio .pill.more { color: var(--fx-muted); }
 .fxstudio .pills.wrap { align-items: center; }
 .fxstudio .pill.key { display: inline-flex; align-items: center; gap: 6px; }
-.fxstudio .fx-wrap .pill.key button.x { border: 0; background: transparent; color: var(--fx-muted); padding: 0 2px; font-size: 12px; }
+.fxstudio .hookstrip .keyline { display: flex; gap: 8px; align-items: baseline; min-height: 16px; font-size: 11.5px; color: var(--fx-muted); }
+.fxstudio .hookstrip .keyline code.key { font-family: var(--font-mono, monospace); font-size: 11px; color: var(--fx-muted); background: transparent; padding: 0; }
 .fxstudio .sh-key-search { flex: 1 1 auto; min-width: 100px; }
 .fxstudio .sh-key-search input { width: 100%; padding: 6px 10px; font-size: 13px; }
 .fxstudio .tag.off { color: var(--fx-warn); border-color: var(--fx-warn); }
@@ -316,7 +317,7 @@
 .fxstudio [data-na="true"] { opacity: .38; pointer-events: none; }
 .fxstudio [data-na="true"] .c > * { cursor: default; }
 .fxstudio .sheet[data-edit="false"] .inspector input, .fxstudio .sheet[data-edit="false"] .inspector select, .fxstudio .sheet[data-edit="false"] .knob { background: transparent; border-color: transparent; padding-left: 0; opacity: 1; color: var(--fx-text); }
-.fxstudio .sheet[data-edit="false"] .f .c button.browse, .fxstudio .sheet[data-edit="false"] .pill.key button.x { display: none; }
+.fxstudio .sheet[data-edit="false"] .f .c button.browse { display: none; }
 .fxstudio .sheet[data-edit="false"] .hookstrip .pill { pointer-events: none; }
 .fxstudio .sheet[data-edit="false"] .hookstrip .pill:not([aria-pressed="true"]):not(.more) { display: none; }
 .fxstudio .sheet .add { margin-top: 10px; }

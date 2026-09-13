@@ -153,6 +153,14 @@ try {
       // 4 · the hook block and Save
       ok('§4 the Key strip is one row of four: Answers · Item · Moment · State', $$('.hookstrip .hcol').length === 4 && [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · ') === 'Answers · Item · Moment · State' && $('[data-act="sh-on"][aria-pressed="true"]')?.dataset.on === 'use' && $('[data-act="sh-off"][aria-pressed="true"]')?.dataset.v === 'false', [...$$('.hookstrip .lbl')].map((l) => l.textContent).join(' · '));
       ok('§4 the Item column names the item the sheet came from and offers Own key', /FX Test Caster · Sharran Step/.test(text('.hookstrip [data-act="sh-pick-item"]')) && $('[data-act="sh-own-key"]')?.disabled === false, text('.hookstrip'));
+      // ONE KEY: Answers is one pill with the key under it, and choosing another ability REPLACES it (the user, 2026-09-13: "one to one, not 1-n")
+      ok('§4 Answers is one pill, the key itself under it, and no remove button', $$('.hookstrip .pill.key').length === 1 && text('.hookstrip .keyline code.key') === 'spell:sharran-step' && !$('.hookstrip .pill.key button') && /Change the ability/.test($('.sh-key-q')?.placeholder ?? ''), `${text('.hookstrip .keyline')} · ${$('.sh-key-q')?.placeholder}`);
+      await type('.sh-key-q', 'Misty Step');
+      $('.sh-key-q').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(400);
+      ok('§4 choosing another ability replaces the key: still one pill, now Misty Step, and the key line says every copy answers it', $$('.hookstrip .pill.key').length === 1 && text('.hookstrip .pill.key') === 'Misty Step (spell)' && text('.hookstrip .keyline code.key') === 'spell:misty-step' && /every copy answers it/.test(text('.hookstrip .keyline')), text('.hookstrip'));
+      await type('.sh-key-q', 'Sharran Step');
+      $('.sh-key-q').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(400);
+      ok('§4 and back to Sharran Step, one pill, keyed to this world\'s own item', $$('.hookstrip .pill.key').length === 1 && text('.hookstrip .keyline code.key') === 'spell:sharran-step' && /this world/.test(text('.hookstrip .keyline')), text('.hookstrip'));
       ok('§4 the bar is static: every control is there, greyed where the mode does not offer it', $$('.lockbar button').length === 7 && !!$('[data-act="sh-new"]') && $('[data-act="sh-dup"]')?.disabled === true && $('[data-act="sh-export"]')?.disabled === true && $('[data-act="sh-delete"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
       ok('§4 the id is shown, derived from the ability', text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       ok('§4 Save is enabled now the sequence has scenes', $('[data-act="sh-save"]')?.disabled === false && !$('.sheet .problem'), text('.sheet .problem'));
