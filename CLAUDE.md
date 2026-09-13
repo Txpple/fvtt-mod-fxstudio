@@ -28,7 +28,7 @@ files once at ready by a GM's client. The Library's facets are House · Stock, t
 Switched off (Item Hooks went with the hook terms on 2026-09-12; On my actors and Broken assets
 before; Coverage's Errors tile still counts broken assets, without a door). `tools/pull-corpus.mjs` brings the files into the repo. DESIGN §21.
 
-**Status (2026-09-11): v0.3.0 is RELEASED and ON PROD (Battle Flow's moments play; v0.2.0 the day before), the only thing playing at the table (AA off),
+**Status (2026-09-13): the one-key model (DESIGN §23) is ON PROD as a working-tree deploy over v0.5.0 (not a tagged release yet), and the sandbox is a fresh copy of prod taken the same day (psfx-patreon and JB2A are prod's now). Thomas wields Midnight; First Light is gone from prod, so its House FX answers nothing until the user keys or deletes it. Before that: v0.3.0 released 2026-09-11 (Battle Flow's moments play),
 with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
 — it is the handoff. Nothing is owed; the user says what is next.**
 
@@ -246,8 +246,7 @@ handoff or a plan — which is the rule the shelved redesign broke.
 ## What is installed on the sandbox (mirrors prod, 2026-09-05)
 
 Sequencer 4.2.3 · JB2A Patreon 0.9.2 (209 styles, 10052 database paths, registers `jb2a.*`) ·
-PSFX Patreon 0.17.0 on prod as module id `psfx-patreon` (1230 paths, registers `psfx.*`; the sandbox still
-has the free `psfx` 0.16.0 until the next refresh) · Automated
+PSFX Patreon 0.17.0 as module id `psfx-patreon` (1230 paths, registers `psfx.*`; on the sandbox too since the 2026-09-13 refresh) · Automated
 Animations 7.0.22 and D&D5e Animations 3.3.0 — **installed but switched OFF on the sandbox since
 2026-09-06 AND OFF ON PROD** (read off prod 2026-09-10 with `configure-modules.mjs --dry-run`: both
 `active=false`; the user: *"aa is disabled on prod, see for yourself"*) — so FX Studio is the only
