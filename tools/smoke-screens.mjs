@@ -161,6 +161,23 @@ try {
       await type('.sh-key-q', 'Sharran Step');
       $('.sh-key-q').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(400);
       ok('§4 and back to Sharran Step, one pill, keyed to this world\'s own item', $$('.hookstrip .pill.key').length === 1 && text('.hookstrip .keyline code.key') === 'spell:sharran-step' && /this world/.test(text('.hookstrip .keyline')), text('.hookstrip'));
+      // ONE FX ANSWERS ONE KEY: keyed to an ability whose FX exists, the new sheet IS that FX (its id) and says so; Save would ask
+      await type('.sh-key-q', 'Misty Step');
+      $('.sh-key-q').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(400);
+      ok('§4 keyed to an ability that already has a Stock FX, the sheet takes that FX\'s id and the banner says so', text('.sheet code.id') === 'misty-step' && /Misty Step \(spell\) already has an FX in Stock/.test(text('.sheet .banner')) && /Save asks/.test(text('.sheet .banner')), `${text('.sheet code.id')} · ${text('.sheet .banner')}`);
+      await type('.sh-key-q', 'Sharran Step');
+      $('.sh-key-q').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(400);
+      ok('§4 … and keyed back, no banner and its own id', text('.sheet code.id') === 'sharran-step' && !$('.sheet .banner'), `${text('.sheet code.id')} · ${text('.sheet .banner')}`);
+      // a key is EARNED from a record, never made from a typed name: the search reaches the records address book for a book ability nobody holds
+      const unheld = Object.entries(api.records.map() ?? {}).find(([k, r]) => k.startsWith('spell:') && !api.fx.for(k).length && !app.entries.some((e) => e.keys.includes(k)) && r.name.length > 6);
+      await type('.sh-key-q', unheld[1].name);
+      await sleep(300);
+      const recHit = $$('.sh-key-search .hit[data-act="sh-key-rec"]').find((h) => h.dataset.key === unheld[0]);
+      ok('§4 a book ability on no sheet is offered from the records, by its record\'s name and book; there is no "New ability"', !!recHit && !$('.sh-key-search .hit[data-act="sh-key-new"]') && new RegExp(unheld[1].where.split(' · ')[0]).test(recHit.textContent), `${unheld[0]} · ${recHit?.textContent.replace(/\s+/g, ' ')}`);
+      await click(recHit);
+      ok('§4 picking it keys the sheet to that record\'s identifier, one pill, the record named', text('.hookstrip .keyline code.key') === unheld[0] && $$('.hookstrip .pill.key').length === 1 && text('.sheet h2').includes(unheld[1].name), `${text('.hookstrip .keyline')} · ${text('.sheet h2')}`);
+      await type('.sh-key-q', 'Sharran Step');
+      $('.sh-key-q').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(400);
       ok('§4 the bar is static: every control is there, greyed where the mode does not offer it', $$('.lockbar button').length === 7 && !!$('[data-act="sh-new"]') && $('[data-act="sh-dup"]')?.disabled === true && $('[data-act="sh-export"]')?.disabled === true && $('[data-act="sh-delete"]')?.disabled === true && $('[data-act="sh-cancel"]')?.disabled === false, $$('.lockbar button').map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')).join(', '));
       ok('§4 the id is shown, derived from the ability', text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
       ok('§4 Save is enabled now the sequence has scenes', $('[data-act="sh-save"]')?.disabled === false && !$('.sheet .problem'), text('.sheet .problem'));
@@ -377,6 +394,10 @@ try {
       await sleep(300);
       await openEditorForSubject();
       ok('§7 the Editor opens on the FX that answers the item, locked, to read', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'false' && text('.sheet code.id') === 'sharran-step', text('.sheet code.id'));
+      // Duplicate opens a copy with NO key: a copy under the same key could only be an override or a replacement
+      await click('[data-act="sh-dup"]');
+      ok('§7 Duplicate opens an unlocked copy with the scenes and no key: "No key yet", Choose an ability', $('.sheet')?.dataset.edit === 'true' && !$$('.hookstrip .pill.key').length && /No key yet/.test(text('.hookstrip')) && /Choose an ability/.test($('.sh-key-q')?.placeholder ?? '') && $$('.rail .row').length >= 1 && /New/.test(text('.sheet h2')), `${text('.hookstrip')} · ${$$('.rail .row').length} rows`);
+      app.sheet = null; api.open({ item: tmp }); await sleep(300); await openEditorForSubject();
       const sw = $('.sh-edit'); sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§7 the Edit switch unlocks the sheet: Save and Cancel appear, the tools too', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="sh-save"]') && !!$('[data-act="sh-cancel"]') && !!$('[data-act="cw-drop"]'), '');
       const ownBtn = $('[data-act="sh-own-key"]');

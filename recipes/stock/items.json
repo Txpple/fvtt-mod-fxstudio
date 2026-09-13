@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 25
+  "fx": 26
  },
  "fx": [
   {
@@ -353,6 +353,33 @@
     "uuid": "Compendium.dnd5e.equipment24.Item.dmgCarrionCrawle",
     "name": "Crawler Mucus",
     "where": "dnd5e · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
+     },
+     "opacity": 0.8,
+     "asset": {
+      "path": "jb2a.liquid.splash.grey"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Crawler Mucus\" (ontoken)"
+  },
+  {
+   "id": "carrion-crawler-mucus",
+   "for": [
+    "item:carrion-crawler-mucus"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCarrionCrawle",
+    "name": "Carrion Crawler Mucus",
+    "where": "Dungeon Master's Guide · Equipment"
    },
    "on": "use",
    "scenes": [

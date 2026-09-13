@@ -43,7 +43,7 @@ exact or nothing — a spell, a weapon, a natural attack, a feature, an item; an
 then its origin), never by a name rule; an FX is written as the sentence the user would say
 (`recipes/SCHEMA.md` is the grammar); the engine knows eight shapes and one escape hatch
 (`scripts/engine/shapes/`). The corpus is `recipes/stock/` (the D&D5e Animations corpus
-migrated once, one file per kind, 1005 FX), `house.json` (the user's), `starters.json` (what a
+migrated once, one file per kind, 1021 FX), `house.json` (the user's), `starters.json` (what a
 new FX starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
 metadata, counted). The migration (`tools/migrate-aa.mjs`) is proved at the render: for every
 row, the exact Sequencer calls the new engine makes equal the calls AA's own sequence made, with

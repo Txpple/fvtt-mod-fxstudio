@@ -26,7 +26,7 @@ export function statusOf({ fx, source, off }) {
 export const STATUS_WORDS = { custom: 'Custom', stock: 'Stock', none: 'No FX', off: 'Off' };
 
 
-/** the type of a new ability */
+/** the kind of an ability, as a tag */
 export const KIND_WORDS = { spell: 'Spell', weapon: 'Weapon', feature: 'Feature', item: 'Item', effect: 'Effect' };
 
 /** the same kinds as a facet on the FX tab: what a list of them is called */

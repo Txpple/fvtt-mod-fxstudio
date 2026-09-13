@@ -1911,3 +1911,40 @@ Flame Tongue is "Any Melee Weapon", no base item, identifier `flame-tongue`); a 
 makes by copying the PHB Longsword keeps `longsword` and plays the longsword FX, which is the copy
 theory the user stated, and one dragged from the DMG plays nothing until keyed. That is the
 never-guesses rule reaching the reader.
+
+### §23, the day after: the edit screen against the model (the user, 2026-09-13)
+
+The user drove the Editor on Acid Arrow and circled Answers — a key pill beside an "Add ability" box —
+*"does this make sense anymore? each item should be one to one, not 1-n."* It did not: the column
+was the older shape, a list of keys, and the sheet let a person build an FX the model has no meaning
+for. Answers is **one pill** now; unlocked, the search box replaces the key ("Change the ability",
+"Choose an ability"); under the pill the key itself in mono (`spell:acid-arrow`) and what it is —
+"every copy answers it" for a book record, "this world's own item" for an Own key — the full
+explanation on hover. Then, asked to *"look for other anomalies that no longer comport with our data
+model"*, five more, all made on the user's word:
+
+- **Duplicate** opened a copy under the same key, which the id rule then saved as a silent override of
+  a Stock FX or a replacement of a House one. A copy opens with **no key** now and asks for the ability.
+- **"New ability"** made a key out of a typed name (`spell:<slug>`), the one place left where a key was
+  derived rather than earned — and wrong 227 times in the books alone, where the identifier is not the
+  name's slug. Gone, with its Type pills. The Answers search reads the abilities on this world's actors
+  and then the **records address book** (`recordHits`), so a book ability nobody holds yet is keyed
+  from its record, by its record's name and book.
+- **A new sheet keyed to an ability that already has an FX** wrote a House override with no word said.
+  Now the sheet **takes that FX's id** (`holderOf`: one FX answers one key, so the new sheet *is* that
+  FX's override or its replacement), a banner says so, and Save asks House override or Stock when the
+  holder is Stock — the same question a Stock FX opened directly has always asked.
+- The Off note said "the abilities it answers". One ability.
+- **One document, two identifiers.** Acid Arrow's Record line named the system's pack, not the PHB,
+  though the books are read first. The cause: the SRD 5.2 copies are the same documents with the
+  product identity stripped, and **36 of the 1707 shared documents carry another identifier** —
+  "Melf's Acid Arrow" is `melfs-acid-arrow` in the PHB and `acid-arrow` in the system (15 spells,
+  17 DMG items, and Channel Divinity twice, `-cleric` and `-paladin`). D&D5e Animations named its rows
+  the SRD way, so Stock held the SRD side only: a player who drags Acid Arrow from the PHB played
+  nothing. The user: *"so we'll have a few duplicate fx, one for each book?"* — only where the
+  identifiers differ, one FX per record. The migration now earns **both keys of a shared document**
+  (`twins` in `lib/migrate/keys.mjs`): Stock 1005 → **1021**, `records.json` 1025 of 1025 keys
+  addressed, the party census unmoved at 134 of 225 (nobody on this world holds one of the 36).
+
+Proof: screens 190/190 with the new walks (Answers replaces; a Stock-held key takes its id and the
+banner; a record on no sheet reached from the address book; Duplicate keyless), nine offline checks.

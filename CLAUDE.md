@@ -93,7 +93,7 @@ the user's word, so nothing changed at the table. DESIGN §16.
 **ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key (none only on a
 starter; an FX with no key plays nothing and is House only). AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
 is not carried: the migration fans a row out into one FX per key it earned, and **a key no list
-holds is not carried at all**. Stock is **1005 FX** since DESIGN §23, one key each (house 4). The 351 rows no list
+holds is not carried at all**. Stock is **1021 FX** since DESIGN §23, one key each (house 4). The 351 rows no list
 holds and the 82 keys a row lost to an earlier one are EXCEPTION tables in
 `recipes/migration-report.md`. The census did not move: 694 of 736 abilities answer as under AA,
 exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is the record.
@@ -115,8 +115,14 @@ ours on any item. Two copies of an item that should differ carry different ident
 **Own key** writes one (dnd5e's field, travels with the item) and turns the sheet into a House FX for
 that key alone. The name forms live in the migration only (`tools/lib/migrate/keys.mjs`), where a
 qualified record ("Potion of Healing (Greater)") meets the plain label once and gets its own FX.
-Stock 1005 (was 1022: 22 second spellings of keys Stock already held went; 5 records came); the party
-census unmoved at 134 of 225. **Prod needs three item identifiers on the user's word** (Thomas's First
+Stock 1021 (1022 → 1005 when 22 second spellings of keys Stock already held went and 5 records came;
+→ 1021 on 2026-09-13 when the 36 documents the SRD 5.2 ships under ANOTHER identifier than the book's
+— "Melf's Acid Arrow" is `melfs-acid-arrow` in the PHB and `acid-arrow` in the system — earned both
+keys, one FX per record); the party census unmoved at 134 of 225. **The Editor's Answers is one key**
+(2026-09-13): one pill, the search REPLACES it, from the abilities on actors and from the records
+address book — a key is earned from a record or an item, never made from a typed name (New ability
+and its Type pills are gone); a new sheet keyed to a key an FX already answers takes that FX's id
+and says so (Save asks House override or Stock when it is Stock); Duplicate opens with no key. **Prod needs three item identifiers on the user's word** (Thomas's First
 Light `first-light`, Jetten's Goldthorn `goldthorn`, Cadoc's Necrotic Scythe `necrotic-scythe`) —
 set on the sandbox 2026-09-12; until then those three play their base weapon's Stock FX on prod.
 

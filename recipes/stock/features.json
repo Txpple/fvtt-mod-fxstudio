@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 282
+  "fx": 284
  },
  "fx": [
   {
@@ -1757,6 +1757,100 @@
     "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcChannelDiv",
     "name": "Channel Divinity",
     "where": "Player's Handbook · Character Classes"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Channel Divinity\" (ontoken)"
+  },
+  {
+   "id": "channel-divinity-cleric",
+   "for": [
+    "feature:channel-divinity-cleric"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.classes24.Item.phbclcChannelDiv",
+    "name": "Channel Divinity",
+    "where": "dnd5e · Character Classes"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target"
+     },
+     "asset": {
+      "path": "jb2a.divine_smite.caster.yellowwhite"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Channel Divinity\" (ontoken)"
+  },
+  {
+   "id": "channel-divinity-paladin",
+   "for": [
+    "feature:channel-divinity-paladin"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.classes24.Item.phbpdnChannelDiv",
+    "name": "Channel Divinity",
+    "where": "dnd5e · Character Classes"
    },
    "on": "use",
    "scenes": [

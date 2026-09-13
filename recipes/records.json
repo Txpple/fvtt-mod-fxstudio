@@ -3,14 +3,14 @@
   "schema": 1,
   "generated": "2026-09-13",
   "tool": "tools/records.mjs",
-  "keys": 3965,
+  "keys": 3968,
   "kinds": {
    "effect": 1092,
    "feature": 1316,
    "item": 737,
-   "natural": 230,
+   "natural": 231,
    "spell": 428,
-   "weapon": 162
+   "weapon": 164
   },
   "books": [
    "phb/spells",
@@ -16584,6 +16584,11 @@
    "on": "Spirit Naga",
    "of": 2
   },
+  "natural:necrotic-scythe": {
+   "uuid": "Actor.oOWorLH5BJ7lQfmE.Item.mmNecroticSword0",
+   "name": "Necrotic Scythe",
+   "where": "this world · Cadoc, the Guardian"
+  },
   "natural:necrotic-sword": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWight000000000.Item.mmNecroticSword0",
    "name": "Necrotic Sword",
@@ -19559,6 +19564,11 @@
    "name": "Fiery Mace",
    "where": "Monster Manual · Features"
   },
+  "weapon:first-light": {
+   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.1BCiPSQ1nDeDqPHt",
+   "name": "First Light",
+   "where": "this world · Thomas A. Invictus"
+  },
   "weapon:flail": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepFlail00000",
    "name": "Flail",
@@ -19608,6 +19618,11 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepGlaive0000",
    "name": "Glaive",
    "where": "Player's Handbook · Equipment"
+  },
+  "weapon:goldthorn": {
+   "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
+   "name": "Goldthorn",
+   "where": "this world · Jetten Elisedil"
   },
   "weapon:great-bow": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGreatBow000000",

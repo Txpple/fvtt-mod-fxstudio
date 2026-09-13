@@ -22,6 +22,17 @@
 > footer button), not a menu in place. The header says "N scenes · s". Screens 185/186, the one the
 > version string.
 
+> **2026-09-13, then — THE EDIT SCREEN AGAINST THE MODEL (the user: *"look for other anomalies that no
+> longer comport with our data model"* … *"make all those fixes"*).** Five: Duplicate opens with NO key
+> (a copy under the same key could only be an override or a replacement); "New ability" and its Type
+> pills are gone — the Answers search reads the abilities on actors and then the records address book
+> (`recordHits`), so a key is earned from a record or an item, never made from a typed name; a new sheet
+> keyed to a key an FX already answers on that moment TAKES that FX's id (`holderOf`) and a banner says
+> so, and Save asks House override or Stock when the holder is Stock; the Off note says "the ability";
+> and the migration earns BOTH identifiers of a document the SRD 5.2 ships under another one than the
+> book (36 of 1707 shared documents — `twins` in `lib/migrate/keys.mjs`): Stock 1005 → 1021, records
+> 1025 of 1025 addressed, census unmoved. Screens 190/190. Not released.
+
 > **2026-09-13 — ANSWERS IS ONE KEY (the user: *"each item should be one to one, not 1-n"*).** The Editor's Answers column is one pill, never a list: no Add ability, no remove button; unlocked, the search box REPLACES the key (Change the ability / Choose an ability). Under the pill, the key itself in mono (spell:acid-arrow) and what it is — "every copy answers it" for a book record, "this world's own item" for an Own key — with the full explanation on hover. The why line lost its +N. On the sandbox, deployed under the running server (the user's window was open); screens 190/190. Not released.
 
 > **2026-09-12, latest — ONE KEY PER ITEM, DND5E'S IDENTIFIER, EXACT OR NOTHING (the user: *"i really

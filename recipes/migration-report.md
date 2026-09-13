@@ -7,7 +7,7 @@ Run 2026-09-13 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e 
 | Measure | Count |
 | --- | --- |
 | Rows in (stock / house) | 1289 / 7 |
-| Fx out (stock / house) | 1005 / 7 |
+| Fx out (stock / house) | 1021 / 7 |
 | · keyed by the closed lists (a spell, feature, item or weapon the books or the world hold) | 686 |
 | · family rows expanded against the base weapons, the natural attacks and the world's weapons | 143 |
 | · effect rows, keyed by the effect's name | 79 |
@@ -21,12 +21,12 @@ Run 2026-09-13 from phase 1's lossless rows (Automated Animations 7.0.22, D&D5e 
 | · AA's stretch metadata carried on the scene (`template`) | 61 |
 | **· still on the frozen table (the measurement; goal zero)** | **10** (loop markers differ 10, picked by distance 0, no such node 0) |
 | Frozen table entries shipped | 15 |
-| **Render-level proof: fx equal to AA's own sequence** | **1012 of 1012** (2736 of 2845 moments exactly, 109 by a named allowance below) |
+| **Render-level proof: fx equal to AA's own sequence** | **1028 of 1028** (2777 of 2889 moments exactly, 112 by a named allowance below) |
 | Abilities on the world's actors | 796 |
-| · same answer as under AA | 742 |
-| · a different fx now | 42 |
+| · same answer as under AA | 743 |
+| · a different fx now | 39 |
 | · play now, played nothing under AA | 2 |
-| · play nothing now, played under AA | 10 |
+| · play nothing now, played under AA | 12 |
 | Fx that can never answer (a same-key fx of the same layer comes first) | 1 |
 
 ## What the proof allows, by name
@@ -37,7 +37,7 @@ Deliberate differences, each a choice of the model over AA's accident. Those the
 
 - **6** × a bolt from inside a standing area, with none standing, leaves from the caster's centre (AA left from the token's top-left corner)
 - **6** × a follow-up mark with nothing to land on plays no sound (AA played its sound anyway)
-- **86** × an FX whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)
+- **89** × an FX whose pictures need a target plays nothing, sound included, when nothing is targeted (AA played the sound alone)
 - **4** × a mark that falls back to the caster honours the FX's delay (AA dropped it there)
 - **5** × the same pictures start in a different order with no wait between them (a shield's bottom halves first, then its top halves)
 - **2** × above-lighting and x-ray are retired from the grammar (the user, 2026-09-12: no bloat — one row, Wall of Force, carried x-ray; nothing carried above-lighting)
@@ -523,8 +523,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
   - natural:flame-whip ← Flame Whip (2 creatures (Balor))
   - weapon:whip ← Whip (phb/equipment)
   - weapon:mercurial-whip ← Mercurial Whip (mm/features)
-- **Acid Arrow** [range] → spell:acid-arrow
+- **Acid Arrow** [range] → spell:acid-arrow, spell:melfs-acid-arrow
   - spell:acid-arrow (dnd5e/spells24)
+  - spell:melfs-acid-arrow (dnd5e/spells24, the same document as acid-arrow)
 - **Antimatter Rifle** [range] → weapon:antimatter-rifle
   - weapon:antimatter-rifle (dmg/equipment)
   - weapon:antimatter-rifle ← Antimatter Rifle (dmg/equipment)
@@ -706,8 +707,9 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Surge** [range] → natural:surge
   - natural:surge (1 creatures)
   - natural:surge ← Surge (1 creatures (Water Weird))
-- **Telepathic Bond** [range] → spell:telepathic-bond, feature:telepathic-bond
+- **Telepathic Bond** [range] → spell:telepathic-bond, spell:rarys-telepathic-bond, feature:telepathic-bond
   - spell:telepathic-bond (dnd5e/spells24)
+  - spell:rarys-telepathic-bond (dnd5e/spells24, the same document as telepathic-bond)
   - feature:telepathic-bond (mm/features)
 - **Telepathic Speech** [range] → feature:telepathic-speech
   - feature:telepathic-speech (phb/classes)
@@ -718,12 +720,14 @@ Each of Automated Animations' weapon and creature-attack rows matched a word ins
 - **Web** [range] → spell:web, feature:web
   - spell:web (phb/spells)
   - feature:web (mm/features)
-- **First Light** [melee] → weapon:longsword
+- **First Light** [melee] → weapon:longsword, weapon:first-light
   - weapon:longsword (the world (Hobgoblin Captain))
+  - weapon:first-light (the world (Thomas A. Invictus))
   - weapon:longsword ← First Light (the world (Hobgoblin Captain))
-- **Goldthorn** [melee] → weapon:scimitar
-  - weapon:scimitar (the world (Jetten Elisedil))
-  - weapon:scimitar ← Goldthorn (the world (Jetten Elisedil))
+  - weapon:first-light ← First Light (the world (Thomas A. Invictus))
+- **Goldthorn** [melee] → weapon:goldthorn
+  - weapon:goldthorn (the world (Jetten Elisedil))
+  - weapon:goldthorn ← Goldthorn (the world (Jetten Elisedil))
 
 ## Caught by a weapon word under AA, not carried (68 words)
 
@@ -1198,7 +1202,7 @@ Neither the books, the base weapons, the creature attacks nor this world hold an
 | Wreathed in Moonlight | aefx |
 | Yolande's Regal Presence: Prone | aefx |
 
-## EXCEPTION · keys a row lost to an earlier one, NOT carried (70)
+## EXCEPTION · keys a row lost to an earlier one, NOT carried (76)
 
 One FX answers one key. Where two rows both earned the same key, Automated Animations' own precedence keeps it — its exact-match rows first, then its menu order — which is what answered at the table under AA. The losing row's FX for THAT key is not written; where the row earned other keys, those are.
 
@@ -1220,9 +1224,13 @@ One FX answers one key. Where two rows both earned the same key, Automated Anima
 | `weapon:sun-blade` | Blade [melee] → sun-blade | Sun Blade [range] |
 | `spell:witch-bolt` | Witch Bolt [preset] → witch-bolt | Witch Bolt [range] |
 | `natural:arcane-sword` | Arcane Sword [melee] → arcane-sword | Arcane Sword [ontoken] |
+| `spell:bigbys-hand` | Arcane Hand [ontoken] → bigbys-hand | Bigby's Hand [ontoken] |
+| `spell:arcane-hand` | Arcane Hand [ontoken] → arcane-hand | Bigby's Hand [ontoken] |
 | `spell:cordon-of-arrows` | Cordon of Arrows [range] → cordon-of-arrows | Cordon of Arrows [ontoken] |
 | `natural:death-strike` | Strike [melee] → death-strike | Death Strike [ontoken] |
 | `natural:gore` | Gore [melee] → gore | Gore [ontoken] |
+| `spell:mordenkainens-sword` | Arcane Sword [ontoken] → mordenkainens-sword | Mordenkainen's Sword [ontoken] |
+| `spell:arcane-sword` | Arcane Sword [ontoken] → arcane-sword-mark | Mordenkainen's Sword [ontoken] |
 | `natural:otherworldly-strike` | Strike [melee] → otherworldly-strike | Otherworldly Strike [ontoken] |
 | `spell:arcane-gate` | Arcane Gate [ontoken] → arcane-gate | Arcane Gate [templatefx] |
 | `spell:arms-of-hadar` | Arms of Hadar [ontoken] → arms-of-hadar | Arms of Hadar [templatefx] |
@@ -1254,6 +1262,7 @@ One FX answers one key. Where two rows both earned the same key, Automated Anima
 | `feature:hunger-of-hadar` | Hunger of Hadar [ontoken] → hunger-of-hadar-mark | Hunger of Hadar [templatefx] |
 | `spell:ice-knife` | Ice Knife [range] → ice-knife | Ice Knife [templatefx] |
 | `spell:magnificent-mansion` | Magnificent Mansion [ontoken] → magnificent-mansion | Magnificent Mansion [templatefx] |
+| `spell:mordenkainens-magnificent-mansion` | Magnificent Mansion [ontoken] → mordenkainens-magnificent-mansion | Magnificent Mansion [templatefx] |
 | `spell:meteor-swarm` | Meteor Swarm [ontoken] → meteor-swarm | Meteor Swarm [templatefx] |
 | `spell:minor-illusion` | Minor Illusion [ontoken] → minor-illusion | Minor Illusion [templatefx] |
 | `spell:move-earth` | Move Earth [ontoken] → move-earth | Move Earth [templatefx] |
@@ -1261,6 +1270,7 @@ One FX answers one key. Where two rows both earned the same key, Automated Anima
 | `spell:planar-ally` | Planar Ally [ontoken] → planar-ally | Planar Ally [templatefx] |
 | `spell:plant-growth` | Plant Growth [ontoken] → plant-growth | Plant Growth [templatefx] |
 | `spell:private-sanctum` | Private Sanctum [ontoken] → private-sanctum | Private Sanctum [templatefx] |
+| `spell:mordenkainens-private-sanctum` | Private Sanctum [ontoken] → mordenkainens-private-sanctum | Private Sanctum [templatefx] |
 | `spell:spiritual-weapon` | Spiritual Weapon [ontoken] → spiritual-weapon | Spiritual Weapon [templatefx] |
 | `feature:spiritual-weapon` | Spiritual Weapon [ontoken] → spiritual-weapon-mark | Spiritual Weapon [templatefx] |
 | `spell:storm-of-vengeance` | Storm of Vengeance [ontoken] → storm-of-vengeance | Storm of Vengeance [templatefx] |
@@ -1300,7 +1310,7 @@ These play through AA's own metadata because the libraries' own registration hol
 
 Every ability on the world's actors, keyed by identity and resolved against the new corpus, beside what Automated Animations' name search answered.
 
-### A different fx now (42)
+### A different fx now (39)
 
 - Enthralled Bullywug Warrior (npc) / Insectile Rapier [weapon] · keys weapon:insectile-rapier · was Rapier [melee] · now insectile-rapier (weapon:insectile-rapier)
 - Gren Greenmantle (character) / Bog Staff [weapon] · keys natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
@@ -1314,7 +1324,6 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - BF Test PC Attacker (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
 - BF Test Attacker (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
 - BF Test Victim (npc) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
-- Mother Wend (npc) / Scimitar [weapon] · keys weapon:scimitar · was Scimitar [melee] · now goldthorn-jetten-elisedil (weapon:scimitar)
 - Mother Wend (npc) / Heavy Crossbow [weapon] · keys weapon:heavy-crossbow · was Crossbow [range] · now heavy-crossbow (weapon:heavy-crossbow)
 - Mother Wend (npc) / Wooden staff [weapon] · keys weapon:wooden-staff · was Staff [melee] · now wooden-staff (weapon:wooden-staff)
 - Mother Wend (npc) / Light Crossbow [weapon] · keys weapon:light-crossbow · was Crossbow [range] · now light-crossbow (weapon:light-crossbow)
@@ -1337,20 +1346,18 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - The Party (group) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
 - BF Test Shielder (character) / Bog Staff [weapon] · keys natural:bog-staff · was Staff [melee] · now bog-staff (natural:bog-staff)
 - Cadoc, the Guardian (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
-- Cadoc, the Guardian (npc) / Necrotic Scythe [weapon] · keys natural:necrotic-sword · was Scythe [melee] · now necrotic-sword (natural:necrotic-sword)
 - Edda (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
 - Edda (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
 - Hesper, the Mortician (npc) / Necrotic Bow [weapon] · keys weapon:necrotic-bow · was Bow [range] · now necrotic-bow (weapon:necrotic-bow)
 - Hesper, the Mortician (npc) / Necrotic Sword [weapon] · keys natural:necrotic-sword · was Sword [melee] · now necrotic-sword (natural:necrotic-sword)
 - BF Test Ranger (character) / Longsword [weapon] · keys weapon:longsword · was Longsword [melee] · now first-light-thomas-a-invictus (weapon:longsword)
-- Jetten Elisedil (character) / Scimitar [weapon] · keys weapon:scimitar · was Scimitar [melee] · now goldthorn-jetten-elisedil (weapon:scimitar)
 
 ### Play now, played nothing under AA (2)
 
 - Morgash the Gravemaker (character) / Maul of Momentum [weapon] · keys weapon:maul · was nothing · now maul (weapon:maul)
 - BF Test Fighter (character) / Maul of Momentum [weapon] · keys weapon:maul · was nothing · now maul (weapon:maul)
 
-### Play nothing now, played under AA (10)
+### Play nothing now, played under AA (12)
 
 - Gren Greenmantle (character) / Spellfire Burst [feat] · keys feature:spellfire-burst · was Burst [range] · now nothing
 - Gren Greenmantle (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles · was Missile [range] · now nothing
@@ -1359,23 +1366,25 @@ Every ability on the world's actors, keyed by identity and resolved against the 
 - Mother Wend (npc) / Horn [tool] · keys item:horn · was Horn [melee] · now nothing
 - Mother Wend (npc) / Chain [consumable] · keys item:chain · was Chain [melee] · now nothing
 - Skeletal Mage (npc) / Shield [spell] · keys spell:shield · was Shield [melee] · now nothing
+- Thomas A. Invictus (character) / First Light [weapon] · keys weapon:first-light · was First Light [melee] · now nothing
 - BF Test Shielder (character) / Spellfire Burst [feat] · keys feature:spellfire-burst · was Burst [range] · now nothing
 - BF Test Shielder (character) / Wand of Magic Missiles [equipment] · keys item:wand-of-magic-missiles · was Missile [range] · now nothing
 - BF Test Shielder (character) / Shield [spell] · keys spell:shield · was Shield [melee] · now nothing
+- Cadoc, the Guardian (npc) / Necrotic Scythe [weapon] · keys natural:necrotic-scythe · was Scythe [melee] · now nothing
 
 ### NPC attacks
 
-204 attack weapons on the world's NPCs: 160 answered by the weapon's own name, 0 by its base weapon, 37 as a natural attack, 7 nothing.
+204 attack weapons on the world's NPCs: 160 answered by the weapon's own name, 0 by its base weapon, 36 as a natural attack, 8 nothing.
 
 - as a natural attack, e.g. Claw → natural:claw; Bite → natural:bite; Necrotic Burst → natural:radiant-burst; Vine Staff → natural:vine-staff; Slam → natural:slam; Necrotic Sword → natural:necrotic-sword; Claw → natural:claw; Necrotic Sword → natural:necrotic-sword; Gore → natural:gore; Talons → natural:talons
-- nothing: Vesper Staff; Battleaxe; Smother (Copy); Smother; Constricting Vine
+- nothing: Vesper Staff; Battleaxe; Smother (Copy); Smother; Necrotic Scythe; Constricting Vine
 
 ### Nothing plays yet — the party's sheets
 
 - **Gren Greenmantle** (40 of 69 play; 29 nothing): Spellfire Burst [feat]; Driftglobe [equipment]; Wand of the War Mage +1 [equipment]; Torch [consumable]; Fey-Touched [feat]; Candle [consumable]; Extended Spell [feat]; Quickened Spell [feat]; Tinderbox [equipment]; Manacles [consumable]; Aura of Vitality [spell]; Oil [consumable]; Fey-Touched (Copy) [feat]; Transmuted Spell [feat]; Wand of Magic Missiles [equipment]; Heightened Spell [feat]; Subtle Spell [feat]; Three-dragon ante [tool]; Magic Initiate [feat]; Pearl of Power [equipment]; Shield [spell]; Twinned Spell [feat]; Distant Spell [feat]; Rope [consumable]; Seeking Spell [feat]; Antitoxin [consumable]; Empowered Spell [feat]; Lesser Restoration [spell]; Careful Spell [feat]
 - **Morgash the Gravemaker** (11 of 25 play; 14 nothing): Riposte [feat]; Smith's Tools [tool]; Tinderbox [equipment]; Cook's Utensils [tool]; Great Weapon Master [feat]; The Graveheart [equipment]; Precision Attack [feat]; Healer's Kit [consumable]; Keoghtom's Ointment [consumable]; Torch [consumable]; Rope [consumable]; Rally [feat]; Antitoxin [consumable]; Dice [tool]
 - **Salyth** (21 of 30 play; 9 nothing): Flute [tool]; Lute [tool]; The Graveheart [equipment]; Bullseye Lantern [consumable]; Moon's Inspiration [feat]; Tinderbox [equipment]; Blessing of Moonlight [feat]; Water (Pint) [consumable]; Oil [consumable]
-- **Thomas A. Invictus** (30 of 47 play; 17 nothing): Shield Master [feat]; Lantern, Hooded [equipment]; Fine Clothes [equipment]; Healer [feat]; Wrathful Smite [spell]; Thunderous Smite [spell]; Lantern of Revealing [equipment]; Searing Smite [spell]; Resourceful [feat]; Detect Magic [spell]; Healer's Kit [consumable]; Shield of Faith [spell]; Detect Evil and Good [spell]; Detect Poison and Disease [spell]; Shining Smite [spell]; Torch [consumable]; Antitoxin [consumable]
+- **Thomas A. Invictus** (29 of 47 play; 18 nothing): First Light [weapon]; Shield Master [feat]; Lantern, Hooded [equipment]; Fine Clothes [equipment]; Healer [feat]; Wrathful Smite [spell]; Thunderous Smite [spell]; Lantern of Revealing [equipment]; Searing Smite [spell]; Resourceful [feat]; Detect Magic [spell]; Healer's Kit [consumable]; Shield of Faith [spell]; Detect Evil and Good [spell]; Detect Poison and Disease [spell]; Shining Smite [spell]; Torch [consumable]; Antitoxin [consumable]
 - **Rogue** (9 of 19 play; 10 nothing): Candle [consumable]; Hooded Lantern [consumable]; Oil [consumable]; Tinderbox [equipment]; Poisoner's Kit [tool]; Assassinate [feat]; Water (Pint) [consumable]; Thieves’ Tools [tool]; Disguise Kit [tool]; Rope [consumable]
 - **Jetten Elisedil** (23 of 35 play; 12 nothing): Torch [consumable]; Favored Enemy [feat]; Rope [consumable]; Healer's Kit [consumable]; Tinderbox [equipment]; Bullseye Lantern [consumable]; Antitoxin [consumable]; Magic Initiate [feat]; Cartographer's Tools [tool]; Elven Lineage, Wood Elf [feat]; Pass without Trace [spell]; Oil [consumable]
 

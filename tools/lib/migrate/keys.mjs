@@ -66,6 +66,24 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
   // a record whose name carries a qualifier also meets the label of the plain name, so an AA row
   // "Potion of Healing" fans out to the Greater, Superior and Supreme records as well — what the
   // reader's name forms used to do at the table, done here once, and written as exact keys
+  // ONE DOCUMENT, TWO IDENTIFIERS (the user, 2026-09-13): the system's SRD 5.2 copy of a book's record
+  // is the same document id, but the SRD strips the product identity, so 36 of them carry another
+  // identifier ("Melf's Acid Arrow" → melfs-acid-arrow in the PHB, "Acid Arrow" → acid-arrow in the
+  // system). Both copies are dragged onto sheets, so both keys are earned: a row that meets one meets
+  // its twins. twins: "<kind>:<identifier>" → [other identifiers of the same document]
+  const twins = new Map();
+  const seenDoc = new Map(); // _id → [{kind, identifier}]
+  const twin = (kind, identifier, docId) => {
+    const list = seenDoc.get(docId) ?? seenDoc.set(docId, []).get(docId);
+    for (const o of list) {
+      if (o.kind !== kind || o.identifier === identifier) continue;
+      const a = twins.get(`${kind}:${o.identifier}`) ?? twins.set(`${kind}:${o.identifier}`, []).get(`${kind}:${o.identifier}`);
+      if (!a.includes(identifier)) a.push(identifier);
+      const b = twins.get(`${kind}:${identifier}`) ?? twins.set(`${kind}:${identifier}`, []).get(`${kind}:${identifier}`);
+      if (!b.includes(o.identifier)) b.push(o.identifier);
+    }
+    if (!list.some((o) => o.kind === kind && o.identifier === identifier)) list.push({ kind, identifier });
+  };
   const alsoBy = new Map();
   const also = (kind, identifier, name, from) => { for (const form of nameForms(name).slice(1)) { const k = slug(form); if (!k) continue; const list = alsoBy.get(k) ?? alsoBy.set(k, []).get(k); if (!list.some((e) => e.kind === kind && e.identifier === identifier)) list.push({ kind, identifier, name, from }); } };
   // THE RECORD a key's evidence lives in, addressed ONCE, here, where the evidence is met — never
@@ -88,13 +106,13 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
       const identifier = identifierOf(it.name, it.system?.identifier);
       const rec = { uuid: at(`Item.${it._id}`), name: it.name, where };
       const from = `${mod}/${pack}`;
-      if (it.type === 'spell') { put(spells, it.name, { identifier, kind: 'spell', from }); record(`spell:${identifier}`, rec); also('spell', identifier, it.name, from); }
-      else if (it.type === 'feat' || it.type === 'class' || it.type === 'subclass' || it.type === 'background' || it.type === 'race') { put(features, it.name, { identifier, kind: 'feature', from }); record(`feature:${identifier}`, rec); also('feature', identifier, it.name, from); }
+      if (it.type === 'spell') { put(spells, it.name, { identifier, kind: 'spell', from }); record(`spell:${identifier}`, rec); also('spell', identifier, it.name, from); twin('spell', identifier, it._id); }
+      else if (it.type === 'feat' || it.type === 'class' || it.type === 'subclass' || it.type === 'background' || it.type === 'race') { put(features, it.name, { identifier, kind: 'feature', from }); record(`feature:${identifier}`, rec); also('feature', identifier, it.name, from); twin('feature', identifier, it._id); }
       else if (it.type === 'weapon') {
-        if (it.system?.type?.value === 'natural') { put(natural, it.name, { identifier, count: 0, creatures: [] }); record(`natural:${identifier}`, rec); also('natural', identifier, it.name, from); }
-        else { put(weapons, it.name, { identifier, from }); record(`weapon:${identifier}`, rec); also('weapon', identifier, it.name, from); }
+        if (it.system?.type?.value === 'natural') { put(natural, it.name, { identifier, count: 0, creatures: [] }); record(`natural:${identifier}`, rec); also('natural', identifier, it.name, from); twin('natural', identifier, it._id); }
+        else { put(weapons, it.name, { identifier, from }); record(`weapon:${identifier}`, rec); also('weapon', identifier, it.name, from); twin('weapon', identifier, it._id); }
         put(items, it.name, { identifier, kind: 'weapon', from });
-      } else if (['consumable', 'equipment', 'tool', 'loot', 'container'].includes(it.type)) { put(items, it.name, { identifier, kind: 'item', from }); record(`item:${identifier}`, rec); also('item', identifier, it.name, from); }
+      } else if (['consumable', 'equipment', 'tool', 'loot', 'container'].includes(it.type)) { put(items, it.name, { identifier, kind: 'item', from }); record(`item:${identifier}`, rec); also('item', identifier, it.name, from); twin('item', identifier, it._id); }
     }
     // an effect is not an item: its record is the spell, feature or item that CARRIES it, which is
     // what a person wants opened. The key's kind says so — nothing else has to be written down.
@@ -167,7 +185,13 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
   function kindsOfName(label, { only = null, world: worldToo = false } = {}) {
     const out = [];
     const seen = new Set();
-    const add = (kind, id, from) => { if (only && !only.includes(kind)) return; const k = `${kind}:${id}`; if (!seen.has(k)) { seen.add(k); out.push({ kind, id, from }); } };
+    const add = (kind, id, from) => {
+      if (only && !only.includes(kind)) return;
+      const k = `${kind}:${id}`;
+      if (!seen.has(k)) { seen.add(k); out.push({ kind, id, from }); }
+      // the same document under another identifier (the book's copy beside the system's SRD copy)
+      for (const t of twins.get(k) ?? []) { const tk = `${kind}:${t}`; if (!seen.has(tk)) { seen.add(tk); out.push({ kind, id: t, from: `${from}, the same document as ${id}` }); } }
+    };
     for (const form of nameForms(label)) {
       const k = slug(form);
       if (!k) continue;
@@ -216,7 +240,7 @@ export async function buildLists({ worldActors, worldItems, worldEffects }) {
   /** does an ActiveEffect of this name exist in the BOOKS? (this world's own only for a house row) */
   const hasEffect = (label, { world: worldToo = false } = {}) => nameForms(label).some((form) => (worldToo ? effects : bookEffects).has(slug(form)));
 
-  return { spells, features, items, weapons, natural, alsoBy, effects, bookEffects, records, world, kindsOfName, expandWord, hasEffect, stats };
+  return { spells, features, items, weapons, natural, alsoBy, twins, effects, bookEffects, records, world, kindsOfName, expandWord, hasEffect, stats };
 }
 
 export const packExists = (mod, pack) => !!(MODULES[mod] && existsSync(`${MODULES[mod]}/packs/${pack}`));

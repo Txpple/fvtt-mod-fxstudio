@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
-  "fx": 365
+  "fx": 378
  },
  "fx": [
   {
@@ -507,6 +507,53 @@
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplMelfsAcidA",
     "name": "Acid Arrow",
     "where": "dnd5e · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.arrow.poison.green.02"
+     },
+     "sound": {
+      "asset": "psfx.ranged-magic.generic.projectile.ranged.003",
+      "delay": 250
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.liquid.splash.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "delay": 1000,
+      "start": 500
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Acid Arrow\" (range)"
+  },
+  {
+   "id": "melfs-acid-arrow",
+   "for": [
+    "spell:melfs-acid-arrow"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMelfsAcidA",
+    "name": "Melf's Acid Arrow",
+    "where": "Player's Handbook · Spells"
    },
    "on": "use",
    "scenes": [
@@ -1684,6 +1731,41 @@
    "note": "D&D5e Animations 3.3.0: \"Telepathic Bond\" (range)"
   },
   {
+   "id": "rarys-telepathic-bond",
+   "for": [
+    "spell:rarys-telepathic-bond"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRarysTelep",
+    "name": "Rary's Telepathic Bond",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "paths": [
+       "jb2a.energy_strands.range.standard.blue.01",
+       "jb2a.energy_strands.range.standard.blue.02",
+       "jb2a.energy_strands.range.standard.blue.03",
+       "jb2a.energy_strands.range.standard.blue.04"
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver",
+      "repeat": 3
+     },
+     "from": "each-target",
+     "to": "source",
+     "repeat": 3
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Telepathic Bond\" (range)"
+  },
+  {
    "id": "wardaway",
    "for": [
     "spell:wardaway"
@@ -2199,6 +2281,70 @@
    "note": "D&D5e Animations 3.3.0: \"Arcane Hand\" (ontoken)"
   },
   {
+   "id": "bigbys-hand",
+   "for": [
+    "spell:bigbys-hand"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBigbysHand",
+    "name": "Bigby's Hand",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sacred_flame.source.purple",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "fadeIn": 0,
+     "fadeOut": 100,
+     "rate": 1.5,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "opacity": 0,
+     "asset": {
+      "path": "jb2a.cure_wounds.400px.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.purplepink"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeOut": 250,
+     "rate": 1.25,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Arcane Hand\" (ontoken)"
+  },
+  {
    "id": "arcane-lock",
    "for": [
     "spell:arcane-lock"
@@ -2235,6 +2381,36 @@
     "uuid": "Compendium.dnd5e.spells24.Item.phbswdMordenkain",
     "name": "Arcane Sword",
     "where": "dnd5e · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Arcane Sword\" (ontoken)"
+  },
+  {
+   "id": "mordenkainens-sword",
+   "for": [
+    "spell:mordenkainens-sword"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbswdMordenkain",
+    "name": "Mordenkainen's Sword",
+    "where": "Player's Handbook · Spells"
    },
    "on": "use",
    "scenes": [
@@ -2718,70 +2894,6 @@
    "by": "the migration",
    "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Bestow Curse\" (ontoken)"
-  },
-  {
-   "id": "bigbys-hand",
-   "for": [
-    "spell:bigbys-hand"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBigbysHand",
-    "name": "Bigby's Hand",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "path": "jb2a.sacred_flame.source.purple",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.caster"
-     },
-     "fadeIn": 0,
-     "fadeOut": 100,
-     "rate": 1.5,
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     },
-     "wait": true,
-     "follow": true
-    },
-    {
-     "shape": "mark",
-     "opacity": 0,
-     "asset": {
-      "path": "jb2a.cure_wounds.400px.blue"
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "asset": {
-      "path": "jb2a.divine_smite.target.purplepink"
-     },
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.target"
-     },
-     "fadeOut": 250,
-     "rate": 1.25,
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bigby's Hand\" (ontoken)"
   },
   {
    "id": "blade-barrier",
@@ -5284,6 +5396,53 @@
    "note": "D&D5e Animations 3.3.0: \"Faithful Hound\" (ontoken)"
   },
   {
+   "id": "mordenkainens-faithful-hound",
+   "for": [
+    "spell:mordenkainens-faithful-hound"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbFaithfulHound",
+    "name": "Mordenkainen's Faithful Hound",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.conditions.generic-layer.002"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.yellow"
+     }
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.condition.boon.01.009.yellow"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.009",
+      "delay": 2400
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Faithful Hound\" (ontoken)"
+  },
+  {
    "id": "false-life",
    "for": [
     "spell:false-life"
@@ -6912,6 +7071,33 @@
    "note": "D&D5e Animations 3.3.0: \"Hideous Laughter\" (ontoken)"
   },
   {
+   "id": "tashas-hideous-laughter",
+   "for": [
+    "spell:tashas-hideous-laughter"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTashasHide",
+    "name": "Tasha's Hideous Laughter",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
+     },
+     "asset": {
+      "path": "jb2a.condition.curse.01.006.purple"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Hideous Laughter\" (ontoken)"
+  },
+  {
    "id": "hold-monster",
    "for": [
     "spell:hold-monster"
@@ -7256,6 +7442,52 @@
    "note": "D&D5e Animations 3.3.0: \"Instant Summons\" (ontoken)"
   },
   {
+   "id": "drawmijs-instant-summons",
+   "for": [
+    "spell:drawmijs-instant-summons"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDrawmijsIn",
+    "name": "Drawmij's Instant Summons",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.intro",
+      "delay": 301
+     },
+     "size": {
+      "tokenWidths": 0.75
+     },
+     "asset": {
+      "path": "jb2a.ioun_stones.01.blue.awareness"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.divine_smite.caster.blueyellow"
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1100
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Instant Summons\" (ontoken)"
+  },
+  {
    "id": "invisibility",
    "for": [
     "spell:invisibility"
@@ -7290,6 +7522,52 @@
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplOttosIrres",
     "name": "Irresistible Dance",
     "where": "dnd5e · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.enchantment.complete.pink"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bardic_inspiration.pink"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Irresistible Dance\" (ontoken)"
+  },
+  {
+   "id": "ottos-irresistible-dance",
+   "for": [
+    "spell:ottos-irresistible-dance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOttosIrres",
+    "name": "Otto's Irresistible Dance",
+    "where": "Player's Handbook · Spells"
    },
    "on": "use",
    "scenes": [
@@ -7872,6 +8150,61 @@
    "note": "D&D5e Animations 3.3.0: \"Magnificent Mansion\" (ontoken)"
   },
   {
+   "id": "mordenkainens-magnificent-mansion",
+   "for": [
+    "spell:mordenkainens-magnificent-mansion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbMagnificentMa",
+    "name": "Mordenkainen's Magnificent Mansion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete",
+      "delay": 1
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow"
+     },
+     "below": true,
+     "anchor": {
+      "x": 0.5,
+      "y": 1.17
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.portals.horizontal.vortex.yellow"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 1.5
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Magnificent Mansion\" (ontoken)"
+  },
+  {
    "id": "major-image",
    "for": [
     "spell:major-image"
@@ -8159,36 +8492,6 @@
    "by": "the migration",
    "at": "2026-09-13",
    "note": "D&D5e Animations 3.3.0: \"Mislead\" (ontoken)"
-  },
-  {
-   "id": "mordenkainens-sword",
-   "for": [
-    "spell:mordenkainens-sword"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbswdMordenkain",
-    "name": "Mordenkainen's Sword",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "sound": {
-      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
-     },
-     "size": {
-      "tokenWidths": 3
-     },
-     "asset": {
-      "path": "jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow"
-     }
-    }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mordenkainen's Sword\" (ontoken)"
   },
   {
    "id": "move-earth",
@@ -8888,6 +9191,48 @@
    "note": "D&D5e Animations 3.3.0: \"Private Sanctum\" (ontoken)"
   },
   {
+   "id": "mordenkainens-private-sanctum",
+   "for": [
+    "spell:mordenkainens-private-sanctum"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbPrivateSanctu",
+    "name": "Mordenkainen's Private Sanctum",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.abjuration.complete.blue"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.token_stage.square.blue.01.04"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "below": true,
+     "delay": 2000
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Private Sanctum\" (ontoken)"
+  },
+  {
    "id": "project-image",
    "for": [
     "spell:project-image"
@@ -9253,6 +9598,33 @@
    "note": "D&D5e Animations 3.3.0: \"Resilient Sphere\" (ontoken)"
   },
   {
+   "id": "otilukes-resilient-sphere",
+   "for": [
+    "spell:otilukes-resilient-sphere"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOtilukesRe",
+    "name": "Otiluke's Resilient Sphere",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.wall_of_force.sphere.blue"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Resilient Sphere\" (ontoken)"
+  },
+  {
    "id": "resurrection",
    "for": [
     "spell:resurrection"
@@ -9568,6 +9940,35 @@
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplLeomundsSe",
     "name": "Secret Chest",
     "where": "dnd5e · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.yellow"
+     }
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Secret Chest\" (ontoken)"
+  },
+  {
+   "id": "leomunds-secret-chest",
+   "for": [
+    "spell:leomunds-secret-chest"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLeomundsSe",
+    "name": "Leomund's Secret Chest",
+    "where": "Player's Handbook · Spells"
    },
    "on": "use",
    "scenes": [
@@ -11965,6 +12366,37 @@
    "note": "D&D5e Animations 3.3.0: \"Black Tentacles\" (templatefx)"
   },
   {
+   "id": "evards-black-tentacles",
+   "for": [
+    "spell:evards-black-tentacles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEvardsBlac",
+    "name": "Evard's Black Tentacles",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.black_tentacles.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "below": true,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Black Tentacles\" (templatefx)"
+  },
+  {
    "id": "burning-hands",
    "for": [
     "spell:burning-hands"
@@ -14088,6 +14520,58 @@
    "note": "D&D5e Animations 3.3.0: \"Tiny Hut\" (templatefx)"
   },
   {
+   "id": "leomunds-tiny-hut",
+   "for": [
+    "spell:leomunds-tiny-hut"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLeomundsTi",
+    "name": "Leomund's Tiny Hut",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.evocation.loop.red"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.intro"
+     },
+     "rate": 2,
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "file": "modules/dnd5e-animations/assets/graphics/TinyHut.webp"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.outro"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "below": true,
+     "mask": true,
+     "persist": "template"
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Tiny Hut\" (templatefx)"
+  },
+  {
    "id": "wall-of-fire",
    "for": [
     "spell:wall-of-fire"
@@ -14423,6 +14907,64 @@
     "uuid": "Compendium.dnd5e.spells24.Item.phbsplOtilukesFr",
     "name": "Freezing Sphere",
     "where": "dnd5e · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "to": "template",
+     "asset": {
+      "path": "jb2a.snowball_toss.white.01"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.cold.v1.group01",
+      "volume": 1,
+      "delay": 250
+     },
+     "wait": -1800,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    },
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.impact_themed.ice_shard.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001"
+     },
+     "size": {
+      "fit": "object",
+      "scale": 1.25
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ],
+   "by": "the migration",
+   "at": "2026-09-13",
+   "note": "D&D5e Animations 3.3.0: \"Freezing Sphere\" (preset)"
+  },
+  {
+   "id": "otilukes-freezing-sphere",
+   "for": [
+    "spell:otilukes-freezing-sphere"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOtilukesFr",
+    "name": "Otiluke's Freezing Sphere",
+    "where": "Player's Handbook · Spells"
    },
    "on": "use",
    "scenes": [

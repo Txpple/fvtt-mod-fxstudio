@@ -46,11 +46,11 @@
 // show, guard or preserve a reference. "Copy from" and Duplicate stamp the scenes out and the new
 // FX owns them; changing it changes nothing else, and nothing it came from can orphan it.
 import { MODULE_ID } from '../settings.js';
-import { keyLabel, parseKey, slug } from '../core/subjects.js';
+import { AUTHORED_KINDS, keyLabel, parseKey, slug } from '../core/subjects.js';
 import { needsPlace } from '../core/corpus.js';
 import { KNOBS, PLACES, PLACE_WORDS, assetWords, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
-import { KIND_WORDS, ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
-import { nameForKey, openRecord, recordFor, recordOf, recordWords } from './records.js';
+import { ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
+import { nameForKey, openRecord, recordFor, recordOf, recordWords, recordsRead } from './records.js';
 import { openPicker } from './library.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
@@ -87,7 +87,7 @@ export const bareKey = (subject) => subject?.keys?.[0] ?? null;
  */
 export function openSheet(app, { id = null, source = null, subject = null, from = null, scenes = null, edit = false } = {}) {
   const a = api();
-  const s = { id: null, source: null, shadowed: false, original: null, subject: null, keys: [], newKeys: [], on: 'use', off: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture' };
+  const s = { id: null, source: null, shadowed: false, original: null, subject: null, keys: [], on: 'use', off: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture' };
   const e = id ? a.fx.get(id, source) : null;
   if (e) {
     s.id = id; s.source = e.source; s.shadowed = !!e.shadowed; s.original = e.original;
@@ -100,7 +100,7 @@ export function openSheet(app, { id = null, source = null, subject = null, from 
     s.subject = subject ?? app.subjectForFx(id);
   } else {
     s.subject = subject;
-    if (subject) { const k = bareKey(subject); if (k) s.keys = [k]; s.on = subject.on ?? 'use'; if (subject.isNew) s.newKeys = [k]; }
+    if (subject) { const k = bareKey(subject); if (k) s.keys = [k]; s.on = subject.on ?? 'use'; }
     if (from && a.fx.get(from)) { s.from = from; s.scenes = seedFrom(from); }
     if (scenes?.length) s.scenes = scenes.map((scene) => ({ scene: named(clone(scene)) }));
     s.edit = true;
@@ -144,8 +144,13 @@ export function draftFx(app) {
   const p = parseKey(s.keys[0] ?? '');
   const baseId = (p?.id ?? (s.id || slug(sub?.name ?? ''))) || 'fx';
   if (!id) {
-    id = baseId;
-    if (s.keys.length) {
+    // ONE FX ANSWERS ONE KEY: a new sheet keyed to a key an FX already answers on this moment IS
+    // that FX (its override, or its replacement — Save says which); an id another key holds is
+    // qualified by the kind so the two never collide
+    const holder = holderOf(app);
+    if (holder) id = holder.fx.id;
+    else {
+      id = baseId;
       const existing = a.fx.get(id);
       if (existing && !s.keys.some((k) => (existing.original?.for ?? []).includes(k))) id = `${p?.kind ?? 'fx'}-${id}`;
     }
@@ -162,6 +167,16 @@ export function draftFx(app) {
   return fx;
 }
 const safeDraft = (app) => { try { return draftFx(app); } catch { return null; } };
+
+/** the FX that already answers this sheet's key on its moment, when the sheet is not that FX itself: {fx, source} or null */
+export function holderOf(app) {
+  const s = app.sheet;
+  const key = s.keys[0];
+  if (!key) return null;
+  const e = api().fx.for(key).find((x) => x.on === s.on || x.on === '*');
+  if (!e || e.fx.id === s.id) return null;
+  return e;
+}
 export const sheetDirty = (app) => !!app.sheet && app.sheet.edit && JSON.stringify(safeDraft(app)) !== app.sheet.snapshot;
 
 /** every problem the API would raise on Save, in sentences; [] when it is clean */
@@ -210,8 +225,10 @@ export function renderSheet(app) {
       <button type="button" class="quiet" data-act="sh-cancel" ${edit ? '' : 'disabled'}>Cancel</button>
       <button type="button" class="primary" data-act="sh-save" ${edit && !problems.length ? '' : 'disabled'}>Save</button>
     </div>`;
+  const holder = edit ? holderOf(app) : null;
   const banner = edit && s.source === 'stock' ? `<div class="banner">Editing ${SOURCE_TAG.stock}. Save asks: a <b>${SOURCE_TAG.house} override</b> (${SOURCE_TAG.stock} untouched; the override wins), or ${SOURCE_TAG.stock} itself.</div>`
-    : edit && under ? `<div class="banner">Editing the ${SOURCE_TAG.house} override. Save writes ${SOURCE_TAG.house}; ${SOURCE_TAG.stock} is not changed.</div>` : '';
+    : edit && under ? `<div class="banner">Editing the ${SOURCE_TAG.house} override. Save writes ${SOURCE_TAG.house}; ${SOURCE_TAG.stock} is not changed.</div>`
+    : holder ? `<div class="banner">${esc(keyLabel(s.keys[0]))} already has an FX in ${SOURCE_TAG[holder.source]} (${esc(idWords(holder.fx.id))}). One FX answers one key: ${holder.source === 'stock' ? `Save asks — a <b>${SOURCE_TAG.house} override</b> of it, or ${SOURCE_TAG.stock} itself.` : `Save <b>replaces</b> it.`}</div>` : '';
   // every problem, each one the button that takes you to the scene it names
   const problemList = problems.length ? `<ul class="problems">${problems.map((p) => {
     const m = /\bscene (\d+)\b/.exec(p);
@@ -325,8 +342,6 @@ function renderHook(app) {
   const keyPills = key ? `<span class="pill key" aria-pressed="true" data-tooltip="${esc(keyTip)}">${esc(keyLabel(key))}</span>` : '';
   const keyLine = key ? `<code class="key" data-tooltip="${esc(keyTip)}">${esc(key)}</code><span class="note">${inBooks ? 'every copy answers it' : "this world's own item"}</span>` : '';
   const addKey = edit ? `<div class="search sh-key-search"><input type="search" class="sh-key-q" placeholder="${key ? 'Change the ability' : 'Choose an ability'}" aria-label="${key ? 'Change the ability' : 'Choose an ability'}" autocomplete="off" value="${esc(s.keyQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
-  const lastNew = s.newKeys.length ? s.newKeys[s.newKeys.length - 1] : null;
-  const kinds = edit && lastNew && s.keys.includes(lastNew) ? `<span class="pills inline kinds"><span class="lbl">Type of ${esc(idWords(parseKey(lastNew)?.id))}</span>${Object.entries(KIND_WORDS).map(([k, w]) => `<button type="button" class="pill" aria-pressed="${parseKey(lastNew)?.kind === k}" data-act="sh-kind" data-kind="${k}">${w}</button>`).join('')}</span>` : '';
   const pills = (list, cur, act, attr) => list.map(([v, w]) => `<button type="button" class="pill" aria-pressed="${cur === v}" data-act="${act}" data-${attr}="${v}">${w}</button>`).join('');
   // THE ITEM column keeps its place whether or not we came from an item (R1). The item the sheet
   // was opened from is named; unlocked, the pill opens the chooser (every ability on this world's
@@ -348,7 +363,7 @@ function renderHook(app) {
     : `<span class="pill" data-na="true" data-tooltip="${esc(ownTip)}">Own key</span>`;
   const pickItem = picking ? `<div class="search sh-item-search"><input type="search" class="sh-item-q" placeholder="Find an item on an actor" aria-label="Find an item on an actor" autocomplete="off" value="${esc(s.itemQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
   return `<div class="hookstrip">
-    <div class="hcol wide"><span class="lbl">Answers</span><div class="pills wrap">${keyPills}${!key ? '<span class="note">No key yet</span>' : ''}${addKey}${kinds}</div><div class="keyline">${keyLine}</div></div>
+    <div class="hcol wide"><span class="lbl">Answers</span><div class="pills wrap">${keyPills}${!key ? '<span class="note">No key yet</span>' : ''}${addKey}</div><div class="keyline">${keyLine}</div></div>
     <div class="hcol"><span class="lbl">Item</span><div class="pills">${itemPill}${ownKey}</div>${pickItem}</div>
     <div class="hcol"><span class="lbl">Moment</span><div class="pills">${pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')}</div></div>
     <div class="hcol"><span class="lbl">State</span><div class="pills">${pills([[false, 'On'], [true, 'Off']], s.off, 'sh-off', 'v')}</div></div>
@@ -361,18 +376,36 @@ function takeEntry(app, e) {
   const own = e.effect ? e.keys[0] : e.keys[e.keys.length - 1];
   if (!own) return;
   s.keys = [own];
-  s.newKeys = [];
   s.subject = app.subjectFromEntry(e);
   if (e.effect) s.on = 'effect';
 }
 
-/** the sheet's one key becomes a new ability's, keyed by its name as a spell until the kind pills say otherwise */
-function takeNew(app, name) {
+/** the sheet's one key becomes a key the records address book holds (a book ability nobody on a sheet has yet) */
+function takeKey(app, key) {
   const s = app.sheet;
-  const k = `spell:${slug(name)}`;
-  s.keys = [k];
-  s.newKeys = [k];
-  s.subject = app.subjectNew(name);
+  s.keys = [key];
+  s.subject = app.subjectForKey(key);
+  if (parseKey(key)?.kind === 'effect') s.on = 'effect';
+}
+
+/**
+ * The records address book searched by the record's own name, for keys no actor's sheet holds yet:
+ * a key is EARNED from a record, never made from a typed name (DESIGN §23). Keys an entry already
+ * offers are left to the entries.
+ */
+function recordHits(app, q, entryHits) {
+  const needle = q.trim().toLowerCase();
+  if (!needle || !recordsRead()) return [];
+  const map = api().records.map() ?? {};
+  const taken = new Set(entryHits.flatMap(({ e }) => e.keys));
+  const out = [];
+  for (const [key, rec] of Object.entries(map)) {
+    if (taken.has(key) || !rec?.name || !rec.name.toLowerCase().includes(needle)) continue;
+    if (!AUTHORED_KINDS.includes(parseKey(key)?.kind)) continue;
+    out.push({ key, name: rec.name, where: rec.where ?? '' });
+    if (out.length >= 8) break;
+  }
+  return out.sort((x, y) => (x.name.toLowerCase() === needle ? 0 : 1) - (y.name.toLowerCase() === needle ? 0 : 1) || x.name.localeCompare(y.name));
 }
 
 /** the sheet moved onto an item: the item is the subject, and its key is the sheet's when the sheet has none yet */
@@ -418,9 +451,9 @@ async function ownKey(app) {
   try { await item.update({ 'system.identifier': id }); } catch (err) { return app.toast(`Could not write the identifier: ${err.message}`); }
   // the sheet becomes a new House FX for the new key, copied from what it showed
   const from = s.id;
-  s.id = null; s.source = null; s.shadowed = false; s.original = null; s.isNew = true;
+  s.id = null; s.source = null; s.shadowed = false; s.original = null;
   if (from && !s.from) s.from = from;
-  s.keys = [key]; s.newKeys = [];
+  s.keys = [key];
   s.itemQuery = null;
   app.refresh();
   s.subject = app.subjectFromItem(item);
@@ -535,7 +568,7 @@ function bandTabs(scene, band) {
 
 function renderSequence(app) {
   const s = app.sheet;
-  if (s.off) return `<p class="note off-note">Switched off: this FX plays nothing, and the abilities it answers fall through to nothing. Switch it back on to write its sequence — the ${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} it had ${s.scenes.length === 1 ? 'is' : 'are'} kept until you do.</p>`;
+  if (s.off) return `<p class="note off-note">Switched off: this FX plays nothing, and the ability it answers plays nothing. Switch it back on to write its sequence — the ${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} it had ${s.scenes.length === 1 ? 'is' : 'are'} kept until you do.</p>`;
   const copy = s.edit && !s.scenes.length ? `<div class="field search copy"><label>Copy from</label><input type="text" class="sh-like" placeholder="Search FX… Misty Step, Fire Bolt" autocomplete="off"><div class="suggest" data-open="false"></div></div>` : '';
   if (!s.scenes.length) return `<div class="seq"><div class="railside">${railHtml(app)}</div><div class="inspector empty"><p class="note">No scenes yet. Copy the scenes of an FX you like, or add one.</p></div></div>${copy}`;
   return `<div class="seq"><div class="railside">${railHtml(app)}</div>${inspector(app)}</div>${copy}`;
@@ -929,7 +962,8 @@ export async function onSheetClick(app, b, act) {
     case 'sh-back': { if (!(await leaveSheet(app))) return undefined; app.view.tab = s.cameFrom ?? 'fx'; break; }
     case 'sh-cancel': { if (s.id) openSheet(app, { id: s.id, source: s.source, subject: s.subject }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; } app.toast('Changes dropped.'); break; }
     case 'sh-save': return saveSheet(app);
-    case 'sh-dup': { openSheet(app, { subject: s.subject, from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Add its hook, then Save.`); break; }
+    // a copy answers NO key until one is chosen: one FX answers one key, so a copy under the same key would only be its override or its replacement
+    case 'sh-dup': { openSheet(app, { from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Choose the ability it answers, then Save.`); break; }
     case 'sh-export': return app.exportFx(s.id);
     case 'sh-record': return openRecord(b.dataset.uuid, b.dataset.name);
     case 'sh-delete': {
@@ -941,8 +975,7 @@ export async function onSheetClick(app, b, act) {
     }
     // the key is REPLACED, never added to: one FX, one key
     case 'sh-key-hit': { const e = app.entries[i]; if (e) takeEntry(app, e); s.keyQuery = ''; break; }
-    case 'sh-key-new': takeNew(app, b.dataset.name); s.keyQuery = ''; break;
-    case 'sh-kind': { const last = s.newKeys[s.newKeys.length - 1]; const p = parseKey(last); if (!p) break; const k = `${b.dataset.kind}:${p.id}`; s.keys = s.keys.map((y) => (y === last ? k : y)); s.newKeys = s.newKeys.map((y) => (y === last ? k : y)); if (s.subject?.isNew) s.subject = app.subjectNew(s.subject.name, b.dataset.kind); s.on = b.dataset.kind === 'effect' ? 'effect' : s.on; break; }
+    case 'sh-key-rec': takeKey(app, b.dataset.key); s.keyQuery = ''; break;
     case 'sh-pick-item': s.itemQuery = s.itemQuery === null || s.itemQuery === undefined ? '' : null; break;
     case 'sh-item-hit': { const item = fromUuidSync(b.dataset.uuid); if (item) takeItem(app, item); else s.itemQuery = null; break; }
     case 'sh-own-key': return ownKey(app);
@@ -990,8 +1023,10 @@ export function onSheetInput(app, el) {
     s.keyQuery = el.value;
     if (!q) return open('');
     const hits = app.searchHits(q);
+    const recs = recordHits(app, q, hits);
     return open(hits.map(({ e, i }) => `<div class="hit" data-act="sh-key-hit" data-i="${i}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(app.hitWhere(e))}</span></div>`).join('')
-      + `<div class="hit" data-act="sh-key-new" data-name="${esc(q)}"><span class="o">New ability: “${esc(q)}”</span></div>`);
+      + recs.map((r) => `<div class="hit" data-act="sh-key-rec" data-key="${esc(r.key)}"><span>${dot('none')}${esc(r.name)}</span><span class="o">${esc(r.where)}</span></div>`).join('')
+      || '<div class="hit"><span class="o">No ability of that name in the books or on an actor</span></div>');
   }
   if (el.classList.contains('sh-item-q')) {
     s.itemQuery = el.value;
@@ -1110,7 +1145,8 @@ export function onSheetKey(app, ev) {
     if (!q) return true;
     const hits = app.searchHits(q);
     const exact = hits.find((h) => h.e.name.toLowerCase() === q.toLowerCase()) ?? hits[0];
-    if (exact) takeEntry(app, exact.e); else takeNew(app, q);
+    const rec = exact ? null : recordHits(app, q, hits)[0];
+    if (exact) takeEntry(app, exact.e); else if (rec) takeKey(app, rec.key); else return app.toast('No ability of that name in the books or on an actor.') && true;
     s.keyQuery = '';
     app.render();
     return true;
@@ -1136,7 +1172,8 @@ export function onSheetKey(app, ev) {
  */
 async function whereToSave(app, fx) {
   const s = app.sheet;
-  if (s.source !== 'stock' || !fx.for?.length) return 'house';
+  const holder = holderOf(app);
+  if (!fx.for?.length || (s.source !== 'stock' && holder?.source !== 'stock')) return 'house';
   const D = foundry.applications.api.DialogV2;
   const choice = await D.wait({
     window: { title: `Save ${esc(sheetName(app))}` },

@@ -111,7 +111,7 @@ export class Studio extends ApplicationV2 {
   }
 
   // -------------------------------------------------------------------------------------------
-  // subjects: what a card or a walk is about — {name, keys, uuid, owner, actor, hasPlace, on, kind, isNew}
+  // subjects: what a card or a walk is about — {name, keys, uuid, owner, actor, hasPlace, on, kind}
   // -------------------------------------------------------------------------------------------
   subjectFromItem(item) {
     const a = api();
@@ -135,10 +135,6 @@ export class Studio extends ApplicationV2 {
     const key = entry?.fx?.for?.[0];
     if (key) return this.subjectForKey(key);
     return { name: idWords(id), keys: [], owner: null, hasPlace: false, on: entry?.fx?.on ?? 'use', kind: 'spell', fxId: id };
-  }
-  /** a name typed that is on no sheet: a new ability, keyed by its name as the kind the user picks */
-  subjectNew(name, kind = 'spell') {
-    return { name, keys: [`${kind}:${slug(name)}`], owner: null, hasPlace: false, on: kind === 'effect' ? 'effect' : 'use', kind, isNew: true };
   }
 
   /** the sheet for what a subject plays: the FX that answers it, or a new one for it */
