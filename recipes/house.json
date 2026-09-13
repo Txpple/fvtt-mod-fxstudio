@@ -5,74 +5,10 @@
   "tool": "curated by hand",
   "licence": "MIT, except Vesper Staff and Necrotic Scythe, derived from D&D5e Animations (GPL-3, see STOCK-LICENSE)",
   "note": "This table’s own FX: one key each, the item’s identifier. Save writes this file; tools/pull-corpus.mjs brings it into the repo. Never written by the migration.",
-  "fx": 4
+  "fx": 5,
+  "written": "2026-09-13"
  },
  "fx": [
-  {
-   "id": "first-light-thomas-a-invictus",
-   "for": [
-    "weapon:first-light"
-   ],
-   "record": {
-    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.1BCiPSQ1nDeDqPHt",
-    "name": "First Light",
-    "where": "this world · Thomas A. Invictus"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.sword.melee.01.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.weapon-attacks.sword.v1"
-     },
-     "delay": 0,
-     "thrown": {
-      "asset": {
-       "path": "jb2a.sword.throw.white"
-      }
-     }
-    }
-   ],
-   "note": "Thomas A. Invictus’s First Light: the item carries the identifier first-light, and this FX answers it alone."
-  },
-  {
-   "id": "goldthorn-jetten-elisedil",
-   "for": [
-    "weapon:goldthorn"
-   ],
-   "record": {
-    "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
-    "name": "Goldthorn",
-    "where": "this world · Jetten Elisedil"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "strike",
-     "asset": {
-      "path": "jb2a.scimitar.melee.01.white",
-      "template": [
-       100,
-       0,
-       0
-      ]
-     },
-     "sound": {
-      "asset": "psfx.weapon-attacks.sword.v1"
-     },
-     "delay": 0
-    }
-   ],
-   "note": "Jetten Elisedil’s Goldthorn: the item carries the identifier goldthorn, and this FX answers it alone."
-  },
   {
    "id": "vesper-staff",
    "for": [
@@ -126,6 +62,120 @@
     }
    ],
    "note": "Cadoc’s Necrotic Scythe, this world’s own item (identifier necrotic-scythe). Derived from the D&D5e Animations scythe FX (GPL-3, STOCK-LICENSE)."
+  },
+  {
+   "id": "first-light-thomas-a-invictus",
+   "for": [
+    "weapon:midnight"
+   ],
+   "record": {
+    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.JBm35paWK86i337m",
+    "name": "Midnight",
+    "where": "this world · Invictus"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.01.purple",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1"
+     },
+     "delay": 0,
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      }
+     }
+    }
+   ],
+   "note": "Thomas A. Invictus’s First Light: the item carries the identifier first-light, and this FX answers it alone.",
+   "by": "Matt the DM",
+   "at": "2026-09-13"
+  },
+  {
+   "id": "goldthorn-jetten-elisedil",
+   "for": [
+    "weapon:goldthorn"
+   ],
+   "record": {
+    "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
+    "name": "Goldthorn",
+    "where": "this world · Jetten Elisedil"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.scimitar.melee.01.orange",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1"
+     },
+     "delay": 0
+    }
+   ],
+   "note": "Jetten Elisedil’s Goldthorn: the item carries the identifier goldthorn, and this FX answers it alone.",
+   "by": "Matt the DM",
+   "at": "2026-09-13"
+  },
+  {
+   "id": "verdant-wisp",
+   "for": [
+    "natural:verdant-wisp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDruid000000000.Item.mmVerdantWisp000",
+    "name": "Verdant Wisp",
+    "where": "Monster Manual · Actors",
+    "on": "Druid",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.guiding_bolt.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 750
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.cure_wounds.400px.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target",
+      "delay": 750
+     },
+     "opacity": 0.001,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ],
+   "note": "copied from Guiding Bolt",
+   "by": "Matt the DM",
+   "at": "2026-09-13"
   }
  ]
 }
