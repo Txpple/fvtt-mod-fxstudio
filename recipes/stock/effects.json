@@ -17,7 +17,7 @@
    "MrVauxs",
    "Sisimshow"
   ],
-  "note": "The effects of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
   "fx": 79
  },
  "fx": [
@@ -47,10 +47,7 @@
      "wait": true,
      "delay": 1
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bane\" (aefx)"
+   ]
   },
   {
    "id": "bark-like-skin",
@@ -108,10 +105,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bark-like Skin\" (aefx)"
+   ]
   },
   {
    "id": "blessed",
@@ -139,10 +133,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blessed\" (aefx)"
+   ]
   },
   {
    "id": "chill-shield",
@@ -180,10 +171,7 @@
      "wait": true,
      "delay": -1000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Chill Shield\" (aefx)"
+   ]
   },
   {
    "id": "confused",
@@ -205,10 +193,7 @@
       "path": "jb2a.markers.stun.purple.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Confused\" (aefx)"
+   ]
   },
   {
    "id": "hasted",
@@ -234,10 +219,7 @@
       "path": "jb2a.token_border.circle.static.orange.004"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Hasted\" (aefx)"
+   ]
   },
   {
    "id": "mage-armor",
@@ -278,10 +260,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mage Armor\" (aefx)"
+   ]
   },
   {
    "id": "slowed",
@@ -307,10 +286,7 @@
       "path": "jb2a.token_border.circle.static.purple.004"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Slowed\" (aefx)"
+   ]
   },
   {
    "id": "warm-shield",
@@ -348,10 +324,7 @@
      "wait": true,
      "delay": -1000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Warm Shield\" (aefx)"
+   ]
   },
   {
    "id": "acid-protection",
@@ -377,10 +350,7 @@
       "path": "jb2a.shield.01.loop.green"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Acid Protection\" (aefx)"
+   ]
   },
   {
    "id": "alertness",
@@ -403,10 +373,7 @@
       "path": "jb2a.particles.swirl.blue.01.01"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Alertness\" (aefx)"
+   ]
   },
   {
    "id": "aura-of-warding",
@@ -429,10 +396,7 @@
       "path": "jb2a.particles.swirl.blue.01.01"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Aura of Warding\" (aefx)"
+   ]
   },
   {
    "id": "avenging-angel",
@@ -475,10 +439,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Avenging Angel\" (aefx)"
+   ]
   },
   {
    "id": "banished",
@@ -500,10 +461,7 @@
       "path": "jb2a.markers.chain.standard.loop.02.yellow"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Banished\" (aefx)"
+   ]
   },
   {
    "id": "berserk",
@@ -529,10 +487,7 @@
       "path": "jb2a.markers.on_token_mask.loop.01.yellow02"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Berserk\" (aefx)"
+   ]
   },
   {
    "id": "bonded",
@@ -557,10 +512,7 @@
       "path": "jb2a.token_border.circle.static.blue.002"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bonded\" (aefx)"
+   ]
   },
   {
    "id": "bound-to-service",
@@ -582,10 +534,7 @@
       "path": "jb2a.markers.heart.teal.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bound to Service\" (aefx)"
+   ]
   },
   {
    "id": "burning",
@@ -620,10 +569,7 @@
      "wait": true,
      "delay": -1000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Burning\" (aefx)"
+   ]
   },
   {
    "id": "carrying-message",
@@ -645,10 +591,7 @@
       "path": "jb2a.markers.runes.dark_black.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Carrying Message\" (aefx)"
+   ]
   },
   {
    "id": "charmed",
@@ -670,10 +613,7 @@
       "path": "jb2a.markers.heart.pink.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Charmed\" (aefx)"
+   ]
   },
   {
    "id": "circles-power",
@@ -695,10 +635,7 @@
       "path": "jb2a.spirit_guardians.blue.no_ring"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Circle's Power\" (aefx)"
+   ]
   },
   {
    "id": "cloud-form",
@@ -723,10 +660,7 @@
       "path": "jb2a.fog_cloud.01.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Cloud Form\" (aefx)"
+   ]
   },
   {
    "id": "cold-protection",
@@ -752,10 +686,7 @@
       "path": "jb2a.shield.01.loop.blue"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Cold Protection\" (aefx)"
+   ]
   },
   {
    "id": "comprehension",
@@ -777,10 +708,7 @@
       "path": "jb2a.markers.runes.dark_black.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Comprehension\" (aefx)"
+   ]
   },
   {
    "id": "courageous",
@@ -803,10 +731,7 @@
       "path": "jb2a.particles.swirl.orange.01.01"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Courageous\" (aefx)"
+   ]
   },
   {
    "id": "divine-favor-effect",
@@ -829,10 +754,7 @@
       "path": "jb2a.markers.light.nopulse.yellow"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Divine Favor\" (aefx)"
+   ]
   },
   {
    "id": "dominated",
@@ -854,10 +776,7 @@
       "path": "jb2a.markers.heart.dark_red.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Dominated\" (aefx)"
+   ]
   },
   {
    "id": "elminsters-elusion",
@@ -885,10 +804,7 @@
       "path": "jb2a.aura_themed.01.orbit.loop.metal.01.teal"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Elminster's Elusion\" (aefx)"
+   ]
   },
   {
    "id": "enclosed-in-sphere",
@@ -910,10 +826,7 @@
       "path": "jb2a.wall_of_force.sphere.blue"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Enclosed in Sphere \" (aefx)"
+   ]
   },
   {
    "id": "ensnared",
@@ -939,10 +852,7 @@
       "path": "jb2a.entangle.green"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Ensnared\" (aefx)"
+   ]
   },
   {
    "id": "ethereal",
@@ -974,10 +884,7 @@
       "path": "jb2a.darkness.black"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Ethereal\" (aefx)"
+   ]
   },
   {
    "id": "fire-protection",
@@ -1003,10 +910,7 @@
       "path": "jb2a.shield.01.loop.red"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Fire Protection\" (aefx)"
+   ]
   },
   {
    "id": "flight",
@@ -1029,10 +933,7 @@
       "path": "jb2a.wind_stream.400.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Flight\" (aefx)"
+   ]
   },
   {
    "id": "foresight-effect",
@@ -1065,10 +966,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Foresight\" (aefx)"
+   ]
   },
   {
    "id": "frightened",
@@ -1095,10 +993,7 @@
       "path": "jb2a.markers.horror.purple.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Frightened\" (aefx)"
+   ]
   },
   {
    "id": "gaseous-form-effect",
@@ -1123,10 +1018,7 @@
       "path": "jb2a.fog_cloud.01.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Gaseous Form\" (aefx)"
+   ]
   },
   {
    "id": "guiding-bolt-effect",
@@ -1149,10 +1041,7 @@
       "path": "jb2a.particles.outward.orange.01.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Guiding Bolt\" (aefx)"
+   ]
   },
   {
    "id": "heated-metal",
@@ -1187,10 +1076,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Heated Metal\" (aefx)"
+   ]
   },
   {
    "id": "heavenly-wings",
@@ -1216,10 +1102,7 @@
      },
      "below": true
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Heavenly Wings\" (aefx)"
+   ]
   },
   {
    "id": "hypnotized",
@@ -1241,10 +1124,7 @@
       "path": "jb2a.markers.stun.purple.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Hypnotized\" (aefx)"
+   ]
   },
   {
    "id": "illuminated",
@@ -1266,10 +1146,7 @@
       "path": "jb2a.markers.light.nopulse.yellow"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Illuminated\" (aefx)"
+   ]
   },
   {
    "id": "imperceptible-barrier",
@@ -1332,10 +1209,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Imperceptible Barrier\" (aefx)"
+   ]
   },
   {
    "id": "irresistible-dance-effect",
@@ -1357,10 +1231,7 @@
       "path": "jb2a.markers.heart.pink.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Irresistible Dance\" (aefx)"
+   ]
   },
   {
    "id": "jump-effect",
@@ -1383,10 +1254,7 @@
       "path": "jb2a.wind_stream.400.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Jump\" (aefx)"
+   ]
   },
   {
    "id": "levitating",
@@ -1409,10 +1277,7 @@
       "path": "jb2a.wind_stream.400.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Levitating\" (aefx)"
+   ]
   },
   {
    "id": "lightning-protection",
@@ -1438,10 +1303,7 @@
       "path": "jb2a.shield.01.loop.yellow"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Lightning Protection\" (aefx)"
+   ]
   },
   {
    "id": "lingering-acid",
@@ -1471,10 +1333,7 @@
       "y": 0.7
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Lingering Acid\" (aefx)"
+   ]
   },
   {
    "id": "longstrider-effect",
@@ -1497,10 +1356,7 @@
       "path": "jb2a.wind_stream.400.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Longstrider\" (aefx)"
+   ]
   },
   {
    "id": "majestic-presence",
@@ -1525,10 +1381,7 @@
       "path": "jb2a.spirit_guardians.greenorange.particles"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Majestic Presence\" (aefx)"
+   ]
   },
   {
    "id": "mocked",
@@ -1550,10 +1403,7 @@
       "path": "jb2a.markers.fear.dark_purple.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mocked\" (aefx)"
+   ]
   },
   {
    "id": "muddled-thoughts",
@@ -1580,10 +1430,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Muddled Thoughts\" (aefx)"
+   ]
   },
   {
    "id": "outlined",
@@ -1606,10 +1453,7 @@
       "path": "jb2a.particles.outward.blue.01.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Outlined\" (aefx)"
+   ]
   },
   {
    "id": "peerless-athlete",
@@ -1636,10 +1480,7 @@
       "path": "jb2a.markers.on_token_mask.loop.01.yellow02"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Peerless Athlete\" (aefx)"
+   ]
   },
   {
    "id": "poison-protection",
@@ -1674,10 +1515,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Poison Protection\" (aefx)"
+   ]
   },
   {
    "id": "protected",
@@ -1712,10 +1550,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Protected\" (aefx)"
+   ]
   },
   {
    "id": "protection",
@@ -1750,10 +1585,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Protection\" (aefx)"
+   ]
   },
   {
    "id": "rage-effect",
@@ -1776,10 +1608,7 @@
       "path": "jb2a.markers.on_token_mask.loop.01.yellow02"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Rage\" (aefx)"
+   ]
   },
   {
    "id": "reduced-movement",
@@ -1812,10 +1641,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Reduced Movement\" (aefx)"
+   ]
   },
   {
    "id": "regenerating",
@@ -1837,10 +1663,7 @@
       "path": "jb2a.energy_strands.02.marker.orangered"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Regenerating\" (aefx)"
+   ]
   },
   {
    "id": "seared",
@@ -1875,10 +1698,7 @@
      "wait": true,
      "delay": -1000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Seared\" (aefx)"
+   ]
   },
   {
    "id": "searing-radiance",
@@ -1903,10 +1723,7 @@
       "path": "jb2a.markers.light.nopulse.yellow"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Searing Radiance\" (aefx)"
+   ]
   },
   {
    "id": "shimmering-field",
@@ -1932,10 +1749,7 @@
       "path": "jb2a.markers.shield_rampart.loop.03.blue"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Shimmering Field\" (aefx)"
+   ]
   },
   {
    "id": "shining",
@@ -1963,10 +1777,7 @@
       "path": "jb2a.markers.light.nopulse.yellow"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Shining\" (aefx)"
+   ]
   },
   {
    "id": "short-dance",
@@ -1988,10 +1799,7 @@
       "path": "jb2a.markers.heart.pink.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Short Dance\" (aefx)"
+   ]
   },
   {
    "id": "sleeping",
@@ -2013,10 +1821,7 @@
       "path": "jb2a.sleep.symbol.pink"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sleeping\" (aefx)"
+   ]
   },
   {
    "id": "spectral-crown",
@@ -2042,10 +1847,7 @@
       "path": "jb2a.token_border.circle.static.orange.010"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Spectral Crown\" (aefx)"
+   ]
   },
   {
    "id": "starry-form",
@@ -2073,10 +1875,7 @@
       "path": "jb2a.markers.circle_of_stars.yellowblue"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Starry Form\" (aefx)"
+   ]
   },
   {
    "id": "stonecunning",
@@ -2106,10 +1905,7 @@
      },
      "opacity": 0.2
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Stonecunning\" (aefx)"
+   ]
   },
   {
    "id": "stoneskin",
@@ -2145,10 +1941,7 @@
      },
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Stoneskin\" (aefx)"
+   ]
   },
   {
    "id": "stunned",
@@ -2175,10 +1968,7 @@
       "path": "jb2a.markers.stun.dark_teal.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Stunned\" (aefx)"
+   ]
   },
   {
    "id": "suspended-animation",
@@ -2200,10 +1990,7 @@
       "path": "jb2a.sleep.symbol.green"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Suspended Animation\" (aefx)"
+   ]
   },
   {
    "id": "thunder-protection",
@@ -2229,10 +2016,7 @@
       "path": "jb2a.shield.01.loop.purple"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Thunder Protection\" (aefx)"
+   ]
   },
   {
    "id": "trance-state",
@@ -2254,10 +2038,7 @@
       "path": "jb2a.sleep.symbol.pink"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Trance State\" (aefx)"
+   ]
   },
   {
    "id": "turning-to-stone",
@@ -2283,10 +2064,7 @@
       "file": "modules/dnd5e-animations/assets/graphics/textures/Stone.webp"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Turning to Stone\" (aefx)"
+   ]
   },
   {
    "id": "uncontrollable-laughter",
@@ -2308,10 +2086,7 @@
       "path": "jb2a.markers.fear.dark_purple.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Uncontrollable Laughter\" (aefx)"
+   ]
   },
   {
    "id": "universal-communication",
@@ -2333,10 +2108,7 @@
       "path": "jb2a.markers.runes.blue.03"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Universal Communication\" (aefx)"
+   ]
   },
   {
    "id": "unrestricted-movement",
@@ -2359,10 +2131,7 @@
       "path": "jb2a.wind_stream.400.white"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Unrestricted Movement\" (aefx)"
+   ]
   },
   {
    "id": "warded",
@@ -2422,10 +2191,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Warded\" (aefx)"
+   ]
   },
   {
    "id": "warded-by-law",
@@ -2453,10 +2219,7 @@
       "path": "jb2a.cast_shape.circle.single01.blue"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Warded by Law\" (aefx)"
+   ]
   }
  ]
 }

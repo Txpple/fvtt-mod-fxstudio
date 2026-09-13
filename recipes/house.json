@@ -1,18 +1,10 @@
 {
  "_meta": {
   "schema": 2,
-  "generated": "2026-09-12",
+  "generated": "2026-09-13",
   "tool": "curated by hand",
-  "sources": {
-   "aa": "7.0.22",
-   "dnd5eAnimations": "3.3.0",
-   "jb2a": "0.9.2",
-   "psfx": "0.17.0",
-   "sequencer": "4.2.3",
-   "dnd5e": null
-  },
-  "licence": "MIT, except the two FX noted as D&D5e Animations 3.3.0 (Vesper Staff, Necrotic Scythe), which are derived from that GPL-3 work — see STOCK-LICENSE",
-  "note": "The user's own FX. Two custom swords, each keyed to the identifier its item carries (DESIGN §23: one key per item, dnd5e's identifier; the item was given an identifier of its own). Then two FX moved out of Stock on 2026-09-08, because their keys are this world's own items and Stock is the books. Not written by tools/migrate-aa.mjs — that tool leaves this file alone. Add to it from the window (Save writes this file) or import a file into House.",
+  "licence": "MIT, except Vesper Staff and Necrotic Scythe, derived from D&D5e Animations (GPL-3, see STOCK-LICENSE)",
+  "note": "This table’s own FX: one key each, the item’s identifier. Save writes this file; tools/pull-corpus.mjs brings it into the repo. Never written by the migration.",
   "fx": 4
  },
  "fx": [
@@ -49,9 +41,7 @@
      }
     }
    ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "the item's own look (Thomas A. Invictus / First Light) (Automated Animations 7.0.22) · re-keyed 2026-09-12 to the item's own identifier (DESIGN §23): the item carries identifier first-light, and this FX answers that key alone"
+   "note": "Thomas A. Invictus’s First Light: the item carries the identifier first-light, and this FX answers it alone."
   },
   {
    "id": "goldthorn-jetten-elisedil",
@@ -81,9 +71,7 @@
      "delay": 0
     }
    ],
-   "by": "the migration",
-   "at": "2026-09-06",
-   "note": "the item's own look (Jetten Elisedil / Goldthorn) (Automated Animations 7.0.22) · re-keyed 2026-09-12 to the item's own identifier (DESIGN §23): the item carries identifier goldthorn, and this FX answers that key alone"
+   "note": "Jetten Elisedil’s Goldthorn: the item carries the identifier goldthorn, and this FX answers it alone."
   },
   {
    "id": "vesper-staff",
@@ -113,9 +101,7 @@
      }
     }
    ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee) · moved out of Stock 2026-09-08 on the user's word: the key is this world's own item, and Stock is the books."
+   "note": "Harrow Vane’s Vesper Staff, this world’s own item. Derived from the D&D5e Animations staff FX (GPL-3, STOCK-LICENSE)."
   },
   {
    "id": "necrotic-scythe",
@@ -139,9 +125,7 @@
      }
     }
    ],
-   "by": "the migration",
-   "at": "2026-09-08",
-   "note": "D&D5e Animations 3.3.0: \"Scythe\" (melee) · moved out of Stock 2026-09-08 on the user's word: the key is this world's own item, and Stock is the books."
+   "note": "Cadoc’s Necrotic Scythe, this world’s own item (identifier necrotic-scythe). Derived from the D&D5e Animations scythe FX (GPL-3, STOCK-LICENSE)."
   }
  ]
 }

@@ -67,6 +67,23 @@ const ownOnly = [];
 // STOCK IS THE BOOKS; HOUSE IS THIS TABLE (the user, 2026-09-08). A stock row is keyed against the
 // installed books and dnd5e's base weapons alone — a shipped FX may not stand on one table's
 // inventory. A HOUSE row is the user's own, so it may: `world` is true for those.
+// ONE DOCUMENT, TWO KEYS (the user, 2026-09-13): a key earned as the twin of another (the book's copy of
+// a record beside the system's SRD 5.2 copy, under another identifier) is the ONE note an FX carries —
+// each twin names the other, so a person reading Acid Arrow knows why Melf's Acid Arrow is a separate FX.
+const twinOf = new Map(); // key → [the twin keys] (Channel Divinity has two: -cleric and -paladin)
+const noteTwin = (k) => {
+  const m = /, the same document as ([a-z0-9-]+)$/.exec(k.from ?? '');
+  if (!m) return;
+  const a = `${k.kind}:${k.id}`, b = `${k.kind}:${m[1]}`;
+  for (const [x, y] of [[a, b], [b, a]]) { const list = twinOf.get(x) ?? twinOf.set(x, []).get(x); if (!list.includes(y)) list.push(y); }
+};
+const twinNote = (key) => {
+  const others = twinOf.get(key);
+  if (!others?.length) return null;
+  const say = (o) => { const rec = lists.records.get(o); return `${rec?.name ?? o}${rec?.where ? ` (${rec.where.split(' · ')[0]})` : ''}, ${o}`; };
+  return `Separate FX from ${others.map(say).join(' and from ')}: the same record under another key.`;
+};
+
 function keysForRow(row, { world = false } = {}) {
   const label = row.name.trim();
   const own = slug(label);
@@ -88,7 +105,7 @@ function keysForRow(row, { world = false } = {}) {
     // a bolt row named exactly as a spell or a feature IS that spell or feature (Mind Sliver, Life Drain)
     const kinds = lists.kindsOfName(label, { only: row.menu === 'melee' ? ['weapon', 'natural'] : null, world });
     if (nc.length) notCarried.push({ label, menu: row.menu, caught: nc });
-    for (const k of kinds) add(`${k.kind}:${k.id}`);
+    for (const k of kinds) { add(`${k.kind}:${k.id}`); noteTwin(k); }
     for (const e of ex) add(`${e.kind}:${e.id}`);
     // A family row used to be given `weapon:<its own word>` and `natural:<its own word>` whatever
     // the lists said — "Blade" got weapon:blade and natural:blade with nothing named Blade anywhere.
@@ -100,7 +117,7 @@ function keysForRow(row, { world = false } = {}) {
     return out;
   }
   const kinds = lists.kindsOfName(label, { world });
-  if (kinds.length) { keyed.byList++; for (const k of kinds) add(`${k.kind}:${k.id}`); return out; }
+  if (kinds.length) { keyed.byList++; for (const k of kinds) { add(`${k.kind}:${k.id}`); noteTwin(k); } return out; }
   // NO LIST HOLDS THE NAME, so there is no evidence of what it is. The first migration keyed these
   // in all three kinds they could be — a guess, and the one place the corpus guessed. The user
   // ruled it out (2026-09-08): the row is NOT carried, and it is listed for them to key by hand.
@@ -135,9 +152,10 @@ for (const row of ordered) {
     if (won) { clashes.push({ key, kept: `${won.row.name} [${won.row.menu}] → ${won.id}`, dropped: `${row.name} [${row.menu}]` }); continue; }
     const id = idFor(key.split(':').slice(1).join(':').split('/')[0], row.menu, taken);
     const { fx, notes } = rowToFx(row, nativiser, { id, keys: [key], on });
-    fx.by = 'the migration';
-    fx.at = today;
-    fx.note = `D&D5e Animations ${versions.dnd5eAnimations}: "${row.name}" (${row.menu})`;
+    // no provenance on a Stock FX (the user, 2026-09-13: the corpus is our own now; the file's _meta and
+    // STOCK-LICENSE carry the attribution). The one note is a twin's, pointing at the other key.
+    const tn = twinNote(key);
+    if (tn) fx.note = tn;
     // the record it stands on, ON the FX (the user, 2026-09-09) — from the same evidence the key was earned against
     stockFx.push({ fx: stampRecord(fx, Object.fromEntries(lists.records)), row, notes, source: 'stock' });
     keyOwner.set(key, { id, row });
@@ -411,7 +429,7 @@ if (WRITE) {
   mkdirSync(join(RECIPES, 'stock'), { recursive: true });
   const meta = (extra) => ({ schema: 2, generated: today, tool: 'tools/migrate-aa.mjs', sources: versions, ...extra });
   for (const [name, list] of Object.entries(files)) {
-    writeFileSync(join(RECIPES, 'stock', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see STOCK-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name} of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
+    writeFileSync(join(RECIPES, 'stock', `${name}.json`), JSON.stringify({ _meta: meta({ licence: 'GPL-3.0-or-later (see STOCK-LICENSE)', source: `D&D5e Animations ${versions.dnd5eAnimations}`, authors: ['MrVauxs', 'Sisimshow'], note: `The ${name}: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.`, fx: list.length }), fx: list }, null, 1));
   }
   // recipes/house.json IS THE USER'S FILE and this tool does not own it (2026-09-08). It was
   // written once at migration and curated since (two swords keyed to their own identifiers, DESIGN

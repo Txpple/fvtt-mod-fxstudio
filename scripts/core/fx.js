@@ -201,7 +201,7 @@ export function validate(fx) {
   // "like" and "with" are named above in their own sentence; they are not just unknown words
   // the record it stands on (core/records.js): stamped by every writer, read by the screens, never by the engine
   out.push(...recordProblems(fx.record));
-  for (const k of Object.keys(fx)) if (!['id', 'for', 'record', 'on', 'off', 'scenes', 'by', 'at', 'note', 'to', 'source', 'like', 'with'].includes(k)) out.push(`an FX does not have a "${k}"`);
+  for (const k of Object.keys(fx)) if (!['id', 'for', 'record', 'on', 'off', 'scenes', 'by', 'at', 'note'].includes(k)) out.push(`an FX does not have a "${k}"`);
   return out;
 }
 
@@ -340,7 +340,7 @@ export function sentence(fx, { name = null } = {}) {
 
 const titleWords = (s) => String(s).replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
-/** the provenance as a line: "by the migration · 2026-09-06 · D&D5e Animations 3.3.0" */
+/** the provenance as a line: "by Matt · 2026-09-13 · copied from Misty Step" (a Stock FX carries none) */
 export function provenance(fx) {
   if (!fx) return '';
   const parts = [];

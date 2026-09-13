@@ -1948,3 +1948,18 @@ model"*, five more, all made on the user's word:
 
 Proof: screens 190/190 with the new walks (Answers replaces; a Stock-held key takes its id and the
 banner; a record on no sheet reached from the address book; Duplicate keyless), nine offline checks.
+
+### The corpus is our own now (the user, 2026-09-13)
+
+*"Remove all the notes from items that say migration, etc. — that's to the point where we've done our
+own thing now and no longer relevant."* Every Stock FX carried `by: "the migration"`, an `at` and a
+note naming its D&D5e Animations row; the four House FX carried the same plus the story of how they
+were re-keyed. All gone. A Stock FX carries no provenance at all — the file's `_meta` and
+`STOCK-LICENSE` carry the GPL attribution, which is what the licence needs — and the ONE note left is
+a twin's, on the 35 FX whose record the SRD 5.2 ships under another identifier: *"Separate FX from
+Melf's Acid Arrow (Player's Handbook), spell:melfs-acid-arrow: the same record under another key."*
+A House FX's note is the user's own words. The validator no longer accepts `to`, `source`, `like` or
+`with` on an FX (four fields of retired layers and the retired grammar); the starters' note no longer
+speaks that grammar; the system's packs are named **SRD 5.2** on every record line (they read
+"dnd5e", a word of ours). Reviewed for the prod deploy and the sandbox refresh that follows: every
+recipe file's header, fields and notes; the nine offline checks and the three live suites green.

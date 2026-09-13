@@ -17,7 +17,7 @@
    "MrVauxs",
    "Sisimshow"
   ],
-  "note": "The weapons of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "note": "The weapons: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
   "fx": 94
  },
  "fx": [
@@ -52,10 +52,7 @@
       "y": 0.5
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Shadow Blade\" (ontoken)"
+   ]
   },
   {
    "id": "frost-axe",
@@ -79,10 +76,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
+   ]
   },
   {
    "id": "pact-axe",
@@ -106,10 +100,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
+   ]
   },
   {
    "id": "berserker-axe",
@@ -133,10 +124,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
+   ]
   },
   {
    "id": "executioners-axe",
@@ -160,10 +148,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Axe\" (melee)"
+   ]
   },
   {
    "id": "psychic-blade",
@@ -191,10 +176,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+   ]
   },
   {
    "id": "dragon-tooth-blade",
@@ -222,10 +204,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+   ]
   },
   {
    "id": "dread-blade-swing",
@@ -253,10 +232,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+   ]
   },
   {
    "id": "pact-blade",
@@ -284,10 +260,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+   ]
   },
   {
    "id": "luck-blade",
@@ -315,10 +288,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+   ]
   },
   {
    "id": "sun-blade",
@@ -346,10 +316,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blade\" (melee)"
+   ]
   },
   {
    "id": "chain",
@@ -377,10 +344,7 @@
       "asset": "psfx.impacts.slashing.v1.0"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Chain\" (melee)"
+   ]
   },
   {
    "id": "club",
@@ -403,10 +367,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Club\" (melee)"
+   ]
   },
   {
    "id": "tree-club",
@@ -429,10 +390,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Club\" (melee)"
+   ]
   },
   {
    "id": "dagger",
@@ -469,10 +427,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Dagger\" (melee)"
+   ]
   },
   {
    "id": "umbral-dagger",
@@ -509,10 +464,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Dagger\" (melee)"
+   ]
   },
   {
    "id": "flail",
@@ -535,10 +487,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Flail\" (melee)"
+   ]
   },
   {
    "id": "elemental-flail",
@@ -561,10 +510,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Flail\" (melee)"
+   ]
   },
   {
    "id": "infernal-fork",
@@ -593,10 +539,7 @@
       "start": 1250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Fork\" (melee)"
+   ]
   },
   {
    "id": "glaive",
@@ -624,10 +567,7 @@
       "asset": "psfx.weapon-attacks.spear.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Glaive\" (melee)"
+   ]
   },
   {
    "id": "abyssal-glaive",
@@ -655,10 +595,7 @@
       "asset": "psfx.weapon-attacks.spear.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Glaive\" (melee)"
+   ]
   },
   {
    "id": "infernal-glaive",
@@ -686,10 +623,7 @@
       "asset": "psfx.weapon-attacks.spear.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Glaive\" (melee)"
+   ]
   },
   {
    "id": "greataxe",
@@ -713,10 +647,7 @@
       "start": 650
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Greataxe\" (melee)"
+   ]
   },
   {
    "id": "greatclub",
@@ -739,10 +670,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Greatclub\" (melee)"
+   ]
   },
   {
    "id": "thunderous-greatclub",
@@ -765,10 +693,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Greatclub\" (melee)"
+   ]
   },
   {
    "id": "greatsword",
@@ -792,10 +717,7 @@
       "start": 650
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Greatsword\" (melee)"
+   ]
   },
   {
    "id": "halberd",
@@ -823,10 +745,7 @@
       "asset": "psfx.weapon-attacks.spear.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Halberd\" (melee)"
+   ]
   },
   {
    "id": "light-hammer",
@@ -857,10 +776,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Hammer\" (melee)"
+   ]
   },
   {
    "id": "handaxe",
@@ -892,10 +808,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Handaxe\" (melee)"
+   ]
   },
   {
    "id": "lance",
@@ -928,10 +841,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Lance\" (melee)"
+   ]
   },
   {
    "id": "longsword",
@@ -970,10 +880,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Longsword\" (melee)"
+   ]
   },
   {
    "id": "mace",
@@ -996,10 +903,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
+   ]
   },
   {
    "id": "fiery-mace",
@@ -1022,10 +926,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
+   ]
   },
   {
    "id": "holy-mace",
@@ -1048,10 +949,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
+   ]
   },
   {
    "id": "thunderous-mace",
@@ -1074,10 +972,7 @@
       "asset": "psfx.impacts.bludgeoning.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Mace\" (melee)"
+   ]
   },
   {
    "id": "maul",
@@ -1101,10 +996,7 @@
       "delay": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Maul\" (melee)"
+   ]
   },
   {
    "id": "morningstar",
@@ -1145,10 +1037,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Morningstar\" (melee)"
+   ]
   },
   {
    "id": "war-pick",
@@ -1171,10 +1060,7 @@
       "asset": "psfx.impacts.slashing.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Pick\" (melee)"
+   ]
   },
   {
    "id": "pike",
@@ -1208,10 +1094,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Pike\" (melee)"
+   ]
   },
   {
    "id": "quarterstaff",
@@ -1240,10 +1123,7 @@
       "delay": 600
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Quarterstaff\" (melee)"
+   ]
   },
   {
    "id": "ram",
@@ -1271,10 +1151,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Ram\" (melee)"
+   ]
   },
   {
    "id": "rapier",
@@ -1302,10 +1179,7 @@
       "asset": "psfx.weapon-attacks.sword.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Rapier\" (melee)"
+   ]
   },
   {
    "id": "insectile-rapier",
@@ -1333,10 +1207,7 @@
       "asset": "psfx.weapon-attacks.sword.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Rapier\" (melee)"
+   ]
   },
   {
    "id": "scimitar",
@@ -1360,10 +1231,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Scimitar\" (melee)"
+   ]
   },
   {
    "id": "shortsword",
@@ -1387,10 +1255,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Shortsword\" (melee)"
+   ]
   },
   {
    "id": "sickle",
@@ -1414,10 +1279,7 @@
       "start": 750
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sickle\" (melee)"
+   ]
   },
   {
    "id": "spear",
@@ -1453,10 +1315,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Spear\" (melee)"
+   ]
   },
   {
    "id": "staff",
@@ -1485,10 +1344,7 @@
       "delay": 600
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+   ]
   },
   {
    "id": "wooden-staff",
@@ -1517,10 +1373,7 @@
       "delay": 600
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+   ]
   },
   {
    "id": "forest-staff",
@@ -1549,10 +1402,7 @@
       "delay": 600
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+   ]
   },
   {
    "id": "wind-staff",
@@ -1581,10 +1431,7 @@
       "delay": 600
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+   ]
   },
   {
    "id": "enspelled-staff",
@@ -1613,10 +1460,7 @@
       "delay": 600
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Staff\" (melee)"
+   ]
   },
   {
    "id": "flame-sword",
@@ -1656,10 +1500,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "radiant-sword",
@@ -1699,10 +1540,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "storm-sword",
@@ -1742,10 +1580,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "withering-sword",
@@ -1785,10 +1620,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "dancing-sword",
@@ -1828,10 +1660,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "moon-touched-sword",
@@ -1871,10 +1700,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "vorpal-sword",
@@ -1914,10 +1740,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sword\" (melee)"
+   ]
   },
   {
    "id": "sylvan-talon",
@@ -1940,10 +1763,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh-*"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Talon\" (melee)"
+   ]
   },
   {
    "id": "trident",
@@ -1979,10 +1799,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Trident\" (melee)"
+   ]
   },
   {
    "id": "flame-trident",
@@ -2018,10 +1835,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Trident\" (melee)"
+   ]
   },
   {
    "id": "mercurial-trident",
@@ -2057,10 +1871,7 @@
       }
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Trident\" (melee)"
+   ]
   },
   {
    "id": "warhammer",
@@ -2084,10 +1895,7 @@
       "delay": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Warhammer\" (melee)"
+   ]
   },
   {
    "id": "whip",
@@ -2111,10 +1919,7 @@
       "volume": 0.5
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Whip\" (melee)"
+   ]
   },
   {
    "id": "mercurial-whip",
@@ -2138,10 +1943,7 @@
       "volume": 0.5
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Whip\" (melee)"
+   ]
   },
   {
    "id": "antimatter-rifle",
@@ -2183,10 +1985,7 @@
      },
      "delay": 50
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Antimatter Rifle\" (range)"
+   ]
   },
   {
    "id": "blowgun",
@@ -2209,10 +2008,7 @@
       "asset": "psfx.weapon-swooshes.light.v1.group01"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Blowgun\" (range)"
+   ]
   },
   {
    "id": "bone-bow",
@@ -2235,10 +2031,7 @@
       "asset": "psfx.ranged-weapons.longbow.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bone Bow\" (range)"
+   ]
   },
   {
    "id": "great-bow",
@@ -2262,10 +2055,7 @@
       "start": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
+   ]
   },
   {
    "id": "necrotic-bow",
@@ -2289,10 +2079,7 @@
       "start": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
+   ]
   },
   {
    "id": "energy-bow",
@@ -2316,10 +2103,7 @@
       "start": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bow\" (range)"
+   ]
   },
   {
    "id": "hand-crossbow",
@@ -2342,10 +2126,7 @@
       "asset": "psfx.ranged-weapons.longbow.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
+   ]
   },
   {
    "id": "heavy-crossbow",
@@ -2368,10 +2149,7 @@
       "asset": "psfx.ranged-weapons.longbow.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
+   ]
   },
   {
    "id": "light-crossbow",
@@ -2394,10 +2172,7 @@
       "asset": "psfx.ranged-weapons.longbow.v1"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Crossbow\" (range)"
+   ]
   },
   {
    "id": "dart",
@@ -2421,10 +2196,7 @@
       "delay": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Dart\" (range)"
+   ]
   },
   {
    "id": "grenade-launcher",
@@ -2466,10 +2238,7 @@
      },
      "delay": 1500
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Grenade Launcher\" (range)"
+   ]
   },
   {
    "id": "javelin",
@@ -2492,10 +2261,7 @@
       "asset": "psfx.weapon-swooshes.heavy"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Javelin\" (range)"
+   ]
   },
   {
    "id": "wind-javelin",
@@ -2518,10 +2284,7 @@
       "asset": "psfx.weapon-swooshes.heavy"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Javelin\" (range)"
+   ]
   },
   {
    "id": "trash-lob",
@@ -2545,10 +2308,7 @@
       "start": 550
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Lob\" (range)"
+   ]
   },
   {
    "id": "longbow",
@@ -2572,10 +2332,7 @@
       "start": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Longbow\" (range)"
+   ]
   },
   {
    "id": "musket",
@@ -2598,10 +2355,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-shotgun-1.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Musket\" (range)"
+   ]
   },
   {
    "id": "needles",
@@ -2630,10 +2384,7 @@
       "saturation": -0.5
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Needle\" (range)"
+   ]
   },
   {
    "id": "pistol",
@@ -2656,10 +2407,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-1.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Pistol\" (range)"
+   ]
   },
   {
    "id": "laser-pistol",
@@ -2682,10 +2430,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-1.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Pistol\" (range)"
+   ]
   },
   {
    "id": "semiautomatic-pistol",
@@ -2708,10 +2453,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-1.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Pistol\" (range)"
+   ]
   },
   {
    "id": "revolver",
@@ -2734,10 +2476,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Revolver\" (range)"
+   ]
   },
   {
    "id": "automatic-rifle",
@@ -2760,10 +2499,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
+   ]
   },
   {
    "id": "hunting-rifle-bolt",
@@ -2786,10 +2522,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
+   ]
   },
   {
    "id": "laser-rifle",
@@ -2812,10 +2545,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Rifle\" (range)"
+   ]
   },
   {
    "id": "shortbow",
@@ -2839,10 +2569,7 @@
       "start": 250
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Shortbow\" (range)"
+   ]
   },
   {
    "id": "shotgun",
@@ -2865,10 +2592,7 @@
       "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-shotgun-1.mp3"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Shotgun\" (range)"
+   ]
   },
   {
    "id": "sling",
@@ -2892,10 +2616,7 @@
       "delay": 1500
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Sling\" (range)"
+   ]
   },
   {
    "id": "whelm-mark",
@@ -2926,10 +2647,7 @@
      },
      "below": true
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Whelm\" (ontoken)"
+   ]
   }
  ]
 }

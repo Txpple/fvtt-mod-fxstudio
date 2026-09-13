@@ -22,6 +22,8 @@
 > footer button), not a menu in place. The header says "N scenes · s". Screens 185/186, the one the
 > version string.
 
+> **2026-09-13, last — THE CORPUS IS OUR OWN; READY FOR PROD AND A SANDBOX REFRESH.** Every FX lost its migration provenance (by/at/note); the one note left is a twin's ("Separate FX from Melf's Acid Arrow …"); House notes are the user's words; the validator refuses to/source/like/with; the system's packs are named SRD 5.2. Nine checks and three suites green, committed. **Waiting on the user's word: deploy to prod** (scripts + recipes; no module.json change, so no prod restart; NOT released as a version yet), **set the three item identifiers on prod** (Thomas's First Light first-light, Jetten's Goldthorn goldthorn, Cadoc's Necrotic Scythe necrotic-scythe), then the prod → sandbox refresh routine in CLAUDE.md (pull-corpus first — already equal — then deploy --local, sandbox-module --enable, start).
+
 > **2026-09-13, then — THE EDIT SCREEN AGAINST THE MODEL (the user: *"look for other anomalies that no
 > longer comport with our data model"* … *"make all those fixes"*).** Five: Duplicate opens with NO key
 > (a copy under the same key could only be an override or a replacement); "New ability" and its Type

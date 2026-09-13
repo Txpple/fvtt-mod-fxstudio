@@ -17,7 +17,7 @@
    "MrVauxs",
    "Sisimshow"
   ],
-  "note": "The items of the D&D5e Animations preset, migrated to fx keyed by identity, nothing retired. A derived work of that GPL-3 module, a separate work from the MIT code beside it.",
+  "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
   "fx": 26
  },
  "fx": [
@@ -43,10 +43,7 @@
       "path": "jb2a.liquid.splash.dark_black"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Ink\" (ontoken)"
+   ]
   },
   {
    "id": "bomb",
@@ -88,10 +85,7 @@
      },
      "delay": 2500
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Bomb\" (range)"
+   ]
   },
   {
    "id": "burnt-othur-fumes",
@@ -137,10 +131,7 @@
      },
      "delay": 2000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Burnt Othur Fumes\" (range)"
+   ]
   },
   {
    "id": "essence-of-ether",
@@ -186,10 +177,7 @@
      },
      "delay": 2000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Essence of Ether\" (range)"
+   ]
   },
   {
    "id": "holy-water",
@@ -231,10 +219,7 @@
      },
      "delay": 1500
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Holy Water\" (range)"
+   ]
   },
   {
    "id": "malice",
@@ -280,10 +265,7 @@
      },
      "delay": 2000
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Malice\" (range)"
+   ]
   },
   {
    "id": "acid",
@@ -307,10 +289,7 @@
       "path": "jb2a.liquid.splash.green"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Acid (vial)\" (ontoken)"
+   ]
   },
   {
    "id": "assassins-blood",
@@ -339,10 +318,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Assassin's Blood\" (ontoken)"
+   ]
   },
   {
    "id": "crawler-mucus",
@@ -367,9 +343,7 @@
      }
     }
    ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Crawler Mucus\" (ontoken)"
+   "note": "Separate FX from Carrion Crawler Mucus (Dungeon Master's Guide), item:carrion-crawler-mucus: the same record under another key."
   },
   {
    "id": "carrion-crawler-mucus",
@@ -394,9 +368,7 @@
      }
     }
    ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Crawler Mucus\" (ontoken)"
+   "note": "Separate FX from Crawler Mucus (SRD 5.2), item:crawler-mucus: the same record under another key."
   },
   {
    "id": "midnight-tears",
@@ -425,10 +397,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Midnight Tears\" (ontoken)"
+   ]
   },
   {
    "id": "net",
@@ -455,10 +424,7 @@
       "file": "icons/tools/fishing/net-tan.webp"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Net\" (ontoken)"
+   ]
   },
   {
    "id": "oil-of-taggit",
@@ -482,10 +448,7 @@
       "path": "jb2a.liquid.splash.dark_black"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Oil of Taggit\" (ontoken)"
+   ]
   },
   {
    "id": "pale-tincture",
@@ -514,10 +477,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Pale Tincture\" (ontoken)"
+   ]
   },
   {
    "id": "potion-of-healing",
@@ -580,10 +540,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+   ]
   },
   {
    "id": "greater-potion-of-healing",
@@ -646,10 +603,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+   ]
   },
   {
    "id": "superior-potion-of-healing",
@@ -712,10 +666,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+   ]
   },
   {
    "id": "supreme-potion-of-healing",
@@ -778,10 +729,7 @@
       "absolute": false
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Healing\" (ontoken)"
+   ]
   },
   {
    "id": "potion-of-poison",
@@ -830,10 +778,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Potion of Poison\" (ontoken)"
+   ]
   },
   {
    "id": "purple-worm-poison",
@@ -858,10 +803,7 @@
       "path": "jb2a.liquid.splash.bright_purple"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Purple Worm Poison\" (ontoken)"
+   ]
   },
   {
    "id": "serpent-venom",
@@ -886,10 +828,7 @@
       "path": "jb2a.liquid.splash.green"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Serpent Venom\" (ontoken)"
+   ]
   },
   {
    "id": "torpor",
@@ -918,10 +857,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Torpor\" (ontoken)"
+   ]
   },
   {
    "id": "truth-serum",
@@ -951,10 +887,7 @@
       ]
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Truth Serum\" (ontoken)"
+   ]
   },
   {
    "id": "wyvern-poison",
@@ -979,10 +912,7 @@
       "path": "jb2a.claws.400px.dark_red"
      }
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Wyvern Poison\" (ontoken)"
+   ]
   },
   {
    "id": "ball-bearings",
@@ -1007,10 +937,7 @@
      "below": true,
      "persist": "template"
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Ball Bearings\" (templatefx)"
+   ]
   },
   {
    "id": "caltrops",
@@ -1074,10 +1001,7 @@
      "below": true,
      "zIndex": 0
     }
-   ],
-   "by": "the migration",
-   "at": "2026-09-13",
-   "note": "D&D5e Animations 3.3.0: \"Caltrops\" (preset)"
+   ]
   }
  ]
 }
