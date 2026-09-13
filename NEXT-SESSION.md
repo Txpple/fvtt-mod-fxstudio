@@ -17,6 +17,10 @@
 > version string until a restart the user's session blocks). Not asked and not done: the arrow the
 > user drew from the Add pills up to the sequence heading was read as the Add row moving up into the
 > rail, which it did; the Note box is gone though the mock shows one — the user's X came first.
+> **Then (the user's next two marks): the overlap strip is REMOVED outright**, and **+ Add a scene is a
+> DialogV2 popup** of eight cards (shape and its line of help; the pick closes it; Cancel is the one
+> footer button), not a menu in place. The header says "N scenes · s". Screens 185/186, the one the
+> version string.
 
 > **2026-09-12, last — THE GRAMMAR IS THE ENGINE (the user: *"i really want this clean, both from a ui
 > and a corpus perspective, and no bloat"*), DESIGN §22.** Every shape's knob list is now exactly what its
