@@ -92,8 +92,12 @@ try {
       await sleep(450);
       ok('§3 the Editor opens on a new sheet, unlocked, hooked to the spell', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Sharran Step \(spell\)/.test(text('.hookstrip')) && /New/.test(text('.sheet h2')), `pane ${paneNow()} · ${text('.sheet h2')}`);
       ok('§3 Save waits: no scenes yet, the problem is named', $('[data-act="sh-save"]')?.disabled === true && !!$('.sheet .problem'), text('.sheet .problem'));
-      await click('.addrow');
-      ok('§3 an empty sequence offers Copy from, and + Add a scene opens the shape menu in place (the user, 2026-09-12)', !!$('.sh-like') && $$('.addmenu [data-act="cw-add"]').length === 8, `${$$('[data-act="cw-add"]').length} shapes`);
+      // + Add a scene asks in a DialogV2 (the user, 2026-09-12: a modal popup, not a drop-down): answered for it here, the pick made from its content
+      const askShape3 = async (shape) => { const D = foundry.applications.api.DialogV2; const was = D.wait; let shapes = 0; D.wait = async (cfg) => { const tmp = document.createElement('div'); tmp.innerHTML = cfg.content; shapes = tmp.querySelectorAll('[data-shape]').length; cfg.render(null, { element: tmp, close() {} }); tmp.querySelector(`[data-shape="${shape}"]`)?.click(); return 'cancel'; }; try { await click('.addrow'); await sleep(300); } finally { D.wait = was; } return shapes; };
+      const hadLike3 = !!$('.sh-like');
+      const shapes3 = await askShape3('mark');
+      ok('§3 an empty sequence offers Copy from, and + Add a scene asks the shape in a popup of eight (the user, 2026-09-12)', hadLike3 && shapes3 === 8 && app.sheet.scenes.length === 1 && app.sheet.scenes[0].scene.shape === 'mark', `${shapes3} shapes · ${app.sheet.scenes.length} scene(s)`);
+      app.sheet.scenes.length = 0; app.sheet.pick = 0; await app.render(); await sleep(200);
       await type('.sh-like', 'misty step');
       const like = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
       ok('§3 Copy from offers the Misty Step FX', !!like, $$('.suggest .hit').map((h) => h.dataset.id).join(', '));
@@ -649,7 +653,6 @@ try {
       ok('§14 a rail row is a number, a name and a time — no still, no ▶; the preview tile in the Picture band shows the picture (the user, 2026-09-12)', $$('.rail video, .rail img, .rail button.play').length === 0 && $$('.rail .row .num').length === $$('.rail .row').length && !!$('.inspector .f[data-tile] .preview video, .inspector .f[data-tile] .preview img'), `${$$('.rail video, .rail img').length} stills · tile ${!!$('.inspector .f[data-tile]')}`);
       ok('§14 no checkbox is bare: every boolean is a two-word switch or a chip', $$('.inspector input[type="checkbox"]').every((c) => c.closest('label.seg, label.chip')), `${$$('.inspector input[type="checkbox"]').length} switches`);
       ok('§14 the rail scrolls past four scenes instead of growing the form', getComputedStyle($('.rail')).overflowY === 'auto' && parseFloat(getComputedStyle($('.rail')).maxHeight) > 0 && !$('.sh-note'), `${getComputedStyle($('.rail')).maxHeight} · note box ${$('.sh-note') ? 'present' : 'gone'}`);
-      ok('§14 the overlap bars are thin lines, not blobs', $$('.strip .bar').every((b) => b.getBoundingClientRect().height <= 5), $$('.strip .bar').map((b) => Math.round(b.getBoundingClientRect().height)).join(','));
       // band 1: the action bar stopped wrapping (noted after step 3, fixed here)
       const content14 = app.element.querySelector('.fxstudio-content');
       const bar14 = Math.round($('.lockbar').getBoundingClientRect().height);
@@ -657,12 +660,6 @@ try {
       ok('§14 the rail and the inspector are one band: 288px and the rest, the same height', Math.round($('.railside').getBoundingClientRect().width) === 288 && Math.abs($('.railside').getBoundingClientRect().height - $('.inspector').getBoundingClientRect().height) <= 1, `${Math.round($('.railside').getBoundingClientRect().width)}px · ${Math.round($('.railside').getBoundingClientRect().height)} vs ${Math.round($('.inspector').getBoundingClientRect().height)}`);
       const box14 = $('.sentence-box');
       ok('§14 the sentence sits in a fixed two-line box that never grows', getComputedStyle(box14).overflow === 'hidden' && Math.abs(box14.getBoundingClientRect().height - 2 * 1.55 * 15) < 2, `${Math.round(box14.getBoundingClientRect().height)}px`);
-      // the overlap strip (HANDOFF step 4): one bar per scene, all on one ms scale
-      const bars14 = $$('.strip .bar');
-      const left14 = bars14.map((b) => Math.round(b.getBoundingClientRect().left));
-      ok('§14 the overlap strip draws one bar per scene, on one shared scale', bars14.length === $$('.rail .row').length && $$('.strip .lane').length === bars14.length && /ms$/.test(text('.strip .axis')), `${bars14.length} bars · ${text('.strip .axis')}`);
-      ok('§14 a scene that waits before it starts is drawn further along than one that does not', new Set(left14).size > 1 && left14[1] > left14[0], left14.join(','));
-      ok('§14 a length the file has not told us yet is drawn as an estimate, not as a fact', bars14.every((b) => b.dataset.est === 'true' || b.dataset.est === 'false') && bars14.every((b) => /starts at \d+ ms/.test(b.dataset.tooltip ?? '')), bars14.map((b) => b.dataset.est).join(','));
       const geom14 = $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',');
       await click($$('.rail .pickbtn')[1]);
       ok('§14 picking a scene in the rail changes colour, never layout (R3)', $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',') === geom14 && $('.rail .row[data-now="true"]') === $$('.rail .row')[1] && $('.inspector .ihead .num')?.textContent === '2', `${geom14} · now ${[...$$('.rail .row')].findIndex((r) => r.dataset.now === 'true')}`);

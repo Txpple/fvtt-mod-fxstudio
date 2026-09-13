@@ -223,7 +223,7 @@ export function renderSheet(app) {
     ${banner}${problemList}
     <div class="preview"><div class="sub">What plays</div><div class="sentence-box">${sentenceHtml(app, fx, name)}</div></div>
     <div class="section"><div class="sub">Hook</div>${renderHook(app)}</div>
-    <div class="section sequence"><div class="sub">Sequence</div>${renderSequence(app)}</div>
+    <div class="section sequence"><div class="sechead"><div class="sub">Sequence</div>${seqMeta(app)}</div>${renderSequence(app)}</div>
   </div>`;
 }
 
@@ -369,23 +369,48 @@ function timeline(scenes) {
   });
 }
 
-/** the strip: one bar per scene, all on the same scale, so an overlap is visible as an overlap */
-function stripHtml(app) {
+/**
+ * "+ Add a scene": a popup of the eight shapes, each with its one line of help; the pick closes it
+ * (the user, 2026-09-12: a modal popup, not a drop-down). Resolves the shape, or null.
+ */
+function askShape() {
+  const D = foundry.applications.api.DialogV2;
+  const content = `<div class="fxstudio-addmodal">${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" data-shape="${sh}"><b>${wd}</b><span>${esc(SHAPE_HELP[sh])}</span></button>`).join('')}</div>`;
+  return new Promise((resolve) => {
+    let picked = null;
+    D.wait({
+      window: { title: 'Add a scene' },
+      content,
+      rejectClose: false,
+      modal: true,
+      buttons: [{ action: 'cancel', label: 'Cancel', icon: 'fa-solid fa-xmark', default: true }],
+      render: (event, dialog) => {
+        const root = dialog?.element ?? event?.target?.element ?? document;
+        for (const b of root.querySelectorAll('.fxstudio-addmodal [data-shape]')) b.addEventListener('click', () => { picked = b.dataset.shape; dialog?.close?.(); });
+      },
+    }).then(() => resolve(picked), () => resolve(picked));
+  });
+}
+
+/** "3 scenes · 1.4 s" beside the Sequence heading */
+function seqMeta(app) {
   const s = app.sheet;
+  if (s.off || !s.scenes.length) return '';
   const t = timeline(s.scenes);
-  const lo = Math.min(0, ...t.map((x) => x.start));
-  const hi = Math.max(lo + 500, ...t.map((x) => x.end));
-  const span = hi - lo || 1;
-  const at = (v) => ((v - lo) / span) * 100;
-  const now = pickOf(app);
-  const lanes = s.scenes.map(({ scene }, i) => {
-    const x = t[i];
-    const left = at(x.start);
-    const width = Math.max(1.5, at(x.end) - left);
-    const words = `Scene ${i + 1} starts at ${Math.round(x.start)} ms and runs ${x.est ? 'about ' : ''}${Math.round(x.dur)} ms${x.open ? ', then stays' : ''}${x.est ? ' (the file\'s own length is not known yet)' : ''}`;
-    return `<div class="lane"><button type="button" class="bar" data-act="sh-pick" data-i="${i}" data-kind="${KIND_OF_SHAPE(scene.shape)}" data-est="${x.est}" data-open="${x.open}" data-now="${i === now}" style="left:${left.toFixed(2)}%;width:${width.toFixed(2)}%" data-tooltip="${esc(words)}" aria-label="${esc(words)}"></button></div>`;
-  }).join('');
-  return `<div class="strip"><div class="lanes">${lanes}</div><div class="axis"><span>0</span><span>${Math.round(hi)} ms</span></div></div>`;
+  const hi = Math.max(...t.map((x) => x.end), 0);
+  return `<span class="seqmeta">${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} · ${(hi / 1000).toFixed(1)} s</span>`;
+}
+
+/** a scene of this shape, stamped out of its starter (a stencil: the FX owns the copy), opened in the inspector */
+function addScene(app, shape) {
+  const a = api();
+  const s = app.sheet;
+  const stencil = a.fx.scenesOf(STARTER_OF_SHAPE[shape]);
+  const scene = stencil.find((sc) => sc.shape === shape) ?? stencil[0];
+  if (!scene) return;
+  s.scenes.push({ scene: named(scene) });
+  s.pick = s.scenes.length - 1;
+  s.band = 'picture';
 }
 
 /** the rail: one fixed row per scene — its number, "Shape · place" over when it starts; it scrolls past four; "+ Add a scene" beneath (the user, 2026-09-12) */
@@ -403,7 +428,7 @@ function railHtml(app) {
       </button>
     </div>`;
   }).join('');
-  const add = s.edit ? `<button type="button" class="addrow" data-act="cw-add-menu" aria-expanded="${!!s.adding}">+ Add a scene</button>${s.adding ? `<div class="addmenu">${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" class="hit" data-act="cw-add" data-shape="${sh}"><b>${wd}</b><span>${esc(SHAPE_HELP[sh])}</span></button>`).join('')}</div>` : ''}` : '';
+  const add = s.edit ? `<button type="button" class="addrow" data-act="cw-add-ask">+ Add a scene</button>` : '';
   return `<div class="rail">${rows || '<p class="note">No scenes yet.</p>'}</div>${add}`;
 }
 
@@ -422,7 +447,7 @@ function renderSequence(app) {
   if (s.off) return `<p class="note off-note">Switched off: this FX plays nothing, and the abilities it answers fall through to nothing. Switch it back on to write its sequence — the ${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} it had ${s.scenes.length === 1 ? 'is' : 'are'} kept until you do.</p>`;
   const copy = s.edit && !s.scenes.length ? `<div class="field search copy"><label>Copy from</label><input type="text" class="sh-like" placeholder="Search FX… Misty Step, Fire Bolt" autocomplete="off"><div class="suggest" data-open="false"></div></div>` : '';
   if (!s.scenes.length) return `<div class="seq"><div class="railside">${railHtml(app)}</div><div class="inspector empty"><p class="note">No scenes yet. Copy the scenes of an FX you like, or add one.</p></div></div>${copy}`;
-  return `<div class="seq"><div class="railside">${railHtml(app)}${stripHtml(app)}</div>${inspector(app)}</div>${copy}`;
+  return `<div class="seq"><div class="railside">${railHtml(app)}</div>${inspector(app)}</div>${copy}`;
 }
 
 // -----------------------------------------------------------------------------------------------
@@ -842,15 +867,8 @@ export async function onSheetClick(app, b, act) {
     case 'sh-off': s.off = b.dataset.v === 'true'; break;
     case 'sh-on': s.on = b.dataset.on; break;
     case 'sh-like-hit': s.from = b.dataset.id; s.scenes = seedFrom(b.dataset.id); s.pick = 0; break;
-    case 'cw-add-menu': s.adding = !s.adding; break;
-    case 'cw-add': {
-      // the starter is a stencil: its scene is stamped out and the FX owns the copy
-      const stencil = a.fx.scenesOf(STARTER_OF_SHAPE[b.dataset.shape]);
-      const scene = stencil.find((sc) => sc.shape === b.dataset.shape) ?? stencil[0];
-      if (scene) { s.scenes.push({ scene: named(scene) }); s.pick = s.scenes.length - 1; s.band = 'picture'; }
-      s.adding = false;
-      break;
-    }
+    case 'cw-add-ask': askShape().then((shape) => { if (shape && app.sheet === s) { addScene(app, shape); app.render(); } }); return undefined;
+    case 'cw-add': addScene(app, b.dataset.shape); break;
     case 'cw-drop': s.scenes.splice(i, 1); s.pick = Math.max(0, Math.min(s.pick, s.scenes.length - 1)); break;
     case 'cw-up': if (i > 0) { [s.scenes[i - 1], s.scenes[i]] = [s.scenes[i], s.scenes[i - 1]]; s.pick = i - 1; } break;
     case 'cw-down': if (i < s.scenes.length - 1) { [s.scenes[i + 1], s.scenes[i]] = [s.scenes[i], s.scenes[i + 1]]; s.pick = i + 1; } break;
