@@ -8,7 +8,7 @@
 > trip was driven on the sandbox through the real dialog before anything changed (it worked). Then the
 > move: Import at the left, Export beside it — the marked row's FX, greyed with its reason until a row
 > is marked, repainted in place on a mark — and the Editor's Export unchanged. DESIGN §16's screen
-> record carries it. On the sandbox, not prod; screens 199/199.
+> record carries it. On prod since 2026-09-14 (byte-identical, no module.json change, no restart); screens 199/199.
 
 > **2026-09-12, evening — THE EDIT FX WINDOW, on the user's screenshots (their own marks, then the
 > sequence block of the shelved mock held up as the target: *"the gui was supposed to look a lot more
