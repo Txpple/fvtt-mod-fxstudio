@@ -964,7 +964,7 @@ export async function onSheetClick(app, b, act) {
     case 'sh-save': return saveSheet(app);
     // a copy answers NO key until one is chosen: one FX answers one key, so a copy under the same key would only be its override or its replacement
     case 'sh-dup': { openSheet(app, { from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Choose the ability it answers, then Save.`); break; }
-    case 'sh-export': return app.exportFx(s.id);
+    case 'sh-export': return app.exportFx(s.id, s.source);
     case 'sh-record': return openRecord(b.dataset.uuid, b.dataset.name);
     case 'sh-delete': {
       // deleteFx asks; a House override deleted leaves the Stock FX of that id showing, so the

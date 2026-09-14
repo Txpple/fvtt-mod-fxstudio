@@ -1,5 +1,15 @@
 # Handoff — the hold became a seam, and v0.2.0 is on prod (2026-09-10)
 
+> **2026-09-13, later — IMPORT AND EXPORT ON THE LIBRARY, TOP LEFT (the user: *"import and export
+> should be on the main fx form. on top left. i think right now just one of them is there"*).** First
+> the question — *"are the files in json format natively?"* — yes: Export hands the browser
+> `fx-<id>.json` (`_meta` and the FX in full, the recipe files' own shape) and Import reads a JSON
+> file that is that, a bare list, or one FX; both stand on Foundry 14's own helpers, and the round
+> trip was driven on the sandbox through the real dialog before anything changed (it worked). Then the
+> move: Import at the left, Export beside it — the marked row's FX, greyed with its reason until a row
+> is marked, repainted in place on a mark — and the Editor's Export unchanged. DESIGN §16's screen
+> record carries it. On the sandbox, not prod; screens 199/199.
+
 > **2026-09-12, evening — THE EDIT FX WINDOW, on the user's screenshots (their own marks, then the
 > sequence block of the shelved mock held up as the target: *"the gui was supposed to look a lot more
 > like this … use your judgment"*).** Built on the sandbox, NOT released: the rail is two-line rows

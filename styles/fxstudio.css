@@ -332,10 +332,11 @@
 .fxstudio .fxtab > * { min-width: 0; }
 /* the search belongs to this screen: its own row over both columns, sized like a control and not
    like a banner (the user, 2026-09-07: "its kinda big and puffy") — 280px, one facet row tall */
-.fxstudio .fxsearch { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 280px) 1fr; align-items: center; }
+.fxstudio .fxsearch { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 280px); justify-content: start; gap: 8px; align-items: center; }
 .fxstudio .fx-wrap .fxsearch input { font-size: 12.5px; padding: 4px 9px; height: 26px; }
-/* Import ends where the list ends, and stands exactly as tall as the box across from it */
-.fxstudio .fx-wrap .fxsearch button.import { justify-self: end; height: 26px; padding: 0 14px; font-size: 12.5px; }
+/* the files first, at the top left (the user, 2026-09-13): Import, then Export, each exactly as tall as the box beside them */
+.fxstudio .fxsearch .files { display: flex; gap: 6px; }
+.fxstudio .fx-wrap .fxsearch .files button { height: 26px; padding: 0 14px; font-size: 12.5px; }
 /* the facet column: every facet at a permanent address, its count beside it, greyed at zero (R1) */
 .fxstudio .facets { display: flex; flex-direction: column; gap: 8px; min-height: 0; overflow: hidden auto; }
 .fxstudio .facets .fgroup { display: grid; gap: 1px; }

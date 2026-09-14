@@ -1303,6 +1303,16 @@ the only painted thing on the screen, and what it says is where an FX lives.
 exactly as tall as the box across from it. Maintain gives back the plain Import it was lent in §12
 and keeps **Import to Stock**, which is a different act — a file straight into the shipped corpus.
 
+> **2026-09-13:** *"import and export should be on the main fx form. on top left. i think right now
+> just one of them is there."* Both are at the **top left of the search row** now, before the box:
+> **Import** (a file of FX into House, as before) and **Export**, which writes the marked row's FX as
+> a file — `fx-<id>.json`, `_meta` and the FX in full, the recipe files' own shape — and is greyed
+> where it stands (*Mark an FX to export it*) until a row is marked; marking one repaints it in place,
+> the way the mark itself is painted, and a Stock FX under a House override exports as itself. The
+> Editor keeps its own Export of the open FX. The round trip was measured on the sandbox before the
+> move: Foundry 14's own download and file-read helpers, the export fed back through the real Import
+> dialog, the FX landing in house.json — the files were never the problem; where the doors stood was.
+
 **Delete unpins**, wherever it is pressed. §12 put that in the sheet's own Delete handler; it now
 lives in `Studio.deleteFx`, so the row's Delete gets it too and there is one place that owes it.
 

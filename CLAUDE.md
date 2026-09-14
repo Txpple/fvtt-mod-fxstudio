@@ -54,8 +54,8 @@ step 2. `shelved/README.md` has the commands and what each redesign commit chang
 **What the window is today** (this is a description of the code, not a plan): four tabs — **Library (the tab is still keyed `fx` in code; renamed on the user's word 2026-09-08) ·
 Editor · Assets · Coverage**. It opens at 1080px.
 **FX** (`ui/fxtab.js`): its own search, then facets · the rows; one list of every FX grouped
-House → Stock; a search that matches the **name alone** (no dropdown) with **Import**
-right-justified beside it; group heads painted amber; **a row is a name that takes no action when
+House → Stock; a search that matches the **name alone** (no dropdown) and, at the top left of its
+row, **Import** and **Export** (Export takes the marked row; the user, 2026-09-13); group heads painted amber; **a row is a name that takes no action when
 clicked** — it marks itself, and its three right-justified doors are **Record** (opens the compendium
 record, or the world item, its key was earned against — ruled 2026-09-08, DESIGN §15), **Delete**
 (red, asks) and **Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —

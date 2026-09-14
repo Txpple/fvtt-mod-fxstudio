@@ -214,10 +214,13 @@ try {
       ok('§5 the FX this world wrote is in the House group, by name among its peers', houseRows5.some((r) => r.querySelector('.n')?.textContent.trim() === 'Sharran Step') && groups5()[0] === `House · ${api.corpora.house.length} FX`, houseRows5.map((r) => r.querySelector('.n')?.textContent.trim()).join(', '));
       ok('§5 a row is the name and NOTHING else: no sentence, no layer pill, no shape tags', rows5().every((r) => r.querySelectorAll('.n').length === 1 && !r.querySelector('.s') && !r.querySelector('.tag') && !r.querySelector('.shapes')) && !/spell:/.test(text('.fxlist')) && !/when used/.test(text('.fxlist')), first5?.textContent.replace(/\s+/g, ' ') ?? '');
       ok('§5 the list head is the count alone', !$('.fxlist .listhead button') && /^\d+( of \d+)? FX$/.test(text('.fxlist .listhead')), text('.fxlist .listhead'));
-      // Import sits on the search row, ending where the list ends, the same height as the box
+      // the files sit at the top left of the row (the user, 2026-09-13): Import, then Export, before the box and as tall as it
+      app.view.fxSel = null; app.view.fxSelSource = null; await app.render(); await sleep(300);
       const imp5 = $('.fxsearch button.import');
+      const exp5 = $('.fxsearch button.export');
       const box5b = $('.fxsearch input').getBoundingClientRect();
-      ok('§5 Import is right-justified with the list and the same height as the search box', !!imp5 && Math.abs(imp5.getBoundingClientRect().height - box5b.height) <= 1 && Math.abs(imp5.getBoundingClientRect().right - $('.fxlist').getBoundingClientRect().right) <= 2 && imp5.dataset.act === 'import-fx', `${Math.round(imp5.getBoundingClientRect().right)} vs list ${Math.round($('.fxlist').getBoundingClientRect().right)}`);
+      ok('§5 Import and Export sit at the top left of the search row, before the box and as tall as it', !!imp5 && !!exp5 && imp5.dataset.act === 'import-fx' && exp5.dataset.act === 'fx-export' && imp5.getBoundingClientRect().left < exp5.getBoundingClientRect().left && exp5.getBoundingClientRect().right <= box5b.left && Math.abs(imp5.getBoundingClientRect().left - $('.fxtab').getBoundingClientRect().left) <= 2 && Math.abs(exp5.getBoundingClientRect().height - box5b.height) <= 1 && Math.abs(imp5.getBoundingClientRect().height - box5b.height) <= 1, `import ${Math.round(imp5?.getBoundingClientRect().left ?? -1)} · export ${Math.round(exp5?.getBoundingClientRect().left ?? -1)} · box ${Math.round(box5b.left)}`);
+      ok('§5 Export is greyed where it stands with its reason until a row is marked (R1)', exp5?.disabled === true && exp5?.dataset.na === 'true' && /Mark an FX/.test(exp5?.dataset.tooltip ?? ''), exp5?.dataset.tooltip ?? '');
       // R3: picking a row opens it in the Editor, and moves nothing in the list it left
       const geom5 = () => rows5().slice(0, 12).map((r) => { const b = r.getBoundingClientRect(); return `${Math.round(b.top)}/${Math.round(b.height)}`; }).join(',');
       const was5 = geom5();
@@ -225,7 +228,31 @@ try {
       const id5 = row5.querySelector('.pickbtn').dataset.id;
       await click(row5.querySelector('.pickbtn'));
       ok('§5 clicking a row takes NO action: it marks itself, the tab does not move, no sheet opens on it', tabNow() === 'fx' && paneNow() === 'fx' && app.view.fxSel === id5 && app.sheet?.id !== id5, `${tabNow()} · sheet on ${app.sheet?.id ?? 'nothing'} · row ${id5}`);
+      const name5 = row5.querySelector('.n').textContent.trim();
+      ok('§5 marking a row wakes Export in place, naming the row', $('.fxsearch button.export') === exp5 && exp5.disabled === false && !exp5.dataset.na && (exp5.dataset.tooltip ?? '').includes(name5), exp5.dataset.tooltip ?? '');
       ok('§5 the row is marked, one height, the layout unmoved (R3)', geom5() === was5 && new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size === 1 && $('.fxlist .row[data-now="true"]') === row5, `${new Set(rows5().map((r) => Math.round(r.getBoundingClientRect().height))).size} row height(s)`);
+      // Export hands the browser one file (Foundry's helper clicks a detached download link: caught at the anchor), and Import reads that file back; both re-render the list, so this runs after the R3 checks above
+      const caught5 = [];
+      const blobs5 = new Map();
+      const wasDispatch5 = HTMLAnchorElement.prototype.dispatchEvent;
+      const wasURL5 = window.URL.createObjectURL.bind(window.URL);
+      window.URL.createObjectURL = (bl) => { const u = wasURL5(bl); blobs5.set(u, bl); return u; };
+      HTMLAnchorElement.prototype.dispatchEvent = function (ev) { if (this.download && ev.type === 'click') { caught5.push({ name: this.download, blob: blobs5.get(this.href) }); return true; } return wasDispatch5.call(this, ev); };
+      let text5 = '';
+      try { await click(exp5); text5 = caught5[0]?.blob ? await caught5[0].blob.text() : ''; } finally { HTMLAnchorElement.prototype.dispatchEvent = wasDispatch5; window.URL.createObjectURL = wasURL5; }
+      let file5 = null;
+      try { file5 = JSON.parse(text5); } catch { file5 = null; }
+      ok('§5 Export writes the marked FX as fx-<id>.json in the shape of the recipe files: _meta and the FX in full', caught5.length === 1 && caught5[0].name === `fx-${id5}.json` && caught5[0].blob?.type === 'application/json' && file5?._meta?.schema === 2 && file5?.fx?.length === 1 && file5.fx[0].id === id5 && Array.isArray(file5.fx[0].scenes) && file5.fx[0].scenes.length > 0, `${caught5[0]?.name ?? 'nothing'} · ${text5.length} chars`);
+      // and back in through Import, the dialog answered with that file under another id, so no row of the corpus is touched
+      const impId5 = 'zz-suite-import';
+      const copy5 = { ...(file5 ?? {}), fx: [{ ...(file5?.fx?.[0] ?? {}), id: impId5 }] };
+      await sayPrompt(() => click(imp5), new File([JSON.stringify(copy5)], `fx-${impId5}.json`, { type: 'application/json' }));
+      const in5 = await until(() => api.corpora.house.some((l) => l.id === impId5));
+      await sleep(400);
+      ok('§5 Import reads that file into House: the FX is in house.json and on the list', in5 && !!$(`.fxlist .pickbtn[data-id="${impId5}"]`), api.corpora.house.map((l) => l.id).join(', '));
+      await api.corpus.erase(impId5, { from: 'house' });
+      await until(() => !api.corpora.house.some((l) => l.id === impId5));
+      app.view.fxSel = id5; app.view.fxSelSource = row5.querySelector('.pickbtn').dataset.source; await app.render(); await sleep(300);
       // the marked row is the only one showing its two doors, and they cost the row no height (R3)
       const acts5 = rows5()[4].querySelector('.acts');
       ok('§5 every row carries Record, then Delete, then Editor, right-justified', rows5().every((r) => [...r.querySelector('.acts').children].map((x) => x.textContent.trim()).join(',') === 'Record,Delete,Editor') && rows5().every((r) => getComputedStyle(r.querySelector('.acts')).visibility === 'visible') && acts5.getBoundingClientRect().right > rows5()[4].querySelector('.n').getBoundingClientRect().right, `${[...acts5.children].map((x) => x.textContent.trim()).join(', ')} on ${rows5().length} rows`);

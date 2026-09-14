@@ -83,14 +83,34 @@ function shownRows(app) {
 // rendering
 // -----------------------------------------------------------------------------------------------
 /**
- * The row over the two columns: the search on the left, and Import on the right, ending where the
- * list ends. Import is here on the user's word (2026-09-07) and writes House; Maintain keeps Import
- * to Stock, which is a different thing — a file straight into the books' corpus.
+ * The row over the two columns: THE FILES AT THE TOP LEFT, then the search (the user, 2026-09-13:
+ * "import and export should be on the main fx form. on top left"). Import reads a file of FX into
+ * House (on this tab since 2026-09-07); Export writes the marked row's FX as a file, and is greyed
+ * where it stands with its reason until a row is marked (R1) — marking one repaints it in place
+ * (paintExport), the way the mark itself is painted. Maintain keeps Import to Stock, which is a
+ * different thing — a file straight into the books' corpus.
  */
+const exportWords = (r) => `Save ${r.name} (${SOURCE_TAG[r.source]}) as a file`;
+const NOTHING_MARKED = 'Mark an FX to export it';
+/** the marked row, if the list still holds it */
+const markedRow = (app) => (app.view.fxSel ? catalogue(app).find((r) => marked(app, r)) ?? null : null);
+const exportButton = (app) => {
+  const r = markedRow(app);
+  return `<button type="button" class="quiet export" data-act="fx-export" ${r ? `data-tooltip="${esc(exportWords(r))}"` : `disabled data-na="true" data-tooltip="${NOTHING_MARKED}"`}>Export</button>`;
+};
 const searchBox = (app) => `<div class="fxsearch">
+    <div class="files"><button type="button" class="quiet import" data-act="import-fx" data-to="house" data-tooltip="Read a file of FX into ${SOURCE_TAG.house}">Import</button>${exportButton(app)}</div>
     <div class="search"><input type="search" class="fx-q" placeholder="Search for an FX…" aria-label="Search for an FX" autocomplete="off" value="${esc(app.view.q ?? '')}"></div>
-    <button type="button" class="quiet import" data-act="import-fx" data-to="house" data-tooltip="Read a file of FX into House">Import</button>
   </div>`;
+
+/** Export follows the mark, repainted in place: a mark never rebuilds the list (R3), so it must not rebuild the row above it either */
+function paintExport(app) {
+  const b = app.element?.querySelector('.fxsearch button.export');
+  if (!b) return;
+  const r = markedRow(app);
+  b.disabled = !r;
+  if (r) { delete b.dataset.na; b.dataset.tooltip = exportWords(r); } else { b.dataset.na = 'true'; b.dataset.tooltip = NOTHING_MARKED; }
+}
 
 /** one facet row: a fixed-height toggle with its count, greyed in place when the corpus has none (R1) */
 const facet = (group, value, words, n, on) => `<button type="button" class="frow" data-act="fx-facet" data-group="${group}" data-v="${esc(value)}" aria-pressed="${on}" ${n ? '' : 'data-na="true" disabled'}><span class="w">${esc(words)}</span><span class="c">${n}</span></button>`;
@@ -195,8 +215,11 @@ export async function onFxClick(app, b, act2) {
         row.dataset.now = on;
         btn?.setAttribute('aria-current', on);
       }
+      paintExport(app);
       return undefined;
     }
+    // Export takes the marked row: by id AND layer, so a Stock FX under a House override exports as itself
+    case 'fx-export': { const r = markedRow(app); return r ? app.exportFx(r.id, r.source) : app.toast(`${NOTHING_MARKED}.`); }
     case 'fx-editor': { const id = b.dataset.id; app.view.fxSel = id; app.view.fxSelSource = b.dataset.source || null; openSheet(app, { id, source: b.dataset.source || null, subject: app.subjectForFx(id) }); return app.render(); }
     // deleteFx asks first, and unpins whatever item pointed at it; the layer is the row's
     case 'fx-del': return app.deleteFx(b.dataset.id, b.dataset.source || null);

@@ -242,10 +242,10 @@ export class Studio extends ApplicationV2 {
     return [...starters, ...fx].filter((h) => h.words.toLowerCase().includes(needle) || (h.keys ?? '').toLowerCase().includes(needle)).slice(0, 12);
   }
 
-  /** one FX as a file on the local machine, in the recipe files' own shape */
-  exportFx(id) {
+  /** one FX as a file on the local machine, in the recipe files' own shape; `source` names the layer (a Stock FX under a House override exports as itself) */
+  exportFx(id, source = null) {
     const a = api();
-    const e = a.fx.get(id);
+    const e = a.fx.get(id, source);
     if (!e) return this.toast('Nothing to export.');
     const meta = { schema: 2, exported: new Date().toISOString().slice(0, 10), by: game.user.name, from: MODULE_ID };
     const text = JSON.stringify({ _meta: meta, fx: [e.original] }, null, 1);
@@ -337,7 +337,7 @@ export class Studio extends ApplicationV2 {
       // the user says where they belong. (Revert went with the draft layer, 2026-09-12: Delete on a
       // House override is the same thing — the Stock FX under it shows through.)
       case 'delete-fx': return this.deleteFx(b.dataset.id);
-      case 'export-fx': return this.exportFx(b.dataset.id);
+      case 'export-fx': return this.exportFx(b.dataset.id, b.dataset.source || null);
       case 'import-fx': return this.importFx(b.dataset.to || null);
       default: return undefined;
     }
