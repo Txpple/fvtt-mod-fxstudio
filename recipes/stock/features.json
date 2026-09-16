@@ -62,9 +62,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-1.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
@@ -82,10 +79,6 @@
      "at": "source",
      "asset": {
       "path": "jb2a.explosion.02.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3",
-      "delay": 250
      },
      "size": {
       "radius": 1.5
@@ -755,10 +748,6 @@
      "at": "impact",
      "asset": {
       "path": "jb2a.icon.fear.dark_purple"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3",
-      "delay": 1000
      },
      "elevation": {
       "level": 999,
@@ -1589,18 +1578,6 @@
      "asset": {
       "path": "jb2a.divine_smite.caster.reversed.blueyellow"
      }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/Wings.webp"
-     },
-     "size": {
-      "radius": 1.5
-     },
-     "below": true,
-     "delay": 1800
     }
    ]
   },
@@ -1799,9 +1776,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
      "asset": {
       "path": "jb2a.bite.400px.red"
      }
@@ -1870,9 +1844,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swarm.mp3"
-     },
      "asset": {
       "path": "jb2a.butterflies.many.orange"
      }
@@ -2396,9 +2367,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "asset": {
       "path": "jb2a.sneak_attack.dark_red"
      }
@@ -2553,42 +2521,12 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-6.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
      "asset": {
       "path": "jb2a.explosion.08.1200.dark_blue"
      }
-    },
-    {
-     "shape": "mark",
-     "at": "source",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/DragonWings.webp"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-4.mp3",
-      "delay": 600
-     },
-     "anchor": {
-      "x": 0.5,
-      "y": 0.65
-     },
-     "opacity": 0.5,
-     "rate": 0.2,
-     "size": {
-      "radius": 2
-     },
-     "below": true,
-     "tint": {
-      "colour": "#00ffff",
-      "contrast": 0,
-      "saturation": -1
-     },
-     "delay": 600
     }
    ]
   },
@@ -3094,9 +3032,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
-     },
      "asset": {
       "path": "jb2a.claws.400px.red"
      }
@@ -3219,9 +3154,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.icon.fear.orange"
      }
@@ -3585,9 +3517,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Bludgeoning/bludgeoning-swing-impact-blunt-1.mp3"
-     },
      "asset": {
       "path": "jb2a.melee_generic.slash.02.002.orange"
      }
@@ -3632,9 +3561,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.icon.fear.dark_orange"
      }
@@ -4005,9 +3931,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-4.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
@@ -4146,9 +4069,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-1.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
@@ -4268,9 +4188,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.icon.fear.dark_purple"
      }
@@ -4372,9 +4289,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Green_400x400.webm",
@@ -4582,9 +4496,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "opacity": 0.75,
      "rate": 1.5,
      "mask": true,
@@ -4725,9 +4636,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-1.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
@@ -4776,9 +4684,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.icon.fear.dark_orange"
      }
@@ -5358,17 +5263,6 @@
        0
       ]
      }
-    },
-    {
-     "shape": "mark",
-     "at": "each-target",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/crosshair.webp"
-     },
-     "elevation": {
-      "level": 999,
-      "absolute": false
-     }
     }
    ]
   },
@@ -5466,9 +5360,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "asset": {
       "path": "jb2a.sneak_attack.dark_green"
      }
@@ -5524,9 +5415,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swallow.mp3"
-     },
      "size": {
       "tokenWidths": 2.25
      },
@@ -5932,9 +5820,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.icon.fear.dark_purple"
      }
@@ -6059,9 +5944,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/warcry.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
@@ -6181,10 +6063,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Ambience/chains.mp3",
-      "delay": 250
-     },
      "size": {
       "tokenWidths": 2.25
      },
@@ -6380,10 +6258,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-3.mp3",
-      "volume": 0.5
-     },
      "asset": {
       "path": "jb2a.hunters_mark.pulse.02.green"
      }
@@ -6424,9 +6298,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-1.mp3"
-     },
      "size": {
       "tokenWidths": 3
      },
@@ -6479,9 +6350,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,
@@ -6633,9 +6501,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "opacity": 0.01,
      "elevation": {
       "level": 999,
@@ -6688,9 +6553,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,
@@ -6852,9 +6714,6 @@
      "asset": {
       "path": "jb2a.soundwave.02.orangeyellow"
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/warcry.mp3"
-     },
      "size": {
       "fit": "shape"
      }
@@ -6976,9 +6835,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "opacity": 0.01,
      "elevation": {
@@ -7114,9 +6970,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "fadeIn": 0,
      "fadeOut": 0,
      "opacity": 0.01,
@@ -7225,9 +7078,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "elevation": {
       "level": 999,
@@ -7359,9 +7209,6 @@
      "shape": "fill",
      "asset": {
       "path": "jb2a.soundwave.02.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "size": {
       "fit": "shape"
@@ -7522,9 +7369,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "fadeIn": 0,
      "fadeOut": 0,
      "opacity": 0.01,
@@ -7683,9 +7527,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "elevation": {
       "level": 999,
       "absolute": false
@@ -7762,9 +7603,6 @@
      "asset": {
       "path": "jb2a.fog_cloud.02.green"
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "size": {
       "fit": "shape"
      },
@@ -7802,9 +7640,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,
@@ -7859,9 +7694,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,
@@ -7984,9 +7816,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,
@@ -8161,9 +7990,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "fadeIn": 0,
      "fadeOut": 0,
      "opacity": 0.01,
@@ -8302,9 +8128,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "opacity": 0.01,
      "elevation": {
       "level": 999,
@@ -8384,9 +8207,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,
@@ -8515,9 +8335,6 @@
      "asset": {
       "path": "jb2a.template_circle.symbol.normal.horror.purple"
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "size": {
       "fit": "shape"
      },
@@ -8606,9 +8423,6 @@
      "asset": {
       "path": "jb2a.template_circle.symbol.normal.horror.dark_teal"
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "size": {
       "fit": "shape"
      },
@@ -8671,9 +8485,6 @@
        "jb2a.impact.011.blue",
        "jb2a.impact.012.blue"
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
      },
      "fadeIn": 0,
      "fadeOut": 0,

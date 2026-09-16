@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 26
+  "fx": 25
  },
  "fx": [
   {
@@ -72,10 +72,6 @@
      "asset": {
       "path": "jb2a.explosion.orange"
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-1.mp3",
-      "delay": 2500
-     },
      "size": {
       "radius": 1.5
      },
@@ -121,10 +117,6 @@
        0
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-gasp-1.mp3",
-      "delay": 2000
-     },
      "elevation": {
       "level": 999,
       "absolute": false
@@ -166,10 +158,6 @@
        0,
        0
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-2.mp3",
-      "delay": 2000
      },
      "elevation": {
       "level": 999,
@@ -254,10 +242,6 @@
        0
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-gasp-1.mp3",
-      "delay": 2000
-     },
      "opacity": 0.8,
      "elevation": {
       "level": 999,
@@ -305,9 +289,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Purple_400x400.webm",
@@ -334,9 +315,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "path": "jb2a.liquid.splash.grey"
@@ -359,9 +337,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "path": "jb2a.liquid.splash.grey"
@@ -384,9 +359,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_01_Dark_Black_400x400.webm",
@@ -464,9 +436,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Regular_Grey_400x400.webm",
@@ -765,9 +734,6 @@
     },
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Green_400x400.webm",
@@ -844,9 +810,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Regular_Blue_400x400.webm",
@@ -874,9 +837,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Poison/poison-puff-1.mp3"
-     },
      "opacity": 0.8,
      "asset": {
       "file": "modules/jb2a_patreon/Library/Generic/Smoke/SmokePuff01_03_Dark_Purple_400x400.webm",
@@ -903,39 +863,9 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh*",
-      "delay": 100,
-      "repeat": 2
-     },
      "asset": {
       "path": "jb2a.claws.400px.dark_red"
      }
-    }
-   ]
-  },
-  {
-   "id": "ball-bearings",
-   "for": [
-    "item:ball-bearings"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.equipment.Item.KbVt56CK4ud3FUk3",
-    "name": "Ball Bearings",
-    "where": "Player's Handbook · Equipment"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/BallBearings.webp"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "below": true,
-     "persist": "template"
     }
    ]
   },

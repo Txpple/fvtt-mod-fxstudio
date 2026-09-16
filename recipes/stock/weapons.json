@@ -1146,9 +1146,6 @@
        0,
        0
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/*"
      }
     }
    ]
@@ -1758,9 +1755,6 @@
      "shape": "strike",
      "asset": {
       "path": "jb2a.melee_generic.creature_attack.claw.001.red"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Melee_Natural/melee-impact-flesh-*"
      }
     }
    ]
@@ -1913,10 +1907,6 @@
      "shape": "strike",
      "asset": {
       "path": "jb2a.melee_generic.slashing.two_handed"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3",
-      "volume": 0.5
      }
     }
    ]
@@ -1937,10 +1927,6 @@
      "shape": "strike",
      "asset": {
       "path": "jb2a.melee_generic.slashing.two_handed"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/whip-1.mp3",
-      "volume": 0.5
      }
     }
    ]
@@ -1961,9 +1947,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.Snipe.blue"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Ranged_Laser/ranged-laser-1.mp3"
      }
     },
     {
@@ -1971,10 +1954,6 @@
      "at": "impact",
      "asset": {
       "path": "jb2a.explosion.04.blue"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-2.mp3",
-      "delay": 50
      },
      "size": {
       "tokenWidths": 2.25
@@ -2214,9 +2193,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.throwable.launch.grenade.01.green"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     },
     {
@@ -2224,10 +2200,6 @@
      "at": "impact",
      "asset": {
       "path": "jb2a.explosion.01.yellow"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-2.mp3",
-      "delay": 1500
      },
      "size": {
       "radius": 1.5
@@ -2350,9 +2322,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.02.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-shotgun-1.mp3"
      }
     }
    ]
@@ -2402,9 +2371,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-1.mp3"
      }
     }
    ]
@@ -2425,9 +2391,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-1.mp3"
      }
     }
    ]
@@ -2448,9 +2411,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-1.mp3"
      }
     }
    ]
@@ -2471,9 +2431,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
    ]
@@ -2494,9 +2451,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
    ]
@@ -2517,9 +2471,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
    ]
@@ -2540,9 +2491,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.01.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-gunshot-2.mp3"
      }
     }
    ]
@@ -2587,9 +2535,6 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.bullet.02.orange"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Weapons/Firearm/firearm-shotgun-1.mp3"
      }
     }
    ]

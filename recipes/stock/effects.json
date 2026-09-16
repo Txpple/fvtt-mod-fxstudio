@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 79
+  "fx": 77
  },
  "fx": [
   {
@@ -413,21 +413,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "psfx.class-features.divine-smite.v1.001.caster"
-     },
-     "size": {
-      "tokenWidths": 3
-     },
-     "persist": "effect",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/Wings.webp"
-     },
-     "below": true
-    },
-    {
-     "shape": "mark",
-     "at": "source",
      "asset": {
       "path": "jb2a.divine_smite.caster.reversed.yellowwhite"
      },
@@ -478,9 +463,6 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "mask": true,
      "persist": "effect",
      "asset": {
@@ -1075,32 +1057,6 @@
        0
       ]
      }
-    }
-   ]
-  },
-  {
-   "id": "heavenly-wings",
-   "for": [
-    "effect:heavenly-wings"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptCelestialR",
-    "name": "Celestial Revelation",
-    "where": "Player's Handbook · Character Origins"
-   },
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "size": {
-      "tokenWidths": 3
-     },
-     "persist": "effect",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/Wings.webp"
-     },
-     "below": true
     }
    ]
   },
@@ -2036,32 +1992,6 @@
      "persist": "effect",
      "asset": {
       "path": "jb2a.sleep.symbol.pink"
-     }
-    }
-   ]
-  },
-  {
-   "id": "turning-to-stone",
-   "for": [
-    "effect:turning-to-stone"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFleshtoSto",
-    "name": "Flesh to Stone",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "effect",
-   "scenes": [
-    {
-     "shape": "mark",
-     "at": "source",
-     "size": {
-      "tokenWidths": 1.875
-     },
-     "mask": true,
-     "persist": "effect",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/Stone.webp"
      }
     }
    ]

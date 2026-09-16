@@ -209,7 +209,10 @@ moment. And the go: *"yes start, but theres another agent in sandbox, so you can
 have notice."* Built offline the same day: the pin (`1103efc`), the reader and the moment (`64b83b0`),
 the engine's shapes (`fd57e76`), the suites and these docs; seven offline checks green. **Not yet run
 live, not deployed** — the sandbox is another agent's until the user says. Open: C (actor identifiers)
-and D (turn cards) below, for phase 4.
+and D (turn cards) below, for phase 4. The 108 `check-fx` failures noted on the way were D&D5e Animations'
+files; the user ruled them roadkill on 2026-09-16 and Stock was cut clean (1021 → 1014; the seven FX that
+were only such a picture are gone, Wall of Ice and Wall of Stone among them — the `wall` shape's first
+customers when someone authors them).
 
 
 - **A — the verdict.** Adopt dnd5e's `evaluatedTargets` as the hit/miss (a target whose AC cannot be

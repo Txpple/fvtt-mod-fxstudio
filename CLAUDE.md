@@ -95,7 +95,7 @@ the user's word, so nothing changed at the table. DESIGN §16.
 **ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key (none only on a
 starter; an FX with no key plays nothing and is House only). AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
 is not carried: the migration fans a row out into one FX per key it earned, and **a key no list
-holds is not carried at all**. Stock is **1021 FX** since DESIGN §23, one key each (house 4). The 351 rows no list
+holds is not carried at all**. Stock is **1014 FX** since 2026-09-16 (1021 until then; DESIGN §23), one key each (house 4) — **seven Stock FX and 142 sound clauses were ROADKILL** (the user, 2026-09-16: D&D5e Animations *"totally dissolved and removed, as they never had a migration path"*): every scene whose picture or sound was one of that module's files went; Heavenly Wings, Turning to Stone, Ball Bearings, Insect Plague, Tasha's Bubbling Cauldron, Wall of Ice and Wall of Stone were nothing but such a picture and are gone from Stock — they play nothing until someone gives them an FX (the two walls are the new `wall` shape's first customers). The 351 rows no list
 holds and the 82 keys a row lost to an earlier one are EXCEPTION tables in
 `recipes/migration-report.md`. The census did not move: 694 of 736 abilities answer as under AA,
 exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is the record.
@@ -253,7 +253,7 @@ Animations 7.0.22 and D&D5e Animations 3.3.0 — **installed but switched OFF on
 2026-09-06 AND OFF ON PROD** (read off prod 2026-09-10 with `configure-modules.mjs --dry-run`: both
 `active=false`; the user: *"aa is disabled on prod, see for yourself"*) — so FX Studio is the only
 thing playing at the table and the cutover of PLAN §6 phase 5 is a fact, not a phase to come; the
-migration still needs AA's sourcemap, so neither is uninstalled — ⚠ though NEITHER is on the sandbox since the 2026-09-13 refresh from prod (108 Stock sounds under `modules/dnd5e-animations/` fail `check-fx` there; noted 2026-09-15, not ruled on) · dnd5e **6.0.1 on Foundry 14.367 on the sandbox** since 2026-09-15; prod is still 5.3.3 on 14.364. AA's world settings hold the
+migration still needs AA's sourcemap, so neither is uninstalled — ⚠ though NEITHER is on the sandbox since the 2026-09-13 refresh from prod, and D&D5e Animations is DISSOLVED for good (the user, 2026-09-16, roadkill): every Stock reference to its files was cut, `check-fx` is green again · dnd5e **6.0.1 on Foundry 14.367 on the sandbox** since 2026-09-15; prod is still 5.3.3 on 14.364. AA's world settings hold the
 1290-row autorec; leave them alone.
 
 ## Prod

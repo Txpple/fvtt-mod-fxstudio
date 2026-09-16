@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 378
+  "fx": 374
  },
  "fx": [
   {
@@ -6534,9 +6534,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.condition.curse.01.006.purple"
      }
@@ -6559,9 +6556,6 @@
     {
      "shape": "mark",
      "at": "each-target",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
-     },
      "asset": {
       "path": "jb2a.condition.curse.01.006.purple"
      }
@@ -6601,10 +6595,6 @@
      "at": "each-target",
      "asset": {
       "path": "jb2a.markers.chain.spike.loop.01.purple"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Ambience/chains.mp3",
-      "delay": 2400
      },
      "size": {
       "radius": 1
@@ -6646,9 +6636,6 @@
      "at": "each-target",
      "asset": {
       "path": "jb2a.markers.chain.spike.loop.01.purple"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Ambience/chains.mp3"
      },
      "size": {
       "radius": 1
@@ -7097,9 +7084,6 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Ambience/knocking.mp3"
-     },
      "asset": {
       "path": "jb2a.condition.boon.01.004.yellow"
      }
@@ -8414,10 +8398,6 @@
      "at": "each-target",
      "asset": {
       "path": "jb2a.markers.chain.standard.loop.02.purple"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Ambience/chains.mp3",
-      "delay": 3000
      },
      "elevation": {
       "level": 999,
@@ -12116,9 +12096,6 @@
        "jb2a.impact.012.blue"
       ]
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/Growl/growl-5.mp3"
-     },
      "opacity": 0.01,
      "elevation": {
       "level": 999,
@@ -12285,9 +12262,6 @@
        0,
        0
       ]
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-1.mp3"
      },
      "size": {
       "fit": "shape"
@@ -12645,34 +12619,6 @@
       "x": 0.3,
       "y": 0.7
      },
-     "persist": "template"
-    }
-   ]
-  },
-  {
-   "id": "insect-plague",
-   "for": [
-    "spell:insect-plague"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInsectPlag",
-    "name": "Insect Plague",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/InsectPlague.webp"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/swarm.mp3"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "mask": true,
      "persist": "template"
     }
    ]
@@ -13339,9 +13285,6 @@
      "asset": {
       "path": "jb2a.template_circle.out_pulse.02.burst.yellowwhite"
      },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Damage/Explosion/explosion-echo-6.mp3"
-     },
      "size": {
       "fit": "shape"
      },
@@ -13377,37 +13320,6 @@
    ]
   },
   {
-   "id": "tashas-bubbling-cauldron",
-   "for": [
-    "spell:tashas-bubbling-cauldron"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTashasBubb",
-    "name": "Tasha's Bubbling Cauldron",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/BubblingCauldron.webp"
-     },
-     "sound": {
-      "asset": "psfx.cantrips.poison-spray.v1"
-     },
-     "size": {
-      "fit": "shape",
-      "scale": {
-       "x": 2,
-       "y": 2
-      }
-     },
-     "persist": "template"
-    }
-   ]
-  },
-  {
    "id": "tiny-hut",
    "for": [
     "spell:tiny-hut"
@@ -13438,21 +13350,6 @@
      },
      "wait": true,
      "follow": true
-    },
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/TinyHut.webp"
-     },
-     "sound": {
-      "asset": "psfx.magic-signs.rune.v1.evocation.outro"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "below": true,
-     "mask": true,
-     "persist": "template"
     }
    ],
    "note": "Separate FX from Leomund's Tiny Hut (Player's Handbook), spell:leomunds-tiny-hut: the same record under another key."
@@ -13488,21 +13385,6 @@
      },
      "wait": true,
      "follow": true
-    },
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/TinyHut.webp"
-     },
-     "sound": {
-      "asset": "psfx.magic-signs.rune.v1.evocation.outro"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "below": true,
-     "mask": true,
-     "persist": "template"
     }
    ],
    "note": "Separate FX from Tiny Hut (SRD 5.2), spell:tiny-hut: the same record under another key."
@@ -13563,67 +13445,6 @@
    ]
   },
   {
-   "id": "wall-of-ice",
-   "for": [
-    "spell:wall-of-ice"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofIce0",
-    "name": "Wall of Ice",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/Ice.webp"
-     },
-     "sound": {
-      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001"
-     },
-     "size": {
-      "fit": "shape"
-     },
-     "opacity": 0.6,
-     "mask": true,
-     "persist": "template"
-    }
-   ]
-  },
-  {
-   "id": "wall-of-stone",
-   "for": [
-    "spell:wall-of-stone"
-   ],
-   "record": {
-    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofSton",
-    "name": "Wall of Stone",
-    "where": "Player's Handbook · Spells"
-   },
-   "on": "use",
-   "scenes": [
-    {
-     "shape": "fill",
-     "asset": {
-      "file": "modules/dnd5e-animations/assets/graphics/textures/Stone.webp"
-     },
-     "sound": {
-      "asset": "psfx.creature.movement.burrow.breach"
-     },
-     "size": {
-      "fit": "shape",
-      "scale": {
-       "x": 1,
-       "y": 5
-      }
-     },
-     "mask": true,
-     "persist": "template"
-    }
-   ]
-  },
-  {
    "id": "wall-of-thorns",
    "for": [
     "spell:wall-of-thorns"
@@ -13668,9 +13489,6 @@
      "shape": "fill",
      "asset": {
       "path": "jb2a.template_circle.symbol.normal.fear.dark_purple"
-     },
-     "sound": {
-      "asset": "modules/dnd5e-animations/assets/sounds/Creatures/laughter.mp3"
      },
      "size": {
       "fit": "shape"
