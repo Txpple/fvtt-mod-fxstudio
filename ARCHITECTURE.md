@@ -227,7 +227,7 @@ and which the Editor's **Own key** writes — and the FX for one is keyed to tha
 | `natural` | the identifier (`bite`) | a weapon whose `type.value` is `natural`; the Monster Manual sets it on every attack |
 | `feature` | the identifier (`brutal-strike`) | `system.identifier` |
 | `item` | the identifier (`potion-of-healing`, `greater-potion-of-healing`) | consumables, equipment, tools, loot |
-| `effect` | the effect's name slug, then its origin's key (`spell:shield`) | `ActiveEffect.name`, `origin` |
+| `effect` | the effect's name slug, then its origin's key (`spell:shield`) | `ActiveEffect.name`; the item under `system.origin` (dnd5e 6.0: `{item, activity, …}`, `origin` then the activity's uuid), else `origin` (5.3.3: the item's uuid); a compendium-embedded activity is no origin, never a throw |
 | `event` | the event name (`riposte`, `turn-start`) | the reader that emits it |
 
 The only orderings left are between documents, each with its own exact key: the ammunition fired

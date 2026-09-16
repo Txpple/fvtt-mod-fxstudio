@@ -71,10 +71,30 @@ export function subjectOfItem(item, { activity = null, ammunition = null } = {})
   return s;
 }
 
+/**
+ * The item that made an effect, read synchronously, or null.
+ * dnd5e 6.0 writes the provenance to `system.origin` ({item, activity, actor, …}) and copies the most
+ * specific uuid into `origin` — for an applied effect that is the ACTIVITY's, and when the activity
+ * still lives in a compendium (a class feature's) it is an embedded compendium document, which
+ * `fromUuidSync` refuses with a throw. So: the item first, then the activity, then the bare `origin`
+ * (5.3.3 writes only that, the item's uuid); every lookup non-strict and caught, a refusal is no origin.
+ */
+function originItemOf(effect) {
+  const o = effect.system?.origin ?? {};
+  for (const uuid of [o.item, o.activity, effect.origin]) {
+    if (!uuid) continue;
+    let doc = null;
+    try { doc = fromUuidSync(uuid, { relative: effect.parent ?? undefined, strict: false }); } catch { doc = null; }
+    if (!doc) continue;
+    if (doc.documentName === 'Item') return doc;
+    if (doc.item) return doc.item;
+  }
+  return null;
+}
+
 /** the subject an active effect is: its own name, then what made it */
 export function subjectOfEffect(effect) {
-  const originDoc = effect.origin ? fromUuidSync(effect.origin) : null;
-  const originItem = originDoc?.documentName === 'Item' ? originDoc : originDoc?.item ?? null;
+  const originItem = originItemOf(effect);
   const s = { kind: 'effect', name: effect.name, origin: originItem ? subjectOfItem(originItem) : null };
   s.keys = keysFor(s);
   s.uuid = effect.uuid;

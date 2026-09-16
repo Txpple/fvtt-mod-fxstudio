@@ -26,7 +26,15 @@ export function world() {
   const tokens = new Map();
   let messageCount = 0;
 
-  globalThis.fromUuidSync = (u) => uuids.get(u) ?? null;
+  // Foundry's refusal, kept: an EMBEDDED document inside a compendium (an item's activity or effect
+  // in a pack) cannot be read synchronously - a strict lookup throws, a non-strict one is null.
+  globalThis.fromUuidSync = (u, { strict = true } = {}) => {
+    if (typeof u === 'string' && u.startsWith('Compendium.') && u.split('.').length > 5) {
+      if (strict) throw new Error(`fromUuidSync was invoked on UUID '${u}' which references an Embedded Document and cannot be retrieved synchronously.`);
+      return null;
+    }
+    return uuids.get(u) ?? null;
+  };
   globalThis.game.users = users;
   globalThis.game.actors = { get: (id) => actors.get(id) ?? null, get contents() { return [...actors.values()]; } };
   globalThis.canvas.tokens = { get: (id) => tokens.get(id) ?? null, controlled: [] };
@@ -84,9 +92,14 @@ export function world() {
       actor.items.push(item);
       return register(item);
     },
-    /** an active effect on an actor or an item */
-    effect(parent, { id, name = id, origin = null, disabled = false, flags = {} } = {}) {
-      return register({ uuid: `${parent.uuid}.ActiveEffect.${id}`, id, name, origin, disabled, parent, flags, documentName: 'ActiveEffect' });
+    /**
+     * An active effect on an actor or an item. `origin` is the 5.3.3 shape (the item's uuid);
+     * `system.origin` is 6.0's ({item, activity, actor, …}), with `origin` then the most specific
+     * of them - the activity's - the way dnd5e 6.0 prepares it.
+     */
+    effect(parent, { id, name = id, origin = null, system = undefined, disabled = false, flags = {} } = {}) {
+      if (system?.origin && !origin) origin = system.origin.activity ?? system.origin.item ?? system.origin.actor ?? null;
+      return register({ uuid: `${parent.uuid}.ActiveEffect.${id}`, id, name, origin, system, disabled, parent, flags, documentName: 'ActiveEffect' });
     },
     /**
      * A message dnd5e posts: the usage card (`type: 'usage'`, no roll) or a roll message

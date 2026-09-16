@@ -140,6 +140,18 @@ if (t.section('an active effect: its own name, then what made it')) {
   t.is('an effect with no actor at all is not a moment', readEffect({ parent: null, name: 'x' }), null);
   const fromEffect = W.effect(caster, { id: 'e2', name: 'Blinded', origin: bless.uuid });
   t.same('an origin that is not an item gives no origin keys', subjectOfEffect(fromEffect).keys, ['effect:blinded']);
+  // dnd5e 6.0: the provenance is system.origin and `origin` is the activity's uuid
+  const act = holdPerson.activities[0];
+  const six = W.effect(caster, { id: 'e3', name: 'Held', system: { origin: { item: holdPerson.uuid, activity: act.uuid, actor: caster.uuid } } });
+  t.is("6.0: `origin` is the activity's uuid", six.origin, act.uuid);
+  t.same('6.0: the item under system.origin is the origin, read before the activity', subjectOfEffect(six).keys, ['effect:held', 'spell:hold-person']);
+  const packAct = 'Compendium.dnd-players-handbook.classes.Item.phbmnvGoadingAtt.Activity.YZDchvLnuCD6xMkF';
+  t.throws('the stand-in refuses a compendium-embedded uuid the way Foundry does', () => fromUuidSync(packAct));
+  const goading = W.effect(caster, { id: 'e4', name: 'Goaded', system: { origin: { activity: packAct, actor: caster.uuid } } });
+  t.same("6.0: an activity still in a compendium (a class feature's) is no origin, not a throw", subjectOfEffect(goading).keys, ['effect:goaded']);
+  t.is('… and the effect is still a moment', readEffect(goading).kind, 'effect');
+  const bareOnly = W.effect(caster, { id: 'e5', name: 'Marked', origin: packAct });
+  t.same('the bare `origin` alone naming a compendium activity: the same, no throw', subjectOfEffect(bareOnly).keys, ['effect:marked']);
 }
 
 // ---------------------------------------------------------------------------------------------
