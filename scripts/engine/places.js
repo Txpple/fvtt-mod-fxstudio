@@ -91,10 +91,30 @@ export function spotsFor(word, moment, { fxName = null } = {}) {
 /** what a spot is, for Sequencer's location-taking calls */
 export const spotTarget = (spot) => spot.name ?? spot.token ?? spot.region ?? spot.point;
 
-/** the placed template's shape: type (circle | cone | line | rectangle), distance in grid units, the shape */
+/**
+ * The placed template's shape, read off the Region dnd5e 6.0 creates for an area (Foundry 14's
+ * region shape data, in pixels): `type` circle | cone | line | rectangle | ring | emanation (dnd5e
+ * maps its area kinds onto these — a sphere, a cylinder and a circle are circles, a cube and a square
+ * rectangles, a line AND A WALL lines, a radius an emanation around the caster's token, a ring a ring),
+ * `distance` the size in grid units (the radius, the length, the side), `width` and `height` the
+ * picture that fills it in pixels, `directional` whether it points somewhere (a cone, a line). An
+ * unknown shape answers `type: null` and the shapes that need one play nothing — never a throw.
+ */
 export function templateShape(region) {
   const shape = region?.shapes?.[0];
-  return { shape, type: shape?.type ?? null, distance: shape?.measuredSegments?.[0]?.distance };
+  if (!shape) return { shape: null, type: null, distance: undefined, width: 0, height: 0, directional: false };
+  const grid = canvas?.grid?.size ?? 100;
+  const px = canvas?.dimensions?.distancePixels ?? grid / (canvas?.dimensions?.distance ?? 5);
+  const r = (n) => Number(n) || 0;
+  switch (shape.type) {
+    case 'circle': return { shape, type: 'circle', distance: r(shape.radius) / px, width: 2 * r(shape.radius), height: 2 * r(shape.radius), directional: false };
+    case 'cone': return { shape, type: 'cone', distance: r(shape.radius) / px, width: r(shape.radius), height: r(shape.radius), directional: true };
+    case 'line': return { shape, type: 'line', distance: r(shape.length) / px, width: r(shape.length), height: r(shape.width), directional: true };
+    case 'rectangle': return { shape, type: 'rectangle', distance: r(shape.width) / px, width: r(shape.width), height: r(shape.height), directional: false };
+    case 'ring': { const outer = r(shape.radius) + r(shape.outerWidth); return { shape, type: 'ring', distance: outer / px, width: 2 * outer, height: 2 * outer, directional: false }; }
+    case 'emanation': { const reach = r(shape.radius) + ((r(shape.base?.width) || 1) * grid) / 2; return { shape, type: 'emanation', distance: r(shape.radius) / px, width: 2 * reach, height: 2 * reach, directional: false }; }
+    default: return { shape, type: null, distance: undefined, width: 0, height: 0, directional: false };
+  }
 }
 
 /** where the template sits against the token: center | mid | left, and the rotation (an asset picked by position) */

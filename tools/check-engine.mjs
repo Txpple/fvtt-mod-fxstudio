@@ -72,6 +72,8 @@ if (t.section('the places: a place word against a moment names the spots')) {
   t.is('no destination on the moment: no spot', destinationSpot(moment()), null);
   t.same("a template's shape is its type and measured distance", [templateShape(regions.cone).type, templateShape(regions.cone).distance], ['cone', 15]);
   t.is('no Region: no type', templateShape(null).type, null);
+  t.same('a ring, an emanation and a wall (a line) are shapes too, with their size in grid units', [templateShape(regions.ring).type, templateShape(regions.ring).distance, templateShape(regions.emanation).type, templateShape(regions.emanation).distance, templateShape(regions.wall).type, templateShape(regions.wall).distance], ['ring', 20, 'emanation', 10, 'line', 60]);
+  t.is('a shape the engine does not know answers no type', templateShape({ shapes: [{ type: 'polygon' }] }).type, null);
   t.same('a template around the caster sits "center"', relativePosition(caster, { bounds: { x: 400, y: 400, width: 300, height: 300 } }), { type: 'center', angle: 0 });
   t.same('a template to the caster\'s right sits "mid", turned 270', relativePosition(caster, regions.rectangle), { type: 'mid', angle: 270 });
   t.same('a template below and to the right sits "left", turned 270', relativePosition(caster, { bounds: { x: 700, y: 700, width: 200, height: 200 } }), { type: 'left', angle: 270 });
@@ -235,9 +237,16 @@ if (t.section('fill: a picture sized to the placed template')) {
   const cone = built(f, { place: regions.cone }).effects[0];
   t.same('a cone: anchored at its point, as long as it is wide, turned with the Region', [cone.get('anchor'), cone.get('size'), cone.get('rotateTowards')], [[{ x: 0, y: 0.5 }], [{ width: 300, height: 300 }], [regions.cone, { cacheLocation: true }]]);
   const line = built(f, { place: regions.line }).effects[0];
-  t.same('a line: its length by its width', line.get('size'), [{ width: 2000, height: 200 }]);
+  t.same("a line: its length by its width (Foundry 14's line region carries the full width)", line.get('size'), [{ width: 2000, height: 100 }]);
   const rect = built(f, { place: regions.rectangle }).effects[0];
   t.same('a rectangle: its side', rect.get('size'), [{ width: 300, height: 300 }]);
+  const ring = built(f, { place: regions.ring }).effects[0];
+  t.same('a ring (6.0): centred, sized to its outer edge — the radius plus the outer width', [ring.get('anchor'), ring.get('size'), ring.has('rotateTowards')], [[{ x: 0.5, y: 0.5 }], [{ width: 800, height: 800 }], false]);
+  const em = built(f, { place: regions.emanation }).effects[0];
+  t.same("an emanation (6.0's radius, around the caster's token): centred, sized to the radius plus half the token", [em.get('anchor'), em.get('size'), em.has('rotateTowards')], [[{ x: 0.5, y: 0.5 }], [{ width: 500, height: 500 }], false]);
+  const wall = built(f, { place: regions.wall }).effects[0];
+  t.same("a wall (6.0: dnd5e places it as a line): its length by its width, anchored at its start, turned with the Region", [wall.get('anchor'), wall.get('size'), wall.get('rotateTowards')], [[{ x: 0, y: 0.5 }], [{ width: 1200, height: 100 }], [regions.wall, { cacheLocation: true }]]);
+  t.is('a shape this engine cannot size to (a polygon) plays nothing, never a throw', built(f, { place: { id: 'odd', documentName: 'Region', shapes: [{ type: 'polygon', points: [] }] } }).seq, null);
   t.same('a scale stretches the fit', built({ ...f, size: { fit: 'shape', scale: { x: 2, y: 0.5 } } }, { place: regions.circle }).effects[0].get('size'), [{ width: 1600, height: 400 }]);
   t.same('a size in squares ignores the shape', built({ ...f, size: { squares: 3 } }, { place: regions.circle }).effects[0].get('size'), [3, { gridUnits: true }]);
   const pt = built({ ...f, persist: 'template' }, { place: regions.circle }).effects[0];

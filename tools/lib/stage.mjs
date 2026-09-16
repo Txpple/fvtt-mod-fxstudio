@@ -6,7 +6,7 @@
 //   install({dbs})       sets the globals (canvas, game, ui, Sequencer, Sequence, Item, CONFIG, fromUuidSync)
 //   token({...})         a stand-in Token placeable; region({...}) a stand-in placed-template Region
 //   table()              the canonical layout every offline proof stands on: a caster, a target
-//                        adjacent, one six squares away, one below, and a template of each type
+//                        adjacent, one six squares away, one below, and a template of each shape (a wall is a line)
 //   sections(seq)        a recorded sequence read back: [{kind, get(method), all(method), has(method)}]
 //   click(x, y)          a left click on the stage, for a move's picker (canvas.app.stage remembers listeners)
 //   standing             the list Sequencer.EffectManager.getEffects answers from (empty by default)
@@ -65,12 +65,25 @@ export function token({ id = null, name = null, x = 500, y = 500, size = 1, scal
 }
 
 let regionCount = 0;
-/** a stand-in placed template: type circle | cone | line | rectangle, distance in grid units, at x/y */
-export function region({ id = null, type = 'circle', distance = 20, x = 1100, y = 500, width = 5, direction = 0 } = {}) {
+/**
+ * A stand-in placed template: the Region dnd5e 6.0 creates for an area, carrying Foundry 14's shape
+ * data in pixels — circle {radius}, cone {radius, angle, rotation}, line {length, width, rotation}
+ * (a wall is a line), rectangle {width, height, rotation}, ring {radius, innerWidth, outerWidth},
+ * emanation {radius, base: the token it surrounds}. `distance` and `width` in grid units, at x/y.
+ */
+export function region({ id = null, type = 'circle', distance = 20, x = 1100, y = 500, width = 5, direction = 0, base = 1 } = {}) {
   regionCount++;
   const px = distance * (GRID / DISTANCE);
-  const bounds = type === 'circle' ? { x: x - px, y: y - px, width: px * 2, height: px * 2 } : type === 'rectangle' ? { x, y, width: px, height: px } : { x, y: y - px / 2, width: px, height: px };
-  const shape = { type, measuredSegments: [{ distance }], width: width * (GRID / DISTANCE), direction, bounds, x, y };
+  const w = width * (GRID / DISTANCE);
+  let shape, bounds;
+  switch (type) {
+    case 'cone': shape = { type, x, y, radius: px, angle: 53.13, rotation: direction }; bounds = { x, y: y - px / 2, width: px, height: px }; break;
+    case 'line': shape = { type, x, y, length: px, width: w, rotation: direction }; bounds = { x, y: y - w / 2, width: px, height: w }; break;
+    case 'rectangle': shape = { type, x, y, width: px, height: px, rotation: direction }; bounds = { x, y, width: px, height: px }; break;
+    case 'ring': { const o = px + w; shape = { type, x, y, radius: px, innerWidth: 0, outerWidth: w }; bounds = { x: x - o, y: y - o, width: 2 * o, height: 2 * o }; break; }
+    case 'emanation': { const r = px + (base * GRID) / 2; shape = { type, radius: px, base: { type: 'token', x: x - (base * GRID) / 2, y: y - (base * GRID) / 2, width: base, height: base, shape: 1 } }; bounds = { x: x - r, y: y - r, width: 2 * r, height: 2 * r }; break; }
+    default: shape = { type, x, y, radius: px }; bounds = { x: x - px, y: y - px, width: px * 2, height: px * 2 };
+  }
   return { id: id ?? `region${regionCount}`, documentName: 'Region', shapes: [shape], bounds, x, y, flags: {}, _isRegion: true };
 }
 
@@ -149,6 +162,9 @@ export function table() {
     cone: region({ id: 'cone', type: 'cone', distance: 15, x: 600, y: 550 }),
     line: region({ id: 'line', type: 'line', distance: 100, width: 5, x: 600, y: 550 }),
     rectangle: region({ id: 'rect', type: 'rectangle', distance: 15, x: 1000, y: 400 }),
+    ring: region({ id: 'ring', type: 'ring', distance: 15, width: 5, x: 1100, y: 500 }),
+    emanation: region({ id: 'emanation', type: 'emanation', distance: 10, base: 1, x: 550, y: 550 }),
+    wall: region({ id: 'wall', type: 'line', distance: 60, width: 5, x: 600, y: 550 }),
   };
   return { caster, near, far, other, regions };
 }
