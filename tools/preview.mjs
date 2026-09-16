@@ -31,9 +31,9 @@ try {
     const results = [];
     let region = null;
     if (withTemplate) {
-      const [doc] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'circle', distance: 20, x: 1100, y: 500 }]);
+      const g = canvas.scene.grid.size / canvas.scene.grid.distance;
+      [region] = await canvas.scene.createEmbeddedDocuments('Region', [{ name: 'fx preview', shapes: [{ type: 'circle', x: 1100, y: 500, radius: 20 * g }], visibility: CONST.REGION_VISIBILITY.ALWAYS }]);
       await sleep(500);
-      region = canvas.scene.regions.get(doc.id) ?? doc;
     }
     const list = fx ?? [id].map((x) => api.fx.get(x)?.original ?? api.fx.get(x)?.fx).filter(Boolean);
     if (!list.length) return { error: `no FX "${id}" in the corpus` };

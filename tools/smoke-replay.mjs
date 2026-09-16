@@ -65,14 +65,16 @@ try {
     const ledgerFor = (id) => api.ledger.find((e) => e.id === id);
     const settle = async () => { await sleep(1400 + watch); };
     const effectsOn = (token, origin) => Sequencer.EffectManager.getEffects({ object: token, ...(origin ? { origin } : {}) });
-    const rollAttack = async (name) => { const a = activityOf(name, 'attack'); const before = game.messages.size; await a.rollAttack({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.flags?.dnd5e?.roll?.type === 'attack'); return { m, e: m ? ledgerFor(m.id) : null }; };
-    const rollDamage = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => ['damage', 'healing'].includes(x.flags?.dnd5e?.roll?.type)); return { m, e: m ? ledgerFor(m.id) : null }; };
+    const rollAttack = async (name) => { const a = activityOf(name, 'attack'); const before = game.messages.size; await a.rollAttack({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'attack'); return { m, e: m ? ledgerFor(m.id) : null }; };
+    const rollDamage = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => ['damage', 'healing'].includes(x.type)); return { m, e: m ? ledgerFor(m.id) : null }; };
     const useIt = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.use({ consume: false, create: { measuredTemplate: false } }, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'usage'); return { m, e: m ? ledgerFor(m.id) : null }; };
-    const placeTemplate = async (name, data) => { const a = activityOf(name); const [doc] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ ...data, flags: { dnd5e: { origin: a.uuid, item: a.item.uuid } } }]); await sleep(600); await settle(); const region = canvas.scene.regions.get(doc.id) ?? doc; return { region, e: ledgerFor(region.id) }; };
+    // an area as dnd5e 6.0 places one: a Region with Foundry 14 shape data, stamped with the activity, the item and the usage token
+    const areaShape = ({ t, distance, width = 5, direction = 0, x, y }) => { const g = canvas.scene.grid.size / canvas.scene.grid.distance; const s = distance * g; return t === 'cone' ? { type: 'cone', x, y, radius: s, angle: CONFIG.MeasuredTemplate.defaults.angle, rotation: direction } : t === 'ray' ? { type: 'line', x, y, length: s, width: width * g, rotation: direction } : t === 'rect' ? { type: 'rectangle', x, y, width: s, height: s, rotation: direction } : t === 'ring' ? { type: 'ring', x, y, radius: s, innerWidth: 0, outerWidth: width * g } : { type: 'circle', x, y, radius: s }; };
+    const placeTemplate = async (name, data) => { const a = activityOf(name); const [region] = await canvas.scene.createEmbeddedDocuments('Region', [{ name: `${a.item.name} [${game.user.name}]`, shapes: [areaShape(data)], visibility: CONST.REGION_VISIBILITY.ALWAYS, flags: { dnd5e: { activity: a.uuid, item: a.item.uuid, origin: caster.document.uuid, spellLevel: a.item.system.level ?? null } } }]); await sleep(600); await settle(); return { region, e: ledgerFor(region.id) }; };
     const removeTemplate = async (region) => { if (canvas.scene.regions.get(region.id)) await canvas.scene.deleteEmbeddedDocuments('Region', [region.id]); await sleep(600); };
     const files = (e) => (e?.files ?? []).flat().join(', ');
     const named = (e, part) => (e?.files ?? []).flat().some((p) => String(p).includes(part));
-    const usage = async (it) => { const before = game.messages.size; const m = await ChatMessage.create({ type: 'usage', speaker: ChatMessage.getSpeaker({ actor: caster.actor }), content: it.name, flags: { dnd5e: { activity: { uuid: `${it.uuid}.Activity.none`, type: 'utility', id: 'none' }, item: { uuid: it.uuid, id: it.id, type: it.type }, targets: [] } } }); await settle(); void before; return { m, e: ledgerFor(m.id) }; };
+    const usage = async (it) => { const before = game.messages.size; const m = await ChatMessage.create({ type: 'usage', speaker: ChatMessage.getSpeaker({ actor: caster.actor }), content: it.name, system: { activity: { uuid: `${it.uuid}.Activity.none`, type: 'utility', id: 'none', name: 'Use', img: it.img }, item: { uuid: it.uuid, id: it.id, type: it.type, name: it.name, img: it.img }, targets: [] } }); await settle(); void before; return { m, e: ledgerFor(m.id) }; };
 
     const startAC = target.actor.system.attributes.ac.flat;
     try {
@@ -136,7 +138,7 @@ try {
         t = await placeTemplate('Lightning Bolt', { t: 'ray', distance: 100, width: 5, direction: 0, x: 600, y: 550 });
         ok('§6 Lightning Bolt: the line fills', t.e?.fx === 'lightning-bolt' && t.e.played, files(t.e));
         await removeTemplate(t.region);
-        t = await placeTemplate('Grease', { t: 'rect', distance: 14.14, direction: 45, x: 1000, y: 400 });
+        t = await placeTemplate('Grease', { t: 'rect', distance: 10, direction: 0, x: 1000, y: 400 });
         ok('§6 Grease: the rectangle fills', t.e?.fx === 'grease' && t.e.played, files(t.e));
         await removeTemplate(t.region);
         t = await placeTemplate('Cloud of Daggers', { t: 'circle', distance: 5, x: 1100, y: 500 });
@@ -153,7 +155,7 @@ try {
         let t = await placeTemplate('Fireball', { t: 'circle', distance: 20, x: 1100, y: 500 });
         ok('§7 Fireball: the bolt to the template, then the burst', t.e?.fx === 'fireball' && t.e.files.length >= 2 && named(t.e, 'jb2a.fireball'), files(t.e));
         await removeTemplate(t.region);
-        t = await placeTemplate('Thunderwave', { t: 'rect', distance: 21.21, direction: 45, x: 600, y: 400 });
+        t = await placeTemplate('Thunderwave', { t: 'rect', distance: 15, direction: 0, x: 600, y: 400 });
         ok('§7 Thunderwave: the square right of the caster picks a mid shape from JB2A', t.e?.fx === 'thunderwave' && /jb2a\.thunderwave\.(center|bottom_middle|bottom_left)\./.test(t.e.files[0] ?? ''), files(t.e));
         await removeTemplate(t.region);
       }
@@ -266,7 +268,7 @@ try {
         const used = await useIt('Cure Wounds');
         ok('§14 Cure Wounds: the usage card plays nothing (it heals)', !used.e, used.e ? `ledger: ${used.e.fx}` : 'no ledger entry for the card');
         const aimed = await rollDamage('Cure Wounds');
-        ok('§14 Cure Wounds: the healing roll plays the FX on the target', aimed.m?.flags?.dnd5e?.roll?.type === 'healing' && aimed.e?.fx === 'cure-wounds' && aimed.e.played && aimed.e.targets?.[0]?.name === target.name, `${aimed.m?.flags?.dnd5e?.roll?.type} · ${aimed.e?.fx} on ${aimed.e?.targets?.map((t) => t.name).join(', ')} ${files(aimed.e)}`);
+        ok('§14 Cure Wounds: the healing roll plays the FX on the target', aimed.m?.type === 'healing' && aimed.e?.fx === 'cure-wounds' && aimed.e.played && aimed.e.targets?.[0]?.name === target.name, `${aimed.m?.type} · ${aimed.e?.fx} on ${aimed.e?.targets?.map((t) => t.name).join(', ')} ${files(aimed.e)}`);
         await aim(false);
         const alone = await rollDamage('Cure Wounds');
         ok('§14 Cure Wounds with nothing targeted: the healing roll plays the FX on the caster', alone.e?.fx === 'cure-wounds' && alone.e.played && !alone.e.targets?.length, `${alone.e?.fx} ${alone.e?.why || ''} ${files(alone.e)}`);

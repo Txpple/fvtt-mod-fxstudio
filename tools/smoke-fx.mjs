@@ -22,12 +22,11 @@ try {
     const caster = canvas.tokens.get(casterTokenId);
     const target = canvas.tokens.get(targetTokenId);
     const origin = caster.actor.uuid;
-    const [circle] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'circle', distance: 20, x: 1100, y: 500 }]);
-    const [cone] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'cone', distance: 15, direction: 0, x: 600, y: 550, angle: 53.13 }]);
-    const [square] = await canvas.scene.createEmbeddedDocuments('MeasuredTemplate', [{ t: 'rect', distance: 15, direction: 45, x: 1000, y: 400 }]);
+    // the areas, as dnd5e 6.0 places one: a Region with Foundry 14 shape data
+    const areaShape = ({ t, distance, width = 5, direction = 0, x, y }) => { const g = canvas.scene.grid.size / canvas.scene.grid.distance; const s = distance * g; return t === 'cone' ? { type: 'cone', x, y, radius: s, angle: CONFIG.MeasuredTemplate.defaults.angle, rotation: direction } : t === 'ray' ? { type: 'line', x, y, length: s, width: width * g, rotation: direction } : t === 'rect' ? { type: 'rectangle', x, y, width: s, height: s, rotation: direction } : t === 'ring' ? { type: 'ring', x, y, radius: s, innerWidth: 0, outerWidth: width * g } : { type: 'circle', x, y, radius: s }; };
+    const [circle, cone, square] = await canvas.scene.createEmbeddedDocuments('Region', [{ t: 'circle', distance: 20, x: 1100, y: 500 }, { t: 'cone', distance: 15, direction: 0, x: 600, y: 550 }, { t: 'rect', distance: 15, direction: 0, x: 1000, y: 400 }].map((d) => ({ name: `fx ${d.t}`, shapes: [areaShape(d)], visibility: CONST.REGION_VISIBILITY.ALWAYS })));
     await new Promise((r) => setTimeout(r, 400));
-    const regionOf = (doc) => canvas.scene.regions.get(doc.id) ?? doc;
-    const templates = { circle: regionOf(circle), cone: regionOf(cone), square: regionOf(square) };
+    const templates = { circle, cone, square };
     const list = api.fx.list();
     const results = { fx: list.length, built: 0, empty: [], errors: [], paths: new Map(), byShape: {}, problems: api.index.problems };
     const needsPlace = (fx) => fx.scenes.some((s) => s.shape === 'fill' || s.at === 'template' || s.to === 'template');
