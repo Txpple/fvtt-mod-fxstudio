@@ -201,7 +201,16 @@ a module that only plays pictures and sounds and never guesses.
 damage-type-on-landing — three stored fields on cards the reader will already be parsing after the
 port; a moment word each, no new plumbing.
 
-## 7. Rulings asked of the user (2026-09-15)
+## 7. Rulings asked of the user (2026-09-15) — A, B and C RULED the same day
+
+**Given (2026-09-15):** A — adopt dnd5e's verdict. B — **add both shapes in the port** (ring, and wall as the
+line dnd5e places; an emanation came with them, since `radius` maps to one now). C — re-cut the
+moment. And the go: *"yes start, but theres another agent in sandbox, so you cant go in there til you
+have notice."* Built offline the same day: the pin (`1103efc`), the reader and the moment (`64b83b0`),
+the engine's shapes (`fd57e76`), the suites and these docs; seven offline checks green. **Not yet run
+live, not deployed** — the sandbox is another agent's until the user says. Open: C (actor identifiers)
+and D (turn cards) below, for phase 4.
+
 
 - **A — the verdict.** Adopt dnd5e's `evaluatedTargets` as the hit/miss (a target whose AC cannot be
   read, under total cover, is a MISS — the platform's own rule, Battle Flow's ruling 4), or keep the

@@ -28,6 +28,8 @@ files once at ready by a GM's client. The Library's facets are House · Stock, t
 Switched off (Item Hooks went with the hook terms on 2026-09-12; On my actors and Broken assets
 before; Coverage's Errors tile still counts broken assets, without a door). `tools/pull-corpus.mjs` brings the files into the repo. DESIGN §21.
 
+**dnd5e 6.0 (2026-09-15): the port is BUILT OFFLINE and green, NOT yet run live or deployed — read [ASSESSMENT-6.0.md](ASSESSMENT-6.0.md).** The pin is 6.0.0–6.9.99 (no 5.x, the user's word); the reader reads typed cards and `system.*`, dnd5e's own verdict (an unreadable AC a miss, ruling A), the Region's 6.0 stamp (`activity`/`item`/`origin` = the usage TOKEN), effect origins by kind; the moment carries the card (`type`, `data`, `document`, `use`; `flags` is gone, ruling C); ring, emanation and wall are places the fill sizes to (ruling B). **Prod is still dnd5e 5.3.3 on Foundry 14.364 — nothing 6.0-only ships there until prod is upgraded (not ours); the sandbox is 6.0.1 on 14.367 and was ANOTHER AGENT'S when the go was given: enter only on the user's notice.** Still to do when it is free: deploy `--local`, the four live suites, then the release.
+
 **Status (2026-09-13): the one-key model (DESIGN §23) is ON PROD as a working-tree deploy over v0.5.0 (not a tagged release yet), and the sandbox is a fresh copy of prod taken the same day (psfx-patreon and JB2A are prod's now). Thomas wields Midnight; First Light is gone from prod, so its House FX answers nothing until the user keys or deletes it. Before that: v0.3.0 released 2026-09-11 (Battle Flow's moments play),
 with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
 — it is the handoff. Nothing is owed; the user says what is next.**
@@ -251,7 +253,7 @@ Animations 7.0.22 and D&D5e Animations 3.3.0 — **installed but switched OFF on
 2026-09-06 AND OFF ON PROD** (read off prod 2026-09-10 with `configure-modules.mjs --dry-run`: both
 `active=false`; the user: *"aa is disabled on prod, see for yourself"*) — so FX Studio is the only
 thing playing at the table and the cutover of PLAN §6 phase 5 is a fact, not a phase to come; the
-migration still needs AA's sourcemap, so neither is uninstalled · dnd5e 5.3.3 on Foundry 14. AA's world settings hold the
+migration still needs AA's sourcemap, so neither is uninstalled — ⚠ though NEITHER is on the sandbox since the 2026-09-13 refresh from prod (108 Stock sounds under `modules/dnd5e-animations/` fail `check-fx` there; noted 2026-09-15, not ruled on) · dnd5e **6.0.1 on Foundry 14.367 on the sandbox** since 2026-09-15; prod is still 5.3.3 on 14.364. AA's world settings hold the
 1290-row autorec; leave them alone.
 
 ## Prod

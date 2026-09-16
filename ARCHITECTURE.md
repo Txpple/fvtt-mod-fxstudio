@@ -84,7 +84,7 @@ None of those touch the others.
 A moment is a plain record every reader produces the same way:
 
 ```
-{ when, subject, source, targets: [{token, outcome?}], place?, tie?, id, user }
+{ when, kind, subject, source, targets: [{token, hit?, actor?, ac?, name?}], place?, tie?, origin, id, activity, use, type, data, document, user }
 ```
 
 - `when` is one of a closed vocabulary. Now: `use`, `effect`, and **Battle Flow's five** (built
@@ -94,10 +94,18 @@ A moment is a plain record every reader produces the same way:
   (`riposte`, `shield-paid`, `emanation` — when it publishes them), plus core's (`turn-start`,
   `combat-start`, `rest`). Each is a word a sentence can use.
 - `subject` is what acted, with its identity keys (§3).
-- `source` is the acting token; `targets` the targeted tokens, each with its outcome when the
-  moment knows it (an attack knows hit or miss per target from dnd5e's own message).
+- `source` is the acting token; `targets` the targeted tokens — dnd5e's own target record kept
+  whole (the actor, the armour class it read, the name) with `hit` when the moment knows it (an
+  attack knows hit or miss per target: dnd5e 6.0's own verdict, an unreadable AC a miss).
 - `place` is a placed template (a Region), a destination, or nothing.
 - `tie` is the document persistent pictures live and die with (an active effect, a Region).
+- **The moment carries the card it was read from (dnd5e 6.0, 2026-09-15):** `type` (the card's —
+  `attack`, `damage`, `healing`, `usage` — an effect's `base` / `condition` / `enchantment`,
+  `region` for a template, `battleflow`), `data` (the card's system data whole, a template's dnd5e
+  flags, an effect's system data — phase 4's words read their outcomes here, nothing structural),
+  `document` (the live document; a gate may read another module's flag off it), and `use` (the
+  usage card a roll card chains to, a usage card's own id, the card that applied an effect), so one
+  cast's moments know each other. There is no `flags`: nothing of dnd5e's is a flag on a card.
 
 **The timing policy is the reader's, written down once.** A `use` fires as late as the answer is
 known and no later: after the attack roll for attacks (hit and miss known), after the damage roll
@@ -117,8 +125,8 @@ A **gate** is one function, `(moment) => promise | null`, registered by the entr
 through `api.gates.register(name, ask)`. It is asked **once per moment, at read time, before the
 moment plays** — never around the player, so nothing can wait twice. `null` means not held; a
 promise means held, and its resolution decides: truthy plays, `null` or `false` says the thing never
-happened and **nothing plays**. The dispatcher asks; the readers do not (they only carry `activity`
-and `flags` on the moment, so a gate has something to ask by). Nothing registered — which is every
+happened and **nothing plays**. The dispatcher asks; the readers do not (they only carry `activity`,
+`id` and the `document` on the moment, so a gate has something to ask by). Nothing registered — which is every
 table without a module that holds — is the straight road, unchanged: not-installed is not a branch,
 it is the default with an empty registry.
 
@@ -154,8 +162,8 @@ processing, but should have an additional event hook to accept battleflow pushes
 > event's word; the subject is the **item's own keys** when the item resolves (`feature:sneak-attack`,
 > so a look authored for the ability answers) with **`event:<word>` last** (so a look can be keyed to
 > the moment itself); source and targets are the tokens the payload names, `hit` carried when known;
-> `id` is `<messageId>:<event>` (the same message may also carry a `use`); `flags` is **empty by
-> contract** (no Battle Flow flag is read — the payload rides as `event` for a gate or a tool). It goes
+> `id` is `<messageId>:<event>` (the same message may also carry a `use`); **no document and no data
+> ride, by contract** (no Battle Flow flag is read — the payload rides as `event` for a gate or a tool). It goes
 > to the **same dispatcher** as every other reader: the gates are asked, the play switch is honoured,
 > the ledger keeps it. Not installed → the hook never fires → nothing runs. A word this build does not
 > know is a logged skip, so a newer Battle Flow never throws here.
@@ -227,7 +235,7 @@ and which the Editor's **Own key** writes — and the FX for one is keyed to tha
 | `natural` | the identifier (`bite`) | a weapon whose `type.value` is `natural`; the Monster Manual sets it on every attack |
 | `feature` | the identifier (`brutal-strike`) | `system.identifier` |
 | `item` | the identifier (`potion-of-healing`, `greater-potion-of-healing`) | consumables, equipment, tools, loot |
-| `effect` | the effect's name slug, then its origin's key (`spell:shield`) | `ActiveEffect.name`; the item under `system.origin` (dnd5e 6.0: `{item, activity, …}`, `origin` then the activity's uuid), else `origin` (5.3.3: the item's uuid); a compendium-embedded activity is no origin, never a throw |
+| `effect` | the effect's name slug, then its origin's key (`spell:shield`) | `ActiveEffect.name`; the item under `system.origin`, by kind (dnd5e 6.0: the item, the activity's item, the effect it rides — on the item, or that effect's own origin — the region behaviour that applied it, through the region's activity); a compendium-embedded activity is no origin, never a throw |
 | `event` | the event name (`riposte`, `turn-start`) | the reader that emits it |
 
 The only orderings left are between documents, each with its own exact key: the ammunition fired
