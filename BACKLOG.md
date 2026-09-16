@@ -149,6 +149,10 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
   door. (This was filed against a step of the shelved redesign; there is no step waiting for it
   now — it needs the user's word like anything else here.)
 
+## dnd5e 6.0 — what it stores that phase 4 can play from (2026-09-15)
+
+Noted at the user's word (*"lets make note of all of these"*), none of it owed; the list and the four rulings it asks are [ASSESSMENT-6.0.md](ASSESSMENT-6.0.md) §6–7. In one breath: save outcomes and legendary resistance per target, HP deltas and per-type damage after resistances, attack mode (thrown vs strike) and mastery, concentration and death saves as typed cards, spell level and scaling; activity regions carrying item/activity/token/level/dimensions, region behaviours (enter and leave an area as effect moments), emanations that follow their token, ring and wall shapes the engine lacks, effects that expire and delete themselves; teleport, transform and summon as data moments; turn, rest and recharge cards; the origin chain linking every roll card to its usage card. Touching standing rulings, noted as fact: actor identifiers as a key (DESIGN §23), conditions as typed effects (Statuses retired 2026-09-12), the activity name on every card (one item, one key). Shortlist by value per effort: save outcomes, thrown vs melee, damage type on landing.
+
 ## Later phases (PLAN §6)
 
 - Phase 3 is built. Parked from it (DESIGN §8): the prototype's *Automatic* tab (its rules are
