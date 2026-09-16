@@ -104,8 +104,8 @@ export function readMoment(payload, resolve = LIVE) {
     id: `${payload.messageId ?? payload.at ?? 'battleflow'}:${payload.event}`,
     activity: payload.activityUuid ?? null,
     momentId: typeof payload.momentId === 'string' ? payload.momentId : null,
-    // no Battle Flow flag is read, by contract; the payload rides for a gate or a tool that wants the plain facts
-    flags: {}, event: payload,
+    // no Battle Flow flag is read, by contract; the payload rides as `event` for a gate or a tool that wants the plain facts
+    use: payload.messageId ?? null, type: 'battleflow', data: null, document: null, event: payload,
     user: resolve.user(),
   };
 }
@@ -134,7 +134,7 @@ export function battleflowGate(moment) {
   // The card that LIFTS a hold must not wait on it: its createChatMessage hook runs INSIDE the
   // create that releases the hold, so it can see its own hold still open. Battle Flow closes the
   // hold before the create on current builds; this is the belt for older ones.
-  if (moment.flags?.[MODULE]?.metamagic?.chosen) return null;
+  if (moment.document?.flags?.[MODULE]?.metamagic?.chosen) return null;
   const subject = subjectOf(moment);
   if (!subject) return null;
   // Pick the surface, then ask ONCE: `holdFor` answers null meaningfully ("nothing is holding"), so

@@ -43,7 +43,7 @@ const { caster, near, far, other, regions } = T;
 // the fixtures: one FX of one scene against one moment, built and read back
 // ---------------------------------------------------------------------------------------------
 const hit = (token, hit = true) => ({ token, hit });
-const moment = (over = {}) => ({ when: 'use', kind: 'use', subject: { name: 'Test', keys: ['spell:test'] }, source: caster, targets: [], origin: 'Item.test', id: 'm1', activity: null, flags: {}, ...over });
+const moment = (over = {}) => ({ when: 'use', kind: 'use', subject: { name: 'Test', keys: ['spell:test'] }, source: caster, targets: [], origin: 'Item.test', id: 'm1', activity: null, ...over });
 const fxOf = (...scenes) => ({ id: 'fx-test', for: ['spell:test'], on: 'use', scenes });
 /** build one FX (a scene, or a list of scenes) against a moment: {seq, ctx, S: the sections read back, effects, sounds, animations} */
 function built(scenes, over = {}) {

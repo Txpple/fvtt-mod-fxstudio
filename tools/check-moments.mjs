@@ -48,7 +48,8 @@ is('the source is the token the payload named', m?.source, rogueToken);
 is('the target is the token the row named, with its verdict', m?.targets?.[0]?.token === goblinToken && m?.targets?.[0]?.hit === true, true);
 is('the origin is the item (Sequencer stamps and ends by it)', m?.origin, sneak.uuid);
 is('the id is the message and the event (the ledger keys on it; the same message may carry a use)', m?.id, 'msgDamage:sneak');
-is('no Battle Flow flag is read — flags is empty by contract', JSON.stringify(m?.flags), '{}');
+is('no Battle Flow flag is read — no document and no data ride, by contract', JSON.stringify([m?.document, m?.data, m?.type]), '[null,null,"battleflow"]');
+is('the moment knows its use: the message the resolve rode', m?.use, 'msgDamage');
 is('the plain payload rides as `event` for a gate or a tool', m?.event?.messageId, 'msgDamage');
 is('the user is this client — the hook fires where the moment resolved', m?.user, 'user1');
 

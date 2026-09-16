@@ -11,7 +11,7 @@ const { clearGates, gateNames, heldUntil, registerGate, HOLD_BOUND_MS } = await 
 
 let ok = 0, bad = 0;
 const is = (what, got, want) => { const pass = got === want; pass ? ok++ : bad++; console.log(`  ${pass ? '✓' : '✗'} ${what}${pass ? '' : ` — got ${got}, wanted ${want}`}`); };
-const moment = (over = {}) => ({ when: 'use', kind: 'use', subject: { name: 'Fireball' }, id: 'msg1', activity: 'Actor.a.Item.i.Activity.x', flags: {}, ...over });
+const moment = (over = {}) => ({ when: 'use', kind: 'use', subject: { name: 'Fireball' }, id: 'msg1', activity: 'Actor.a.Item.i.Activity.x', document: null, ...over });
 
 console.log('the registry');
 clearGates();
@@ -77,7 +77,7 @@ world({ active: true, api: { holdFor: () => { asks++; return null; }, castHold: 
 battleflowGate(moment());
 is('an un-held moment asks ONE surface once (holdFor’s null is an answer, not a miss)', asks, 1);
 world({ active: true, api: { holdFor: () => promise } });
-is('the card that LIFTS a hold does not wait on it', battleflowGate(moment({ flags: { 'fvtt-mod-battleflow': { metamagic: { chosen: true } } } })), null);
+is('the card that LIFTS a hold does not wait on it', battleflowGate(moment({ document: { flags: { 'fvtt-mod-battleflow': { metamagic: { chosen: true } } } } })), null);
 is('a moment with nothing to ask by: not held', battleflowGate(moment({ activity: null, id: null })), null);
 is('the subject is the activity when there is one', subjectOf(moment()), 'Actor.a.Item.i.Activity.x');
 is('and the document otherwise', subjectOf(moment({ activity: null })), 'msg1');

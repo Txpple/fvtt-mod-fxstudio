@@ -1,19 +1,32 @@
 // A MOMENT is what happened at the table, as plain data every reader produces the same way
 // (ARCHITECTURE §2). Pure: no Foundry here.
 //
-//   { when, subject, source, targets: [{token, hit?}], place?, destination?, tie?, id, user }
+//   { when, kind, subject, source, targets: [{token, hit?, actor?, ac?, name?}], place?, destination?, tie?,
+//     origin, id, activity, use, type, data, document, user }
 //
 //   when         one of WHEN — the kind of moment an FX can answer ("on")
+//   kind         what the reader read: attack | damage | use | template | effect | battleflow | preview
 //   subject      what acted, with its identity keys (core/subjects.js): {keys, name, kind, ...}
 //   source       the acting token (a Token placeable at the table; a plain stand-in in the tools)
-//   targets      the targeted tokens, each with `hit` when the moment knows it (an attack does)
+//   targets      the targeted tokens — dnd5e's own target record kept whole (the actor uuid, the
+//                armour class dnd5e read, the name) with `hit` when the moment knows it (an attack
+//                does: dnd5e's verdict, an unreadable AC a miss)
 //   place        a placed template (a Region document), or absent
 //   destination  a point {x, y} a move already knows (a suite, a preview), or absent: the move asks
 //   tie          the document persistent pictures live and die with (an active effect, a Region)
 //   origin       the uuid Sequencer effects are stamped with (the item's, the effect's)
 //   id           the message or document id (the ledger keys on it)
 //   activity     the dnd5e activity uuid the moment came from, or null (what a GATE asks by)
-//   flags        the flags of the document the moment was read from (a gate may read them)
+//   use          the id of the usage card this moment belongs to (a roll card chains to it, a usage
+//                card is its own, an effect names the card that applied it), or null: one cast's
+//                moments know each other by it
+//   type         the document's own type: a card's (attack | damage | healing | usage), an effect's
+//                (base | condition | enchantment), `region` for a template, `battleflow`, `preview`
+//   data         what the document says, whole: a card's system data, a template's dnd5e flags, an
+//                effect's system data (phase 4's words read their outcomes here; nothing structural)
+//   document     the live document the moment was read from (a gate may read another module's
+//                flag off it), or null
+//   event        a Battle Flow moment only: the plain payload it came from
 
 // A moment may also be HELD: another module can ask this table to wait until an answer is known
 // (core/gates.js). That is the timing policy's other half and nothing here needs to know about it —
