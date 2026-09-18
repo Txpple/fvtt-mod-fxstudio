@@ -66,7 +66,7 @@ export const fixtureUp = async ({ items = [] } = {}) => {
   const prevActive = game.scenes.active?.id ?? null;
   let scene = game.scenes.getName(NAME);
   if (!scene) scene = await Scene.create({ name: NAME, width: 2000, height: 2000, grid: { size: 100, type: 1, distance: 5, units: 'ft' }, padding: 0, background: { color: '#1f2a1f' }, tokenVision: false, fog: { exploration: false }, navigation: false });
-  const mk = async (name, ac) => game.actors.getName(name) ?? await Actor.create({ name, type: 'npc', system: { attributes: { ac: { flat: ac, calc: 'flat' }, hp: { value: 400, max: 400 } } }, prototypeToken: { actorLink: true, name, disposition: 0 } });
+  const mk = async (name, ac) => game.actors.getName(name) ?? await Actor.create({ name, type: 'npc', system: { attributes: { ac: { override: ac }, hp: { value: 400, max: 400 } } }, prototypeToken: { actorLink: true, name, disposition: 0 } });
   const caster = await mk('FX Test Caster', 12);
   const target = await mk('FX Test Target', 1);
   if (canvas.scene?.id !== scene.id) await scene.view();

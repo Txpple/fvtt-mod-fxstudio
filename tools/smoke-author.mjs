@@ -63,7 +63,8 @@ try {
       [tmp] = await caster.actor.createEmbeddedDocuments('Item', [{ name: 'Sharran Step', type: 'spell', system: { level: 2, school: 'con' } }]);
       const sf = api.sentenceFor(tmp);
       ok('§5 the sheet\'s new spell reads back as the sentence', sf.fx?.id === 'sharran-step' && /Sharran Step · when used/.test(sf.sentence), sf.sentence);
-      const m = await ChatMessage.create({ type: 'usage', speaker: ChatMessage.getSpeaker({ actor: caster.actor }), content: tmp.name, system: { activity: { uuid: `${tmp.uuid}.Activity.none`, type: 'utility', id: 'none', name: 'Use', img: tmp.img }, item: { uuid: tmp.uuid, id: tmp.id, type: 'spell', name: tmp.name, img: tmp.img }, targets: [] } });
+      const fakeId = foundry.utils.randomID(); /* 6.0 validates the id: 16 characters, or the card is refused */
+      const m = await ChatMessage.create({ type: 'usage', speaker: ChatMessage.getSpeaker({ actor: caster.actor }), content: tmp.name, system: { activity: { uuid: `${tmp.uuid}.Activity.${fakeId}`, type: 'utility', id: fakeId, name: 'Use', img: tmp.img }, item: { uuid: tmp.uuid, id: tmp.id, type: 'spell', name: tmp.name, img: tmp.img }, targets: [] } });
       await sleep(1200);
       const e = api.ledger.find((x) => x.id === m.id);
       ok('§5 the card resolves it (a move, waiting for its click)', e?.fx === 'sharran-step' && e.source === 'house' && /destination/.test(e.why ?? ''), `${e?.fx} · ${e?.why}`);

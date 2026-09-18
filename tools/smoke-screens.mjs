@@ -516,7 +516,10 @@ try {
       await click('[data-act="cv-scope"][data-scope="books"]');
       ok('§12 the Compendiums scope lists the books as rows to pick, the tiles waiting with "—"', cvRows().length > 0 && !!$('[data-act="cv-book"]') && $('[data-act="cv-check"]')?.disabled === true && tileN().slice(0, 3).join('') === '———', `${cvRows().length} books · ${tileN().join(' · ')}`);
       // the smallest book with enough in it to be worth reading, so the tiles have real numbers
-      const sized12 = cvRows().map((r) => ({ r, n: Number(r.querySelector('.tag')?.textContent) || 0 })).sort((x, y) => x.n - y.n);
+      // … and one that holds ABILITIES: a pack of facilities (the DMG's Bastions, 35 rows, first in DOM order on 6.0) reads as zero of zero, honestly
+      const ABILITY12 = ['spell', 'feat', 'weapon', 'consumable', 'equipment', 'tool'];
+      const holdsAbilities = (id) => { const types = game.packs.get(id)?.metadata?.flags?.dnd5e?.types; return !types || types.some((t) => ABILITY12.includes(t)); };
+      const sized12 = cvRows().map((r) => ({ r, n: Number(r.querySelector('.tag')?.textContent) || 0, id: r.querySelector('.pickbtn')?.dataset.book })).filter((x) => holdsAbilities(x.id)).sort((x, y) => x.n - y.n);
       const smallest = (sized12.find((x) => x.n >= 25) ?? sized12[sized12.length - 1])?.r ?? cvRows()[0];
       await click(smallest.querySelector('.pickbtn'));
       ok('§12 one compendium picked: the button says so', /Check \(1\)/.test($('[data-act="cv-check"]')?.textContent ?? '') && !$('[data-act="cv-check"]').disabled, ($('[data-act="cv-check"]')?.textContent ?? '').trim());
@@ -752,7 +755,7 @@ try {
       await sleep(800);
       const control = sheet.element?.querySelector('.window-header [data-action="fxstudio"]');
       ok('§10 the item sheet carries the FX Studio button in its header', !!control, control ? 'found' : `not found among ${[...(sheet.element?.querySelectorAll('.header-control') ?? [])].map((c) => c.dataset.action).join(', ')}`);
-      const entries = [...sheet._getHeaderControlContextEntries()].map((e) => e.name);
+      const entries = [...sheet._getHeaderControlContextEntries()].map((e) => e.label ?? e.name); // Foundry 14.367 names a dropdown entry by `label`
       ok('§10 the controls dropdown on the sheet lists it too', entries.includes('FX Studio'), entries.join(', '));
       await app.close();
       control?.click();

@@ -59,7 +59,7 @@ try {
     const item = (name) => caster.actor.items.getName(name);
     const activityOf = (name, type) => { const it = item(name); return it ? (type ? it.system.activities.find((a) => a.type === type) : it.system.activities.contents[0]) : null; };
     const aim = async (on = true) => { await target.setTarget(on, { user: game.user, releaseOthers: true }); await sleep(100); };
-    const setAC = async (v) => target.actor.update({ 'system.attributes.ac.flat': v });
+    const setAC = async (v) => target.actor.update({ 'system.attributes.ac.override': v }); // dnd5e 6.0: the forced AC is `override` (5.x's flat + calc: 'flat' is migrated into it)
     // ⚠ Foundry 14 animates the token DOCUMENT's coordinates through a move: wait for the landing
     const moveTo = async (token, x, y = token.document.y) => { await token.document.update({ x, y }, { animate: false }); for (let i = 0; i < 40 && (token.document.x !== x || token.document.y !== y); i++) await sleep(100); await sleep(150); };
     const ledgerFor = (id) => api.ledger.find((e) => e.id === id);
@@ -74,9 +74,9 @@ try {
     const removeTemplate = async (region) => { if (canvas.scene.regions.get(region.id)) await canvas.scene.deleteEmbeddedDocuments('Region', [region.id]); await sleep(600); };
     const files = (e) => (e?.files ?? []).flat().join(', ');
     const named = (e, part) => (e?.files ?? []).flat().some((p) => String(p).includes(part));
-    const usage = async (it) => { const before = game.messages.size; const m = await ChatMessage.create({ type: 'usage', speaker: ChatMessage.getSpeaker({ actor: caster.actor }), content: it.name, system: { activity: { uuid: `${it.uuid}.Activity.none`, type: 'utility', id: 'none', name: 'Use', img: it.img }, item: { uuid: it.uuid, id: it.id, type: it.type, name: it.name, img: it.img }, targets: [] } }); await settle(); void before; return { m, e: ledgerFor(m.id) }; };
+    const usage = async (it) => { const before = game.messages.size; const fakeId = foundry.utils.randomID(); /* 6.0 validates the id: 16 characters, or the card is refused */ const m = await ChatMessage.create({ type: 'usage', speaker: ChatMessage.getSpeaker({ actor: caster.actor }), content: it.name, system: { activity: { uuid: `${it.uuid}.Activity.${fakeId}`, type: 'utility', id: fakeId, name: 'Use', img: it.img }, item: { uuid: it.uuid, id: it.id, type: it.type, name: it.name, img: it.img }, targets: [] } }); await settle(); void before; return { m, e: ledgerFor(m.id) }; };
 
-    const startAC = target.actor.system.attributes.ac.flat;
+    const startAC = target.actor.system.attributes.ac.override;
     try {
       if (want(1)) {
         await aim();
