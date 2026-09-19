@@ -153,6 +153,42 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
 
 Noted at the user's word (*"lets make note of all of these"*), none of it owed; the list and the four rulings it asks are [ASSESSMENT-6.0.md](ASSESSMENT-6.0.md) §6–7. In one breath: save outcomes and legendary resistance per target, HP deltas and per-type damage after resistances, attack mode (thrown vs strike) and mastery, concentration and death saves as typed cards, spell level and scaling; activity regions carrying item/activity/token/level/dimensions, region behaviours (enter and leave an area as effect moments), emanations that follow their token, ring and wall shapes the engine lacks, effects that expire and delete themselves; teleport, transform and summon as data moments; turn, rest and recharge cards; the origin chain linking every roll card to its usage card. Touching standing rulings, noted as fact: actor identifiers as a key (DESIGN §23), conditions as typed effects (Statuses retired 2026-09-12), the activity name on every card (one item, one key). Shortlist by value per effort: save outcomes, thrown vs melee, damage type on landing.
 
+## A quality-assurance pass on the Stock FX — the Web lesson (2026-09-19, the user: "this will be valuable later on")
+
+Parked, not owed; the user names when. The first FX their own testing caught was **Web**, and the way it
+was diagnosed is the method for the pass.
+
+**The symptom.** Gren cast Web on the sandbox and the web never appeared. Fog Cloud beside it played.
+
+**The diagnosis, in order.**
+1. Print the Stock FX for the key (`spell:web`): it was two scenes — a `shoot` with no `to` (so the
+   default, `each-target`) carrying the strands, and a `mark` `at: impact` carrying `jb2a.web.01`.
+2. Read the engine for what those places need: `shoot` to `each-target` returns before any picture when
+   the moment has no targets (engine/shapes/shoot.js), and a mark at `impact` needs a picture to have
+   landed. An area cast at empty ground has no targets, so the whole FX built nothing — the ledger says
+   "nothing to play (no targets …)". Even with targets the web would land on the tokens, not the area.
+3. Read the migration report for where the row came from: `recipes/migration-report.md` shows
+   `spell:web` earned AA's **range** row (strands to the target, the web on it) and that the **templatefx**
+   row (the web on the template) LOST to it in the exception table. The migration kept the first row a
+   key met; for an area spell that was the wrong one.
+4. So the bug was the JSON, not the engine: the FX was authored for a ranged spell, and Web is an area.
+
+**The fix.** The strands `shoot` from `source` **to `template`**, then a `fill` of `jb2a.web.01` at the
+template — `size: {fit: shape}`, `mask: true`, **`persist: template`** so the web stands with the
+Region (and, since DESIGN §24, hides it). Both Web FX (`spell:web`, `feature:web`). The counts did
+not move.
+
+**The lead for the pass.** Every Stock FX whose row was a *range*/*melee* row but whose record is an
+AREA (a template on its activity) is suspect in the same way: the picture lands on targets that an area
+cast may not have. The query that finds the candidates — a `mark` `at: impact` (or a `shoot`/`strike`
+to `each-target`) with no scene at the template — lists 26 today; most are single-target spells and
+right (Guiding Bolt, Finger of Death, Acid Arrow), a few are areas and wrong the way Web was (a bomb, a
+grenade launcher, holy water, Ice Knife's burst). The exception table's lost *templatefx* rows are the
+second lead: each names an area FX the migration never carried. Check each against its record's
+activity target type, re-author the areas as `shoot` to template + `fill` (persist template when the
+spell lasts, once when it bursts), and let the replay suite drive them (tools/smoke-replay.mjs
+`--watch` for a person to see). DESIGN §24 carries the ruling that came with it.
+
 ## Later phases (PLAN §6)
 
 - Phase 3 is built. Parked from it (DESIGN §8): the prototype's *Automatic* tab (its rules are

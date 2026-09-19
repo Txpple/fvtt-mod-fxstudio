@@ -2002,5 +2002,5 @@ caster; noted, not fixed, not ruled on.
 **Web was the JSON, not the engine.** The migrated Stock FX was AA's *range* row — the strands to each
 targeted token and the web where they landed — so with nobody targeted it had nowhere to play, and with
 targets the web landed on tokens, not the area (the *templatefx* row lost to it in the migration's
-exception table). Both Web FX (`spell:web`, `feature:web`) are re-authored: the strands fly to the
+exception table; BACKLOG.md *A quality-assurance pass* keeps the diagnosis step by step as the method for the pass). Both Web FX (`spell:web`, `feature:web`) are re-authored: the strands fly to the
 template, then a fill of `jb2a.web.01` masked to it, persisting with it. The counts did not move.
