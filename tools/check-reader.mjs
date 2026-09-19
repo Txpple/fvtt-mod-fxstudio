@@ -16,7 +16,7 @@ import { join } from 'node:path';
 install();
 const W = world();
 const S = (p) => toUrl(join(REPO, 'scripts', p));
-const { readMessage, readRegion, readEffect, subjectOfItem, subjectOfEffect, electedFor, tokenForActorUuid, tokenFor, tokenOfTarget, speakerToken, usageIdOf, lookup, registerReader } = await import(S('readers/dnd5e.js'));
+const { readMessage, readRegion, readEffect, subjectOfItem, subjectOfEffect, electedFor, tokenForActorUuid, tokenFor, tokenOfTarget, speakerToken, usageIdOf, lookup, registerReader, hideTemplateFor } = await import(S('readers/dnd5e.js'));
 
 const t = harness('the dnd5e reader turns the table into moments as the timing policy says');
 
@@ -226,7 +226,7 @@ if (t.section('the hooks: what is dispatched, what is ended, what is ignored')) 
   console.log = () => {};
   registerReader({ dispatch: (m) => dispatched.push(m), end: (origin, token) => ended.push([origin, token?.name]) });
   W.as(gm);
-  t.same('the reader listens to messages, templates and effects', [...hooks.keys()].sort(), ['createActiveEffect', 'createChatMessage', 'createRegion', 'updateActiveEffect']);
+  t.same('the reader listens to messages, templates (before and after dnd5e creates the Region) and effects', [...hooks.keys()].sort(), ['createActiveEffect', 'createChatMessage', 'createRegion', 'dnd5e.createMeasuredTemplate', 'updateActiveEffect']);
   hooks.get('createChatMessage')(usage(mistyStep));
   t.same('an elected message is dispatched as its moment', [dispatched.length, dispatched[0]?.subject.name], [1, 'Misty Step']);
   hooks.get('createChatMessage')(usage(mistyStep, { author: player }));
@@ -243,6 +243,20 @@ if (t.section('the hooks: what is dispatched, what is ended, what is ignored')) 
     t.is('a template another user placed is theirs', dispatched.length, 2);
     await hooks.get('createRegion')({ id: 'r', flags: {} }, {}, gm.id);
     t.is('a Region that is no template is nothing', dispatched.length, 2);
+  });
+  await t.step('the placement, before the Region exists: a picture that stands for the template hides it', async () => {
+    const fog = { id: 'fog', scenes: [{ shape: 'fill', asset: 'x', persist: 'template' }] };
+    const burst = { id: 'burst', scenes: [{ shape: 'fill', asset: 'x' }] };
+    const data = () => [{ shapes: [], visibility: 2 }, { shapes: [], visibility: 2 }];
+    let d = data();
+    t.same('a fill that persists with the template: every Region of the placement goes to the layer (LAYER = 0), and the FX is asked for as a use with a place', [hideTemplateFor(act(fireball), d, (m) => (m.when === 'use' && m.place && m.subject.keys[0] === 'spell:fireball' ? fog : null)), d.map((r) => r.visibility)], [true, [0, 0]]);
+    d = data();
+    t.same('a once-only fill (a burst): the Region stays as dnd5e made it', [hideTemplateFor(act(fireball), d, () => burst), d.map((r) => r.visibility)], [false, [2, 2]]);
+    d = data();
+    t.same('no FX answers: untouched', [hideTemplateFor(act(fireball), d, () => null), d.map((r) => r.visibility)], [false, [2, 2]]);
+    t.is('no item, no data: nothing', hideTemplateFor(null, [], () => fog), false);
+    hooks.get('dnd5e.createMeasuredTemplate')(act(fireball), d);
+    t.is("the hook is wired with the dispatcher's answers (none here: the Region is left alone)", d[0].visibility, 2);
   });
   const bless = W.effect(caster, { id: 'bless2', name: 'Bless' });
   hooks.get('createActiveEffect')(bless, {}, gm.id);

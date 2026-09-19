@@ -24,6 +24,7 @@
 // WHO PLAYS. One client plays and Sequencer carries the picture to every other client: the
 // card's author for a card, the user who placed the template or created the effect otherwise;
 // the first active GM when the author is not connected.
+import { standsForTemplate } from '../core/corpus.js';
 import { keysFor, subjectOfItemData } from '../core/subjects.js';
 
 const log = (...a) => console.log('FX Studio |', ...a);
@@ -212,8 +213,27 @@ export function readEffect(effect) {
   return { when: 'effect', kind: 'effect', subject: subjectOfEffect(effect), source: token, targets: [{ token }], tie: effect, origin: effect.uuid, id: effect.id, activity: null, use: messageIdOf(sys.origin?.message), type: effect.type ?? 'base', data: sys, document: effect, user: game.user.id };
 }
 
-/** register the hooks; `dispatch(moment)` plays it, `end(origin, token)` ends standing pictures */
-export function registerReader({ dispatch, end }) {
+/**
+ * The placement of an area, before dnd5e creates its Region (its `dnd5e.createMeasuredTemplate`
+ * hook, on the placing client, with the create data): when the FX that will answer has a picture that
+ * STANDS FOR the template — a fill that persists with it: fog, web, a wall — the Region is hidden
+ * from the table (Foundry's LAYER visibility: the GM still finds it on the Regions layer, its
+ * behaviours still run, deleting it still ends the picture) so the picture is what the table sees.
+ * Written into the create data because a Region is the scene's: a player who placed it may not
+ * change it afterwards, and this module has no socket to ask a GM (the user, 2026-09-19).
+ */
+export function hideTemplateFor(activity, regionData, answers) {
+  const item = activity?.item;
+  if (!item || !Array.isArray(regionData) || !regionData.length) return false;
+  const fx = answers({ when: 'use', subject: subjectOfItem(item, { activity }), place: true });
+  if (!fx || !standsForTemplate(fx)) return false;
+  const LAYER = globalThis.CONST?.REGION_VISIBILITY?.LAYER ?? 0;
+  for (const data of regionData) data.visibility = LAYER;
+  return true;
+}
+
+/** register the hooks; `dispatch(moment)` plays it, `end(origin, token)` ends standing pictures, `answers(moment)` names the FX that would play */
+export function registerReader({ dispatch, end, answers = () => null }) {
   const handle = (moment, what) => {
     if (!moment) return;
     if (moment.skip) { log(`${what}: ${moment.skip}`); return; }
@@ -222,6 +242,9 @@ export function registerReader({ dispatch, end }) {
   Hooks.on('createChatMessage', (message) => {
     if (!electedFor(message)) return;
     handle(readMessage(message), `message ${message.id}`);
+  });
+  Hooks.on('dnd5e.createMeasuredTemplate', (activity, regionData) => {
+    if (hideTemplateFor(activity, regionData, answers)) log(`${activity.item?.name}: the picture stands for the template; the Region is hidden from the table`);
   });
   Hooks.on('createRegion', async (region, options, userId) => {
     if (userId !== game.user.id) return;

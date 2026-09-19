@@ -70,6 +70,11 @@ export function needsPlace(fx) {
   return (fx.scenes ?? []).some((s) => { const f = withDefaults(s); return f.shape === 'fill' || f.at === 'template' || f.to === 'template' || f.from === 'template'; });
 }
 
+/** does a picture of this FX STAND FOR the placed template — a fill that persists with it (fog, web, a wall)? */
+export function standsForTemplate(fx) {
+  return (fx?.scenes ?? []).some((s) => { const f = withDefaults(s); return f.shape === 'fill' && f.persist === 'template'; });
+}
+
 /**
  * The FX that answers: the first key with an FX for this moment kind; among those, one that uses
  * the placed template when the moment has one, else one that does not; a house fx that is `off`

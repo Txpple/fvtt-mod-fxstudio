@@ -8,7 +8,7 @@ import { buildIndex } from './core/corpus.js';
 import { heldUntil, registerGate } from './core/gates.js';
 import { registerReader } from './readers/dnd5e.js';
 import { battleflowGate, registerBattleflowReader } from './readers/battleflow.js';
-import { endPicturesOf, play, useSettings } from './engine/render.js';
+import { endPicturesOf, play, resolveMoment, useSettings } from './engine/render.js';
 import { makeApi } from './api.js';
 import { registerScreens } from './ui/index.js';
 
@@ -53,7 +53,7 @@ Hooks.once('init', () => {
   // area raised, and the picture plays when the answer does. Not installed — no gate, no wait.
   registerGate('Battle Flow', battleflowGate);
   const dispatchSafely = (moment) => dispatch(moment).catch((e) => console.error('FX Studio |', e));
-  registerReader({ dispatch: dispatchSafely, end: (origin, token) => endPicturesOf(origin, token) });
+  registerReader({ dispatch: dispatchSafely, end: (origin, token) => endPicturesOf(origin, token), answers: (moment) => resolveMoment(state.index ?? rebuild(), moment).fx });
   // Battle Flow's moments, the other direction (readers/battleflow.js): the resolves that post no
   // card — a maneuver die, Sneak Attack, a hold answered — published on a hook nobody has to listen
   // to. Not installed → the hook never fires; the road it takes here is the same dispatcher.

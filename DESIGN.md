@@ -1973,3 +1973,34 @@ A House FX's note is the user's own words. The validator no longer accepts `to`,
 speaks that grammar; the system's packs are named **SRD 5.2** on every record line (they read
 "dnd5e", a word of ours). Reviewed for the prod deploy and the sandbox refresh that follows: every
 recipe file's header, fields and notes; the nine offline checks and the three live suites green.
+
+## 24. A picture that stands for the template hides the Region (the user's testing, 2026-09-19)
+
+The first thing the user's own 6.0 testing found: *"when i cast persistent AOE effects, like fog cloud
+and web, the template region stays on the ground. it should fade out and leave the vfx showing."*
+dnd5e 6.0 places an area as a Region with ALWAYS visibility, and nothing here had ever touched it, so a
+fog that persists with its template sat on a painted polygon.
+
+**The rule.** When the FX that will answer a placement has a picture that STANDS FOR the template — a
+`fill` with `persist: template` (fog, web, a wall; `standsForTemplate()` in core/corpus.js) — the
+Region is hidden from the table: Foundry's LAYER visibility, so the GM still finds it on the Regions
+layer, the behaviours dnd5e attaches still run, and deleting it (concentration ending, the GM's hand)
+still ends the picture. A once-only fill (a burst) leaves the Region as dnd5e made it. No knob: the
+grammar already says the picture persists with the template, and this is what that means at the
+table.
+
+**Where it is done, and why there.** In dnd5e's own `dnd5e.createMeasuredTemplate` hook, on the
+placing client, by writing `visibility` into the create data (`hideTemplateFor()` in
+readers/dnd5e.js, with the dispatcher's `answers(moment)` naming the FX that would play). Not after
+the picture is up, because a Region is the scene's: dnd5e gives its creator no ownership entry, so a
+player who placed it cannot update or delete it afterwards, and this module has no socket to ask a
+GM. The cost accepted: the Region never shows, not even during a Battle Flow hold on the cast, and
+there is no fade — the area is bare for the half second before the picture lands. The same ownership
+rule means the one Stock `clearTemplate` (a burst that removes its Region) fails silently for a player
+caster; noted, not fixed, not ruled on.
+
+**Web was the JSON, not the engine.** The migrated Stock FX was AA's *range* row — the strands to each
+targeted token and the web where they landed — so with nobody targeted it had nowhere to play, and with
+targets the web landed on tokens, not the area (the *templatefx* row lost to it in the migration's
+exception table). Both Web FX (`spell:web`, `feature:web`) are re-authored: the strands fly to the
+template, then a fill of `jb2a.web.01` masked to it, persisting with it. The counts did not move.

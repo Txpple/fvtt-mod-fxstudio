@@ -1688,19 +1688,23 @@
       "colour": "#dbd8d0",
       "contrast": 1,
       "saturation": -1
-     }
+     },
+     "to": "template"
     },
     {
-     "shape": "mark",
-     "at": "impact",
+     "shape": "fill",
      "asset": {
       "path": "jb2a.web.01"
      },
+     "size": {
+      "fit": "shape"
+     },
+     "mask": true,
+     "persist": "template",
      "elevation": {
       "level": 1199,
       "absolute": false
      },
-     "mask": true,
      "delay": 500
     }
    ]
