@@ -274,7 +274,7 @@ re-run `tools/migrate-aa.mjs --write` **and** `tools/records.mjs --write`.
 
 Prod: FX Studio v0.2.0 active, Battle Flow v1.35.0 active, AA and D&D5e Animations installed and
 **off** (not uninstalled — the migration still reads AA's sourcemap). Read prod's module state with
-`node ../fvtt-mcp-molten5e/scripts/configure-modules.mjs --dry-run --enable <id>` (a read; it
+`node ../fvtt-mcp-dnd5e/scripts/configure-modules.mjs --dry-run --enable <id>` (a read; it
 writes nothing on `--dry-run`).
 
 ## 5. Where to pick up — the pass the user named
@@ -311,8 +311,8 @@ Other things standing, none of them started or owed:
 
 In [CLAUDE.md](CLAUDE.md) in full; the ones this work keeps needing:
 
-- **The sandbox is the test box, never prod.** `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs
-  stop|start|status`; deploy with `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs
+- **The sandbox is the test box, never prod.** `node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs
+  stop|start|status`; deploy with `node ../fvtt-mcp-dnd5e/scripts/deploy-house-module.mjs
   fvtt-mod-fxstudio --local` (while the server is down if `module.json` changed). `recipes/` travels
   with `scripts/ styles/ templates/ lang/`. **A script or recipe edit needs a re-deploy before a
   suite sees it** — the suite drives the browser's copy, not the repo's. ⚠ The deploy script never

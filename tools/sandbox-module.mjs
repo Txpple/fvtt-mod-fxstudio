@@ -2,9 +2,9 @@
 // straight into the world's settings LevelDB while the sandbox is DOWN. Local only — prod's
 // module configuration is changed through Foundry's own screens on the user's word, never here.
 //
-//   node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs stop
+//   node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs stop
 //   node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio [--disable autoanimations,dnd5e-animations]
-//   node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs start
+//   node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs start
 //
 // Foundry scans Data/modules at PROCESS boot, so a module deployed for the first time registers
 // on the next start; this write makes it active in the world on that same start.

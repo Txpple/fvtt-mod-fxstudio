@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-const require = createRequire('file:///D:/Workbench/FVTT/Repos/fvtt-mcp-molten5e/package.json');
+const require = createRequire(import.meta.url) /* classic-level: this repo's own dependency */;
 const { ClassicLevel } = require('classic-level');
 const S = process.argv[2];
 async function dump(name) { const db = new ClassicLevel(`${S}/db/${name}`, { readOnly: true }); await db.open(); const out = []; for await (const [k, v] of db.iterator()) out.push([k, v]); await db.close(); return out; }

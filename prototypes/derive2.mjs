@@ -1,6 +1,6 @@
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
-const require = createRequire('file:///D:/Workbench/FVTT/Repos/fvtt-mcp-molten5e/package.json');
+const require = createRequire(import.meta.url) /* classic-level: this repo's own dependency */;
 const { ClassicLevel } = require('classic-level');
 const S = process.argv[2];
 const rows = JSON.parse(readFileSync(`${S}/fx-recipes.json`, 'utf8'));

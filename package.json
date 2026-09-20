@@ -1,0 +1,15 @@
+{
+  "name": "fvtt-mod-fxstudio",
+  "private": true,
+  "type": "module",
+  "description": "Development tooling for FX Studio. NOTHING HERE SHIPS — the module is plain ES modules loaded straight from scripts/, with no build step; this file declares what tools/ imports.",
+  "devDependencies": {
+    "classic-level": "^1.4.1",
+    "fvtt-mcp-dnd5e": "file:../fvtt-mcp-dnd5e"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "author": "Txpple",
+  "license": "MIT"
+}

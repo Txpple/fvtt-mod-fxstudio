@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-const require = createRequire('file:///D:/Workbench/FVTT/Repos/fvtt-mcp-molten5e/package.json');
+const require = createRequire(import.meta.url) /* classic-level: this repo's own dependency */;
 const { ClassicLevel } = require('classic-level');
 const S = process.argv[2];
 const mode = process.argv[3] ?? 'settings';

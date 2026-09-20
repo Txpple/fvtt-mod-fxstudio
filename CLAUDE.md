@@ -82,12 +82,12 @@ prototype. A phase starts on the user's word, never on a handoff.
 ## Test environment
 
 - **The LOCAL sandbox is the test box**, never prod: a byte copy of the Molten prod world run
-  headless — `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs start|stop|status|restart`. Never
+  headless — `node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs start|stop|status|restart`. Never
   launch the Electron app for suites. Data: `C:\Users\sippelmc\AppData\Local\FoundryVTT\Data`, world
   `the-broken-heart-of-greenrest`. Sandbox: Foundry 14.367, dnd5e 6.0.1, Sequencer 4.2.3, JB2A
   Patreon, PSFX Patreon (`psfx-patreon`). AA and D&D5e Animations are off on prod and absent from
   the sandbox; AA's autorec world setting stays (the migration's input).
-- **Deploy:** `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local`;
+- **Deploy:** `node ../fvtt-mcp-dnd5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local`;
   `--check` byte-compares. A world reload is enough for scripts and recipes; **restart** when
   `module.json` changed (one connected user blocks it — `disconnect-bridge` first). It ships
   `scripts/`, `styles/`, `templates/`, `lang/`, `module.json` and `recipes/`. ⚠ It never deletes.
@@ -105,7 +105,7 @@ prototype. A phase starts on the user's word, never on a handoff.
 - **The live suites:** `smoke-fx` (every FX builds live), `smoke-replay` (families through real
   dnd5e flows; `--watch` to look), `smoke-author`, `smoke-screens` (the window on the DOM),
   `smoke-boot`. They build their own fixture (`tools/lib/suite.mjs`) and clean up; the identity is
-  "Tester Assistant" through `../fvtt-mcp-molten5e/dist/foundry.js`. ⚠ A live compendium is locked
+  "Tester Assistant" through `fvtt-mcp-dnd5e/client` (a `file:../fvtt-mcp-dnd5e` dependency — `npm install` once; `classic-level` is declared here too). ⚠ A live compendium is locked
   while Foundry runs: read packs through `snapshot()` in `tools/lib/leveldb.mjs`. ⚠ Foundry 14
   animates a token document through a move: wait for the landing before measuring.
 
