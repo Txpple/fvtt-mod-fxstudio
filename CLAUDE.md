@@ -1,296 +1,137 @@
 # fxstudio — working notes for sessions in this repo
 
-**What this is.** A house Foundry VTT module that plays visual and sound effects for dnd5e from
-what happened at the table. It keeps Sequencer as the engine and JB2A + PSFX as the libraries,
-and replaces Automated Animations (AA) and the D&D5e Animations preset by carrying their whole
-corpus over losslessly as its stock, with the user's own FX in a house corpus on top, the
-outcome layers AA never had, and three screens that speak in sentences. It never guesses an FX:
-an ability with no FX plays nothing until the user gives it one. **It is a greenfield opportunity
-to do it right: AA was written before Foundry 14 and before assistants, and its architecture is not
-carried — AA's corpus is migrated once so the table does not start from zero, and nothing of its
-practices, vocabulary or model survives in `scripts/` (ruled 2026-09-06, PLAN §0.7,
-[ARCHITECTURE.md](ARCHITECTURE.md)).** Sister of Battle Flow
-(`../fvtt-mod-battleflow`, the rules of the game) and Misc Patches (`../fvtt-mod-miscpatches`):
-same author, same conventions — plain ES modules, no build step, no patching, no libWrapper, no
+**What this is.** A house Foundry VTT module that plays visual and sound effects for dnd5e from what
+happened at the table. Sequencer is the engine, JB2A + PSFX the libraries. It replaced Automated
+Animations (AA) and D&D5e Animations by migrating their corpus once as its Stock, with the user's own FX
+in House on top. **It never guesses: an ability with no FX plays nothing.** Greenfield: nothing of
+AA's architecture, vocabulary or practices survives in `scripts/` (PLAN §0.7, [ARCHITECTURE.md](ARCHITECTURE.md)).
+Sister of Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Misc Patches
+(`../fvtt-mod-miscpatches`): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**NO DRAFT LAYER (the user, 2026-09-12: *"no more concept of draft … either its a file or not"*).**
-An FX is in a file or it is nothing: `recipes/house.json` (this table's; an FX keyed to this
-world's own item lives here) or `recipes/stock/<kind>.json` (the books'). **Save writes the file** in the module folder on
-the server and the corpora are read again; editing a Stock FX asks **House override** (the same id in
-House, which wins; Stock untouched) **or Edit Stock**. Delete takes the FX you see, the winning layer
-only, so deleting an override shows Stock again; **the Library lists BOTH rows** (the override, and the
-Stock FX under it, dimmed "House overrides this") because the override "would be a duplicate of stock,
-not losing stock" (the user, 2026-09-12, v0.4.1). Stage, Ship, the world buffer, `shipped.json`,
-`tools/world-fx.mjs` and `tools/export-fx.mjs` are gone; the old buffer setting is folded into the
-files once at ready by a GM's client. The Library's facets are House · Stock, the six authored kinds
-(Statuses, Damage, Events went — `event` stays in the data layer for Battle Flow's moment keys),
-Switched off (Item Hooks went with the hook terms on 2026-09-12; On my actors and Broken assets
-before; Coverage's Errors tile still counts broken assets, without a door). `tools/pull-corpus.mjs` brings the files into the repo. DESIGN §21.
+**State (2026-09-20).** v0.6.0 released 2026-09-19: **dnd5e 6.0.0–6.9.99 only**, on the sandbox
+byte-identical. **Prod is still dnd5e 5.3.3 on Foundry 14.364 — nothing 6.0-only ships there until
+prod is upgraded (not ours); prod runs the v0.5.0 working-tree deploy of 2026-09-13.** The user is
+testing v0.6.0 on the sandbox by hand and names what is broken; we fix what they name. Nothing is
+owed. Read [NEXT-SESSION.md](NEXT-SESSION.md) — its top block is the handoff.
 
-**dnd5e 6.0 (2026-09-15/18): the port is BUILT, LIVE ON THE SANDBOX and GREEN — read [ASSESSMENT-6.0.md](ASSESSMENT-6.0.md).** The pin is 6.0.0–6.9.99 (no 5.x, the user's word); the reader reads typed cards and `system.*`, dnd5e's own verdict (an unreadable AC a miss, ruling A), the Region's 6.0 stamp (`activity`/`item`/`origin` = the usage TOKEN), effect origins by kind; the moment carries the card (`type`, `data`, `document`, `use`; `flags` is gone, ruling C); ring, emanation and wall are places the fill sizes to (ruling B). On 2026-09-18 it was deployed `--local` (byte-identical, restarted for the pin) and the four live suites passed on Foundry 14.367 / dnd5e 6.0.1 (fx 1019, replay 58/58, author 20/20, screens 199/199; four suite-side lessons in the handoff — a faked card's 16-character activity id, `ac.override`, a dropdown entry's `label`, a book that holds abilities). **THE USER'S OWN TESTING on the sandbox is UNDER WAY (2026-09-19)**; the first finds are fixed there (a fill that persists with its template hides dnd5e's Region from the table — DESIGN §24; Web re-authored as a fill at the template), and **v0.6.0 is RELEASED (2026-09-19, the user: "commit/push/release")** — the pin, the port, Stock 1014, the Region hide, Web as a fill; on the sandbox byte-identical (its process still vends 0.5.0 until a restart the user's session blocks). **Prod is still dnd5e 5.3.3 on Foundry 14.364 — nothing 6.0-only ships there until prod is upgraded (not ours).**
+## The rulings that govern the code (each recorded in DESIGN.md)
 
-**Status (2026-09-13): the one-key model (DESIGN §23) is ON PROD as a working-tree deploy over v0.5.0 (not a tagged release yet), and the sandbox is a fresh copy of prod taken the same day (psfx-patreon and JB2A are prod's now). Thomas wields Midnight; First Light is gone from prod, so its House FX answers nothing until the user keys or deletes it. Before that: v0.3.0 released 2026-09-11 (Battle Flow's moments play),
-with the HOLD live on both ends beside Battle Flow v1.35.0. Read [NEXT-SESSION.md](NEXT-SESSION.md)
-— it is the handoff. Nothing is owed; the user says what is next.**
+- **An FX is in a file or it is nothing (§21).** `recipes/house.json` (this table's, the user's
+  file) or `recipes/stock/<kind>.json` (the books'). Save writes the file on the server; editing a
+  Stock FX asks House override or Edit Stock; Delete takes the winning layer only; the Library lists
+  both an override and the Stock row under it. No draft, stage, ship or world buffer.
+- **Stock is the books; House is this table (§16–17).** A Stock row is keyed against the installed
+  compendia (PHB, MM, DMG, Ravenloft, Heroes of Faerûn, then the system's SRD 5.2 packs; no SRD 5.1)
+  and dnd5e's base weapons, nothing else. `LIST_PACKS` in `tools/lib/dnd5e.mjs` IS the evidence: a
+  new book → add its packs → re-run the migration and `node tools/records.mjs --write`.
+- **One FX answers one key; one key per item, dnd5e's identifier, exact or nothing (§14, §23).**
+  `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
+  no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
+  identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
+  item, never typed. Stock is 1014 FX, House 4. An FX per record playing the same animation as
+  another is the design, not redundancy (§18–19) — never offer to clean it up.
+- **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
+  from `recipes/records.json`; the Library's Record door opens that record.
+- **The grammar is the engine (§22).** A shape's knob list in `core/fx.js` is exactly what its engine
+  file reads; `check-engine` proves it, `check-fx` refuses more; the sheet's cells come from that
+  list. A new knob lands in the engine, KNOBS and check-engine in one commit, never in the sheet
+  first. The data model is otherwise locked.
+- **No shortcuts (§9).** `like` and `with` are out; every FX states its scenes in full; a variant is
+  a full copy (`api.fx.scenesOf(id)`).
+- **A picture that stands for the template hides its Region (§24).** A fill with `persist: template`
+  hides dnd5e 6.0's Region at create time (LAYER visibility); a burst leaves it.
+- **D&D5e Animations is roadkill (2026-09-16).** Every Stock reference to its files was cut; seven
+  FX that were only such a picture are gone (the two walls among them).
+- **Terms, not sentences:** Stock / House, a key, Own key, FX / VFX / SFX, override. The word "look" is
+  retired. No JSON or raw library paths in front of a GM.
 
-**The UI redesign that ran off a Claude Design brief is SHELVED, on the user's word:**
+**The window** (a description, not a plan): four tabs, Library · Editor · Assets · Coverage, 1080px.
+Library (`ui/fxtab.js`): search by name, facets, one list House → Stock, Import/Export top left; a
+row marks itself and has three doors, Record · Delete · Editor. Editor (`ui/sheet.js`): the FX sheet
+— identity, sentence, Key strip (Answers · Item with Own key · Moment · State), the sequence rail and
+band-tabbed inspector; it survives a tab switch. Assets (`ui/library.js`), Coverage (`ui/coverage.js`).
+**The Claude Design redesign is SHELVED** (`shelved/` governs nothing; rollback tag `pre-revamp`
+at `a4c9824` also restores `like`/`with`). No plan drives the UI; the user's judgment does. Known
+and unruled: the window scrolls sideways below ~780px; a modal dialog swallows later clicks.
 
-> *"the ui is buggy as fuck, it has mostly what i want, but i dont want to be burdened by the plan
-> from the html and redesign, which came from claude design. id like to continue the refactor using
-> my own judgment. … shelve the plans to date and radically clean things up. we need another tabula
-> rasa reset where we're going to vet with what we have, fix it and see if we can go fwd, if not
-> we'll go back to the commit before this started."*
+**Parked, not owed** ([BACKLOG.md](BACKLOG.md)): the migration's exception tables
+(`recipes/migration-report.md`), a QA pass on Stock FX (the Web lesson is the method), the assets
+keyed `file`, phase 4 (outcomes and moments, PLAN §6). The user says which, if any.
 
-**No plan drives the UI. The user's judgment does.** `shelved/HANDOFF.md` and
-`shelved/fxstudio6-proposal.html` are history — never instructions, never work to "finish". Do not
-propose the shelved steps, do not cite their rules as authority, and do not start a UI change that
-the user has not named. **The vetting is the user's**: they use it, they say what is broken, we fix
-what they name.
+**The documents.** [PLAN.md](PLAN.md) §0 holds the six locked decisions and the phases;
+[DESIGN.md](DESIGN.md) what was decided while building; [ASSESSMENT-6.0.md](ASSESSMENT-6.0.md) the
+6.0 port and its rulings; [tools/README.md](tools/README.md) the tools; `prototypes/` the ruled
+prototype. A phase starts on the user's word, never on a handoff.
 
-**The rollback point is `a4c9824`, tagged `pre-revamp`** — the UI as it stood after the two in-game
-bug-testing passes, before the redesign. ⚠ Rolling back also **restores `like` and `with` to the
-grammar**, because the no-shortcuts ruling rode in on the first redesign commit (`ce74b8c`) with
-step 2. `shelved/README.md` has the commands and what each redesign commit changed.
+## How the user works
 
-**What the window is today** (this is a description of the code, not a plan): four tabs — **Library (the tab is still keyed `fx` in code; renamed on the user's word 2026-09-08) ·
-Editor · Assets · Coverage**. It opens at 1080px.
-**FX** (`ui/fxtab.js`): its own search, then facets · the rows; one list of every FX grouped
-House → Stock; a search that matches the **name alone** (no dropdown) and, at the top left of its
-row, **Import** and **Export** (Export takes the marked row; the user, 2026-09-13); group heads painted amber; **a row is a name that takes no action when
-clicked** — it marks itself, and its three right-justified doors are **Record** (opens the compendium
-record, or the world item, its key was earned against — ruled 2026-09-08, DESIGN §15), **Delete**
-(red, asks) and **Editor** (a double click does the same). There is no detail pane. **Editor** (`ui/sheet.js`): the FX sheet, where every edit of an FX is made —
-identity + action bar · the sentence · the Key strip (Answers · Item with Own key · Moment · State) ·
-the sequence (a rail, a band-tabbed inspector); `delay` is *Wait before*, `wait` is *Hold next*; **Save writes the
-file** (House; a Stock FX asks: House override or Stock itself); Delete is for good. **Assets** (`ui/library.js`): shelf · stage · paths · Used-in, and the
-picker the sheet's Browse opens. **Coverage** (`ui/coverage.js`): Maintain at the top, then My
-actors · Compendiums, four tiles, and the rows.
-
-**The Editor is a tab, on the user's word (2026-09-07)** — it was a pane over the FX tab at step 5.
-It sits in the strip whether an FX is open or not (empty, it says so and offers New FX), and
-**leaving it does not close it**: walk off to Assets and back and the FX is still there, unsaved
-changes and all. Only opening *another* FX into the sheet asks before dropping them.
-
-**THE BOOKS FIRST, AND A NAME IS THE RECORD'S NAME (the user, 2026-09-08).** `LIST_PACKS` reads the
-PHB, MM, DMG, Ravenloft and Heroes of Faerûn **before** the system's SRD 5.2 `…24` packs, which are
-copies of them (1541 of 1603 share the document id) — so a record names the book it is really from.
-One function, `nameForKey()` in `ui/records.js`, answers what an FX is called on **every** screen,
-from the record: 142 rows read properly that did not (Bigby's Hand, Blindness/Deafness, Ray of
-Frost). ⚠ **An FX per record playing the same animation as another is the DESIGN, not redundancy** —
-do not offer to "clean it up". DESIGN §18–19.
-
-**NO SRD 5.1 (the user, 2026-09-08).** The dnd5e system ships the 2014 SRD beside the 2024 content;
-every pack labelled "(SRD)" was dropped from `LIST_PACKS` and `CREATURE_PACKS`. Stock 1279 → **1022**
-and **the census did not move a line** — nearly all of it was the SRD's magic-weapon variants (Club
-+1, Vicious Dagger), which the base-weapon key answers anyway. DESIGN §17.
-
-**STOCK IS THE BOOKS; HOUSE IS THIS TABLE (the user, 2026-09-08).** A stock row is keyed against the
-installed compendia and dnd5e's base weapons and **nothing else** — this world's own items are not
-evidence for the shipped corpus; a house row may key against them, because house is this world.
-Seven FX had come in that way (the user found `weapon:1-dagger`, which is Jetten's, in Stock); five
-were pure redundancy, and **Vesper Staff and Necrotic Scythe moved into `recipes/house.json`** on
-the user's word, so nothing changed at the table. DESIGN §16.
-
-**ONE FX ANSWERS ONE KEY (the user, 2026-09-08).** An FX's `for` holds one key (none only on a
-starter; an FX with no key plays nothing and is House only). AA's one-namespace shape (a row standing for a spell, a feature and an item at once)
-is not carried: the migration fans a row out into one FX per key it earned, and **a key no list
-holds is not carried at all**. Stock is **1014 FX** since 2026-09-16 (1021 until then; DESIGN §23), one key each (house 4) — **seven Stock FX and 142 sound clauses were ROADKILL** (the user, 2026-09-16: D&D5e Animations *"totally dissolved and removed, as they never had a migration path"*): every scene whose picture or sound was one of that module's files went; Heavenly Wings, Turning to Stone, Ball Bearings, Insect Plague, Tasha's Bubbling Cauldron, Wall of Ice and Wall of Stone were nothing but such a picture and are gone from Stock — they play nothing until someone gives them an FX (the two walls are the new `wall` shape's first customers). The 351 rows no list
-holds and the 82 keys a row lost to an earlier one are EXCEPTION tables in
-`recipes/migration-report.md`. The census did not move: 694 of 736 abilities answer as under AA,
-exactly as before the cut. PLAN §0.1–2 carry the amendment; DESIGN §14 is the record.
-
-⚠ **`LIST_PACKS` in `tools/lib/dnd5e.mjs` IS the evidence**, so a book missing from it silently
-deletes corpus. Audited 2026-09-08 (it was missing `dmg/equipment`, Ravenloft's items and options,
-and Heroes of Faerûn entirely). **Install a new book → add its packs there → re-run the migration
-AND `node tools/records.mjs --write`** (the records stand on the same evidence, DESIGN §15).
-
-**`recipes/house.json` is the USER'S file**: `migrate-aa.mjs` no longer writes it (it offers
-`dist/house-from-migration.json` instead), and it holds **two custom swords keyed to their items' own identifiers** —
-First Light and Goldthorn — after the user cut the rest on 2026-09-08.
-
-**ONE KEY PER ITEM, DND5E'S IDENTIFIER, EXACT OR NOTHING (the user, 2026-09-12, DESIGN §23).** Global
-Hook and Item Hook are GONE — *"thats the old AA way of thinking"*. An item has exactly one key,
-`<kind>:<identifier>` (dnd5e's `system.identifier`, else dnd5e's formatting of the name), and an FX
-holds it or the item plays nothing: no name forms, no base-weapon rung, no activity suffix, no flag of
-ours on any item. Two copies of an item that should differ carry different identifiers — the Editor's
-**Own key** writes one (dnd5e's field, travels with the item) and turns the sheet into a House FX for
-that key alone. The name forms live in the migration only (`tools/lib/migrate/keys.mjs`), where a
-qualified record ("Potion of Healing (Greater)") meets the plain label once and gets its own FX.
-Stock 1021 (1022 → 1005 when 22 second spellings of keys Stock already held went and 5 records came;
-→ 1021 on 2026-09-13 when the 36 documents the SRD 5.2 ships under ANOTHER identifier than the book's
-— "Melf's Acid Arrow" is `melfs-acid-arrow` in the PHB and `acid-arrow` in the system — earned both
-keys, one FX per record); the party census unmoved at 134 of 225. **The Editor's Answers is one key**
-(2026-09-13): one pill, the search REPLACES it, from the abilities on actors and from the records
-address book — a key is earned from a record or an item, never made from a typed name (New ability
-and its Type pills are gone); a new sheet keyed to a key an FX already answers takes that FX's id
-and says so (Save asks House override or Stock when it is Stock); Duplicate opens with no key. **Prod needs three item identifiers on the user's word** (Thomas's First
-Light `first-light`, Jetten's Goldthorn `goldthorn`, Cadoc's Necrotic Scythe `necrotic-scythe`) —
-set on the sandbox 2026-09-12; until then those three play their base weapon's Stock FX on prod.
-
-**THE GRAMMAR IS THE ENGINE (the user, 2026-09-12, DESIGN §22).** A shape's knob list in `core/fx.js` is exactly what its engine file reads, `check-engine` proves it and `check-fx` refuses a file that says more; the sheet's cells come from that list. A new knob lands in the engine line, KNOBS and a check-engine line in one commit, never in the sheet first. The data model is otherwise locked: additive `on` words for phase 4, nothing structural.
-
-**The rulings that stand on their own, independent of the shelved plan:** NO SHORTCUTS — `like` and
-`with` are out of the grammar, every FX states its scenes in full, and a variant is a full copy
-(`api.fx.scenesOf(id)` hands you the scenes to copy). Terms, not sentences: Stock / House,
-a key, Own key (Global Hook / Item Hook went on 2026-09-12). FX / VFX / SFX. No JSON or raw library paths in front of a GM. It
-never guesses: an ability with no FX plays nothing.
-
-**Known and unfixed, found by driving the window on 2026-09-07** — offered, not owed, and the user
-has not ruled on either: the window **scrolls sideways below about 780px** on every tab, and
-**a modal dialog swallows every later click** (Back from an unsaved new sheet opens the leave guard;
-anything clicked while it is up does nothing).
-
-**NEXT: the migrated data, on the user's word.** Read [NEXT-SESSION.md](NEXT-SESSION.md) first —
-it is the handoff. Candidates, none of them started or owed: reading the exception lists and
-re-making by hand what is wanted, the 502 migrated assets keyed `file` (BACKLOG), phase 4 (outcomes
-and moments, PLAN §6). Cutover is DONE on prod (AA off; v0.2.0 deployed 2026-09-10). **Wait for them
-to say which.**
-
-**The documents.** Read [PLAN.md](PLAN.md) first; §0 holds the six locked decisions (whole corpus as
-stock, zero loss measured, GPL stock shipped with attribution, house corpus, no guessing,
-improvements in scope), then the architecture, the measured facts, the lossless AA import with its
-parity proof and matching census, Battle Flow's part, and five phases with an exit measurement
-each. [DESIGN.md](DESIGN.md) holds what was decided while building (the row, the private Sequencer
-table `fxstudio.aa.*` and why, the matching rules, and §6: the moments, who plays, the presets,
-the ledger; §7: phase 2 — the proof, where every AA option went, the keys, the frozen table); [BACKLOG.md](BACKLOG.md) what is parked;
-`recipes/migration-report.md` the census the user reads before cutover; [tools/README.md](tools/README.md)
-the tools. `recipes/records.json` (`tools/records.mjs`) addresses every key the closed lists hold —
-what the Record door opens; read when the window opens, never by the engine. `prototypes/` holds the investigation's scripts and the clickable prototype the user
-ruled the shape on ("it reads right"); `shelved/` holds the redesign brief and its screens, which
-govern nothing. Each phase ends at a check-in; the next phase starts on the user's word, never on a
-handoff or a plan — which is the rule the shelved redesign broke.
-
-## How the user works (standing rules, learned in the sister repos)
-
-- **Greenfield, checked every time (the user, 2026-09-06).** We intentionally do not inherit AA's
-  legacy architecture or practices. Every time you read this, stop and ask: *what am I doing right
-  now, does it follow that principle, and am I adopting AA's shape out of convenience?* Cross-check
-  against the tells in [ARCHITECTURE.md](ARCHITECTURE.md) §0 (a rule about names, an AA option
-  carried verbatim, a concept that exists only because AA had it, an engine branch on a row, a
-  special case for one look, "same representation because it is easier to prove"). Phase 1 is the
-  proof it happens by default: the plan carried AA's rows because they were in front of us.
-
-- **Wait for "go".** Investigate, prototype and plan freely; build only when told. One green
-  pass, then check in at every break point.
-- **The vetting is the user's (2026-09-07, the reset).** They use the thing and say what is broken;
-  we fix what they name. Do not go hunting for bugs unbidden, do not drive the window with a script
-  to form an opinion about it, and do not offer a list of improvements as though it were work owed.
-  A plan is not a mandate: the redesign was shelved precisely because it started driving the work
-  instead of the user.
-- **A big diff for no behaviour change is not clean-up.** Renaming things across the codebase to
-  match a document, or churning test names, costs the user review time and buys nothing. Clean up
-  what is wrong, not what is merely named oddly.
-- **UI questions get a clickable prototype first** (an HTML artifact); the user rules off it,
-  then says go. The ruled prototype's source is `prototypes/fxstudio2.template.html` and the
-  live artifact was https://claude.ai/code/artifact/33a2e286-f1fe-4358-a407-16e7ef0ea316.
-- **Vocabulary (2026-09-06).** An *FX* is what the corpus holds and what plays: a *VFX* is the picture, an *SFX* the sound, an *override* is the user's FX over the main corpus. The word "look" is retired everywhere (screens, code, recipes, tools); if the UI changes, the back end changes with it — the user wants no drift between the two.
-- **Plain language, signal over detail.** Summaries in sentences; parked work is never presented
-  as owed work. No JSON in anything a non-technical GM sees.
-- **A named ability in the user's ask illustrates a class.** "Sharran Step like Misty Step but
-  black" is the variant workflow, not a one-off — and *like* there is ordinary English, not a
-  reference: it means **copy the whole of Misty Step and change the colour**. There are no
-  shortcuts in the grammar (ruled 2026-09-07, DESIGN §9); reading that example as a pointer is the
-  drift that produced `like`/`with` in the first place.
-- **Docs are the state.** Keep PLAN.md current; when something ships, write the same doc set the
-  sisters keep (README, a design/architecture note, a backlog of what is parked and why).
+- **Greenfield, checked every time.** Before adopting a shape, ask: is this AA's, taken out of
+  convenience? The tells are in ARCHITECTURE.md §0.
+- **Wait for "go".** Investigate and plan freely; build when told; one green pass, then check in.
+- **The vetting is the user's.** They use it and say what is broken; we fix what they name. Don't
+  hunt bugs unbidden, don't drive the window to form an opinion, don't present a list of improvements
+  as owed work.
+- **A big diff for no behaviour change is not clean-up.**
+- **UI questions get a clickable prototype first** (an HTML artifact); the user rules off it.
+- **A named ability illustrates a class** ("Sharran Step like Misty Step but black" is the variant
+  workflow: copy the whole FX and change the colour).
+- **Plain language, signal over detail. Docs are the state**: keep the doc set current; when
+  something is decided, write it down where the next session reads it.
 
 ## Test environment
 
-- **The LOCAL sandbox is the test box**, never prod. It is a byte copy of the Molten prod world,
-  run headless: `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs start|stop|status|restart`.
-  Never launch the Electron app for suites. Data lives at
-  `C:\Users\sippelmc\AppData\Local\FoundryVTT\Data` (world `the-broken-heart-of-greenrest`).
-- **Deploy to the sandbox:** `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs
-  fvtt-mod-fxstudio --local`, then **restart** the sandbox when `module.json` changed (a new
-  setting, a new file in `esmodules`, a new version); a world reload is enough for script edits.
-  Deploy while the server is down, then start — that satisfies the script-cache discipline.
-  ⚠ The deploy script ships `scripts/`, `styles/`, `templates/`, `lang/` and `module.json`; this
-  module also serves **`recipes/`** (fetched at boot), which must travel too — see tools/README.md.
-  ⚠ **It never deletes.** A file removed from the repo lingers on the sandbox until someone
-  byte-compares (a stale `scripts/core/looks.js` rode along from the vocabulary rename until
-  2026-09-08).
-  The module is registered and enabled on the sandbox since 2026-09-06 (`tools/sandbox-module.mjs`
-  writes `core.moduleConfiguration` offline; a refresh wipes that as well as the files).
-- **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes locally deployed modules, the module's
-  enabled flag, Battle Flow's test fixtures, **and the module folder — every FX saved in the game
-  that has not been pulled into the repo** (Save writes `recipes/house.json` and `recipes/stock/*.json`
-  in the module folder on the server; there is no world buffer since 2026-09-12). The routine (the
-  user, 2026-09-09: *"i dont want to lose any work"*): **before** — `node tools/pull-corpus.mjs --write`
-  and commit; **after, sandbox stopped** — deploy `--local`, `node tools/sandbox-module.mjs --enable
-  fvtt-mod-fxstudio`; then start. Re-deploy after every refresh. The user wants the sandbox an
-  EXACT copy of prod after a refresh: add fixtures (`node
-  ../fvtt-mod-battleflow/tools/fixture-suite.mjs`) only when a suite run is asked for, and say so.
-- **Two MCP bridges, two worlds.** `foundry-local5e` is the sandbox (localhost:30000).
-  ⚠ `foundry-molten5e` is **PROD** — reading is harmless, writing is a prod change; never write
-  there without the user's word. Both worlds share ids, so a `get-world-info` tells them apart
-  only by Foundry version and who is connected. `disconnect-bridge` before a suite or a restart:
-  one connected user blocks the restart.
-- **The suites here** are `tools/smoke-fx.mjs` (every FX builds live), `tools/smoke-author.mjs` (the assistant's round trip), `tools/smoke-screens.mjs` (the window driven on the DOM) and
-  `tools/smoke-replay.mjs` (every family through real dnd5e flows; `--watch` for a person to
-  compare with AA); both build and tear down their own fixture (`tools/lib/suite.mjs`), so no
-  Battle Flow fixtures are needed. `tools/check-imports.mjs`, `check-layers.mjs`, `check-legacy.mjs`, `check-gates.mjs` (the hold contract), `check-moments.mjs` (Battle Flow's moment payloads), `check-engine.mjs` (every shape, place and the play path on the offline stage) and `check-reader.mjs` (the dnd5e reader's timing policy on a stand-in world) after any edit under `scripts/`; `check-fx.mjs` and `check-build.mjs` (every FX builds offline) after any edit under `recipes/`. The nine are the release gate (`build-release.ps1`). Built 2026-09-12; the stand-ins live in `tools/lib/stage.mjs` and `world.mjs`, which is where a data-model change lands first.
-  ⚠ Foundry 14 animates a token DOCUMENT's coordinates through a move: wait for the landing
-  before measuring anything from it (the suite's `moveTo`).
-- **Suites** go in `tools/` and use the MCP repo's Foundry client
-  (`../fvtt-mcp-molten5e/dist/foundry.js`, credentials from its `.env`; the suite identity is
-  "Tester Assistant"). Follow Battle Flow's `tools/README.md` pattern: section-filterable, every
-  suite restores what it touched and deletes its own chat messages.
-- ⚠ **A live compendium is LOCKED while Foundry runs.** Read a pack through `snapshot(dir, tag)`
-  (`tools/lib/leveldb.mjs`), never the pack directory itself.
-- **Reading the world offline** (no Foundry needed, as the investigation did): copy a LevelDB
-  folder (`data/settings`, `data/actors`, a module's `packs/<name>`) to a scratch dir and read
-  it with `classic-level` from `../fvtt-mcp-molten5e/node_modules`; see `prototypes/read-db.mjs`.
-  The libraries' registration files evaluate in plain node: `modules/jb2a_patreon/scripts/
-  jb2a_sequencer.js` (call `jb2aPatreonDatabase('modules')`) and `modules/psfx/scripts/
-  psfx_sequencer.js` (`registerPSFXDatabase('modules/psfx')`); see `prototypes/derive.mjs`.
-
-## What is installed on the sandbox (mirrors prod, 2026-09-05)
-
-Sequencer 4.2.3 · JB2A Patreon 0.9.2 (209 styles, 10052 database paths, registers `jb2a.*`) ·
-PSFX Patreon 0.17.0 as module id `psfx-patreon` (1230 paths, registers `psfx.*`; on the sandbox too since the 2026-09-13 refresh) · Automated
-Animations 7.0.22 and D&D5e Animations 3.3.0 — **installed but switched OFF on the sandbox since
-2026-09-06 AND OFF ON PROD** (read off prod 2026-09-10 with `configure-modules.mjs --dry-run`: both
-`active=false`; the user: *"aa is disabled on prod, see for yourself"*) — so FX Studio is the only
-thing playing at the table and the cutover of PLAN §6 phase 5 is a fact, not a phase to come; the
-migration still needs AA's sourcemap, so neither is uninstalled — ⚠ though NEITHER is on the sandbox since the 2026-09-13 refresh from prod, and D&D5e Animations is DISSOLVED for good (the user, 2026-09-16, roadkill): every Stock reference to its files was cut, `check-fx` is green again · dnd5e **6.0.1 on Foundry 14.367 on the sandbox** since 2026-09-15; prod is still 5.3.3 on 14.364. AA's world settings hold the
-1290-row autorec; leave them alone.
+- **The LOCAL sandbox is the test box**, never prod: a byte copy of the Molten prod world run
+  headless — `node ../fvtt-mcp-molten5e/scripts/local-foundry.mjs start|stop|status|restart`. Never
+  launch the Electron app for suites. Data: `C:\Users\sippelmc\AppData\Local\FoundryVTT\Data`, world
+  `the-broken-heart-of-greenrest`. Sandbox: Foundry 14.367, dnd5e 6.0.1, Sequencer 4.2.3, JB2A
+  Patreon, PSFX Patreon (`psfx-patreon`). AA and D&D5e Animations are off on prod and absent from
+  the sandbox; AA's autorec world setting stays (the migration's input).
+- **Deploy:** `node ../fvtt-mcp-molten5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local`;
+  `--check` byte-compares. A world reload is enough for scripts and recipes; **restart** when
+  `module.json` changed (one connected user blocks it — `disconnect-bridge` first). It ships
+  `scripts/`, `styles/`, `templates/`, `lang/`, `module.json` and `recipes/`. ⚠ It never deletes.
+- **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes the module folder and every FX saved
+  in the game. Before: `node tools/pull-corpus.mjs --write` and commit. After, sandbox stopped:
+  deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`, start. Add Battle
+  Flow fixtures only when a suite run is asked for, and say so.
+- **Two MCP bridges.** `foundry-local5e` is the sandbox (localhost:30000). ⚠ `foundry-molten5e` is
+  **PROD**: never write there without the user's word. Both share ids; `get-world-info` tells them
+  apart by version and who is connected.
+- **The gate:** nine offline checks in `tools/` — `check-imports`, `check-layers`, `check-legacy`,
+  `check-gates`, `check-moments`, `check-engine`, `check-reader` after any edit under `scripts/`;
+  `check-fx`, `check-build` after any edit under `recipes/`. `build-release.ps1` runs them. Stand-ins
+  live in `tools/lib/stage.mjs` and `world.mjs`; a data-model change lands there first.
+- **The live suites:** `smoke-fx` (every FX builds live), `smoke-replay` (families through real
+  dnd5e flows; `--watch` to look), `smoke-author`, `smoke-screens` (the window on the DOM),
+  `smoke-boot`. They build their own fixture (`tools/lib/suite.mjs`) and clean up; the identity is
+  "Tester Assistant" through `../fvtt-mcp-molten5e/dist/foundry.js`. ⚠ A live compendium is locked
+  while Foundry runs: read packs through `snapshot()` in `tools/lib/leveldb.mjs`. ⚠ Foundry 14
+  animates a token document through a move: wait for the landing before measuring.
 
 ## Prod
 
-Deployed with the same script without `--local`, **only on the user's explicit say-so**. A
-module.json change needs the prod process restarted, which is not ours to do. Never force-reload
-the user's prod window. Prod parity is a measurement: `deploy-house-module.mjs fvtt-mod-fxstudio
---check` byte-compares.
+Same deploy script without `--local`, **only on the user's explicit say-so**. A `module.json` change
+needs the prod process restarted, which is not ours. Never force-reload the user's prod window.
 
-## Licence rule (measured 2026-09-05)
+## Licence
 
-D&D5e Animations is **GPL-3**. The user ruled (2026-09-06) that its whole corpus is the stock,
-carried over with **zero loss**, and ships in this repo: `recipes/stock.json` is a separate work
-under GPL-3 with `recipes/STOCK-LICENSE` and attribution to MrVauxs and Sisimshow (D&D5e
-Animations 3.3.0); the code, rules and the user's own `recipes/house.json` stay MIT. Nothing in the
-stock is retired to a rule, and there are no rules in scope: the derivation rules the
-investigation tested are parked, off, never owed (PLAN §7). Two corpora, later wins: stock →
-house (+ the world setting as the live edit buffer). See PLAN §0, §3.1, §4.
-AA's Sequencer chains are MIT and may be vendored with attribution. Sequencer is used through its
-public API only — presets, custom sections, our own database namespace — never patched.
+D&D5e Animations is GPL-3: `recipes/stock/*` is a separate work under GPL-3 with
+`recipes/STOCK-LICENSE` and attribution (MrVauxs, Sisimshow); code and `house.json` stay MIT.
+Sequencer is used through its public API only, never patched.
 
-## Battle Flow relationship
+## Battle Flow
 
-Zero dependency either way. Battle Flow emits a small set of public hooks at its resolve
-points (`battleflow.moment`, a plain payload — its ARCHITECTURE §7 *The moment events*, built
-2026-09-11; **version 2 the same day is a GATE over its records: seventeen words, `kind` / `momentId`
-on the payload, every resolve published** — this module reads `BATTLEFLOW_WORDS`, a closed list of
-five, and skips the rest INCLUDING `use` and `effect`, which the card readers already play; a
-`momentId` ticket plays once per client (v0.3.1, 2026-09-11), ARCHITECTURE §2); fxstudio listens in `readers/battleflow.js` and never reads Battle Flow's
-internal message flags. Not installed → the hook never fires; the hold gate answers null. Both are
-feature-detected, neither is required, neither is in the manifest. Anything that is a rule of the game belongs to Battle
-Flow; anything that is a platform fix belongs to Misc Patches; this module only plays pictures
-and sounds.
+Zero dependency either way. Battle Flow publishes `battleflow.moment` (a plain payload); this module
+reads a closed list of five words (`BATTLEFLOW_WORDS`) in `readers/battleflow.js`, plays a `momentId`
+once, and honours Battle Flow's hold through the gate in `core/gates.js`. Neither is required nor in
+the manifest. Rules of the game belong to Battle Flow, platform fixes to Misc Patches; this module
+only plays pictures and sounds.
 
-## Release ritual (as the sisters do it)
+## Release ritual
 
-Bump `version` AND the `download` URL in `module.json` together, one `release:` commit, tag
-`vX.Y.Z`, push with tags, `gh release create vX.Y.Z` with a zip of `module.json` + `scripts/` (+
-`recipes/`, `styles/`, `templates/` once they exist; forward-slash entry names — see Battle
-Flow's `tools/build-release.ps1` for why) and a bare `module.json`.
+Bump `version` and the `download` URL in `module.json` together, one `release:` commit, tag
+`vX.Y.Z`, push main and the tag (a lightweight tag needs `git push origin vX.Y.Z`), then
+`powershell -ExecutionPolicy Bypass -File tools/build-release.ps1` (runs the gate, writes the zip
+with forward-slash entries) and `gh release create vX.Y.Z --notes-file dist/RELEASE-NOTES.md
+dist/fvtt-mod-fxstudio.zip module.json`. Notes are hand-written in `dist/` for a public page.
