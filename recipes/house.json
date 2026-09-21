@@ -5,8 +5,9 @@
   "tool": "curated by hand",
   "licence": "MIT, except Vesper Staff and Necrotic Scythe, derived from D&D5e Animations (GPL-3, see STOCK-LICENSE)",
   "note": "This table’s own FX: one key each, the item’s identifier. Save writes this file; tools/pull-corpus.mjs brings it into the repo. Never written by the migration.",
-  "fx": 5,
-  "written": "2026-09-13"
+  "fx": 7,
+  "written": "2026-09-16",
+  "erased": "2026-09-16"
  },
  "fx": [
   {
@@ -176,6 +177,59 @@
    "note": "copied from Guiding Bolt",
    "by": "Matt the DM",
    "at": "2026-09-13"
+  },
+  {
+   "id": "greatsword",
+   "for": [
+    "weapon:greatsword"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepGreatsword",
+    "name": "Greatsword",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.greatsword.melee.fire.orange"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "start": 650
+     }
+    }
+   ],
+   "note": "copied from Greatsword",
+   "by": "Matt the DM",
+   "at": "2026-09-16"
+  },
+  {
+   "id": "maul",
+   "for": [
+    "weapon:maul"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMaul000000",
+    "name": "Maul",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.maul.melee.standard.white"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 250
+     }
+    }
+   ],
+   "by": "Matt the DM",
+   "at": "2026-09-16"
   }
  ]
 }
