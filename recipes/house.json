@@ -5,8 +5,8 @@
   "tool": "curated by hand",
   "licence": "MIT, except Vesper Staff and Necrotic Scythe, derived from D&D5e Animations (GPL-3, see STOCK-LICENSE)",
   "note": "This table’s own FX: one key each, the item’s identifier. Save writes this file; tools/pull-corpus.mjs brings it into the repo. Never written by the migration.",
-  "fx": 7,
-  "written": "2026-09-16",
+  "fx": 9,
+  "written": "2026-09-21",
   "erased": "2026-09-16"
  },
  "fx": [
@@ -230,6 +230,66 @@
    ],
    "by": "Matt the DM",
    "at": "2026-09-16"
+  },
+  {
+   "id": "rend",
+   "for": [
+    "natural:rend"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAdultBlackDrag.Item.mmRend0000000000",
+    "name": "Rend",
+    "where": "Monster Manual · Actors",
+    "on": "Adult Black Dragon",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.creature.dragons.attacks.rend.fire"
+     }
+    }
+   ],
+   "by": "Matt the DM",
+   "at": "2026-09-21"
+  },
+  {
+   "id": "noxious-miasma",
+   "for": [
+    "feature:noxious-miasma"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNoxiousMiasma0",
+    "name": "Noxious Miasma",
+    "where": "Monster Manual · Features"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.fog_cloud.02.green"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.6,
+     "persist": "template",
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     }
+    }
+   ],
+   "by": "Matt the DM",
+   "at": "2026-09-21"
   }
  ]
 }
