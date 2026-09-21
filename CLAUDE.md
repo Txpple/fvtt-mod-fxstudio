@@ -10,8 +10,9 @@ Sister of Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Misc
 socketlib, MIT.
 
 **State (2026-09-20).** v0.6.0 released 2026-09-19: **dnd5e 6.0.0–6.9.99 only**, on the sandbox
-byte-identical. **Prod is still dnd5e 5.3.3 on Foundry 14.364 — nothing 6.0-only ships there until
-prod is upgraded (not ours); prod runs the v0.5.0 working-tree deploy of 2026-09-13.** The user is
+byte-identical. **Prod was upgraded to dnd5e 6.0 and v0.6.0 was DEPLOYED there 2026-09-21, byte-identical** (its
+process vends 0.6.0 after its next restart). **Prod's house.json is canonical**: pull it before any deploy
+(two overrides saved there on 2026-09-16, greatsword and maul, were pulled in first). The user is
 testing v0.6.0 on the sandbox by hand and names what is broken; we fix what they name. Nothing is
 owed. Read [NEXT-SESSION.md](NEXT-SESSION.md) — its top block is the handoff.
 
@@ -111,7 +112,9 @@ prototype. A phase starts on the user's word, never on a handoff.
 
 ## Prod
 
-Same deploy script without `--local`, **only on the user's explicit say-so**. A `module.json` change
+Same deploy script with `FOUNDRY_HOST=molten` and no `--local`, **only on the user's explicit say-so**;
+`--check` first, and if `recipes/house.json` differs, fetch prod's copy and `pull-corpus --from` it before
+deploying — prod's House is the user's live work. A `module.json` change
 needs the prod process restarted, which is not ours. Never force-reload the user's prod window.
 
 ## Licence
