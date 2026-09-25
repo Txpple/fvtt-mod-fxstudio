@@ -55,7 +55,7 @@ round trip through the API — write, validate, read as a sentence, preview, sav
 the House override — is green (`tools/smoke-author.mjs`), and the screens are driven on the DOM,
 the Stock choice included (`tools/smoke-screens.mjs`). A move is a teleport: the token is placed with
 Foundry's own teleport action across walls and creatures, and the spot is judged by the spell's
-words first — an unoccupied space the caster can see (Misc Patches' teleport patch, carried here). Phase 4, the outcomes and Battle Flow's moments, starts on
+words first — an unoccupied space the caster can see. Phase 4, the outcomes and Battle Flow's moments, starts on
 the user's word. Read [PLAN.md](PLAN.md) for the phases, [DESIGN.md](DESIGN.md) for what was
 decided while building, [BACKLOG.md](BACKLOG.md) for what is parked, and the migration report for
 what the user reads before cutover. `prototypes/` holds the investigation's scripts and the
@@ -67,5 +67,5 @@ licensed GPL-3 (see `recipes/STOCK-LICENSE`); it is carried over whole so nothin
 Automated Animations is lost.
 
 Sister of [Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) and
-[Misc Patches](https://github.com/Txpple/fvtt-mod-miscpatches); same author, same conventions:
+[Vendor Fixes](https://github.com/Txpple/fvtt-mod-vendorfixes); same author, same conventions:
 plain ES modules, no build step, no patching, MIT.

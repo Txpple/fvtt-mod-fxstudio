@@ -5,8 +5,8 @@ happened at the table. Sequencer is the engine, JB2A + PSFX the libraries. It re
 Animations (AA) and D&D5e Animations by migrating their corpus once as its Stock, with the user's own FX
 in House on top. **It never guesses: an ability with no FX plays nothing.** Greenfield: nothing of
 AA's architecture, vocabulary or practices survives in `scripts/` (PLAN §0.7, [ARCHITECTURE.md](ARCHITECTURE.md)).
-Sister of Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Misc Patches
-(`../fvtt-mod-miscpatches`): plain ES modules, no build step, no patching, no libWrapper, no
+Sister of Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Vendor Fixes
+(`../fvtt-mod-vendorfixes`, which replaced Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
 **State (2026-09-20).** v0.6.0 released 2026-09-19: **dnd5e 6.0.0–6.9.99 only**, on the sandbox
@@ -128,7 +128,7 @@ Sequencer is used through its public API only, never patched.
 Zero dependency either way. Battle Flow publishes `battleflow.moment` (a plain payload); this module
 reads a closed list of five words (`BATTLEFLOW_WORDS`) in `readers/battleflow.js`, plays a `momentId`
 once, and honours Battle Flow's hold through the gate in `core/gates.js`. Neither is required nor in
-the manifest. Rules of the game belong to Battle Flow, platform fixes to Misc Patches; this module
+the manifest. Rules of the game belong to Battle Flow, upstream-bug fixes to Vendor Fixes; this module
 only plays pictures and sounds.
 
 ## Release ritual

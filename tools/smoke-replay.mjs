@@ -181,7 +181,7 @@ try {
         ok('§9 Misty Step: the token moved to the destination', caster.document.x === 300 && caster.document.y === 800, `${caster.document.x},${caster.document.y}`);
         ok('§9 the sentence says what the spot must be', /an unoccupied space they can see/.test(api.sentenceFor(it).sentence), api.sentenceFor(it).sentence);
         await moveTo(caster, before.x, before.y);
-        // the teleport's words, judged before the token moves (Misc Patches' teleport patch, carried here 2026-09-06)
+        // the teleport's words, judged before the token moves
         const g = canvas.grid.size;
         const cx = before.x, cy = before.y;
         const destX = cx + 4 * g;

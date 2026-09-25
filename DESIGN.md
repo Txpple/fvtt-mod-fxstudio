@@ -308,9 +308,7 @@ screens: a look the walk saves carries its scenes, because the walk edits scenes
 
 ### The move is a teleport, judged by the words (2026-09-06)
 
-Misc Patches' teleport patch (born 2026-09-04 from Misty Step stopping at a wall under
-Automated Animations) moved here the day the move became this module's own, on the user's word.
-It is no longer a patch on somebody else's move: `scripts/engine/shapes/move.js` places the
+The move is this module's own (the user's word): `scripts/engine/shapes/move.js` places the
 token with Foundry's own teleport movement action (`displace`, the one its undo uses; a waypoint
 carries the action), which crosses walls and creatures, where a bare move is walked and stopped
 by a wall and by dnd5e's movement automation in front of a hostile. What the spell's words demand
@@ -326,8 +324,7 @@ it was the user's own "walls matter" per look, and the migration reads it as `se
 had it on keeps the default, one with it off (Dimension Door, Far Step, Starlight Step, Teleport,
 and the jumps: Drop, Leap, Pounce, Tunneler) says `seen: false`. The walk's move line offers the
 spot ("to an unoccupied space they can see", "…seen or not", "a space they can see", "any space")
-and the range. Misc Patches keeps its copy switched on for prod until the cutover (its list and
-rules are the same); on the sandbox it is not active. Measured: smoke-replay §9 — a
+and the range. Measured: smoke-replay §9 — a
 movement-only wall crossed, a sight wall refusing with the reason in the ledger, a look that need
 not see crossing it, a creature on the spot refusing (45 of 45).
 

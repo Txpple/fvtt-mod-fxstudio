@@ -13,8 +13,7 @@
 // by Foundry and stopped by a wall, and by dnd5e's movement automation in front of a hostile.
 // What the spell's words demand of the spot (2026-09-04 at the table, Misty Step: "an unoccupied
 // space you can see") is judged here before the token moves, and never the range: the ring and the
-// table hold that. Carried over from Misc Patches' teleport patch on 2026-09-06, now that the move
-// is this module's own.
+// table hold that.
 import { SEQUENCE_OPTIONS, addSound, full } from '../common.js';
 import { destinationSpot } from '../places.js';
 

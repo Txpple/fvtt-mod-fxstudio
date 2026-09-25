@@ -105,10 +105,6 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
   and replaced on 2026-09-06 by the Corpus tab's ship — and both went on 2026-09-12 with the draft
   layer (DESIGN §21): Save writes the corpus file, `tools/pull-corpus.mjs` brings it into the repo.
   A server that forbids uploads has no path today; none is owed until a table has one.
-- **Misc Patches' teleport patch** is carried here since 2026-09-06 (the move shape, DESIGN §8) and
-  stays switched on in Misc Patches for prod, where Automated Animations still moves the token,
-  until the cutover (phase 5); then it retires there. Its list (Misty Step, Dimension Door,
-  Moonlight Step, Shadow Step, Arcane Charge) is the looks' own `seen`/`unoccupied` now.
 - **The outcomes in the walk.** Step 4 shows "on a hit / on a miss / on a failed save / when
   damage lands" as phase 4 and does not offer them; phase 4 turns them on. The Check screen
   says how many looks wait, and clears from the world only what the house file already holds.
