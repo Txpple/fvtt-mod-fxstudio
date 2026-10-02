@@ -1,71 +1,107 @@
-# fxstudio
+# Open Roll 5e: FX Studio
 
-Visual and sound effects for dnd5e on Foundry VTT, played from what actually happened at the
-table. A greenfield design: Automated Animations' corpus is migrated once so the table does not
-start from zero, and none of its architecture is carried. Keeps [Sequencer](https://github.com/fantasycalendar/FoundryVTT-Sequencer) as the engine
-and JB2A and PSFX as the libraries; replaces Automated Animations by carrying its whole D&D5e
-Animations corpus over losslessly, adds the user's own FX and the outcome layers AA never had,
-and is driven through one window of four tabs — FX, Editor, Assets, Coverage — with a search in its
-header: terms and labels around one generated sentence per FX. It never guesses an FX.
+A Foundry VTT module for the dnd5e system that plays visual and sound effects from what actually
+happened at the table: an attack that hit or missed, a save spell, a heal, an area placed on the
+map, an effect applied to a token. Sequencer is the engine and JB2A and PSFX are the libraries. It
+replaces Automated Animations: the D&D5e Animations collection was migrated once into the module's
+own Stock, so a table does not start from zero, and the GM's own FX sit on top of it. Everything is
+browsed and edited in one window.
 
-**Status: phase 3 (the screens) built, 2026-09-06; the FX sheet and two bug-testing passes from the
-table, then the UI revamp's steps 2–5 — Play, the layout primitives, the sheet as a rail and an
-inspector, and the six tabs merged into three — 2026-09-07 (DESIGN §8, §9).** FX Studio opens from the Settings sidebar (the GM's "Open FX
-Studio" button) or from the wand on any item sheet. **FX** is every FX in one list, grouped
-House → Stock — resolution order, later wins — with the search over it (it narrows the list
-as you type) and facets down the left (where it lives, its kind, switched off). A row is a name. **The
-Editor** is where every edit of an FX is made. **The FX sheet** is
-one sheet per FX, the same whether you read it or change it — an Edit switch is the
-guard, and the action bar is the same in both modes with what does not apply greyed out (Back,
-New FX, Duplicate, Export, Delete, Edit, Cancel, Save); the Key strip (the key it answers, the
-item the sheet is on with **Own key** — which gives that one item an identifier of its own, so this
-Bob's Fire Bolt plays differently from Alice's — the moment, On or Off), the Sequence (one row per scene in three
-fixed rows that never reflow — the picture: VFX, where, size, opacity, tint, under the tokens; how
-long it lasts with the SFX at the far right; then the timing: delay, times, every, speed and wait
-— with the plain-English line under each and the sentence read back as you go), a Note;
-**Save writes the file** (there is no draft layer, 2026-09-12): a new FX goes to House, and a Stock
-FX asks whether the change is a House override (the same id in House, which wins) or Stock itself;
-Delete takes the FX you see, so deleting an override shows Stock again; New FX is a blank
-sheet with Copy from; the maintainer's band sits on *Coverage* — Import to Stock and the corpus files'
-own problems — and `tools/pull-corpus.mjs` brings the files into the repo for the release; *Assets* browses
-JB2A by style and PSFX by group and sound, each variant stepped by arrows or a dropdown, the picture
-playing on a loop and the sound behind a Play button, with the Sequencer path and the file under it;
-the same browser opens from a scene of the sheet to pick that scene's VFX or SFX — on what that
-scene names already — every FX that uses an asset opens its sheet from there, and each line of
-*Used in* loads that exact path (down to one file inside a variant) in the viewer; *Coverage* reads
-the compendiums you pick, by source, and shows what plays nothing in them and what did not resolve.
-One copy of an item plays differently from another by carrying an identifier of its own (dnd5e's
-field, written by Own key); the FX is keyed to that identifier and nothing of the module is left on the item.
-Everything the screens do goes through the API, so a macro or an assistant can do the same
-(`tools/smoke-screens.mjs` and `tools/smoke-author.mjs` prove both doors). [ARCHITECTURE.md](ARCHITECTURE.md) is the
-design: an FX is found by what acted and when (one key per item, dnd5e's own identifier for it,
-exact or nothing — a spell, a weapon, a natural attack, a feature, an item; an effect by its name
-then its origin), never by a name rule; an FX is written as the sentence the user would say
-(`recipes/SCHEMA.md` is the grammar); the engine knows eight shapes and one escape hatch
-(`scripts/engine/shapes/`). The corpus is `recipes/stock/` (the D&D5e Animations corpus
-migrated once, one file per kind, 1021 FX), `house.json` (the user's), `starters.json` (what a
-new FX starts from) and `aa-assets.json` (the 15 pictures still played through AA's own
-metadata, counted). The migration (`tools/migrate-aa.mjs`) is proved at the render: for every
-row, the exact Sequencer calls the new engine makes equal the calls AA's own sequence made, with
-five deliberate differences named and counted (1296 of 1296; `recipes/migration-report.md`).
-Measured on the sandbox: every FX builds and every path resolves live (`tools/smoke-fx.mjs`),
-one FX of every shape and moment plays through real dnd5e flows (`tools/smoke-replay.mjs`, 40 of
-40 — a Maul of Momentum plays the maul, the Shield spell no longer bashes, a heal plays on its healing roll), and an assistant's
-round trip through the API — write, validate, read as a sentence, preview, save with provenance,
-the House override — is green (`tools/smoke-author.mjs`), and the screens are driven on the DOM,
-the Stock choice included (`tools/smoke-screens.mjs`). A move is a teleport: the token is placed with
-Foundry's own teleport action across walls and creatures, and the spot is judged by the spell's
-words first — an unoccupied space the caster can see. Phase 4, the outcomes and Battle Flow's moments, starts on
-the user's word. Read [PLAN.md](PLAN.md) for the phases, [DESIGN.md](DESIGN.md) for what was
-decided while building, [BACKLOG.md](BACKLOG.md) for what is parked, and the migration report for
-what the user reads before cutover. `prototypes/` holds the investigation's scripts and the
-clickable prototype the screens were ruled on.
+## How it works
 
-**Licence.** The code is MIT. `recipes/stock/*.json` is a derived work of
-[D&D5e Animations](https://github.com/MrVauxs/dnd5e-animations) 3.3.0 by MrVauxs and Sisimshow and is
-licensed GPL-3 (see `recipes/STOCK-LICENSE`); it is carried over whole so nothing that played under
-Automated Animations is lost.
+- **An FX answers one ability, exactly.** Each FX is keyed to one spell, weapon, natural attack,
+  feature, item or effect by dnd5e's own identifier. There are no name rules and no guessing: an
+  ability with no FX plays nothing.
+- **An FX plays when the outcome is known.** An attack plays on its attack card, with hit and miss
+  known per target; a save or a heal on its damage or healing card; an area when its template is
+  placed; anything else on the usage card. An effect's picture lasts while the effect stands.
+- **Stock and House.** Stock is about a thousand FX for the 2024 core books, Ravenloft: The Horrors
+  Within, Heroes of Faerûn, the system's SRD 5.2 content and dnd5e's base weapons. House is your
+  table's own. A House FX with the same key as a Stock FX overrides it; delete the override and
+  Stock plays again.
+- **One copy can play differently from another.** Own key gives a single item an identifier of its
+  own, so one character's Fire Bolt can look different from everyone else's. Nothing of the module
+  is stored on the item.
+- **Save writes the file.** An FX lives in the module's recipe files on the server, not in the
+  world. There is no draft layer.
+- **One client plays, everyone sees it.** The user behind the moment plays the FX and Sequencer
+  carries it to every other client.
 
-Sister of [Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) and
-[Vendor Fixes](https://github.com/Txpple/fvtt-mod-vendorfixes); same author, same conventions:
-plain ES modules, no build step, no patching, MIT.
+## Installation
+
+Paste the manifest URL into Foundry's *Install Module* dialog:
+
+```
+https://github.com/Txpple/fvtt-mod-fxstudio/releases/latest/download/module.json
+```
+
+Requires Foundry VTT v14, the dnd5e system 6.x and the
+[Sequencer](https://github.com/fantasycalendar/FoundryVTT-Sequencer) module 4.0 or later. The FX
+draw their pictures from JB2A and their sounds from PSFX, installed separately; Stock was built
+against the Patreon editions, and a scene whose file is not in your libraries plays nothing.
+
+## The window
+
+The GM opens FX Studio from the **Open FX Studio** button in the Settings sidebar, or from the wand
+on any item sheet's header, which opens that item's FX. The window has four tabs.
+
+- **Library** lists every FX, House above Stock, with a search by name and facets for where an FX
+  lives, its kind and whether it is switched off. **Import** and **Export** at the top left read and
+  write FX as JSON files.
+- **Editor** is the FX sheet, the same whether you read it or change it; an Edit switch guards it.
+  The Key strip says which ability the FX answers, the item it is on (with Own key), the moment and
+  whether it is on. Below it the sequence lists the FX's scenes, each one a shape (strike, shoot,
+  beam, fill, aura, mark, move or sound, plus a custom escape hatch) with its picture, placement,
+  size, opacity, colour, sound and timing. The FX reads back as a plain-English sentence as you
+  edit. New FX, Duplicate, Export and Delete sit in the action bar. Saving a Stock FX asks whether
+  the change is a House override or a change to Stock itself.
+- **Assets** browses JB2A by style and PSFX by group and sound, with the picture looping, the sound
+  behind a Play button, and every FX that uses the asset one click away. The same browser opens from
+  a scene to pick its VFX or SFX.
+- **Coverage** reads the compendiums you pick and shows which abilities play nothing and which
+  files did not resolve.
+
+Everything the window does goes through the module's API
+(`game.modules.get('fvtt-mod-fxstudio').api`), so a macro can do the same.
+
+## Areas and moves
+
+A lasting area picture, such as Fog Cloud or Web, hides dnd5e's template region from the players
+while the picture stands; the GM still sees it on the Regions layer. A teleport, such as Misty
+Step, places the token with Foundry's own teleport action, on a spot the spell allows.
+
+## Battle Flow
+
+With [Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) installed, FX Studio also plays
+the moments that post no card of their own (a maneuver die, Sneak Attack, a die folded into a roll,
+a rider's damage, a held roll answered), and waits while Battle Flow holds a cast for an answer.
+Neither module needs the other.
+
+## Settings
+
+*Game Settings → Configure Settings → Open Roll 5e: FX Studio.*
+
+| Setting | What it does |
+| --- | --- |
+| Play FX | On by default. Off keeps the window working and plays nothing. |
+| Console log | Off by default. On writes one console line per moment: what happened, which FX answered and which files played. Per client. |
+
+## License
+
+The code is MIT. `recipes/stock/*.json` is a derived work of
+[D&D5e Animations](https://github.com/MrVauxs/dnd5e-animations) 3.3.0 by MrVauxs and Sisimshow and
+is licensed GPL-3 (see `recipes/STOCK-LICENSE`).
+
+## Sister modules
+
+FX Studio is one of the Open Roll 5e modules for Foundry VTT. Each installs and works on its own and
+none needs another; together they cover the table from the fog of war to the loot. The rest of the family:
+
+- [Open Roll 5e: Autoexplore](https://github.com/Txpple/fvtt-mod-autoexplore): lets a scene start fully explored, so the whole map shows through the fog of war while tokens still need line of sight.
+- [Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow): combat automation for dnd5e 2024 rules: a hit rolls and applies its own damage, saves resolve themselves, reactions hold, and concentration is tracked.
+- [Open Roll 5e: Combat Plus](https://github.com/Txpple/fvtt-mod-combatplus): automates the chores of running a fight: combat music, an initiative gate, an out-of-turn movement block, defeated marking at 0 HP and turn alerts.
+- [Open Roll 5e: Errata](https://github.com/Txpple/fvtt-mod-errata5e): corrects, in memory, bugs in the premium D&D 2024 books, the dnd5e system and Foundry itself, each fix held until the vendor ships its own.
+- [Open Roll 5e: Loot Shelf](https://github.com/Txpple/fvtt-mod-lootshelf): loot chests and merchant shelves that players can take from, buy from and sell to without owning them, with a receipt for every trade.
+- [Open Roll 5e: Open Server](https://github.com/Txpple/fvtt-mod-openserver): for hosted worlds: clears the startup pause so players can play before the GM arrives, and gives any user a landing scene of their own.
+- [Open Roll 5e: Party Stash](https://github.com/Txpple/fvtt-mod-partystash): makes a dnd5e Group actor's inventory a working party stash: drags move instead of copying, coin moves through a dialog, and every transfer posts a receipt.
+- [Open Roll 5e: Soundscape](https://github.com/Txpple/fvtt-mod-soundscape): background sound for scenes: random one-shots with silence between them, seamless crossfaded loops, day and night gating, and quiet during combat.
