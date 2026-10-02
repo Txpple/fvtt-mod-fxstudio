@@ -1,20 +1,33 @@
 feature:web-walker	No proposed FX				A passive trait — no moment to play.
-feature:whirlwind-of-sand	Close match	spell:shatter	jb2a.whirlwind.bluegrey	psfx.cantrips.gust.v1	Whirlwind of Sand: it becomes a column of sand.
-feature:wishes	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	Wishes: the djinni grants one.
-spell:great-old-one-hex	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex from the Great Old One: the skull mark on the quarry.
-spell:hex-powerful	Close match	effect:banished	jb2a.markers.skull.purple.03	psfx.impacts.magicaleffects.necrotic	Hex, upcast: the skull mark on the quarry.
+feature:whirlwind-of-sand	Close match	spell:shatter	jb2a.whirlwind.bluegrey	psfx.cantrips.gust.v1	Whirlwind of Sand: it becomes a column of sand.	Maybe	Sure	1
+feature:wishes	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	Wishes: the djinni grants one.	Likely	Likely	31
 weapon:book-of-shadows	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
 feature:battle-ready	No proposed FX				A passive trait — no moment to play.
 feature:beast-whisperer	No proposed FX				A passive trait — no moment to play.
-feature:death-jinx	Close match	effect:banished	jb2a.condition.curse.01.001.green	psfx.impacts.magicaleffects.necrotic	Death Jinx: a parting curse when it dies.
-feature:dimensional-disruption	Close match	effect:banished	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.magic-signs.circle.v1.abjuration.loop	Dimensional Disruption: nothing teleports near it.
-feature:disciple-of-the-nine-hells	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	Disciple of the Nine Hells: something answers.
+feature:death-jinx	Close match	effect:banished	jb2a.condition.curse.01.015.purple	psfx.impacts.magicaleffects.necrotic	Death Jinx: a parting curse when it dies.	Likely	Likely	0
+feature:dimensional-disruption	Close match	effect:banished	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.magic-signs.circle.v1.abjuration.loop	Dimensional Disruption: nothing teleports near it.	Likely	Likely	0
+feature:disciple-of-the-nine-hells	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	Disciple of the Nine Hells: something answers.	Likely	Likely	0
 feature:emissary-of-juiblex	No proposed FX				A passive trait — no moment to play.
-feature:gloom-shroud	Close match	spell:darkness	jb2a.darkness.black	psfx.magic-signs.rune.v1.illusion.intro	Gloom Shroud: the light dies near it.
+feature:gloom-shroud	Close match	spell:darkness	jb2a.darkness.black	psfx.magic-signs.rune.v1.illusion.intro	Gloom Shroud: the light dies near it.	Sure	Maybe	9
 feature:poison-tolerant	No proposed FX				A passive trait — no moment to play.
 feature:resonant-connection	No proposed FX				A passive trait — no moment to play.
 feature:slaad-host	No proposed FX				A passive trait — no moment to play.
 feature:steadfast	No proposed FX				A passive trait — no moment to play.
 feature:ventriloquism	No proposed FX				A voice thrown — nothing on a token to play.
-feature:warriors-wrath	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Warrior's Wrath: it goes at you harder.
+feature:warriors-wrath	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Warrior's Wrath: it goes at you harder.	Likely	Maybe	4
 feature:wild-talent	No proposed FX				A passive trait — no moment to play.
+spell:wall-of-ice	Close match	spell:wall-of-fire	jb2a.ice_spikes.wall.loop.blue	psfx.cantrips.ray-of-frost.v1	Wall of Ice: a wall of jagged ice along the template.	Sure	Likely	0
+spell:wall-of-stone	Close match	spell:wall-of-force	jb2a.falling_rocks.side.2x1.grey	psfx.casting.earth.001	Wall of Stone: stone tumbles in and settles along the template.	Maybe	Likely	0
+spell:insect-plague	Close match	spell:cloudkill	jb2a.ambient_fog.001.complete.large.greenyellow	psfx.1st-level-spells.dissonant-whispers.v1.002	Insect Plague: a sickly swarm-cloud fills the sphere, clicking.	Maybe	Maybe	0
+spell:tashas-bubbling-cauldron	Close match	spell:stinking-cloud	jb2a.bubble.002.001.complete.greenpurple	psfx.cantrips.poison-spray.v1	The cauldron bubbles where it lands.	Likely	Maybe	0
+effect:turning-to-stone	Close match	spell:flesh-to-stone	jb2a.ground_cracks.03.white	psfx.casting.earth.001	Flesh to Stone takes hold: the body begins to set.	Maybe	Likely	0
+effect:heavenly-wings	Close match	feature:celestial-revelation	jb2a.condition.boon.02.003.refraction	psfx.creature.movement.flight.wings.large	Heavenly Wings: spectral wings unfold in white light.	Likely	Likely	0
+natural:swarming-bites	Close match	natural:bite	jb2a.bite.200px.purple	psfx.impacts.slashing.v1	The swarm bites, and the magic goes out of an item.	Likely	Likely	0
+natural:swipe	Close match	natural:claw	jb2a.claws.200px.brown	psfx.creature.dragons.attacks.rend.cold	A heavy swipe that knocks the target down.	Sure	Likely	0
+item:ball-bearings	No proposed FX				Neither library has anything that reads as spilled ball bearings.
+item:acorn-with-squirrel-spit	No proposed FX				Junk loot — no moment to play.
+item:chart-of-the-four-chambers	No proposed FX				Junk loot — no moment to play.
+item:volos-guide-annotated	No proposed FX				Junk loot — no moment to play.
+item:feather	No proposed FX				An item with no record behind it — no moment to play.
+effect:dead	No proposed FX				A status with no record behind it; a death is not ours to dress.
+effect:concentrating-hold-person	No proposed FX				Concentration bookkeeping — Hold Person is its own FX.

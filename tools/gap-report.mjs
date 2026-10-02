@@ -17,8 +17,8 @@ const nameForKey = (key) => {
 const proposals = new Map();
 for (const line of readFileSync(`${REPO}/dist/proposals.tsv`, 'utf8').split('\n').slice(1)) {
   if (!line.trim()) continue;
-  const [key, confidence, basis, vfx, sfx, sentence] = line.replace(/\r$/, '').split('\t');
-  proposals.set(key, { confidence, basis, vfx, sfx, sentence });
+  const [key, confidence, basis, vfx, sfx, sentence, vfxFit, sfxFit, vfxInUse] = line.replace(/\r$/, '').split('\t');
+  proposals.set(key, { confidence, basis, vfx, sfx, sentence, vfxFit, sfxFit, vfxInUse });
 }
 
 const rows = gaps.map((g) => {
@@ -34,6 +34,9 @@ const rows = gaps.map((g) => {
     basisKey: p.basis ?? '',
     vfx: p.vfx,
     sfx: p.sfx,
+    vfxFit: p.vfxFit ?? '',
+    sfxFit: p.sfxFit ?? '',
+    vfxInUse: p.vfxInUse ?? '',
     confidence: p.confidence,
     key: g.key,
     text: g.text,

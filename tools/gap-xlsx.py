@@ -9,8 +9,8 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.expanduser('~'), 'Desktop', 'FX Studio gap analysis.xlsx')
 rows = json.load(open(os.path.join(REPO, 'dist', 'gap-report.json'), encoding='utf-8'))
 
-HEAD = ['Record', 'Type', 'On', 'What it does', 'Proposed FX', 'Based on', 'VFX (JB2A)', 'SFX (PSFX)', 'Confidence', 'Key']
-WIDTH = [34, 9, 22, 40, 62, 20, 46, 44, 15, 34]
+HEAD = ['Record', 'Type', 'On', 'What it does', 'Proposed FX', 'Based on', 'VFX (JB2A)', 'SFX (PSFX)', 'VFX fit', 'SFX fit', 'VFX already in use', 'Confidence', 'Key']
+WIDTH = [34, 9, 22, 40, 62, 20, 46, 44, 9, 9, 11, 15, 34]
 
 AMBER = PatternFill('solid', fgColor='F2C14E')
 HEADFILL = PatternFill('solid', fgColor='2E2A26')
@@ -44,7 +44,8 @@ def write_rows(ws, rs, show_where=False):
     for r in rs:
         vals = ([r['where']] if show_where else []) + [
             r['name'], r['kind'], r['on'], r['facts'], r['sentence'],
-            r['basis'], r['vfx'], r['sfx'], r['confidence'], r['key'],
+            r['basis'], r['vfx'], r['sfx'], r.get('vfxFit', ''), r.get('sfxFit', ''),
+            int(r['vfxInUse']) if str(r.get('vfxInUse', '')).isdigit() else '', r['confidence'], r['key'],
         ]
         ws.append(vals)
         i = ws.max_row
@@ -68,7 +69,7 @@ ws['A1'] = 'FX Studio — the gap: what the installed books hold that has no FX'
 ws['A1'].font = Font(bold=True, size=15)
 ws['A2'] = f'{len(rows)} addressed records with no FX. {sum(1 for r in rows if r["confidence"] != "No proposed FX")} have a proposed FX; {sum(1 for r in rows if r["confidence"] == "No proposed FX")} are marked no proposed FX.'
 ws['A3'] = 'Every VFX and SFX path named here was checked against the installed JB2A Patreon 0.9.2 and PSFX databases — none is invented.'
-ws['A4'] = '"Based on" names an FX the corpus already holds: copy it, then swap the asset shown. "Close match" = the record itself suggests it; "Family match" = it applies to any weapon, so the FX is a small mark rather than a swing.'
+ws['A4'] = '"Based on" names an FX the corpus already holds: copy it, then swap the asset shown. "Close match" = the record itself suggests it; "Family match" = it applies to any weapon, so the FX is a small mark rather than a swing. "VFX fit" / "SFX fit" = Sure, Likely or Maybe that the asset is right for the record; "VFX already in use" = how many FX already play that animation, in any colour (0 = nothing plays it yet).'
 for r in (2, 3, 4):
     ws[f'A{r}'].font = GREY
 

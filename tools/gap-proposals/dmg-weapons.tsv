@@ -1,63 +1,63 @@
-weapon:adamantine-weapon	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.impacts.slashing.v1	Any weapon, so nothing swings on its own: a brief hard glint on the wielder as the adamantine bites.
-weapon:axe-of-the-dwarvish-lords	Close match	weapon:greataxe	jb2a.greataxe.melee.fire.orange	psfx.weapon-swooshes.fire.v1.group01	The battleaxe swing in forge-fire orange, for the artifact of the dwarven forges.
-weapon:ballista	Close match	weapon:heavycrossbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	A siege bolt: the crossbow shot, at siege scale.
-weapon:blackrazor	Close match	weapon:greatsword	jb2a.greatsword.melee.fire.black	psfx.weapon-swooshes.necrotic.v1.group01	The greatsword swing wreathed in black — the soul-drinking blade.
-weapon:cannon	Close match	weapon:antimatter-rifle	jb2a.bullet.01	psfx.ranged-weapons.guns.single-fire.musket	A cannonball fired, with the powder report.
-weapon:dagger-of-venom	Close match	weapon:dagger	jb2a.dagger.melee.fire.green	psfx.weapon-attacks.sword.v1	The dagger strike with a green venom sheen on the blade.
-weapon:defender	Family match	weapon:longsword	jb2a.glint.blue.few	psfx.weapon-attacks.sword.v1	Any melee weapon: a cool blue glint as the blade turns to guard.
-weapon:dragon-slayer	Family match	weapon:longsword	jb2a.sword.melee.fire.orange	psfx.weapon-swooshes.fire.v1.group01	Any weapon: the blade flares dragon-fire orange on the swing.
-weapon:dwarven-thrower	Close match	weapon:warhammer	jb2a.melee_attack.02.warhammer.01	psfx.impacts.bludgeoning.v1	The warhammer strike; thrown, the hammer returns.
-weapon:enspelled-weapon	Family match	weapon:longsword	jb2a.magic_signs.rune.02.complete.01.blue	psfx.magic-signs.rune.v1.evocation.intro	A bound spell shows as a rune at the wielder, not as a swing.
-weapon:flame-tongue	Close match	weapon:longsword	jb2a.sword.melee.fire.red	psfx.weapon-swooshes.fire.v1.group01	The longsword swing with the blade alight — the flame tongue.
-weapon:flamethrower-coach	Close match	spell:burning-hands	jb2a.breath_weapons.fire	psfx.creature.dragons.attacks.breath.large.fire	A gout of fire down a 60-foot line.
-weapon:frost-brand	Close match	weapon:longsword	jb2a.sword.melee.fire.blue	psfx.weapon-swooshes.cold.v1.group01	The longsword swing in rime-blue — the frost brand.
-weapon:giant-slayer	Family match	weapon:longsword	jb2a.glint.yellow.many	psfx.impacts.bludgeoning.v1	Any weapon: a bright glint on the swing, the giant-bane bite.
-weapon:hammer-of-thunderbolts	Close match	weapon:maul	jb2a.melee_attack.03.maul.01	psfx.weapon-swooshes.lightning.v1.group01	The maul strike, and thunder on the hit.
-weapon:holy-avenger	Family match	weapon:longsword	jb2a.sword.melee.fire.yellow	psfx.class-features.divine-smite.v1.001.caster	Any weapon in a paladin's hand: the blade burns holy gold.
-weapon:javelin-of-lightning	Close match	weapon:javelin	jb2a.javelin.throw	psfx.weapon-swooshes.lightning.v1.group01	The javelin thrown, and a lightning line where it lands.
-weapon:keg-launcher	Close match	weapon:grenade-launcher	jb2a.barrel.toss	psfx.ranged-weapons.guns.single-fire.musket	A keg lobbed and burst into a toxic cloud.
-weapon:lightning-cannon	Close match	weapon:laser-rifle	jb2a.lightning_ball	psfx.weapon-swooshes.lightning.v1.group01	A ball of lightning fired down the range.
-weapon:lute-of-thunderous-thumping	Close match	weapon:club	jb2a.melee_attack.02.club.01	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	The club strike with a thunderous chord struck on the hit.
-weapon:mace-of-disruption	Close match	weapon:mace	jb2a.melee_attack.02.mace.01	psfx.class-features.divine-smite.v1.001.target	The mace strike with a radiant burst on the hit.
-weapon:mace-of-smiting	Close match	weapon:mace	jb2a.melee_attack.02.mace.01	psfx.impacts.bludgeoning.v1	The mace strike, harder — the smiting mace.
-weapon:mace-of-terror	Close match	weapon:mace	jb2a.melee_attack.02.mace.01	psfx.impacts.magicaleffects.psychic	The mace strike; the terror is a fear mark on those who fail, not on the swing.
-weapon:mangonel	Close match	weapon:heavycrossbow	jb2a.boulder.toss	psfx.impacts.bludgeoning.v1	A stone lobbed in a high arc.
-weapon:moonblade	Close match	weapon:longsword	jb2a.sword.melee.fire.white	psfx.weapon-swooshes.light.v1.group01	The longsword swing in cold moon-white.
-weapon:nine-lives-stealer	Family match	weapon:longsword	jb2a.sword.melee.fire.green	psfx.weapon-swooshes.necrotic.v1.group01	Any weapon: a sickly green edge as it hunts for a life.
-weapon:oathbow	Close match	weapon:longbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	The longbow shot, sworn to the target.
-weapon:quarterstaff-of-the-acrobat	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.02.white	psfx.impacts.bludgeoning.v1	The quarterstaff strike.
-weapon:rod-of-lordly-might	Close match	weapon:mace	jb2a.melee_attack.02.mace.01	psfx.impacts.bludgeoning.v1	The mace strike; the rod's other forms are their own FX if you want them.
-weapon:scimitar-of-speed	Close match	weapon:scimitar	jb2a.melee_attack.04.scimitar.01	psfx.weapon-attacks.sword.v1	The scimitar cut, fast.
+weapon:adamantine-weapon	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.impacts.slashing.v1	Any weapon, so nothing swings on its own: a brief hard glint on the wielder as the adamantine bites.	Likely	Likely	0
+weapon:axe-of-the-dwarvish-lords	Close match	weapon:greataxe	jb2a.greataxe.melee.fire.orange	psfx.weapon-swooshes.fire.v1.group01	The battleaxe swing in forge-fire orange, for the artifact of the dwarven forges.	Likely	Sure	0
+weapon:ballista	Close match	weapon:heavy-crossbow	jb2a.bolt.physical.orange	psfx.ranged-weapons.longbow.v1	A siege bolt: a heavy bolt shot at siege scale.	Likely	Likely	4
+weapon:blackrazor	Close match	weapon:greatsword	jb2a.greatsword.melee.fire.black	psfx.weapon-swooshes.necrotic.v1.group01	The greatsword swing wreathed in black — the soul-drinking blade.	Sure	Sure	1
+weapon:cannon	Close match	weapon:antimatter-rifle	jb2a.throwable.launch.cannon_ball.01.black	psfx.ranged-weapons.guns.single-fire.musket	A cannonball fired, with the powder report.	Sure	Likely	1
+weapon:dagger-of-venom	Close match	weapon:dagger	jb2a.dagger.melee.fire.green	psfx.weapon-attacks.sword.v1	The dagger strike with a green venom sheen on the blade.	Sure	Likely	0
+weapon:defender	Family match	weapon:longsword	jb2a.glint.blue.few	psfx.weapon-attacks.sword.v1	Any melee weapon: a cool blue glint as the blade turns to guard.	Likely	Likely	0
+weapon:dragon-slayer	Family match	weapon:longsword	jb2a.sword.melee.fire.orange	psfx.weapon-swooshes.fire.v1.group01	Any weapon: the blade flares dragon-fire orange on the swing.	Likely	Sure	1
+weapon:dwarven-thrower	Close match	weapon:warhammer	jb2a.warhammer.melee.01.orange	psfx.impacts.bludgeoning.v1	The warhammer strike; thrown, the hammer returns.	Likely	Likely	0
+weapon:enspelled-weapon	Family match	weapon:longsword	jb2a.magic_signs.rune.02.complete.01.orange	psfx.magic-signs.rune.v1.evocation.intro	A bound spell shows as a rune at the wielder, not as a swing.	Likely	Likely	0
+weapon:flame-tongue	Close match	weapon:longsword	jb2a.sword.melee.fire.red	psfx.weapon-swooshes.fire.v1.group01	The longsword swing with the blade alight — the flame tongue.	Sure	Sure	1
+weapon:flamethrower-coach	Close match	spell:burning-hands	jb2a.breath_weapons.fire.line.orange	psfx.creature.dragons.attacks.breath.large.fire	A gout of fire down a 60-foot line.	Sure	Sure	0
+weapon:frost-brand	Close match	weapon:longsword	jb2a.sword.melee.fire.blue	psfx.weapon-swooshes.cold.v1.group01	The longsword swing in rime-blue — the frost brand.	Sure	Sure	1
+weapon:giant-slayer	Family match	weapon:longsword	jb2a.glint.yellow.many	psfx.impacts.bludgeoning.v1	Any weapon: a bright glint on the swing, the giant-bane bite.	Likely	Likely	1
+weapon:hammer-of-thunderbolts	Close match	weapon:maul	jb2a.melee_attack.03.maul.01	psfx.weapon-swooshes.lightning.v1.group01	The maul strike, and thunder on the hit.	Likely	Likely	2
+weapon:holy-avenger	Family match	weapon:longsword	jb2a.sword.melee.fire.yellow	psfx.class-features.divine-smite.v1.001.caster	Any weapon in a paladin's hand: the blade burns holy gold.	Sure	Likely	1
+weapon:javelin-of-lightning	Close match	weapon:javelin	jb2a.javelin.01.throw	psfx.weapon-swooshes.lightning.v1.group01	The javelin thrown, and a lightning line where it lands.	Likely	Likely	0
+weapon:keg-launcher	Close match	weapon:grenade-launcher	jb2a.barrel.toss.wooden.01.01.brown	psfx.ranged-weapons.guns.single-fire.musket	A keg lobbed and burst into a toxic cloud.	Likely	Maybe	0
+weapon:lightning-cannon	Close match	weapon:laser-rifle	jb2a.lightning_ball.blue	psfx.weapon-swooshes.lightning.v1.group01	A ball of lightning fired down the range.	Sure	Likely	0
+weapon:lute-of-thunderous-thumping	Close match	weapon:club	jb2a.club.melee.01.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	The club strike with a thunderous chord struck on the hit.	Likely	Sure	0
+weapon:mace-of-disruption	Close match	weapon:mace	jb2a.mace.melee.fire.orange	psfx.class-features.divine-smite.v1.001.target	The mace strike with the head ablaze in radiant fire.	Sure	Likely	0
+weapon:mace-of-smiting	Close match	weapon:mace	jb2a.mace.melee.01.white	psfx.impacts.bludgeoning.v1	The mace strike, harder — the smiting mace.	Likely	Likely	0
+weapon:mace-of-terror	Close match	weapon:mace	jb2a.mace.melee.fire.dark_purple	psfx.impacts.magicaleffects.psychic	The mace strike, the head wreathed in dark flame.	Likely	Likely	0
+weapon:mangonel	Close match	weapon:heavy-crossbow	jb2a.boulder.siege.01	psfx.impacts.bludgeoning.v1	A stone lobbed in a high arc.	Sure	Likely	0
+weapon:moonblade	Close match	weapon:longsword	jb2a.sword.melee.fire.white	psfx.weapon-swooshes.light.v1.group01	The longsword swing in cold moon-white.	Sure	Likely	1
+weapon:nine-lives-stealer	Family match	weapon:longsword	jb2a.sword.melee.fire.green	psfx.weapon-swooshes.necrotic.v1.group01	Any weapon: a sickly green edge as it hunts for a life.	Likely	Sure	1
+weapon:oathbow	Close match	weapon:longbow	jb2a.arrow.physical.white.02	psfx.ranged-weapons.longbow.v1	The longbow shot, sworn to the target.	Likely	Sure	0
+weapon:quarterstaff-of-the-acrobat	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.04.white	psfx.impacts.bludgeoning.v1	The quarterstaff strike.	Sure	Likely	0
+weapon:rod-of-lordly-might	Close match	weapon:mace	jb2a.mace.melee.01.orange	psfx.impacts.bludgeoning.v1	The mace strike; the rod's other forms are their own FX if you want them.	Likely	Likely	0
+weapon:scimitar-of-speed	Close match	weapon:scimitar	jb2a.melee_attack.04.scimitar.01	psfx.weapon-attacks.sword.v1	The scimitar cut, fast.	Sure	Sure	1
 weapon:siege-tower	No proposed FX				A structure that rolls, not a weapon that swings — nothing to play.
-weapon:silvered-weapon	Family match	weapon:longsword	jb2a.glint.blue.few	psfx.impacts.slashing.v1	Any weapon: a cold silver glint on the swing.
+weapon:silvered-weapon	Family match	weapon:longsword	jb2a.glint.blue.few	psfx.impacts.slashing.v1	Any weapon: a cold silver glint on the swing.	Likely	Likely	0
 weapon:staff-of-adornment	No proposed FX				A staff that floats a trinket above its tip; there is no moment at the table to play.
-weapon:staff-of-birdcalls	Close match	weapon:quarterstaff	jb2a.swirling_feathers.outburst	psfx.impacts.bludgeoning.v1	The quarterstaff strike; the birdcall is a burst of feathers at the staff.
-weapon:staff-of-charming	Close match	weapon:quarterstaff	jb2a.markers.heart.pink.03	psfx.magic-signs.rune.v1.enchantment.intro	The charm read as hearts at the target, not as a staff swing.
-weapon:staff-of-fire	Close match	weapon:quarterstaff	jb2a.fire_jet.orange	psfx.casting.fire.001	The staff casts fire — a jet from the staff's head.
-weapon:staff-of-flowers	Close match	weapon:quarterstaff	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	A flower conjured at the staff's tip, in a burst of leaves.
-weapon:staff-of-frost	Close match	weapon:quarterstaff	jb2a.cone_of_cold	psfx.5th-level-spells.cone-of-cold.v1.001	The staff casts cold — a cone of frost from its head.
-weapon:staff-of-healing	Close match	weapon:quarterstaff	jb2a.healing_generic.400px.yellow	psfx.1st-level-spells.cure-wounds.v1.001	Healing light at the target the staff touches.
-weapon:staff-of-power	Close match	weapon:quarterstaff	jb2a.magic_signs.rune.02.complete.01.purple	psfx.casting.generic-v2.001.01	A rune of power at the staff before its spell.
-weapon:staff-of-striking	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.02.white	psfx.impacts.magicaleffects.generic.002.001	The quarterstaff strike with a force impact on the hit.
-weapon:staff-of-swarming-insects	Close match	weapon:quarterstaff	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	A cloud of insects at the target.
-weapon:staff-of-the-adder	Close match	weapon:quarterstaff	jb2a.impact_themed.poison.greenyellow	psfx.cantrips.poison-spray.v1	The adder's head bites — a poison impact at the target.
-weapon:staff-of-the-magi	Close match	weapon:quarterstaff	jb2a.magic_signs.rune.02.complete.01.blue	psfx.casting.generic-v2.002.01	The archmage's rune at the staff before its spell.
-weapon:staff-of-the-python	Close match	weapon:quarterstaff	jb2a.smoke.puff.centered.dark_green	psfx.casting.generic.001	The staff lands and becomes a snake, in a puff of smoke.
-weapon:staff-of-the-woodlands	Close match	weapon:quarterstaff	jb2a.swirling_leaves.complete.01.green	psfx.casting.earth.001	Leaves swirl at the druid's staff.
-weapon:staff-of-thunder-and-lightning	Close match	weapon:quarterstaff	jb2a.lightning_strike.blue	psfx.weapon-swooshes.lightning.v1.group01	A lightning strike at the target, thunder behind it.
-weapon:staff-of-withering	Close match	weapon:quarterstaff	jb2a.toll_the_dead.purple.complete	psfx.impacts.magicaleffects.necrotic	The withering touch — a necrotic toll at the target.
-weapon:suspended-cauldron	Close match	spell:burning-hands	jb2a.liquid.splash.red	psfx.casting.fire.001	Boiling oil spilled into the square below.
-weapon:sword-of-answering	Close match	weapon:longsword	jb2a.sword.melee.01.white	psfx.weapon-attacks.sword.v1	The longsword swing; the riposte is the same cut, taken as a reaction.
-weapon:sword-of-kas	Close match	weapon:longsword	jb2a.sword.melee.fire.red	psfx.weapon-swooshes.necrotic.v1.group01	The longsword swing in Vecna's red — the sword of Kas.
-weapon:sword-of-life-stealing	Family match	weapon:longsword	jb2a.sword.melee.fire.purple	psfx.weapon-swooshes.necrotic.v1.group01	Any of six swords: the blade drinks, so the swing runs violet.
-weapon:sword-of-sharpness	Family match	weapon:longsword	jb2a.melee_generic.slash.02.001.blue	psfx.impacts.slashing.v1	Any of four swords: a clean, bright cut.
-weapon:sword-of-vengeance	Family match	weapon:longsword	jb2a.sword.melee.fire.orange	psfx.weapon-swooshes.heavy.v1.group01	Any of six swords: an angry, burning swing.
-weapon:sword-of-wounding	Family match	weapon:longsword	jb2a.sword.melee.01.white	psfx.impacts.slashing.v1	Any of six swords: the ordinary cut — the wound that will not close is the outcome, not the swing.
-weapon:trebuchet	Close match	weapon:heavycrossbow	jb2a.boulder.toss	psfx.impacts.bludgeoning.v1	A stone thrown by counterweight, in a high arc.
-weapon:trident-of-fish-command	Close match	weapon:trident	jb2a.spear.melee.01.blue	psfx.weapon-attacks.spear.v1	The trident thrust, in sea blue.
-weapon:veterans-cane	Close match	weapon:longsword	jb2a.sword.melee.01.white	psfx.weapon-attacks.sword.v1	Once drawn it is a longsword, so it swings as one.
-weapon:vicious-weapon	Family match	weapon:longsword	jb2a.sneak_attack.dark_red	psfx.impacts.slashing.v1	Any weapon: a vicious red tear on the hit.
-weapon:wand-of-orcus	Close match	weapon:mace	jb2a.melee_attack.02.mace.01	psfx.impacts.magicaleffects.necrotic	The mace strike with a necrotic impact — the wand of the demon lord.
-weapon:wave	Close match	weapon:trident	jb2a.spear.melee.01.blue	psfx.casting.water.001	The trident thrust with a wash of water behind it.
+weapon:staff-of-birdcalls	Close match	weapon:quarterstaff	jb2a.swirling_feathers.outburst.01.textured	psfx.impacts.bludgeoning.v1	The quarterstaff strike; the birdcall is a burst of feathers at the staff.	Sure	Likely	0
+weapon:staff-of-charming	Close match	weapon:quarterstaff	jb2a.spell_projectile.heart.pink	psfx.magic-signs.rune.v1.enchantment.intro	The charm flies from the staff and bursts into hearts.	Sure	Likely	0
+weapon:staff-of-fire	Close match	weapon:quarterstaff	jb2a.fire_jet.orange	psfx.casting.fire.001	The staff casts fire — a jet from the staff's head.	Sure	Sure	0
+weapon:staff-of-flowers	Close match	weapon:quarterstaff	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	A flower conjured at the staff's tip, in a burst of leaves.	Sure	Likely	0
+weapon:staff-of-frost	Close match	weapon:quarterstaff	jb2a.cone_of_cold.blue	psfx.5th-level-spells.cone-of-cold.v1.001	The staff casts cold — a cone of frost from its head.	Sure	Sure	2
+weapon:staff-of-healing	Close match	weapon:quarterstaff	jb2a.healing_generic.200px.blue	psfx.1st-level-spells.cure-wounds.v1.001	Healing light at the target the staff touches.	Likely	Sure	0
+weapon:staff-of-power	Close match	weapon:quarterstaff	jb2a.magic_signs.rune.02.complete.01.purple	psfx.casting.generic-v2.001.01	A rune of power at the staff before its spell.	Likely	Likely	0
+weapon:staff-of-striking	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.01.blue	psfx.impacts.magicaleffects.generic.002.001	The quarterstaff strike with a force impact on the hit.	Sure	Likely	0
+weapon:staff-of-swarming-insects	Close match	weapon:quarterstaff	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	A cloud of insects at the target.	Maybe	Maybe	0
+weapon:staff-of-the-adder	Close match	weapon:quarterstaff	jb2a.impact_themed.poison.greenyellow	psfx.cantrips.poison-spray.v1	The adder's head bites — a poison impact at the target.	Sure	Likely	0
+weapon:staff-of-the-magi	Close match	weapon:quarterstaff	jb2a.magic_signs.rune.02.loop.03.blue	psfx.casting.generic-v2.002.01	The archmage's rune at the staff before its spell.	Likely	Likely	0
+weapon:staff-of-the-python	Close match	weapon:quarterstaff	jb2a.smoke.puff.centered.dark_green	psfx.casting.generic.001	The staff lands and becomes a snake, in a puff of smoke.	Sure	Likely	0
+weapon:staff-of-the-woodlands	Close match	weapon:quarterstaff	jb2a.swirling_leaves.complete.01.green	psfx.casting.earth.001	Leaves swirl at the druid's staff.	Sure	Likely	0
+weapon:staff-of-thunder-and-lightning	Close match	weapon:quarterstaff	jb2a.lightning_strike.blue	psfx.weapon-swooshes.lightning.v1.group01	A lightning strike at the target, thunder behind it.	Sure	Sure	1
+weapon:staff-of-withering	Close match	weapon:quarterstaff	jb2a.toll_the_dead.purple.complete	psfx.impacts.magicaleffects.necrotic	The withering touch — a necrotic toll at the target.	Likely	Likely	1
+weapon:suspended-cauldron	Close match	spell:burning-hands	jb2a.bubble.002.001.complete.orangeyellow	psfx.casting.fire.001	Boiling oil spills into the square below.	Likely	Likely	0
+weapon:sword-of-answering	Close match	weapon:longsword	jb2a.melee_attack.01.magic_sword.blue.02	psfx.weapon-attacks.sword.v1	The longsword swing; the riposte is the same cut, taken as a reaction.	Likely	Sure	0
+weapon:sword-of-kas	Close match	weapon:longsword	jb2a.sword.melee.fire.red	psfx.weapon-swooshes.necrotic.v1.group01	The longsword swing in Vecna's red — the sword of Kas.	Likely	Sure	1
+weapon:sword-of-life-stealing	Family match	weapon:longsword	jb2a.sword.melee.fire.purple	psfx.weapon-swooshes.necrotic.v1.group01	Any of six swords: the blade drinks, so the swing runs violet.	Sure	Sure	1
+weapon:sword-of-sharpness	Family match	weapon:longsword	jb2a.melee_attack.04.katana.01	psfx.impacts.slashing.v1	A clean, fast cut.	Likely	Sure	0
+weapon:sword-of-vengeance	Family match	weapon:longsword	jb2a.sword.melee.fire.orange	psfx.weapon-swooshes.heavy.v1.group01	Any of six swords: an angry, burning swing.	Likely	Likely	1
+weapon:sword-of-wounding	Family match	weapon:longsword	jb2a.falchion.melee.01.black	psfx.impacts.slashing.v1	Any of six swords: the ordinary cut — the wound that will not close is the outcome, not the swing.	Likely	Sure	0
+weapon:trebuchet	Close match	weapon:heavy-crossbow	jb2a.boulder.siege.02	psfx.impacts.bludgeoning.v1	A stone thrown by counterweight, in a high arc.	Sure	Likely	0
+weapon:trident-of-fish-command	Close match	weapon:trident	jb2a.spear.melee.01.blue	psfx.weapon-attacks.spear.v1	The trident thrust, in sea blue.	Likely	Sure	13
+weapon:veterans-cane	Close match	weapon:longsword	jb2a.sword.melee.01.white	psfx.weapon-attacks.sword.v1	Once drawn it is a longsword, so it swings as one.	Sure	Sure	13
+weapon:vicious-weapon	Family match	weapon:longsword	jb2a.melee_generic.creature_attack.claw.002.red	psfx.impacts.slashing.v1	A vicious red tear on the hit.	Likely	Sure	0
+weapon:wand-of-orcus	Close match	weapon:mace	jb2a.mace.melee.fire.green	psfx.impacts.magicaleffects.necrotic	The mace strike, wreathed in sickly green flame.	Likely	Sure	0
+weapon:wave	Close match	weapon:trident	jb2a.spear.melee.01.blue	psfx.casting.water.001	The trident thrust with a wash of water behind it.	Likely	Sure	13
 weapon:weapon-of-warning	No proposed FX				A warning that cannot be surprised is a state, not a moment — nothing to play on a swing.
-weapon:weapon-1-2-or-3	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.weapon-attacks.sword.v1	Any weapon: a small gold glint marks the enchantment on the swing.
+weapon:weapon-1-2-or-3	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.weapon-attacks.sword.v1	Any weapon: a small gold glint marks the enchantment on the swing.	Likely	Likely	0

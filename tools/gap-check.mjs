@@ -16,7 +16,8 @@ const paths = new Set([...flatten(await loadJb2a(), 'jb2a'), ...flatten(await lo
 // a Sequencer path may name a NODE and let Sequencer pick a file under it, so a prefix is valid too
 const nodes = new Set();
 for (const p of paths) { const s = p.split('.'); for (let i = 2; i < s.length; i++) nodes.add(s.slice(0, i).join('.')); }
-const ok = (p) => !p || paths.has(p) || nodes.has(p) || p.startsWith('modules/') || p.startsWith('icons/');
+// D&D5e Animations is roadkill (2026-09-16): none of its files may be proposed
+const ok = (p) => !p || paths.has(p) || nodes.has(p) || ((p.startsWith('modules/') || p.startsWith('icons/')) && !p.startsWith('modules/dnd5e-animations/'));
 
 // every `basis` must name an FX the corpus really holds — a proposal that copies nothing is noise
 const corpusKeys = new Set();
