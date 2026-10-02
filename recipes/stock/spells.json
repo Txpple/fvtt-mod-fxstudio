@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 374
+  "fx": 380
  },
  "fx": [
   {
@@ -13878,6 +13878,270 @@
      },
      "fadeIn": 0,
      "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "negative-energy-flood",
+   "for": [
+    "spell:negative-energy-flood"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunNegativeEne16",
+    "name": "Negative Energy Flood",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.complete",
+      "start": 500
+     },
+     "repeat": 5,
+     "every": 1000
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.necromancy.loop.green"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "below": true,
+     "delay": 500
+    }
+   ]
+  },
+  {
+   "id": "catnap",
+   "for": [
+    "spell:catnap"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunCatnap0000000",
+    "name": "Catnap",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.complete",
+      "start": 1500
+     },
+     "asset": {
+      "path": "jb2a.sleep.cloud.01.pink"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.sleep.symbol.pink"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "illusory-dragon",
+   "for": [
+    "spell:illusory-dragon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunIllusoryDralw",
+    "name": "Illusory Dragon",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.complete"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.illusion.complete.purple"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "file": "modules/jb2a_patreon/Library/Generic/Energy/EnergyStrandIN01_03_Regular_Purple_600x600.webm",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "repeat": 4,
+     "every": 1500,
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500
+    }
+   ]
+  },
+  {
+   "id": "power-word-pain",
+   "for": [
+    "spell:power-word-pain"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunPowerWordPaww",
+    "name": "Power Word Pain",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.caster"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.sacred_flame.source.purple",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.sacred_flame.target.purple",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1000
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.toll_the_dead.purple.shockwave"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.v1.001",
+      "delay": 4000,
+      "start": 1300
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 4000
+    }
+   ]
+  },
+  {
+   "id": "wither-and-bloom",
+   "for": [
+    "spell:wither-and-bloom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunWitherandBlyZ",
+    "name": "Wither and Bloom",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.yellowwhite"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "tint": {
+      "colour": "#00ff00",
+      "contrast": 0,
+      "saturation": 0
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.energy_strands.overlay.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "enervation",
+   "for": [
+    "spell:enervation"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunEnervationNxK",
+    "name": "Enervation",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "beam",
+     "asset": {
+      "path": "jb2a.energy_beam.reverse.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro-fade"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
     }
    ]
   }

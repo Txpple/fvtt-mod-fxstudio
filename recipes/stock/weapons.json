@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The weapons: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 94
+  "fx": 98
  },
  "fx": [
   {
@@ -2591,6 +2591,130 @@
       "path": "jb2a.liquid.blob.blue"
      },
      "below": true
+    }
+   ]
+  },
+  {
+   "id": "keyholes-dagger",
+   "for": [
+    "weapon:keyholes-dagger"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunKeyholesDagoQ",
+    "name": "Keyholes Dagger",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.dagger.melee.02.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "start": 500
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.dagger.throw.01.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "martialists-quarterstaff",
+   "for": [
+    "weapon:martialists-quarterstaff"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMartialistsnF",
+    "name": "Martialist's Quarterstaff",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.02.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "diamond-staff",
+   "for": [
+    "weapon:diamond-staff"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDiamondStaftz",
+    "name": "Diamond Staff",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.03.white",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "namers-needle",
+   "for": [
+    "weapon:namers-needle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunNamersNeedlzm",
+    "name": "Namer's Needle",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bullet.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01.0",
+      "start": 500
+     },
+     "tint": {
+      "colour": "#FFFFFF",
+      "contrast": 0,
+      "saturation": -0.5
+     }
     }
    ]
   }

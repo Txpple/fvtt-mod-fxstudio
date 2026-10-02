@@ -1,16 +1,16 @@
 {
  "_meta": {
   "schema": 1,
-  "generated": "2026-09-13",
+  "generated": "2026-10-02",
   "tool": "tools/records.mjs",
-  "keys": 3968,
+  "keys": 4284,
   "kinds": {
-   "effect": 1092,
-   "feature": 1316,
-   "item": 737,
-   "natural": 231,
-   "spell": 428,
-   "weapon": 164
+   "effect": 1169,
+   "feature": 1433,
+   "item": 807,
+   "natural": 241,
+   "spell": 460,
+   "weapon": 174
   },
   "books": [
    "phb/spells",
@@ -25,6 +25,11 @@
    "ravenloft/options",
    "faerun/items",
    "faerun/options",
+   "arcana/spells",
+   "arcana/feats",
+   "arcana/subclasses",
+   "arcana/backgrounds",
+   "arcana/items",
    "dnd5e/spells24",
    "dnd5e/feats24",
    "dnd5e/classes24",
@@ -56,6 +61,11 @@
    "name": "Chaos Blade",
    "where": "Monster Manual · Features"
   },
+  "effect:1d6-damage-penalty": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunGraveGroundcR",
+   "name": "Grave Ground",
+   "where": "Arcana Unleashed · Spells"
+  },
   "effect:1st-level-enspelled-armor": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledArmo",
    "name": "Enspelled Armor",
@@ -80,6 +90,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmChaosBlade0000",
    "name": "Chaos Blade",
    "where": "Monster Manual · Features"
+  },
+  "effect:20-speed": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDistortedDiLa",
+   "name": "Distorted Distance",
+   "where": "Arcana Unleashed · Spells"
   },
   "effect:2nd-level-enspelled-armor": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledArmo",
@@ -236,6 +251,11 @@
    "name": "Elemental Epitome",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:acid-resistance-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:acid-shielding": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofOngAuraofElem",
    "name": "Aura of Elemental Shielding",
@@ -255,6 +275,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:activate-wrecker": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWorkshopWrenc",
+   "name": "Workshop Wrecker",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:active-attunement": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkElementalA",
@@ -285,6 +310,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkOpenHandTe",
    "name": "Open Hand Technique",
    "where": "Player's Handbook · Character Classes"
+  },
+  "effect:adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDiamondStaftz",
+   "name": "Diamond Staff",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:adv-attacks--saves": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMarshalUndead0",
@@ -496,10 +526,25 @@
    "name": "Cloak of the Manta Ray",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:aquatic-light": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+   "name": "Wave-Swept Weapon",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:aquatic-traits": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+   "name": "Wave-Swept Weapon",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:arcana-guidance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:arcana-proficiency": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcanistsBeXG",
+   "name": "Arcanist's Bestiary",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:archery-style": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbfstArchery000",
@@ -601,6 +646,16 @@
    "name": "Armor of Vulnerability",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:ascendant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+   "name": "Wave-Swept Weapon",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:ascendant-traits": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+   "name": "Wave-Swept Weapon",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:asleep": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEyebite000",
    "name": "Eyebite",
@@ -660,6 +715,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeUseMagicDe",
    "name": "Use Magic Device",
    "where": "Player's Handbook · Character Classes"
+  },
+  "effect:aura": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunAuraofEvasiIJ",
+   "name": "Aura of Evasion",
+   "where": "Arcana Unleashed · Spells"
   },
   "effect:aura-of-life": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofLife",
@@ -771,10 +831,20 @@
    "name": "Banish",
    "where": "Monster Manual · Features"
   },
+  "effect:banishing-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunBanishingShot",
+   "name": "Banishing Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:bark-like-skin": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBarkskin00",
    "name": "Barkskin",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:barnacled": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+   "name": "Wave-Swept Weapon",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:battering-roots": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbBatteringR",
@@ -805,6 +875,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdBeguilingM",
    "name": "Beguiling Magic",
    "where": "Player's Handbook · Character Classes"
+  },
+  "effect:beguiling-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunBeguilingShot",
+   "name": "Beguiling Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "effect:berserk": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBerserk0000000",
@@ -957,9 +1032,9 @@
    "where": "Player's Handbook · Spells"
   },
   "effect:bloodied": {
-   "uuid": "Actor.MWUugCgfU8PXsa5n",
-   "name": "Renlow Veck",
-   "where": "this world · Renlow Veck"
+   "uuid": "Actor.3S6v9ShOyAMt8d7P",
+   "name": "Gren Greenmantle",
+   "where": "this world · Gren Greenmantle"
   },
   "effect:bludgeoning-piercing-slashing-resistance": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArmorOfInvuln",
@@ -1141,6 +1216,11 @@
    "name": "Enspelled Weapon",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:cantrip-modifications": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneSafegid",
+   "name": "Arcane Safeguard",
+   "where": "Arcana Unleashed · Feats"
+  },
   "effect:captured": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFallingNet000",
    "name": "Falling Net",
@@ -1276,6 +1356,11 @@
    "name": "Elemental Epitome",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:cold-resistance-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:cold-shielding": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofOngAuraofElem",
    "name": "Aura of Elemental Shielding",
@@ -1326,11 +1411,6 @@
    "name": "Hunger of Yeenoghu",
    "where": "Monster Manual · Features"
   },
-  "effect:concentrating-hold-person": {
-   "uuid": "Actor.kwoe46bQeSTZNCTN",
-   "name": "BF Test Sorcerer",
-   "where": "this world · BF Test Sorcerer"
-  },
   "effect:concentration-advantage": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvEldritchMi",
    "name": "Eldritch Mind",
@@ -1345,6 +1425,21 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConfusion0",
    "name": "Confusion",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:conjuration-focus-cha": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunConjurationAd",
+   "name": "Conjuration Adept",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "effect:conjuration-focus-int": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunConjurationAd",
+   "name": "Conjuration Adept",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "effect:conjuration-focus-wis": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunConjurationAd",
+   "name": "Conjuration Adept",
+   "where": "Arcana Unleashed · Feats"
   },
   "effect:contingency-spell": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContingenc",
@@ -1511,6 +1606,11 @@
    "name": "Darkvision",
    "where": "Player's Handbook · Spells"
   },
+  "effect:darkvision-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:daylight-presence": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBoonoftheBrig",
    "name": "Boon of the Bright Sun",
@@ -1521,10 +1621,15 @@
    "name": "Dazzling Footwork",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:dazzling-light": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDiamondStaftz",
+   "name": "Diamond Staff",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:dead": {
-   "uuid": "Actor.kwoe46bQeSTZNCTN",
-   "name": "BF Test Sorcerer",
-   "where": "this world · BF Test Sorcerer"
+   "uuid": "Actor.3S6v9ShOyAMt8d7P",
+   "name": "Gren Greenmantle",
+   "where": "this world · Gren Greenmantle"
   },
   "effect:deafened": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
@@ -1676,6 +1781,21 @@
    "name": "Sunlight",
    "where": "Monster Manual · Features"
   },
+  "effect:disadv-con-saves": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDisruptiveTaN",
+   "name": "Disruptive Tune",
+   "where": "Arcana Unleashed · Spells"
+  },
+  "effect:disadv-concentration-check": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMageBreakerFf",
+   "name": "Mage Breaker",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:disadv-d20-tests": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunFracturedAwZD",
+   "name": "Fractured Awareness",
+   "where": "Arcana Unleashed · Spells"
+  },
   "effect:disadvantaged": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRivalCoin0000",
    "name": "Rival Coin",
@@ -1821,6 +1941,11 @@
    "name": "Durable",
    "where": "Player's Handbook · Feats"
   },
+  "effect:durable-summons": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDurableSummon",
+   "name": "Durable Summons",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:dwarven-plate": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDwarvenPlate0",
    "name": "Dwarven Plate",
@@ -1891,6 +2016,11 @@
    "name": "Elemental Weapon",
    "where": "Player's Handbook · Spells"
   },
+  "effect:elemental-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunElementalFami",
+   "name": "Elemental Familiar",
+   "where": "Arcana Unleashed · Feats"
+  },
   "effect:elemental-fire-1": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
    "name": "Elemental Weapon",
@@ -1946,6 +2076,21 @@
    "name": "Elven Chain",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:enchanting-deception": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDeceptiveCoQT",
+   "name": "Enchanting Conversation (Deception)",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "effect:enchanting-intimidation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunIntimidatinqS",
+   "name": "Enchanting Conversation (Intimidation)",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "effect:enchanting-persuasion": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunPersuasiveCnI",
+   "name": "Enchanting Conversation (Persuasion)",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:enclosed-in-sphere": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOtilukesRe",
    "name": "Otiluke's Resilient Sphere",
@@ -1965,6 +2110,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofEnfee",
    "name": "Ray of Enfeeblement",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:enfeebling-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEnfeeblingSho",
+   "name": "Enfeebling Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "effect:enhance-fortitude-constitution-bonus": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFortitudeIoun",
@@ -2126,6 +2276,11 @@
    "name": "Loathsome Limbs",
    "where": "Monster Manual · Features"
   },
+  "effect:extinguished": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDeathsMaster0",
+   "name": "Death's Master",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:extrasensory-perception": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwAberrantAnato",
    "name": "Aberrant Anatomy",
@@ -2276,6 +2431,11 @@
    "name": "Elemental Epitome",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:fire-resistance-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:fire-shielding": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofOngAuraofElem",
    "name": "Aura of Elemental Shielding",
@@ -2370,6 +2530,11 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwUPFormofDreOJ",
    "name": "Form of Dread",
    "where": "Ravenloft: The Horrors Within · Character Options"
+  },
+  "effect:fortified-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunFamiliarFri4q",
+   "name": "Familiar Friend",
+   "where": "Arcana Unleashed · Feats"
   },
   "effect:fortifying-soul": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofWiwFortifying",
@@ -2556,10 +2721,35 @@
    "name": "Claws",
    "where": "Monster Manual · Features"
   },
+  "effect:grappled-blinded--restrained": {
+   "uuid": "Actor.b7Upe9E75yANZ6pw.Item.mmEngulf00000000",
+   "name": "Engulf",
+   "where": "this world · Shambling Mound"
+  },
+  "effect:grasping-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunGraspingShot0",
+   "name": "Grasping Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "effect:great-weapon-fighting": {
+   "uuid": "Actor.2ZLVGsghw3fYHKO3",
+   "name": "BF Test Fighter",
+   "where": "this world · BF Test Fighter"
+  },
+  "effect:great-weapon-master": {
+   "uuid": "Actor.2ZLVGsghw3fYHKO3",
+   "name": "BF Test Fighter",
+   "where": "this world · BF Test Fighter"
+  },
   "effect:green-scale": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDragonScaleMa",
    "name": "Dragon Scale Mail",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "effect:grow-clone": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunUniversalPaxD",
+   "name": "Universal Pantograph",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:guiding-bolt": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidingBol",
@@ -2600,6 +2790,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHammerOfThund",
    "name": "Hammer of Thunderbolts",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "effect:hampered": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunUncertainForz",
+   "name": "Uncertain Footing",
+   "where": "Arcana Unleashed · Spells"
   },
   "effect:hamstrung": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbBrutalStri",
@@ -2730,6 +2925,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:history-proficiency": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcanistsBeXG",
+   "name": "Arcanist's Bestiary",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:hit-str-score-1": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDrainingSwipe0",
@@ -2881,6 +3081,11 @@
    "name": "Hunter's Mark",
    "where": "Player's Handbook · Spells"
   },
+  "effect:hypnotic-presence": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunHypnoticPrese",
+   "name": "Hypnotic Presence",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:hypnotized": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHypnoticPa",
    "name": "Hypnotic Pattern",
@@ -2892,14 +3097,19 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "effect:ignore-difficult-terrain": {
-   "uuid": "Compendium.dnd5e.equipment24.Item.dmgHorseshoesOfA",
-   "name": "Horseshoes of a Zephyr",
-   "where": "SRD 5.2 · Equipment"
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunTramontaneAyR",
+   "name": "Tramontane Armor",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:illuminated": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStarryWisp",
    "name": "Starry Wisp",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:immune-to-identify-target": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunNamersNeedlzm",
+   "name": "Namer's Needle",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:imperceptible-barrier": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShield0000",
@@ -3006,6 +3216,11 @@
    "name": "Intimidating Presence",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:intimidation-advantage": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffofSkulll",
+   "name": "Staff of Skulls",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:intimidation-guidance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
@@ -3041,6 +3256,16 @@
    "name": "Second Skin",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
+  "effect:invulnerability": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunInvulnerabiVp",
+   "name": "Invulnerability",
+   "where": "Arcana Unleashed · Spells"
+  },
+  "effect:iron-body": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunIronBodyti7sg",
+   "name": "Iron Body",
+   "where": "Arcana Unleashed · Spells"
+  },
   "effect:irresistible-dance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplOttosIrres",
    "name": "Otto's Irresistible Dance",
@@ -3066,6 +3291,11 @@
    "name": "Shield of the Cavalier",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:knowledge-from-the-dead": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneUnder1Z",
+   "name": "Arcane Undertaker",
+   "where": "Arcana Unleashed · Feats"
+  },
   "effect:languages": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmStealBody00000",
    "name": "Steal Body",
@@ -3080,6 +3310,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTomeOfLeaders",
    "name": "Tome of Leadership and Influence",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "effect:lengthened-stride": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunTransmutedAqb",
+   "name": "Transmuted Anatomy",
+   "where": "Arcana Unleashed · Feats"
   },
   "effect:lethal-vibrations": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkQuiveringP",
@@ -3156,6 +3391,11 @@
    "name": "Elemental Epitome",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:lightning-resistance-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:lightning-shielding": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofOngAuraofElem",
    "name": "Aura of Elemental Shielding",
@@ -3226,6 +3466,11 @@
    "name": "Mage Armor",
    "where": "Player's Handbook · Spells"
   },
+  "effect:magic-exhausted": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffoftheL1l",
+   "name": "Staff of the Lost",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:magic-weapon-1": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicWeapo",
    "name": "Magic Weapon",
@@ -3240,6 +3485,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicWeapo",
    "name": "Magic Weapon",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:magical-augmentation-speed-increase": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunTransmutation",
+   "name": "Transmutation Adept",
+   "where": "Arcana Unleashed · Feats"
   },
   "effect:magician": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbPrimalOrderMa",
@@ -3270,6 +3520,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMarinersArmor",
    "name": "Mariner's Armor",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "effect:mark-dueling-ground-target": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDuelingGrouLS",
+   "name": "Dueling Ground",
+   "where": "Arcana Unleashed · Spells"
   },
   "effect:mark-of-sacrifice-removed": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwMarkofSacriXa",
@@ -3326,10 +3581,20 @@
    "name": "Hammer of Thunderbolts",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:mighty-build-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:mind-blanked": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindBlank0",
    "name": "Mind Blank",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:mind-wall-advantages": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDreamWeaverXZ",
+   "name": "Dream Weaver",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:mindless-rage": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbMindlessRa",
@@ -3365,11 +3630,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMoonblade0000",
    "name": "Moonblade",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "effect:moonlight": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofAlustrielsMoo",
-   "name": "Alustriel’s Mooncloak",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
   "effect:moonlight-step": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdMoonlightS",
@@ -3410,6 +3670,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:nature-proficiency": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcanistsBeXG",
+   "name": "Arcanist's Bestiary",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:natures-ward": {
    "uuid": "Compendium.dnd5e.classes24.Item.phbdrdNaturesWar",
@@ -3531,6 +3796,11 @@
    "name": "Elminster's Effulgent Spheres",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "effect:otherworldly-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunOtherworldlyF",
+   "name": "Otherworldly Familiar",
+   "where": "Arcana Unleashed · Feats"
+  },
   "effect:outlined": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFaerieFire",
    "name": "Faerie Fire",
@@ -3641,6 +3911,11 @@
    "name": "Draconic Origin",
    "where": "Monster Manual · Features"
   },
+  "effect:poison-resistance-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:poisoned": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofSickn",
    "name": "Ray of Sickness",
@@ -3701,11 +3976,6 @@
    "name": "Poisoned Needle",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "effect:polar-strikes-damage": {
-   "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofWiwFrigidExpl",
-   "name": "Frigid Explorer",
-   "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
   "effect:power-from-pain-bloodied-damage": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBoonofBloodsh",
    "name": "Boon of Bloodshed",
@@ -3715,6 +3985,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbPowerOfThe",
    "name": "Power of the Wilds",
    "where": "Player's Handbook · Character Classes"
+  },
+  "effect:power-word-pain": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunPowerWordPaww",
+   "name": "Power Word Pain",
+   "where": "Arcana Unleashed · Spells"
   },
   "effect:powerful-build": {
    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptPowerfulBu",
@@ -3741,6 +4016,31 @@
    "name": "Prismatic Wall",
    "where": "Player's Handbook · Spells"
   },
+  "effect:prismatic-conversion-acid": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPrismaticRu9x",
+   "name": "Prismatic Rune",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:prismatic-conversion-cold": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPrismaticRu9x",
+   "name": "Prismatic Rune",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:prismatic-conversion-fire": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPrismaticRu9x",
+   "name": "Prismatic Rune",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:prismatic-conversion-lightning": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPrismaticRu9x",
+   "name": "Prismatic Rune",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "effect:prismatic-conversion-thunder": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPrismaticRu9x",
+   "name": "Prismatic Rune",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:prone": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDestructiv",
    "name": "Destructive Wave",
@@ -3755,6 +4055,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbEvilAndGoodPr",
    "name": "Protection from Evil and Good",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:protected--invictus": {
+   "uuid": "Actor.97DWKTZ5rwXqKzDX",
+   "name": "Morgash the Gravemaker",
+   "where": "this world · Morgash the Gravemaker"
   },
   "effect:protected-against-poison": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPeriaptOfProo",
@@ -3915,6 +4220,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
    "name": "Guidance",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:religion-proficiency": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcanistsBeXG",
+   "name": "Arcanist's Bestiary",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:remarkable-athlete": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrRemarkable",
@@ -4421,6 +4731,11 @@
    "name": "Shadow Arts",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:shadow-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunShadowShot000",
+   "name": "Shadow Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:shard-hardened-natural-armor": {
    "uuid": "Actor.oOWorLH5BJ7lQfmE",
    "name": "Cadoc, the Guardian",
@@ -4576,6 +4891,11 @@
    "name": "Smoldering Armor",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:smooth-talker": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneEloqum6",
+   "name": "Arcane Eloquence",
+   "where": "Arcana Unleashed · Feats"
+  },
   "effect:speaking-with-plants": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpeakwithP",
    "name": "Speak with Plants",
@@ -4616,6 +4936,11 @@
    "name": "Icy Bite",
    "where": "Monster Manual · Features"
   },
+  "effect:speed-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:speedy": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftSpeedy00000",
    "name": "Speedy",
@@ -4627,9 +4952,9 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "effect:spell-changes": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.4wR0BZJUCHWGOLl2",
-   "name": "Bless",
-   "where": "this world · Gren Greenmantle"
+   "uuid": "Actor.3l181JACaGIi5wpS.Item.pGCWaJeK2JaCvwJj",
+   "name": "Heroism",
+   "where": "this world · Hobgoblin Captain"
   },
   "effect:spell-taxed": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResurrecti",
@@ -4656,10 +4981,25 @@
    "name": "Mind Spike",
    "where": "Player's Handbook · Spells"
   },
+  "effect:spirit-lantern": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.oY5tTbIhlVJbrnKW",
+   "name": "Spirit Lantern",
+   "where": "Arcana Unleashed · Spells"
+  },
+  "effect:splintered-summon": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunSplinteredSum",
+   "name": "Splintered Summons",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:stabilized": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSparetheDy",
    "name": "Spare the Dying",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:staff-glow": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffofSkulll",
+   "name": "Staff of Skulls",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:staff-of-power": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgStaffOfPower0",
@@ -4916,6 +5256,11 @@
    "name": "Life-Draining Root",
    "where": "Monster Manual · Features"
   },
+  "effect:tarnished-1-ac": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunIdolofGoodFyf",
+   "name": "Idol of Good Fortunes",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "effect:taunted": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkStepsOfThe",
    "name": "Steps of the Fey",
@@ -4967,14 +5312,19 @@
    "where": "this world · Harrow Vane"
   },
   "effect:the-graveheart": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.KI5sDm8afpKoVgaq",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KI5sDm8afpKoVgaq",
    "name": "The Graveheart",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
+  },
+  "effect:the-thornheart": {
+   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.BRzu8BoVm5MvJAW6",
+   "name": "The Thornheart",
+   "where": "this world · Invictus"
   },
   "effect:the-tideheart": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.yNlpYimPUdUnAPEB",
+   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.58Ug31CaKSQVZwXM",
    "name": "The Tideheart",
-   "where": "this world · The Party"
+   "where": "this world · Gren Greenmantle"
   },
   "effect:third-eye-darkvision": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdTheThirdEy",
@@ -5006,6 +5356,11 @@
    "name": "Elemental Epitome",
    "where": "Player's Handbook · Character Classes"
   },
+  "effect:thunder-resistance-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:thunder-shielding": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofOngAuraofElem",
    "name": "Aura of Elemental Shielding",
@@ -5025,6 +5380,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgThunderousGre",
    "name": "Thunderous Greatclub",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "effect:tireless": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPotionofTiraT",
+   "name": "Potion of Tirelessness",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "effect:tireless-form": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBookOfVileDar",
@@ -5081,6 +5441,11 @@
    "name": "Defender",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "effect:transmuter-stone": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmuterSto",
+   "name": "Transmuter Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:trapped": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHuntingTrap",
    "name": "Hunting Trap",
@@ -5100,6 +5465,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicJar00",
    "name": "Magic Jar",
    "where": "Player's Handbook · Spells"
+  },
+  "effect:tremorsense-benefit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "effect:tripped": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.KbVt56CK4ud3FUk3",
@@ -5186,6 +5556,11 @@
    "name": "Tasha's Hideous Laughter",
    "where": "Player's Handbook · Spells"
   },
+  "effect:undead-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunNecromancySpe",
+   "name": "Necromancy Spellbook",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:under-orders": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGeas000000",
    "name": "Geas",
@@ -5222,9 +5597,9 @@
    "where": "Player's Handbook · Spells"
   },
   "effect:unstoppable-drive": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.6bDjeKnZ3ktwq7ce",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.6bDjeKnZ3ktwq7ce",
    "name": "Maul of Momentum",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
   },
   "effect:upgraded-constitution": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAmuletOfHealt",
@@ -5257,9 +5632,9 @@
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
   "effect:vesper-staff": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.wsXo3abWHZrcTdq2",
+   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.J4ZM2TYNK5TZV7S1",
    "name": "Vesper Staff",
-   "where": "this world · Harrow Vane"
+   "where": "this world · Gren Greenmantle"
   },
   "effect:vicious-weapon": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgViciousWeapon",
@@ -5340,6 +5715,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmg1WandOfTheWar",
    "name": "Wand of the War Mage, +1, +2, or +3",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "effect:ward-ally": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.oY5tTbIhlVJbrnKW",
+   "name": "Spirit Lantern",
+   "where": "Arcana Unleashed · Spells"
   },
   "effect:warded": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbSanctuary0000",
@@ -5461,6 +5841,11 @@
    "name": "Harper Teamwork",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "effect:wondrous-alteration": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunWondrousAlter",
+   "name": "Wondrous Alteration",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "effect:wormlike-movement": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrRevelation",
    "name": "Revelation in Flesh",
@@ -5496,6 +5881,11 @@
    "name": "Zhentarim Travel Station",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "effect:zone-of-amicability": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunZoneofAmicaC6",
+   "name": "Zone of Amicability",
+   "where": "Arcana Unleashed · Spells"
+  },
   "feature:aasimar": {
    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspAasimar0000",
    "name": "Aasimar",
@@ -5525,6 +5915,11 @@
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftAbilityScor",
    "name": "Ability Score Improvement",
    "where": "Player's Handbook · Feats"
+  },
+  "feature:abjuration-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunAbjurationAde",
+   "name": "Abjuration Adept",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:abjuration-savant": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdAbjuration",
@@ -5606,6 +6001,11 @@
    "name": "Advanced Telepathy",
    "where": "Monster Manual · Features"
   },
+  "feature:agent-of-ninth-quill": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunNinthQuillCpT",
+   "name": "Agent of Ninth Quill",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:agile": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmAgile000000000",
    "name": "Agile",
@@ -5630,6 +6030,11 @@
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftAlert000000",
    "name": "Alert",
    "where": "Player's Handbook · Feats"
+  },
+  "feature:alter-memories": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunAlterMemories",
+   "name": "Alter Memories",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:ambush": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnvAmbush0000",
@@ -5706,10 +6111,35 @@
    "name": "Aquatic Charge",
    "where": "Monster Manual · Features"
   },
+  "feature:arcana": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunArcanaDomain0",
+   "name": "Arcana Domain",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:arcana-domain-spells": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunArcanaDomainS",
+   "name": "Arcana Domain Spells",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:arcane-apotheosis": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrArcaneApot",
    "name": "Arcane Apotheosis",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:arcane-archer": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunArcaneArcher0",
+   "name": "Arcane Archer",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:arcane-archer-lore": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunArcaneArcherL",
+   "name": "Arcane Archer Lore",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:arcane-artist": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneArtiss3",
+   "name": "Arcane Artist",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:arcane-charge": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrArcaneChar",
@@ -5721,6 +6151,26 @@
    "name": "Arcane Conduit",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
+  "feature:arcane-eloquence": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneEloqum6",
+   "name": "Arcane Eloquence",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:arcane-infiltrator": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.ArcaneInfiltraQy",
+   "name": "Arcane Infiltrator",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:arcane-omens": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneOmensJK",
+   "name": "Arcane Omens",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:arcane-overload": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneOverlB1",
+   "name": "Arcane Overload",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:arcane-prowl": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmArcaneProwl000",
    "name": "Arcane Prowl",
@@ -5731,15 +6181,35 @@
    "name": "Arcane Recovery",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:arcane-safeguard": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneSafegid",
+   "name": "Arcane Safeguard",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:arcane-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunArcaneShot000",
+   "name": "Arcane Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:arcane-study-charm": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArcaneStudyCh",
    "name": "Arcane Study Charm",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "feature:arcane-undertaker": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneUnder1Z",
+   "name": "Arcane Undertaker",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:arcane-ward": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdArcaneWard",
    "name": "Arcane Ward",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:arcane-warrior": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunArcaneWarrior",
+   "name": "Arcane Warrior",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:archdruid": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdArchdruid0",
@@ -5901,6 +6371,11 @@
    "name": "Banish",
    "where": "Monster Manual · Features"
   },
+  "feature:banishing-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunBanishingShot",
+   "name": "Banishing Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:banneret": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBanneretFight",
    "name": "Banneret",
@@ -5991,6 +6466,11 @@
    "name": "Beguiling Magic",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:beguiling-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunBeguilingShot",
+   "name": "Beguiling Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:beguiling-song": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBeguilingSong0",
    "name": "Beguiling Song",
@@ -6001,10 +6481,20 @@
    "name": "Beguiling Twist",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:bejeweled-conclave-spy": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunBejeweledCoUU",
+   "name": "Bejeweled Conclave Spy",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:bend-luck": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrBendLuck00",
    "name": "Bend Luck",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:benign-transposition": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunBenignTranspo",
+   "name": "Benign Transposition",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:berserk": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBerserk0000000",
@@ -6231,6 +6721,11 @@
    "name": "Boon of Energy Resistance",
    "where": "Player's Handbook · Feats"
   },
+  "feature:boon-of-erupting-spellpower": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunBoonOfEruptin",
+   "name": "Boon of Erupting Spellpower",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:boon-of-exquisite-radiance": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBoonofExquisi",
    "name": "Boon of Exquisite Radiance",
@@ -6260,6 +6755,11 @@
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbBoonofIrresis",
    "name": "Boon of Irresistible Offense",
    "where": "Player's Handbook · Feats"
+  },
+  "feature:boon-of-magic-school-mastery": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunBoonOfMagicSc",
+   "name": "Boon of Magic School Mastery",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:boon-of-poison-mastery": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBoonofPoisonM",
@@ -6305,6 +6805,11 @@
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofBoonoftheFuri",
    "name": "Boon of the Furious Storm",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+  },
+  "feature:boon-of-the-iron-mind": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunBoonOfTheIron",
+   "name": "Boon of the Iron Mind",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:boon-of-the-night-spirit": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbBoonoftheNigh",
@@ -6375,6 +6880,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmBurstOfWonder0",
    "name": "Burst of Wonder",
    "where": "Monster Manual · Features"
+  },
+  "feature:bursting-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunBurstingShot0",
+   "name": "Bursting Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:cacophony": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCacophony00000",
@@ -6696,6 +7206,16 @@
    "name": "Confusing Gaze",
    "where": "Monster Manual · Features"
   },
+  "feature:conjuration-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunConjurationAd",
+   "name": "Conjuration Adept",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:conjuration-savant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunConjurationSa",
+   "name": "Conjuration Savant",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:conjure-infernal-chain": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmConjureInferna",
    "name": "Conjure Infernal Chain",
@@ -6705,6 +7225,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmConjuredDragon",
    "name": "Conjured Dragon’s Breath",
    "where": "Monster Manual · Features"
+  },
+  "feature:conjurer": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunConjurer00000",
+   "name": "Conjurer",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:constrict": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmConstrict00000",
@@ -6751,6 +7276,11 @@
    "name": "Corrosive Form",
    "where": "Monster Manual · Features"
   },
+  "feature:cosmic-dawn-experiment": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunCosmicDawnEO8",
+   "name": "Cosmic Dawn Experiment",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:cosmic-omen": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdCosmicOmen",
    "name": "Cosmic Omen",
@@ -6775,6 +7305,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCovenMagic0000",
    "name": "Coven Magic",
    "where": "Monster Manual · Features"
+  },
+  "feature:covenant-of-the-grave-recruit": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunCovenantofTRS",
+   "name": "Covenant of the Grave Recruit",
+   "where": "Arcana Unleashed · Backgrounds"
   },
   "feature:crackling-wave": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCracklingWave0",
@@ -6816,6 +7351,11 @@
    "name": "Crown of Spellfire",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "feature:crucible-storm-chaser": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunCrucibleStoLm",
+   "name": "Crucible Storm Chaser",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:crusher": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftCrusher0000",
    "name": "Crusher",
@@ -6840,6 +7380,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmCurseOfTheRidd",
    "name": "Curse of the Riddle",
    "where": "Monster Manual · Features"
+  },
+  "feature:curving-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunCurvingShot00",
+   "name": "Curving Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:cutting-words": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdCuttingWor",
@@ -6941,10 +7486,20 @@
    "name": "Death's Friend",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
+  "feature:deaths-master": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDeathsMaster0",
+   "name": "Death's Master",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:decay": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDecay000000000",
    "name": "Decay",
    "where": "Monster Manual · Features"
+  },
+  "feature:deceptive-conversation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDeceptiveCoQT",
+   "name": "Enchanting Conversation (Deception)",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:defense": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbfstDefense000",
@@ -7071,6 +7626,11 @@
    "name": "Disintegration",
    "where": "Monster Manual · Features"
   },
+  "feature:dispelling-recovery": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDispellingRec",
+   "name": "Dispelling Recovery",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:displacement": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDisplacement00",
    "name": "Displacement",
@@ -7086,10 +7646,20 @@
    "name": "Distant Spell",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:distant-transposition": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDistantTransp",
+   "name": "Distant Transposition",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:distracting-strike": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnvDistractin",
    "name": "Distracting Strike",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:divination-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunDivinationAde",
+   "name": "Divination Adept",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:divination-savant": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdDivination",
@@ -7296,6 +7866,11 @@
    "name": "Durable",
    "where": "Player's Handbook · Feats"
   },
+  "feature:durable-summons": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunDurableSummon",
+   "name": "Durable Summons",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:dwarf": {
    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbspDwarf000000",
    "name": "Dwarf",
@@ -7411,6 +7986,11 @@
    "name": "Elemental Epitome",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:elemental-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunElementalFami",
+   "name": "Elemental Familiar",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:elemental-fury": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbdrdElementalF",
    "name": "Elemental Fury",
@@ -7521,6 +8101,31 @@
    "name": "Empowered Strikes",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:empowered-transmutation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEmpoweredTran",
+   "name": "Empowered Transmutation",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:enchanter": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEnchanter0000",
+   "name": "Enchanter",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:enchanting-conversation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEnchantingCon",
+   "name": "Enchanting Conversation",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:enchantment-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunEnchantmentAd",
+   "name": "Enchantment Adept",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:enchantment-savant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEnchantmentSa",
+   "name": "Enchantment Savant",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:enclave-magic": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofEnclaveMagic0",
    "name": "Enclave Magic",
@@ -7530,6 +8135,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEnergyDrain000",
    "name": "Energy Drain",
    "where": "Monster Manual · Features"
+  },
+  "feature:enfeebling-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEnfeeblingSho",
+   "name": "Enfeebling Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:engulf": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmEngulf00000000",
@@ -7626,10 +8236,20 @@
    "name": "Eventide's Splendor",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "feature:ever-ready-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunEverreadyShot",
+   "name": "Ever-Ready Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:everlasting": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwEverlasting7o",
    "name": "Everlasting",
    "where": "Ravenloft: The Horrors Within · Character Options"
+  },
+  "feature:evocation-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunEvocationAdep",
+   "name": "Evocation Adept",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:evocation-savant": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdEvocationS",
@@ -7690,6 +8310,16 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnFaithfulSt",
    "name": "Faithful Steed",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:familiar-friend": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunFamiliarFri4q",
+   "name": "Familiar Friend",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:familiar-trainer": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunFamiliarTrafz",
+   "name": "Familiar Trainer",
+   "where": "Arcana Unleashed · Backgrounds"
   },
   "feature:fanatical-focus": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbFanaticalF",
@@ -7940,6 +8570,16 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmFlyby000000000",
    "name": "Flyby",
    "where": "Monster Manual · Features"
+  },
+  "feature:focused-conjuration": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunFocusedConjur",
+   "name": "Focused Conjuration",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:focused-strike": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunFocusedStrike",
+   "name": "Focused Strike",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:foe-slayer": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrFoeSlayer0",
@@ -8201,6 +8841,11 @@
    "name": "Grasping Root",
    "where": "Monster Manual · Features"
   },
+  "feature:grasping-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunGraspingShot0",
+   "name": "Grasping Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:grave-domain": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwGraveDomain8b",
    "name": "Grave Domain",
@@ -8215,6 +8860,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGravedustFligh",
    "name": "Grave-Dust Flight",
    "where": "Monster Manual · Features"
+  },
+  "feature:grave-power": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunGravePower000",
+   "name": "Grave Power",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:grave-touched": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwUPGraveToucq1",
@@ -8345,6 +8995,11 @@
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofHarperTeamwor",
    "name": "Harper Teamwork",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+  },
+  "feature:harvest-undead": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunHarvestUndead",
+   "name": "Harvest Undead",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:hasten": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHasten00000000",
@@ -8491,6 +9146,11 @@
    "name": "Honed Spellfire",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "feature:horizon-weaver-initiate": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunHorizonWeavmB",
+   "name": "Horizon Weaver Initiate",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:horrific-visage": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmHorrificVisage",
    "name": "Horrific Visage",
@@ -8561,6 +9221,11 @@
    "name": "Hypnotic Gaze",
    "where": "Monster Manual · Features"
   },
+  "feature:hypnotic-presence": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunHypnoticPrese",
+   "name": "Hypnotic Presence",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:ice-fisher": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofIceFisher0000",
    "name": "Ice Fisher",
@@ -8585,6 +9250,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmIllumination00",
    "name": "Illumination",
    "where": "Monster Manual · Features"
+  },
+  "feature:illusion-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunIllusionAdept",
+   "name": "Illusion Adept",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:illusion-savant": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdIllusionSa",
@@ -8666,6 +9336,11 @@
    "name": "Improved Elemental Fury",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:improved-fighting-style": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunImprovedFight",
+   "name": "Improved Fighting Style",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:improved-illusions": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdImprovedIl",
    "name": "Improved Illusions",
@@ -8715,6 +9390,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbIndomitabl",
    "name": "Indomitable Might",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:indomitable-teleport": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunIndomitableTe",
+   "name": "Indomitable Teleport",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:infernal-tail": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmInfernalTail00",
@@ -8771,6 +9451,11 @@
    "name": "Inspiring Smite",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:instinctive-charm": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunInstinctiveCh",
+   "name": "Instinctive Charm",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:instinctive-pounce": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbInstinctiv",
    "name": "Instinctive Pounce",
@@ -8780,6 +9465,11 @@
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbfstIntercepti",
    "name": "Interception",
    "where": "Player's Handbook · Feats"
+  },
+  "feature:intimidating-conversation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunIntimidatinqS",
+   "name": "Enchanting Conversation (Intimidation)",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:intimidating-presence": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbIntimidati",
@@ -8850,6 +9540,11 @@
    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptKeenSenses",
    "name": "Keen Senses",
    "where": "Player's Handbook · Character Origins"
+  },
+  "feature:kill-or-knock-out": {
+   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.tBX3Ez8fyMwAVqwL",
+   "name": "Kill or Knock Out",
+   "where": "this world · Greenrest Mob — Torchbearers"
   },
   "feature:knight-of-the-gauntlet": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofKnightoftheGa",
@@ -8961,6 +9656,11 @@
    "name": "Life Suppression",
    "where": "Monster Manual · Features"
   },
+  "feature:life-vestige-spells": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunLifeVestigeSp",
+   "name": "Vestige Spells (Life)",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:lifedrinker": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvLifedrinke",
    "name": "Lifedrinker",
@@ -8985,6 +9685,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLightSensitivi",
    "name": "Light Sensitivity",
    "where": "Monster Manual · Features"
+  },
+  "feature:light-vestige-spells": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunLightVestigeS",
+   "name": "Vestige Spells (Light)",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:lightly-armored": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftLightlyArmo",
@@ -9111,6 +9816,11 @@
    "name": "Mage Slayer",
    "where": "Player's Handbook · Feats"
   },
+  "feature:magic-connoisseur": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMagicConnoiss",
+   "name": "Magic Connoisseur",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:magic-initiate": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftMagicInitia",
    "name": "Magic Initiate",
@@ -9136,6 +9846,11 @@
    "name": "Magical Ambush",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:magical-ammunition": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunMagicalAmmuni",
+   "name": "Magical Ammunition",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:magical-backlash": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMagicalBacklas",
    "name": "Magical Backlash",
@@ -9150,6 +9865,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdMagicalDis",
    "name": "Magical Discoveries",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:magical-mastery": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunMagicalMaster",
+   "name": "Magical Mastery",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:magical-secrets": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdMagicalSec",
@@ -9222,7 +9942,7 @@
    "where": "Monster Manual · Features"
   },
   "feature:martial-advantage": {
-   "uuid": "Actor.GHzbimRyBqqUqCC6.Item.Y73kGtiKbGevpBCo",
+   "uuid": "Actor.bFdYxsTJFbyrGABY.Item.Y73kGtiKbGevpBCo",
    "name": "Martial Advantage",
    "where": "this world · BF Test Attacker"
   },
@@ -9250,6 +9970,56 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvMasterofMy",
    "name": "Master of Myriad Forms",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:master-transmuter": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunMasterTransmu",
+   "name": "Master Transmuter",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:mastered-abjuration": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredAbjur",
+   "name": "Mastered Abjuration",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-conjuration": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredConju",
+   "name": "Mastered Conjuration",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-divination": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredDivin",
+   "name": "Mastered Divination",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-enchantment": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredEncha",
+   "name": "Mastered Enchantment",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-evocation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredEvoca",
+   "name": "Mastered Evocation",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-illusion": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredIllus",
+   "name": "Mastered Illusion",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-necromancy": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredNecro",
+   "name": "Mastered Necromancy",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:mastered-transmutation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunMasteredTrans",
+   "name": "Mastered Transmutation",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:masterful-shots": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunMasterfulShot",
+   "name": "Masterful Shots",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:medium-armor-master": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftMediumArmor",
@@ -9386,6 +10156,11 @@
    "name": "Moderately Armored",
    "where": "Player's Handbook · Feats"
   },
+  "feature:modify-magic": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunModifyMagic00",
+   "name": "Modify Magic",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:moist": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwSMMoistFP81Qo",
    "name": "Moist",
@@ -9461,6 +10236,16 @@
    "name": "Mystic Arcanum",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:mystic-fighting-style": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunMysticFightin",
+   "name": "Mystic Fighting Style",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:mystic-focus": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunMysticFocus00",
+   "name": "Mystic Focus",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:mystical-connection": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSMysticalCK7",
    "name": "Mystical Connection",
@@ -9515,6 +10300,26 @@
    "uuid": "Actor.oOWorLH5BJ7lQfmE.Item.ymGYXYyQos1ohNO6",
    "name": "Necrofire Reach",
    "where": "this world · Cadoc, the Guardian"
+  },
+  "feature:necromancer": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunNecromancer00",
+   "name": "Necromancer",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:necromancy-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunNecromancyAde",
+   "name": "Necromancy Adept",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:necromancy-savant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunNecromancySav",
+   "name": "Necromancy Savant",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:necromancy-spellbook": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunNecromancySpe",
+   "name": "Necromancy Spellbook",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:necrosis": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNecrosis000000",
@@ -9641,6 +10446,11 @@
    "name": "Order’s Resilience",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "feature:otherworldly-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunOtherworldlyF",
+   "name": "Otherworldly Familiar",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:otherworldly-glamour": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrOtherworld",
    "name": "Otherworldly Glamour",
@@ -9746,6 +10556,11 @@
    "name": "Persistent Rage",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:persuasive-conversation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunPersuasiveCnI",
+   "name": "Enchanting Conversation (Persuasion)",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:pesky-swarm": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPeskySwarm0000",
    "name": "Pesky Swarm",
@@ -9766,6 +10581,11 @@
    "name": "Phantasmal Creatures",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:phantasmic-circus-trouper": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunPhantasmicCVc",
+   "name": "Phantasmic Circus Trouper",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:phantasms": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPhantasms00000",
    "name": "Phantasms",
@@ -9785,6 +10605,11 @@
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftPiercer0000",
    "name": "Piercer",
    "where": "Player's Handbook · Feats"
+  },
+  "feature:piercing-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunPiercingShot0",
+   "name": "Piercing Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:poison": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPoison00000000",
@@ -9826,6 +10651,11 @@
    "name": "Polearm Master",
    "where": "Player's Handbook · Feats"
   },
+  "feature:portal-jumper": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunPortalJumpeRu",
+   "name": "Portal Jumper",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:portent": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdPortent000",
    "name": "Portent",
@@ -9840,6 +10670,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdPotentCant",
    "name": "Potent Cantrip",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:potent-stone": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunPotentStone00",
+   "name": "Potent Stone",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:pounce": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmPounce00000000",
@@ -10471,15 +11306,30 @@
    "name": "Second Wind",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:seeking-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunSeekingShot00",
+   "name": "Seeking Shot",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:seeking-spell": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmmoSeekingSpe",
    "name": "Seeking Spell",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:seer-apprentice": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunSeerApprentao",
+   "name": "Seer Apprentice",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:self-restoration": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkSelfrestor",
    "name": "Self-Restoration",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:semblance-of-life": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunSemblanceOfLi",
+   "name": "Semblance of Life",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:sense-magic": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSenseMagic0000",
@@ -10520,6 +11370,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShadowEscape00",
    "name": "Shadow Escape",
    "where": "Monster Manual · Features"
+  },
+  "feature:shadow-shot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunShadowShot000",
+   "name": "Shadow Shot",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:shadow-sorcery": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwShadowSorcery",
@@ -10570,6 +11425,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmShapeshift0000",
    "name": "Shape-Shift",
    "where": "Monster Manual · Features"
+  },
+  "feature:shape-shifter": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunShapeshifter0",
+   "name": "Shape-Shifter",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:shard-fed": {
    "uuid": "Actor.9LZyg8Ba9faCP9aH.Item.WoReHB4AlYcrybhc",
@@ -10776,6 +11636,11 @@
    "name": "Sonic Boom",
    "where": "Monster Manual · Features"
   },
+  "feature:soothing-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunSoothingFamil",
+   "name": "Soothing Familiar",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:sorcerer": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbscrSorcerer00",
    "name": "Sorcerer",
@@ -10861,6 +11726,11 @@
    "name": "Spell Resistance",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:spell-resistant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunSpellResistan",
+   "name": "Spell Resistant",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:spell-sniper": {
    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftSpellSniper",
    "name": "Spell Sniper",
@@ -10870,6 +11740,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSpellStoring00",
    "name": "Spell Storing",
    "where": "Monster Manual · Features"
+  },
+  "feature:spell-subterfuge": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunSpellSubterfu",
+   "name": "Spell Subterfuge",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:spell-thief": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeSpellThief",
@@ -10951,10 +11826,20 @@
    "name": "Spiteful Escape",
    "where": "Monster Manual · Features"
   },
+  "feature:splintered-summons": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunSplinteredSum",
+   "name": "Splintered Summons",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:split": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSplit000000000",
    "name": "Split",
    "where": "Monster Manual · Features"
+  },
+  "feature:split-enchantment": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunSplitEnchantm",
+   "name": "Split Enchantment",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:spore-bomb": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmSporeBomb00000",
@@ -11095,6 +11980,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeStrokeOfLu",
    "name": "Stroke of Luck",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:student-of-arcana": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunStudentOfArca",
+   "name": "Student of Arcana",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:student-of-war": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbftrStudentOfW",
@@ -11476,10 +12366,35 @@
    "name": "Trance of Order",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:transmutation-adept": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunTransmutation",
+   "name": "Transmutation Adept",
+   "where": "Arcana Unleashed · Feats"
+  },
+  "feature:transmutation-savant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutation",
+   "name": "Transmutation Savant",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:transmuted-anatomy": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunTransmutedAqb",
+   "name": "Transmuted Anatomy",
+   "where": "Arcana Unleashed · Feats"
+  },
   "feature:transmuted-spell": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmmoTransmuted",
    "name": "Transmuted Spell",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:transmuter": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmuter000",
+   "name": "Transmuter",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:transmuters-stone": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmutersSt",
+   "name": "Transmuter's Stone",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:transparent": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmTransparent000",
@@ -11510,6 +12425,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcTrickerySp",
    "name": "Trickery Domain Spells",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:trickery-vestige-spells": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTrickeryVesti",
+   "name": "Vestige Spells (Trickery)",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:trickster": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeArcaneTric",
@@ -11631,6 +12551,11 @@
    "name": "Undead Spells",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
+  "feature:undead-thralls": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunUndeadThralls",
+   "name": "Undead Thralls",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:undying-sentinel": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnUndyingSen",
    "name": "Undying Sentinel",
@@ -11710,6 +12635,31 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgeVersatileT",
    "name": "Versatile Trickster",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:vestige-companion": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunVestigeCompan",
+   "name": "Vestige Companion",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:vestige-patron": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunVestigePatron",
+   "name": "Vestige Patron",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:vestige-power": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunVestigePower0",
+   "name": "Vestige Power",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:vestige-recovery": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunVestigeRecove",
+   "name": "Vestige Recovery",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:vestige-spells": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunVestigeSpells",
+   "name": "Vestige Spells",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:vicious-vine": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgViciousVine00",
@@ -11796,6 +12746,16 @@
    "name": "War Priest",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:war-vestige-spells": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunWarVestigeSpe",
+   "name": "Vestige Spells (War)",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "feature:ward-of-the-sheltering-hands": {
+   "uuid": "Compendium.dnd-arcana-unleashed.backgrounds.Item.aunWardoftheShnb",
+   "name": "Ward of the Sheltering Hands",
+   "where": "Arcana Unleashed · Backgrounds"
+  },
   "feature:warding-charm": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmWardingCharm00",
    "name": "Warding Charm",
@@ -11805,6 +12765,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbclcWardingFla",
    "name": "Warding Flare",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:warlike-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunWarlikeFamili",
+   "name": "Warlike Familiar",
+   "where": "Arcana Unleashed · Feats"
   },
   "feature:warlock": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwlkWarlock000",
@@ -11830,6 +12795,11 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrbWarriorOfT",
    "name": "Warrior of the Gods",
    "where": "Player's Handbook · Character Classes"
+  },
+  "feature:warrior-of-the-mystic-arts": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunWarriorOfTheM",
+   "name": "Warrior of the Mystic Arts",
+   "where": "Arcana Unleashed · Subclasses"
   },
   "feature:warriors-wrath": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.features.Item.dmgWarriorsWrath",
@@ -12021,6 +12991,11 @@
    "name": "Wizard",
    "where": "Player's Handbook · Character Classes"
   },
+  "feature:wondrous-alteration": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunWondrousAlter",
+   "name": "Wondrous Alteration",
+   "where": "Arcana Unleashed · Subclasses"
+  },
   "feature:words-of-creation": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbbrdWordsOfCre",
    "name": "Words of Creation",
@@ -12084,7 +13059,7 @@
   "item:a-dose-of-greenrest-tonic": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.zMLT2nWp5mYVw7xm",
    "name": "A Dose of Greenrest Tonic",
-   "where": "this world · Thomas A. Invictus"
+   "where": "this world · Invictus"
   },
   "item:absorption-ioun-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAbsorptionIou",
@@ -12216,10 +13191,20 @@
    "name": "Apparatus of the Crab",
    "where": "SRD 5.2 · Equipment"
   },
+  "item:arcane-chatelaine": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcaneChatekU",
+   "name": "Arcane Chatelaine",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:arcane-focus-varies": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagArcaneFocus",
    "name": "Arcane Focus (Varies)",
    "where": "Player's Handbook · Equipment"
+  },
+  "item:arcanists-bestiary": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcanistsBeXG",
+   "name": "Arcanist's Bestiary",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:armor-1-2-or-3": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArmor12or3000",
@@ -12272,9 +13257,9 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:astral-steel-buckle": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.r2UOaoceIby9smXv",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.r2UOaoceIby9smXv",
    "name": "Astral-Steel Buckle",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
   },
   "item:avenger-spirit": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSAvengerSpv2",
@@ -12307,19 +13292,24 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:bag-of-emberspice-chai": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.4WV9NmUOOi886MOL",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.J94pQBTOztMjoHkN",
    "name": "Bag of Emberspice Chai",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:bag-of-fen-orchid-oolong": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.TwX2cBvFPGX1JCHf",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.qx003m0UwaQeAsHC",
    "name": "Bag of Fen-Orchid Oolong",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
+  },
+  "item:bag-of-gold-tesserae-prised-loose": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.uzrGnivoAI2lBTFE",
+   "name": "Bag of Gold Tesserae, Prised Loose",
+   "where": "this world · Selma"
   },
   "item:bag-of-golden-needle-tea": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.Gd0kKnK5qmYhaA5t",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.5eVLXzwHrrCZGKD0",
    "name": "Bag of Golden Needle Tea",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:bag-of-holding": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfHolding0",
@@ -12327,14 +13317,14 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:bag-of-moonpetal-white-tea": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.mMDskKRHS6bndPSo",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.PbXU0jrkQkTn3spn",
    "name": "Bag of Moonpetal White Tea",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:bag-of-smoked-ashenleaf-tea": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.tMlMs0eBfdDxg9hO",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.o8ID87xgtD0pWJzP",
    "name": "Bag of Smoked Ashenleaf Tea",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:bag-of-tricks": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfTricks00",
@@ -12406,6 +13396,11 @@
    "name": "Bell",
    "where": "Player's Handbook · Equipment"
   },
+  "item:bellows-of-strangulation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBellowsofStJo",
+   "name": "Bellows of Strangulation",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:beloved-spirit": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSBelovedSp2V",
    "name": "Beloved Spirit",
@@ -12451,6 +13446,11 @@
    "name": "Block and Tackle",
    "where": "Player's Handbook · Equipment"
   },
+  "item:blood-amulet": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBloodAmuletFw",
+   "name": "Blood Amulet",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:blood-faction-gear": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwBloodFactionG",
    "name": "Blood Faction Gear",
@@ -12460,6 +13460,11 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwBloodstainedF",
    "name": "Bloodstained Farm Implement",
    "where": "Ravenloft: The Horrors Within · Items"
+  },
+  "item:blossom-rod": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBlossomRod2C1",
+   "name": "Blossom Rod",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:blue-elemental-gem": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBlueElemental",
@@ -12476,10 +13481,15 @@
    "name": "Bolt of Fine Cloth",
    "where": "this world · Mother Wend"
   },
+  "item:bolt-of-sanctuary-velvet-deep-purple": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.r91zuD7cEFyAfbNv",
+   "name": "Bolt of Sanctuary Velvet, Deep Purple",
+   "where": "this world · Selma"
+  },
   "item:bolt-of-water-stained-silk": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.5f4gU3E4Y3mrZuil",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.aHAz3XE5UtHZ1iFr",
    "name": "Bolt of Water-Stained Silk",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:bolts": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbamoBolts00000",
@@ -12505,6 +13515,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBookOfVileDar",
    "name": "Book of Vile Darkness",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:boon-companions-bands": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBoonCompaniiL",
+   "name": "Boon Companions' Bands",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:boots-of-elvenkind": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBootsOfElvenk",
@@ -12662,9 +13677,9 @@
    "where": "Player's Handbook · Equipment"
   },
   "item:campaign-coin--the-battle-of-baldurs-gate": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.KrX8gITKjlw4m3Ky",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KrX8gITKjlw4m3Ky",
    "name": "Campaign Coin — the Battle of Baldur's Gate",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
   },
   "item:canaith-mandolin-instrument-of-the-bards": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCanaithMandol",
@@ -12722,9 +13737,9 @@
    "where": "Player's Handbook · Equipment"
   },
   "item:carved-whalebone-comb-set": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.rHBN3LSSmCa3mCGH",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.tc6OdojC31uAyCMT",
    "name": "Carved Whalebone Comb Set",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:case-crossbow-bolt": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCaseCrossbo",
@@ -12911,6 +13926,11 @@
    "name": "Component Pouch",
    "where": "Player's Handbook · Equipment"
   },
+  "item:conjurers-canopy": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunConjurersCa8H",
+   "name": "Conjurer's Canopy",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:cooks-utensils": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCooksUtens",
    "name": "Cook's Utensils",
@@ -13026,6 +14046,11 @@
    "name": "Dice",
    "where": "Player's Handbook · Equipment"
   },
+  "item:dictation-quill": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDictationQuP9",
+   "name": "Dictation Quill",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:dimensional-shackles": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDimensionalSh",
    "name": "Dimensional Shackles",
@@ -13040,6 +14065,31 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulDisguiseKi",
    "name": "Disguise Kit",
    "where": "Player's Handbook · Equipment"
+  },
+  "item:dispelling-ammunition-arrow": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDispellingA5p",
+   "name": "Dispelling Ammunition (Arrow)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:dispelling-ammunition-bolt": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.Nx7CA222Zc0XABDB",
+   "name": "Dispelling Ammunition (Bolt)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:dispelling-ammunition-bullet-firearm": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.6BkNsMYGyokiR0cO",
+   "name": "Dispelling Ammunition (Bullet, Firearm)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:dispelling-ammunition-bullet-sling": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.K0SsVF2IW2vCfRpR",
+   "name": "Dispelling Ammunition (Bullet, Sling)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:dispelling-ammunition-needle": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.l3AJIye62BqDRh0k",
+   "name": "Dispelling Ammunition (Needle)",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:displacer-beast-skin": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwDisplacerbeas",
@@ -13085,6 +14135,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDreadHelm0000",
    "name": "Dread Helm",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:dream-weaver": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDreamWeaverXZ",
+   "name": "Dream Weaver",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:dried-crown-of-white-camellias": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwDriedCrownofW",
@@ -13176,6 +14231,11 @@
    "name": "Elixir of Health",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:elocutionists-lexicon": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunElocutionisTU",
+   "name": "Elocutionist's Lexicon",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:elven-chain": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgElvenChain000",
    "name": "Elven Chain",
@@ -13195,6 +14255,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnduringSpell",
    "name": "Enduring Spellbook",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:ensorcelled-missive": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunEnsorcelled4I",
+   "name": "Ensorcelled Missive",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:enspelled-armor": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledArmo",
@@ -13225,6 +14290,11 @@
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.vOBEsJUugr50blgK",
    "name": "Everbloom Petal",
    "where": "this world · The Party"
+  },
+  "item:evergreen-fertilizer": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunEvergreenFeEG",
+   "name": "Evergreen Fertilizer",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:everseed-acorn": {
    "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.kTi1WdgJe2zlSb8M",
@@ -13297,9 +14367,9 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:feather": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.tmuS8HPoTdZuIpky",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.0FPhTgUnWDcgr0EA",
    "name": "Peryton Feather",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgQuaalsFeather",
@@ -13347,9 +14417,9 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:flaming-fist-service-badge": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.KvJvreqy473XlKrJ",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KvJvreqy473XlKrJ",
    "name": "Flaming Fist Service Badge",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
   },
   "item:flask": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagFlask000000",
@@ -13462,9 +14532,9 @@
    "where": "Forgotten Realms: Heroes of Faerûn · Items"
   },
   "item:gilt-framed-portrait-of-a-stern-merchant": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.pHpmx0ZAGWf0gljw",
-   "name": "Gilt-Framed Portrait of a Stern Merchant",
-   "where": "this world · The Party"
+   "uuid": "Actor.krdThcl2lpElRTny.Item.gjQsgndeMbwQ9o4E",
+   "name": "Gilt-Framed Portrait of a Smiling Merchant",
+   "where": "this world · Selma"
   },
   "item:glamoured-studded-leather": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGlamouredStud",
@@ -13501,10 +14571,40 @@
    "name": "Glowing Minerals",
    "where": "Ravenloft: The Horrors Within · Items"
   },
+  "item:goading-ammunition-arrow": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGoadingAmmuiO",
+   "name": "Goading Ammunition (Arrow)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:goading-ammunition-bolt": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.YdUQhKPLVQd8bCJz",
+   "name": "Goading Ammunition (Bolt)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:goading-ammunition-bullet-firearm": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.duOrxjBl86WHBzdw",
+   "name": "Goading Ammunition (Bullet, Firearm)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:goading-ammunition-bullet-sling": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.nNYMwtX19yOlYDli",
+   "name": "Goading Ammunition (Bullet, Sling)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:goading-ammunition-needle": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.xAwt4vNZMLwBiG6x",
+   "name": "Goading Ammunition (Needle)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:goggles-of-night": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGogglesOfNigh",
    "name": "Goggles of Night",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:gold-disc-palm-worn": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.GZMx87HDJ3Jw9HLC",
+   "name": "Gold Disc, Palm-Worn",
+   "where": "this world · Selma"
   },
   "item:gold-shoe": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwGoldShoe00000",
@@ -13515,6 +14615,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpGoldenLion",
    "name": "Golden Lions",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:goodberry-charm": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGoodberryChar",
+   "name": "Goodberry Charm",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:grappling-hook": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagGrapplingHo",
@@ -13642,9 +14747,9 @@
    "where": "Player's Handbook · Equipment"
   },
   "item:hespers-bone-key": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.zyCvcxXtYULWcis2",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.zyCvcxXtYULWcis2",
    "name": "Hesper's Bone Key",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
   },
   "item:hewards-handy-haversack": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHewardsHandyH",
@@ -13679,7 +14784,12 @@
   "item:holy-symbol-of-oghma": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.NwZ9sgKxGyPlQ19V",
    "name": "Holy Symbol of Oghma",
-   "where": "this world · Thomas A. Invictus"
+   "where": "this world · Invictus"
+  },
+  "item:holy-symbol-of-shar-jet-on-silver": {
+   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.uNwjO2t9heFX4Cpo",
+   "name": "Holy Symbol of Shar, Jet on Silver",
+   "where": "this world · The Party"
   },
   "item:holy-symbol-varies": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHolySymbolV",
@@ -13690,6 +14800,11 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.nshr9PBVyB03T7wB",
    "name": "Holy Water",
    "where": "Player's Handbook · Equipment"
+  },
+  "item:homeward-compass": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunHomewardComKx",
+   "name": "Homeward Compass",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:honey-pint": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgspHoney000000",
@@ -13735,6 +14850,11 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHuntingTrap",
    "name": "Hunting Trap",
    "where": "Player's Handbook · Equipment"
+  },
+  "item:idol-of-good-fortunes": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunIdolofGoodFyf",
+   "name": "Idol of Good Fortunes",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:immovable-rod": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgImmovableRod0",
@@ -13981,6 +15101,11 @@
    "name": "Long Compartment",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:lucky-foot": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunLuckyFootNp8N",
+   "name": "Lucky Foot",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:lute": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusLute000000",
    "name": "Lute",
@@ -13995,6 +15120,16 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMacfuirmidhCi",
    "name": "Mac-Fuirmidh Cittern Instrument of the Bards",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:mages-manacle": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMagesManaclIw",
+   "name": "Mage's Manacle",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:magewrights-gloves": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMagewrightsJC",
+   "name": "Magewright's Gloves",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:magical-berries": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbutlMagicalBer",
@@ -14181,6 +15316,31 @@
    "name": "Necklace of Prayer Beads",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:necklace-of-the-beastly-familiar-azurite": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunNecklaceoftdK",
+   "name": "Necklace of the Beastly Familiar (Azurite)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:necklace-of-the-beastly-familiar-chrysoprase": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.uxpeCtn6FLwAL9Gf",
+   "name": "Necklace of the Beastly Familiar (Chrysoprase)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:necklace-of-the-beastly-familiar-fire-opal": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.FoJxaTGKckzk5Hof",
+   "name": "Necklace of the Beastly Familiar (Fire Opal)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:necklace-of-the-beastly-familiar-topaz": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.habvW1Bz6tFFTM0e",
+   "name": "Necklace of the Beastly Familiar (Topaz)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:necklace-of-the-beastly-familiar-zircon": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.b4VSkPIvvpUTAqmU",
+   "name": "Necklace of the Beastly Familiar (Zircon)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:needles": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbamoNeedles000",
    "name": "Needles",
@@ -14227,14 +15387,14 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:oil-painting-sunlit-wetlands": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.22H15XTBRukZVwYJ",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.AkW4nWm6TjS7JH2y",
    "name": "Oil Painting: \"Sunlit Wetlands\"",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:oil-painting-three-ladies-at-tea": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.U5sHOm6ACcViObTv",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.Az3M6iNh8owmK0At",
    "name": "Oil Painting: \"Three Ladies at Tea\"",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:ollam-harp-instrument-of-the-bards": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOllamHarpInst",
@@ -14256,10 +15416,20 @@
    "name": "Orb of Direction",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:orb-of-divination-detection": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunOrbofDivinaJS",
+   "name": "Orb of Divination Detection",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:orb-of-dragonkind": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOrbOfDragonki",
    "name": "Orb of Dragonkind",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:orb-of-sorcery": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunOrbofSorcer7q",
+   "name": "Orb of Sorcery",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:orb-of-time": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOrbOfTime0000",
@@ -14267,19 +15437,19 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:ornate-teacup-black-and-silver": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.X5SnyVokclKG7vai",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.YFV8sFEUGY7cwqWl",
    "name": "Ornate Teacup, Black and Silver",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:ornate-teacup-bone-porcelain": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.Rc5uyYn8gHL6C6LL",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.W9P19vBx5s0YqWUF",
    "name": "Ornate Teacup, Bone Porcelain",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:ornate-teacup-sea-glass-green": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.bfe52x7zgyDIN9A2",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.DIXkYZZmrVOqlGH2",
    "name": "Ornate Teacup, Sea-Glass Green",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:padded-armor": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbarmPaddedArmo",
@@ -14379,7 +15549,7 @@
   "item:pocket-psalter": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.2Ijss4tobs4gLblG",
    "name": "Pocket Psalter",
-   "where": "this world · Thomas A. Invictus"
+   "where": "this world · Invictus"
   },
   "item:poison-basic": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPoisonBasic",
@@ -14466,6 +15636,31 @@
    "name": "Potion of Diminution",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:potion-of-dragons-breath-black": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPotionofDra5c",
+   "name": "Potion of Dragon's Breath (Black)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:potion-of-dragons-breath-blue": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.wD8HMsGpwLMLmxXu",
+   "name": "Potion of Dragon's Breath (Blue)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:potion-of-dragons-breath-green": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.KWVxudq3rZX7pOCX",
+   "name": "Potion of Dragon's Breath (Green)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:potion-of-dragons-breath-red": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.IVlWA7gUBiNDWzp8",
+   "name": "Potion of Dragon's Breath (Red)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:potion-of-dragons-breath-white": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.6cNHLeZeZeb9DNaw",
+   "name": "Potion of Dragon's Breath (White)",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:potion-of-fire-breath": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfFireB",
    "name": "Potion of Fire Breath",
@@ -14531,6 +15726,11 @@
    "name": "Potion of Poison",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:potion-of-poison-resistance": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.H0JkVjjwUoeMcANU",
+   "name": "Potion of Poison Resistance",
+   "where": "this world · Selma"
+  },
   "item:potion-of-pugilism": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfPugil",
    "name": "Potion of Pugilism",
@@ -14545,6 +15745,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfSpeed",
    "name": "Potion of Speed",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:potion-of-tirelessness": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPotionofTiraT",
+   "name": "Potion of Tirelessness",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:potion-of-vitality": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfVital",
@@ -14586,6 +15791,11 @@
    "name": "Priest's Pack",
    "where": "Player's Handbook · Equipment"
   },
+  "item:prismatic-rune": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPrismaticRu9x",
+   "name": "Prismatic Rune",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:prosthetic-limb": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgProstheticLim",
    "name": "Prosthetic Limb",
@@ -14611,6 +15821,11 @@
    "name": "Quaal's Feather Token",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:queen-ehlissas-marvelous-nightingale": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunQueenEhlissFM",
+   "name": "Queen Ehlissa's Marvelous Nightingale",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:quiver": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagQuiver00000",
    "name": "Quiver",
@@ -14620,6 +15835,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgQuiverOfEhlon",
    "name": "Quiver of Ehlonna",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:rack-of-stoppered-jars-cave-bloom-draught": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.VXsY0uH7ZU44R9bp",
+   "name": "Rack of Stoppered Jars, Cave-Bloom Draught",
+   "where": "this world · Selma"
   },
   "item:ram-portable": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagRamPortable",
@@ -14666,6 +15886,11 @@
    "name": "Renegade Spirit",
    "where": "Ravenloft: The Horrors Within · Character Options"
   },
+  "item:renlow-vecks-signet-ring": {
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.Xo6UU8qyO0VQURwR",
+   "name": "Renlow Veck's Signet Ring",
+   "where": "this world · BF Test Fighter"
+  },
   "item:reserve-ioun-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgReserveIounSt",
    "name": "Ioun Stone of Reserve",
@@ -14685,6 +15910,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfAnimalI",
    "name": "Ring of Animal Influence",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:ring-of-dedicated-focus": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunRingofDediccN",
+   "name": "Ring of Dedicated Focus",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:ring-of-djinni-summoning": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfDjinniS",
@@ -14872,9 +16102,9 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:roll-of-embroidered-tapestry": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.twfxJSznzcFyPK6J",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.F9WuttLMcsp4MMO6",
    "name": "Roll of Embroidered Tapestry",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:rolling-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRollingStone0",
@@ -14951,6 +16181,11 @@
    "name": "Scarab of Protection",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:scholars-anchoring-bangle": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunScholarsAncLx",
+   "name": "Scholar's Anchoring Bangle",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:scholars-pack": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagScholarsPac",
    "name": "Scholar's Pack",
@@ -14964,7 +16199,7 @@
   "item:scriveners-seal-ring": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.MZIYKvCbm9liSxdh",
    "name": "Scrivener's Seal Ring",
-   "where": "this world · Thomas A. Invictus"
+   "where": "this world · Invictus"
   },
   "item:scroll-of-hieroglyphics": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwScrollofHiero",
@@ -14980,6 +16215,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgScrollOfTitan",
    "name": "Scroll of Titan Summoning",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:secret-keepers-circlet": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSecretKeepeVE",
+   "name": "Secret Keeper's Circlet",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:sending-stones": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSendingStones",
@@ -15064,7 +16304,7 @@
   "item:silver-gauntlet-vault-key": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.UkIwKFWG77cWt4sB",
    "name": "Silver Gauntlet Vault Key",
-   "where": "this world · Thomas A. Invictus"
+   "where": "this world · Invictus"
   },
   "item:silver-horn-of-valhalla": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSilverHornOfV",
@@ -15079,7 +16319,7 @@
   "item:silverpoint-quill": {
    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.zPreDiCbDrRfCS0j",
    "name": "Silverpoint Quill",
-   "where": "this world · Thomas A. Invictus"
+   "where": "this world · Invictus"
   },
   "item:singe-marked-childs-mitten": {
    "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.87XD8LE9QxKNVDfV",
@@ -15102,14 +16342,14 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "item:small-cask-of-southern-wine": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.zM2p28oWsLmGel9a",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.zM2p28oWsLmGel9a",
    "name": "Small Cask of Southern Wine",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
   },
   "item:small-dragon-bones-wired": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.SQuGispVDEXnybXu",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.lp6vt1Q69eCRXWxo",
    "name": "Small Dragon Bones, Wired",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:smiths-tools": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulSmithsTool",
@@ -15131,6 +16371,16 @@
    "name": "Sovereign Glue",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:spell-component-ring": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSpellComponkz",
+   "name": "Spell Component Ring",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:spell-duelists-trophy": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSpellDuelispp",
+   "name": "Spell Duelist's Trophy",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:spell-scroll": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSpellScroll00",
    "name": "Spell Scroll",
@@ -15145,6 +16395,11 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagSpellScroll",
    "name": "Spell Scroll, Level 1",
    "where": "Player's Handbook · Equipment"
+  },
+  "item:spell-slingers-puppet": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSpellSlinge9d",
+   "name": "Spell-Slinger's Puppet",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:spellguard-shield": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSpellguardShi",
@@ -15195,6 +16450,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtStar000000",
    "name": "Star",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:star-chart-folio-ribbon-bound": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.uSnv9KsZ2i6NUCAR",
+   "name": "Star-Chart Folio, Ribbon-Bound",
+   "where": "this world · Selma"
   },
   "item:star-map-bound-in-ebony-cover": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapBoundI",
@@ -15316,6 +16576,11 @@
    "name": "Quaal's Feather Token (Swan Boat)",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:sweeping-broom": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSweepingBroJz",
+   "name": "Sweeping Broom",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:symbol-of-the-circle": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwSymboloftheCi",
    "name": "Symbol of the Circle",
@@ -15362,9 +16627,9 @@
    "where": "Ravenloft: The Horrors Within · Items"
   },
   "item:tarnished-silver-tea-service": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.lWJdKboHwQj6m0BA",
+   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.bBFAjcTXDpTAKXYF",
    "name": "Tarnished Silver Tea Service",
-   "where": "this world · The Party"
+   "where": "this world · Mother Wend"
   },
   "item:telepathy-crystal-ball-of": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTelepathyCrys",
@@ -15397,19 +16662,34 @@
    "where": "this world · Harrow Vane"
   },
   "item:the-graveheart": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.KI5sDm8afpKoVgaq",
+   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KI5sDm8afpKoVgaq",
    "name": "The Graveheart",
-   "where": "this world · Morgash the Gravemaker"
+   "where": "this world · BF Test Fighter"
+  },
+  "item:the-thornheart": {
+   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.BRzu8BoVm5MvJAW6",
+   "name": "The Thornheart",
+   "where": "this world · Invictus"
   },
   "item:the-tideheart": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.yNlpYimPUdUnAPEB",
+   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.58Ug31CaKSQVZwXM",
    "name": "The Tideheart",
-   "where": "this world · The Party"
+   "where": "this world · Gren Greenmantle"
   },
   "item:the-widows-ledger": {
    "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.RgobzlBo9ZYnCqJo",
    "name": "The Widows' Ledger",
    "where": "this world · The Party"
+  },
+  "item:thespians-playbill": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunThespiansPlaZ",
+   "name": "Thespian's Playbill",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:thiefs-thimble": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunThiefsThimbVp",
+   "name": "Thief's Thimble",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:thieves-tools": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulThievesToo",
@@ -15476,6 +16756,21 @@
    "name": "Trail-Worn Map Journal",
    "where": "this world · Jetten Elisedil"
   },
+  "item:tramontane-armor": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunTramontaneAyR",
+   "name": "Tramontane Armor",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:transmuter-stone": {
+   "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunTransmuterSto",
+   "name": "Transmuter Stone",
+   "where": "Arcana Unleashed · Subclasses"
+  },
+  "item:travelers-pearl": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunTravelersPebx",
+   "name": "Traveler's Pearl",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:tree-feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgTreeQuaalsFea",
    "name": "Feather Token (Tree)",
@@ -15506,6 +16801,11 @@
    "name": "Unbreakable Heart",
    "where": "Ravenloft: The Horrors Within · Items"
   },
+  "item:universal-pantograph": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunUniversalPaxD",
+   "name": "Universal Pantograph",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:universal-solvent": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgUniversalSolv",
    "name": "Universal Solvent",
@@ -15525,6 +16825,11 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusViol000000",
    "name": "Viol",
    "where": "Player's Handbook · Equipment"
+  },
+  "item:violet-stone-from-the-black-basin": {
+   "uuid": "Actor.krdThcl2lpElRTny.Item.dqHflANRMWU22QD6",
+   "name": "Violet Stone from the Black Basin",
+   "where": "this world · Selma"
   },
   "item:void": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtVoid000000",
@@ -15576,6 +16881,11 @@
    "name": "Wand of Fireballs",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "item:wand-of-freshness": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWandofFreshlI",
+   "name": "Wand of Freshness",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:wand-of-lightning-bolts": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfLightni",
    "name": "Wand of Lightning Bolts",
@@ -15610,6 +16920,16 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfSecrets",
    "name": "Wand of Secrets",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "item:wand-of-slumber": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWandofSlumbzf",
+   "name": "Wand of Slumber",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "item:wand-of-teeth": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWandofTeethm4",
+   "name": "Wand of Teeth",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "item:wand-of-web": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfWeb0000",
@@ -15716,6 +17036,11 @@
    "name": "Woodcut of Hunting Wolves",
    "where": "Ravenloft: The Horrors Within · Items"
   },
+  "item:workshop-wrecker": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWorkshopWrenc",
+   "name": "Workshop Wrecker",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "item:worn-fine-clothing": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwWornFineCloth",
    "name": "Worn Fine Clothing",
@@ -15784,7 +17109,7 @@
    "name": "Arcane Burst",
    "where": "Monster Manual · Actors",
    "on": "Archmage",
-   "of": 6
+   "of": 15
   },
   "natural:arcane-sword": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmHelmedHorror00.Item.mmArcaneSword000",
@@ -15939,6 +17264,12 @@
    "on": "Stone Giant",
    "of": 2
   },
+  "natural:brain-drain": {
+   "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunTaisus0000000.Item.aunBrainDrain000",
+   "name": "Brain Drain",
+   "where": "Arcana Unleashed · Bestiary",
+   "on": "Taisus"
+  },
   "natural:brain-rending-bite": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwAberrantDeath.Item.lr8WZATdLtXq2sKi",
    "name": "Brain-Rending Bite",
@@ -16026,7 +17357,7 @@
    "name": "Claw",
    "where": "Monster Manual · Actors",
    "on": "Abominable Yeti",
-   "of": 80
+   "of": 83
   },
   "natural:clawed-gauntlet": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgClawedGauntle",
@@ -16058,6 +17389,11 @@
    "where": "Monster Manual · Actors",
    "on": "Modron Tridrone"
   },
+  "natural:club": {
+   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.6e0RVWqCncxDxdve",
+   "name": "Club",
+   "where": "this world · Greenrest Mob — Torchbearers"
+  },
   "natural:coagulated-nodule": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGreaterStarSp.Item.3B1rFRSWto8FvNms",
    "name": "Coagulated Nodule",
@@ -16082,6 +17418,12 @@
    "where": "Monster Manual · Actors",
    "on": "Banshee",
    "of": 4
+  },
+  "natural:crimson-claw": {
+   "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunVenger0000000.Item.aunCrimsonClaw00",
+   "name": "Crimson Claw",
+   "where": "Arcana Unleashed · Bestiary",
+   "on": "Venger"
   },
   "natural:crush": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDarkmantle0000.Item.mmCrush000000000",
@@ -16546,6 +17888,13 @@
    "where": "Ravenloft: The Horrors Within · Bestiary",
    "on": "Viktra Mordenheim"
   },
+  "natural:magical-strike": {
+   "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunLivingConeOfC.Item.aunMagicalStrike",
+   "name": "Magical Strike",
+   "where": "Arcana Unleashed · Bestiary",
+   "on": "Living Cone of Cold",
+   "of": 3
+  },
   "natural:mercurial-axe": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmNycaloth000000.Item.mmMercurialAxe00",
    "name": "Mercurial Axe",
@@ -16648,7 +17997,7 @@
    "name": "Paralyzing Touch",
    "where": "Monster Manual · Actors",
    "on": "Lich",
-   "of": 3
+   "of": 4
   },
   "natural:petrifying-bite": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCockatrice0000.Item.mmPetrifyingBite",
@@ -16675,6 +18024,11 @@
    "name": "Pincer Staff",
    "where": "Monster Manual · Actors",
    "on": "Kuo-toa Whip"
+  },
+  "natural:pitchfork": {
+   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.2AywJA2chTjXsQEb",
+   "name": "Pitchfork",
+   "where": "this world · Greenrest Mob — Torchbearers"
   },
   "natural:poison-burst": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDrider00000000.Item.mmPoisonBurst000",
@@ -16944,7 +18298,7 @@
    "name": "Slam",
    "where": "Monster Manual · Actors",
    "on": "Animated Armor",
-   "of": 48
+   "of": 53
   },
   "natural:slash": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimatedFlying.Item.mmSlash000000000",
@@ -16984,6 +18338,12 @@
    "name": "Spectral Jaws",
    "where": "Monster Manual · Actors",
    "on": "Sahuagin Priest"
+  },
+  "natural:spore-spray": {
+   "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunSpiritFungudP.Item.fO1xSoHYqfiz7W3s",
+   "name": "Spore Spray",
+   "where": "Arcana Unleashed · Bestiary",
+   "on": "Spirit Fungus"
   },
   "natural:sting": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGiantScorpion0.Item.mmSting000000000",
@@ -17062,6 +18422,11 @@
    "name": "Swipe (Dire Wolf or Hybrid Form Only)",
    "where": "Ravenloft: The Horrors Within · Bestiary",
    "on": "Harkon Lukas"
+  },
+  "natural:sword": {
+   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.issoJvNfU36RR4Le",
+   "name": "Sword",
+   "where": "this world · Greenrest Mob — Torchbearers"
   },
   "natural:tail": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnkylosaurus00.Item.mmTail0000000000",
@@ -17144,6 +18509,16 @@
    "where": "Monster Manual · Actors",
    "on": "Barlgura"
   },
+  "natural:thrown-cabbage": {
+   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.MmVg1zGvUeLILuhw",
+   "name": "Thrown Cabbage",
+   "where": "this world · Greenrest Mob — Torchbearers"
+  },
+  "natural:thrown-tomato": {
+   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.OEi8ATSDTm2GaMdz",
+   "name": "Thrown Tomato",
+   "where": "this world · Greenrest Mob — Torchbearers"
+  },
   "natural:thunderbolt": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmStormGiant0000.Item.mmThunderbolt000",
    "name": "Thunderbolt",
@@ -17215,6 +18590,13 @@
    "where": "Monster Manual · Actors",
    "on": "Druid",
    "of": 2
+  },
+  "natural:vestiges-strike": {
+   "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.audVestigeCompan.Item.aunVestigesStrik",
+   "name": "Vestige's Strike",
+   "where": "Arcana Unleashed · Bestiary",
+   "on": "Vestige Companion",
+   "of": 4
   },
   "natural:vile-slime": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmLemure00000000.Item.mmVileSlime00000",
@@ -17389,6 +18771,11 @@
    "name": "Augury",
    "where": "Player's Handbook · Spells"
   },
+  "spell:aura-of-evasion": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunAuraofEvasiIJ",
+   "name": "Aura of Evasion",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:aura-of-life": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofLife",
    "name": "Aura of Life",
@@ -17433,6 +18820,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBarkskin00",
    "name": "Barkskin",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:battle-familiar": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunBattleFamilq9",
+   "name": "Battle Familiar",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:beacon-of-hope": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBeaconofHo",
@@ -17528,6 +18920,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCalmEmotio",
    "name": "Calm Emotions",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:catnap": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunCatnap0000000",
+   "name": "Catnap",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:chain-lightning": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplChainLight",
@@ -17814,6 +19211,11 @@
    "name": "Detect Thoughts",
    "where": "Player's Handbook · Spells"
   },
+  "spell:detonate": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDetonate6PwEy",
+   "name": "Detonate",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:dimension-door": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDimensionD",
    "name": "Dimension Door",
@@ -17844,10 +19246,20 @@
    "name": "Dispel Magic",
    "where": "Player's Handbook · Spells"
   },
+  "spell:disruptive-tune": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDisruptiveTaN",
+   "name": "Disruptive Tune",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:dissonant-whispers": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDissonantW",
    "name": "Dissonant Whispers",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:distorted-distance": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDistortedDiLa",
+   "name": "Distorted Distance",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:divination": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivination",
@@ -17909,6 +19321,11 @@
    "name": "Druidcraft",
    "where": "Player's Handbook · Spells"
   },
+  "spell:dueling-ground": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDuelingGrouLS",
+   "name": "Dueling Ground",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:earthquake": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEarthquake",
    "name": "Earthquake",
@@ -17944,6 +19361,11 @@
    "name": "Elminster's Elusion",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
   },
+  "spell:enervation": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunEnervationNxK",
+   "name": "Enervation",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:enhance-ability": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
    "name": "Enhance Ability",
@@ -17968,6 +19390,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnthrall00",
    "name": "Enthrall",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:entrancing-mirrors": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunEntrancingMlx",
+   "name": "Entrancing Mirrors",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:etherealness": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEtherealne",
@@ -18023,6 +19450,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFeignDeath",
    "name": "Feign Death",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:festering-blast": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunFesteringBlzT",
+   "name": "Festering Blast",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:find-familiar": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFindFamili",
@@ -18119,6 +19551,11 @@
    "name": "Fount of Moonlight",
    "where": "Player's Handbook · Spells"
   },
+  "spell:fractured-awareness": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunFracturedAwZD",
+   "name": "Fractured Awareness",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:freedom-of-movement": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFreedomofM",
    "name": "Freedom of Movement",
@@ -18183,6 +19620,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGraspingVi",
    "name": "Grasping Vine",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:grave-ground": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunGraveGroundcR",
+   "name": "Grave Ground",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:grease": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGrease0000",
@@ -18299,6 +19741,11 @@
    "name": "Hideous Laughter",
    "where": "SRD 5.2 · Spells"
   },
+  "spell:hindsight": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunHindsightoKSP",
+   "name": "Hindsight",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:hold-monster": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHoldMonste",
    "name": "Hold Monster",
@@ -18349,6 +19796,11 @@
    "name": "Identify",
    "where": "Player's Handbook · Spells"
   },
+  "spell:illusory-dragon": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunIllusoryDralw",
+   "name": "Illusory Dragon",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:illusory-script": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIllusorySc",
    "name": "Illusory Script",
@@ -18363,6 +19815,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplIncendiary",
    "name": "Incendiary Cloud",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:inflict-doubt": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunInflictDoubTp",
+   "name": "Inflict Doubt",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:inflict-wounds": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInflictWou",
@@ -18384,10 +19841,15 @@
    "name": "Invisibility",
    "where": "Player's Handbook · Spells"
   },
-  "spell:irresistible-dance": {
-   "uuid": "Compendium.dnd5e.spells24.Item.phbsplOttosIrres",
-   "name": "Irresistible Dance",
-   "where": "SRD 5.2 · Spells"
+  "spell:invulnerability": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunInvulnerabiVp",
+   "name": "Invulnerability",
+   "where": "Arcana Unleashed · Spells"
+  },
+  "spell:iron-body": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunIronBodyti7sg",
+   "name": "Iron Body",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:jallarzis-storm-of-radiance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplJallarzisS",
@@ -18448,6 +19910,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLightningB",
    "name": "Lightning Bolt",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:lightning-ring": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunLightningRiWL",
+   "name": "Lightning Ring",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:locate-animals-or-plants": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLocateAnim",
@@ -18609,6 +20076,11 @@
    "name": "Modify Memory",
    "where": "Player's Handbook · Spells"
   },
+  "spell:moment-of-prescience": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunMomentofPrehK",
+   "name": "Moment of Prescience",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:moonbeam": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMoonbeam00",
    "name": "Moonbeam",
@@ -18623,6 +20095,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbFaithfulHound",
    "name": "Mordenkainen's Faithful Hound",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:mordenkainens-lucubration": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunMordenkaineKp",
+   "name": "Mordenkainen's Lucubration",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:mordenkainens-magnificent-mansion": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbMagnificentMa",
@@ -18643,6 +20120,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMoveEarth0",
    "name": "Move Earth",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:negative-energy-flood": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunNegativeEne16",
+   "name": "Negative Energy Flood",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:nondetection": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplNondetecti",
@@ -18738,6 +20220,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordK",
    "name": "Power Word Kill",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:power-word-pain": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunPowerWordPaww",
+   "name": "Power Word Pain",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:power-word-stun": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordS",
@@ -18868,6 +20355,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRevivify00",
    "name": "Revivify",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:reweave-fate": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunReweaveFate6C",
+   "name": "Reweave Fate",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:rope-trick": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRopeTrick0",
@@ -19049,6 +20541,11 @@
    "name": "Spirit Guardians",
    "where": "Player's Handbook · Spells"
   },
+  "spell:spirit-lantern": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.oY5tTbIhlVJbrnKW",
+   "name": "Spirit Lantern",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:spiritual-weapon": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpiritualW",
    "name": "Spiritual Weapon",
@@ -19114,6 +20611,11 @@
    "name": "Summon Construct",
    "where": "Player's Handbook · Spells"
   },
+  "spell:summon-dinosaur": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunSummonDinosvH",
+   "name": "Summon Dinosaur",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:summon-dragon": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonDrag",
    "name": "Summon Dragon",
@@ -19133,6 +20635,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonFien",
    "name": "Summon Fiend",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:summon-plant": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunSummonPlantZd",
+   "name": "Summon Plant",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:summon-undead": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSummonUnde",
@@ -19254,6 +20761,11 @@
    "name": "Tongues",
    "where": "Player's Handbook · Spells"
   },
+  "spell:transfix": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunTransfixipkCO",
+   "name": "Transfix",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:transport-via-plants": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTransportv",
    "name": "Transport via Plants",
@@ -19289,6 +20801,11 @@
    "name": "Tsunami",
    "where": "Player's Handbook · Spells"
   },
+  "spell:uncertain-footing": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunUncertainForz",
+   "name": "Uncertain Footing",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:unseen-servant": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplUnseenServ",
    "name": "Unseen Servant",
@@ -19304,10 +20821,20 @@
    "name": "Vicious Mockery",
    "where": "Player's Handbook · Spells"
   },
+  "spell:vision-of-elapsing-eons": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunVisionofElaMG",
+   "name": "Vision of Elapsing Eons",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:vitriolic-sphere": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplVitriolicS",
    "name": "Vitriolic Sphere",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:wail-of-the-banshee": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunWailoftheBaRt",
+   "name": "Wail of the Banshee",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:wall-of-fire": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWallofFire",
@@ -19354,6 +20881,11 @@
    "name": "Water Walk",
    "where": "Player's Handbook · Spells"
   },
+  "spell:waves-of-exhaustion": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunWavesofExhacv",
+   "name": "Waves of Exhaustion",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:web": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWeb0000000",
    "name": "Web",
@@ -19384,6 +20916,11 @@
    "name": "Witch Bolt",
    "where": "Player's Handbook · Spells"
   },
+  "spell:wither-and-bloom": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunWitherandBlyZ",
+   "name": "Wither and Bloom",
+   "where": "Arcana Unleashed · Spells"
+  },
   "spell:word-of-radiance": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWordofRadi",
    "name": "Word of Radiance",
@@ -19403,6 +20940,11 @@
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplYolandesRe",
    "name": "Yolande's Regal Presence",
    "where": "Player's Handbook · Spells"
+  },
+  "spell:zone-of-amicability": {
+   "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunZoneofAmicaC6",
+   "name": "Zone of Amicability",
+   "where": "Arcana Unleashed · Spells"
   },
   "spell:zone-of-truth": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplZoneofTrut",
@@ -19509,6 +21051,16 @@
    "name": "Defender",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "weapon:diamond-staff": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDiamondStaftz",
+   "name": "Diamond Staff",
+   "where": "Arcana Unleashed · Magic Items"
+  },
+  "weapon:dissuader": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDissuader6CCG",
+   "name": "Dissuader",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "weapon:dragon-slayer": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDragonSlayer0",
    "name": "Dragon Slayer",
@@ -19564,11 +21116,6 @@
    "name": "Fiery Mace",
    "where": "Monster Manual · Features"
   },
-  "weapon:first-light": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.1BCiPSQ1nDeDqPHt",
-   "name": "First Light",
-   "where": "this world · Thomas A. Invictus"
-  },
   "weapon:flail": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepFlail00000",
    "name": "Flail",
@@ -19620,9 +21167,14 @@
    "where": "Player's Handbook · Equipment"
   },
   "weapon:goldthorn": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
+   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.kjprF2ydOkkiJzWK",
    "name": "Goldthorn",
-   "where": "this world · Jetten Elisedil"
+   "where": "this world · Morgash the Gravemaker"
+  },
+  "weapon:grave-reaper": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGraveReaperAT",
+   "name": "Grave Reaper",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "weapon:great-bow": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmGreatBow000000",
@@ -19724,6 +21276,11 @@
    "name": "Keg Launcher",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "weapon:keyholes-dagger": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunKeyholesDagoQ",
+   "name": "Keyholes Dagger",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "weapon:lance": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepLance00000",
    "name": "Lance",
@@ -19794,10 +21351,20 @@
    "name": "Mace of Terror",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "weapon:mage-breaker": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMageBreakerFf",
+   "name": "Mage Breaker",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "weapon:mangonel": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMangonel00000",
    "name": "Mangonel",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "weapon:martialists-quarterstaff": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMartialistsnF",
+   "name": "Martialist's Quarterstaff",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "weapon:maul": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMaul000000",
@@ -19813,6 +21380,11 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMercurialWhip0",
    "name": "Mercurial Whip",
    "where": "Monster Manual · Features"
+  },
+  "weapon:midnight": {
+   "uuid": "Actor.ynipTDamO8lCYI80.Item.jxvIztvrShabqxj6",
+   "name": "Midnight",
+   "where": "this world · Jetten Elisedil"
   },
   "weapon:moon-touched-sword": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMoontouchedSw",
@@ -19833,6 +21405,11 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepMusket0000",
    "name": "Musket",
    "where": "Player's Handbook · Equipment"
+  },
+  "weapon:namers-needle": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunNamersNeedlzm",
+   "name": "Namer's Needle",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "weapon:necrotic-bow": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmNecroticBow000",
@@ -20019,6 +21596,11 @@
    "name": "Staff of Power",
    "where": "Dungeon Master's Guide · Equipment"
   },
+  "weapon:staff-of-skulls": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffofSkulll",
+   "name": "Staff of Skulls",
+   "where": "Arcana Unleashed · Magic Items"
+  },
   "weapon:staff-of-striking": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfStriki",
    "name": "Staff of Striking",
@@ -20033,6 +21615,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfTheAdd",
    "name": "Staff of the Adder",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "weapon:staff-of-the-lost": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffoftheL1l",
+   "name": "Staff of the Lost",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "weapon:staff-of-the-magi": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfTheMag",
@@ -20150,9 +21737,9 @@
    "where": "Monster Manual · Features"
   },
   "weapon:vesper-staff": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.wsXo3abWHZrcTdq2",
+   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.J4ZM2TYNK5TZV7S1",
    "name": "Vesper Staff",
-   "where": "this world · Harrow Vane"
+   "where": "this world · Gren Greenmantle"
   },
   "weapon:veterans-cane": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgVeteransCane0",
@@ -20188,6 +21775,11 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWave000000000",
    "name": "Wave",
    "where": "Dungeon Master's Guide · Equipment"
+  },
+  "weapon:wave-swept-weapon": {
+   "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+   "name": "Wave-Swept Weapon",
+   "where": "Arcana Unleashed · Magic Items"
   },
   "weapon:weapon-1-2-or-3": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWeapon12or300",

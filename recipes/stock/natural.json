@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The natural: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 160
+  "fx": 163
  },
  "fx": [
   {
@@ -548,7 +548,7 @@
     "name": "Claw",
     "where": "Monster Manual · Actors",
     "on": "Abominable Yeti",
-    "of": 80
+    "of": 83
    },
    "on": "use",
    "scenes": [
@@ -1921,7 +1921,7 @@
     "name": "Slam",
     "where": "Monster Manual · Actors",
     "on": "Animated Armor",
-    "of": 48
+    "of": 53
    },
    "on": "use",
    "scenes": [
@@ -3197,7 +3197,7 @@
     "name": "Arcane Burst",
     "where": "Monster Manual · Actors",
     "on": "Archmage",
-    "of": 6
+    "of": 15
    },
    "on": "use",
    "scenes": [
@@ -4570,6 +4570,92 @@
      },
      "fadeIn": 0,
      "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "crimson-claw",
+   "for": [
+    "natural:crimson-claw"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunVenger0000000.Item.aunCrimsonClaw00",
+    "name": "Crimson Claw",
+    "where": "Arcana Unleashed · Bestiary",
+    "on": "Venger"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.creature_attack.claw.001.red"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     }
+    }
+   ]
+  },
+  {
+   "id": "vestiges-strike",
+   "for": [
+    "natural:vestiges-strike"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.audVestigeCompan.Item.aunVestigesStrik",
+    "name": "Vestige's Strike",
+    "where": "Arcana Unleashed · Bestiary",
+    "on": "Vestige Companion",
+    "of": 4
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.bludgeoning.two_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "magical-strike",
+   "for": [
+    "natural:magical-strike"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunLivingConeOfC.Item.aunMagicalStrike",
+    "name": "Magical Strike",
+    "where": "Arcana Unleashed · Bestiary",
+    "on": "Living Cone of Cold",
+    "of": 3
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.bludgeoning.two_handed",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "start": 250
+     }
     }
    ]
   }

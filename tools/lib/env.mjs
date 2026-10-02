@@ -30,6 +30,7 @@ export const MODULES = {
   dmg: `${DATA}/modules/dnd-dungeon-masters-guide`,
   ravenloft: `${DATA}/modules/dnd-ravenloft-horrors-within`,
   faerun: `${DATA}/modules/dnd-heroes-faerun`,
+  arcana: `${DATA}/modules/dnd-arcana-unleashed`,
 };
 
 export const worldDb = (name) => `${DATA}/worlds/${WORLD}/data/${name}`;

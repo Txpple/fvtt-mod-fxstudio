@@ -16,9 +16,9 @@
     "weapon:vesper-staff"
    ],
    "record": {
-    "uuid": "Actor.5P55min0Wz0isz1O.Item.wsXo3abWHZrcTdq2",
+    "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.J4ZM2TYNK5TZV7S1",
     "name": "Vesper Staff",
-    "where": "this world · Harrow Vane"
+    "where": "this world · Gren Greenmantle"
    },
    "on": "use",
    "scenes": [
@@ -70,9 +70,9 @@
     "weapon:midnight"
    ],
    "record": {
-    "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.JBm35paWK86i337m",
+    "uuid": "Actor.ynipTDamO8lCYI80.Item.jxvIztvrShabqxj6",
     "name": "Midnight",
-    "where": "this world · Invictus"
+    "where": "this world · Jetten Elisedil"
    },
    "on": "use",
    "scenes": [
@@ -107,9 +107,9 @@
     "weapon:goldthorn"
    ],
    "record": {
-    "uuid": "Actor.ynipTDamO8lCYI80.Item.z7f8P3Da7oMUfDBc",
+    "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.kjprF2ydOkkiJzWK",
     "name": "Goldthorn",
-    "where": "this world · Jetten Elisedil"
+    "where": "this world · Morgash the Gravemaker"
    },
    "on": "use",
    "scenes": [

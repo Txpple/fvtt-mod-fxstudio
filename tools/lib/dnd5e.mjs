@@ -38,10 +38,12 @@ export const LIST_PACKS = [
   ['mm', 'features', 'feature'], ['dmg', 'equipment', 'item'], ['dmg', 'features', 'feature'],
   ['ravenloft', 'items', 'item'], ['ravenloft', 'options', 'feature'],
   ['faerun', 'items', 'item'], ['faerun', 'options', 'feature'],
+  // Arcana Unleashed (installed 2026-10-01; the user, 2026-10-02). Its bastions pack is facilities only: nothing rolled at the table
+  ['arcana', 'spells', 'spell'], ['arcana', 'feats', 'feature'], ['arcana', 'subclasses', 'feature'], ['arcana', 'backgrounds', 'feature'], ['arcana', 'items', 'item'],
   ['dnd5e', 'spells24', 'spell'], ['dnd5e', 'feats24', 'feature'], ['dnd5e', 'classes24', 'feature'], ['dnd5e', 'origins24', 'feature'], ['dnd5e', 'monsterfeatures24', 'feature'], ['dnd5e', 'equipment24', 'item'],
 ];
 
 /** the compendia of creatures whose attacks are the natural-attack census (no `dnd5e/monsters`: SRD) */
-export const CREATURE_PACKS = [['mm', 'actors'], ['phb', 'actors'], ['dmg', 'actors'], ['ravenloft', 'actors'], ['ravenloft', 'fallback-actors'], ['faerun', 'actors'], ['dnd5e', 'actors24']];
+export const CREATURE_PACKS = [['mm', 'actors'], ['phb', 'actors'], ['dmg', 'actors'], ['ravenloft', 'actors'], ['ravenloft', 'fallback-actors'], ['faerun', 'actors'], ['arcana', 'actors'], ['dnd5e', 'actors24']];
 
 export const ITEM_TYPES = ['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool', 'loot'];
