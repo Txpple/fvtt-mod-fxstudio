@@ -41,4 +41,4 @@ spell:thunderous-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.targ
 spell:true-polymorph	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.complete.yellow	psfx.magic-signs.circle.v1.transmutation.complete	Polymorph's circle, at ninth level.	Sure	Sure	20
 spell:true-resurrection	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	Raise Dead's circle, at ninth level.	Sure	Sure	9
 spell:wrathful-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_red	psfx.class-features.divine-smite.v1.001.target	A smite in necrotic red.	Sure	Sure	9
-spell:yolandes-regal-presence	Close match	spell:dominate-person	jb2a.template_circle.out_pulse.02.burst.purplepink	psfx.magic-signs.circle.v1.enchantment.complete	A pulse of regal presence pushes outward from the caster.	Likely	Likely	12
+spell:yolandes-regal-presence	Close match	spell:dominate-person	jb2a.template_circle.out_pulse.02.burst.purplepink	psfx.magic-signs.circle.v1.enchantment.complete	A pulse of regal presence pushes outward from the caster.	Likely	Likely	13

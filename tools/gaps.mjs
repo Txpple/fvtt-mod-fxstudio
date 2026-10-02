@@ -12,6 +12,7 @@ import { MODULES, RECIPES, SCRATCH, packageMeta, worldDb } from './lib/env.mjs';
 import { packDir, readAll, readActors, snapshot } from './lib/leveldb.mjs';
 import { CREATURE_PACKS, LIST_PACKS } from './lib/dnd5e.mjs';
 import { idWords } from '../scripts/ui/html.js';
+import { slug } from '../scripts/core/subjects.js';
 
 const WRITE = process.argv.slice(2).includes('--write');
 const say = (s = '') => console.log(s);
@@ -60,6 +61,32 @@ function facts(d) {
   return f.filter(Boolean).join(' · ');
 }
 
+/**
+ * Whether anything HAPPENS at the table (the user, 2026-10-02: "generally there has to be an
+ * impact, either instantaneous, or a limited duration"): how the record is activated and for how
+ * long, and for an effect whether it sits on its owner for good or is put on someone for a time.
+ */
+const span = (dur) => {
+  if (!dur) return '';
+  // Foundry 14 writes an effect's duration {value, units}; units alone with no value is no duration
+  if (dur.units === 'inst') return 'inst';
+  if (dur.units && !['perm', 'spec', ''].includes(dur.units)) return dur.value ? `${dur.value} ${dur.units}` : '';
+  if (dur.seconds) return `${dur.seconds}s`;
+  if (dur.rounds) return `${dur.rounds} rounds`;
+  if (dur.turns) return `${dur.turns} turns`;
+  return '';
+};
+function moment(d, eff) {
+  const acts = Object.values(d?.system?.activities ?? {});
+  const how = [...new Set(acts.map((a) => a?.activation?.type || 'none'))];
+  const out = { activities: acts.length, activation: how, duration: [...new Set(acts.map((a) => span(a?.duration)).filter(Boolean))] };
+  if (eff) {
+    const by = acts.filter((a) => (a?.effects ?? []).some((e) => e?._id === eff._id));
+    out.effect = { type: eff.type ?? 'base', transfer: !!eff.transfer, applied: by.length > 0, by: [...new Set(by.map((a) => a?.activation?.type || 'none'))], duration: span(eff.duration), statuses: eff.statuses ?? [] };
+  }
+  return out;
+}
+
 // ── what the corpus already answers ──────────────────────────────────────────────────────────
 const answered = new Set();
 const corpus = [];
@@ -81,6 +108,8 @@ const gapKeys = Object.keys(records).filter((k) => !answered.has(k));
 // The item packs hold the spells, features and items; the CREATURE packs hold the natural attacks,
 // which are items ON an actor and so are addressed `Actor.<id>.Item.<id>` inside the pack.
 const byUuid = new Map();
+const effectsOn = new Map(); // carrier uuid -> its ActiveEffects
+const addEffect = (uuid, e) => (effectsOn.get(uuid) ?? effectsOn.set(uuid, []).get(uuid)).push(e);
 const seen = new Set();
 for (const [mod, pack] of [...LIST_PACKS, ...CREATURE_PACKS]) {
   if (seen.has(`${mod}/${pack}`)) continue;
@@ -92,7 +121,13 @@ for (const [mod, pack] of [...LIST_PACKS, ...CREATURE_PACKS]) {
   for (const [k, v] of await readAll(snap)) {
     const d = JSON.parse(v);
     if (k.startsWith('!items!')) byUuid.set(`Compendium.${m.id}.${pack}.Item.${d._id}`, d);
-    else if (k.startsWith('!actors.items!')) {
+    else if (k.startsWith('!items.effects!')) {
+      const [itemId] = k.split('!')[2].split('.');
+      addEffect(`Compendium.${m.id}.${pack}.Item.${itemId}`, d);
+    } else if (k.startsWith('!actors.items.effects!')) {
+      const [actorId, itemId] = k.split('!')[2].split('.');
+      addEffect(`Compendium.${m.id}.${pack}.Actor.${actorId}.Item.${itemId}`, d);
+    } else if (k.startsWith('!actors.items!')) {
       const [actorId] = k.split('!')[2].split('.');
       byUuid.set(`Compendium.${m.id}.${pack}.Actor.${actorId}.Item.${d._id}`, d);
     }
@@ -100,13 +135,19 @@ for (const [mod, pack] of [...LIST_PACKS, ...CREATURE_PACKS]) {
 }
 
 // this world's own records (a house key's evidence)
-const { items: worldItems } = await readActors(snapshot(worldDb('actors'), 'gap-actors'));
+const { items: worldItems, effects: worldEffects } = await readActors(snapshot(worldDb('actors'), 'gap-actors'));
 for (const [actorId, list] of Object.entries(worldItems)) for (const it of list) byUuid.set(`Actor.${actorId}.Item.${it._id}`, it);
+for (const [at, list] of Object.entries(worldEffects)) {
+  const [actorId, itemId] = at.split('.');
+  for (const e of list) addEffect(itemId ? `Actor.${actorId}.Item.${itemId}` : `Actor.${actorId}`, e);
+}
 
 const rows = [];
 for (const key of gapKeys) {
   const r = { ...records[key], kind: key.split(':')[0] };
   const d = byUuid.get(r.uuid) ?? null;
+  const id = key.split(':')[1].split('/')[0];
+  const eff = r.kind === 'effect' ? (effectsOn.get(r.uuid) ?? []).find((e) => slug(e.name) === id) ?? null : null;
   rows.push({
     key,
     kind: r.kind,
@@ -117,6 +158,7 @@ for (const key of gapKeys) {
     docType: d?.type ?? null,
     facts: d ? facts(d) : '',
     text: d ? words(d.system?.description?.value ?? '') : '',
+    moment: d || eff ? moment(d, eff) : null,
   });
 }
 

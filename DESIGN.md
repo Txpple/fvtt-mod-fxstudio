@@ -2001,3 +2001,26 @@ targeted token and the web where they landed — so with nobody targeted it had 
 targets the web landed on tokens, not the area (the *templatefx* row lost to it in the migration's
 exception table; BACKLOG.md *A quality-assurance pass* keeps the diagnosis step by step as the method for the pass). Both Web FX (`spell:web`, `feature:web`) are re-authored: the strands fly to the
 template, then a fill of `jb2a.web.01` masked to it, persisting with it. The counts did not move.
+
+## 25. An FX needs a moment (the user's ruling, 2026-10-02)
+
+Auditing the gap workbook, the user found FX proposed for passive racials: *"you attached vfx to
+passive racials, like resistence to fire. those wouldn't have an fx. generally there has to be an
+impact, either instantaneous, or a limited duration."* So an ability gets an FX only when something
+happens at the table: an attack, a cast, a use, a save, a trap or hazard going off, or an effect put
+on someone for a limited time. A trait that is simply true gets none: a resistance, darkvision, a
+proficiency or an ability score, a spell list, a subclass or background header, a lasting enchantment
+on an item, a benefit chosen at a Long Rest.
+
+**How it is read.** `tools/gaps.mjs` writes each gap's `moment`: the activations of its activities
+and their durations, and for an `effect:` key whether the effect sits on its owner (`transfer`), which
+activity applies it, and for how long. A record with **no activity** gets no FX for a technical
+reason as well as a rule: the reader plays on the usage card an activity posts, and such a record
+never posts one. An effect that sits on its owner with no duration is always on. An effect applied
+by an activity is a moment; an option chosen at a rest is not. The rest is read by hand.
+
+**What it changed.** The gap proposals were re-read against it: 273 proposals became *No proposed
+FX*, each with its reason (always on; a lasting enchantment; no activity on the record; bookkeeping
+for another ability that plays the moment; a passive benefit). Arcana Unleashed's gaps were written
+against it from the start. The rows already marked *No proposed FX* were checked the other way, for a
+moment they had missed, and their reasons held.

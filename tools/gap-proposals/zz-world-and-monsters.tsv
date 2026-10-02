@@ -17,7 +17,7 @@ natural:draining-swipe	Close match	natural:claws	jb2a.claws.400px.bright_purple	
 natural:fiendish-touch	Close match	natural:slam	jb2a.impact.004.dark_purple	psfx.impacts.magicaleffects.psychic	The succubus touches.	Maybe	Likely	16
 natural:flame-scepter	Close match	spell:magic-missile	jb2a.fire_bolt.orange	psfx.casting.fire.001	The flaming skeleton points and fire goes out.	Sure	Sure	6
 natural:flash-of-light	Close match	effect:searing-radiance	jb2a.markers.light.complete.yellow	psfx.class-features.divine-smite.v1.001.target	The cyclops oracle's eye flashes.	Likely	Maybe	8
-natural:gears-launcher	Close match	weapon:heavy-crossbow	jb2a.bullet.01.orange	psfx.ambient.tools.gears.001	The quadrone fires its gears.	Likely	Sure	12
+natural:gears-launcher	Close match	weapon:heavy-crossbow	jb2a.bullet.01.orange	psfx.ambient.tools.gears.001	The quadrone fires its gears.	Likely	Sure	13
 natural:grab	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	The bugbear grabs you.	Maybe	Sure	0
 natural:hammer-throw	Close match	weapon:warhammer	jb2a.hammer.throw	psfx.weapon-swooshes.fire.v1.group01	The fire giant throws its hammer.	Sure	Sure	2
 natural:horrific-necrosis	Close match	natural:claws	jb2a.claws.400px.bright_green	psfx.impacts.magicaleffects.necrotic	The gravecaller's touch rots.	Likely	Likely	2
@@ -45,7 +45,7 @@ natural:thrash	Close match	natural:slam	jb2a.impact.004.orange	psfx.impacts.blud
 natural:tormenting-bite	Close match	natural:bite	jb2a.bite.400px.red	psfx.impacts.slashing.v1	The barlgura bites.	Sure	Sure	5
 natural:vile-slime	Close match	spell:acid-arrow	jb2a.liquid.splash_side.bright_purple	psfx.cantrips.acid-splash.v1	The lemure's slime lands.	Likely	Likely	0
 natural:wind-swipe	Close match	natural:slam	jb2a.wind_stream.400.white	psfx.cantrips.gust.v1	The invisible stalker strikes with wind.	Likely	Likely	5
-feature:shard-fed	Close match	effect:heated-metal	jb2a.markers.runes.dark_black.03	psfx.impacts.magicaleffects.necrotic	House scope: a shard-fed creature of this world.	Maybe	Maybe	3
+feature:shard-fed	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:kestrel-company-brooch	No proposed FX				House scope: a keepsake with no rules of its own.
 feature:martial-advantage	No proposed FX				Extra damage on a swing that has its own FX.
 effect:shard-hardened-natural-armor	No proposed FX				House scope: a bonus to AC — no moment to play.
@@ -55,15 +55,14 @@ item:copyists-ledger-leaf	No proposed FX				House scope: set dressing — nothin
 item:everseed-acorn	No proposed FX				House scope: a keepsake with no rules of its own.
 item:singe-marked-childs-mitten	No proposed FX				House scope: set dressing — nothing to play.
 item:the-bolt-that-missed-its-grave	No proposed FX				House scope: set dressing — nothing to play.
-effect:the-duskheart	Close match	effect:shining	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.evocation.intro	House scope: the Duskheart is awake.	Likely	Likely	8
-effect:vesper-staff	Close match	effect:heated-metal	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.evocation.intro	House scope: the Vesper Staff is charged. Its swing is already a house FX.	Maybe	Maybe	3
+effect:the-duskheart	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:vesper-staff	No proposed FX				Always on while it is worn or known — no moment to play.			
 feature:legendary-actions	No proposed FX				A pool of actions — each has its own record.
 item:the-duskheart	Close match	effect:shining	jb2a.markers.light.complete.purple	psfx.magic-signs.rune.v1.evocation.intro	House scope: the Duskheart is used.	Likely	Likely	8
-weapon:first-light	Close match	weapon:longsword	jb2a.sword.melee.fire.yellow	psfx.class-features.divine-smite.v1.001.caster	House scope: First Light. It already plays as an Item Hook in house.json; this key would give it a named FX as well.	Sure	Likely	1
 item:chaunteas-barley-token	No proposed FX				House scope: a keepsake with no rules of its own.
 item:trail-worn-map-journal	No proposed FX				House scope: set dressing — nothing to play.
 item:wren-bone-whistle	No proposed FX				House scope: a keepsake with no rules of its own.
-effect:the-graveheart	Close match	effect:shining	jb2a.markers.light.complete.red	psfx.impacts.magicaleffects.necrotic	House scope: the Graveheart is awake.	Likely	Likely	8
+effect:the-graveheart	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:unstoppable-drive	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.impacts.bludgeoning.v1	House scope: the Maul of Momentum is rolling.	Likely	Maybe	2
 item:astral-steel-buckle	No proposed FX				House scope: a keepsake with no rules of its own.
 item:campaign-coin--the-battle-of-baldurs-gate	No proposed FX				House scope: a keepsake with no rules of its own.
@@ -74,7 +73,7 @@ item:the-graveheart	Close match	effect:shining	jb2a.markers.light.complete.red	p
 item:bolt-of-fine-cloth	No proposed FX				House scope: trade goods — nothing to play.
 item:pouch-of-cut-gems	No proposed FX				House scope: treasure — nothing to play.
 effect:bloodied	No proposed FX				House scope: a hit-point threshold — no moment to play.
-effect:the-tideheart	Close match	effect:shining	jb2a.markers.light.complete.blue	psfx.casting.water.001	House scope: the Tideheart is awake.	Likely	Sure	8
+effect:the-tideheart	No proposed FX				Always on while it is worn or known — no moment to play.			
 item:bag-of-emberspice-chai	No proposed FX				House scope: trade goods — nothing to play.
 item:bag-of-fen-orchid-oolong	No proposed FX				House scope: trade goods — nothing to play.
 item:bag-of-golden-needle-tea	No proposed FX				House scope: trade goods — nothing to play.
@@ -102,9 +101,30 @@ item:small-dragon-bones-wired	No proposed FX				House scope: set dressing — no
 item:tarnished-silver-tea-service	No proposed FX				House scope: set dressing — nothing to play.
 item:the-tideheart	Close match	effect:shining	jb2a.impact.water.02.blue	psfx.casting.water.001	House scope: the Tideheart is used.	Likely	Sure	0
 item:the-widows-ledger	No proposed FX				House scope: set dressing — nothing to play.
-item:a-dose-of-greenrest-tonic	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.potions-vials.drink-liquid.001	House scope: the tonic is drunk.	Sure	Sure	0
+item:a-dose-of-greenrest-tonic	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:holy-symbol-of-oghma	No proposed FX				House scope: a spellcasting focus. The spell it helps cast is its own FX.
 item:pocket-psalter	No proposed FX				House scope: set dressing — nothing to play.
 item:scriveners-seal-ring	No proposed FX				House scope: a keepsake with no rules of its own.
 item:silver-gauntlet-vault-key	No proposed FX				House scope: a keepsake with no rules of its own.
 item:silverpoint-quill	No proposed FX				House scope: a keepsake with no rules of its own.
+effect:grappled-blinded--restrained	Close match	effect:ensnared	jb2a.entangle.02.loop.02.green	psfx.1st-level-spells.entangle.vines.v1.001.intro	The shambling mound engulfs the target in vines.	Likely	Sure	1
+effect:great-weapon-fighting	No proposed FX				A fighting style — no moment to play.			
+effect:great-weapon-master	No proposed FX				A passive benefit — no moment to play.			
+effect:protected--invictus	No proposed FX				A world status with no record behind it — no moment to play.			
+effect:the-thornheart	No proposed FX				Always on while it is worn or known — no moment to play.			
+feature:kill-or-knock-out	No proposed FX				A rule for the mob — no moment to play.			
+item:bag-of-gold-tesserae-prised-loose	No proposed FX				Treasure — no moment to play.			
+item:bolt-of-sanctuary-velvet-deep-purple	No proposed FX				Treasure — no moment to play.			
+item:gold-disc-palm-worn	No proposed FX				Treasure — no moment to play.			
+item:holy-symbol-of-shar-jet-on-silver	No proposed FX				Treasure — no moment to play.			
+item:potion-of-poison-resistance	Close match	item:potion-of-healing	jb2a.shimmer.01.green	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk; a green shimmer.	Maybe	Sure	1
+item:rack-of-stoppered-jars-cave-bloom-draught	No proposed FX				Treasure — no moment to play.			
+item:renlow-vecks-signet-ring	No proposed FX				Treasure — no moment to play.			
+item:star-chart-folio-ribbon-bound	No proposed FX				Treasure — no moment to play.			
+item:the-thornheart	Close match	effect:divine-favor	jb2a.impact_themed.poison.greenyellow	psfx.cantrips.poison-spray.v1	House scope: the Thornheart is used.	Likely	Likely	0
+item:violet-stone-from-the-black-basin	No proposed FX				Treasure — no moment to play.			
+natural:club	Close match	weapon:club	jb2a.club.melee.01.white	psfx.impacts.bludgeoning.v1	A chair leg swung hard.	Sure	Sure	0
+natural:pitchfork	Close match	weapon:pike	jb2a.spear.melee.01.orange	psfx.weapon-attacks.spear.v1	A farmhand drives a pitchfork in.	Likely	Sure	13
+natural:sword	Close match	weapon:longsword	jb2a.sword.melee.01.white	psfx.weapon-attacks.sword.v1	A rusty sword swung by someone who has never used one.	Sure	Sure	13
+natural:thrown-cabbage	Close match	natural:slam	jb2a.liquid.splash.green	psfx.impacts.bludgeoning.v1	A heavy cabbage lands.	Maybe	Likely	13
+natural:thrown-tomato	Close match	natural:slam	jb2a.liquid.splash.red	psfx.impacts.bludgeoning.v1	A ripe tomato splatters.	Likely	Likely	13

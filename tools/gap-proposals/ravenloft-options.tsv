@@ -1,13 +1,13 @@
-effect:ancient-armor	Close match	spell:mage-armor	jb2a.aura_themed.01.inward.loop.nature.01.green	psfx.magic-signs.rune.v1.abjuration.intro	Ancient Armor: old bark and stone close over.	Likely	Likely	0
+effect:ancient-armor	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:attack-and-save-disadvantage	Close match	effect:frightened	jb2a.template_circle.symbol.out_flow.fear.dark_purple	psfx.impacts.magicaleffects.psychic	The dread reaches everyone near.	Sure	Likely	0
 effect:avenger-spirit	Close match	spell:magic-missile	jb2a.condition.curse.01.005.purple	psfx.impacts.magicaleffects.necrotic	The Avenger's spirit strikes — every soul trinket reads by what it was in life.	Likely	Likely	0
-effect:bloated-size-and-burst	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Bloated: it will burst.	Likely	Likely	0
+effect:bloated-size-and-burst	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:cursed-path-to-the-grave	Close match	effect:banished	jb2a.condition.curse.01.007.green	psfx.impacts.magicaleffects.necrotic	Path to the Grave: the target is opened to the next blow.	Sure	Sure	0
 effect:d20-test-advantage	Close match	effect:outlined	jb2a.condition.boon.01.016.yellow	psfx.magic-signs.rune.v1.divination.intro	The Fortune Teller's spirit steadies a roll.	Likely	Likely	2
 effect:death-burst-improvement	Close match	spell:raise-dead	jb2a.impact.004.green	psfx.impacts.magicaleffects.necrotic	The reanimated companion bursts when it falls.	Likely	Likely	16
 effect:escaped-death	No proposed FX				A passive trait — no moment to play.
-effect:extrasensory-perception	Close match	effect:alertness	jb2a.eyes.01.purple.few	psfx.impacts.magicaleffects.psychic	Extrasensory Perception: it knows more than it should.	Maybe	Likely	0
-effect:eyes-of-the-dark	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.illusion.intro	Eyes of the Dark: it sees in the black.	Sure	Likely	0
+effect:extrasensory-perception	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:eyes-of-the-dark	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:ferocity-die	No proposed FX				A die added — no moment to play.
 effect:form-of-dread	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.purple	psfx.impacts.magicaleffects.psychic	Form of Dread: the blood hunter turns into the thing you fear.	Likely	Likely	4
 effect:form-of-dread-necrotic-husk	Close match	effect:frightened	jb2a.markers.on_token_mask.loop.01.green	psfx.impacts.magicaleffects.necrotic	Form of Dread, necrotic husk.	Likely	Likely	4
@@ -21,12 +21,12 @@ effect:hungering-might	No proposed FX				A passive trait — no moment to play.
 effect:innate-sorcery-umbral-form	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	Umbral Form: it goes to shadow.	Maybe	Maybe	1
 effect:intrusive-echoes-incapacitated	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.incantations.whispers.fem.001.forward.slow.001	Intrusive Echoes: the voices stop it.	Likely	Sure	3
 effect:involuntary-change-stunned	Close match	effect:stunned	jb2a.markers.stun.dark_teal.03	psfx.magic-signs.rune.v1.transmutation.intro	Involuntary Change: the flesh moves on its own.	Likely	Maybe	3
-effect:life-essence	Close match	spell:raise-dead	jb2a.energy_strands.range.multiple.bluepink.02	psfx.impacts.magicaleffects.necrotic	A soul trinket is spent: the life goes across.	Likely	Likely	1
+effect:life-essence	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:moist	No proposed FX				A passive trait — no moment to play.
-effect:ominous-strikes	Close match	effect:regenerating	jb2a.markers.skull.dark_green.03	psfx.impacts.magicaleffects.necrotic	Ominous Strikes: the blow feeds the striker.	Maybe	Likely	0
+effect:ominous-strikes	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:ominous-will-incapacitated	Close match	effect:confused	jb2a.markers.stun.purple.03	psfx.impacts.magicaleffects.psychic	Ominous Will: it takes hold.	Likely	Likely	3
 effect:paranoia	Close match	effect:frightened	jb2a.eyes.01.dark_red.many	psfx.impacts.magicaleffects.psychic	Paranoia: it will not settle.	Likely	Likely	0
-effect:pull-of-the-grave	Close match	effect:banished	jb2a.condition.curse.01.015.green	psfx.impacts.magicaleffects.necrotic	Pull of the Grave: the grave wants it back.	Likely	Likely	0
+effect:pull-of-the-grave	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:remote-viewing-incapacitated	Close match	effect:foresight	jb2a.hunters_mark.loop.01.purple	psfx.magic-signs.rune.v1.divination.intro	Remote Viewing: the body is left behind.	Likely	Likely	0
 effect:spider-climb-hands-free	No proposed FX				A passive trait — no moment to play.
 effect:strengthened-attack-or-check	Close match	effect:courageous	jb2a.condition.boon.01.001.red	psfx.conditions.boon.001.01	Vampiric Bite: the drinker is stronger for it.	Likely	Likely	1
@@ -112,7 +112,7 @@ item:beloved-spirit	Close match	spell:cure-wounds	jb2a.healing_generic.200px.pur
 item:brute-spirit	Close match	spell:shatter	jb2a.thunderwave.center.blue	psfx.cantrips.thunderclap.v1	The Brute's spirit knocks them back.	Sure	Sure	3
 item:coward-spirit	Close match	effect:frightened	jb2a.template_circle.symbol.out_flow.fear.dark_purple	psfx.impacts.magicaleffects.psychic	The Coward's spirit frightens.	Sure	Likely	0
 item:fortune-teller-spirit	Close match	effect:outlined	jb2a.condition.boon.01.016.yellow	psfx.magic-signs.rune.v1.divination.intro	The Fortune Teller's spirit steadies a roll.	Likely	Likely	2
-item:magical-token	Close match	spell:find-familiar	jb2a.markers.runes.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	A magical token is made.	Maybe	Maybe	3
+item:magical-token	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:priest-spirit	Close match	spell:cure-wounds	jb2a.condition.boon.01.021.yellow	psfx.1st-level-spells.cure-wounds.v1.001	The Priest's spirit heals.	Likely	Sure	0
 item:renegade-spirit	Close match	effect:hasted	jb2a.magic_signs.rune.conjuration.complete.orange	psfx.magic-signs.rune.v1.transmutation.complete	The Renegade's spirit moves them.	Maybe	Maybe	0
 item:shade-spirit	Close match	spell:darkness	jb2a.darkness.black	psfx.impacts.magicaleffects.necrotic	The Shade's spirit puts out the light.	Likely	Likely	9

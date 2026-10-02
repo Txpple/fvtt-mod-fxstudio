@@ -39,15 +39,15 @@ The pass the user asked for: read every addressed key no FX answers, and propose
 record itself suggests it. They run in this order; everything they write lands in `dist/`.
 
 ⚠ **`gap-proposals/` IS THE WORK, and it is tracked** (the user, 2026-09-09: *"make those tracked
-we dont want to lose that work"*). Twenty-two TSVs, 2950 hand-written judgments, one line per
-addressed key: 1739 with a proposed FX, 1211 marked *No proposed FX*. **Nothing regenerates them** —
+we dont want to lose that work"*). Twenty-three TSVs, 3253 hand-written judgments, one line per
+addressed key: 1613 with a proposed FX, 1640 marked *No proposed FX*. **Nothing regenerates them** —
 the tools find the gaps and prove the paths, but what an ability should look like was decided a row
 at a time. They sit beside the tool that reads them and **not** under `recipes/`, which the module
 serves to the game at boot.
 
 | Tool | What it does |
 | --- | --- |
-| `gaps.mjs` | **the gap**: every key `records.json` addresses that no FX answers, with the record's own words and the mechanics that say what it does (the school and level, the base weapon, what its activities roll and in what damage type). Stands on exactly the evidence the corpus does, so a book added to `LIST_PACKS` shows up here as new gaps on the next run. `--write` writes `dist/gaps.json`. |
+| `gaps.mjs` | **the gap**: every key `records.json` addresses that no FX answers, with the record's own words and the mechanics that say what it does (the school and level, the base weapon, what its activities roll and in what damage type). Stands on exactly the evidence the corpus does, so a book added to `LIST_PACKS` shows up here as new gaps on the next run. `--write` writes `dist/gaps.json`, each gap with its `moment` (how its activities are activated and for how long; for an effect, whether it sits on its owner and what applies it) — DESIGN §25. |
 | `gap-pool.mjs` | the pool a proposal may draw from, written flat so a person can read all of it: `dist/pool-corpus.txt` (every FX there is and what its scenes actually play), `dist/pool-jb2a.txt` and `dist/pool-psfx.txt` (the libraries collapsed to families, with the variants each one has). It exists so a proposed variant names a path that REALLY EXISTS. |
 | `gap-assemble.mjs` | joins the batches in `gap-proposals/*.tsv` into `dist/proposals.tsv` (`key · confidence · basis · vfx · sfx · sentence · vfxFit · sfxFit · vfxInUse`: the two fits are Sure · Likely · Maybe, the last how many FX already play that animation). Add a batch or edit a line there; never edit `dist/proposals.tsv`, which is thrown away and rebuilt. |
 | `gap-check.mjs` | **nothing leaves unchecked**: every VFX and SFX path met against the loaded JB2A and PSFX databases (a node prefix counts, Sequencer resolves one), every `basis` met against a key the corpus really answers, no duplicate keys, and no proposal for a key that is not a gap. |

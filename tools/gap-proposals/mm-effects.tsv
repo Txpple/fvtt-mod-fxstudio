@@ -7,7 +7,7 @@ effect:2-frightened	Close match	effect:frightened	jb2a.markers.fear.dark_red.02	
 effect:3-ac	No proposed FX				A bonus to AC — no moment to play.
 effect:3-poisoned	Close match	effect:lingering-acid	jb2a.markers.poison.purple.02	psfx.impacts.magicaleffects.necrotic	Chaos Blade: the target is poisoned.	Likely	Likely	0
 effect:4-incapacitated	Close match	effect:stunned	jb2a.dizzy_stars.400px.blueorange	psfx.impacts.magicaleffects.necrotic	Chaos Blade: the target is incapacitated.	Likely	Likely	0
-effect:acid-absorption	Close match	effect:acid-protection	jb2a.particles.inward.greenyellow.02.02	psfx.magic-signs.rune.v1.abjuration.outro	Acid Absorption: the acid is drawn in instead of felt.	Likely	Likely	0
+effect:acid-absorption	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:adv-attacks--saves	Close match	effect:courageous	jb2a.condition.boon.01.001.green	psfx.impacts.magicaleffects.necrotic	Marshal Undead: the dead are steadied.	Maybe	Likely	1
 effect:aiming-attack-advantage	Close match	effect:outlined	jb2a.hunters_mark.pulse.06.green	psfx.magic-signs.rune.v1.divination.intro	Aim: the shot is lined up.	Likely	Likely	0
 effect:animate-trees	Close match	spell:conjure-animals	jb2a.vine.complete.nature.group.03.green	psfx.casting.earth.001	Animate Trees: roots tear up and the trees stand.	Likely	Sure	0
@@ -15,7 +15,7 @@ effect:apply-hide-action-to-target	Close match	spell:invisibility	jb2a.smoke.puf
 effect:attached-blinded	Close match	effect:ensnared	jb2a.markers.chain.spike.loop.02.grey	psfx.impacts.slashing.v1	Attached: the thing is on the target's face.	Likely	Likely	0
 effect:attack-advantage	Close match	effect:courageous	jb2a.condition.boon.02.009.refraction	psfx.conditions.boon.001.01	War Cry: a wolf-head boon on the pack.	Likely	Likely	0
 effect:attacks-disadvantage	Close match	effect:searing-radiance	jb2a.markers.light.intro.blue02	psfx.class-features.divine-smite.v1.001.target	Flash of Light: the target cannot see straight.	Likely	Likely	0
-effect:averse	Close match	effect:frightened	jb2a.markers.fear.orange.03	psfx.casting.fire.001	Aversion to Fire: the creature shies away.	Likely	Likely	2
+effect:averse	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:banished-incapacitated	Close match	effect:banished	jb2a.portals.horizontal.ring_masked.dark_purple	psfx.magic-signs.circle.v1.abjuration.complete	Banish: the target drops out of the world.	Likely	Likely	0
 effect:beast-of-burden	No proposed FX				A carrying capacity — no moment to play.
 effect:bewildered	Close match	effect:confused	jb2a.dizzy_stars.200px.purple	psfx.impacts.magicaleffects.psychic	Lordly Presence: the target is bewildered.	Likely	Likely	0
@@ -34,15 +34,15 @@ effect:cursed	Close match	effect:banished	jb2a.condition.curse.01.024.purple	psf
 effect:cursed-disadv-checks--saves	Close match	effect:banished	jb2a.condition.curse.01.021.green	psfx.magic-signs.rune.v1.necromancy.intro	Spiteful Escape: the parting curse.	Likely	Likely	0
 effect:cursed-no-reaction	Close match	effect:heated-metal	jb2a.static_electricity.03.blue02	psfx.weapon-swooshes.lightning.v1.group01	Crackling Wave: the target cannot react.	Likely	Sure	0
 effect:damaged-1-ac	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.01	psfx.cantrips.acid-splash.v1	Dissolving Pseudopod: the armour is eaten away.	Likely	Sure	0
-effect:damaged-1-ac-attack	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.dark_red.02	psfx.cantrips.acid-splash.v1	Antennae: the armour is damaged.	Likely	Likely	0
-effect:damaged-1-attack	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.purple.01	psfx.cantrips.acid-splash.v1	Corrosive Form: what touches it corrodes.	Likely	Sure	0
+effect:damaged-1-ac-attack	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:damaged-1-attack	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:damaged-2-ac	Close match	effect:lingering-acid	jb2a.markers.shield_cracked.purple.02	psfx.cantrips.poison-spray.v1	Noxious Miasma: the armour is eaten away.	Likely	Likely	0
 effect:deafened--frightened	Close match	effect:frightened	jb2a.markers.fear.dark_orange.03	psfx.cantrips.thunderclap.v1	Thunderous Bellow: deafened and afraid.	Likely	Sure	2
 effect:deafened-and-disadvantaged	Close match	effect:frightened	jb2a.icon.mute.dark_red	psfx.cantrips.thunderclap.v1	Cacophony: the target cannot hear itself think.	Sure	Likely	0
 effect:defense-4-ac	No proposed FX				A bonus to AC — no moment to play.
 effect:disadv-attacks	Close match	effect:burning	jb2a.impact.fire.01.orange	psfx.weapon-swooshes.fire.v1.group01	Hammer Throw: the target is scorched and knocked back.	Likely	Sure	0
 effect:disadv-attacks--checks	Close match	effect:frightened	jb2a.markers.fear.orange.03	psfx.casting.fire.001	Fear of Fire: the creature cannot look at it.	Likely	Likely	2
-effect:disadv-attacks--saves	Close match	effect:searing-radiance	jb2a.markers.light.outro.yellow	psfx.class-features.divine-smite.v1.001.target	Sunlight: the creature is weakened by daylight.	Likely	Likely	0
+effect:disadv-attacks--saves	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:exhaustion	Close match	effect:stunned	jb2a.markers.skull.dark_orange.02	psfx.casting.fire.001	Inferno Blast: the exhaustion after — all six levels read the same.	Likely	Likely	0
 effect:exhaustion-1	Close match	effect:stunned	jb2a.markers.skull.dark_orange.01	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion — all six levels read the same.	Likely	Likely	1
 effect:exhaustion-2	Close match	effect:stunned	jb2a.markers.skull.dark_orange.02	psfx.impacts.magicaleffects.necrotic	Loathsome Limbs: exhaustion.	Likely	Likely	0
@@ -76,7 +76,7 @@ effect:living-shadow	No proposed FX				A passive trait — no moment to play.
 effect:no-opportunity-attacks	Close match	effect:heated-metal	jb2a.static_electricity.03.dark_purple	psfx.weapon-swooshes.lightning.v1.group01	Bone Whip: the target cannot make opportunity attacks.	Likely	Sure	0
 effect:no-reaction	Close match	effect:confused	jb2a.dizzy_stars.200px.blueorange	psfx.impacts.magicaleffects.psychic	Confusing Gaze: the target cannot react.	Likely	Likely	0
 effect:petrified	Close match	spell:flesh-to-stone	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Petrified: stone dust bursts off the target as it hardens.	Likely	Sure	0
-effect:poison-resistance	Close match	effect:poison-protection	jb2a.shield.03.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Draconic Origin: resistance to poison.	Likely	Likely	0
+effect:poison-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:poisoned--blinded	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.01	psfx.cantrips.poison-spray.v1	Poison Spray: poisoned and blinded.	Likely	Sure	0
 effect:poisoned--paralyzed	Close match	effect:stunned	jb2a.icon.stun.dark_teal	psfx.cantrips.poison-spray.v1	Paralyzing Tentacles: poisoned and held.	Likely	Likely	0
 effect:poisoned-and-incapacitated	Close match	effect:lingering-acid	jb2a.side_impact.poison.green_yellow	psfx.cantrips.poison-spray.v1	Toxic Escape: poisoned and undone.	Likely	Likely	0
@@ -84,11 +84,11 @@ effect:prey-attack-advantage	Close match	effect:outlined	jb2a.hunters_mark.loop.
 effect:prone--restrained	Close match	effect:ensnared	jb2a.markers.chain.square.loop.01.red	psfx.casting.fire.001	Smelting Charge: the target is down and pinned.	Likely	Likely	0
 effect:raging-storm-blind-deaf-verbal-components	Close match	effect:searing-radiance	jb2a.impact.sound.01.pinkteal	psfx.cantrips.thunderclap.v1	Cataclysm, the storm: nobody can see or hear.	Likely	Sure	0
 effect:rallied	Close match	effect:courageous	jb2a.condition.boon.02.001.refraction	psfx.conditions.boon.001.01	Rally: the troops take heart.	Likely	Likely	0
-effect:resistance-acid	Close match	effect:acid-protection	jb2a.shield.02.complete.01.green	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to acid.	Likely	Likely	0
-effect:resistance-cold	Close match	effect:cold-protection	jb2a.shield.02.complete.01.blue	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to cold.	Likely	Likely	0
-effect:resistance-fire	Close match	effect:fire-protection	jb2a.shield_themed.below.fire.01.orange	psfx.magic-signs.rune.v1.abjuration.outro	Confer Fire Resistance: resistance to fire.	Likely	Likely	0
-effect:resistance-lightning	Close match	effect:lightning-protection	jb2a.shield.02.complete.01.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to lightning.	Likely	Likely	0
-effect:resistance-thunder	Close match	effect:thunder-protection	jb2a.shield.03.complete.01.blue	psfx.magic-signs.rune.v1.abjuration.outro	Elemental Absorption: resistance to thunder.	Likely	Likely	0
+effect:resistance-acid	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:resistance-cold	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:resistance-fire	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
+effect:resistance-lightning	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:resistance-thunder	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:response-4-ac	No proposed FX				A bonus to AC — no moment to play.
 effect:sage-appearance	No proposed FX				A change of appearance — no moment to play.
 effect:sage-pesky-swarm	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Animal Spirit: the swarm is on the target.	Maybe	Maybe	0

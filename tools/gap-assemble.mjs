@@ -1,7 +1,7 @@
 // The proposals, assembled: every batch under tools/gap-proposals/ into one dist/proposals.tsv for
 // gap-check.mjs and gap-report.mjs to read.
 //
-// ⚠ THE BATCHES ARE THE WORK. They are 2950 hand-written judgments — one line per addressed key no
+// ⚠ THE BATCHES ARE THE WORK. They are 3253 hand-written judgments — one line per addressed key no
 // FX answers — and nothing regenerates them: the tools find the gaps and prove the paths, but what
 // an ability should look like was decided a row at a time. They live in the repo for that reason,
 // beside the tool that reads them and not under recipes/, which is served to the game at boot.

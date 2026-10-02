@@ -87,11 +87,11 @@ item:cittern	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.
 item:covered-wagon	No proposed FX				Mundane gear — nothing to play.
 item:desert-clothing	No proposed FX				Clothing — nothing to play.
 item:devil-mask	No proposed FX				Clothing — nothing to play.
-item:domestic-wonder	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	A domestic wonder unfolds and gets to work.	Likely	Sure	0
+item:domestic-wonder	No proposed FX				A passive benefit — no moment to play.			
 item:garb-of-light-and-shadow	No proposed FX				Clothing — nothing to play.
 item:genie-robe	No proposed FX				Clothing — nothing to play.
 item:locking-spellbook	No proposed FX				A book that locks — nothing to play.
-item:mechanical-wonder	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	A mechanical wonder unfolds and gets to work.	Likely	Sure	0
+item:mechanical-wonder	No proposed FX				A passive benefit — no moment to play.			
 item:monster-camouflage	No proposed FX				A disguise — nothing to play.
 item:sled-services	No proposed FX				A service bought, not an item used — nothing to play.
 item:thayan-spell-tattoo	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.red	psfx.magic-signs.rune.v1.evocation.intro	A Thayan spell tattoo burns as its spell goes off.	Likely	Likely	0
@@ -100,18 +100,18 @@ item:windskiff	Close match	effect:flight	jb2a.wind_lines.01.01.white	psfx.cantri
 item:winter-camouflage	No proposed FX				Clothing — nothing to play.
 item:yarting	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6	A yarting played.	Sure	Sure	0
 effect:boots-of-elvenkind	No proposed FX				Worn, always on — no moment to play.
-effect:cloak-of-elvenkind	Close match	spell:invisibility	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.illusion.intro	The hood goes up and the wearer fades.	Likely	Likely	1
+effect:cloak-of-elvenkind	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:free-action	No proposed FX				Worn, always on — no moment to play.
 effect:ignore-difficult-terrain	No proposed FX				A mount's footing — no moment to play.
-effect:robe-of-stars	Close match	spell:mage-armor	jb2a.twinkling_stars.points06.white	psfx.magic-signs.rune.v1.abjuration.intro	The Robe of Stars: a bonus to saves while it is worn.	Likely	Likely	0
-effect:staff-of-power	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.01.purple	psfx.casting.generic-v2.001.01	The Staff of Power's bonuses, while it is held.	Likely	Likely	0
-effect:water-focus	Close match	effect:unrestricted-movement	jb2a.impact.water.02.blue	psfx.casting.water.001	The ring's attunement to water.	Likely	Sure	0
+effect:robe-of-stars	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:staff-of-power	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:water-focus	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:winter-strider	No proposed FX				Worn, always on — no moment to play.
 item:apparatus-of-the-crab	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.ambient.tools.gears.001	The barrel unfolds into the crab, gears turning.	Likely	Sure	0
 item:central-pouch	No proposed FX				A container. Nothing happens at the table.
 item:dragon-orb	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.complete.dark_red	psfx.creature.dragons.roar.large	The orb calls a dragon to heel.	Likely	Sure	10
 item:efficient-quiver	No proposed FX				A container. Reaching into it is not a moment the table watches.
-item:feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst.01.textured	psfx.magic-signs.circle.v1.conjuration.intro	A feather token is used — all seven read the same.	Sure	Likely	0
+item:feather-token	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:anchor-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst.01.textured	psfx.magic-signs.circle.v1.conjuration.intro	The anchor token.	Likely	Likely	0
 item:bird-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst.01.textured	psfx.magic-signs.circle.v1.conjuration.complete	The bird token becomes a roc.	Sure	Likely	0
 item:fan-feather-token	Close match	spell:conjure-animals	jb2a.wind_lines.01.02.white	psfx.cantrips.gust.v1	The fan token raises a wind.	Sure	Sure	0
@@ -129,13 +129,13 @@ item:right-pouch	No proposed FX				A container. Nothing happens at the table.
 item:spiders-sting	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.03	psfx.cantrips.poison-spray.v1	Spider's sting: the poison takes.	Sure	Likely	0
 effect:divine-order-protector	No proposed FX				A proficiency — no moment to play.
 effect:eldritch-mind	No proposed FX				A passive trait — no moment to play.
-effect:investment-of-flight	Close match	effect:flight	jb2a.wind_lines.01.01.white	psfx.creature.movement.flight.wings.small	The familiar is given flight.	Likely	Likely	0
-effect:investment-of-swimming	Close match	effect:unrestricted-movement	jb2a.impact.water.02.blue	psfx.casting.water.001	The familiar is given a swim speed.	Likely	Likely	0
+effect:investment-of-flight	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
+effect:investment-of-swimming	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:magician	No proposed FX				A passive trait — no moment to play.
 effect:natures-ward	No proposed FX				A ward against a climate — no moment at the table.
 effect:primal-order-warden	No proposed FX				A proficiency — no moment to play.
 effect:tactial-master	No proposed FX				A passive trait — no moment to play.
-effect:witch-sight	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.divination.intro	Witch Sight: the true form is seen.	Likely	Likely	0
+effect:witch-sight	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:antilife-shell	Close match	spell:mage-armor	jb2a.antilife_shell.blue_with_circle	psfx.magic-signs.rune.v1.abjuration.intro	Antilife Shell: the shell JB2A drew for this exact spell.	Sure	Likely	0
 effect:dispelling-evil-and-good	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.complete.yellow	psfx.magic-signs.circle.v1.abjuration.complete	Dispel Evil and Good: the ward around the caster.	Sure	Sure	18
 effect:ranged-weapon	Close match	effect:outlined	jb2a.markers.light.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	True Strike with a ranged weapon: the shot is guided.	Likely	Likely	8

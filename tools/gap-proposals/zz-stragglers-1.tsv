@@ -5,16 +5,16 @@ weapon:book-of-shadows	No proposed FX				A spellcasting focus. The spell it help
 feature:battle-ready	No proposed FX				A passive trait — no moment to play.
 feature:beast-whisperer	No proposed FX				A passive trait — no moment to play.
 feature:death-jinx	Close match	effect:banished	jb2a.condition.curse.01.015.purple	psfx.impacts.magicaleffects.necrotic	Death Jinx: a parting curse when it dies.	Likely	Likely	0
-feature:dimensional-disruption	Close match	effect:banished	jb2a.template_circle.aura.01.loop.large.bluepurple	psfx.magic-signs.circle.v1.abjuration.loop	Dimensional Disruption: nothing teleports near it.	Likely	Likely	0
+feature:dimensional-disruption	No proposed FX				A passive benefit — no moment to play.			
 feature:disciple-of-the-nine-hells	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	Disciple of the Nine Hells: something answers.	Likely	Likely	0
 feature:emissary-of-juiblex	No proposed FX				A passive trait — no moment to play.
-feature:gloom-shroud	Close match	spell:darkness	jb2a.darkness.black	psfx.magic-signs.rune.v1.illusion.intro	Gloom Shroud: the light dies near it.	Sure	Maybe	9
+feature:gloom-shroud	No proposed FX				A passive benefit — no moment to play.			
 feature:poison-tolerant	No proposed FX				A passive trait — no moment to play.
 feature:resonant-connection	No proposed FX				A passive trait — no moment to play.
 feature:slaad-host	No proposed FX				A passive trait — no moment to play.
 feature:steadfast	No proposed FX				A passive trait — no moment to play.
 feature:ventriloquism	No proposed FX				A voice thrown — nothing on a token to play.
-feature:warriors-wrath	Close match	effect:rage	jb2a.markers.on_token_mask.loop.01.red	psfx.conditions.boon.001.01	Warrior's Wrath: it goes at you harder.	Likely	Maybe	4
+feature:warriors-wrath	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:wild-talent	No proposed FX				A passive trait — no moment to play.
 spell:wall-of-ice	Close match	spell:wall-of-fire	jb2a.ice_spikes.wall.loop.blue	psfx.cantrips.ray-of-frost.v1	Wall of Ice: a wall of jagged ice along the template.	Sure	Likely	0
 spell:wall-of-stone	Close match	spell:wall-of-force	jb2a.falling_rocks.side.2x1.grey	psfx.casting.earth.001	Wall of Stone: stone tumbles in and settles along the template.	Maybe	Likely	0
@@ -30,4 +30,3 @@ item:chart-of-the-four-chambers	No proposed FX				Junk loot — no moment to pla
 item:volos-guide-annotated	No proposed FX				Junk loot — no moment to play.
 item:feather	No proposed FX				An item with no record behind it — no moment to play.
 effect:dead	No proposed FX				A status with no record behind it; a death is not ours to dress.
-effect:concentrating-hold-person	No proposed FX				Concentration bookkeeping — Hold Person is its own FX.

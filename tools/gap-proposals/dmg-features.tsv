@@ -1,20 +1,20 @@
 feature:arcane-study-charm	Close match	spell:mage-armor	jb2a.magic_signs.rune.02.complete.03.pink	psfx.magic-signs.rune.v1.conjuration.intro	A charm grants a spell: a rune at the one who carries it — every charm reads the same.	Likely	Likely	0
 feature:blessing-of-health	No proposed FX				A constitution score raised — no moment to play.
-feature:blessing-of-magic-resistance	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	A blessing: advantage against magic.	Likely	Likely	0
-feature:blessing-of-protection	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	A blessing: a bonus to AC and saves.	Likely	Likely	0
+feature:blessing-of-magic-resistance	No proposed FX				The record has no activity, so nothing at the table plays it.			
+feature:blessing-of-protection	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:blessing-of-understanding	No proposed FX				A wisdom score raised — no moment to play.
 feature:blessing-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	A blessing: the berserkers come.	Likely	Likely	0
-feature:blessing-of-weapon-enchantment	Family match	weapon:longsword	jb2a.glint.yellow.few	psfx.magic-signs.rune.v1.transmutation.intro	A blessing on the weapon: a gold glint on the swing.	Likely	Likely	0
-feature:blessing-of-wound-closure	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.1st-level-spells.cure-wounds.v1.001	A blessing: the wounds close.	Sure	Likely	0
+feature:blessing-of-weapon-enchantment	No proposed FX				A passive benefit — no moment to play.			
+feature:blessing-of-wound-closure	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:brown-mold	Close match	spell:cone-of-cold	jb2a.impact.ground_crack.frost.01.blue	psfx.5th-level-spells.cone-of-cold.v1.001	Brown mold: frost cracks the ground round it.	Likely	Sure	0
 feature:charm-of-animal-conjuring	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.green	psfx.magic-signs.circle.v1.conjuration.complete	A charm grants Conjure Animals.	Likely	Likely	0
 feature:charm-of-darkvision	Close match	effect:foresight	jb2a.eyes.01.dark_green.single	psfx.magic-signs.rune.v1.transmutation.intro	A charm grants darkvision.	Likely	Likely	0
-feature:charm-of-feather-falling	Close match	effect:levitating	jb2a.swirling_feathers.outburst.01.blue	psfx.cantrips.gust.v1	A charm: the fall slows.	Sure	Likely	3
+feature:charm-of-feather-falling	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:charm-of-heroism	Close match	effect:courageous	jb2a.condition.boon.02.002.refraction	psfx.conditions.boon.001.01	A charm grants Heroism.	Likely	Sure	0
 feature:charm-of-restoration	Close match	spell:cure-wounds	jb2a.cure_wounds.200px.green	psfx.1st-level-spells.cure-wounds.v1.001	A charm grants a restoration.	Sure	Likely	0
 feature:charm-of-the-boreal-ball	Close match	spell:cone-of-cold	jb2a.ice_spikes.radial.burst.blue	psfx.5th-level-spells.cone-of-cold.v1.001	A charm grants a ball of cold.	Sure	Likely	0
 feature:charm-of-the-slayer	Close match	effect:outlined	jb2a.hunters_mark.loop.02.purple	psfx.magic-signs.rune.v1.divination.loop	A charm marks a slayer's quarry.	Likely	Likely	0
-feature:charm-of-vitality	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.1st-level-spells.cure-wounds.v1.001	A charm grants vitality.	Likely	Likely	0
+feature:charm-of-vitality	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:fireball-fungus	Close match	spell:fireball	jb2a.fireball.explosion.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	The fungus goes off like a fireball.	Sure	Sure	3
 feature:green-slime	Close match	spell:acid-arrow	jb2a.liquid.splash_side.bright_green	psfx.cantrips.acid-splash.v1	Green slime drops and eats.	Likely	Sure	0
 feature:inferno	Close match	spell:burning-hands	jb2a.wall_of_fire.200x100.yellow	psfx.casting.fire.001	The room is on fire.	Likely	Likely	0

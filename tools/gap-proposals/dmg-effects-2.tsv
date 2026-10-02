@@ -9,10 +9,10 @@ effect:mastiff-figurine	Close match	spell:conjure-animals	jb2a.magic_signs.circl
 effect:metal-shell	Close match	effect:stoneskin	jb2a.markers.shield_rampart.complete.01.orange	psfx.magic-signs.rune.v1.abjuration.intro	Armor of Invulnerability: nothing gets through.	Sure	Likely	0
 effect:might-of-giants	No proposed FX				A strength score set by the hammer — no moment to play.
 effect:mithral-armor	No proposed FX				Worn, always on — no moment to play.
-effect:moon-touched-sword	Close match	spell:light	jb2a.markers.light.intro.blue	psfx.cantrips.light.v1.001	The Moon-Touched Sword sheds moonlight.	Likely	Likely	0
+effect:moon-touched-sword	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:moonblade	Close match	effect:shining	jb2a.bless.200px.intro.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	The Moonblade wakes for its bearer.	Likely	Likely	0
 effect:movement-swim-speed	No proposed FX				A swim speed — no moment to play.
-effect:necrotic-resistance	Close match	effect:acid-protection	jb2a.shield.02.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to necrotic: the shield in violet.	Likely	Likely	0
+effect:necrotic-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:nine-lives-stealer	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
 effect:oathbow	No proposed FX				A property of the bow — the shot has a proposal on the weapon record.
 effect:obedient	Close match	effect:dominated	jb2a.markers.heart.dark_red.03	psfx.magic-signs.rune.v1.enchantment.intro	The Rod of Rulership: the target obeys.	Likely	Likely	6
@@ -22,24 +22,24 @@ effect:oiled-ammunition	Family match	weapon:longbow	jb2a.glint.blue.few	psfx.con
 effect:pact-keeper-bonus-1	No proposed FX				A bonus to spell save DC — no moment to play.
 effect:pact-keeper-bonus-2	No proposed FX				A bonus to spell save DC — no moment to play.
 effect:pact-keeper-bonus-3	No proposed FX				A bonus to spell save DC — no moment to play.
-effect:piercing-resistance	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.dark_red	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to piercing: the rampart shield.	Likely	Likely	0
-effect:plate-armor-of-etherealness	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.transmutation.intro	The plate takes its wearer half out of the world.	Likely	Likely	1
+effect:piercing-resistance	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:plate-armor-of-etherealness	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:poison-coat	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.01	psfx.magic-signs.rune.v1.transmutation.intro	The Dagger of Venom coats itself.	Sure	Likely	0
 effect:poisoned-and-blinded	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.02	psfx.cantrips.poison-spray.v1	Malice takes: poisoned and blinded.	Likely	Likely	0
 effect:poisoned-and-paralyzed	Close match	effect:lingering-acid	jb2a.icon.stun.dark_teal	psfx.cantrips.poison-spray.v1	Carrion crawler mucus takes: poisoned and paralysed.	Likely	Likely	0
 effect:poisoned-and-reduce-max	Close match	effect:lingering-acid	jb2a.markers.poison.purple.03	psfx.cantrips.poison-spray.v1	Pale tincture takes: poisoned, and the maximum comes down.	Likely	Likely	0
 effect:poisoned-and-unconscious	Close match	effect:lingering-acid	jb2a.sleep.target.green	psfx.cantrips.poison-spray.v1	Essence of ether takes: poisoned and asleep.	Sure	Likely	0
 effect:poisoned-needle	Close match	effect:lingering-acid	jb2a.side_impact.part.slow.poison.greenyellow	psfx.cantrips.poison-spray.v1	The needle takes.	Sure	Likely	0
-effect:protected-against-poison	Close match	effect:poison-protection	jb2a.shield.03.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Immunity to poison: the shield in green.	Likely	Likely	0
+effect:protected-against-poison	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:protection-emanation	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.loop.blue	psfx.magic-signs.circle.v1.abjuration.loop	The scroll's circle holds one kind of creature out.	Sure	Sure	3
 effect:protective-aura	Close match	spell:bless	jb2a.template_circle.aura.01.loop.large.yellow	psfx.magic-signs.circle.v1.abjuration.loop	The Rod of Alertness spreads its aura.	Likely	Likely	0
-effect:psychic-resistance	Close match	effect:acid-protection	jb2a.shield.03.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to psychic: the shield in violet.	Likely	Likely	0
+effect:psychic-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:quick-acting	No proposed FX				An ability score raised by a book — no moment to play.
-effect:radiant-resistance	Close match	effect:acid-protection	jb2a.shield.03.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: the shield in white.	Likely	Likely	0
+effect:radiant-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:ranged-attack-ac-bonus	No proposed FX				A bonus to AC against ranged attacks — no moment to play.
 effect:red-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
-effect:resistance-force	Close match	effect:acid-protection	jb2a.shield.03.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to force: the shield in white.	Likely	Likely	0
-effect:resistance-to-cold	Close match	effect:cold-protection	jb2a.shield.02.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold from the Staff of Frost.	Likely	Likely	0
+effect:resistance-force	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:resistance-to-cold	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:resistant	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.white	psfx.magic-signs.rune.v1.abjuration.outro	Potion of Invulnerability: resistance to everything.	Likely	Likely	0
 effect:restrained-arrow-of-restraint	Close match	effect:ensnared	jb2a.markers.chain.spectral_standard.loop.02.blue	psfx.magic-signs.rune.v1.abjuration.intro	The Energy Bow's arrow of restraint: spectral chains hold the target.	Sure	Likely	0
 effect:restrained-by-iron	Close match	effect:ensnared	jb2a.markers.chain.square.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.intro	The Iron Bands of Bilarro close.	Sure	Likely	0
@@ -60,8 +60,8 @@ effect:river-styx-effects	Close match	effect:stunned	jb2a.markers.skull.dark_gre
 effect:rod-of-the-pact-keeper-1	No proposed FX				A bonus to spell save DC — no moment to play.
 effect:rod-of-the-pact-keeper-2	No proposed FX				A bonus to spell save DC — no moment to play.
 effect:rod-of-the-pact-keeper-3	No proposed FX				A bonus to spell save DC — no moment to play.
-effect:rogue-card-hostility	Close match	effect:banished	jb2a.condition.curse.01.007.red	psfx.magic-signs.rune.v1.enchantment.intro	The Rogue card: an NPC now hates the drawer.	Likely	Likely	0
-effect:ruby-resistance	Close match	effect:fire-protection	jb2a.shield.02.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	The Helm of Brilliance's ruby: resistance to fire.	Likely	Likely	0
+effect:rogue-card-hostility	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
+effect:ruby-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:rune-1-bonus	No proposed FX				A Moonblade rune's bonus — the blade itself has a proposal.
 effect:rune-blinding-flash	Close match	effect:searing-radiance	jb2a.markers.light.outro.blue02	psfx.class-features.divine-smite.v1.001.target	The Moonblade's blinding flash.	Likely	Likely	0
 effect:rune-conjure-entity	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.blue	psfx.magic-signs.circle.v1.conjuration.complete	The Moonblade conjures its guardian.	Likely	Likely	0
@@ -97,11 +97,11 @@ effect:shield-2	No proposed FX				A plus on the shield — no moment to play.
 effect:shield-3	No proposed FX				A plus on the shield — no moment to play.
 effect:silver-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
 effect:silvered-weapon	No proposed FX				A property of the edge — the swing has a proposal on the weapon record.
-effect:slashing-resistance	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.02.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to slashing: the rampart shield.	Likely	Likely	0
+effect:slashing-resistance	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:smoldering-armor	No proposed FX				Armour that smokes but never burns — a look, not a moment.
-effect:special-senses	Close match	effect:foresight	jb2a.eyes.01.bluegreen.many	psfx.magic-signs.rune.v1.divination.intro	The Robe of Eyes sees everything.	Sure	Likely	0
+effect:special-senses	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:spell-attack-bonus	No proposed FX				A bonus to spell attacks — no moment to play.
-effect:spider-movement-and-resistance	Close match	effect:unrestricted-movement	jb2a.web.loop.002.white	psfx.magic-signs.rune.v1.transmutation.intro	The Cloak of Arachnida: webbing at the hands and feet.	Likely	Likely	0
+effect:spider-movement-and-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:stealth-advantage	No proposed FX				Worn, always on — no moment to play.
 effect:stone-giant-strength	No proposed FX				Worn, always on — no moment to play.
 effect:storm-giant-strength	No proposed FX				Worn, always on — no moment to play.
@@ -121,9 +121,9 @@ effect:sword-of-sharpness	No proposed FX				A property of the blade — the swin
 effect:sword-of-vengeance	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
 effect:sword-of-wounding	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
 effect:sworn-enemy	Close match	effect:outlined	jb2a.hunters_mark.loop.01.red	psfx.magic-signs.rune.v1.divination.loop	The Oathbow names its enemy.	Sure	Likely	0
-effect:sylvan-talon	Close match	effect:bark-like-skin	jb2a.swirling_leaves.outburst.01.greenorange	psfx.casting.earth.001	The Sylvan Talon wakes.	Sure	Likely	0
-effect:telepathy	Close match	effect:carrying-message	jb2a.markers.runes.blue.03	psfx.magic-signs.rune.v1.divination.intro	The helm sends a word mind to mind.	Likely	Likely	3
-effect:thunderous-strength	Close match	effect:heated-metal	jb2a.template_circle.out_pulse.02.loop.bluewhite	psfx.cantrips.thunderclap.v1	The Thunderous Greatclub is charged: a thunder pulse beats round the wielder.	Likely	Sure	0
+effect:sylvan-talon	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:telepathy	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:thunderous-strength	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:tireless-form	No proposed FX				No need for sleep — no moment to play.
 effect:transferred-ac-bonus-1	No proposed FX				Points moved to AC — no moment to play.
 effect:transferred-ac-bonus-2	No proposed FX				Points moved to AC — no moment to play.
@@ -135,7 +135,7 @@ effect:unburdened-movement	No proposed FX				A jump distance — no moment to pl
 effect:under-rocks	Close match	spell:shatter	jb2a.falling_rocks.top.2x1.grey	psfx.impacts.bludgeoning.v1	The rockslide has them.	Sure	Sure	0
 effect:understanding	No proposed FX				A blessing of understanding — no moment to play.
 effect:upgraded-constitution	No proposed FX				A constitution score set by an amulet — no moment to play.
-effect:vecnas-eye-alignment-truesight	Close match	effect:foresight	jb2a.eyes.01.dark_red.single	psfx.impacts.magicaleffects.necrotic	Vecna's eye sees, and takes its price.	Sure	Likely	0
+effect:vecnas-eye-alignment-truesight	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:vecnas-eye-and-hand-initiative-immunity	No proposed FX				A passive gift of the relics — no moment to play.
 effect:vecnas-hand-alignment-strength	No proposed FX				A strength score set by the hand — no moment to play.
 effect:vicious-weapon	No proposed FX				A property of the weapon — the swing has a proposal on the weapon record.

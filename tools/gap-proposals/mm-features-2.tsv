@@ -10,8 +10,8 @@ feature:fiendish-aid	Close match	spell:conjure-animals	jb2a.condition.boon.01.02
 feature:fiendish-guile	Close match	spell:invisibility	jb2a.smoke.puff.centered.dark_purple	psfx.magic-signs.rune.v1.illusion.intro	Fiendish Guile: it is not where it says.	Likely	Likely	0
 feature:fiendish-restoration	No proposed FX				A passive trait — no moment to play.
 feature:fiery-rays	Close match	spell:guiding-bolt	jb2a.scorching_ray.01.orange	psfx.casting.fire.001	Fiery Rays: rays of fire.	Sure	Sure	4
-feature:fire-absorption	Close match	effect:fire-protection	jb2a.particles.inward.orange.02.02	psfx.magic-signs.rune.v1.abjuration.outro	Fire Absorption: the fire is drunk instead of felt.	Likely	Likely	0
-feature:fire-form	Close match	effect:burning	jb2a.shield_themed.below.fire.02.orange	psfx.casting.fire.001	Fire Form: flame licks round it.	Likely	Sure	0
+feature:fire-absorption	No proposed FX				The record has no activity, so nothing at the table plays it.			
+feature:fire-form	No proposed FX				A passive benefit — no moment to play.			
 feature:first-roar	Close match	effect:frightened	jb2a.soundwave.01.red	psfx.creature.dragons.roar.large	The first roar: everyone near hears it.	Likely	Sure	3
 feature:flame-aura	Close match	effect:burning	jb2a.fire_ring.500px.red	psfx.casting.fire.001	Flame Aura: fire hangs around it.	Sure	Sure	0
 feature:fling	Close match	spell:shatter	jb2a.impact.014.002.orangeyellow	psfx.impacts.bludgeoning.v1	Fling: it throws you.	Likely	Sure	0
@@ -56,10 +56,10 @@ feature:jumper	No proposed FX				A passive trait — no moment to play.
 feature:lash	Close match	natural:tail	jb2a.melee_generic.slash.01.bluepurple	psfx.impacts.slashing.v1	Lash: the whip goes out.	Likely	Sure	0
 feature:lashing-goop	Close match	effect:ensnared	jb2a.liquid.splash_side.bright_green	psfx.cantrips.acid-splash.v1	Lashing Goop: the goop lands and sticks.	Likely	Sure	0
 feature:legendary-resistance	Close match	spell:counterspell	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.complete	Legendary Resistance: it just succeeds.	Likely	Likely	0
-feature:life-suppression	Close match	effect:lingering-acid	jb2a.template_circle.aura.01.loop.large.green	psfx.impacts.magicaleffects.necrotic	Life Suppression: nothing heals near it.	Likely	Likely	0
+feature:life-suppression	No proposed FX				A passive benefit — no moment to play.			
 feature:life-draining-root	Close match	effect:ensnared	jb2a.vine.loop.nature.single.01.green	psfx.impacts.magicaleffects.necrotic	Life-Draining Root: the root drinks.	Likely	Likely	0
 feature:light-sensitivity	No proposed FX				A passive trait — no moment to play.
-feature:lightning-absorption	Close match	effect:lightning-protection	jb2a.static_electricity.02.blue	psfx.magic-signs.rune.v1.abjuration.outro	Lightning Absorption: the lightning is drunk instead of felt.	Likely	Likely	2
+feature:lightning-absorption	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:limited-amphibiousness	No proposed FX				A passive trait — no moment to play.
 feature:limited-foresight	No proposed FX				A passive trait — no moment to play.
 feature:living-shadow	No proposed FX				A passive trait — no moment to play.
@@ -119,7 +119,7 @@ feature:rotting-gaze	Close match	effect:lingering-acid	jb2a.eyes.01.dark_green.s
 feature:rumbling-movement	Close match	spell:shatter	jb2a.ground_cracks.dark_red.03	psfx.casting.earth.001	Rumbling Movement: the ground shakes as it moves.	Likely	Sure	0
 feature:running-leap	No proposed FX				A passive trait — no moment to play.
 feature:running-water	No proposed FX				A passive trait — no moment to play.
-feature:sanguine-drain	Close match	effect:lingering-acid	jb2a.energy_strands.range.multiple.blue.01	psfx.impacts.magicaleffects.necrotic	Sanguine Drain: it drinks the blood.	Likely	Likely	11
+feature:sanguine-drain	Close match	effect:lingering-acid	jb2a.energy_strands.range.multiple.blue.01	psfx.impacts.magicaleffects.necrotic	Sanguine Drain: it drinks the blood.	Likely	Likely	12
 feature:sap	Close match	effect:slowed	jb2a.impact.013.002.blue	psfx.impacts.bludgeoning.v1	Sap: the blow takes the strength out.	Likely	Sure	0
 feature:second-roar	Close match	effect:frightened	jb2a.soundwave.01.red	psfx.creature.dragons.roar.large	The second roar: everyone near hears it.	Likely	Sure	3
 feature:sense-magic	No proposed FX				A passive trait — no moment to play.
@@ -160,7 +160,7 @@ feature:sticky-shield	Close match	effect:ensnared	jb2a.web.loop.002.white	psfx.m
 feature:stomp	Close match	natural:slam	jb2a.impact.ground_crack.orange.01	psfx.impacts.bludgeoning.v1	Stomp: it brings its foot down. AA had this as a natural attack; the 2024 Monster Manual makes it a feature.	Likely	Sure	3
 feature:storm-bolt	Close match	spell:lightning-bolt	jb2a.lightning_strike.blue	psfx.weapon-swooshes.lightning.v1.group01	Storm Bolt: a bolt of thunder at range.	Sure	Sure	1
 feature:stunning-screech	Close match	spell:shatter	jb2a.impact.sound.01.pinkteal	psfx.cantrips.thunderclap.v1	Stunning Screech: the screech reaches everyone near.	Likely	Sure	0
-feature:succubus-form	Close match	effect:bark-like-skin	jb2a.smoke.puff.centered.dark_purple	psfx.magic-signs.rune.v1.transmutation.intro	Succubus Form: it changes shape.	Likely	Likely	0
+feature:succubus-form	No proposed FX				A passive benefit — no moment to play.			
 feature:sun-sickness	No proposed FX				A passive trait — no moment to play.
 feature:sunlight	No proposed FX				A passive trait — no moment to play.
 feature:sunlight-hypersensitivity	No proposed FX				A passive trait — no moment to play.
@@ -182,7 +182,7 @@ feature:trample	Close match	natural:slam	jb2a.impact.ground_crack.dark_red.01	ps
 feature:trampling-charge	Close match	natural:slam	jb2a.impact.boulder.02	psfx.impacts.bludgeoning.v1	Trampling Charge: it runs you down.	Likely	Sure	0
 feature:transparent	No proposed FX				A passive trait — no moment to play.
 feature:treasure-sense	No proposed FX				A passive trait — no moment to play.
-feature:troll-spawn	Close match	spell:conjure-animals	jb2a.impact.004.green	psfx.impacts.magicaleffects.necrotic	Troll Spawn: a limb comes off and gets up.	Maybe	Likely	16
+feature:troll-spawn	No proposed FX				A passive benefit — no moment to play.			
 feature:umbral-strike	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_purple	psfx.impacts.magicaleffects.necrotic	Umbral Strike: the blow carries shadow.	Likely	Sure	9
 feature:undead-fortitude	No proposed FX				A passive trait — no moment to play.
 feature:undead-restoration	No proposed FX				A passive trait — no moment to play.

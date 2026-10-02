@@ -1,18 +1,18 @@
 effect:abjured	Close match	effect:banished	jb2a.magic_signs.circle.02.abjuration.intro.blue	psfx.magic-signs.circle.v1.abjuration.complete	Abjure Foes: the target is driven back.	Likely	Sure	0
-effect:acid-resistance	Close match	effect:acid-protection	jb2a.shield.02.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to acid: the same green shield Acid Protection already plays.	Likely	Likely	0
+effect:acid-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:active-attunement	Close match	effect:heated-metal	jb2a.particles.swirl.red.02.01	psfx.magic-signs.rune.v1.transmutation.intro	Elemental attunement: runes at the monk.	Likely	Likely	0
 effect:active-attunement-stride	Close match	effect:hasted	jb2a.token_border.circle.static.blue.004	psfx.magic-signs.rune.v1.transmutation.intro	Stride of the Elements: the monk moves on the element.	Maybe	Likely	2
 effect:addled	Close match	effect:confused	jb2a.dizzy_stars.400px.orange	psfx.impacts.magicaleffects.psychic	Addled: the stun mark.	Likely	Likely	0
 effect:aerial	No proposed FX				A summoned companion's form — the summon itself is where an FX belongs.
 effect:agonizing-blast	No proposed FX				Extra damage on Eldritch Blast, which already has its own FX.
 effect:alacrity	No proposed FX				A passive trait — no moment to play.
-effect:ambushers-leap	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	The ambusher moves first and fast.	Maybe	Likely	2
+effect:ambushers-leap	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:aquatic	No proposed FX				A summoned companion's form — the summon itself is where an FX belongs.
 effect:aquatic-affinity	No proposed FX				A passive trait — no moment to play.
 effect:aspect-of-the-owl	No proposed FX				A passive trait — no moment to play.
 effect:aspect-of-the-panther	No proposed FX				A passive trait — no moment to play.
 effect:aspect-of-the-salmon	No proposed FX				A passive trait — no moment to play.
-effect:assasinate	Close match	effect:outlined	jb2a.sneak_attack.dark_red	psfx.impacts.slashing.v1	Assassinate: the first strike lands hard.	Sure	Sure	9
+effect:assasinate	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:attunement-bonus	No proposed FX				A bonus with no moment of its own.
 effect:baited-ac-1	No proposed FX				A bonus to AC from Bait and Switch — no moment to play. All twelve tiers read the same.
 effect:baited-ac-10	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
@@ -26,7 +26,7 @@ effect:baited-ac-6	No proposed FX				A bonus to AC from Bait and Switch — no m
 effect:baited-ac-7	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
 effect:baited-ac-8	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
 effect:baited-ac-9	No proposed FX				A bonus to AC from Bait and Switch — no moment to play.
-effect:battering-roots	Close match	effect:bark-like-skin	jb2a.vine.loop.nature.group.02.green	psfx.casting.earth.001	Battering Roots: roots grow out with the staff's reach.	Likely	Likely	0
+effect:battering-roots	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:beguiling-charm	Close match	effect:charmed	jb2a.markers.heart.pink.02	psfx.magic-signs.rune.v1.enchantment.intro	Beguiling Magic: the target is charmed.	Likely	Likely	0
 effect:beguiling-fear	Close match	effect:frightened	jb2a.markers.fear.dark_purple.02	psfx.magic-signs.rune.v1.enchantment.intro	Beguiling Magic: the target is frightened.	Likely	Likely	0
 effect:blessing-of-the-trickster	Close match	spell:invisibility	jb2a.smoke.puff.side.dark_purple	psfx.magic-signs.rune.v1.illusion.intro	Blessing of the Trickster: advantage on Stealth.	Likely	Likely	0
@@ -34,14 +34,14 @@ effect:branches-of-the-tree	Close match	effect:ensnared	jb2a.vine.loop.nature.si
 effect:bulwark-of-force	Close match	spell:mage-armor	jb2a.shield.03.loop.blue	psfx.magic-signs.rune.v1.abjuration.intro	Bulwark of Force: a telekinetic ward round each one chosen.	Likely	Likely	0
 effect:clairvoyant-combatant	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.magic-signs.rune.v1.divination.intro	Clairvoyant Combatant: the psi warrior reads the target.	Likely	Likely	0
 effect:cloak-of-shadows	Close match	spell:invisibility	jb2a.smoke.puff.centered.dark_black	psfx.magic-signs.rune.v1.illusion.intro	Cloak of Shadows: the monk steps out of sight.	Likely	Likely	0
-effect:cold-resistance	Close match	effect:cold-protection	jb2a.shield.02.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold: the same blue shield Cold Protection already plays.	Likely	Likely	0
+effect:cold-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:concentration-advantage	No proposed FX				A passive trait — no moment to play.
 effect:corona-of-light	Close match	effect:shining	jb2a.energy_field.01.yellow	psfx.class-features.divine-smite.v1.001.caster	Corona of Light: the cleric blazes with sunlight.	Likely	Likely	0
 effect:cunning-strike-poisoned	Close match	effect:lingering-acid	jb2a.side_impact.part.slow.poison.greenyellow	psfx.cantrips.poison-spray.v1	Cunning Strike: the target is poisoned.	Likely	Likely	0
 effect:cunning-strike-tripped	Close match	effect:slowed	jb2a.impact.013.001.blue	psfx.impacts.bludgeoning.v1	Cunning Strike: the target goes down.	Likely	Sure	0
 effect:danger-sense	No proposed FX				A passive trait — no moment to play.
 effect:dazzling-footwork	No proposed FX				A passive trait — no moment to play.
-effect:defy-death	Close match	spell:cure-wounds	jb2a.healing_generic.200px.purple	psfx.1st-level-spells.cure-wounds.v1.001	Defy Death: the barbarian gets back up.	Likely	Sure	0
+effect:defy-death	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:devils-sight	No proposed FX				A passive trait — no moment to play.
 effect:devious-strikes-blinded	Close match	effect:searing-radiance	jb2a.icon.runes.dark_black	psfx.impacts.slashing.v1	Devious Strikes: the target is blinded.	Likely	Likely	2
 effect:devious-strikes-dazed	Close match	effect:confused	jb2a.dizzy_stars.200px.orange	psfx.impacts.slashing.v1	Devious Strikes: the target is dazed.	Likely	Likely	0
@@ -49,7 +49,7 @@ effect:devious-strikes-knocked-out	Close match	effect:sleeping	jb2a.sleep.target
 effect:devoted	No proposed FX				A passive trait — no moment to play.
 effect:dexterous-attacks--martial-arts-damage	No proposed FX				A passive trait — no moment to play.
 effect:diminished-defiance	No proposed FX				A spent use of a feature — no moment to play.
-effect:disappearing-step	Close match	spell:misty-step	jb2a.smoke.puff.side.dark_purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Disappearing Step: the soulknife blinks away.	Likely	Sure	0
+effect:disappearing-step	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:disciplined-survivor	No proposed FX				A passive trait — no moment to play.
 effect:disengaged	No proposed FX				A disengage — no moment to play.
 effect:divine-sense	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.1st-level-spells.detect-magic.v1.001	Divine Sense: the paladin feels what is near.	Likely	Sure	5
@@ -57,7 +57,7 @@ effect:draconic-resilience-armor	No proposed FX				A passive trait — no moment
 effect:draconic-resilience-hp	No proposed FX				A passive trait — no moment to play.
 effect:dragon-form	Close match	spell:fly	jb2a.swirling_feathers.outburst.01.textured	psfx.creature.movement.flight.wings.small	Dragon Wings: the sorcerer takes the dragon's shape.	Likely	Likely	0
 effect:dragon-form-twinkling	Close match	spell:fly	jb2a.twinkling_stars.points06.white	psfx.creature.movement.flight.wings.small	Dragon Wings, twinkling.	Likely	Likely	0
-effect:dread-ambusher	Close match	effect:hasted	jb2a.token_border.circle.static.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	Dread Ambusher: the ranger moves first and fast.	Maybe	Likely	2
+effect:dread-ambusher	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:eldritch-spear	No proposed FX				An extended range on Eldritch Blast, which has its own FX.
 effect:evasive-ac	No proposed FX				A bonus to AC — no moment to play.
 effect:exceptionally-trained	No proposed FX				A passive trait — no moment to play.
@@ -65,21 +65,21 @@ effect:fast-movement	No proposed FX				A passive trait — no moment to play.
 effect:feinting-attack	Close match	effect:outlined	jb2a.hunters_mark.pulse.07.blue	psfx.impacts.slashing.v1	Feinting Attack: the feint lands.	Likely	Likely	0
 effect:feral-instinct	No proposed FX				A passive trait — no moment to play.
 effect:feral-senses	No proposed FX				A passive trait — no moment to play.
-effect:fiendish-resilience-acid	Close match	effect:acid-protection	jb2a.shield_themed.above.eldritch_web.03.dark_green	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to acid — all twelve types read as the protections.	Likely	Likely	0
-effect:fiendish-resilience-bludgeoning	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.02.purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to bludgeoning.	Likely	Likely	0
-effect:fiendish-resilience-cold	Close match	effect:cold-protection	jb2a.shield_themed.above.ice.03.purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to cold.	Likely	Likely	0
-effect:fiendish-resilience-fire	Close match	effect:fire-protection	jb2a.shield_themed.above.fire.03.dark_purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to fire.	Likely	Likely	0
-effect:fiendish-resilience-lightning	Close match	effect:lightning-protection	jb2a.shield.02.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to lightning.	Likely	Likely	0
-effect:fiendish-resilience-necrotic	Close match	effect:acid-protection	jb2a.shield_themed.above.eldritch_web.01.dark_purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to necrotic.	Likely	Likely	0
-effect:fiendish-resilience-piercing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.02.green	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to piercing.	Likely	Likely	0
-effect:fiendish-resilience-poison	Close match	effect:poison-protection	jb2a.shield.03.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to poison.	Likely	Likely	0
-effect:fiendish-resilience-psychic	Close match	effect:acid-protection	jb2a.shield.03.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to psychic.	Likely	Likely	0
-effect:fiendish-resilience-radiant	Close match	effect:acid-protection	jb2a.shield.03.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to radiant.	Likely	Likely	0
-effect:fiendish-resilience-slashing	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.01.dark_red	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to slashing.	Likely	Likely	0
-effect:fiendish-resilience-thunder	Close match	effect:thunder-protection	jb2a.shield.03.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Fiendish Resilience: resistance to thunder.	Likely	Likely	0
-effect:fire-resistance	Close match	effect:fire-protection	jb2a.shield.02.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to fire: the same red shield Fire Protection already plays.	Likely	Likely	0
-effect:full-of-stars	Close match	effect:starry-form	jb2a.markers.circle_of_stars.yellowblue	psfx.casting.sound.001	Full of Stars: the druid's starry form.	Sure	Likely	6
-effect:glamorous	Close match	effect:charmed	jb2a.side_impact.part.slow.star.pinkyellow	psfx.magic-signs.rune.v1.enchantment.intro	Glamorous: the bard is hard to look away from.	Likely	Likely	0
+effect:fiendish-resilience-acid	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-bludgeoning	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-cold	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-fire	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-lightning	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-necrotic	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-piercing	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-poison	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-psychic	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-radiant	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-slashing	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fiendish-resilience-thunder	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:fire-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
+effect:full-of-stars	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:glamorous	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:glistening-flight	Close match	effect:flight	jb2a.fairies.loop.01.bluepurple	psfx.creature.movement.flight.wings.small	Glistening Flight: the wanderer flies in a shimmer of fey light.	Likely	Likely	0
 effect:goaded	Close match	effect:dominated	jb2a.hunters_mark.pulse.07.purple	psfx.impacts.magicaleffects.psychic	Goaded: the target must come for you.	Likely	Likely	0
 effect:grappled	Close match	effect:ensnared	jb2a.markers.chain.diamond.loop.01.grey	psfx.impacts.bludgeoning.v1	Grappled: the target is held.	Sure	Likely	0
@@ -106,7 +106,7 @@ effect:inspired	Close match	effect:courageous	jb2a.bardic_inspiration.blueyellow
 effect:intimidated	Close match	effect:frightened	jb2a.markers.fear.dark_red.02	psfx.impacts.magicaleffects.psychic	Intimidated: the fear mark.	Likely	Likely	0
 effect:jack-of-all-trades	No proposed FX				A passive trait — no moment to play.
 effect:lethal-vibrations	Close match	effect:heated-metal	jb2a.static_electricity.03.dark_purple	psfx.impacts.magicaleffects.psychic	Lethal Vibrations: the quivering palm is set.	Likely	Likely	0
-effect:lightning-resistance	Close match	effect:lightning-protection	jb2a.shield.02.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to lightning: the same yellow shield Lightning Protection already plays.	Likely	Likely	0
+effect:lightning-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:living-legend-charismatic	Close match	effect:courageous	jb2a.condition.boon.02.003.refraction	psfx.conditions.boon.001.01	Living Legend: the paladin is unstoppable for a minute.	Likely	Likely	0
 effect:magician-checks--cantrip	No proposed FX				A passive trait — no moment to play.
 effect:manifesting-ocean-spray	Close match	spell:cone-of-cold	jb2a.water_splash.cone.01.blue	psfx.casting.water.001	Manifest Ocean: a spray of cold water.	Likely	Sure	0
@@ -154,14 +154,14 @@ effect:sacred-weapon	Family match	weapon:longsword	jb2a.sword.melee.fire.yellow	
 effect:searing-vengeance	Close match	effect:searing-radiance	jb2a.template_circle.aura.04.outward.002.complete.combined.refraction	psfx.class-features.divine-smite.v1.001.target	Searing Vengeance: the paladin gets up in a ripple of light.	Likely	Likely	0
 effect:second-story-work	No proposed FX				A passive trait — no moment to play.
 effect:see-the-invisible	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.1st-level-spells.detect-magic.v1.001	See Invisibility: the eye that sees through.	Likely	Likely	0
-effect:shadow-art-vision	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.illusion.intro	Shadow Arts: the monk sees in the dark.	Likely	Likely	0
+effect:shadow-art-vision	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:signature	No proposed FX				A signature manoeuvre — no moment of its own.
-effect:smite-of-protection	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.class-features.divine-smite.v1.001.caster	Smite of Protection: half cover for everyone near.	Likely	Likely	0
+effect:smite-of-protection	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:staggered	Close match	effect:slowed	jb2a.dizzy_stars.200px.green	psfx.impacts.bludgeoning.v1	Staggered: the target is off balance.	Likely	Likely	0
-effect:step-of-the-wind-bonus	Close match	effect:hasted	jb2a.wind_lines.01.01.white	psfx.cantrips.gust.v1	Step of the Wind: the monk moves.	Likely	Sure	0
+effect:step-of-the-wind-bonus	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:stolen-spell	Close match	spell:counterspell	jb2a.particles.inward.purple.02.02	psfx.magic-signs.rune.v1.abjuration.complete	A spell taken from another caster.	Likely	Likely	0
 effect:stormborn	Close match	spell:cone-of-cold	jb2a.template_circle.out_pulse.03.loop.bluewhite	psfx.5th-level-spells.cone-of-cold.v1.001	Stormborn: a pulse of cold and snow off the druid.	Likely	Sure	0
-effect:stride-of-the-elements	Close match	effect:hasted	jb2a.particles.swirl.greenyellow.02.01	psfx.magic-signs.rune.v1.transmutation.intro	Stride of the Elements: the monk moves on the element.	Likely	Likely	0
+effect:stride-of-the-elements	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:struck	No proposed FX				A marker with no rules of its own.
 effect:sundered	Close match	effect:slowed	jb2a.markers.shield_cracked.dark_red.03	psfx.impacts.slashing.v1	Sundered: the target's armour is opened up.	Likely	Likely	0
 effect:superior-critical	No proposed FX				A widened critical range — no moment to play.
@@ -172,10 +172,10 @@ effect:thaumaturge	No proposed FX				A passive trait — no moment to play.
 effect:third-eye-darkvision	Close match	effect:foresight	jb2a.eyes.01.dark_green.single	psfx.magic-signs.rune.v1.divination.intro	Third Eye: darkvision.	Likely	Likely	0
 effect:third-eye-greater-comprehension	Close match	effect:comprehension	jb2a.markers.runes03.orange.03	psfx.magic-signs.rune.v1.divination.intro	Third Eye: every language read.	Likely	Likely	0
 effect:thought-shield	No proposed FX				A passive trait — no moment to play.
-effect:thunder-resistance	Close match	effect:thunder-protection	jb2a.shield.03.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to thunder: the same violet shield Thunder Protection already plays.	Likely	Likely	0
+effect:thunder-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:toppled	Close match	effect:slowed	jb2a.impact.013.002.blue	psfx.impacts.bludgeoning.v1	Toppled: the target goes down.	Likely	Sure	0
 effect:trance-of-order	Close match	effect:alertness	jb2a.particles.swirl.blue.02.01	psfx.magic-signs.rune.v1.divination.intro	Trance of Order: the sorcerer sees the pattern.	Likely	Likely	0
-effect:truesight-30-ft	Close match	effect:foresight	jb2a.eyes.01.dark_yellow.single	psfx.magic-signs.rune.v1.divination.intro	Truesight to thirty feet.	Likely	Likely	0
+effect:truesight-30-ft	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:turn-undead	Close match	spell:raise-dead	jb2a.template_circle.aura.04.outward.004.complete.combined.refraction	psfx.class-features.divine-smite.v1.001.caster	Turn Undead: a ripple of holy light off the cleric.	Likely	Likely	0
 effect:turned	Close match	effect:frightened	jb2a.markers.fear.dark_orange.02	psfx.class-features.divine-smite.v1.001.target	Turned: the undead runs.	Likely	Likely	0
 effect:umbral-sight	No proposed FX				A passive trait — no moment to play.
@@ -184,8 +184,8 @@ effect:unarmored-movement	No proposed FX				A passive trait — no moment to pla
 effect:unearthly-appearance	Close match	effect:charmed	jb2a.markers.light.intro.pink	psfx.magic-signs.rune.v1.enchantment.intro	Unearthly Appearance: the fey warlock is hard to look at.	Likely	Likely	0
 effect:veiled	Close match	spell:invisibility	jb2a.smoke.puff.centered.dark_purple	psfx.magic-signs.rune.v1.illusion.intro	Veiled: the token is hidden.	Likely	Likely	0
 effect:vow-of-enmity	Close match	effect:outlined	jb2a.hunters_mark.loop.03.purple	psfx.magic-signs.rune.v1.divination.loop	Vow of Enmity: the paladin names an enemy.	Sure	Likely	0
-effect:war-bond	Family match	weapon:longsword	jb2a.magic_signs.rune.02.loop.05.orange	psfx.magic-signs.rune.v1.conjuration.intro	War Bond: the weapon comes back to the hand.	Likely	Likely	0
-effect:water-breathing--swim-speed	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	A swim speed and water breathing.	Sure	Sure	0
+effect:war-bond	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:water-breathing--swim-speed	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:winged	No proposed FX				A summoned companion's form — the summon itself is where an FX belongs.
 effect:wormlike-movement	Close match	effect:unrestricted-movement	jb2a.burrow.out.01.brown	psfx.casting.earth.001	Burrowing movement: it tunnels up out of the ground.	Sure	Likely	1
 effect:zealous-presence	Close match	effect:courageous	jb2a.condition.boon.02.001.refraction	psfx.conditions.boon.001.01	Zealous Presence: everyone near takes heart.	Likely	Likely	0

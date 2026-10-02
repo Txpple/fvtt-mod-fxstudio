@@ -1,0 +1,286 @@
+effect:1d6-damage-penalty	Close match	effect:ensnared	jb2a.markers.chain.spectral_standard.loop.02.green	psfx.impacts.magicaleffects.necrotic	Grave Ground: spectral bonds hold the target where the hands rose.	Likely	Likely	0
+effect:20-speed	Close match	effect:slowed	jb2a.magic_signs.rune.illusion.complete.purple	psfx.magic-signs.rune.v1.illusion.intro	Distorted Distance: the ground seems to stretch under the target.	Likely	Likely	0
+effect:acid-resistance-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:activate-wrecker	Close match	spell:shatter	jb2a.aura_themed.01.outward.complete.metal.01.grey	psfx.impacts.bludgeoning.v1	The Workshop Wrecker ball ricochets through the area.	Maybe	Likely	0
+effect:adept	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:aquatic-light	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:aquatic-traits	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:arcana-proficiency	No proposed FX				A passive benefit — no moment to play.			
+effect:ascendant	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:ascendant-traits	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:aura	Close match	effect:hasted	jb2a.wind_lines.01.01.white	psfx.cantrips.gust.v1	Aura of Evasion: quick wind streaks around the warded.	Likely	Likely	0
+effect:banishing-shot	Close match	effect:banished	jb2a.portals.vertical.vortex_masked.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Banishing Shot: the target drops into a harmless demiplane.	Likely	Likely	0
+effect:barnacled	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:beguiling-shot	Close match	effect:charmed	jb2a.impact_themed.heart.pink	psfx.impacts.magicaleffects.psychic	Beguiling Shot: the target is charmed.	Likely	Likely	0
+effect:cantrip-modifications	No proposed FX				A passive benefit — no moment to play.			
+effect:cold-resistance-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:conjuration-focus-cha	No proposed FX				A passive benefit — no moment to play.			
+effect:conjuration-focus-int	No proposed FX				A passive benefit — no moment to play.			
+effect:conjuration-focus-wis	No proposed FX				A passive benefit — no moment to play.			
+effect:darkvision-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:dazzling-light	Close match	effect:outlined	jb2a.explosion.03.yellow	psfx.magic-signs.rune.v1.evocation.intro	Diamond Staff: the globe flares and the target is dazzled.	Likely	Likely	0
+effect:disadv-con-saves	Close match	effect:confused	jb2a.icon.music_note.purple	psfx.1st-level-spells.dissonant-whispers.v1.002	Disruptive Tune: a jarring note clings to the target.	Likely	Likely	0
+effect:disadv-concentration-check	Close match	effect:confused	jb2a.condition.curse.01.024.blue	psfx.impacts.magicaleffects.psychic	Mage Breaker: the caster's focus is shaken.	Likely	Likely	0
+effect:disadv-d20-tests	Close match	effect:confused	jb2a.magic_signs.rune.divination.complete.purple	psfx.impacts.magicaleffects.psychic	Fractured Awareness: the target sees too many futures.	Likely	Likely	0
+effect:durable-summons	Close match	effect:warded	jb2a.energy_field.01.green	psfx.magic-signs.rune.v1.conjuration.intro	Durable Summons: the summoned creature arrives with a ward.	Maybe	Likely	0
+effect:elemental-familiar	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:enchanting-deception	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+effect:enchanting-intimidation	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+effect:enchanting-persuasion	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+effect:enfeebling-shot	Close match	effect:frightened	jb2a.condition.curse.01.010.green	psfx.impacts.magicaleffects.necrotic	Enfeebling Shot: the target's strength drains away.	Likely	Likely	0
+effect:extinguished	Close match	effect:frightened	jb2a.condition.curse.01.015.red	psfx.impacts.magicaleffects.necrotic	Death's Master: the undead is snuffed out.	Maybe	Likely	0
+effect:fire-resistance-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:fortified-familiar	No proposed FX				A passive benefit — no moment to play.			
+effect:grasping-shot	Close match	effect:ensnared	jb2a.entangle.02.complete.02.green	psfx.1st-level-spells.entangle.vines.v1.001.intro	Grasping Shot: thorny brambles clutch the target.	Sure	Sure	0
+effect:grow-clone	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.intro.blue	psfx.magic-signs.rune.v1.transmutation.intro	The Universal Pantograph begins to grow a copy.	Maybe	Likely	0
+effect:hampered	Close match	effect:slowed	jb2a.magic_signs.rune.illusion.complete.blue	psfx.magic-signs.rune.v1.illusion.intro	Uncertain Footing: illusory rocks and spikes hamper the target.	Likely	Likely	0
+effect:history-proficiency	No proposed FX				A passive benefit — no moment to play.			
+effect:hypnotic-presence	Close match	effect:charmed	jb2a.impact_themed.heart.02.pink	psfx.magic-signs.circle.v1.enchantment.complete	Hypnotic Presence: the target is enthralled.	Likely	Likely	0
+effect:immune-to-identify-target	Close match	effect:outlined	jb2a.hunters_mark.loop.01.blue	psfx.magic-signs.rune.v1.divination.intro	Namer's Needle: the wound compels the target's name.	Maybe	Likely	0
+effect:intimidation-advantage	No proposed FX				A passive benefit — no moment to play.			
+effect:invulnerability	Close match	effect:warded	jb2a.antilife_shell.blue_no_circle	psfx.magic-signs.rune.v1.abjuration.intro	Invulnerability: a ward that nothing gets through.	Likely	Likely	0
+effect:iron-body	Close match	spell:mage-armor	jb2a.aura_themed.01.inward.loop.metal.01.grey	psfx.magic-signs.rune.v1.transmutation.intro	Iron Body: the target is living metal.	Likely	Likely	0
+effect:knowledge-from-the-dead	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+effect:lengthened-stride	No proposed FX				A passive benefit — no moment to play.			
+effect:lightning-resistance-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:magic-exhausted	No proposed FX				A passive benefit — no moment to play.			
+effect:magical-augmentation-speed-increase	Close match	effect:hasted	jb2a.wind_lines.01.02.white	psfx.magic-signs.rune.v1.transmutation.intro	Magical Augmentation: the target moves faster.	Maybe	Likely	0
+effect:mark-dueling-ground-target	Close match	effect:outlined	jb2a.condition.curse.01.010.red	psfx.magic-signs.rune.v1.abjuration.intro	Dueling Ground: the duellist is marked with crossed swords.	Sure	Likely	0
+effect:mighty-build-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:mind-wall-advantages	No proposed FX				A passive benefit — no moment to play.			
+effect:nature-proficiency	No proposed FX				A passive benefit — no moment to play.			
+effect:otherworldly-familiar	No proposed FX				A lasting enchantment on the item — no moment to play.			
+effect:poison-resistance-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:power-word-pain	Close match	effect:stunned	jb2a.condition.curse.01.024.red	psfx.impacts.magicaleffects.psychic	Power Word Pain: waves of pain hold the target.	Likely	Likely	0
+effect:prismatic-conversion-acid	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:prismatic-conversion-cold	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:prismatic-conversion-fire	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:prismatic-conversion-lightning	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:prismatic-conversion-thunder	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:religion-proficiency	No proposed FX				A passive benefit — no moment to play.			
+effect:shadow-shot	Close match	effect:outlined	jb2a.condition.curse.01.020.purple	psfx.impacts.magicaleffects.psychic	Shadow Shot: shadows cover the target's eyes.	Sure	Likely	0
+effect:smooth-talker	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+effect:speed-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:spirit-lantern	Close match	effect:warded	jb2a.spirit_guardians.dark_purple.particles	psfx.magic-signs.circle.v1.necromancy.complete	Spirit Lantern: ghost light hangs around the caster.	Maybe	Likely	1
+effect:splintered-summon	Close match	spell:summon-fey	jb2a.magic_signs.circle.02.conjuration.intro.dark_green	psfx.magic-signs.circle.v1.conjuration.complete	Splintered Summons: the spirit splits in two.	Maybe	Likely	0
+effect:staff-glow	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:tarnished-1-ac	No proposed FX				A passive benefit — no moment to play.			
+effect:thunder-resistance-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:tireless	No proposed FX				The potion that grants it has its own FX — nothing more to play.			
+effect:transmuter-stone	No proposed FX				Always on while it is worn or known — no moment to play.			
+effect:tremorsense-benefit	No proposed FX				A benefit the Transmuter's Stone holds from one Long Rest to the next — no moment to play.			
+effect:undead-familiar	No proposed FX				A passive benefit — no moment to play.			
+effect:ward-ally	Close match	effect:warded	jb2a.spirit_guardians.dark_blue.particles	psfx.magic-signs.circle.v1.necromancy.complete	Spirit Lantern: the lantern's light wards an ally.	Maybe	Likely	1
+effect:wondrous-alteration	Close match	spell:alter-self	jb2a.magic_signs.circle.02.transmutation.intro.dark_purple	psfx.magic-signs.rune.v1.transmutation.intro	Wondrous Alteration: the body reshapes itself.	Likely	Likely	0
+effect:zone-of-amicability	Close match	spell:calm-emotions	jb2a.condition.boon.01.016.blue	psfx.magic-signs.circle.v1.enchantment.complete	Zone of Amicability: a calm settles on those inside.	Likely	Likely	2
+feature:abjuration-adept	No proposed FX				A passive benefit — no moment to play.			
+feature:agent-of-ninth-quill	No proposed FX				A background — no moment to play.			
+feature:alter-memories	Close match	spell:dominate-person	jb2a.magic_signs.rune.enchantment.complete.purple	psfx.magic-signs.rune.v1.enchantment.intro	Alter Memories: the target forgets the spell was ever cast.	Likely	Likely	1
+feature:arcana	No proposed FX				A subclass — its features are their own FX.			
+feature:arcana-domain-spells	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:arcane-archer	No proposed FX				A subclass — its features are their own FX.			
+feature:arcane-archer-lore	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-artist	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-eloquence	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-infiltrator	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-omens	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-overload	Close match	spell:fire-bolt	jb2a.explosion.03.purplepink	psfx.magic-signs.rune.v1.evocation.intro	Arcane Overload: the spell bursts with extra force.	Maybe	Likely	0
+feature:arcane-safeguard	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-shot	No proposed FX				The list of Arcane Shot options — each option is its own FX.			
+feature:arcane-undertaker	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:arcane-warrior	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:banishing-shot	Close match	weapon:longbow	jb2a.arrow.lightning.purple	psfx.ranged-weapons.longbow.v1	Banishing Shot: a purple arrow that tears a way out of the world.	Likely	Sure	0
+feature:beguiling-shot	Close match	weapon:longbow	jb2a.arrow.physical.pink	psfx.ranged-weapons.longbow.v1	Beguiling Shot: a pink-trailed arrow.	Likely	Sure	0
+feature:bejeweled-conclave-spy	No proposed FX				A background — no moment to play.			
+feature:benign-transposition	Close match	spell:misty-step	jb2a.portals.horizontal.vortex_masked.blue	psfx.2nd-level-spells.misty-step.v1.complete.generic	Benign Transposition: the conjurer steps through a ring of light.	Likely	Sure	0
+feature:boon-of-erupting-spellpower	Close match	spell:fire-bolt	jb2a.explosion.07.purplepink	psfx.magic-signs.rune.v1.evocation.intro	Erupting Spellpower: the spell erupts outward.	Maybe	Likely	0
+feature:boon-of-magic-school-mastery	No proposed FX				A passive benefit — no moment to play.			
+feature:boon-of-the-iron-mind	No proposed FX				A passive benefit — no moment to play.			
+feature:bursting-shot	Close match	weapon:longbow	jb2a.arrow.fire.orange	psfx.ranged-weapons.longbow.v1	Bursting Shot: the arrow explodes on the hit.	Likely	Sure	0
+feature:conjuration-adept	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:conjuration-savant	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:conjurer	No proposed FX				A subclass — its features are their own FX.			
+feature:cosmic-dawn-experiment	No proposed FX				A background — no moment to play.			
+feature:covenant-of-the-grave-recruit	No proposed FX				A background — no moment to play.			
+feature:crucible-storm-chaser	No proposed FX				A background — no moment to play.			
+feature:curving-shot	Close match	weapon:longbow	jb2a.arrow.physical.orange	psfx.ranged-weapons.longbow.v1	Curving Shot: a missed arrow bends toward a new target.	Likely	Sure	0
+feature:deaths-master	Close match	spell:animate-dead	jb2a.magic_signs.circle.02.necromancy.intro.dark_purple	psfx.magic-signs.circle.v1.necromancy.complete	Death's Master: the spellbook bolsters the undead.	Likely	Likely	0
+feature:deceptive-conversation	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:dispelling-recovery	No proposed FX				A rider on a healing spell, which plays the moment.			
+feature:distant-transposition	No proposed FX				A passive benefit — no moment to play.			
+feature:divination-adept	Close match	spell:augury	jb2a.magic_signs.rune.divination.complete.blue	psfx.magic-signs.rune.v1.divination.intro	Divination Adept: a glimpse of what comes next.	Likely	Likely	0
+feature:durable-summons	Close match	effect:warded	jb2a.energy_field.01.green	psfx.magic-signs.rune.v1.conjuration.intro	Durable Summons: the summoned creature arrives with a ward.	Maybe	Likely	0
+feature:elemental-familiar	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.intro.blue	psfx.magic-signs.circle.v1.conjuration.complete	Elemental Familiar: the familiar flares with elemental energy.	Likely	Likely	0
+feature:empowered-transmutation	No proposed FX				A rider on a transmutation spell, which plays the moment.			
+feature:enchanter	No proposed FX				A subclass — its features are their own FX.			
+feature:enchanting-conversation	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:enchantment-adept	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:enchantment-savant	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:enfeebling-shot	Close match	weapon:longbow	jb2a.arrow.physical.red	psfx.ranged-weapons.longbow.v1	Enfeebling Shot: a dark red arrow that saps strength.	Likely	Sure	0
+feature:ever-ready-shot	No proposed FX				A use regained at Initiative — no moment to play.			
+feature:evocation-adept	Close match	spell:fire-bolt	jb2a.magic_signs.rune.evocation.complete.orange	psfx.magic-signs.rune.v1.evocation.intro	Evocation Adept: the evoker shapes the blast.	Maybe	Likely	0
+feature:familiar-friend	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.intro.green	psfx.magic-signs.circle.v1.conjuration.complete	Familiar Friend: the familiar answers.	Likely	Likely	0
+feature:familiar-trainer	No proposed FX				A background — no moment to play.			
+feature:focused-conjuration	No proposed FX				A passive benefit — no moment to play.			
+feature:focused-strike	No proposed FX				A rider on Stunning Strike, which plays the moment.			
+feature:grasping-shot	Close match	weapon:longbow	jb2a.arrow.physical.green	psfx.ranged-weapons.longbow.v1	Grasping Shot: a green arrow that sprouts brambles.	Likely	Sure	0
+feature:grave-power	No proposed FX				A passive benefit — no moment to play.			
+feature:harvest-undead	Close match	spell:cure-wounds	jb2a.healing_generic.loop.purplepink	psfx.impacts.magicaleffects.necrotic	Harvest Undead: the destroyed undead feeds the wizard.	Likely	Likely	0
+feature:horizon-weaver-initiate	No proposed FX				A background — no moment to play.			
+feature:hypnotic-presence	Close match	effect:charmed	jb2a.impact_themed.heart.02.pink	psfx.magic-signs.circle.v1.enchantment.complete	Hypnotic Presence: an enchanting gaze holds the target.	Likely	Likely	0
+feature:illusion-adept	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:improved-fighting-style	No proposed FX				A passive benefit — no moment to play.			
+feature:indomitable-teleport	Close match	spell:misty-step	jb2a.portals.vertical.vortex_masked.purple	psfx.2nd-level-spells.misty-step.v1.complete.generic	Indomitable Teleport: the fighter escapes through a portal.	Likely	Sure	0
+feature:instinctive-charm	Close match	effect:charmed	jb2a.impact_themed.heart.pinkyellow	psfx.magic-signs.rune.v1.enchantment.intro	Instinctive Charm: the attacker turns aside.	Likely	Likely	0
+feature:intimidating-conversation	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:life-vestige-spells	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:light-vestige-spells	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:magic-connoisseur	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:magical-ammunition	Close match	spell:magic-weapon	jb2a.glint.blue.many	psfx.magic-signs.rune.v1.enchantment.intro	Magical Ammunition: the arrows glint with enchantment.	Likely	Likely	1
+feature:magical-mastery	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:master-transmuter	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.intro.yellow	psfx.magic-signs.circle.v1.transmutation.complete	Master Transmuter: the stone is spent in one great working.	Likely	Likely	0
+feature:mastered-abjuration	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-conjuration	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-divination	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-enchantment	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-evocation	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-illusion	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-necromancy	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:mastered-transmutation	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:masterful-shots	No proposed FX				A reaction that sets up the next shot, which plays the moment.			
+feature:modify-magic	No proposed FX				A rider on a spell, which plays the moment.			
+feature:mystic-fighting-style	No proposed FX				A passive benefit — no moment to play.			
+feature:mystic-focus	No proposed FX				A passive benefit — no moment to play.			
+feature:necromancer	No proposed FX				A subclass — its features are their own FX.			
+feature:necromancy-adept	Close match	spell:cure-wounds	jb2a.magic_signs.rune.necromancy.complete.blue	psfx.magic-signs.rune.v1.necromancy.intro	Necromancy Adept: life drawn from the spell.	Likely	Likely	0
+feature:necromancy-savant	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:necromancy-spellbook	Close match	spell:animate-dead	jb2a.magic_signs.circle.02.necromancy.intro.green	psfx.magic-signs.circle.v1.necromancy.complete	Necromancy Spellbook: the book's secrets raise a servant.	Likely	Likely	0
+feature:otherworldly-familiar	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.intro.dark_pink	psfx.magic-signs.circle.v1.conjuration.complete	Otherworldly Familiar: the familiar takes an otherworldly form.	Likely	Likely	0
+feature:persuasive-conversation	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:phantasmic-circus-trouper	No proposed FX				A background — no moment to play.			
+feature:piercing-shot	Close match	weapon:longbow	jb2a.arrow.physical.white.01	psfx.ranged-weapons.longbow.v1	Piercing Shot: an ethereal arrow passes through everything in the line.	Likely	Sure	9
+feature:portal-jumper	Close match	spell:misty-step	jb2a.portals.horizontal.ring_masked.blue	psfx.2nd-level-spells.misty-step.v1.complete.generic	Portal Jumper: a short hop through a portal.	Likely	Sure	0
+feature:potent-stone	No proposed FX				A passive benefit — no moment to play.			
+feature:seeking-shot	Close match	weapon:longbow	jb2a.arrow.physical.blue	psfx.ranged-weapons.longbow.v1	Seeking Shot: a blue arrow that finds its target.	Likely	Sure	0
+feature:seer-apprentice	No proposed FX				A background — no moment to play.			
+feature:semblance-of-life	Close match	spell:summon-undead	jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	Semblance of Life: the vestige brings something back.	Likely	Likely	0
+feature:shadow-shot	Close match	weapon:longbow	jb2a.arrow.physical.purple	psfx.ranged-weapons.longbow.v1	Shadow Shot: a shadowed arrow.	Likely	Sure	0
+feature:shape-shifter	No proposed FX				A free casting of Polymorph — the spell is its own FX.			
+feature:soothing-familiar	No proposed FX				A passive benefit — no moment to play.			
+feature:spell-resistant	Close match	spell:counterspell	jb2a.magic_signs.rune.abjuration.complete.purple	psfx.magic-signs.rune.v1.abjuration.intro	Spell Resistant: the spell slides off.	Maybe	Likely	0
+feature:spell-subterfuge	Close match	spell:invisibility	jb2a.magic_signs.rune.illusion.complete.grey	psfx.magic-signs.rune.v1.illusion.intro	Spell Subterfuge: the casting is hidden.	Maybe	Likely	0
+feature:splintered-summons	Close match	spell:summon-fey	jb2a.magic_signs.circle.02.conjuration.intro.dark_green	psfx.magic-signs.circle.v1.conjuration.complete	Splintered Summons: the spirit splits in two.	Maybe	Likely	0
+feature:split-enchantment	No proposed FX				A rider on an enchantment spell, which plays the moment.			
+feature:student-of-arcana	No proposed FX				A feat that grants spells or a skill — the spells are their own FX.			
+feature:transmutation-adept	Close match	spell:enlarge-reduce	jb2a.magic_signs.rune.transmutation.complete.blue	psfx.magic-signs.rune.v1.transmutation.intro	Transmutation Adept: a quick augmentation.	Likely	Likely	1
+feature:transmutation-savant	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:transmuted-anatomy	Close match	effect:warded	jb2a.magic_signs.rune.transmutation.complete.green	psfx.magic-signs.rune.v1.transmutation.intro	Transmuted Anatomy: the body resists a forced change.	Maybe	Likely	1
+feature:transmuter	No proposed FX				A subclass — its features are their own FX.			
+feature:transmuters-stone	No proposed FX				The stone made at a Long Rest — its benefits have no moment to play.			
+feature:trickery-vestige-spells	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:undead-thralls	No proposed FX				A passive benefit — no moment to play.			
+feature:vestige-companion	Close match	spell:summon-undead	jb2a.magic_signs.circle.02.conjuration.intro.yellow	psfx.magic-signs.circle.v1.conjuration.complete	Vestige Companion: the remnant of a dying god manifests.	Likely	Likely	0
+feature:vestige-patron	No proposed FX				A subclass — its features are their own FX.			
+feature:vestige-power	No proposed FX				A passive benefit — no moment to play.			
+feature:vestige-recovery	Close match	spell:cure-wounds	jb2a.healing_generic.loop.tealyellow	psfx.1st-level-spells.cure-wounds.v1.001	Vestige Recovery: the companion is pulled back from the brink.	Likely	Likely	0
+feature:vestige-spells	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:war-vestige-spells	No proposed FX				A list of spells known — each spell is its own FX.			
+feature:ward-of-the-sheltering-hands	No proposed FX				A background — no moment to play.			
+feature:warlike-familiar	No proposed FX				A reaction the familiar makes, which its own attack plays.			
+feature:warrior-of-the-mystic-arts	No proposed FX				A subclass — its features are their own FX.			
+feature:wondrous-alteration	Close match	spell:alter-self	jb2a.magic_signs.circle.02.transmutation.intro.dark_purple	psfx.magic-signs.rune.v1.transmutation.intro	Wondrous Alteration: the body reshapes itself.	Likely	Likely	0
+item:arcane-chatelaine	Close match	spell:mage-hand	jb2a.magic_signs.rune.abjuration.complete.green	psfx.magic-signs.rune.v1.abjuration.intro	Arcane Chatelaine: a spectral key turns.	Maybe	Likely	0
+item:arcanists-bestiary	Close match	spell:charm-monster	jb2a.magic_signs.rune.enchantment.complete.orange	psfx.magic-signs.rune.v1.enchantment.intro	Arcanist's Bestiary: the book's charm takes hold.	Likely	Likely	1
+item:bellows-of-strangulation	Close match	spell:gust-of-wind	jb2a.breath_weapons02.burst.cone.arcana.dark_black.01	psfx.cantrips.gust.v1	The bellows pull the air out of the cone.	Maybe	Likely	0
+item:blood-amulet	Close match	spell:inflict-wounds	jb2a.liquid.splash_side.red	psfx.impacts.magicaleffects.necrotic	The Blood Amulet beats, and the target bleeds.	Likely	Likely	0
+item:blossom-rod	Close match	spell:spike-growth	jb2a.plant_growth.01.round.2x2.complete.bluepurple	psfx.1st-level-spells.entangle.vines.v1.001.intro	Blossom Rod: flowers burst from the ground.	Sure	Likely	0
+item:boon-companions-bands	No proposed FX				A quiet utility with nothing to see at the table.			
+item:conjurers-canopy	Close match	spell:tiny-hut	jb2a.magic_signs.circle.02.conjuration.intro.dark_blue	psfx.magic-signs.circle.v1.conjuration.complete	Conjurer's Canopy: a shelter springs up around the stick.	Maybe	Likely	0
+item:dictation-quill	No proposed FX				A quiet utility with nothing to see at the table.			
+item:dispelling-ammunition-arrow	Close match	weapon:longbow	jb2a.arrow.physical.white.02	psfx.ranged-weapons.longbow.v1	Dispelling Ammunition: a white arrow that strips magic.	Likely	Sure	0
+item:dispelling-ammunition-bolt	Close match	weapon:light-crossbow	jb2a.bolt.physical.white02	psfx.ranged-weapons.longbow.v1	Dispelling Ammunition: a white bolt that strips magic.	Likely	Likely	4
+item:dispelling-ammunition-bullet-firearm	Close match	weapon:musket	jb2a.bullet.02.blue	psfx.ranged-weapons.guns.single-fire.musket	Dispelling Ammunition: a bullet that strips magic.	Likely	Likely	2
+item:dispelling-ammunition-bullet-sling	Close match	weapon:sling	jb2a.slingshot	psfx.impacts.bludgeoning.v1	Dispelling Ammunition: a sling stone that strips magic.	Likely	Likely	2
+item:dispelling-ammunition-needle	Close match	weapon:blowgun	jb2a.dart.01.throw.physical.white	psfx.ranged-weapons.longbow.v1	Dispelling Ammunition: a needle that strips magic.	Likely	Maybe	1
+item:dream-weaver	No proposed FX				A quiet utility with nothing to see at the table.			
+item:elocutionists-lexicon	No proposed FX				A quiet utility with nothing to see at the table.			
+item:ensorcelled-missive	No proposed FX				A quiet utility with nothing to see at the table.			
+item:evergreen-fertilizer	No proposed FX				A quiet utility with nothing to see at the table.			
+item:goading-ammunition-arrow	Close match	weapon:longbow	jb2a.arrow.physical.red	psfx.ranged-weapons.longbow.v1	Goading Ammunition: a red arrow that goads.	Likely	Sure	0
+item:goading-ammunition-bolt	Close match	weapon:light-crossbow	jb2a.bolt.physical.red	psfx.ranged-weapons.longbow.v1	Goading Ammunition: a red bolt that goads.	Likely	Likely	4
+item:goading-ammunition-bullet-firearm	Close match	weapon:musket	jb2a.bullet.02.red	psfx.ranged-weapons.guns.single-fire.musket	Goading Ammunition: a red bullet that goads.	Likely	Likely	2
+item:goading-ammunition-bullet-sling	Close match	weapon:sling	jb2a.slingshot	psfx.impacts.bludgeoning.v1	Goading Ammunition: a sling stone that goads.	Likely	Likely	2
+item:goading-ammunition-needle	Close match	weapon:blowgun	jb2a.dart.01.throw.physical.white	psfx.ranged-weapons.longbow.v1	Goading Ammunition: a needle that goads.	Likely	Maybe	1
+item:goodberry-charm	Close match	spell:goodberry	jb2a.healing_generic.200px.green	psfx.1st-level-spells.cure-wounds.v1.001	The charm casts Goodberry.	Likely	Likely	0
+item:homeward-compass	No proposed FX				A quiet utility with nothing to see at the table.			
+item:idol-of-good-fortunes	Close match	spell:bless	jb2a.dodecahedron.star.below.blueyellow	psfx.conditions.boon.001.01	The Idol of Good Fortunes turns the luck.	Likely	Likely	0
+item:lucky-foot	Close match	spell:bless	jb2a.dodecahedron.rune.above.blueyellow	psfx.conditions.boon.001.01	The Lucky Foot turns a 1 around.	Likely	Likely	0
+item:mages-manacle	Close match	spell:hold-person	jb2a.markers.chain.spike.loop.02.purple	psfx.magic-signs.rune.v1.abjuration.intro	Mage's Manacle: spiked chains bind the caster.	Likely	Likely	0
+item:magewrights-gloves	No proposed FX				A passive benefit — no moment to play.			
+item:necklace-of-the-beastly-familiar-azurite	Close match	spell:find-familiar	jb2a.condition.boon.01.023.blue	psfx.magic-signs.circle.v1.conjuration.complete	The necklace calls the beastly familiar (azurite).	Likely	Likely	0
+item:necklace-of-the-beastly-familiar-chrysoprase	Close match	spell:find-familiar	jb2a.condition.boon.01.023.green	psfx.magic-signs.circle.v1.conjuration.complete	The necklace calls the beastly familiar (chrysoprase).	Likely	Likely	0
+item:necklace-of-the-beastly-familiar-fire-opal	Close match	spell:find-familiar	jb2a.condition.boon.01.023.red	psfx.magic-signs.circle.v1.conjuration.complete	The necklace calls the beastly familiar (fire opal).	Likely	Likely	0
+item:necklace-of-the-beastly-familiar-topaz	Close match	spell:find-familiar	jb2a.condition.boon.01.023.yellow	psfx.magic-signs.circle.v1.conjuration.complete	The necklace calls the beastly familiar (topaz).	Likely	Likely	0
+item:necklace-of-the-beastly-familiar-zircon	Close match	spell:find-familiar	jb2a.condition.boon.02.023.refraction	psfx.magic-signs.circle.v1.conjuration.complete	The necklace calls the beastly familiar (zircon).	Likely	Likely	0
+item:orb-of-divination-detection	No proposed FX				A passive benefit — no moment to play.			
+item:orb-of-sorcery	Close match	spell:fire-bolt	jb2a.glint.purple.many	psfx.magic-signs.rune.v1.evocation.intro	Orb of Sorcery: ribbons of light swirl and feed the sorcerer.	Maybe	Likely	1
+item:potion-of-dragons-breath-black	Close match	spell:dragons-breath	jb2a.breath_weapons.acid.line.green	psfx.consumables.potions-vials.drink-liquid.001	Potion of Dragon's Breath (black): acid breath.	Likely	Sure	1
+item:potion-of-dragons-breath-blue	Close match	spell:dragons-breath	jb2a.breath_weapons.lightning.line.blue	psfx.consumables.potions-vials.drink-liquid.001	Potion of Dragon's Breath (blue): lightning breath.	Likely	Sure	1
+item:potion-of-dragons-breath-green	Close match	spell:dragons-breath	jb2a.breath_weapons.poison.cone.green	psfx.consumables.potions-vials.drink-liquid.001	Potion of Dragon's Breath (green): poison breath.	Sure	Sure	7
+item:potion-of-dragons-breath-red	Close match	spell:dragons-breath	jb2a.breath_weapons02.burst.cone.fire.orange.01	psfx.consumables.potions-vials.drink-liquid.001	Potion of Dragon's Breath (red): fire breath.	Sure	Sure	0
+item:potion-of-dragons-breath-white	Close match	spell:dragons-breath	jb2a.breath_weapons02.burst.cone.ice.01	psfx.consumables.potions-vials.drink-liquid.001	Potion of Dragon's Breath (white): cold breath.	Sure	Sure	0
+item:potion-of-tirelessness	Close match	item:potion-of-healing	jb2a.shimmer.01.orange	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk; a gold shimmer.	Maybe	Sure	1
+item:prismatic-rune	No proposed FX				The damage type is chosen at a Long Rest — no moment to play.			
+item:queen-ehlissas-marvelous-nightingale	Close match	spell:irresistible-dance	jb2a.explosion.06.tealyellow	psfx.musical-instruments.flute.01.long.keyOfA.A6	The Nightingale sings and notes spill out.	Likely	Likely	0
+item:ring-of-dedicated-focus	No proposed FX				A quiet utility with nothing to see at the table.			
+item:scholars-anchoring-bangle	No proposed FX				A quiet utility with nothing to see at the table.			
+item:secret-keepers-circlet	No proposed FX				A quiet utility with nothing to see at the table.			
+item:spell-component-ring	No proposed FX				A quiet utility with nothing to see at the table.			
+item:spell-duelists-trophy	Close match	spell:counterspell	jb2a.magic_signs.rune.abjuration.complete.red	psfx.magic-signs.rune.v1.abjuration.intro	Spell Duelist's Trophy: the withered hand answers a spell.	Maybe	Likely	0
+item:spell-slingers-puppet	No proposed FX				A quiet utility with nothing to see at the table.			
+item:sweeping-broom	Close match	spell:gust-of-wind	jb2a.wind_lines.01.leaves.01.green	psfx.cantrips.gust.v1	The broom sweeps the area clean.	Likely	Likely	0
+item:thespians-playbill	No proposed FX				A quiet utility with nothing to see at the table.			
+item:thiefs-thimble	No proposed FX				A quiet utility with nothing to see at the table.			
+item:tramontane-armor	Close match	spell:gust-of-wind	jb2a.aura_themed.01.outward.complete.cold.01.blue	psfx.cantrips.gust.v1	Tramontane Armor: a cold wind bursts outward.	Likely	Likely	0
+item:transmuter-stone	No proposed FX				The stone made at a Long Rest — no moment to play.			
+item:travelers-pearl	Close match	spell:teleport	jb2a.portals.vertical.ring_masked.blue	psfx.2nd-level-spells.misty-step.v1.complete.generic	The Traveler's Pearl opens the way.	Likely	Likely	0
+item:universal-pantograph	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.intro.blue	psfx.magic-signs.rune.v1.transmutation.intro	The Universal Pantograph copies what is placed in it.	Maybe	Likely	0
+item:wand-of-freshness	No proposed FX				A quiet utility with nothing to see at the table.			
+item:wand-of-slumber	Close match	spell:sleep	jb2a.sleep.cloud.02.pink	psfx.1st-level-spells.sleep.v1	The Wand of Slumber sends them to sleep.	Sure	Sure	0
+item:wand-of-teeth	No proposed FX				Neither library has anything that reads as a cone of teeth.			
+item:workshop-wrecker	Close match	spell:shatter	jb2a.aura_themed.01.outward.complete.metal.01.grey	psfx.impacts.bludgeoning.v1	The Workshop Wrecker ball ricochets through the area.	Maybe	Likely	0
+natural:brain-drain	Close match	natural:tentacle	jb2a.explosion.03.purplepink	psfx.impacts.magicaleffects.psychic	Taisus drains the target's mind.	Likely	Sure	0
+natural:spore-spray	Close match	spell:poison-spray	jb2a.fumes.toxic.green	psfx.cantrips.poison-spray.v1	The spirit fungus sprays spores.	Likely	Sure	0
+spell:aura-of-evasion	Close match	spell:sanctuary	jb2a.template_circle.aura.03.inward.002.complete.combined.blueteal	psfx.cantrips.gust.v1	Aura of Evasion: an aura of alacrity around the caster.	Likely	Likely	0
+spell:battle-familiar	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.intro.red	psfx.magic-signs.circle.v1.conjuration.complete	Battle Familiar: a familiar armed for war.	Likely	Likely	0
+spell:detonate	Close match	spell:fireball	jb2a.explosion.03.red	psfx.impacts.magicaleffects.fire	Detonate: the seed inside the target explodes.	Likely	Likely	0
+spell:disruptive-tune	Close match	spell:shatter	jb2a.explosion.06.purplepink	psfx.1st-level-spells.dissonant-whispers.v1.002	Disruptive Tune: a jarring melody bursts over the area.	Sure	Likely	0
+spell:distorted-distance	Close match	spell:hypnotic-pattern	jb2a.magic_signs.circle.02.illusion.intro.purple	psfx.magic-signs.circle.v1.illusion.complete	Distorted Distance: space dilates in the sphere.	Likely	Likely	0
+spell:dueling-ground	Close match	spell:sanctuary	jb2a.magic_signs.circle.02.abjuration.intro.red	psfx.magic-signs.circle.v1.abjuration.complete	Dueling Ground: a rune-scribed circle for two.	Sure	Likely	0
+spell:entrancing-mirrors	Close match	spell:mirror-image	jb2a.magic_signs.circle.02.illusion.intro.blue	psfx.magic-signs.circle.v1.illusion.complete	Entrancing Mirrors: illusory mirrors surround the targets.	Maybe	Likely	0
+spell:festering-blast	Close match	spell:stinking-cloud	jb2a.breath_weapons02.burst.line.fire.green.01	psfx.cantrips.poison-spray.v1	Festering Blast: a line of miasma.	Likely	Likely	0
+spell:fractured-awareness	Close match	spell:synaptic-static	jb2a.magic_signs.rune.divination.complete.purple	psfx.impacts.magicaleffects.psychic	Fractured Awareness: visions of too many futures.	Likely	Likely	0
+spell:grave-ground	Close match	spell:spike-growth	jb2a.ground_cracks.02.green	psfx.impacts.magicaleffects.necrotic	Grave Ground: the ground splits as skeletal hands rise.	Maybe	Likely	0
+spell:hindsight	Close match	spell:divination	jb2a.magic_signs.circle.02.divination.intro.dark_blue	psfx.magic-signs.circle.v1.divination.complete	Hindsight: visions of what happened here.	Likely	Likely	0
+spell:inflict-doubt	Close match	spell:bane	jb2a.magic_signs.rune.enchantment.complete.grey	psfx.magic-signs.rune.v1.enchantment.intro	Inflict Doubt: the target second-guesses itself.	Likely	Likely	1
+spell:invulnerability	Close match	spell:sanctuary	jb2a.magic_signs.circle.02.abjuration.intro.yellow	psfx.magic-signs.circle.v1.abjuration.complete	Invulnerability: the caster is untouchable.	Likely	Likely	0
+spell:iron-body	Close match	spell:mage-armor	jb2a.aura_themed.01.inward.complete.metal.01.grey	psfx.magic-signs.rune.v1.transmutation.intro	Iron Body: the target turns to living metal.	Likely	Likely	0
+spell:lightning-ring	Close match	spell:call-lightning	jb2a.template_circle.lightning.01.complete.bluepurple	psfx.impacts.magicaleffects.lightning	Lightning Ring: a ring of crackling electricity.	Sure	Sure	0
+spell:moment-of-prescience	Close match	spell:foresight	jb2a.magic_signs.rune.divination.complete.yellow	psfx.magic-signs.rune.v1.divination.intro	Moment of Prescience: the sixth sense wakes.	Likely	Likely	0
+spell:mordenkainens-lucubration	Close match	spell:identify	jb2a.glint.blue.many	psfx.magic-signs.rune.v1.divination.intro	Mordenkainen's Lucubration: spent magic returns.	Likely	Likely	1
+spell:reweave-fate	Close match	spell:bless	jb2a.dodecahedron.star.above.blueyellow	psfx.magic-signs.rune.v1.divination.intro	Reweave Fate: the thread is pulled straight.	Likely	Likely	0
+spell:spirit-lantern	Close match	spell:spiritual-weapon	jb2a.spirit_guardians.dark_black.particles	psfx.magic-signs.circle.v1.necromancy.complete	Spirit Lantern: a ghostly black lantern hovers over the caster.	Maybe	Likely	1
+spell:summon-dinosaur	Close match	spell:summon-beast	jb2a.impact.ground_crack.01.orange	psfx.casting.earth.001	Summon Dinosaur: something huge lands.	Likely	Likely	3
+spell:summon-plant	Close match	spell:summon-beast	jb2a.plant_growth.01.ring.4x4.complete.bluepurple	psfx.1st-level-spells.entangle.vines.v1.001.intro	Summon Plant: the spirit of a plant grows up.	Likely	Likely	0
+spell:transfix	Close match	spell:hypnotic-pattern	jb2a.impact_themed.heart.pinkyellow	psfx.impacts.magicaleffects.psychic	Transfix: an otherworldly allure.	Likely	Likely	0
+spell:uncertain-footing	Close match	spell:hypnotic-pattern	jb2a.magic_signs.rune.illusion.complete.blue	psfx.magic-signs.rune.v1.illusion.intro	Uncertain Footing: illusory obstacles underfoot.	Likely	Likely	0
+spell:vision-of-elapsing-eons	Close match	spell:weird	jb2a.magic_signs.circle.02.illusion.intro.dark_purple	psfx.impacts.magicaleffects.psychic	Vision of Elapsing Eons: the target watches itself age to dust.	Likely	Likely	0
+spell:wail-of-the-banshee	Close match	spell:power-word-kill	jb2a.markers.horror.teal.01	psfx.impacts.magicaleffects.psychic	Wail of the Banshee: a terrible scream.	Likely	Maybe	0
+spell:waves-of-exhaustion	Close match	spell:enervation	jb2a.spirit_guardians.dark_black.ring	psfx.impacts.magicaleffects.necrotic	Waves of Exhaustion: a nimbus of grey light.	Maybe	Likely	6
+spell:zone-of-amicability	Close match	spell:calm-emotions	jb2a.template_circle.aura.03.inward.002.complete.combined.pinkyellow	psfx.magic-signs.circle.v1.enchantment.complete	Zone of Amicability: a calm emanates from the caster.	Likely	Likely	0
+weapon:dissuader	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.04.blue	psfx.impacts.bludgeoning.v1	The Dissuader swings.	Likely	Sure	0
+weapon:grave-reaper	Close match	weapon:sickle	jb2a.dagger.melee.fire.dark_purple	psfx.impacts.slashing.v1	The Grave Reaper cuts with necrotic fire.	Maybe	Sure	0
+weapon:mage-breaker	Close match	weapon:dagger	jb2a.dagger.melee.fire.blue	psfx.impacts.slashing.v1	The Mage Breaker strikes.	Likely	Sure	0
+weapon:staff-of-skulls	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.01.purple	psfx.impacts.bludgeoning.v1	The Staff of Skulls swings.	Likely	Sure	0
+weapon:staff-of-the-lost	Close match	weapon:quarterstaff	jb2a.quarterstaff.melee.02.blue	psfx.impacts.bludgeoning.v1	The Staff of the Lost swings.	Likely	Sure	3
+weapon:wave-swept-weapon	Close match	weapon:longsword	jb2a.sword.melee.01.blue	psfx.casting.water.001	The Wave-Swept Weapon cuts like a breaker.	Likely	Likely	13

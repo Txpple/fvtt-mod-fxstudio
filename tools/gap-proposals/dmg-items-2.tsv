@@ -1,5 +1,5 @@
 item:fochlucan-bandore-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	An instrument of the bards is played.	Sure	Sure	0
-item:folding-boat	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.casting.generic.001	The box unfolds into a boat, in a puff of displaced air.	Likely	Likely	0
+item:folding-boat	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:fool	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
 item:fruit-of-restoration	Close match	spell:cure-wounds	jb2a.healing_generic.200px.green	psfx.consumables.food-and-drink.consume.food.bite.juicy.001	The fruit is eaten and a condition lifts.	Sure	Sure	0
 item:gauntlets-of-ogre-power	No proposed FX				Worn, always on — no moment to play.
@@ -12,7 +12,7 @@ item:gemstone100gp	No proposed FX				Treasure. Nothing happens at the table.
 item:gemstone5000gp	No proposed FX				Treasure. Nothing happens at the table.
 item:gemstone50gp	No proposed FX				Treasure. Nothing happens at the table.
 item:gemstone500gp	No proposed FX				Treasure. Nothing happens at the table.
-item:glamoured-studded-leather	Close match	spell:invisibility	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.illusion.intro	The armour changes its look.	Likely	Likely	1
+item:glamoured-studded-leather	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:gloves-of-missile-snaring	Close match	spell:mage-armor	jb2a.markers.shield.blue.03	psfx.impacts.bludgeoning.v1	A missile caught out of the air.	Maybe	Likely	0
 item:gloves-of-swimming-and-climbing	No proposed FX				Worn, always on — no moment to play.
 item:gloves-of-thievery	No proposed FX				Worn, always on — no moment to play.
@@ -46,21 +46,21 @@ item:immovable-rod	No proposed FX				A rod that stops in the air — a position,
 item:instrument-of-illusions	Close match	spell:invisibility	jb2a.music_notations.treble_clef.purple	psfx.musical-instruments.flute.01.long.keyOfA.A6	The instrument is played and an illusion moves with it.	Sure	Sure	0
 item:instrument-of-scribing	No proposed FX				A pen that writes on a surface — nothing to play.
 item:instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	An instrument of the bards is played.	Sure	Sure	0
-item:ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.awareness	psfx.magic-signs.rune.v1.transmutation.intro	An Ioun stone orbits the head. JB2A drew a stone for each kind, so every Ioun stone gets its own.	Likely	Likely	2
+item:ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:absorption-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.absorption	psfx.magic-signs.rune.v1.abjuration.intro	Absorption: the stone orbits, and takes a spell.	Sure	Likely	0
-item:agility-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.agility	psfx.magic-signs.rune.v1.transmutation.intro	Agility: the stone orbits the head.	Sure	Likely	0
-item:awareness-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.awareness	psfx.magic-signs.rune.v1.divination.intro	Awareness: the stone orbits the head.	Sure	Likely	2
-item:fortitude-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.fortitude	psfx.magic-signs.rune.v1.transmutation.intro	Fortitude: the stone orbits the head.	Sure	Likely	0
+item:agility-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:awareness-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:fortitude-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:greater-absorption-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.great_absorption	psfx.magic-signs.rune.v1.abjuration.intro	Greater Absorption: the stone orbits, and takes a spell.	Sure	Likely	0
-item:insight-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.insight	psfx.magic-signs.rune.v1.divination.intro	Insight: the stone orbits the head.	Sure	Likely	0
-item:intellect-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.red.intellect	psfx.magic-signs.rune.v1.transmutation.intro	Intellect: the stone orbits the head.	Sure	Likely	0
-item:leadership-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.leadership	psfx.magic-signs.rune.v1.transmutation.intro	Leadership: the stone orbits the head.	Sure	Likely	0
-item:mastery-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.green.mastery	psfx.magic-signs.rune.v1.transmutation.intro	Mastery: the stone orbits the head.	Sure	Likely	0
-item:protection-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.pink.protection	psfx.magic-signs.rune.v1.abjuration.intro	Protection: the stone orbits the head.	Sure	Likely	0
+item:insight-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:intellect-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:leadership-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:mastery-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:protection-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:regneration-ioun-stone	Close match	effect:regenerating	jb2a.ioun_stones.01.white.regeneration	psfx.1st-level-spells.cure-wounds.v1.001	Regeneration: the stone orbits, and the wounds close.	Sure	Sure	0
 item:reserve-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.purple.reserve	psfx.magic-signs.rune.v1.conjuration.intro	Reserve: the stone orbits, holding a spell.	Sure	Likely	0
-item:strength-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.blue.strength	psfx.magic-signs.rune.v1.transmutation.intro	Strength: the stone orbits the head.	Sure	Likely	0
-item:sustenance-ioun-stone	Close match	spell:mage-armor	jb2a.ioun_stones.01.white.sustenance	psfx.magic-signs.rune.v1.transmutation.intro	Sustenance: the stone orbits the head.	Sure	Likely	0
+item:strength-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:sustenance-ioun-stone	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:iron-bands-of-bilarro	Close match	effect:ensnared	jb2a.markers.chain.square.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.intro	The sphere is thrown and bands wrap the target.	Sure	Likely	0
 item:iron-flask	Close match	spell:conjure-animals	jb2a.smoke.plumes.01.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	The stopper comes out and what was trapped comes out with it.	Likely	Likely	0
 item:iron-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come.	Likely	Likely	0
@@ -88,7 +88,7 @@ item:mirror-of-life-trapping	Close match	effect:banished	jb2a.portals.vertical.v
 item:mithral-armor	No proposed FX				Worn armour with no activation.
 item:moon	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
 item:mystery-key	No proposed FX				A key that fits one lock — nothing to play.
-item:natures-mantle	Close match	spell:invisibility	jb2a.swirling_leaves.complete.01.green	psfx.magic-signs.rune.v1.illusion.intro	The wearer blends into the wild in a swirl of leaves.	Likely	Likely	0
+item:natures-mantle	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:necklace-of-adaptation	No proposed FX				Worn, always on — no moment to play.
 item:necklace-of-fireballs	Close match	spell:fireball	jb2a.fireball.explosion.orange	psfx.3rd-level-spells.fireball.v1.001.explosion	A bead is torn off and thrown: Fireball.	Sure	Sure	3
 item:necklace-of-prayer-beads	Close match	spell:bless	jb2a.condition.boon.01.021.blue	psfx.magic-signs.rune.v1.abjuration.intro	A bead is prayed over and its spell is cast.	Likely	Likely	0
@@ -106,9 +106,9 @@ item:pearl-of-power	Close match	spell:mage-armor	jb2a.particles.inward.blue.02.0
 item:perfume-of-bewitching	Close match	spell:dominate-person	jb2a.side_impact.part.slow.heart.pink	psfx.magic-signs.rune.v1.enchantment.intro	The perfume is worn and everyone is charmed by it.	Likely	Likely	0
 item:periapt-of-health	No proposed FX				Worn, always on — no moment to play.
 item:periapt-of-proof-against-poison	No proposed FX				Worn, always on — no moment to play.
-item:periapt-of-wound-closure	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.1st-level-spells.cure-wounds.v1.001	The wounds close on their own.	Sure	Likely	0
+item:periapt-of-wound-closure	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:philter-of-love	Close match	spell:dominate-person	jb2a.markers.heart.pink.02	psfx.consumables.potions-vials.drink-liquid.001	The philter is drunk and the drinker is charmed.	Sure	Sure	0
-item:pipe-of-smoke-monsters	Close match	spell:fog-cloud	jb2a.smoke.puff.centered.grey	psfx.casting.generic.001	Smoke shapes come out of the pipe.	Sure	Likely	0
+item:pipe-of-smoke-monsters	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:pipes-of-haunting	Close match	effect:frightened	jb2a.markers.fear.dark_purple.02	psfx.musical-instruments.flute.01.long.keyOfA.Am6	The pipes are played and everyone who hears is afraid.	Sure	Likely	0
 item:pipes-of-the-sewers	Close match	spell:conjure-animals	jb2a.music_notations.beamed_quavers.green	psfx.musical-instruments.flute.01.long.keyOfC.C6	The pipes are played and the rats come.	Likely	Sure	0
 item:plate-armor-of-etherealness	Close match	effect:ethereal	jb2a.shimmer.01.purple	psfx.magic-signs.rune.v1.transmutation.intro	Etherealness from the plate.	Likely	Likely	1
@@ -117,7 +117,7 @@ item:poisoned-needle	Close match	effect:lingering-acid	jb2a.side_impact.part.slo
 item:pole-of-angling	No proposed FX				A fishing rod. Nothing to play.
 item:pole-of-collapsing	No proposed FX				A pole that folds up. Nothing to play.
 item:portable-hole	Close match	spell:dimension-door	jb2a.portals.horizontal.ring.dark_purple	psfx.magic-signs.circle.v1.conjuration.complete	The cloth is unfolded and a hole opens.	Sure	Likely	2
-item:pot-of-awakening	Close match	spell:conjure-animals	jb2a.plant_growth.03.round.2x2.complete.greenyellow	psfx.casting.earth.001	What is planted in the pot wakes up.	Sure	Likely	0
+item:pot-of-awakening	No proposed FX				A passive benefit — no moment to play.			
 item:potion-of-animal-friendship	Close match	spell:dominate-person	jb2a.markers.heart.teal.02	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Animal Friendship — every potion drinks the same, the colour says which.	Likely	Sure	0
 item:potion-of-clairvoyance	Close match	spell:dispel-magic	jb2a.magic_signs.circle.02.divination.intro.dark_blue	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: Clairvoyance.	Likely	Sure	0
 item:potion-of-climbing	Close match	effect:unrestricted-movement	jb2a.markers.light.intro.green	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: a climbing speed.	Likely	Sure	0
@@ -126,6 +126,6 @@ item:potion-of-diminution	Close match	effect:bark-like-skin	jb2a.particles.inwar
 item:potion-of-fire-breath	Close match	spell:burning-hands	jb2a.breath_weapons02.burst.cone.fire.orange.01	psfx.creature.dragons.attacks.breath.small.fire	The potion is drunk and the drinker breathes fire.	Sure	Sure	0
 item:potion-of-flying	Close match	effect:flight	jb2a.wind_lines.01.02.white	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: a flying speed.	Likely	Sure	0
 item:potion-of-gaseous-form	Close match	effect:gaseous-form	jb2a.fog_cloud.01.white	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: the drinker becomes mist.	Likely	Sure	3
-item:potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.024.yellow	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength — all seven read the same.	Likely	Sure	0
+item:potion-of-giant-strength	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:cloud-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.02.004.refraction	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.	Likely	Sure	0
 item:fire-potion-of-giant-strength	Close match	effect:courageous	jb2a.condition.boon.01.024.red	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: giant's strength.	Likely	Sure	0

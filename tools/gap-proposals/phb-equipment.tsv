@@ -29,7 +29,7 @@ item:bullets-sling	No proposed FX				Ammunition. The shot is the sling's FX.
 item:bullseye-lantern	Close match	spell:light	jb2a.detect_magic.cone.green	psfx.cantrips.light.v1.001	A lantern opened: light thrown down a cone.	Likely	Likely	0
 item:burglars-pack	No proposed FX				A pack of gear — nothing to play.
 item:calligraphers-supplies	No proposed FX				A tool kit — no moment at the table.
-item:candle	Close match	spell:light	jb2a.flames.04.loop.orange	psfx.cantrips.light.v1.001	A candle lit.	Sure	Likely	0
+item:candle	No proposed FX				A passive benefit — no moment to play.			
 item:carpenters-tools	No proposed FX				A tool kit — no moment at the table.
 item:cartographers-tools	No proposed FX				A tool kit — no moment at the table.
 item:case-crossbow-bolt	No proposed FX				Mundane gear — nothing to play.

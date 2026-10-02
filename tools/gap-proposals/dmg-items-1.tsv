@@ -1,6 +1,6 @@
 item:alchemy-jug	Close match	spell:conjure-animals	jb2a.liquid.splash_side.bright_blue	psfx.consumables.potions-vials.drink-liquid.001	The jug pours: a splash of whatever was asked for.	Likely	Likely	0
 item:boat-utility	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.casting.generic.001	The box unfolds into a boat, in a puff of displaced air.	Likely	Likely	0
-item:adm-arrows	Family match	weapon:longbow	jb2a.glint.yellow.few	psfx.ranged-weapons.longbow.v1	A hard glint as the adamantine head bites.	Likely	Likely	0
+item:adm-arrows	No proposed FX				A passive benefit — no moment to play.			
 item:adamantine-armor	No proposed FX				Worn armour with no activation — nothing happens at a moment.
 item:ring-of-elemental-command	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.purple	psfx.magic-signs.circle.v1.conjuration.complete	The ring commands an element: a conjuration circle at the wearer.	Likely	Likely	0
 item:alchemy-jug-container	No proposed FX				A container. Its pouring is the Activate Alchemy Jug record, which has a proposal.
@@ -15,7 +15,7 @@ item:apparatus-of-kwalish	Close match	spell:conjure-animals	jb2a.smoke.puff.cent
 item:armor-of-gleaming	No proposed FX				Armour that stays clean — nothing to play.
 item:armor-of-invulnerability	Close match	spell:mage-armor	jb2a.markers.shield_rampart.complete.01.white	psfx.magic-signs.rune.v1.abjuration.intro	Invulnerability: the rampart shield over the wearer.	Sure	Likely	0
 item:armor-of-resistance	Close match	effect:acid-protection	jb2a.shield.02.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to one damage type: the same shield the elemental protections use.	Likely	Likely	0
-item:armor-of-vulnerability	Close match	effect:acid-protection	jb2a.markers.shield_cracked.dark_red.03	psfx.magic-signs.rune.v1.necromancy.intro	The cursed twin: a cracked shield instead of a whole one.	Sure	Likely	0
+item:armor-of-vulnerability	No proposed FX				A passive benefit — no moment to play.			
 item:armor-1-2-or-3	No proposed FX				Worn armour with no activation.
 item:arrow-catching-shield	Close match	spell:mage-armor	jb2a.markers.shield.blue.01	psfx.impacts.bludgeoning.v1	The shield pulls an arrow out of the air.	Likely	Likely	0
 item:jewelry-2000-gp	No proposed FX				Treasure. Nothing happens at the table.
@@ -26,13 +26,13 @@ item:jewelry7500gp	No proposed FX				Treasure. Nothing happens at the table.
 item:jewelry750gp	No proposed FX				Treasure. Nothing happens at the table.
 item:baba-yagas-dancing-broom	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.complete.green	psfx.magic-signs.circle.v1.conjuration.complete	The broom animates and sweeps into the fight.	Likely	Likely	31
 item:bag-of-beans	Close match	spell:conjure-animals	jb2a.plant_growth.02.round.2x2.complete.greenred	psfx.casting.earth.001	A bean is planted and a tangle bursts out of the ground.	Likely	Sure	0
-item:bag-of-devouring	Close match	spell:black-tentacles	jb2a.portals.horizontal.vortex_masked.purple	psfx.impacts.magicaleffects.necrotic	The bag swallows what is put into it: a dark mouth swirls open.	Likely	Likely	0
+item:bag-of-devouring	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:bag-of-holding	No proposed FX				A container. Reaching into it is not a moment the table watches.
 item:balance	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself, not on each of its cards.
 item:bead-of-force	Close match	spell:mage-armor	jb2a.wall_of_force.sphere.blue	psfx.impacts.magicaleffects.generic.002.001	The bead bursts into a sphere of force.	Sure	Likely	5
 item:bead-of-nourishment	No proposed FX				Food in bead form — nothing to play.
-item:bead-of-refreshment	Close match	spell:conjure-animals	jb2a.liquid.splash_side.bright_blue	psfx.consumables.potions-vials.drink-liquid.001	The bead becomes a pint of liquid.	Likely	Likely	0
-item:beer-pint	Close match	spell:cure-wounds	jb2a.liquid.splash.brown	psfx.consumables.food-and-drink.consume.drink.sip.polite.001	A pint drunk.	Maybe	Likely	13
+item:bead-of-refreshment	No proposed FX				A passive benefit — no moment to play.			
+item:beer-pint	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:belt-of-dwarvenkind	No proposed FX				Worn, always on — no moment to play.
 item:belt-of-giant-strength	No proposed FX				Worn, always on — no moment to play. Seven belts, all the same in this respect.
 item:hil-belt-of-giant-strength	No proposed FX				Worn, always on — no moment to play.
@@ -51,7 +51,7 @@ item:brass-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.c
 item:brazier-of-commanding-fire-elementals	Close match	spell:conjure-animals	jb2a.fire_ring.500px.red	psfx.casting.fire.001	A ring of flame from the brazier, and a fire elemental steps out.	Likely	Sure	0
 item:bronze-griffon-rare	Close match	spell:conjure-animals	jb2a.smoke.puff.ring.02.white	psfx.magic-signs.circle.v1.conjuration.complete	The figurine is thrown and becomes a beast in a ring of smoke.	Likely	Likely	0
 item:bronze-horn-of-valhalla	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow	psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6	The horn is blown and the berserkers come.	Likely	Likely	0
-item:brooch-of-shielding	Close match	spell:mage-armor	jb2a.markers.shield.blue.02	psfx.magic-signs.rune.v1.abjuration.intro	Force damage turned aside: a small blue shield.	Likely	Likely	0
+item:brooch-of-shielding	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:broom-of-flying	Close match	effect:flight	jb2a.wind_lines.01.leaves.01.greenorange	psfx.cantrips.gust.v1	The broom takes off.	Likely	Likely	0
 item:canaith-mandolin-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	An instrument of the bards is played.	Sure	Sure	0
 item:candle-of-invocation	Close match	spell:bless	jb2a.flames.04.complete.orange	psfx.cantrips.light.v1.001	The candle is lit.	Sure	Likely	0
@@ -68,13 +68,13 @@ item:circlet-of-blasting	Close match	spell:guiding-bolt	jb2a.scorching_ray.02.or
 item:cli-lyre-instrument-of-the-bards	Close match	spell:bless	jb2a.music_notations.treble_clef.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6	An instrument of the bards is played.	Sure	Sure	0
 item:cloak-of-arachnida	Close match	spell:web	jb2a.web.complete.002.white	psfx.magic-signs.rune.v1.conjuration.intro	Web from the cloak.	Likely	Maybe	0
 item:cloak-of-billowing	No proposed FX				A cloak that billows on command — a joke item, not a moment.
-item:cloak-of-displacement	Close match	spell:invisibility	jb2a.smoke.puff.side.blue	psfx.magic-signs.rune.v1.illusion.intro	The wearer seems to stand a step to one side.	Likely	Likely	0
-item:cloak-of-elvenkind	Close match	spell:invisibility	jb2a.shimmer.01.green	psfx.magic-signs.rune.v1.illusion.intro	The hood goes up and the wearer fades.	Likely	Likely	1
+item:cloak-of-displacement	No proposed FX				The record has no activity, so nothing at the table plays it.			
+item:cloak-of-elvenkind	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:cloak-of-invisibility	Close match	spell:invisibility	jb2a.smoke.puff.centered.dark_purple	psfx.magic-signs.circle.v1.illusion.intro	The cloak wraps and the wearer is gone.	Likely	Likely	0
 item:cloak-of-many-fashions	No proposed FX				A cloak that changes colour — nothing that needs playing.
 item:cloak-of-protection	No proposed FX				Worn, always on — no moment to play.
 item:cloak-of-the-bat	Close match	effect:flight	jb2a.bats.complete.01.green	psfx.creature.movement.flight.wings.small	The wearer becomes a bat, or flies as one.	Sure	Likely	0
-item:cloak-of-the-manta-ray	Close match	effect:unrestricted-movement	jb2a.bubble.002.001.loop.blueteal	psfx.casting.water.001	The hood goes up and the wearer swims.	Likely	Likely	0
+item:cloak-of-the-manta-ray	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:clockwork-amulet	No proposed FX				A once-a-day reroll — nothing visible.
 item:clothes-of-mending	No proposed FX				Clothes that repair themselves — nothing to play.
 item:collapsing-roof	Close match	spell:shatter	jb2a.falling_rocks.top.2x1.grey	psfx.casting.earth.001	The roof comes down on whoever is under it.	Sure	Sure	0
@@ -89,7 +89,7 @@ item:cubic-gate	Close match	spell:dimension-door	jb2a.portals.vertical.ring_mask
 item:daerns-instant-fortress	Close match	spell:conjure-animals	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	The cube is thrown and a tower grows out of the ground.	Likely	Sure	0
 item:dark-shard-amulet	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
 item:decanter-of-endless-water	Close match	spell:conjure-animals	jb2a.water_splash.cone.01.blue	psfx.casting.water.001	Water gushes from the decanter.	Likely	Sure	0
-item:deck-of-illusions	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.illusion.complete.purple	psfx.magic-signs.circle.v1.illusion.complete	A card is thrown and an illusion stands up.	Likely	Likely	8
+item:deck-of-illusions	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.illusion.complete.purple	psfx.magic-signs.circle.v1.illusion.complete	A card is thrown and an illusion stands up.	Likely	Likely	9
 item:deck-of-many-things	Close match	spell:conjure-animals	jb2a.ranged.card.01.projectile.01.yellow	psfx.magic-signs.circle.v1.divination.complete	A card is drawn from the Deck and flies.	Likely	Likely	0
 item:demon-armor	Close match	spell:mage-armor	jb2a.markers.runes03.dark_red.03	psfx.impacts.magicaleffects.necrotic	Demon Armor: red runes on the plate.	Likely	Likely	0
 item:demonomicon-of-iggwilv	Close match	spell:raise-dead	jb2a.markers.runes03.dark_black.03	psfx.impacts.magicaleffects.psychic	The book is read: black runes on the reader.	Likely	Likely	0
@@ -126,6 +126,6 @@ item:eyes-of-minute-seeing	No proposed FX				Worn, always on — no moment to pl
 item:eyes-of-the-eagle	No proposed FX				Worn, always on — no moment to play.
 item:falling-net	Close match	effect:ensnared	jb2a.web.complete.002.white	psfx.impacts.bludgeoning.v1	A net falls on whoever tripped it.	Likely	Likely	0
 item:fates	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
-item:figurine-of-wondrous-power	Close match	spell:conjure-animals	jb2a.smoke.puff.centered.grey	psfx.magic-signs.circle.v1.conjuration.complete	A figurine is thrown and becomes a beast in a puff of smoke.	Likely	Likely	0
+item:figurine-of-wondrous-power	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:fire-casting-statue	Close match	spell:burning-hands	jb2a.template_cone_5e.001.001.orangeyellow	psfx.casting.fire.001	The statue breathes fire down a cone.	Sure	Sure	0
 item:flames	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.

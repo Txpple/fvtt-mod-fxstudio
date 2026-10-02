@@ -16,7 +16,7 @@ item:potion-of-vitality	Close match	spell:cure-wounds	jb2a.healing_generic.200px
 item:potion-of-water-breathing	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.consumables.potions-vials.drink-liquid.001	The potion is drunk: bubbles at the drinker.	Sure	Sure	0
 item:prosthetic-limb	No proposed FX				Worn, always on — no moment to play.
 item:puzzle	No proposed FX				A Deck of Many Things card. The draw plays on the Deck itself.
-item:quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst.01.textured	psfx.magic-signs.circle.v1.conjuration.intro	A feather token is used and becomes what it is — all seven read the same.	Sure	Likely	0
+item:quaals-feather-token	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:anchor-quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst.01.textured	psfx.magic-signs.circle.v1.conjuration.intro	The anchor token: the boat will not move.	Likely	Likely	0
 item:bird-quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirling_feathers.outburst.01.textured	psfx.magic-signs.circle.v1.conjuration.complete	The bird token becomes a roc.	Sure	Likely	0
 item:fan-quaals-feather-token	Close match	spell:conjure-animals	jb2a.wind_lines.01.02.white	psfx.cantrips.gust.v1	The fan token raises a wind.	Sure	Sure	0
@@ -24,30 +24,30 @@ item:swan-boat-quaals-feather-token	Close match	spell:conjure-animals	jb2a.swirl
 item:tree-quaals-feather-token	Close match	spell:conjure-animals	jb2a.plant_growth.04.round.4x4.complete.greenwhite	psfx.casting.earth.001	The tree token grows an oak.	Likely	Likely	0
 item:whip-quaals-feather-token	Close match	spell:conjure-animals	jb2a.melee_generic.slashing.two_handed	psfx.impacts.slashing.v1	The whip token lashes at what the holder points at.	Likely	Sure	18
 item:quiver-of-ehlonna	No proposed FX				A container. Reaching into it is not a moment the table watches.
-item:sup-ring-of-resistance	Close match	effect:acid-protection	jb2a.shield.02.complete.01.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to one damage type: the same shield the elemental protections use.	Likely	Likely	0
+item:sup-ring-of-resistance	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:ring-of-animal-influence	Close match	spell:dominate-person	jb2a.markers.heart.teal.02	psfx.magic-signs.rune.v1.enchantment.intro	The ring speaks to beasts.	Likely	Likely	0
 item:ring-of-djinni-summoning	Close match	spell:conjure-animals	jb2a.smoke.plumes.01.blue	psfx.magic-signs.circle.v1.conjuration.complete	The ring is rubbed and the djinni comes out of the smoke.	Sure	Likely	0
 item:ring-of-evasion	Close match	spell:mage-armor	jb2a.smoke.puff.side.green	psfx.magic-signs.rune.v1.abjuration.intro	The ring turns a failed save: the wearer slips aside.	Likely	Likely	0
-item:ring-of-feather-falling	Close match	effect:levitating	jb2a.swirling_feathers.outburst.01.blue	psfx.cantrips.gust.v1	The wearer lands like a feather.	Sure	Likely	3
+item:ring-of-feather-falling	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:ring-of-free-action	No proposed FX				Worn, always on — no moment to play.
-item:ring-of-invisibility	Close match	spell:invisibility	jb2a.smoke.puff.centered.blue	psfx.magic-signs.rune.v1.illusion.intro	The ring is turned and the wearer is gone.	Likely	Likely	0
+item:ring-of-invisibility	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:ring-of-jumping	Close match	effect:jump	jb2a.smoke.puff.ring.02.white	psfx.magic-signs.rune.v1.transmutation.intro	The ring jumps the wearer: a ring of dust where they leapt.	Likely	Likely	0
 item:ring-of-mind-shielding	No proposed FX				Worn, always on — no moment to play.
 item:ring-of-protection	No proposed FX				Worn, always on — no moment to play.
 item:ring-of-regeneration	Close match	effect:regenerating	jb2a.healing_generic.loop.greenorange	psfx.1st-level-spells.cure-wounds.v1.001	The ring closes the wounds as they open.	Sure	Sure	0
 item:ring-of-resistance	Close match	effect:acid-protection	jb2a.shield.02.complete.01.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to one damage type: the same shield the elemental protections use.	Likely	Likely	0
 item:ring-of-shooting-stars	Close match	spell:guiding-bolt	jb2a.particle_burst.01.star.bluepurple	psfx.class-features.divine-smite.v1.001.target	Stars shoot from the ring.	Likely	Likely	0
-item:ring-of-spell-storing	Close match	spell:mage-armor	jb2a.particles.inward.orange.02.01	psfx.magic-signs.rune.v1.conjuration.intro	A spell goes into the ring, or comes out.	Likely	Likely	0
+item:ring-of-spell-storing	No proposed FX				The record has no activity, so nothing at the table plays it.			
 item:ring-of-spell-turning	Close match	spell:counterspell	jb2a.side_impact.part.shockwave.pink	psfx.magic-signs.rune.v1.abjuration.intro	A spell is turned back off the wearer.	Likely	Likely	0
 item:ring-of-swimming	No proposed FX				Worn, always on — no moment to play.
-item:ring-of-telekinesis	Close match	spell:mage-armor	jb2a.energy_strands.range.multiple.blue.01	psfx.magic-signs.rune.v1.transmutation.intro	Telekinesis from the ring.	Likely	Likely	11
+item:ring-of-telekinesis	Close match	spell:mage-armor	jb2a.energy_strands.range.multiple.blue.01	psfx.magic-signs.rune.v1.transmutation.intro	Telekinesis from the ring.	Likely	Likely	12
 item:ring-of-the-ram	Close match	spell:magic-missile	jb2a.impact.013.001.blue	psfx.impacts.magicaleffects.generic.002.001	A ram of force strikes at range.	Likely	Likely	0
 item:ring-of-three-wishes	Close match	spell:mage-armor	jb2a.particle_burst.01.star.orangepink	psfx.magic-signs.circle.v1.conjuration.complete	A wish is spent in a burst of light.	Likely	Likely	0
 item:ring-of-warmth	No proposed FX				Worn, always on — no moment to play.
 item:ring-of-water-walking	Close match	effect:unrestricted-movement	jb2a.impact.water.02.blue	psfx.casting.water.001	The surface holds the wearer.	Likely	Sure	0
 item:ring-of-x-ray-vision	Close match	effect:foresight	jb2a.eyes.01.bluegreen.single	psfx.magic-signs.rune.v1.divination.intro	The ring sees through the wall.	Likely	Likely	0
 item:rival-coin	Close match	effect:confused	jb2a.condition.curse.01.010.purple	psfx.impacts.magicaleffects.psychic	The coin is flipped and someone takes psychic damage.	Likely	Sure	0
-item:robe-of-eyes	Close match	effect:foresight	jb2a.eyes.01.bluegreen.many	psfx.magic-signs.rune.v1.divination.intro	Every eye on the robe opens.	Sure	Likely	0
+item:robe-of-eyes	No proposed FX				A passive benefit — no moment to play.			
 item:robe-of-scintillating-colors	Close match	effect:hypnotized	jb2a.energy_field.01.multicolored	psfx.magic-signs.rune.v1.illusion.intro	The robe blazes with shifting colour.	Sure	Likely	0
 item:robe-of-stars	Close match	spell:mage-armor	jb2a.twinkling_stars.points06.white	psfx.magic-signs.rune.v1.abjuration.intro	A star is pulled off the robe and thrown.	Likely	Likely	0
 item:robe-of-the-archmagi	No proposed FX				Worn, always on — no moment to play.
@@ -132,4 +132,4 @@ item:wind-fan	Close match	spell:conjure-animals	jb2a.gust_of_wind.default	psfx.c
 item:wine-pint	No proposed FX				Food. Nothing happens at the table.
 item:winged-boots	Close match	effect:flight	jb2a.wind_lines.01.01.white	psfx.creature.movement.flight.wings.small	The boots take the wearer off the ground.	Likely	Likely	0
 item:wings-of-flying	Close match	spell:fly	jb2a.swirling_feathers.outburst.01.textured	psfx.creature.movement.flight.wings.small	The cloak becomes wings in a burst of feathers.	Likely	Likely	0
-item:wraps-of-unarmed-power	Family match	natural:unarmed-strike	jb2a.unarmed_strike.magical.02.blue	psfx.impacts.bludgeoning.v1	The wrapped fist lands with a magic flash.	Likely	Likely	0
+item:wraps-of-unarmed-power	No proposed FX				A passive benefit — no moment to play.			

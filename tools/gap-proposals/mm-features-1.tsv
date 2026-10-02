@@ -1,7 +1,7 @@
 feature:abduct	No proposed FX				A trait with no moment of its own.
 feature:aberrant-ground	Close match	effect:reduced-movement	jb2a.template_circle.aura.03.inward.001.loop.combined.greenpurple	psfx.impacts.magicaleffects.psychic	Aberrant Ground: the floor round it writhes.	Likely	Likely	0
 feature:absorb-body	Close match	effect:ensnared	jb2a.vine.loop.void.single.01.dark_pinkpurple	psfx.impacts.magicaleffects.necrotic	Absorb Body: the creature takes the target in.	Likely	Likely	0
-feature:acid-absorption	Close match	effect:acid-protection	jb2a.particles.inward.greenyellow.02.02	psfx.magic-signs.rune.v1.abjuration.outro	Acid Absorption: the acid is drunk instead of felt.	Likely	Likely	0
+feature:acid-absorption	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:acid-spray	Close match	spell:acid-arrow	jb2a.breath_weapons.acid.line.green	psfx.cantrips.acid-splash.v1	Acid Spray: a line of acid.	Sure	Sure	1
 feature:adhesive	No proposed FX				A passive trait — no moment to play.
 feature:advanced-telepathy	No proposed FX				A passive trait — no moment to play.
@@ -35,7 +35,7 @@ feature:blinding-spittle	Close match	effect:searing-radiance	jb2a.liquid.splash_
 feature:blood-frenzy	No proposed FX				A passive trait — no moment to play.
 feature:bloodied-frenzy	No proposed FX				A passive trait — no moment to play.
 feature:bloodied-fury	No proposed FX				A passive trait — no moment to play.
-feature:blurred-form	Close match	spell:invisibility	jb2a.smoke.puff.side.blue	psfx.magic-signs.rune.v1.illusion.intro	Blurred Form: the outline goes soft.	Likely	Likely	0
+feature:blurred-form	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:boulder-toss	Close match	spell:shatter	jb2a.boulder.toss.01.02	psfx.impacts.bludgeoning.v1	Boulder Toss: a rock thrown a long way.	Sure	Sure	0
 feature:bound	No proposed FX				A passive trait — no moment to play.
 feature:burst-of-wonder	Close match	spell:fireball	jb2a.firework.02.orangeyellow.01	psfx.magic-signs.circle.v1.conjuration.complete	Burst of Wonder: something bright happens.	Likely	Likely	0
@@ -50,7 +50,7 @@ feature:chill	Close match	spell:cone-of-cold	jb2a.cast_generic.ice.01.blue	psfx.
 feature:chilling-gaze	Close match	spell:cone-of-cold	jb2a.eyes.01.bluegreen.single	psfx.impacts.magicaleffects.cold	Chilling Gaze: the eye that freezes.	Likely	Sure	0
 feature:cloaked-flight	Close match	effect:flight	jb2a.wind_lines.01.02.white	psfx.creature.movement.flight.wings.small	Cloaked Flight: it flies unseen.	Likely	Likely	0
 feature:compression	No proposed FX				A passive trait — no moment to play.
-feature:confer-fire-resistance	Close match	effect:fire-protection	jb2a.shield_themed.below.fire.01.orange	psfx.magic-signs.rune.v1.abjuration.outro	Confer Fire Resistance: the shield in red.	Likely	Likely	0
+feature:confer-fire-resistance	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:confusing-gaze	Close match	effect:confused	jb2a.eyes.01.dark_purple.single	psfx.impacts.magicaleffects.psychic	Confusing Gaze: the eye that muddles.	Likely	Likely	0
 feature:conjure-infernal-chain	Close match	effect:ensnared	jb2a.markers.chain.spike.loop.02.red	psfx.casting.fire.001	Conjure Infernal Chain: a barbed chain binds the target.	Likely	Sure	0
 feature:conjured-dragons-breath	Close match	spell:burning-hands	jb2a.breath_weapons02.burst.cone.arcana.purple.01	psfx.creature.dragons.attacks.breath.large.fire	Conjured Dragon's Breath: a cone of fire.	Likely	Sure	0
@@ -75,7 +75,7 @@ feature:detect-intelligence	No proposed FX				A passive trait — no moment to p
 feature:detect-life	No proposed FX				A passive trait — no moment to play.
 feature:diabolical-restoration	No proposed FX				A passive trait — no moment to play.
 feature:disintegration	No proposed FX				A passive trait — no moment to play.
-feature:displacement	Close match	spell:invisibility	jb2a.smoke.puff.side.blue	psfx.magic-signs.rune.v1.illusion.intro	Displacement: it is not where it looks.	Likely	Likely	0
+feature:displacement	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:divine-aid	Close match	spell:bless	jb2a.condition.boon.01.021.yellow	psfx.class-features.divine-smite.v1.001.caster	Divine Aid: the god helps.	Likely	Likely	0
 feature:divine-awareness	No proposed FX				A passive trait — no moment to play.
 feature:draconic-origin	No proposed FX				A passive trait — no moment to play.

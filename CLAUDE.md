@@ -15,6 +15,9 @@ process vends 0.6.0 after its next restart). **Prod's house.json is canonical**:
 (two overrides saved there on 2026-09-16, greatsword and maul, were pulled in first). The user is
 testing v0.6.0 on the sandbox by hand and names what is broken; we fix what they name. Nothing is
 owed. Read [NEXT-SESSION.md](NEXT-SESSION.md) — its top block is the handoff.
+**2026-10-02: the campaign is over and there is no prod for now** (the user); the sandbox is the only
+world. Arcana Unleashed was added as a book the same day (13 Stock FX). The gap proposals were
+refreshed against the asset catalogue in `../../fxstudio-assets` and cut by the moment rule (§25).
 
 ## The rulings that govern the code (each recorded in DESIGN.md)
 
@@ -23,14 +26,20 @@ owed. Read [NEXT-SESSION.md](NEXT-SESSION.md) — its top block is the handoff.
   Stock FX asks House override or Edit Stock; Delete takes the winning layer only; the Library lists
   both an override and the Stock row under it. No draft, stage, ship or world buffer.
 - **Stock is the books; House is this table (§16–17).** A Stock row is keyed against the installed
-  compendia (PHB, MM, DMG, Ravenloft, Heroes of Faerûn, then the system's SRD 5.2 packs; no SRD 5.1)
-  and dnd5e's base weapons, nothing else. `LIST_PACKS` in `tools/lib/dnd5e.mjs` IS the evidence: a
-  new book → add its packs → re-run the migration and `node tools/records.mjs --write`.
+  compendia (PHB, MM, DMG, Ravenloft, Heroes of Faerûn, Arcana Unleashed, then the system's SRD 5.2
+  packs; no SRD 5.1) and dnd5e's base weapons, nothing else. `LIST_PACKS` in `tools/lib/dnd5e.mjs`
+  IS the evidence: a new book → add its packs → `node tools/records.mjs --write`, `node tools/gaps.mjs
+  --write`. ⚠ **Never `migrate-aa.mjs --write` again**: Stock has been edited by hand since the last
+  migration (the roadkill cut, Web) and a write would undo it. Run it dry, or write to a scratch copy
+  and lift only the FX the new book earns (how Arcana Unleashed's 13 came in, 2026-10-02).
+- **An FX needs a moment (§25).** An ability gets an FX only when something happens at the table — an
+  instant, or an effect for a limited time. Passive traits (a resistance, darkvision, a proficiency,
+  a lasting enchantment, a record with no activity) get none.
 - **One FX answers one key; one key per item, dnd5e's identifier, exact or nothing (§14, §23).**
   `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
   no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
   identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
-  item, never typed. Stock is 1014 FX, House 4. An FX per record playing the same animation as
+  item, never typed. Stock is 1027 FX, House 9. An FX per record playing the same animation as
   another is the design, not redundancy (§18–19) — never offer to clean it up.
 - **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
   from `recipes/records.json`; the Library's Record door opens that record.
