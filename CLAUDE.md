@@ -105,8 +105,8 @@ prototype. A phase starts on the user's word, never on a handoff.
   in the game. Before: `node tools/pull-corpus.mjs --write` and commit. After, sandbox stopped:
   deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`, start. Add Battle
   Flow fixtures only when a suite run is asked for, and say so.
-- **Two MCP bridges.** `foundry-local5e` is the sandbox (localhost:30000). ⚠ `foundry-molten5e` is
-  **PROD**: never write there without the user's word. Both share ids; `get-world-info` tells them
+- **Two MCP bridges.** `foundry-local5e` is the sandbox (localhost:30000). ⚠ `foundry-greenrest5e` and `foundry-halruaa5e`
+  (one per Molten box, since 2026-10-06) are **PROD**: never write there without the user's word. Both share ids; `get-world-info` tells them
   apart by version and who is connected.
 - **The gate:** nine offline checks in `tools/` — `check-imports`, `check-layers`, `check-legacy`,
   `check-gates`, `check-moments`, `check-engine`, `check-reader` after any edit under `scripts/`;
