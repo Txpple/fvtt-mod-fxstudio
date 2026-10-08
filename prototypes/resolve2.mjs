@@ -1,8 +1,9 @@
 import { createRequire } from 'node:module';
 import { existsSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 const require = createRequire(import.meta.url) /* classic-level: this repo's own dependency */;
 const { ClassicLevel } = require('classic-level');
-const S = process.argv[2]; const DATA = 'C:/Users/sippelmc/AppData/Local/FoundryVTT/Data';
+const S = process.argv[2]; const DATA = process.env.FOUNDRY_DATA ?? join(process.env.LOCALAPPDATA ?? '', 'FoundryVTT/Data');
 const db = new ClassicLevel(`${S}/db/settings`, { readOnly: true }); await db.open();
 const settings = {}; for await (const [k, v] of db.iterator()) { const d = JSON.parse(v); settings[d.key] = d.value; } await db.close();
 const MENUS = ['melee', 'range', 'ontoken', 'templatefx', 'aura', 'preset', 'aefx'];

@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 const require = createRequire(import.meta.url) /* classic-level: this repo's own dependency */;
 const { ClassicLevel } = require('classic-level');
 const S = process.argv[2];
@@ -9,7 +10,7 @@ const settings = {};
 for await (const [k, v] of db.iterator()) { const d = JSON.parse(v); settings[d.key] = d.value; }
 await db.close();
 const parse = (s) => { try { return JSON.parse(s); } catch { return s; } };
-const mod = JSON.parse(readFileSync('C:/Users/sippelmc/AppData/Local/FoundryVTT/Data/modules/dnd5e-animations/module/autorec.json', 'utf8'));
+const mod = JSON.parse(readFileSync(join(process.env.FOUNDRY_DATA ?? join(process.env.LOCALAPPDATA ?? '', 'FoundryVTT/Data'), 'modules/dnd5e-animations/module/autorec.json'), 'utf8'));
 const MENUS = ['melee', 'range', 'ontoken', 'templatefx', 'aura', 'preset', 'aefx'];
 function flatten(o, p = '', out = {}) { if (o && typeof o === 'object' && !Array.isArray(o)) for (const [k, v] of Object.entries(o)) flatten(v, p ? p + '.' + k : k, out); else out[p] = o; return out; }
 const diffKeys = (a, b) => { const fa = flatten(a), fb = flatten(b); const ks = new Set([...Object.keys(fa), ...Object.keys(fb)]); return [...ks].filter(k => k !== 'id' && JSON.stringify(fa[k]) !== JSON.stringify(fb[k])); };

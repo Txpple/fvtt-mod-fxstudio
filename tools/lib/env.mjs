@@ -9,7 +9,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const DATA = (process.env.FOUNDRY_DATA ?? 'C:/Users/sippelmc/AppData/Local/FoundryVTT/Data').replace(/\\/g, '/');
+export const DATA = (process.env.FOUNDRY_DATA ?? join(process.env.LOCALAPPDATA ?? '', 'FoundryVTT/Data')).replace(/\\/g, '/');
 export const WORLD = process.env.FXS_WORLD ?? 'the-broken-heart-of-greenrest';
 export const SCRATCH = resolve(process.env.FXS_SCRATCH ?? join(REPO, 'dist', 'scratch'));
 export const RECIPES = join(REPO, 'recipes');

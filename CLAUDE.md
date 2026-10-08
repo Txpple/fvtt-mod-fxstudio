@@ -16,7 +16,7 @@ user, 2026-10-02): the sandbox is the only world, and the last prod deploy was v
 When a prod exists again, **its house.json is canonical**: pull it before any deploy (two overrides
 saved there on 2026-09-16, greatsword and maul, were pulled in first). Arcana Unleashed is a book since
 2026-10-02 (13 Stock FX); the gap proposals were refreshed against the asset catalogue in
-`D:\Workbench\FVTT\fxstudio-assets` and cut by the moment rule (§25). The user tests on the sandbox
+the asset drop folder beside the repo parent and cut by the moment rule (§25). The user tests on the sandbox
 by hand and names what is broken; we fix what they name. Nothing is owed. [NEXT-SESSION.md](NEXT-SESSION.md)
 holds the handoff history. The clone moved under the suite folder on 2026-10-08: `../fvtt-mcp-dnd5e`
 still resolves, the campaign repos are now `../../fvtt-campaign-*`.
@@ -95,7 +95,7 @@ prototype. A phase starts on the user's word, never on a handoff.
 
 - **The LOCAL sandbox is the test box**, never prod: a byte copy of the Molten prod world run
   headless — `node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs start|stop|status|restart`. Never
-  launch the Electron app for suites. Data: `C:\Users\sippelmc\AppData\Local\FoundryVTT\Data`, world
+  launch the Electron app for suites. Data: the local Foundry data folder (`FOUNDRY_DATA`), world
   `the-broken-heart-of-greenrest`. Sandbox: Foundry 14.367, dnd5e 6.0.1, Sequencer 4.2.3, JB2A
   Patreon, PSFX Patreon (`psfx-patreon`). AA and D&D5e Animations are off on prod and absent from
   the sandbox; AA's autorec world setting stays (the migration's input).
