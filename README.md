@@ -72,10 +72,10 @@ Step, places the token with Foundry's own teleport action, on a spot the spell a
 
 ## Battle Flow
 
-With [Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) installed, FX Studio also plays
-the moments that post no card of their own (a maneuver die, Sneak Attack, a die folded into a roll,
-a rider's damage, a held roll answered), and waits while Battle Flow holds a cast for an answer.
-Neither module needs the other.
+With [Open Roll 5e: Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) installed, FX
+Studio also plays the moments that post no card of their own (a maneuver die, Sneak Attack, a die
+folded into a roll, a rider's damage, a held roll answered), and waits while Battle Flow holds a
+cast for an answer. Neither module needs the other.
 
 ## Settings
 
@@ -86,16 +86,45 @@ Neither module needs the other.
 | Play FX | On by default. Off keeps the window working and plays nothing. |
 | Console log | Off by default. On writes one console line per moment: what happened, which FX answered and which files played. Per client. |
 
-## License
+## Repository layout
 
-The code is MIT. `recipes/stock/*.json` is a derived work of
-[D&D5e Animations](https://github.com/MrVauxs/dnd5e-animations) 3.3.0 by MrVauxs and Sisimshow and
-is licensed GPL-3 (see `recipes/STOCK-LICENSE`).
+```
+module.json            the Foundry manifest
+scripts/
+  fxstudio.js          the module's entry point
+  api.js               the API the window and macros share
+  core/                what an FX is: keys, shapes, moments, gates
+  engine/              plays a shape through Sequencer
+  readers/             turns dnd5e cards, templates and effects (and Battle Flow moments) into moments
+  ui/                  the window: Library, Editor, Assets, Coverage
+  files.js, settings.js
+recipes/
+  stock/               the Stock FX, one file per kind (GPL-3, see below)
+  house.json           this table's own FX and overrides
+  records.json         the record names behind the keys
+  SCHEMA.md            the recipe schema
+styles/  templates/
+tools/                 the offline checks, the live suites, the release build (tools/README.md)
+prototypes/            clickable mock-ups ruled on before a feature is built
+```
 
-## Sister modules
+## Development
 
-FX Studio is one of the Open Roll 5e modules for Foundry VTT. Each installs and works on its own and
-none needs another; together they cover the table from the fog of war to the loot. The rest of the family:
+There is no build step: the module is plain ES modules loaded straight from `scripts/`. The
+offline gate is the `check-*.mjs` scripts in `tools/`, which prove the engine, the readers, the
+layers and every recipe file; `tools/build-release.ps1` runs them all and writes the zip. The live
+suites (`smoke-*.mjs`) run against the local sandbox through the house MCP repo (`fvtt-mcp-dnd5e`,
+a `file:` dev dependency beside this one); run `npm install` once. [tools/README.md](tools/README.md)
+describes each tool. Releases: bump `version` and the `download` URL in `module.json` together, tag
+`vX.Y.Z`, build with `tools/build-release.ps1`, and publish the zip and manifest as a GitHub
+release.
+
+<!-- openroll5e:family -->
+## Part of Open Roll 5e
+
+FX Studio is one of the Open Roll 5e modules for Foundry VTT, a suite built for one D&D 5e table and
+shared. Each module installs and works on its own and none needs another; together they cover the
+table from the fog of war to the loot. The other modules:
 
 - [Open Roll 5e: Autoexplore](https://github.com/Txpple/fvtt-mod-autoexplore): lets a scene start fully explored, so the whole map shows through the fog of war while tokens still need line of sight.
 - [Open Roll 5e: Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow): combat automation for dnd5e 2024 rules: a hit rolls and applies its own damage, saves resolve themselves, reactions hold, and concentration is tracked. Every rule that touches a fight in the 2024 core books, Heroes of Faerûn, Arcana Unleashed and Ravenloft: The Horrors Within.
@@ -105,3 +134,18 @@ none needs another; together they cover the table from the fog of war to the loo
 - [Open Roll 5e: Open Server](https://github.com/Txpple/fvtt-mod-openserver): for hosted worlds: clears the startup pause so players can play before the GM arrives, and gives any user a landing scene of their own.
 - [Open Roll 5e: Party Stash](https://github.com/Txpple/fvtt-mod-partystash): makes a dnd5e Group actor's inventory a working party stash: drags move instead of copying, coin moves through a dialog, and every transfer posts a receipt.
 - [Open Roll 5e: Soundscape](https://github.com/Txpple/fvtt-mod-soundscape): background sound for scenes: random one-shots with silence between them, seamless crossfaded loops, day and night gating, and quiet during combat.
+
+Three MCP servers for [Claude Code](https://claude.com/claude-code) complete the suite:
+
+- [fvtt-mcp-dnd5e](https://github.com/Txpple/fvtt-mcp-dnd5e): builds D&D 5e content in a live Foundry world from Claude Code: a stat block becomes a complete NPC, a map image a walled and lit scene, an adventure its journals, tables and handouts.
+- [fvtt-mcp-imagegen](https://github.com/Txpple/fvtt-mcp-imagegen): makes the art with Google's Gemini image models: icons, tokens, props, portraits, illustrations and battlemap restyles, grounded in what the world already shows.
+- [fvtt-mcp-sessionscribe](https://github.com/Txpple/fvtt-mcp-sessionscribe): turns a session's Discord recording and Foundry chat log into its record: a speaker-labelled transcript, a player recap, a combat report and GM notes.
+
+How they fit together is mapped in [fvtt-suite-openroll5e](https://github.com/Txpple/fvtt-suite-openroll5e).
+<!-- /openroll5e:family -->
+
+## License
+
+The code is MIT; see [LICENSE](LICENSE). `recipes/stock/*.json` is a derived work of
+[D&D5e Animations](https://github.com/MrVauxs/dnd5e-animations) 3.3.0 by MrVauxs and Sisimshow and
+is licensed GPL-3 (see `recipes/STOCK-LICENSE`).
