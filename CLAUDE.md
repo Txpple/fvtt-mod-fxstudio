@@ -5,19 +5,21 @@ happened at the table. Sequencer is the engine, JB2A + PSFX the libraries. It re
 Animations (AA) and D&D5e Animations by migrating their corpus once as its Stock, with the user's own FX
 in House on top. **It never guesses: an ability with no FX plays nothing.** Greenfield: nothing of
 AA's architecture, vocabulary or practices survives in `scripts/` (PLAN §0.7, [ARCHITECTURE.md](ARCHITECTURE.md)).
-Sister of Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Vendor Fixes
-(`../fvtt-mod-vendorfixes`, which replaced Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
+Part of Open Roll 5e beside Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Errata
+(`../fvtt-mod-errata5e`, fixes for vendor bugs; it replaced Vendor Fixes on 2026-10-01, which had replaced
+Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-09-20).** v0.6.0 released 2026-09-19: **dnd5e 6.0.0–6.9.99 only**, on the sandbox
-byte-identical. **Prod was upgraded to dnd5e 6.0 and v0.6.0 was DEPLOYED there 2026-09-21, byte-identical** (its
-process vends 0.6.0 after its next restart). **Prod's house.json is canonical**: pull it before any deploy
-(two overrides saved there on 2026-09-16, greatsword and maul, were pulled in first). The user is
-testing v0.6.0 on the sandbox by hand and names what is broken; we fix what they name. Nothing is
-owed. Read [NEXT-SESSION.md](NEXT-SESSION.md) — its top block is the handoff.
-**2026-10-02: the campaign is over and there is no prod for now** (the user); the sandbox is the only
-world. Arcana Unleashed was added as a book the same day (13 Stock FX). The gap proposals were
-refreshed against the asset catalogue in `../../fxstudio-assets` and cut by the moment rule (§25).
+**State (2026-10-08).** v0.7.0 released 2026-10-02 (the Open Roll 5e rename; **dnd5e 6.0.0–6.9.99
+only**). The Greenrest campaign is over (concluded 2026-09-29) and **there is no prod for now** (the
+user, 2026-10-02): the sandbox is the only world, and the last prod deploy was v0.6.0 on 2026-09-21.
+When a prod exists again, **its house.json is canonical**: pull it before any deploy (two overrides
+saved there on 2026-09-16, greatsword and maul, were pulled in first). Arcana Unleashed is a book since
+2026-10-02 (13 Stock FX); the gap proposals were refreshed against the asset catalogue in
+`D:\Workbench\FVTT\fxstudio-assets` and cut by the moment rule (§25). The user tests on the sandbox
+by hand and names what is broken; we fix what they name. Nothing is owed. [NEXT-SESSION.md](NEXT-SESSION.md)
+holds the handoff history. The clone moved under the suite folder on 2026-10-08: `../fvtt-mcp-dnd5e`
+still resolves, the campaign repos are now `../../fvtt-campaign-*`.
 
 ## The rulings that govern the code (each recorded in DESIGN.md)
 
@@ -137,7 +139,7 @@ Sequencer is used through its public API only, never patched.
 Zero dependency either way. Battle Flow publishes `battleflow.moment` (a plain payload); this module
 reads a closed list of five words (`BATTLEFLOW_WORDS`) in `readers/battleflow.js`, plays a `momentId`
 once, and honours Battle Flow's hold through the gate in `core/gates.js`. Neither is required nor in
-the manifest. Rules of the game belong to Battle Flow, upstream-bug fixes to Vendor Fixes; this module
+the manifest. Rules of the game belong to Battle Flow, upstream-bug fixes to Errata; this module
 only plays pictures and sounds.
 
 ## Release ritual
