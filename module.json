@@ -2,7 +2,7 @@
   "id": "fvtt-mod-fxstudio",
   "title": "Open Roll 5e: FX Studio",
   "description": "Plays visual and sound effects for dnd5e from what actually happened at the table, through Sequencer with JB2A and PSFX, with about a thousand migrated stock FX and a window for authoring your own.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "authors": [
     {
       "name": "Matthew Sippel"
@@ -43,7 +43,7 @@
   },
   "url": "https://github.com/Txpple/fvtt-mod-fxstudio",
   "manifest": "https://github.com/Txpple/fvtt-mod-fxstudio/releases/latest/download/module.json",
-  "download": "https://github.com/Txpple/fvtt-mod-fxstudio/releases/download/v0.7.0/fvtt-mod-fxstudio.zip",
+  "download": "https://github.com/Txpple/fvtt-mod-fxstudio/releases/download/v0.7.1/fvtt-mod-fxstudio.zip",
   "readme": "https://github.com/Txpple/fvtt-mod-fxstudio#readme",
   "license": "MIT"
 }
