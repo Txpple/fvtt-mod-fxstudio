@@ -76,6 +76,19 @@ export class Studio extends ApplicationV2 {
     return app;
   }
 
+  /**
+   * ONE WINDOW, whoever builds it. The settings menu constructs a fresh Studio on every click
+   * (Foundry does `new menu.type()`), never through open(); a second instance under the same id
+   * would stand beside the first. So a Studio that is not the open one hands the render to the
+   * open one, which comes to the front (a forced render does), and the spare is dropped.
+   */
+  render(options, _options) {
+    const live = Studio.current;
+    if (live && live !== this) return live.render(options, _options);
+    Studio.current = this;
+    return super.render(options, _options);
+  }
+
   async close(options) {
     if (sheetDirty(this) && !(await leaveSheet(this))) return this;
     Studio.current = null;
