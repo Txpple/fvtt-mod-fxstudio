@@ -10,7 +10,7 @@ Part of Open Roll 5e beside Battle Flow (`../fvtt-mod-battleflow`, the rules of 
 Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-10).** v0.7.1 released 2026-10-10 (dnd5e 6.0.6 verified, no code change; v0.7.0 was the
+**State (2026-10-10).** v0.8.0 released 2026-10-10 (the FX Studio scene-control tool and keybinding, #1; v0.7.0 was the
 Open Roll 5e rename, 2026-10-02; **dnd5e 6.0.0–6.9.99 only**). The Greenrest campaign is over (concluded 2026-09-29) and **there is no prod for now** (the
 user, 2026-10-02): the sandbox is the only world, and the last prod deploy was v0.6.0 on 2026-09-21.
 When a prod exists again, **its house.json is canonical**: pull it before any deploy (two overrides
