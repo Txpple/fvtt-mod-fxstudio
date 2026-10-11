@@ -1,4 +1,4 @@
-// The suite harness, the way Battle Flow's tools/harness.mjs does it, cut to what this repo needs:
+// The suite harness, the way By the Books' tools/harness.mjs does it, cut to what this repo needs:
 // section filtering (`--section 3,5`, `--list`), a plan the page can read, a report that stamps a
 // filtered run PARTIAL so it is never mistaken for a full green, and the test fixture every live
 // suite here builds and tears down (a scene of its own, two actors, their tokens).

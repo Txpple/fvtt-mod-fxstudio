@@ -408,7 +408,7 @@ if (t.section('resolving a moment: the word, the fallback, the silence')) {
   t.is('a use is answered by the use FX', resolveMoment(index, m(['feature:sneak-attack'], 'use')).fx.id, 'sneak-attack');
   const only = buildIndex({ stock: [{ id: 'sneak-attack', for: ['feature:sneak-attack'], on: 'use', scenes: glow }], house: [], starters: [] });
   const fb = resolveMoment(only, m(['feature:sneak-attack'], 'sneak'));
-  t.same('a Battle Flow word with nothing authored falls back to the use FX and says so', [fb.fx.id, fb.fellBackFrom], ['sneak-attack', 'sneak']);
+  t.same('a By the Books word with nothing authored falls back to the use FX and says so', [fb.fx.id, fb.fellBackFrom], ['sneak-attack', 'sneak']);
   t.is('hold-answered never falls back (the card already played the use)', resolveMoment(only, m(['feature:sneak-attack'], 'hold-answered')).fx, null);
   t.same('an off silences, and is not fallen past', (() => { const r = resolveMoment(index, m(['spell:quiet'], 'use')); return [r.fx, r.off]; })(), [null, true]);
   t.is('a placed template picks the FX that uses it', resolveMoment(index, m(['spell:fireball'], 'use', { place: regions.circle })).fx.id, 'fireball');

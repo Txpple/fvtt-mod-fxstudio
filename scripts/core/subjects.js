@@ -11,7 +11,7 @@
 //   { kind, name, identifier?, spell?: {name, identifier}, ammunition?: subject, origin?: subject }
 //   kind        spell | weapon | natural | feature | item | effect | event
 //               (status and damage were placeholders for phase 4's outcomes and went on the user's
-//               word, 2026-09-12; `event` stays because Battle Flow's moments key by it)
+//               word, 2026-09-12; `event` stays because By the Books' moments key by it)
 //   name        the thing's own name (the item's, the effect's)
 //   identifier  dnd5e's identifier for the item (system.identifier when set; else the slug of its name)
 //   spell       for a "cast spell" activity: the spell it links (its name and identifier)
@@ -25,7 +25,7 @@
 // before the bow, a cast activity's spell before the wand, an effect's own name before what made it.
 
 export const KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect', 'event'];
-/** the kinds a person authors against and the Library lists: every kind but the moment word (`event:<word>` is Battle Flow's) */
+/** the kinds a person authors against and the Library lists: every kind but the moment word (`event:<word>` is By the Books') */
 export const AUTHORED_KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect'];
 
 /** which kind a dnd5e item type is, before the weapon/natural split */

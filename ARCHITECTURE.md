@@ -57,7 +57,7 @@ the option-blob names) except inside the migration tool and its oracle.
                  readers (one per source)                           the corpus (data)
   dnd5e messages, regions, effects ─┐                     stock/  house/  starters  outcomes
   core: statuses, combat, movement ─┼──► MOMENT ──► resolve ◄── looks indexed by (subject key, moment)
-  Battle Flow's public hooks ───────┘   {when, subject,     │
+  By the Books' public hooks ──────┘   {when, subject,     │
                                          source, targets,   ▼
                                          outcomes, place}  LOOK = scenes (shape + asset + place + knobs)
                                                             │
@@ -71,7 +71,7 @@ Flow does):
 | Layer | Knows about | Never imports |
 | --- | --- | --- |
 | `core/` — moments, subjects, looks, resolve | plain data | Foundry, Sequencer |
-| `readers/` — dnd5e, core, battleflow | Foundry documents and hooks | the engine |
+| `readers/` — dnd5e, core, bythebooks | Foundry documents and hooks | the engine |
 | `engine/` — shapes, places, assets, render | Sequencer and the canvas | readers |
 | `ui/` — the four screens (phase 3) | the API | Sequencer |
 
@@ -87,10 +87,10 @@ A moment is a plain record every reader produces the same way:
 { when, kind, subject, source, targets: [{token, hit?, actor?, ac?, name?}], place?, tie?, origin, id, activity, use, type, data, document, user }
 ```
 
-- `when` is one of a closed vocabulary. Now: `use`, `effect`, and **Battle Flow's five** (built
-  2026-09-11, below): `maneuver`, `sneak`, `fold`, `rider`, `hold-answered`. Phase 4 adds the
+- `when` is one of a closed vocabulary. Now: `use`, `effect`, and **By the Books' five** (built
+  2026-09-11, as Battle Flow's, below): `maneuver`, `sneak`, `fold`, `rider`, `hold-answered`. Phase 4 adds the
   outcomes and events: `hit`, `miss`, `saved`, `failed-save`, `damaged` (with the damage type),
-  `healed`, `status` (on and off), `downed`, `critical`, `fumble`, the rest of Battle Flow's
+  `healed`, `status` (on and off), `downed`, `critical`, `fumble`, the rest of By the Books'
   (`riposte`, `shield-paid`, `emanation` — when it publishes them), plus core's (`turn-start`,
   `combat-start`, `rest`). Each is a word a sentence can use.
 - `subject` is what acted, with its identity keys (§3).
@@ -101,7 +101,7 @@ A moment is a plain record every reader produces the same way:
 - `tie` is the document persistent pictures live and die with (an active effect, a Region).
 - **The moment carries the card it was read from (dnd5e 6.0, 2026-09-15):** `type` (the card's —
   `attack`, `damage`, `healing`, `usage` — an effect's `base` / `condition` / `enchantment`,
-  `region` for a template, `battleflow`), `data` (the card's system data whole, a template's dnd5e
+  `region` for a template, `bythebooks`), `data` (the card's system data whole, a template's dnd5e
   flags, an effect's system data — phase 4's words read their outcomes here, nothing structural),
   `document` (the live document; a gate may read another module's flag off it), and `use` (the
   usage card a roll card chains to, a usage card's own id, the card that applied an effect), so one
@@ -111,11 +111,11 @@ A moment is a plain record every reader produces the same way:
 known and no later: after the attack roll for attacks (hit and miss known), after the damage roll
 for save and healing spells (targets known), on template placement for areas, on the card for
 everything else. This is what AA did on this world by accident of its hooks; here it is one table
-in `readers/dnd5e.js` and one paragraph in the docs, and Battle Flow's verdict hook can replace
+in `readers/dnd5e.js` and one paragraph in the docs, and By the Books' verdict hook can replace
 "after the attack roll" in phase 4 without any look changing.
 
 **The policy's other half: a moment can be HELD** (ruled 2026-09-09; `core/gates.js`). Some answers
-are not known when the table's own event fires — Battle Flow asks a Careful Spell's caster who the
+are not known when the table's own event fires — By the Books asks a Careful Spell's caster who the
 area spares *after* the template lands, and holds the cast's card until they answer, so the picture
 would otherwise play before the question (the user: *"the animation fires early"*). So:
 
@@ -130,7 +130,7 @@ happened and **nothing plays**. The dispatcher asks; the readers do not (they on
 table without a module that holds — is the straight road, unchanged: not-installed is not a branch,
 it is the default with an empty registry.
 
-**The hold's contract, in Battle Flow's words and ours, so the two repos say the same sentences:**
+**The hold's contract, in By the Books' words and ours, so the two repos say the same sentences:**
 
 > **The hold.** A hold is client-local, in-memory, keyed by subject. `holdFor(subject)` answers with
 > a promise or `null`; `null` means nothing here is holding, which on a remote client may mean
@@ -141,34 +141,36 @@ it is the default with an empty registry.
 
 ⚠ **The wait is bounded here (five minutes) and a bound that expires PLAYS.** A gate may delay a
 picture; it must never be able to swallow one by going quiet. A gate that throws is logged and
-ignored — another module's bug never costs this table a picture. `readers/battleflow.js` is the only
-Battle Flow-shaped code in the module: one feature detect (`holdFor`, falling back to the older
-`castHold`), no import, no manifest relationship, nothing required. Battle Flow's side of the
+ignored — another module's bug never costs this table a picture. `readers/bythebooks.js` is the only
+By the Books-shaped code in the module: one feature detect (`fvtt-mod-bythebooks`, else the legacy
+`fvtt-mod-battleflow` when that is the active one; `holdFor`, falling back to the older `castHold`),
+no import, no manifest relationship, nothing required. By the Books' side of the
 contract is its `scripts/holds.js` and its ARCHITECTURE §7; `api.holds.version` tells the two
 contracts apart if it is ever needed, and `castHold` is kept there for good.
 
-**Battle Flow's moments — the other direction (2026-09-11).** The hold tells this table *not yet*;
-Battle Flow's moment events tell it *now, and here is what*. An ability used through one of Battle
-Flow's own popups posts no dnd5e card — a maneuver die rides the damage roll, Parry rides the hold's
+**By the Books' moments — the other direction (2026-09-11, as Battle Flow's).** The hold tells this
+table *not yet*; By the Books' moment events tell it *now, and here is what*. An ability used through
+one of its own popups posts no dnd5e card — a maneuver die rides the damage roll, Parry rides the hold's
 answer, Sneak Attack's dice write a record on a message that already exists — so the dnd5e reader
-never sees it, though the same ability used from the sheet would play. Battle Flow publishes a
-Foundry hook at the resolve, **`battleflow.moment`** (and `battleflow.<event>` beside it), with a
+never sees it, though the same ability used from the sheet would play. By the Books publishes a
+Foundry hook at the resolve, **`bythebooks.moment`** (and `bythebooks.<event>` beside it; `battleflow.*`
+on 2.x, and on 3.0 as well for one release), with a
 **plain payload** — uuids and ids, never documents, never its flag shape — on the client that
 resolved the moment. The user's ruling: *"from the battleflow perspective, no real dependency because
 fx studio is optional. events would just fail silently … from the fx studio, it does its normal card
 processing, but should have an additional event hook to accept battleflow pushes like sneakattack."*
 
-> `readers/battleflow.js` `readMoment(payload)` turns the payload into a moment — `when` is the
+> `readers/bythebooks.js` `readMoment(payload)` turns the payload into a moment — `when` is the
 > event's word; the subject is the **item's own keys** when the item resolves (`feature:sneak-attack`,
 > so a look authored for the ability answers) with **`event:<word>` last** (so a look can be keyed to
 > the moment itself); source and targets are the tokens the payload names, `hit` carried when known;
 > `id` is `<messageId>:<event>` (the same message may also carry a `use`); **no document and no data
-> ride, by contract** (no Battle Flow flag is read — the payload rides as `event` for a gate or a tool). It goes
+> ride, by contract** (no By the Books flag is read — the payload rides as `event` for a gate or a tool). It goes
 > to the **same dispatcher** as every other reader: the gates are asked, the play switch is honoured,
 > the ledger keeps it. Not installed → the hook never fires → nothing runs. A word this build does not
-> know is a logged skip, so a newer Battle Flow never throws here.
+> know is a logged skip, so a newer By the Books never throws here.
 
-**The fallback, ruled with it:** a Battle Flow moment whose ability posts **no card of its own**
+**The fallback, ruled with it:** a By the Books moment whose ability posts **no card of its own**
 (`maneuver`, `sneak`, `fold`, `rider` — `core/moments.js` `FALLS_BACK_TO_USE`) is answered by the
 ability's **`use` look** when nothing names the moment's own word (`engine/render.js`
 `resolveMoment`): the picture for "Sneak Attack, used" *is* the picture for Sneak Attack's dice
@@ -203,7 +205,7 @@ Two of the twelve "new" words were not skips at all: `use` and `effect` are mome
 `readMoment` gated on WHEN, so Battle Flow's `use` (a bash offer answered) and `effect` (every effect
 receipt landing, and every revert) passed the filter and dispatched against the item's keys — the
 second picture the paragraph above warns of, live, for any ability with an `effect` look and a
-receipt. Two things, nothing else: **the reader hears `BATTLEFLOW_WORDS`** (core/moments.js — the
+receipt. Two things, nothing else: **the reader hears `BYTHEBOOKS_WORDS`** (core/moments.js — the
 five, a closed list of its own, never WHEN; a word joins it only with a reader that knows what the
 table should see), and **a ticket plays once**: `momentId` rides on the moment and
 `engine/render.js` `firstTime()` remembers the last 500 on this client, so a resolve that reaches
@@ -212,6 +214,18 @@ ticket — every dnd5e card, a v1 Battle Flow — is always new. Inert until a w
 card is read on purpose; when one is, the ticket check is already there. Proof: check-moments
 38/38, smoke-replay §16 8/8 (`use` and `effect` off the hook: no ledger entry; the same momentId
 twice: played once).
+
+**The rename (2026-10-11, v0.9.0).** Battle Flow became **By the Books** at its 3.0.0: package id
+`fvtt-mod-bythebooks`, hooks `bythebooks.*`, flag scope likewise; payloads and the api's shape
+unchanged. The reader moved to `readers/bythebooks.js` and reads both builds: the api from the new
+id first and the legacy id when the new one is not active (resolved once per gate ask), the metamagic
+flag under both scopes, and the moment hook under **both names**. 3.0 emits every hook under both
+names for one release, so one payload arrives twice on one client. The ticket above already keeps
+that to one picture, but each arrival would still ask the gate, add an *already played* ledger line
+and log its skip twice, so the reader hears a `momentId` once (`firstHearing`, the last 500, before
+anything is read); a payload with no `momentId` is never a twin and is always heard. FX Studio's own
+vocabulary followed: the moment `kind` and `type` are `bythebooks`, the gate is registered as
+'By the Books', `api.read.bythebooks`. None of these was persisted, so nothing reads the old spelling.
 
 ## 3. Subjects — what acted, by identity, not by name
 
@@ -470,7 +484,7 @@ reads fifty sentences and keeps the ones that read right.
 | `check-engine.mjs` | offline, a second | the engine's contract with the sentence (§5): every place word, every shape knob by knob as the Sequencer calls it makes, the build path, resolving a moment, the play path — on the stage with a recording Sequence and a fake library |
 | `check-reader.mjs` | offline, a second | the dnd5e reader's timing policy (§2) on a stand-in world: when a use fires, the verdict per target, the subject's keys (§3), templates, effects, who plays, the hooks |
 | `check-build.mjs` | offline, two seconds | every FX in the corpus builds through the engine against a fitted moment, assets resolved — `smoke-fx`'s proof with nothing running |
-| `check-gates.mjs` | offline, a second | the gate contract (§2): not held, held, held-and-came-to-nothing, a gate that throws, a bound that expires plays, asked once; and the Battle Flow gate with Battle Flow absent, disabled, old and current |
+| `check-gates.mjs` | offline, a second | the gate contract (§2): not held, held, held-and-came-to-nothing, a gate that throws, a bound that expires plays, asked once; and the By the Books gate with it absent, disabled, old and current, and Battle Flow 2.x under the legacy id |
 | `census.mjs` | offline or live | every subject in the world and the compendia → which look answers, what plays nothing |
 | `assets.mjs` | offline | the catalogue search |
 | `smoke-fx.mjs` | live | every look builds on the sandbox against a synthetic moment and every path resolves live |
@@ -488,7 +502,7 @@ All of these exist as of phase 2 (2026-09-06; the engine, reader and build check
   the user already saw (a maul that did nothing, a spell that bashed).
 - The sentence screens arrive on a shape that *is* the sentence, so they are thinner and the
   prototype's wording holds.
-- Adding a look for a spell, a weapon, a feature, an effect, a condition, a Battle Flow moment or
+- Adding a look for a spell, a weapon, a feature, an effect, a condition, a By the Books moment or
   a table event is the same act with the same grammar, whoever does it.
 - The module's own vocabulary is small enough to hold in one head: eight shapes, a dozen moment
   kinds, nine subject kinds, twenty knobs. None of AA's words survive in `scripts/`; a check greps

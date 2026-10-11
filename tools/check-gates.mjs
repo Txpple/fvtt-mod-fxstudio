@@ -1,5 +1,5 @@
-// The gate contract, proved without Foundry and without Battle Flow (scripts/core/gates.js,
-// scripts/readers/battleflow.js). A gate is how another module asks this table to wait until an
+// The gate contract, proved without Foundry and without By the Books (scripts/core/gates.js,
+// scripts/readers/bythebooks.js). A gate is how another module asks this table to wait until an
 // answer is known; the rules it must keep are the ones that decide whether a picture is late, or
 // lost. Read-only, offline, a second to run.
 //   node tools/check-gates.mjs
@@ -57,28 +57,39 @@ registerGate('counted', () => { asked++; return null; });
 heldUntil(moment());
 is('a gate is asked once per moment', asked, 1);
 
-console.log('\nthe Battle Flow gate (feature-detected, never imported)');
-const { battleflowGate, subjectOf } = await import(toUrl(join(REPO, 'scripts/readers/battleflow.js')));
-const world = (mod) => { globalThis.game = { modules: { get: (id) => (id === 'fvtt-mod-battleflow' ? mod : undefined) } }; };
+console.log('\nthe By the Books gate (feature-detected, never imported; Battle Flow 2.x read too)');
+const { bythebooksGate, subjectOf } = await import(toUrl(join(REPO, 'scripts/readers/bythebooks.js')));
+// `world(mod)` installs By the Books; `world(mod, legacy)` adds a Battle Flow 2.x beside it
+const world = (mod, legacy) => { globalThis.game = { modules: { get: (id) => (id === 'fvtt-mod-bythebooks' ? mod : id === 'fvtt-mod-battleflow' ? legacy : undefined) } }; };
 const promise = Promise.resolve('card');
 
 world(undefined);
-is('Battle Flow not installed: not held', battleflowGate(moment()), null);
+is('By the Books not installed: not held', bythebooksGate(moment()), null);
 world({ active: false, api: { holdFor: () => promise } });
-is('installed but disabled: not held', battleflowGate(moment()), null);
+is('installed but disabled: not held', bythebooksGate(moment()), null);
 world({ active: true, api: {} });
-is('installed without the hold surface: not held', battleflowGate(moment()), null);
+is('installed without the hold surface: not held', bythebooksGate(moment()), null);
 world({ active: true, api: { holdFor: (s) => (s === 'Actor.a.Item.i.Activity.x' ? promise : null) } });
-is('holdFor is asked by the moment’s activity', battleflowGate(moment()), promise);
+is('holdFor is asked by the moment’s activity', bythebooksGate(moment()), promise);
 world({ active: true, api: { castHold: (s) => (s === 'Actor.a.Item.i.Activity.x' ? promise : null) } });
-is('an older build answers on castHold', battleflowGate(moment()), promise);
+is('an older build answers on castHold', bythebooksGate(moment()), promise);
 let asks = 0;
 world({ active: true, api: { holdFor: () => { asks++; return null; }, castHold: () => { asks++; return null; } } });
-battleflowGate(moment());
+bythebooksGate(moment());
 is('an un-held moment asks ONE surface once (holdFor’s null is an answer, not a miss)', asks, 1);
 world({ active: true, api: { holdFor: () => promise } });
-is('the card that LIFTS a hold does not wait on it', battleflowGate(moment({ document: { flags: { 'fvtt-mod-battleflow': { metamagic: { chosen: true } } } } })), null);
-is('a moment with nothing to ask by: not held', battleflowGate(moment({ activity: null, id: null })), null);
+is('the card that LIFTS a hold does not wait on it', bythebooksGate(moment({ document: { flags: { 'fvtt-mod-bythebooks': { metamagic: { chosen: true } } } } })), null);
+is('nor one a 2.x build wrote under the old flag scope', bythebooksGate(moment({ document: { flags: { 'fvtt-mod-battleflow': { metamagic: { chosen: true } } } } })), null);
+is('a moment with nothing to ask by: not held', bythebooksGate(moment({ activity: null, id: null })), null);
+const other = Promise.resolve('legacy card');
+world(undefined, { active: true, api: { holdFor: () => other } });
+is('a table still on Battle Flow 2.x: its api is asked under the old id', bythebooksGate(moment()), other);
+world({ active: false, api: { holdFor: () => promise } }, { active: true, api: { holdFor: () => other } });
+is('By the Books installed but disabled, Battle Flow active: the active one answers', bythebooksGate(moment()), other);
+world({ active: true, api: { holdFor: () => promise } }, { active: true, api: { holdFor: () => other } });
+is('both active: By the Books answers, never the legacy id', bythebooksGate(moment()), promise);
+world(undefined, { active: false, api: { holdFor: () => other } });
+is('Battle Flow installed but disabled: not held', bythebooksGate(moment()), null);
 is('the subject is the activity when there is one', subjectOf(moment()), 'Actor.a.Item.i.Activity.x');
 is('and the document otherwise', subjectOf(moment({ activity: null })), 'msg1');
 

@@ -1,7 +1,7 @@
 // A live Foundry client for the tools that need one (the smoke suites), through the MCP's
 // headless browser — the declared `fvtt-mcp-dnd5e/client` contract (a file: dependency), the way
-// Battle Flow's tools/target.mjs does it. The LOCAL sandbox is the default and the only target
-// these tools know; there is no prod switch here on purpose.
+// By the Books' (formerly Battle Flow) tools/target.mjs does it. The LOCAL sandbox is the default
+// and the only target these tools know; there is no prod switch here on purpose.
 //
 // Joins as "Tester Assistant" (the SUITE identity: FOUNDRY_SUITE_USER, alias BF_SUITE_USER in
 // the MCP repo's .env), never as the MCP bridge's own identity, so a bridge left connected shows

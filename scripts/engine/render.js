@@ -18,7 +18,7 @@ export const SHAPES = { strike, shoot, mark, fill, aura, beam, move, sound, cust
 
 const LEDGER_MAX = 100;
 export const ledger = [];
-// THE TICKETS. A Battle Flow resolve carries a momentId unique to it (readers/battleflow.js); a
+// THE TICKETS. A By the Books resolve carries a momentId unique to it (readers/bythebooks.js); a
 // ticket plays once on this client, however many roads carry it here. Bounded like the ledger.
 const TICKETS_MAX = 500;
 const tickets = new Set();
@@ -63,7 +63,7 @@ export function build(fx, moment) {
 }
 
 /**
- * The FX that answers a moment, through the corpus index. A Battle Flow moment whose ability posts
+ * The FX that answers a moment, through the corpus index. A By the Books moment whose ability posts
  * no card of its own (core/moments.js FALLS_BACK_TO_USE) is answered by its `use` look when nothing
  * names the moment's own word — the word wins when it is authored, and an `off` on it is honoured.
  */

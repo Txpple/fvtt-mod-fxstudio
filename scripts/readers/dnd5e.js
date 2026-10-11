@@ -12,9 +12,9 @@
 //   a save or a heal     on the damage or healing card (the targets known)
 //   an area              on the template placement (the Region drawn)
 //   everything else      on the usage card
-//   a moment another module HOLDS      when the hold lifts (core/gates.js, readers/battleflow.js)
+//   a moment another module HOLDS      when the hold lifts (core/gates.js, readers/bythebooks.js)
 // This is what Automated Animations did on this world by accident of its hooks; here it is one
-// table. Battle Flow's verdict hook can replace "on the attack card" in phase 4 without any FX changing.
+// table. By the Books' verdict hook can replace "on the attack card" in phase 4 without any FX changing.
 //
 // Every moment carries the card it was read from — `type` and `data` (a card's system data, a
 // template's dnd5e flags, an effect's system data) and `document` (the live document) — beside

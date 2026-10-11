@@ -1991,7 +1991,7 @@ placing client, by writing `visibility` into the create data (`hideTemplateFor()
 readers/dnd5e.js, with the dispatcher's `answers(moment)` naming the FX that would play). Not after
 the picture is up, because a Region is the scene's: dnd5e gives its creator no ownership entry, so a
 player who placed it cannot update or delete it afterwards, and this module has no socket to ask a
-GM. The cost accepted: the Region never shows, not even during a Battle Flow hold on the cast, and
+GM. The cost accepted: the Region never shows, not even during a By the Books hold on the cast, and
 there is no fade — the area is bare for the half second before the picture lands. The same ownership
 rule means the one Stock `clearTemplate` (a burst that removes its Region) fails silently for a player
 caster; noted, not fixed, not ruled on.

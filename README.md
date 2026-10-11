@@ -73,12 +73,13 @@ A lasting area picture, such as Fog Cloud or Web, hides dnd5e's template region 
 while the picture stands; the GM still sees it on the Regions layer. A teleport, such as Misty
 Step, places the token with Foundry's own teleport action, on a spot the spell allows.
 
-## Battle Flow
+## By the Books
 
-With [Open Roll 5e: Battle Flow](https://github.com/Txpple/fvtt-mod-battleflow) installed, FX
-Studio also plays the moments that post no card of their own (a maneuver die, Sneak Attack, a die
-folded into a roll, a rider's damage, a held roll answered), and waits while Battle Flow holds a
-cast for an answer. Neither module needs the other.
+With [Open Roll 5e: By the Books](https://github.com/Txpple/fvtt-mod-bythebooks) (formerly Battle
+Flow) installed, FX Studio also plays the moments that post no card of their own (a maneuver die,
+Sneak Attack, a die folded into a roll, a rider's damage, a held roll answered), and waits while By
+the Books holds a cast for an answer. A table still on Battle Flow 2.x gets the same. Neither module
+needs the other.
 
 ## Settings
 
@@ -98,7 +99,7 @@ scripts/
   api.js               the API the window and macros share
   core/                what an FX is: keys, shapes, moments, gates
   engine/              plays a shape through Sequencer
-  readers/             turns dnd5e cards, templates and effects (and Battle Flow moments) into moments
+  readers/             turns dnd5e cards, templates and effects (and By the Books moments) into moments
   ui/                  the window: Library, Editor, Assets, Coverage
   files.js, settings.js
 recipes/

@@ -7,8 +7,8 @@ What is parked, and why. Nothing here is owed; each line says who decides.
 ## The hold, and what is left of it (2026-09-09) - the patch became the rule
 
 **BUILT and green.** The wait moved out of the region reader and into the DISPATCHER as a GATE
-(`scripts/core/gates.js`, `scripts/readers/battleflow.js`, ARCHITECTURE §2): every moment is asked
-about once, before it plays; Battle Flow is one feature-detected tenant, not a branch; a table
+(`scripts/core/gates.js`, `scripts/readers/bythebooks.js`, ARCHITECTURE §2): every moment is asked
+about once, before it plays; By the Books (formerly Battle Flow) is one feature-detected tenant, not a branch; a table
 without it registers nothing and takes the straight road. `api.gates.register(name, ask)` is the
 seam, so this module's own future reasons to defer a moment need no new machinery.
 `check-gates.mjs` 20 of 20 offline, `smoke-replay` §15 drives a real hold at the table (50 of 50).
@@ -49,7 +49,7 @@ What is NOT closed, and what to re-read before touching the reader or the dispat
   bound is one argument in `core/gates.js` (`heldUntil(moment, { bound })`); a per-gate bound, or a
   setting, is small if the user ever sees it happen. **RULED 2026-09-11 (the user: "ok"): the bound
   stays five minutes. Built only if the hold timer is 0 at the table AND the user reports "the
-  animation fired while I was still choosing" - then the Battle Flow gate reads its hold timer and
+  animation fired while I was still choosing" - then the By the Books gate reads its hold timer and
   passes a per-gate bound, clockless when the setting is 0; every other gate stays bounded.**
 - **Two holes Battle Flow found reading its own code for us** (a stranded hold when the carrier
   whisper is deleted; another when `postUseActivity` never fires) are its bugs to fix. Ours is
@@ -197,9 +197,9 @@ spell lasts, once when it bursts), and let the replay suite drive them (tools/sm
   `battleflow.moment` with a plain payload at three resolves (a maneuver die on the hit menu, Parry
   at the hold's answer, Sneak Attack's dice) under a closed vocabulary of five words (`maneuver`,
   `sneak`, `fold`, `rider`, `hold-answered`; `fold` and `rider` named, not yet published); this
-  module reads it in `readers/battleflow.js` through the same dispatcher, with the `use`-look
-  fallback for the four that post no card (ARCHITECTURE §2 *Battle Flow's moments*). Still parked
-  here, waiting on Battle Flow publishing them: Riposte (its attack already posts an attack roll and
+  module reads it in `readers/bythebooks.js` (then `readers/battleflow.js`) through the same dispatcher, with the `use`-look
+  fallback for the four that post no card (ARCHITECTURE §2 *By the Books' moments*). Still parked
+  here, waiting on By the Books publishing them: Riposte (its attack already posts an attack roll and
   plays), `shield-paid`, `emanation` members gained or lost. The survey that led here: the moments
   that exist only in Battle Flow's rules need Battle Flow to emit public hooks with plain payloads
   at its resolve points (no dependency, no setting, no flag shape; fxstudio never reads its internal

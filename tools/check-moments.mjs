@@ -1,14 +1,15 @@
-// Battle Flow's moments, read without Foundry and without Battle Flow (scripts/readers/battleflow.js
-// `readMoment`, core/moments.js WHEN and FALLS_BACK_TO_USE, engine/render.js resolveMoment). The
-// contract is Battle Flow's `battleflow.moment` payload — plain uuids and ids — and the rules here
+// By the Books' moments (formerly Battle Flow), read without Foundry and without By the Books
+// (scripts/readers/bythebooks.js `readMoment` and `firstHearing`, core/moments.js WHEN and
+// FALLS_BACK_TO_USE, engine/render.js resolveMoment). The contract is By the Books'
+// `bythebooks.moment` payload (`battleflow.moment` on 2.x) — plain uuids and ids — and the rules here
 // decide whether a picture plays for a resolve that never posts a card. Read-only, offline, a second.
 //   node tools/check-moments.mjs
 import { toUrl } from './lib/env.mjs';
 import { join } from 'node:path';
 import { REPO } from './lib/env.mjs';
 
-const { readMoment } = await import(toUrl(join(REPO, 'scripts/readers/battleflow.js')));
-const { WHEN, BATTLEFLOW_WORDS, FALLS_BACK_TO_USE, WHEN_WORDS } = await import(toUrl(join(REPO, 'scripts/core/moments.js')));
+const { readMoment, firstHearing } = await import(toUrl(join(REPO, 'scripts/readers/bythebooks.js')));
+const { WHEN, BYTHEBOOKS_WORDS, FALLS_BACK_TO_USE, WHEN_WORDS } = await import(toUrl(join(REPO, 'scripts/core/moments.js')));
 const { buildIndex } = await import(toUrl(join(REPO, 'scripts/core/corpus.js')));
 
 let ok = 0, bad = 0;
@@ -25,7 +26,7 @@ const world = {
   user: () => 'user1',
 };
 const payload = (over = {}) => ({
-  event: 'sneak', module: 'fvtt-mod-battleflow', version: 1,
+  event: 'sneak', module: 'fvtt-mod-bythebooks', version: 1,
   actorUuid: 'Actor.rogue', actorName: 'Rogue', tokenUuid: 'Scene.s.Token.r',
   itemUuid: sneak.uuid, itemName: 'Sneak Attack', activityUuid: null, ability: 'Sneak Attack',
   messageId: 'msgDamage', attackId: 'msgAttack',
@@ -34,7 +35,7 @@ const payload = (over = {}) => ({
 });
 
 console.log('the vocabulary');
-is('the five Battle Flow words are moment kinds', ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'].every((w) => WHEN.includes(w)), true);
+is('the five By the Books words are moment kinds', ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'].every((w) => WHEN.includes(w)), true);
 is('each has a sentence', ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'].every((w) => typeof WHEN_WORDS[w] === 'string' && WHEN_WORDS[w].length), true);
 is('the four that post no card fall back to the use look', FALLS_BACK_TO_USE.join(), 'maneuver,sneak,fold,rider');
 is('hold-answered does NOT fall back (its cast posts a card that already plays)', FALLS_BACK_TO_USE.includes('hold-answered'), false);
@@ -48,7 +49,8 @@ is('the source is the token the payload named', m?.source, rogueToken);
 is('the target is the token the row named, with its verdict', m?.targets?.[0]?.token === goblinToken && m?.targets?.[0]?.hit === true, true);
 is('the origin is the item (Sequencer stamps and ends by it)', m?.origin, sneak.uuid);
 is('the id is the message and the event (the ledger keys on it; the same message may carry a use)', m?.id, 'msgDamage:sneak');
-is('no Battle Flow flag is read — no document and no data ride, by contract', JSON.stringify([m?.document, m?.data, m?.type]), '[null,null,"battleflow"]');
+is('no By the Books flag is read — no document and no data ride, by contract', JSON.stringify([m?.document, m?.data, m?.type]), '[null,null,"bythebooks"]');
+is('the moment kind names the reader', m?.kind, 'bythebooks');
 is('the moment knows its use: the message the resolve rode', m?.use, 'msgDamage');
 is('the plain payload rides as `event` for a gate or a tool', m?.event?.messageId, 'msgDamage');
 is('the user is this client — the hook fires where the moment resolved', m?.user, 'user1');
@@ -68,12 +70,19 @@ is('a target that is gone is dropped, the moment stands', missingTarget?.targets
 console.log('\nwhat is refused');
 is('a payload that is not one: null', readMoment(null, world), null);
 is('a payload with no event: null', readMoment({ actorUuid: 'Actor.rogue' }, world), null);
-is('a word this build does not know: a skip, so a newer Battle Flow never throws here', readMoment(payload({ event: 'emanation' }), world)?.skip?.startsWith('"emanation" is not a Battle Flow word'), true);
-is('the words read are a closed list of their own, every one a moment kind', BATTLEFLOW_WORDS.every((w) => WHEN.includes(w)), true);
+is('a word this build does not know: a skip, so a newer By the Books never throws here', readMoment(payload({ event: 'emanation' }), world)?.skip?.startsWith('"emanation" is not a By the Books word'), true);
+is('the words read are a closed list of their own, every one a moment kind', BYTHEBOOKS_WORDS.every((w) => WHEN.includes(w)), true);
 is('`use` off the hook is a skip: the card already plays it', typeof readMoment(payload({ event: 'use' }), world)?.skip, 'string');
 is('`effect` off the hook is a skip: the effect reader already plays it (and a revert would play it again)', typeof readMoment(payload({ event: 'effect' }), world)?.skip, 'string');
 is('the momentId rides on the moment', readMoment(payload({ momentId: 'msgDamage|sneak|whole' }), world)?.momentId, 'msgDamage|sneak|whole');
 is('no momentId (a v1 Battle Flow): null, never undefined', readMoment(payload(), world)?.momentId, null);
+
+console.log('\nthe twin (3.0 emits bythebooks.moment and battleflow.moment for one payload)');
+const twin = payload({ momentId: 'msgTwin|sneak|whole' });
+is('the first name is heard', firstHearing(twin), true);
+is('the same momentId under the other name is not', firstHearing({ ...twin }), false);
+is('another momentId is heard', firstHearing(payload({ momentId: 'msgTwin|rider|whole' })), true);
+is('a payload with no momentId is always heard (no double-emitting build publishes one)', firstHearing(payload()) && firstHearing(payload()), true);
 
 console.log('\nthe fallback, through the corpus index');
 const index = buildIndex({
@@ -104,5 +113,5 @@ const { resolveMoment, firstTime } = await import(toUrl(join(REPO, 'scripts/engi
   is('the event key answers on its own when a look is keyed to it', resolveMoment(buildIndex({ stock: [{ id: 'any-sneak', for: ['event:sneak'], on: 'sneak', scenes: [{ shape: 'mark', asset: { path: 'c' } }] }], house: [], starters: [] }), m)?.fx?.id, 'any-sneak');
 }
 
-console.log(`\n${bad ? 'FAIL' : 'PASS'}: ${ok} of ${ok + bad}, Battle Flow's moments read as the contract says`);
+console.log(`\n${bad ? 'FAIL' : 'PASS'}: ${ok} of ${ok + bad}, By the Books' moments read as the contract says`);
 process.exit(bad ? 1 : 0);

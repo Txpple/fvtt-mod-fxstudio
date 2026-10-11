@@ -36,9 +36,9 @@ for (const a of PCS) {
   console.log('   none: ' + miss.join('; '));
 }
 console.log('\nTOTAL PCs: ' + JSON.stringify(totals));
-// what do the Battle Flow list settings name, and which of those names have an autorec entry?
+// what do the By the Books list settings name (Battle Flow's scope on a world not yet migrated), and which of those names have an autorec entry?
 const lists = ['interruptList', 'maneuverFolds', 'd20Folds', 'riderList', 'blockList'];
-for (const l of lists) { const v = settings['fvtt-mod-battleflow.' + l]; if (!v) continue; const names = JSON.parse(v).split(',').map(s => s.trim().split(':')[0]).filter(Boolean); console.log(`\n${l}: ` + names.map(n => n + (search(n) ? ' ✓' : ' ✗')).join(', ')); }
+for (const l of lists) { const v = settings['fvtt-mod-bythebooks.' + l] ?? settings['fvtt-mod-battleflow.' + l]; if (!v) continue; const names = JSON.parse(v).split(',').map(s => s.trim().split(':')[0]).filter(Boolean); console.log(`\n${l}: ` + names.map(n => n + (search(n) ? ' ✓' : ' ✗')).join(', ')); }
 // activity-name overrides that hit something DIFFERENT from the item name (AA's override rule)
 console.log('\nACTIVITY-NAME OVERRIDES that change the pick (PCs):');
 for (const a of PCS) for (const i of (items[a._id] ?? [])) { if (!TYPES.has(i.type)) continue; for (const act of Object.values(i.system?.activities ?? {})) { if (!act.name || ['heal','summon'].includes(act.name.trim())) continue; const h1 = search(act.name), h2 = search(i.name); if (h1 && h2 && h1.label !== h2.label) console.log(`  ${a.name} / ${i.name} :: activity "${act.name}" -> "${h1.label}" [${h1._menu}] instead of "${h2.label}" [${h2._menu}]`); else if (h1 && !h2) console.log(`  ${a.name} / ${i.name} :: activity "${act.name}" -> "${h1.label}" [${h1._menu}] (item name matches nothing)`); } }

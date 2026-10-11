@@ -5,7 +5,7 @@
 //     origin, id, activity, use, type, data, document, user }
 //
 //   when         one of WHEN — the kind of moment an FX can answer ("on")
-//   kind         what the reader read: attack | damage | use | template | effect | battleflow | preview
+//   kind         what the reader read: attack | damage | use | template | effect | bythebooks | preview
 //   subject      what acted, with its identity keys (core/subjects.js): {keys, name, kind, ...}
 //   source       the acting token (a Token placeable at the table; a plain stand-in in the tools)
 //   targets      the targeted tokens — dnd5e's own target record kept whole (the actor uuid, the
@@ -21,12 +21,12 @@
 //                card is its own, an effect names the card that applied it), or null: one cast's
 //                moments know each other by it
 //   type         the document's own type: a card's (attack | damage | healing | usage), an effect's
-//                (base | condition | enchantment), `region` for a template, `battleflow`, `preview`
+//                (base | condition | enchantment), `region` for a template, `bythebooks`, `preview`
 //   data         what the document says, whole: a card's system data, a template's dnd5e flags, an
 //                effect's system data (phase 4's words read their outcomes here; nothing structural)
 //   document     the live document the moment was read from (a gate may read another module's
 //                flag off it), or null
-//   event        a Battle Flow moment only: the plain payload it came from
+//   event        a By the Books moment only: the plain payload it came from
 
 // A moment may also be HELD: another module can ask this table to wait until an answer is known
 // (core/gates.js). That is the timing policy's other half and nothing here needs to know about it —
@@ -34,22 +34,22 @@
 
 /**
  * The closed vocabulary of moment kinds; phase 4 adds the outcomes and the table's events. The five
- * after `effect` are BATTLE FLOW'S MOMENTS (readers/battleflow.js, 2026-09-11): the resolves that
- * exist only in its rules and post no card of their own — a maneuver die riding a hit or answering
+ * after `effect` are BY THE BOOKS' MOMENTS (readers/bythebooks.js; 2026-09-11, as Battle Flow): the
+ * resolves that exist only in its rules and post no card of their own — a maneuver die riding a hit or answering
  * a hold, Sneak Attack's dice, a die folded into a d20 test, a clock rider's damage, a held roll
- * answered by a cast. The words are Battle Flow's contract (`api.moments.events`), one for one.
+ * answered by a cast. The words are By the Books' contract (`api.moments.events`), one for one.
  */
 export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
 
 /**
- * The Battle Flow words this build READS (readers/battleflow.js) — a closed list of its own, not
- * WHEN. Battle Flow's contract v2 (2026-09-11) publishes seventeen words, and two of the rest, `use`
+ * The By the Books words this build READS (readers/bythebooks.js) — a closed list of its own, not
+ * WHEN. Its contract v2 (2026-09-11) publishes seventeen words, and two of the rest, `use`
  * and `effect`, are also moment kinds here: they name the card and the effect the dnd5e reader
  * already plays from, so hearing them off the hook would play the same picture twice (the effect
  * receipt lands a beat after the effect is created; a revert would land it a third time). A word is
  * added here only with a reader that knows what the table should see for it.
  */
-export const BATTLEFLOW_WORDS = ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
+export const BYTHEBOOKS_WORDS = ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
 
 /** what the sentence says for each kind */
 export const WHEN_WORDS = {
@@ -63,7 +63,7 @@ export const WHEN_WORDS = {
 };
 
 /**
- * A Battle Flow moment whose ability never posts a card falls back to the ability's `use` look when
+ * A By the Books moment whose ability never posts a card falls back to the ability's `use` look when
  * no look names the moment's own word (engine/render.js resolveMoment): the picture for "Sneak
  * Attack, used" IS the picture for Sneak Attack's dice riding a hit, and a table that authored one
  * for the card gets it on the dice with nothing to write. `hold-answered` is NOT here on purpose: a

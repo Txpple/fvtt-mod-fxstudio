@@ -45,7 +45,7 @@ const search = (n) => all.find(x => x.label && rinse(n).includes(rinse(x.label))
 for (const lbl of ['U', 'Ne']) { const e = all.find(x => x.label === lbl); console.log(`\nSTRAY ENTRY "${lbl}" [${e._menu}]: ` + JSON.stringify({ video: e.primary?.video, sound: e.primary?.sound?.file, options: { persistent: e.primary?.options?.persistent, persistType: e.primary?.options?.persistType, removeTemplate: e.primary?.options?.removeTemplate, opacity: e.primary?.options?.opacity }, advanced: e.advanced, metaData: e.metaData })); }
 console.log('\nDND5E FALLBACK ACTIVITY NAMES vs autorec (AA searches the activity name FIRST):');
 for (const n of ['Attack', 'Damage', 'Save', 'Utility', 'Cast', 'Check', 'Enchant', 'Forward', 'Order', 'Transform']) { const h = search(n); console.log(`  ${n.padEnd(10)} -> ${h ? '"' + h.label + '" [' + h._menu + ']' : '(nothing)'}`); }
-console.log('\nBATTLE FLOW LIST NAMES -> matched label:');
-for (const l of ['interruptList', 'maneuverFolds', 'd20Folds']) { const names = JSON.parse(settings['fvtt-mod-battleflow.' + l]).split(',').map(s => s.trim().split(':')[0]).filter(Boolean); console.log(`  ${l}: ` + [...new Set(names)].map(n => { const h = search(n); return n + ' -> ' + (h ? '"' + h.label + '" [' + h._menu + ']' : '✗'); }).join('; ')); }
+console.log('\nBY THE BOOKS LIST NAMES -> matched label:');
+for (const l of ['interruptList', 'maneuverFolds', 'd20Folds']) { const names = JSON.parse(settings['fvtt-mod-bythebooks.' + l] ?? settings['fvtt-mod-battleflow.' + l]).split(',').map(s => s.trim().split(':')[0]).filter(Boolean); console.log(`  ${l}: ` + [...new Set(names)].map(n => { const h = search(n); return n + ' -> ' + (h ? '"' + h.label + '" [' + h._menu + ']' : '✗'); }).join('; ')); }
 // how many labels are <= 3 chars (substring hazards)
 console.log('\nSHORT LABELS (<=4 chars) in the autorec: ' + all.filter(x => rinse(x.label).length <= 4).map(x => x.label + '[' + x._menu + ']').join(', '));

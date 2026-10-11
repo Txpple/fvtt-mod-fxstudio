@@ -5,21 +5,24 @@ happened at the table. Sequencer is the engine, JB2A + PSFX the libraries. It re
 Animations (AA) and D&D5e Animations by migrating their corpus once as its Stock, with the user's own FX
 in House on top. **It never guesses: an ability with no FX plays nothing.** Greenfield: nothing of
 AA's architecture, vocabulary or practices survives in `scripts/` (PLAN §0.7, [ARCHITECTURE.md](ARCHITECTURE.md)).
-Part of Open Roll 5e beside Battle Flow (`../fvtt-mod-battleflow`, the rules of the game) and Errata
+Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Battle Flow, the rules of the game) and Errata
 (`../fvtt-mod-errata5e`, fixes for vendor bugs; it replaced Vendor Fixes on 2026-10-01, which had replaced
 Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-10).** v0.8.0 released 2026-10-10 (the FX Studio scene-control tool and keybinding, #1; v0.7.0 was the
-Open Roll 5e rename, 2026-10-02; **dnd5e 6.0.0–6.9.99 only**). The Greenrest campaign is over (concluded 2026-09-29) and **there is no prod for now** (the
+**State (2026-10-11).** v0.9.0 is ready on main, not yet tagged or released: it reads By the Books, the
+rename of Battle Flow at its 3.0.0 (`fvtt-mod-bythebooks`, hooks `bythebooks.*`), and still reads a
+table on Battle Flow 2.x (the legacy id, hook names and flag scope); 3.0's double emit plays once.
+v0.8.0 was released 2026-10-10 (the scene-control tool and keybinding, #1); **dnd5e 6.0.0–6.9.99
+only**. The Greenrest campaign is over (concluded 2026-09-29) and **there is no prod for now** (the
 user, 2026-10-02): the sandbox is the only world, and the last prod deploy was v0.6.0 on 2026-09-21.
 When a prod exists again, **its house.json is canonical**: pull it before any deploy (two overrides
 saved there on 2026-09-16, greatsword and maul, were pulled in first). Arcana Unleashed is a book since
 2026-10-02 (13 Stock FX); the gap proposals were refreshed against the asset catalogue in
 the asset drop folder beside the repo parent and cut by the moment rule (§25). The user tests on the sandbox
 by hand and names what is broken; we fix what they name. Nothing is owed. [NEXT-SESSION.md](NEXT-SESSION.md)
-holds the handoff history. The clone moved under the suite folder on 2026-10-08: `../fvtt-mcp-dnd5e`
-still resolves, the campaign repos are now `../../fvtt-campaign-*`.
+holds the handoff history. The clone lives under the suite folder (since 2026-10-08): `../fvtt-mcp-dnd5e`
+resolves, the campaign repos are `../../fvtt-campaign-*`.
 
 ## The rulings that govern the code (each recorded in DESIGN.md)
 
@@ -105,8 +108,8 @@ prototype. A phase starts on the user's word, never on a handoff.
   `scripts/`, `styles/`, `templates/`, `lang/`, `module.json` and `recipes/`. ⚠ It never deletes.
 - **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes the module folder and every FX saved
   in the game. Before: `node tools/pull-corpus.mjs --write` and commit. After, sandbox stopped:
-  deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`, start. Add Battle
-  Flow fixtures only when a suite run is asked for, and say so.
+  deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`, start. Add By the
+  Books fixtures only when a suite run is asked for, and say so.
 - **Two MCP bridges.** `foundry-local5e` is the sandbox (localhost:30000). ⚠ `foundry-halruaa5e` is **PROD** (the
   live Molten box; the Greenrest bridge was retired 2026-10-08): never write there without the user's word. The two share ids;
   `get-world-info` tells them apart by version and who is connected.
@@ -134,13 +137,17 @@ D&D5e Animations is GPL-3: `recipes/stock/*` is a separate work under GPL-3 with
 `recipes/STOCK-LICENSE` and attribution (MrVauxs, Sisimshow); code and `house.json` stay MIT.
 Sequencer is used through its public API only, never patched.
 
-## Battle Flow
+## By the Books (formerly Battle Flow)
 
-Zero dependency either way. Battle Flow publishes `battleflow.moment` (a plain payload); this module
-reads a closed list of five words (`BATTLEFLOW_WORDS`) in `readers/battleflow.js`, plays a `momentId`
-once, and honours Battle Flow's hold through the gate in `core/gates.js`. Neither is required nor in
-the manifest. Rules of the game belong to Battle Flow, upstream-bug fixes to Errata; this module
-only plays pictures and sounds.
+Zero dependency either way. By the Books publishes `bythebooks.moment` (a plain payload; Battle Flow
+2.x published `battleflow.moment`, and 3.0 emits both names for one release); this module listens to
+both names in `readers/bythebooks.js`, hears a `momentId` once (the twin), reads a closed list of five
+words (`BYTHEBOOKS_WORDS`), plays a `momentId` once, and honours the hold through the gate in
+`core/gates.js`, asking `fvtt-mod-bythebooks` first and the legacy `fvtt-mod-battleflow` when that is
+the active one. Neither is required nor in the manifest. The legacy names are for a table still on
+2.x, not for the double emit; they go when no table runs 2.x (the rename: its issue #6). Rules of
+the game belong to By the Books, upstream-bug fixes to Errata; this module only plays pictures and
+sounds.
 
 ## Release ritual
 

@@ -12,7 +12,7 @@
 //   a promise resolving null/false     the thing the moment came from never happened — play NOTHING
 //
 // ⚠ The two nulls mean opposite things: a null RETURN is "not held", a null RESOLUTION is "held,
-// and it came to nothing". A gate may also answer null because it cannot SEE a hold (Battle Flow's
+// and it came to nothing". A gate may also answer null because it cannot SEE a hold (By the Books'
 // is client-local, so a remote client is told null for a cast that is really held) — which is why a
 // gate is a courtesy and never a guarantee: the wait is always bounded here, and a bound that
 // expires PLAYS. A gate can delay a picture; it must never be able to swallow one by going quiet.

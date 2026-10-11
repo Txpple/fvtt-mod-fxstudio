@@ -29,7 +29,7 @@ const SECTIONS = {
   13: 'identity over names: a "Maul of Momentum" plays the maul fx by its base weapon; a Shield spell plays nothing (no bash)',
   14: 'the heal: Cure Wounds plays on its healing roll (dnd5e flags it "healing", not "damage"), on the target when one is aimed and on the caster when none is',
   15: 'the hold: a gate holds a moment — nothing plays while the hold stands, it plays when the hold lifts, a hold that lifts on nothing plays nothing, and with no gate the same cast plays straight away',
-  16: "Battle Flow's moments: a `sneak` payload on battleflow.moment plays Sneak Attack's use look on the dice (the fallback), a moment with no look plays nothing and names its event key, an unknown word is skipped without an error, and hold-answered never falls back",
+  16: "By the Books' moments: a `sneak` payload on bythebooks.moment plays Sneak Attack's use look on the dice (the fallback), a moment with no look plays nothing and names its event key, an unknown word is skipped without an error, hold-answered never falls back, and one payload under both hook names (3.0's double emit) plays once",
 };
 const DEPENDS = {};
 const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack'];
@@ -274,7 +274,7 @@ try {
         ok('§14 Cure Wounds with nothing targeted: the healing roll plays the FX on the caster', alone.e?.fx === 'cure-wounds' && alone.e.played && !alone.e.targets?.length, `${alone.e?.fx} ${alone.e?.why || ''} ${files(alone.e)}`);
       }
       if (want(15)) {
-        // The gate seam, driven at the table: this suite plays the part another module (Battle Flow)
+        // The gate seam, driven at the table: this suite plays the part another module (By the Books)
         // plays when it holds a cast while its caster answers a question the area raised.
         await aim();
         await setAC(1);
@@ -298,13 +298,13 @@ try {
         ok('§15 with nothing holding it, the same cast plays straight away', plain.e?.played === true, files(plain.e));
       }
       if (want(16)) {
-        // Battle Flow's moments, the other direction (readers/battleflow.js): this suite plays the part
-        // Battle Flow plays when it publishes a resolve that posted no card — a plain payload on the
-        // `battleflow.moment` hook, on the client that resolved it. No Battle Flow is needed to prove it.
+        // By the Books' moments, the other direction (readers/bythebooks.js): this suite plays the part
+        // By the Books plays when it publishes a resolve that posted no card — a plain payload on the
+        // `bythebooks.moment` hook, on the client that resolved it. No By the Books is needed to prove it.
         await aim(false);
         const sneakItem = item('Sneak Attack');
-        const fire = async (payload) => { const before = api.ledger.length; Hooks.callAll('battleflow.moment', Object.freeze(payload)); await settle(); return api.ledger.length - before; };
-        const base = { module: 'fvtt-mod-battleflow', version: 1, actorUuid: caster.actor.uuid, actorName: caster.actor.name, tokenUuid: caster.document.uuid,
+        const fire = async (payload, hook = 'bythebooks.moment') => { const before = api.ledger.length; Hooks.callAll(hook, Object.freeze(payload)); await settle(); return api.ledger.length - before; };
+        const base = { module: 'fvtt-mod-bythebooks', version: 1, actorUuid: caster.actor.uuid, actorName: caster.actor.name, tokenUuid: caster.document.uuid,
           itemUuid: sneakItem?.uuid ?? null, itemName: 'Sneak Attack', activityUuid: null, ability: 'Sneak Attack', attackId: 'bf-attack',
           targets: [{ actorUuid: target.actor.uuid, tokenUuid: target.document.uuid, name: target.name, hit: true }], spend: null, details: { formula: '6d6', picks: [] }, at: Date.now() };
         await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-1' });
@@ -322,16 +322,20 @@ try {
         await fire({ ...base, event: 'hold-answered', messageId: 'bf-held-1' });
         const held = ledgerFor('bf-held-1:hold-answered');
         ok("§16 hold-answered does NOT fall back to the use look (the cast's own card already plays it): nothing plays", !!held && !held.played && held.fx === null, JSON.stringify({ played: held?.played, fx: held?.fx, why: held?.why }));
-        // contract v2 (2026-09-11): Battle Flow publishes `use` and `effect` too — the card and the
+        // contract v2 (2026-09-11): By the Books publishes `use` and `effect` too — the card and the
         // effect the dnd5e reader already plays from. Off the hook they are skips, never a second picture.
         const useN = await fire({ ...base, event: 'use', messageId: 'bf-use-1', momentId: 'bf-use-1|bashOffer|whole' });
         const effectN = await fire({ ...base, event: 'effect', messageId: 'bf-effect-1', momentId: 'bf-effect-1|effectReceipt|t|e' });
         ok('§16 `use` and `effect` off the hook are skipped: the card and the effect reader already play them, no ledger entry, no error', useN === 0 && effectN === 0 && errors.length === errorsBefore, `entries=${useN + effectN} errors=${errors.length - errorsBefore}`);
-        // the ticket: one resolve, one picture on this client, however many times the payload arrives
-        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-2', momentId: 'bf-sneak-2|sneakAttack|whole' });
-        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-2', momentId: 'bf-sneak-2|sneakAttack|whole' });
+        // the twin: 3.0 publishes one resolve under both hook names; the reader hears its momentId once
+        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-2', momentId: 'bf-sneak-2|sneakAttack|whole' }, 'bythebooks.moment');
+        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-2', momentId: 'bf-sneak-2|sneakAttack|whole' }, 'battleflow.moment');
         const twice = api.ledger.filter((x) => x.id === 'bf-sneak-2:sneak');
-        ok('§16 the same momentId arriving twice plays ONCE; the second is in the ledger as already played', twice.length === 2 && twice.filter((x) => x.played).length === 1 && twice.some((x) => /already played/.test(x.why ?? '')), JSON.stringify(twice.map((x) => ({ played: x.played, why: x.why }))));
+        ok('§16 one payload on bythebooks.moment AND battleflow.moment plays ONCE, with one ledger row', twice.length === 1 && twice[0].played === true, JSON.stringify(twice.map((x) => ({ played: x.played, why: x.why }))));
+        // a table still on Battle Flow 2.x: the old hook name alone still plays
+        await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-3', module: 'fvtt-mod-battleflow' }, 'battleflow.moment');
+        const legacy = ledgerFor('bf-sneak-3:sneak');
+        ok('§16 a 2.x payload on battleflow.moment alone still plays', legacy?.played === true && legacy?.fx === 'sneak-attack', `${legacy?.fx} ${legacy?.why || ''}`);
       }
     } finally {
       await setAC(startAC);
