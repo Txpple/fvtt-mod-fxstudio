@@ -2056,3 +2056,11 @@ yellow circle the summoning spells' own Stock FX play at the caster. A spell's o
 is ever authored, wins over it (the subject's own key comes before `event:summon`). The Editor still
 neither authors `event:` keys nor offers `summon` as a Moment; editing it is a hand edit of the file.
 
+**A companion leaving (2026-10-12, the user: a leaving VFX).** By the Books' companions (Find Familiar first)
+go into a pocket dimension, come back, and are dismissed; each beat is its own marker on the same `summon`
+record (`companion-<id>`), with `details.companion` `leave` or `appear`. The reader reads a `leave` as a new
+word, `unsummon` (*when its creature leaves*), and an `appear` as `summon` again; a later beat keeps its own
+ledger row (`<messageId>:<word>:<marker>`). Its Stock FX, `summon-leaves` in `stock/events.json`, mirrors the
+arrival: the purple conjuration circle's OUTRO (whole, then unwinding) below the token with the PSFX circle
+outro sound, and the white smoke-puff ring as it goes. By the Books publishes the beat while the token still
+stands and removes it a moment later, so the picture has somewhere to play.

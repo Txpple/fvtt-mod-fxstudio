@@ -104,7 +104,9 @@ const LIVE = {
  */
 export function readMoment(payload, resolve = LIVE) {
   if (!payload || typeof payload !== 'object' || typeof payload.event !== 'string') return null;
-  const word = BYTHEBOOKS_RECORDS[`${payload.event}|${payload.kind}`] ?? (BYTHEBOOKS_WORDS.includes(payload.event) ? payload.event : null);
+  const read = BYTHEBOOKS_RECORDS[`${payload.event}|${payload.kind}`] ?? (BYTHEBOOKS_WORDS.includes(payload.event) ? payload.event : null);
+  // a companion's beat on the summon record: leaving (into its pocket, dismissed) is `unsummon`, coming back `summon`
+  const word = (read === 'summon' && payload.details?.companion === 'leave') ? 'unsummon' : read;
   if (!word) return { skip: `"${payload.event}" is not a By the Books word this build reads` };
   const item = payload.itemUuid ? resolve.item(payload.itemUuid) : null;
   const subject = item ? subjectOfItem(item, { activity: null }) : { kind: 'event', name: payload.ability ?? word, eventId: word, keys: [] };
@@ -124,7 +126,8 @@ export function readMoment(payload, resolve = LIVE) {
   return {
     when: word, kind: 'bythebooks', subject, source, targets,
     origin: item?.uuid ?? `bythebooks.${word}`,
-    id: `${payload.messageId ?? payload.at ?? 'bythebooks'}:${word}`,
+    // a record's later beats (a companion's) each keep their own ledger row: the marker names the beat
+    id: `${payload.messageId ?? payload.at ?? 'bythebooks'}:${word}${payload.marker && payload.marker !== 'message' ? `:${payload.marker}` : ''}`,
     activity: payload.activityUuid ?? null,
     momentId: typeof payload.momentId === 'string' ? payload.momentId : null,
     // no By the Books flag is read, by contract; the payload rides as `event` for a gate or a tool that wants the plain facts

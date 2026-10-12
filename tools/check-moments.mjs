@@ -96,6 +96,13 @@ is('the ledger id names the word', sm?.id, 'msgSummon:summon');
 is('a cast on any other record (a transform) stays a skip', typeof readMoment(summoned({ kind: 'transform' }), summonWorld)?.skip, 'string');
 is('a cast with no record stays a skip', typeof readMoment(summoned({ kind: null }), summonWorld)?.skip, 'string');
 is('the word alone off the hook is not read (it is ours, not By the Books\')', typeof readMoment(payload({ event: 'summon' }), world)?.skip, 'string');
+const leaving = readMoment(summoned({ marker: 'companion-abc', momentId: 'msgSummon|summon|companion-abc', details: { companion: 'leave', summon: 'Owl' } }), summonWorld);
+is('a companion leaving (its pocket, dismissed) is an unsummon moment', leaving?.when, 'unsummon');
+is('keyed event:unsummon last', leaving?.subject?.keys?.at(-1), 'event:unsummon');
+is('a later beat keeps its own ledger row', leaving?.id, 'msgSummon:unsummon:companion-abc');
+is('a companion called back is a summon again', readMoment(summoned({ marker: 'companion-def', details: { companion: 'appear' } }), summonWorld)?.when, 'summon');
+is('unsummon is a moment kind with a sentence', WHEN.includes('unsummon') && WHEN_WORDS.unsummon, 'when its creature leaves');
+is('unsummon does NOT fall back to use', FALLS_BACK_TO_USE.includes('unsummon'), false);
 
 console.log('\nthe twin (3.0 emits bythebooks.moment and battleflow.moment for one payload)');
 const twin = payload({ momentId: 'msgTwin|sneak|whole' });

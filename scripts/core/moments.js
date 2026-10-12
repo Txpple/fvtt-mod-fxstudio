@@ -39,9 +39,11 @@
  * a hold, Sneak Attack's dice, a die folded into a d20 test, a clock rider's damage, a held roll
  * answered by a cast, a summoned creature appearing. The first five are By the Books' contract words
  * (`api.moments.events`), one for one; `summon` (2026-10-12) is ours: its `cast` word on its `summon`
- * record (the reader names it), since a `cast` alone also means a transform and others.
+ * record (the reader names it), since a `cast` alone also means a transform and others; `unsummon`
+ * (2026-10-12) is the same record's companion beat with `details.companion: "leave"` — a familiar
+ * going into its pocket or dismissed (a companion called back is `summon` again).
  */
-export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered', 'summon'];
+export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered', 'summon', 'unsummon'];
 
 /**
  * The By the Books words this build READS (readers/bythebooks.js) — a closed list of its own, not
@@ -70,6 +72,7 @@ export const WHEN_WORDS = {
   rider: 'when its damage rides a hit',
   'hold-answered': 'when it answers a held roll',
   summon: 'when its creature appears',
+  unsummon: 'when its creature leaves',
 };
 
 /**
