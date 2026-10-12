@@ -55,7 +55,10 @@
 //   use · cast · volley · choice · metamagic), and `kind` (the record), `marker`, `momentId`
 //   (`<messageId>|<kind>|<marker>`, unique per resolve — the dedupe key) on the payload. This reader
 //   hears the five in core/moments.js BYTHEBOOKS_WORDS and logs the rest as skips — INCLUDING `use`
-//   and `effect`, which are moment kinds here but name what the dnd5e reader already plays. The
+//   and `effect`, which are moment kinds here but name what the dnd5e reader already plays. One
+//   word is read by its RECORD (core/moments.js BYTHEBOOKS_RECORDS, 2026-10-12): `cast` on the
+//   `summon` record is our `summon` — the caster as source, the token each creature landed as as a
+//   target, so a picture plays where it appeared; every other `cast` (a transform) stays a skip. The
 //   momentId rides on the moment; engine/render.js plays a ticket once, so a word read beside a card
 //   can be taken later without a second picture.
 //
@@ -68,10 +71,11 @@
 //
 // THE SUBJECT: the item's own keys when the item resolves (feature:sneak-attack — so a look authored
 // for the ability answers), then `event:<event>` last, so a look can also be keyed to the moment
-// itself; with no item, the event key alone. WHEN is the event's word; a moment whose ability posts no
-// card falls back to the ability's `use` look (core/moments.js FALLS_BACK_TO_USE, engine/render.js).
+// itself; with no item, the event key alone. WHEN is the event's word (or the record's, for `summon`,
+// keyed `event:summon`); a moment whose ability posts no card falls back to the ability's `use` look
+// (core/moments.js FALLS_BACK_TO_USE, engine/render.js).
 import { keysFor } from '../core/subjects.js';
-import { BYTHEBOOKS_WORDS } from '../core/moments.js';
+import { BYTHEBOOKS_RECORDS, BYTHEBOOKS_WORDS } from '../core/moments.js';
 import { subjectOfItem, tokenForActorUuid } from './dnd5e.js';
 
 /** the package id, and the one it had as Battle Flow (2.x) — read when the new one is not active */
@@ -100,11 +104,12 @@ const LIVE = {
  */
 export function readMoment(payload, resolve = LIVE) {
   if (!payload || typeof payload !== 'object' || typeof payload.event !== 'string') return null;
-  if (!BYTHEBOOKS_WORDS.includes(payload.event)) return { skip: `"${payload.event}" is not a By the Books word this build reads` };
+  const word = BYTHEBOOKS_RECORDS[`${payload.event}|${payload.kind}`] ?? (BYTHEBOOKS_WORDS.includes(payload.event) ? payload.event : null);
+  if (!word) return { skip: `"${payload.event}" is not a By the Books word this build reads` };
   const item = payload.itemUuid ? resolve.item(payload.itemUuid) : null;
-  const subject = item ? subjectOfItem(item, { activity: null }) : { kind: 'event', name: payload.ability ?? payload.event, eventId: payload.event, keys: [] };
+  const subject = item ? subjectOfItem(item, { activity: null }) : { kind: 'event', name: payload.ability ?? word, eventId: word, keys: [] };
   if (!item) subject.keys = keysFor(subject);
-  const eventKey = `event:${payload.event}`;
+  const eventKey = `event:${word}`;
   if (!subject.keys.includes(eventKey)) subject.keys = [...subject.keys, eventKey];
   const source = tokenOfRow({ tokenUuid: payload.tokenUuid, actorUuid: payload.actorUuid }, resolve);
   if (!source) return { skip: 'no token for the one who resolved it' };
@@ -117,9 +122,9 @@ export function readMoment(payload, resolve = LIVE) {
     targets.push(entry);
   }
   return {
-    when: payload.event, kind: 'bythebooks', subject, source, targets,
-    origin: item?.uuid ?? `bythebooks.${payload.event}`,
-    id: `${payload.messageId ?? payload.at ?? 'bythebooks'}:${payload.event}`,
+    when: word, kind: 'bythebooks', subject, source, targets,
+    origin: item?.uuid ?? `bythebooks.${word}`,
+    id: `${payload.messageId ?? payload.at ?? 'bythebooks'}:${word}`,
     activity: payload.activityUuid ?? null,
     momentId: typeof payload.momentId === 'string' ? payload.momentId : null,
     // no By the Books flag is read, by contract; the payload rides as `event` for a gate or a tool that wants the plain facts

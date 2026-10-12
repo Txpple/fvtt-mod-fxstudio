@@ -33,13 +33,15 @@
 // a moment is the same record held or not.
 
 /**
- * The closed vocabulary of moment kinds; phase 4 adds the outcomes and the table's events. The five
+ * The closed vocabulary of moment kinds; phase 4 adds the outcomes and the table's events. The six
  * after `effect` are BY THE BOOKS' MOMENTS (readers/bythebooks.js; 2026-09-11, as Battle Flow): the
  * resolves that exist only in its rules and post no card of their own — a maneuver die riding a hit or answering
  * a hold, Sneak Attack's dice, a die folded into a d20 test, a clock rider's damage, a held roll
- * answered by a cast. The words are By the Books' contract (`api.moments.events`), one for one.
+ * answered by a cast, a summoned creature appearing. The first five are By the Books' contract words
+ * (`api.moments.events`), one for one; `summon` (2026-10-12) is ours: its `cast` word on its `summon`
+ * record (the reader names it), since a `cast` alone also means a transform and others.
  */
-export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
+export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered', 'summon'];
 
 /**
  * The By the Books words this build READS (readers/bythebooks.js) — a closed list of its own, not
@@ -51,6 +53,13 @@ export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hol
  */
 export const BYTHEBOOKS_WORDS = ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'];
 
+/**
+ * By the Books RECORDS this build reads under a word it otherwise skips: `<event>|<kind>` → our WHEN
+ * word. `cast` on the `summon` record (2026-10-12) is a creature By the Books created where the caster
+ * placed it; any other `cast` (a transform, a plain cast) stays a skip.
+ */
+export const BYTHEBOOKS_RECORDS = { 'cast|summon': 'summon' };
+
 /** what the sentence says for each kind */
 export const WHEN_WORDS = {
   use: 'when used',
@@ -60,6 +69,7 @@ export const WHEN_WORDS = {
   fold: 'when its die folds into a roll',
   rider: 'when its damage rides a hit',
   'hold-answered': 'when it answers a held roll',
+  summon: 'when its creature appears',
 };
 
 /**
@@ -68,7 +78,8 @@ export const WHEN_WORDS = {
  * Attack, used" IS the picture for Sneak Attack's dice riding a hit, and a table that authored one
  * for the card gets it on the dice with nothing to write. `hold-answered` is NOT here on purpose: a
  * cast that answers a hold (Shield) posts its own usage card, which already plays the `use` look —
- * a fallback would play it twice.
+ * a fallback would play it twice. Nor is `summon`, for the same reason: the summoning spell's usage card
+ * already played its `use` look at the cast, and the creature appearing is a second picture or none.
  */
 export const FALLS_BACK_TO_USE = ['maneuver', 'sneak', 'fold', 'rider'];
 

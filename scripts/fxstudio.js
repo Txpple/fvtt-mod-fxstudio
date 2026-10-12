@@ -15,7 +15,7 @@ import { registerScreens } from './ui/index.js';
 export { MODULE_ID };
 const log = (...a) => console.log('FX Studio |', ...a);
 
-const STOCK_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects'];
+const STOCK_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects', 'events'];
 const state = { corpora: { stock: [], house: [], starters: [], frozen: null }, index: null, rebuild, reload, open: null };
 
 async function loadJson(path, { fresh = false } = {}) {

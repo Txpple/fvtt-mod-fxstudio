@@ -1,0 +1,46 @@
+{
+ "_meta": {
+  "schema": 2,
+  "generated": "2026-10-12",
+  "tool": "by hand (DESIGN §26)",
+  "licence": "GPL-3.0-or-later (see STOCK-LICENSE)",
+  "note": "The moments: an FX keyed event:<word> answers every ability at that moment, after the ability's own FX for the word. Authored here, not migrated; the exception to §16 the user ruled on 2026-10-12.",
+  "fx": 1
+ },
+ "fx": [
+  {
+   "id": "summon-appears",
+   "for": [
+    "event:summon"
+   ],
+   "on": "summon",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "below": true,
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.purple"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "delay": 500,
+     "size": {
+      "tokenWidths": 1.75
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.02.white"
+     }
+    }
+   ]
+  }
+ ]
+}

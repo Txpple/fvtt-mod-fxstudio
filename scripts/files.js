@@ -8,7 +8,7 @@ import { MODULE_ID } from './settings.js';
 import { parseKey } from './core/subjects.js';
 
 /** the stock file a key's kind belongs in */
-export const KIND_FILES = { spell: 'spells', weapon: 'weapons', natural: 'natural', feature: 'features', item: 'items', effect: 'effects' };
+export const KIND_FILES = { spell: 'spells', weapon: 'weapons', natural: 'natural', feature: 'features', item: 'items', effect: 'effects', event: 'events' };
 export const HOUSE_FILE = 'recipes/house.json';
 
 const root = () => `modules/${MODULE_ID}`;

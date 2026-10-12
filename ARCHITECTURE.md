@@ -88,7 +88,8 @@ A moment is a plain record every reader produces the same way:
 ```
 
 - `when` is one of a closed vocabulary. Now: `use`, `effect`, and **By the Books' five** (built
-  2026-09-11, as Battle Flow's, below): `maneuver`, `sneak`, `fold`, `rider`, `hold-answered`. Phase 4 adds the
+  2026-09-11, as Battle Flow's, below): `maneuver`, `sneak`, `fold`, `rider`, `hold-answered`; and `summon`
+  (2026-10-12, DESIGN §26), By the Books' `cast` read on its `summon` record. Phase 4 adds the
   outcomes and events: `hit`, `miss`, `saved`, `failed-save`, `damaged` (with the damage type),
   `healed`, `status` (on and off), `downed`, `critical`, `fumble`, the rest of By the Books'
   (`riposte`, `shield-paid`, `emanation` — when it publishes them), plus core's (`turn-start`,

@@ -36,7 +36,7 @@ resolves, the campaign repos are `../../fvtt-campaign-*`.
   both an override and the Stock row under it. No draft, stage, ship or world buffer.
 - **Stock is the books; House is this table (§16–17).** A Stock row is keyed against the installed
   compendia (PHB, MM, DMG, Ravenloft, Heroes of Faerûn, Arcana Unleashed, then the system's SRD 5.2
-  packs; no SRD 5.1) and dnd5e's base weapons, nothing else. `LIST_PACKS` in `tools/lib/dnd5e.mjs`
+  packs; no SRD 5.1) and dnd5e's base weapons, nothing else — save the moment-wide FX in `stock/events.json`, keyed `event:<word>` (the user's exception, 2026-10-12, DESIGN §26). `LIST_PACKS` in `tools/lib/dnd5e.mjs`
   IS the evidence: a new book → add its packs → `node tools/records.mjs --write`, `node tools/gaps.mjs
   --write`. ⚠ **Never `migrate-aa.mjs --write` again**: Stock has been edited by hand since the last
   migration (the roadkill cut, Web) and a write would undo it. Run it dry, or write to a scratch copy
@@ -48,7 +48,7 @@ resolves, the campaign repos are `../../fvtt-campaign-*`.
   `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
   no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
   identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
-  item, never typed. Stock is 1027 FX, House 9. An FX per record playing the same animation as
+  item, never typed. Stock is 1028 FX (1027 keyed to records, plus `summon-appears` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
   another is the design, not redundancy (§18–19) — never offer to clean it up.
 - **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
   from `recipes/records.json`; the Library's Record door opens that record.
@@ -147,7 +147,8 @@ Sequencer is used through its public API only, never patched.
 Zero dependency either way. By the Books publishes `bythebooks.moment` (a plain payload; Battle Flow
 2.x published `battleflow.moment`, and 3.0 emits both names for one release); this module listens to
 both names in `readers/bythebooks.js`, hears a `momentId` once (the twin), reads a closed list of five
-words (`BYTHEBOOKS_WORDS`), plays a `momentId` once, and honours the hold through the gate in
+words (`BYTHEBOOKS_WORDS`) plus `cast` on its `summon` record as our `summon` (`BYTHEBOOKS_RECORDS`,
+DESIGN §26; Stock's `summon-appears` answers every summon), plays a `momentId` once, and honours the hold through the gate in
 `core/gates.js`, asking `fvtt-mod-bythebooks` first and the legacy `fvtt-mod-battleflow` when that is
 the active one. Neither is required nor in the manifest. The legacy names are for a table still on
 2.x, not for the double emit; they go when no table runs 2.x (the rename: its issue #6). Rules of

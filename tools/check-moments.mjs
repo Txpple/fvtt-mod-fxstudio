@@ -39,6 +39,8 @@ is('the five By the Books words are moment kinds', ['maneuver', 'sneak', 'fold',
 is('each has a sentence', ['maneuver', 'sneak', 'fold', 'rider', 'hold-answered'].every((w) => typeof WHEN_WORDS[w] === 'string' && WHEN_WORDS[w].length), true);
 is('the four that post no card fall back to the use look', FALLS_BACK_TO_USE.join(), 'maneuver,sneak,fold,rider');
 is('hold-answered does NOT fall back (its cast posts a card that already plays)', FALLS_BACK_TO_USE.includes('hold-answered'), false);
+is('summon is a moment kind with a sentence', WHEN.includes('summon') && WHEN_WORDS.summon, 'when its creature appears');
+is('summon does NOT fall back (the summoning spell\'s card already played its use)', FALLS_BACK_TO_USE.includes('summon'), false);
 
 console.log('\nthe reading');
 const m = readMoment(payload(), world);
@@ -77,6 +79,24 @@ is('`effect` off the hook is a skip: the effect reader already plays it (and a r
 is('the momentId rides on the moment', readMoment(payload({ momentId: 'msgDamage|sneak|whole' }), world)?.momentId, 'msgDamage|sneak|whole');
 is('no momentId (a v1 Battle Flow): null, never undefined', readMoment(payload(), world)?.momentId, null);
 
+console.log('\na summon (By the Books\' cast on its summon record, 2026-10-12)');
+const imp = { name: 'Imp', uuid: 'Scene.s.Token.i' };
+const owl = { name: 'Owl', uuid: 'Scene.s.Token.o' };
+const summonWorld = { ...world, token: (uuid) => ({ 'Scene.s.Token.i': imp, 'Scene.s.Token.o': owl })[uuid] ?? world.token(uuid) };
+const summoned = (over = {}) => payload({ event: 'cast', kind: 'summon', marker: 'message', momentId: 'msgSummon|summon|message', messageId: 'msgSummon',
+  itemUuid: null, itemName: 'Find Familiar', ability: 'Find Familiar',
+  targets: [{ actorUuid: 'Actor.imp', tokenUuid: 'Scene.s.Token.i', name: 'Imp' }, { actorUuid: 'Actor.owl', tokenUuid: 'Scene.s.Token.o', name: 'Owl' }],
+  details: { outcome: 'landed', count: 2 }, ...over });
+const sm = readMoment(summoned(), summonWorld);
+is('cast on the summon record is a summon moment', sm?.when, 'summon');
+is('keyed by the moment word last', sm?.subject?.keys?.at(-1), 'event:summon');
+is('the source is the caster', sm?.source, rogueToken);
+is('the targets are the tokens the creatures landed as', sm?.targets?.map((t) => t.token.name).join(), 'Imp,Owl');
+is('the ledger id names the word', sm?.id, 'msgSummon:summon');
+is('a cast on any other record (a transform) stays a skip', typeof readMoment(summoned({ kind: 'transform' }), summonWorld)?.skip, 'string');
+is('a cast with no record stays a skip', typeof readMoment(summoned({ kind: null }), summonWorld)?.skip, 'string');
+is('the word alone off the hook is not read (it is ours, not By the Books\')', typeof readMoment(payload({ event: 'summon' }), world)?.skip, 'string');
+
 console.log('\nthe twin (3.0 emits bythebooks.moment and battleflow.moment for one payload)');
 const twin = payload({ momentId: 'msgTwin|sneak|whole' });
 is('the first name is heard', firstHearing(twin), true);
@@ -110,6 +130,9 @@ const { resolveMoment, firstTime } = await import(toUrl(join(REPO, 'scripts/engi
   is('an off on the word silences it — no fallback past a silence', resolveMoment(off, m)?.fx ?? null, null);
   const held = readMoment(payload({ event: 'hold-answered', itemUuid: sneak.uuid }), world);
   is('hold-answered with only a use look plays nothing (the card already did)', resolveMoment(index, held)?.fx ?? null, null);
+  const castOnly = buildIndex({ stock: [{ id: 'any-cast', for: ['event:summon'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'a' } }] }], house: [], starters: [] });
+  is('a summon with only a use FX plays nothing (the cast already did)', resolveMoment(castOnly, sm)?.fx ?? null, null);
+  is('an FX keyed event:summon on summon answers every summon', resolveMoment(buildIndex({ stock: [{ id: 'any-summon', for: ['event:summon'], on: 'summon', scenes: [{ shape: 'mark', asset: { path: 'd' } }] }], house: [], starters: [] }), sm)?.fx?.id, 'any-summon');
   is('the event key answers on its own when a look is keyed to it', resolveMoment(buildIndex({ stock: [{ id: 'any-sneak', for: ['event:sneak'], on: 'sneak', scenes: [{ shape: 'mark', asset: { path: 'c' } }] }], house: [], starters: [] }), m)?.fx?.id, 'any-sneak');
 }
 

@@ -5164,8 +5164,7 @@
      "shape": "mark",
      "at": "source",
      "sound": {
-      "asset": "psfx.magic-signs.rune.v1.conjuration.complete",
-      "start": 1000
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
      },
      "asset": {
       "path": "jb2a.magic_signs.circle.02.conjuration.loop.yellow"

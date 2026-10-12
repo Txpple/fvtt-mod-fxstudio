@@ -2024,3 +2024,35 @@ FX*, each with its reason (always on; a lasting enchantment; no activity on the 
 for another ability that plays the moment; a passive benefit). Arcana Unleashed's gaps were written
 against it from the start. The rows already marked *No proposed FX* were checked the other way, for a
 moment they had missed, and their reasons held.
+
+## 26. A summoned creature appearing is a moment (the user's goal, 2026-10-12)
+
+The user asked that a creature By the Books summons get a picture where it appears (a poof, a
+summoning circle). By the Books already publishes it: when its summon lands, `bythebooks.moment` with
+`event: "cast"`, `kind: "summon"` (its record), the caster as actor and token, the spell as item, and
+one target row per creature with the token it landed as (`momentId` `<messageId>|summon|message`).
+
+**The word.** `summon` joins WHEN, said *when its creature appears*. It is ours, not one of By the
+Books' contract words: `cast` alone also means a transform, so the reader reads this one by its
+record — `core/moments.js` `BYTHEBOOKS_RECORDS` maps `cast|summon` to `summon`; every other `cast`
+stays a logged skip, and BYTHEBOOKS_WORDS is unchanged. The moment's source is the caster's token,
+its targets the summoned tokens, its subject the spell's own key first and `event:summon` last, its
+ledger id `<messageId>:summon`. `check-moments` proves the reading (eight rules) and the no-fallback.
+
+**No fallback to `use`.** `summon` is not in FALLS_BACK_TO_USE, for `hold-answered`'s reason: the
+summoning spell's usage card already played its `use` FX at the cast (every summoning spell's Stock FX
+is a conjuration circle at the caster), so a fallback would play that picture a second time. The
+creature's appearance plays only what is authored for `summon`.
+
+**The default FX for every summon (the user's ruling, 2026-10-12: "one default summon effect").** The
+exception to §16: Stock may hold an FX keyed `event:<word>`, an FX that answers every ability at a
+moment, in its own file `recipes/stock/events.json` (`event` → `events` in `files.js` KIND_FILES, the
+Stock file lists in `fxstudio.js` and `tools/lib/recipes.mjs`). It carries no `record` (an event has
+none) and the record tools leave it alone. Its one FX, `summon-appears`, picked off the contact sheets
+in the asset drop: the PURPLE conjuration circle (`jb2a.magic_signs.circle.02.conjuration.complete.purple`,
+below the token, with the PSFX conjuration-circle intro sound) at each summoned token, and half a second in a
+white smoke-puff ring (`jb2a.smoke.puff.ring.02.white`) as the poof. Purple, so it never reads as the
+yellow circle the summoning spells' own Stock FX play at the caster. A spell's own `summon` FX, when one
+is ever authored, wins over it (the subject's own key comes before `event:summon`). The Editor still
+neither authors `event:` keys nor offers `summon` as a Moment; editing it is a hand edit of the file.
+

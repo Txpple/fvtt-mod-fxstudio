@@ -10,7 +10,7 @@ import { database } from './stage.mjs';
 import { buildIndex } from '../../scripts/core/corpus.js';
 import { useDatabase } from '../../scripts/engine/assets.js';
 
-export const STOCK_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects'];
+export const STOCK_FILES = ['spells', 'weapons', 'natural', 'features', 'items', 'effects', 'events'];
 
 const readJson = (p) => (existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : null);
 
