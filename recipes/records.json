@@ -1,16 +1,16 @@
 {
  "_meta": {
   "schema": 1,
-  "generated": "2026-10-02",
+  "generated": "2026-10-12",
   "tool": "tools/records.mjs",
-  "keys": 4284,
+  "keys": 4194,
   "kinds": {
-   "effect": 1169,
-   "feature": 1433,
-   "item": 807,
-   "natural": 241,
+   "effect": 1156,
+   "feature": 1428,
+   "item": 743,
+   "natural": 236,
    "spell": 460,
-   "weapon": 174
+   "weapon": 171
   },
   "books": [
    "phb/spells",
@@ -1031,11 +1031,6 @@
    "name": "Chill Touch",
    "where": "Player's Handbook · Spells"
   },
-  "effect:bloodied": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P",
-   "name": "Gren Greenmantle",
-   "where": "this world · Gren Greenmantle"
-  },
   "effect:bludgeoning-piercing-slashing-resistance": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArmorOfInvuln",
    "name": "Armor of Invulnerability",
@@ -1625,11 +1620,6 @@
    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDiamondStaftz",
    "name": "Diamond Staff",
    "where": "Arcana Unleashed · Magic Items"
-  },
-  "effect:dead": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P",
-   "name": "Gren Greenmantle",
-   "where": "this world · Gren Greenmantle"
   },
   "effect:deafened": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
@@ -2721,25 +2711,10 @@
    "name": "Claws",
    "where": "Monster Manual · Features"
   },
-  "effect:grappled-blinded--restrained": {
-   "uuid": "Actor.b7Upe9E75yANZ6pw.Item.mmEngulf00000000",
-   "name": "Engulf",
-   "where": "this world · Shambling Mound"
-  },
   "effect:grasping-shot": {
    "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunGraspingShot0",
    "name": "Grasping Shot",
    "where": "Arcana Unleashed · Subclasses"
-  },
-  "effect:great-weapon-fighting": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3",
-   "name": "BF Test Fighter",
-   "where": "this world · BF Test Fighter"
-  },
-  "effect:great-weapon-master": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3",
-   "name": "BF Test Fighter",
-   "where": "this world · BF Test Fighter"
   },
   "effect:green-scale": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDragonScaleMa",
@@ -4056,11 +4031,6 @@
    "name": "Protection from Evil and Good",
    "where": "Player's Handbook · Spells"
   },
-  "effect:protected--invictus": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX",
-   "name": "Morgash the Gravemaker",
-   "where": "this world · Morgash the Gravemaker"
-  },
   "effect:protected-against-poison": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPeriaptOfProo",
    "name": "Periapt of Proof against Poison",
@@ -4736,11 +4706,6 @@
    "name": "Shadow Shot",
    "where": "Arcana Unleashed · Subclasses"
   },
-  "effect:shard-hardened-natural-armor": {
-   "uuid": "Actor.oOWorLH5BJ7lQfmE",
-   "name": "Cadoc, the Guardian",
-   "where": "this world · Cadoc, the Guardian"
-  },
   "effect:shield-1": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgShield12or300",
    "name": "Shield, +1, +2, or +3",
@@ -4952,9 +4917,9 @@
    "where": "Dungeon Master's Guide · Equipment"
   },
   "effect:spell-changes": {
-   "uuid": "Actor.3l181JACaGIi5wpS.Item.pGCWaJeK2JaCvwJj",
-   "name": "Heroism",
-   "where": "this world · Hobgoblin Captain"
+   "uuid": "Actor.NfUc58tLLQXQyWod.Item.9Qq8TeGKvHTiEfBc",
+   "name": "Healing Word",
+   "where": "this world · Brom Korrin"
   },
   "effect:spell-taxed": {
    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResurrecti",
@@ -5306,26 +5271,6 @@
    "name": "Divine Order: Thaumaturge",
    "where": "Player's Handbook · Character Classes"
   },
-  "effect:the-duskheart": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.cp5XMCNr7DJgTPL1",
-   "name": "The Duskheart",
-   "where": "this world · Harrow Vane"
-  },
-  "effect:the-graveheart": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KI5sDm8afpKoVgaq",
-   "name": "The Graveheart",
-   "where": "this world · BF Test Fighter"
-  },
-  "effect:the-thornheart": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.BRzu8BoVm5MvJAW6",
-   "name": "The Thornheart",
-   "where": "this world · Invictus"
-  },
-  "effect:the-tideheart": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.58Ug31CaKSQVZwXM",
-   "name": "The Tideheart",
-   "where": "this world · Gren Greenmantle"
-  },
   "effect:third-eye-darkvision": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbwzdTheThirdEy",
    "name": "The Third Eye",
@@ -5596,11 +5541,6 @@
    "name": "Freedom of Movement",
    "where": "Player's Handbook · Spells"
   },
-  "effect:unstoppable-drive": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.6bDjeKnZ3ktwq7ce",
-   "name": "Maul of Momentum",
-   "where": "this world · BF Test Fighter"
-  },
   "effect:upgraded-constitution": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAmuletOfHealt",
    "name": "Amulet of Health",
@@ -5630,11 +5570,6 @@
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSylunesViper0",
    "name": "Syluné's Viper",
    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
-  },
-  "effect:vesper-staff": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.J4ZM2TYNK5TZV7S1",
-   "name": "Vesper Staff",
-   "where": "this world · Gren Greenmantle"
   },
   "effect:vicious-weapon": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgViciousWeapon",
@@ -9541,11 +9476,6 @@
    "name": "Keen Senses",
    "where": "Player's Handbook · Character Origins"
   },
-  "feature:kill-or-knock-out": {
-   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.tBX3Ez8fyMwAVqwL",
-   "name": "Kill or Knock Out",
-   "where": "this world · Greenrest Mob — Torchbearers"
-  },
   "feature:knight-of-the-gauntlet": {
    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofKnightoftheGa",
    "name": "Knight of the Gauntlet",
@@ -9615,11 +9545,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLeap0000000000",
    "name": "Leap",
    "where": "Monster Manual · Features"
-  },
-  "feature:legendary-actions": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.LKXbRDWmI68uYRQv",
-   "name": "Legendary Actions",
-   "where": "this world · Harrow Vane"
   },
   "feature:legendary-resistance": {
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmLegendaryResis",
@@ -9940,11 +9865,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMarshalUndead0",
    "name": "Marshal Undead",
    "where": "Monster Manual · Features"
-  },
-  "feature:martial-advantage": {
-   "uuid": "Actor.bFdYxsTJFbyrGABY.Item.Y73kGtiKbGevpBCo",
-   "name": "Martial Advantage",
-   "where": "this world · BF Test Attacker"
   },
   "feature:martial-arts": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbmnkMartialArt",
@@ -10295,11 +10215,6 @@
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbpdnNaturesWra",
    "name": "Nature's Wrath",
    "where": "Player's Handbook · Character Classes"
-  },
-  "feature:necrofire-reach": {
-   "uuid": "Actor.oOWorLH5BJ7lQfmE.Item.ymGYXYyQos1ohNO6",
-   "name": "Necrofire Reach",
-   "where": "this world · Cadoc, the Guardian"
   },
   "feature:necromancer": {
    "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunNecromancer00",
@@ -11430,11 +11345,6 @@
    "uuid": "Compendium.dnd-arcana-unleashed.subclasses.Item.aunShapeshifter0",
    "name": "Shape-Shifter",
    "where": "Arcana Unleashed · Subclasses"
-  },
-  "feature:shard-fed": {
-   "uuid": "Actor.9LZyg8Ba9faCP9aH.Item.WoReHB4AlYcrybhc",
-   "name": "Shard-Fed",
-   "where": "this world · Aldous"
   },
   "feature:share-spells": {
    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbrgrShareSpell",
@@ -13056,11 +12966,6 @@
    "name": "Wand of the War Mage, +1, +2, or +3",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:a-dose-of-greenrest-tonic": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.zMLT2nWp5mYVw7xm",
-   "name": "A Dose of Greenrest Tonic",
-   "where": "this world · Invictus"
-  },
   "item:absorption-ioun-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAbsorptionIou",
    "name": "Ioun Stone of Absorption",
@@ -13070,11 +12975,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagAcid0000000",
    "name": "Acid",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:acorn-with-squirrel-spit": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.zHL0i06urKRVabcO",
-   "name": "Acorn",
-   "where": "this world · The Party"
   },
   "item:adamantine-armor": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAdamantineArm",
@@ -13256,11 +13156,6 @@
    "name": "Assassin's Blood",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:astral-steel-buckle": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.r2UOaoceIby9smXv",
-   "name": "Astral-Steel Buckle",
-   "where": "this world · BF Test Fighter"
-  },
   "item:avenger-spirit": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSAvengerSpv2",
    "name": "Avenger Spirit",
@@ -13291,40 +13186,10 @@
    "name": "Bag of Devouring",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:bag-of-emberspice-chai": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.J94pQBTOztMjoHkN",
-   "name": "Bag of Emberspice Chai",
-   "where": "this world · Mother Wend"
-  },
-  "item:bag-of-fen-orchid-oolong": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.qx003m0UwaQeAsHC",
-   "name": "Bag of Fen-Orchid Oolong",
-   "where": "this world · Mother Wend"
-  },
-  "item:bag-of-gold-tesserae-prised-loose": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.uzrGnivoAI2lBTFE",
-   "name": "Bag of Gold Tesserae, Prised Loose",
-   "where": "this world · Selma"
-  },
-  "item:bag-of-golden-needle-tea": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.5eVLXzwHrrCZGKD0",
-   "name": "Bag of Golden Needle Tea",
-   "where": "this world · Mother Wend"
-  },
   "item:bag-of-holding": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfHolding0",
    "name": "Bag of Holding",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:bag-of-moonpetal-white-tea": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.PbXU0jrkQkTn3spn",
-   "name": "Bag of Moonpetal White Tea",
-   "where": "this world · Mother Wend"
-  },
-  "item:bag-of-smoked-ashenleaf-tea": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.o8ID87xgtD0pWJzP",
-   "name": "Bag of Smoked Ashenleaf Tea",
-   "where": "this world · Mother Wend"
   },
   "item:bag-of-tricks": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfTricks00",
@@ -13475,21 +13340,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBoatUtility00",
    "name": "Activate Folding Boat",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:bolt-of-fine-cloth": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.70415OrBu3B60EJi",
-   "name": "Bolt of Fine Cloth",
-   "where": "this world · Mother Wend"
-  },
-  "item:bolt-of-sanctuary-velvet-deep-purple": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.r91zuD7cEFyAfbNv",
-   "name": "Bolt of Sanctuary Velvet, Deep Purple",
-   "where": "this world · Selma"
-  },
-  "item:bolt-of-water-stained-silk": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.aHAz3XE5UtHZ1iFr",
-   "name": "Bolt of Water-Stained Silk",
-   "where": "this world · Mother Wend"
   },
   "item:bolts": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbamoBolts00000",
@@ -13676,11 +13526,6 @@
    "name": "Caltrops",
    "where": "Player's Handbook · Equipment"
   },
-  "item:campaign-coin--the-battle-of-baldurs-gate": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KrX8gITKjlw4m3Ky",
-   "name": "Campaign Coin — the Battle of Baldur's Gate",
-   "where": "this world · BF Test Fighter"
-  },
   "item:canaith-mandolin-instrument-of-the-bards": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCanaithMandol",
    "name": "Canaith Mandolin Instrument of the Bards",
@@ -13736,11 +13581,6 @@
    "name": "Cartographer's Tools",
    "where": "Player's Handbook · Equipment"
   },
-  "item:carved-whalebone-comb-set": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.tc6OdojC31uAyCMT",
-   "name": "Carved Whalebone Comb Set",
-   "where": "this world · Mother Wend"
-  },
   "item:case-crossbow-bolt": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagCaseCrossbo",
    "name": "Case, Crossbow Bolt",
@@ -13790,16 +13630,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCharlatansDie",
    "name": "Charlatan's Die",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:chart-of-the-four-chambers": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.hvSgAgJ9QLXyTJm5",
-   "name": "The Sisters' Notes",
-   "where": "this world · The Party"
-  },
-  "item:chaunteas-barley-token": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.kolnfsTniVSYrU48",
-   "name": "Chauntea's Barley-Token",
-   "where": "this world · Jetten Elisedil"
   },
   "item:chest": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagChest000000",
@@ -13935,11 +13765,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulCooksUtens",
    "name": "Cook's Utensils",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:copyists-ledger-leaf": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.UedWWgMSPAPkXfxm",
-   "name": "Copyist's Ledger Leaf",
-   "where": "this world · Gren Greenmantle"
   },
   "item:costume": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.oQRUfRQQjsMMXJhD",
@@ -14286,20 +14111,10 @@
    "name": "Euryale",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:everbloom-petal": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.vOBEsJUugr50blgK",
-   "name": "Everbloom Petal",
-   "where": "this world · The Party"
-  },
   "item:evergreen-fertilizer": {
    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunEvergreenFeEG",
    "name": "Evergreen Fertilizer",
    "where": "Arcana Unleashed · Magic Items"
-  },
-  "item:everseed-acorn": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.kTi1WdgJe2zlSb8M",
-   "name": "Everseed Acorn",
-   "where": "this world · Gren Greenmantle"
   },
   "item:eversmoking-bottle": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEversmokingBo",
@@ -14366,11 +14181,6 @@
    "name": "Fates",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:feather": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.0FPhTgUnWDcgr0EA",
-   "name": "Peryton Feather",
-   "where": "this world · Mother Wend"
-  },
   "item:feather-token": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgQuaalsFeather",
    "name": "Feather Token",
@@ -14380,11 +14190,6 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwFeatheredMask",
    "name": "Feathered Mask",
    "where": "Ravenloft: The Horrors Within · Items"
-  },
-  "item:fey-ring-cap": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.NeSW0a9h5ZCc3khD",
-   "name": "Fey Ring Cap",
-   "where": "this world · The Party"
   },
   "item:figurine-of-wondrous-power": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFigurineOfWon",
@@ -14415,11 +14220,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtFlames0000",
    "name": "Flames",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:flaming-fist-service-badge": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KvJvreqy473XlKrJ",
-   "name": "Flaming Fist Service Badge",
-   "where": "this world · BF Test Fighter"
   },
   "item:flask": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagFlask000000",
@@ -14531,11 +14331,6 @@
    "name": "Genie Robe",
    "where": "Forgotten Realms: Heroes of Faerûn · Items"
   },
-  "item:gilt-framed-portrait-of-a-stern-merchant": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.gjQsgndeMbwQ9o4E",
-   "name": "Gilt-Framed Portrait of a Smiling Merchant",
-   "where": "this world · Selma"
-  },
   "item:glamoured-studded-leather": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGlamouredStud",
    "name": "Glamoured Studded Leather",
@@ -14600,11 +14395,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGogglesOfNigh",
    "name": "Goggles of Night",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:gold-disc-palm-worn": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.GZMx87HDJ3Jw9HLC",
-   "name": "Gold Disc, Palm-Worn",
-   "where": "this world · Selma"
   },
   "item:gold-shoe": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwGoldShoe00000",
@@ -14746,11 +14536,6 @@
    "name": "Herbalism Kit",
    "where": "Player's Handbook · Equipment"
   },
-  "item:hespers-bone-key": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.zyCvcxXtYULWcis2",
-   "name": "Hesper's Bone Key",
-   "where": "this world · BF Test Fighter"
-  },
   "item:hewards-handy-haversack": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHewardsHandyH",
    "name": "Heward's Handy Haversack",
@@ -14780,16 +14565,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHillPotionOfG",
    "name": "Potion of Giant Strength (Hill)",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:holy-symbol-of-oghma": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.NwZ9sgKxGyPlQ19V",
-   "name": "Holy Symbol of Oghma",
-   "where": "this world · Invictus"
-  },
-  "item:holy-symbol-of-shar-jet-on-silver": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.uNwjO2t9heFX4Cpo",
-   "name": "Holy Symbol of Shar, Jet on Silver",
-   "where": "this world · The Party"
   },
   "item:holy-symbol-varies": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHolySymbolV",
@@ -14931,21 +14706,6 @@
    "name": "Ivory Goats",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:jar-a-mothers-little-finger": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.PDRvQ6MbXACi9NnT",
-   "name": "Jar: A Mother's Little Finger",
-   "where": "this world · The Party"
-  },
-  "item:jar-of-mourners-teeth": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.KCEno2xzCNEmBI2C",
-   "name": "Jar of Mourner's Teeth",
-   "where": "this world · The Party"
-  },
-  "item:jar-of-widows-tears": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.igLO9gA0s94kGdUT",
-   "name": "Jar of Widow's Tears",
-   "where": "this world · The Party"
-  },
   "item:jester": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtJester0000",
    "name": "Jester",
@@ -15000,16 +14760,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgKeoghtomsOint",
    "name": "Keoghtom's Ointment",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:kestrel-company-brooch": {
-   "uuid": "Actor.9LZyg8Ba9faCP9aH.Item.26eyQtL7kkQ9ANOc",
-   "name": "Kestrel Company Brooch",
-   "where": "this world · Aldous"
-  },
-  "item:kestrel-company-locket": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.G5FJAPRBG3W9X0VC",
-   "name": "Kestrel Company Locket",
-   "where": "this world · The Party"
   },
   "item:key": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtKey0000000",
@@ -15206,11 +14956,6 @@
    "name": "Mark of the Raven Talisman",
    "where": "Ravenloft: The Horrors Within · Items"
   },
-  "item:marns-unsent-letter": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.zOr4QMJygH3H4opU",
-   "name": "Marn's Unsent Letter",
-   "where": "this world · The Party"
-  },
   "item:marvelous-pigments": {
    "uuid": "Compendium.dnd5e.equipment24.Item.dmgNolzursMarvel",
    "name": "Marvelous Pigments",
@@ -15386,16 +15131,6 @@
    "name": "Oil of Taggit",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:oil-painting-sunlit-wetlands": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.AkW4nWm6TjS7JH2y",
-   "name": "Oil Painting: \"Sunlit Wetlands\"",
-   "where": "this world · Mother Wend"
-  },
-  "item:oil-painting-three-ladies-at-tea": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.Az3M6iNh8owmK0At",
-   "name": "Oil Painting: \"Three Ladies at Tea\"",
-   "where": "this world · Mother Wend"
-  },
   "item:ollam-harp-instrument-of-the-bards": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOllamHarpInst",
    "name": "Ollamh Harp Instrument of the Bards",
@@ -15435,21 +15170,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOrbOfTime0000",
    "name": "Orb of Time",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:ornate-teacup-black-and-silver": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.YFV8sFEUGY7cwqWl",
-   "name": "Ornate Teacup, Black and Silver",
-   "where": "this world · Mother Wend"
-  },
-  "item:ornate-teacup-bone-porcelain": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.W9P19vBx5s0YqWUF",
-   "name": "Ornate Teacup, Bone Porcelain",
-   "where": "this world · Mother Wend"
-  },
-  "item:ornate-teacup-sea-glass-green": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.DIXkYZZmrVOqlGH2",
-   "name": "Ornate Teacup, Sea-Glass Green",
-   "where": "this world · Mother Wend"
   },
   "item:padded-armor": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbarmPaddedArmo",
@@ -15545,11 +15265,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbgstPlayingcar",
    "name": "Playing Cards",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:pocket-psalter": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.2Ijss4tobs4gLblG",
-   "name": "Pocket Psalter",
-   "where": "this world · Invictus"
   },
   "item:poison-basic": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPoisonBasic",
@@ -15726,11 +15441,6 @@
    "name": "Potion of Poison",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:potion-of-poison-resistance": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.H0JkVjjwUoeMcANU",
-   "name": "Potion of Poison Resistance",
-   "where": "this world · Selma"
-  },
   "item:potion-of-pugilism": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfPugil",
    "name": "Potion of Pugilism",
@@ -15770,11 +15480,6 @@
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPouch000000",
    "name": "Pouch",
    "where": "Player's Handbook · Equipment"
-  },
-  "item:pouch-of-cut-gems": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.eBVsyWMmIiorChEs",
-   "name": "Pouch of Cut Gems",
-   "where": "this world · Mother Wend"
   },
   "item:preserved-humanoid-limb": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwPreservedHuma",
@@ -15836,11 +15541,6 @@
    "name": "Quiver of Ehlonna",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:rack-of-stoppered-jars-cave-bloom-draught": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.VXsY0uH7ZU44R9bp",
-   "name": "Rack of Stoppered Jars, Cave-Bloom Draught",
-   "where": "this world · Selma"
-  },
   "item:ram-portable": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagRamPortable",
    "name": "Ram, Portable",
@@ -15885,11 +15585,6 @@
    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSRenegadeSXD",
    "name": "Renegade Spirit",
    "where": "Ravenloft: The Horrors Within · Character Options"
-  },
-  "item:renlow-vecks-signet-ring": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.Xo6UU8qyO0VQURwR",
-   "name": "Renlow Veck's Signet Ring",
-   "where": "this world · BF Test Fighter"
   },
   "item:reserve-ioun-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgReserveIounSt",
@@ -16026,11 +15721,6 @@
    "name": "Rival Coin",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:riverside-teahouse-keepsake": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.ktABuSaRBerL0Jl3",
-   "name": "Riverside Teahouse Keepsake",
-   "where": "this world · The Party"
-  },
   "item:robe": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.jLcAY4Oph8ZEniG2",
    "name": "Robe",
@@ -16100,11 +15790,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtRogue00000",
    "name": "Rogue",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:roll-of-embroidered-tapestry": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.F9WuttLMcsp4MMO6",
-   "name": "Roll of Embroidered Tapestry",
-   "where": "this world · Mother Wend"
   },
   "item:rolling-stone": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRollingStone0",
@@ -16196,11 +15881,6 @@
    "name": "Scrap of Black Fabric",
    "where": "Ravenloft: The Horrors Within · Items"
   },
-  "item:scriveners-seal-ring": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.MZIYKvCbm9liSxdh",
-   "name": "Scrivener's Seal Ring",
-   "where": "this world · Invictus"
-  },
   "item:scroll-of-hieroglyphics": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwScrollofHiero",
    "name": "Scroll of Hieroglyphics",
@@ -16256,11 +15936,6 @@
    "name": "Shawm",
    "where": "Player's Handbook · Equipment"
   },
-  "item:sheaf-of-charcoal-sketches": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.ayZRnCoIR8MTtmCZ",
-   "name": "Sheaf of Charcoal Sketches",
-   "where": "this world · The Party"
-  },
   "item:shield": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbarmShield0000",
    "name": "Shield",
@@ -16301,11 +15976,6 @@
    "name": "Signal Whistle",
    "where": "Player's Handbook · Equipment"
   },
-  "item:silver-gauntlet-vault-key": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.UkIwKFWG77cWt4sB",
-   "name": "Silver Gauntlet Vault Key",
-   "where": "this world · Invictus"
-  },
   "item:silver-horn-of-valhalla": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSilverHornOfV",
    "name": "Silver Horn of Valhalla",
@@ -16315,16 +15985,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpSilverRave",
    "name": "Silver Raven",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:silverpoint-quill": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.zPreDiCbDrRfCS0j",
-   "name": "Silverpoint Quill",
-   "where": "this world · Invictus"
-  },
-  "item:singe-marked-childs-mitten": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.87XD8LE9QxKNVDfV",
-   "name": "Singe-Marked Child's Mitten",
-   "where": "this world · Gren Greenmantle"
   },
   "item:skull": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtSkull00000",
@@ -16340,16 +16000,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSlippersOfSpi",
    "name": "Slippers of Spider Climbing",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:small-cask-of-southern-wine": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.zM2p28oWsLmGel9a",
-   "name": "Small Cask of Southern Wine",
-   "where": "this world · BF Test Fighter"
-  },
-  "item:small-dragon-bones-wired": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.lp6vt1Q69eCRXWxo",
-   "name": "Small Dragon Bones, Wired",
-   "where": "this world · Mother Wend"
   },
   "item:smiths-tools": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbtulSmithsTool",
@@ -16450,11 +16100,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtStar000000",
    "name": "Star",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:star-chart-folio-ribbon-bound": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.uSnv9KsZ2i6NUCAR",
-   "name": "Star-Chart Folio, Ribbon-Bound",
-   "where": "this world · Selma"
   },
   "item:star-map-bound-in-ebony-cover": {
    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbStarMapBoundI",
@@ -16626,11 +16271,6 @@
    "name": "Tarnished Signet Ring",
    "where": "Ravenloft: The Horrors Within · Items"
   },
-  "item:tarnished-silver-tea-service": {
-   "uuid": "Actor.JBEHNnZOEsNrtDmV.Item.bBFAjcTXDpTAKXYF",
-   "name": "Tarnished Silver Tea Service",
-   "where": "this world · Mother Wend"
-  },
   "item:telepathy-crystal-ball-of": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTelepathyCrys",
    "name": "Crystal Ball of Telepathy",
@@ -16650,36 +16290,6 @@
    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofThayanSpellTa",
    "name": "Thayan Spell Tattoo",
    "where": "Forgotten Realms: Heroes of Faerûn · Items"
-  },
-  "item:the-bolt-that-missed-its-grave": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.bf51ReaDx6WDmptj",
-   "name": "The Bolt That Missed Its Grave",
-   "where": "this world · Gren Greenmantle"
-  },
-  "item:the-duskheart": {
-   "uuid": "Actor.5P55min0Wz0isz1O.Item.cp5XMCNr7DJgTPL1",
-   "name": "The Duskheart",
-   "where": "this world · Harrow Vane"
-  },
-  "item:the-graveheart": {
-   "uuid": "Actor.2ZLVGsghw3fYHKO3.Item.KI5sDm8afpKoVgaq",
-   "name": "The Graveheart",
-   "where": "this world · BF Test Fighter"
-  },
-  "item:the-thornheart": {
-   "uuid": "Actor.dCMYjnrBUrdCqXwo.Item.BRzu8BoVm5MvJAW6",
-   "name": "The Thornheart",
-   "where": "this world · Invictus"
-  },
-  "item:the-tideheart": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.58Ug31CaKSQVZwXM",
-   "name": "The Tideheart",
-   "where": "this world · Gren Greenmantle"
-  },
-  "item:the-widows-ledger": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.RgobzlBo9ZYnCqJo",
-   "name": "The Widows' Ledger",
-   "where": "this world · The Party"
   },
   "item:thespians-playbill": {
    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunThespiansPlaZ",
@@ -16751,11 +16361,6 @@
    "name": "Torpor",
    "where": "Dungeon Master's Guide · Equipment"
   },
-  "item:trail-worn-map-journal": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.RxeXKMFS2UStc9hW",
-   "name": "Trail-Worn Map Journal",
-   "where": "this world · Jetten Elisedil"
-  },
   "item:tramontane-armor": {
    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunTramontaneAyR",
    "name": "Tramontane Armor",
@@ -16826,20 +16431,10 @@
    "name": "Viol",
    "where": "Player's Handbook · Equipment"
   },
-  "item:violet-stone-from-the-black-basin": {
-   "uuid": "Actor.krdThcl2lpElRTny.Item.dqHflANRMWU22QD6",
-   "name": "Violet Stone from the Black Basin",
-   "where": "this world · Selma"
-  },
   "item:void": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDmtVoid000000",
    "name": "Void",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:volos-guide-annotated": {
-   "uuid": "Actor.m2iibo7g0b1YFFjQ.Item.nAD8npqXUa11PYZx",
-   "name": "Volo's Guide to Monsters (Annotated)",
-   "where": "this world · The Party"
   },
   "item:von-zarovich-crest": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwvonZarovichCr",
@@ -17050,11 +16645,6 @@
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWrapsOfUnarme",
    "name": "Wraps of Unarmed Power",
    "where": "Dungeon Master's Guide · Equipment"
-  },
-  "item:wren-bone-whistle": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.ESPxeOPRTCHdAE9x",
-   "name": "Wren-Bone Whistle",
-   "where": "this world · Jetten Elisedil"
   },
   "item:wyvern-and-lotus-shield": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwWyvernandLotu",
@@ -17388,11 +16978,6 @@
    "name": "Clockwork Spear",
    "where": "Monster Manual · Actors",
    "on": "Modron Tridrone"
-  },
-  "natural:club": {
-   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.6e0RVWqCncxDxdve",
-   "name": "Club",
-   "where": "this world · Greenrest Mob — Torchbearers"
   },
   "natural:coagulated-nodule": {
    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGreaterStarSp.Item.3B1rFRSWto8FvNms",
@@ -17895,6 +17480,11 @@
    "on": "Living Cone of Cold",
    "of": 3
   },
+  "natural:makeshift-axe": {
+   "uuid": "Actor.UjFNqZW5uYXZb8Xm.Item.mmBoneCudgel0000",
+   "name": "Makeshift Axe",
+   "where": "this world · Grimlock (Axe)"
+  },
   "natural:mercurial-axe": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmNycaloth000000.Item.mmMercurialAxe00",
    "name": "Mercurial Axe",
@@ -17932,11 +17522,6 @@
    "where": "Monster Manual · Actors",
    "on": "Spirit Naga",
    "of": 2
-  },
-  "natural:necrotic-scythe": {
-   "uuid": "Actor.oOWorLH5BJ7lQfmE.Item.mmNecroticSword0",
-   "name": "Necrotic Scythe",
-   "where": "this world · Cadoc, the Guardian"
   },
   "natural:necrotic-sword": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWight000000000.Item.mmNecroticSword0",
@@ -18024,11 +17609,6 @@
    "name": "Pincer Staff",
    "where": "Monster Manual · Actors",
    "on": "Kuo-toa Whip"
-  },
-  "natural:pitchfork": {
-   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.2AywJA2chTjXsQEb",
-   "name": "Pitchfork",
-   "where": "this world · Greenrest Mob — Torchbearers"
   },
   "natural:poison-burst": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDrider00000000.Item.mmPoisonBurst000",
@@ -18423,11 +18003,6 @@
    "where": "Ravenloft: The Horrors Within · Bestiary",
    "on": "Harkon Lukas"
   },
-  "natural:sword": {
-   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.issoJvNfU36RR4Le",
-   "name": "Sword",
-   "where": "this world · Greenrest Mob — Torchbearers"
-  },
   "natural:tail": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnkylosaurus00.Item.mmTail0000000000",
    "name": "Tail",
@@ -18508,16 +18083,6 @@
    "name": "Thrash",
    "where": "Monster Manual · Actors",
    "on": "Barlgura"
-  },
-  "natural:thrown-cabbage": {
-   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.MmVg1zGvUeLILuhw",
-   "name": "Thrown Cabbage",
-   "where": "this world · Greenrest Mob — Torchbearers"
-  },
-  "natural:thrown-tomato": {
-   "uuid": "Actor.1dqdhC9KdKFLMURG.Item.OEi8ATSDTm2GaMdz",
-   "name": "Thrown Tomato",
-   "where": "this world · Greenrest Mob — Torchbearers"
   },
   "natural:thunderbolt": {
    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmStormGiant0000.Item.mmThunderbolt000",
@@ -21166,11 +20731,6 @@
    "name": "Glaive",
    "where": "Player's Handbook · Equipment"
   },
-  "weapon:goldthorn": {
-   "uuid": "Actor.97DWKTZ5rwXqKzDX.Item.kjprF2ydOkkiJzWK",
-   "name": "Goldthorn",
-   "where": "this world · Morgash the Gravemaker"
-  },
   "weapon:grave-reaper": {
    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGraveReaperAT",
    "name": "Grave Reaper",
@@ -21380,11 +20940,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmMercurialWhip0",
    "name": "Mercurial Whip",
    "where": "Monster Manual · Features"
-  },
-  "weapon:midnight": {
-   "uuid": "Actor.ynipTDamO8lCYI80.Item.jxvIztvrShabqxj6",
-   "name": "Midnight",
-   "where": "this world · Jetten Elisedil"
   },
   "weapon:moon-touched-sword": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMoontouchedSw",
@@ -21735,11 +21290,6 @@
    "uuid": "Compendium.dnd-monster-manual.features.Item.mmUmbralDagger00",
    "name": "Umbral Dagger",
    "where": "Monster Manual · Features"
-  },
-  "weapon:vesper-staff": {
-   "uuid": "Actor.3S6v9ShOyAMt8d7P.Item.J4ZM2TYNK5TZV7S1",
-   "name": "Vesper Staff",
-   "where": "this world · Gren Greenmantle"
   },
   "weapon:veterans-cane": {
    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgVeteransCane0",

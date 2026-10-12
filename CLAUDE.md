@@ -10,21 +10,18 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-11).** v0.9.0 released 2026-10-11: it reads By the Books, the rename of Battle Flow
-at its 3.0.0 (`fvtt-mod-bythebooks`, hooks `bythebooks.*`), and still reads a table on Battle Flow
-2.x (the legacy id, hook names and flag scope); 3.0's double emit plays once. **dnd5e 6.0.0–6.9.99
-only**. **Prod is the Echoes of Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX
-Studio is active: 0.9.0's code went there over WebDAV on 2026-10-11 with prod's own
-`recipes/house.json` written back byte for byte, so its `module.json` version string reads 0.8.0
-until that Foundry process restarts; the old `scripts/readers/battleflow.js` stays there unused (WebDAV
-never deletes, and nothing imports it). **Prod's house.json is canonical**: pull it before any deploy.
-⚠ It differs from the repo's only in three FX's `record` pointers (vesper-staff,
-first-light-thomas-a-invictus, goldthorn-jetten-elisedil): prod's name the Echoes world's items, the
-repo's the Greenrest world's. Pulling it fails `check-fx` until `tools/records.mjs --write` restamps
-against the Echoes world, and `tools/lib/env.mjs` still defaults `FXS_WORLD` to
-`the-broken-heart-of-greenrest`; the sandbox's Echoes copy lacks some of prod's items, so that waits
-for a fresh prod → sandbox pull. Until then, an installer update of FX Studio on prod would put the
-repo's three pointers back. Arcana Unleashed is a book since
+**State (2026-10-12).** v0.9.1 released 2026-10-12 and installed on prod through Foundry's installer:
+it reads By the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`; Battle Flow until 3.0.0) and still
+reads a table on Battle Flow 2.x (the legacy id, the `battleflow.moment` hook and flag scope); 3.0.x's
+double emit played once, and 3.1.0 fires the new names only. **dnd5e 6.0.0–6.9.99 only**. **Prod is
+the Echoes of Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active.
+**Prod's house.json is canonical**: pull it before any deploy. Since 0.9.1 the repo's House is prod's,
+byte for byte, and `recipes/records.json` is built from the Echoes world (`tools/lib/env.mjs`
+defaults `FXS_WORLD` to `echoes-of-halruaa`; it read the Greenrest world before). Five House FX
+(vesper-staff, first-light-thomas-a-invictus, goldthorn-jetten-elisedil, necrotic-scythe,
+irresistible-dance) answer keys no item in this world carries: they were made for Greenrest's
+characters, so they play nothing here and their Record link points nowhere until such an item
+exists. Arcana Unleashed is a book since
 2026-10-02 (13 Stock FX); the gap proposals were refreshed against the asset catalogue in
 the asset drop folder beside the repo parent and cut by the moment rule (§25). The user tests on the sandbox
 by hand and names what is broken; we fix what they name. Nothing is owed. [NEXT-SESSION.md](NEXT-SESSION.md)
@@ -106,7 +103,8 @@ prototype. A phase starts on the user's word, never on a handoff.
 - **The LOCAL sandbox is the test box**, never prod: a byte copy of the Molten prod world run
   headless — `node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs start|stop|status|restart`. Never
   launch the Electron app for suites. Data: the local Foundry data folder (`FOUNDRY_DATA`), world
-  `the-broken-heart-of-greenrest`. Sandbox: Foundry 14.367, dnd5e 6.0.1, Sequencer 4.2.3, JB2A
+  `echoes-of-halruaa` (a mirror of prod; the Greenrest world before 2026-10-12). Sandbox: Foundry
+  14.369, dnd5e 6.0.6, Sequencer 4.2.3, JB2A
   Patreon, PSFX Patreon (`psfx-patreon`). AA and D&D5e Animations are off on prod and absent from
   the sandbox; AA's autorec world setting stays (the migration's input).
 - **Deploy:** `node ../fvtt-mcp-dnd5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local`;

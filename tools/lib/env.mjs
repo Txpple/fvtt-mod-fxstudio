@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 export const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const DATA = (process.env.FOUNDRY_DATA ?? join(process.env.LOCALAPPDATA ?? '', 'FoundryVTT/Data')).replace(/\\/g, '/');
-export const WORLD = process.env.FXS_WORLD ?? 'the-broken-heart-of-greenrest';
+export const WORLD = process.env.FXS_WORLD ?? 'echoes-of-halruaa';   // the Molten world since the Greenrest campaign ended
 export const SCRATCH = resolve(process.env.FXS_SCRATCH ?? join(REPO, 'dist', 'scratch'));
 export const RECIPES = join(REPO, 'recipes');
 // Foundry's own public assets (icons/svg/*.svg and the like) live in the app install, not in Data
