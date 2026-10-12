@@ -77,8 +77,6 @@ import { subjectOfItem, tokenForActorUuid } from './dnd5e.js';
 /** the package id, and the one it had as Battle Flow (2.x) — read when the new one is not active */
 const MODULE = 'fvtt-mod-bythebooks';
 const LEGACY = 'fvtt-mod-battleflow';
-/** the moment hook under both names: 3.0 fires both for one release, 2.x only the old one */
-const HOOKS = ['bythebooks.moment', 'battleflow.moment'];
 const log = (...a) => console.log('FX Studio |', ...a);
 
 /** the token a By the Books target row means: its token uuid when the canvas had one, else the actor's active token */
@@ -152,7 +150,10 @@ export function registerBythebooksReader({ dispatch }) {
     if (moment.skip) { log(`bythebooks ${payload?.event ?? '?'}: ${moment.skip}`); return; }
     dispatch(moment);
   };
-  for (const name of HOOKS) Hooks.on(name, hear);
+  // The moment hook under both names: 3.0 fires both for one release, 2.x only the old one. Two
+  // literal registrations, so the suite's integration map (which reads literals) sees the contract.
+  Hooks.on('bythebooks.moment', hear);
+  Hooks.on('battleflow.moment', hear);
 }
 
 /** the subject a moment is held by: the activity it came from, else the document it is */
