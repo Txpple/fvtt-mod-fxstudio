@@ -10,14 +10,21 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-11).** v0.9.0 is ready on main, not yet tagged or released: it reads By the Books, the
-rename of Battle Flow at its 3.0.0 (`fvtt-mod-bythebooks`, hooks `bythebooks.*`), and still reads a
-table on Battle Flow 2.x (the legacy id, hook names and flag scope); 3.0's double emit plays once.
-v0.8.0 was released 2026-10-10 (the scene-control tool and keybinding, #1); **dnd5e 6.0.0–6.9.99
-only**. The Greenrest campaign is over (concluded 2026-09-29) and **there is no prod for now** (the
-user, 2026-10-02): the sandbox is the only world, and the last prod deploy was v0.6.0 on 2026-09-21.
-When a prod exists again, **its house.json is canonical**: pull it before any deploy (two overrides
-saved there on 2026-09-16, greatsword and maul, were pulled in first). Arcana Unleashed is a book since
+**State (2026-10-11).** v0.9.0 released 2026-10-11: it reads By the Books, the rename of Battle Flow
+at its 3.0.0 (`fvtt-mod-bythebooks`, hooks `bythebooks.*`), and still reads a table on Battle Flow
+2.x (the legacy id, hook names and flag scope); 3.0's double emit plays once. **dnd5e 6.0.0–6.9.99
+only**. **Prod is the Echoes of Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX
+Studio is active: 0.9.0's code went there over WebDAV on 2026-10-11 with prod's own
+`recipes/house.json` written back byte for byte, so its `module.json` version string reads 0.8.0
+until that Foundry process restarts; the old `scripts/readers/battleflow.js` stays there unused (WebDAV
+never deletes, and nothing imports it). **Prod's house.json is canonical**: pull it before any deploy.
+⚠ It differs from the repo's only in three FX's `record` pointers (vesper-staff,
+first-light-thomas-a-invictus, goldthorn-jetten-elisedil): prod's name the Echoes world's items, the
+repo's the Greenrest world's. Pulling it fails `check-fx` until `tools/records.mjs --write` restamps
+against the Echoes world, and `tools/lib/env.mjs` still defaults `FXS_WORLD` to
+`the-broken-heart-of-greenrest`; the sandbox's Echoes copy lacks some of prod's items, so that waits
+for a fresh prod → sandbox pull. Until then, an installer update of FX Studio on prod would put the
+repo's three pointers back. Arcana Unleashed is a book since
 2026-10-02 (13 Stock FX); the gap proposals were refreshed against the asset catalogue in
 the asset drop folder beside the repo parent and cut by the moment rule (§25). The user tests on the sandbox
 by hand and names what is broken; we fix what they name. Nothing is owed. [NEXT-SESSION.md](NEXT-SESSION.md)
