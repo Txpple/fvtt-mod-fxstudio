@@ -10,8 +10,9 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-12).** v0.10.0 released 2026-10-12 (the summon and unsummon moments, DESIGN §26)
-and installed on prod and the sandbox through Foundry's installer. It reads By the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`; Battle Flow until 3.0.0) and still
+**State (2026-10-13).** v0.10.1 released 2026-10-13 (Magical Cunning a short burst on the warlock; v0.10.0
+the summon and unsummon moments, DESIGN §26) and installed on prod through Foundry's installer, prod's House
+byte-identical to the repo's before and after. It reads By the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`; Battle Flow until 3.0.0) and still
 reads a table on Battle Flow 2.x (the legacy id, the `battleflow.moment` hook and flag scope); 3.0.x's
 double emit played once, and 3.1.0 fires the new names only. **dnd5e 6.0.0–6.9.99 only**. **Prod is
 the Echoes of Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active.
