@@ -3958,24 +3958,30 @@
    "scenes": [
     {
      "shape": "mark",
-     "sound": {
-      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001"
-     },
-     "asset": {
-      "path": "jb2a.markers.simple.001.complete.004.purple"
-     }
-    },
-    {
-     "shape": "mark",
-     "asset": {
-      "path": "jb2a.energy_strands.02.marker.bluepurple"
-     },
+     "at": "source",
      "size": {
-      "radius": 1
+      "tokenWidths": 1.75
+     },
+     "asset": {
+      "path": "jb2a.on_token_buff.001.001.bluepurple"
      },
      "elevation": {
       "level": 999,
       "absolute": false
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.complete"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2
+     },
+     "below": true,
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.purplepink"
      }
     }
    ]
