@@ -2995,6 +2995,48 @@
    ]
   },
   {
+   "id": "fiendish-vigor",
+   "for": [
+    "feature:fiendish-vigor"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvFiendishVi",
+    "name": "Fiendish Vigor",
+    "where": "Player's Handbook · Character Classes"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.75
+     },
+     "asset": {
+      "path": "jb2a.on_token_buff.001.001.purplered"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.complete"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2
+     },
+     "below": true,
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.purplepink"
+     }
+    }
+   ]
+  },
+  {
    "id": "fire-aura",
    "for": [
     "feature:fire-aura"

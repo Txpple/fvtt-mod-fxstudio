@@ -49,7 +49,7 @@ resolves, the campaign repos are `../../fvtt-campaign-*`.
   `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
   no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
   identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
-  item, never typed. Stock is 1029 FX (1027 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
+  item, never typed. Stock is 1030 FX (1028 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
   another is the design, not redundancy (§18–19) — never offer to clean it up.
 - **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
   from `recipes/records.json`; the Library's Record door opens that record.
