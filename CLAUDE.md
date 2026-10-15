@@ -6,28 +6,25 @@ Animations (AA) and D&D5e Animations by migrating their corpus once as its Stock
 in House on top. **It never guesses: an ability with no FX plays nothing.** Greenfield: nothing of
 AA's architecture, vocabulary or practices survives in `scripts/` (PLAN §0.7, [ARCHITECTURE.md](ARCHITECTURE.md)).
 Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Battle Flow, the rules of the game) and Errata
-(`../fvtt-mod-errata5e`, fixes for vendor bugs; it replaced Vendor Fixes on 2026-10-01, which had replaced
-Misc Patches on 2026-09-25): plain ES modules, no build step, no patching, no libWrapper, no
+(`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-14).** v0.10.2 released 2026-10-14 (Fiendish Vigor a buff on the warlock, its own heal activity on the healing card; v0.10.1 Magical Cunning a short burst on the warlock; v0.10.0
-the summon and unsummon moments, DESIGN §26) and installed on prod through Foundry's installer, prod's House
-byte-identical to the repo's before and after. It reads By the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`; Battle Flow until 3.0.0) and still
-reads a table on Battle Flow 2.x (the legacy id, the `battleflow.moment` hook and flag scope); 3.0.x's
-double emit played once, and 3.1.0 fires the new names only. **dnd5e 6.0.0–6.9.99 only**. **Prod is
-the Echoes of Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active.
-**Prod's house.json is canonical**: pull it before any deploy. Since 0.9.1 the repo's House is prod's,
-byte for byte, and `recipes/records.json` is built from the Echoes world (`tools/lib/env.mjs`
-defaults `FXS_WORLD` to `echoes-of-halruaa`; it read the Greenrest world before). Five House FX
-(vesper-staff, first-light-thomas-a-invictus, goldthorn-jetten-elisedil, necrotic-scythe,
-irresistible-dance) answer keys no item in this world carries: they were made for Greenrest's
-characters, so they play nothing here and their Record link points nowhere until such an item
-exists. Arcana Unleashed is a book since
-2026-10-02 (13 Stock FX); the gap proposals were refreshed against the asset catalogue in
-the asset drop folder beside the repo parent and cut by the moment rule (§25). The user tests on the sandbox
-by hand and names what is broken; we fix what they name. Nothing is owed. [NEXT-SESSION.md](NEXT-SESSION.md)
-holds the handoff history. The clone lives under the suite folder (since 2026-10-08): `../fvtt-mcp-dnd5e`
-resolves, the campaign repos are `../../fvtt-campaign-*`.
+**State (2026-10-15).** v0.10.2 is the release, on prod through Foundry's installer with prod's House
+byte-identical to the repo's before and after. `main` carries unreleased work past it, held to By the
+Books' contract by `check-contract`: one picture per word, and a resolve that came to nothing (a held
+roll passed, a fold passed, a Riposte declined) plays nothing. It reads By the Books (`fvtt-mod-bythebooks`,
+hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy id, the `battleflow.moment` hook
+and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of Halruaa box** (Molten, the
+`foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is prod's, byte for byte, and
+`recipes/records.json` is built from the Echoes world (`tools/lib/env.mjs` defaults `FXS_WORLD` to
+`echoes-of-halruaa`). Five House FX (vesper-staff, first-light-thomas-a-invictus, goldthorn-jetten-elisedil,
+necrotic-scythe, irresistible-dance) answer keys no item in this world carries: made for Greenrest's
+characters, they play nothing here and their Record link points nowhere until such an item exists. The
+user tests on the sandbox by hand and names what is broken; we fix what they name. Nothing is owed. The
+dated journal is `docs/log/YYYY-MM.md`; [NEXT-SESSION.md](NEXT-SESSION.md) holds the older handoff history.
+
+**Prod's house.json is canonical**: pull it before any deploy (see [Prod](#prod)). The clone lives under
+the suite folder: `../fvtt-mcp-dnd5e` resolves, the campaign repos are `../../fvtt-campaign-*`.
 
 ## The rulings that govern the code (each recorded in DESIGN.md)
 
@@ -37,11 +34,11 @@ resolves, the campaign repos are `../../fvtt-campaign-*`.
   both an override and the Stock row under it. No draft, stage, ship or world buffer.
 - **Stock is the books; House is this table (§16–17).** A Stock row is keyed against the installed
   compendia (PHB, MM, DMG, Ravenloft, Heroes of Faerûn, Arcana Unleashed, then the system's SRD 5.2
-  packs; no SRD 5.1) and dnd5e's base weapons, nothing else — save the moment-wide FX in `stock/events.json`, keyed `event:<word>` (the user's exception, 2026-10-12, DESIGN §26). `LIST_PACKS` in `tools/lib/dnd5e.mjs`
+  packs; no SRD 5.1) and dnd5e's base weapons, nothing else — save the moment-wide FX in `stock/events.json`, keyed `event:<word>` (the user's exception, DESIGN §26). `LIST_PACKS` in `tools/lib/dnd5e.mjs`
   IS the evidence: a new book → add its packs → `node tools/records.mjs --write`, `node tools/gaps.mjs
   --write`. ⚠ **Never `migrate-aa.mjs --write` again**: Stock has been edited by hand since the last
   migration (the roadkill cut, Web) and a write would undo it. Run it dry, or write to a scratch copy
-  and lift only the FX the new book earns (how Arcana Unleashed's 13 came in, 2026-10-02).
+  and lift only the FX the new book earns (how Arcana Unleashed's 13 came in).
 - **An FX needs a moment (§25).** An ability gets an FX only when something happens at the table — an
   instant, or an effect for a limited time. Passive traits (a resistance, darkvision, a proficiency,
   a lasting enchantment, a record with no activity) get none.
@@ -61,7 +58,7 @@ resolves, the campaign repos are `../../fvtt-campaign-*`.
   a full copy (`api.fx.scenesOf(id)`).
 - **A picture that stands for the template hides its Region (§24).** A fill with `persist: template`
   hides dnd5e 6.0's Region at create time (LAYER visibility); a burst leaves it.
-- **D&D5e Animations is roadkill (2026-09-16).** Every Stock reference to its files was cut; seven
+- **D&D5e Animations is roadkill.** Every Stock reference to its files was cut; seven
   FX that were only such a picture are gone (the two walls among them).
 - **Terms, not sentences:** Stock / House, a key, Own key, FX / VFX / SFX, override. The word "look" is
   retired. No JSON or raw library paths in front of a GM.
@@ -104,20 +101,20 @@ prototype. A phase starts on the user's word, never on a handoff.
 - **The LOCAL sandbox is the test box**, never prod: a byte copy of the Molten prod world run
   headless — `node ../fvtt-mcp-dnd5e/scripts/local-foundry.mjs start|stop|status|restart`. Never
   launch the Electron app for suites. Data: the local Foundry data folder (`FOUNDRY_DATA`), world
-  `echoes-of-halruaa` (a mirror of prod; the Greenrest world before 2026-10-12). Sandbox: Foundry
+  `echoes-of-halruaa` (a mirror of prod). Sandbox: Foundry
   14.369, dnd5e 6.0.6, Sequencer 4.2.3, JB2A
   Patreon, PSFX Patreon (`psfx-patreon`). AA and D&D5e Animations are off on prod and absent from
   the sandbox; AA's autorec world setting stays (the migration's input).
 - **Deploy:** `node ../fvtt-mcp-dnd5e/scripts/deploy-house-module.mjs fvtt-mod-fxstudio --local`;
   `--check` byte-compares. A world reload is enough for scripts and recipes; **restart** when
   `module.json` changed (one connected user blocks it — `disconnect-bridge` first). It ships
-  `scripts/`, `styles/`, `templates/`, `lang/`, `module.json` and `recipes/`. ⚠ It never deletes.
+  `module.json` and the served folders (here `scripts/`, `styles/`, `recipes/`). ⚠ It never deletes.
 - **A prod → sandbox refresh** (`pull-prod-to-local.mjs`) wipes the module folder and every FX saved
   in the game. Before: `node tools/pull-corpus.mjs --write` and commit. After, sandbox stopped:
   deploy `--local`, `node tools/sandbox-module.mjs --enable fvtt-mod-fxstudio`, start. Add By the
   Books fixtures only when a suite run is asked for, and say so.
 - **Two MCP bridges.** `foundry-local5e` is the sandbox (localhost:30000). ⚠ `foundry-halruaa5e` is **PROD** (the
-  live Molten box; the Greenrest bridge was retired 2026-10-08): never write there without the user's word. The two share ids;
+  live Molten box): never write there without the user's word. The two share ids;
   `get-world-info` tells them apart by version and who is connected.
 - **The gate:** ten offline checks in `tools/` — `check-imports`, `check-layers`, `check-legacy`,
   `check-gates`, `check-moments`, `check-contract`, `check-engine`, `check-reader` after any edit under `scripts/`;

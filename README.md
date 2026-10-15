@@ -43,7 +43,7 @@ against the Patreon editions, and a scene whose file is not in your libraries pl
 ## The window
 
 The GM opens FX Studio three ways: the **FX Studio** wand in the token controls at the top left of
-the canvas, the **Open FX Studio** button in the Settings sidebar, or the wand on any item sheet's
+the canvas, the **Open FX Studio** button in Configure Settings (under FX Studio), or the wand on any item sheet's
 header, which opens that item's FX. An **Open FX Studio** keybinding is there too, with no key set;
 bind one in Configure Controls. There is only ever one window: opening it again brings it to the
 front. The window has four tabs.
