@@ -1,0 +1,23 @@
+{
+  "repo": "fvtt-mod-fxstudio",
+  "description": "The contracts this module reads, each at the version its check last passed against. tools/check-contract.mjs reads the emitter's file from its clone beside this one and fails when the version here is not the emitter's; the suite's tools/contracts.mjs --check prints every consumer's against every emitter's.",
+  "consumes": [
+    {
+      "emitter": "fvtt-mod-bythebooks",
+      "contract": "moment",
+      "file": "contracts/moment.json",
+      "version": 2,
+      "test": "tools/check-contract.mjs",
+      "events": ["maneuver", "sneak", "fold", "rider", "hold-answered"],
+      "records": ["cast|summon"]
+    },
+    {
+      "emitter": "fvtt-mod-bythebooks",
+      "contract": "card-flags",
+      "file": "contracts/card-flags.json",
+      "version": 1,
+      "test": "tools/check-contract.mjs",
+      "keys": { "metamagic": ["chosen"] }
+    }
+  ]
+}

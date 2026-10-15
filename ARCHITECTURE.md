@@ -228,6 +228,23 @@ anything is read); a payload with no `momentId` is never a twin and is always he
 vocabulary followed: the moment `kind` and `type` are `bythebooks`, the gate is registered as
 'By the Books', `api.read.bythebooks`. None of these was persisted, so nothing reads the old spelling.
 
+**One resolve, two words; a pass plays nothing; the contract (Pass 3 of the suite review).** By the
+Books publishes a resolve under two words with ONE `momentId` (Parry: `hold-answered` then
+`maneuver`; a failed concentration save: `save` then `break`). Keyed on the `momentId` alone, the
+twin set and the ticket both took the second word for a repeat of the first, so Parry's maneuver
+never played. Both are keyed on **`<momentId>|<event>`** now (`wordTicket` in `readers/bythebooks.js`;
+the moment carries it as `ticket`, which `engine/render.js` `firstTime()` reads before `momentId`):
+each word is its own moment, and the twin under the other hook name is still one. **A resolve that
+came to nothing is a skip** (`declinedBy`): `details.answer` a pass or a decline (`pass`, `no`,
+`keep`, `skip`, `decline`, `declined`) or `details.outcome` an offer passed or withdrawn (`passed`,
+`passed (timer)`, `no longer needed`, `gone`, `timed out`) — a held roll passed, a fold offered and
+passed, a Riposte declined played their look before. **The contract** is By the Books': it records
+what it publishes in its own repo (`contracts/moment.json`, `contracts/card-flags.json`), and
+`tools/check-contract.mjs` reads them from the sibling clone (skipping when absent): every word in
+`BYTHEBOOKS_WORDS` and record in `BYTHEBOOKS_RECORDS` must be in it, every payload field the reader
+touches (`READS`, itself held to the reader's code) a field it names for those words, the gate's
+`metamagic.chosen` a recorded key, and the versions the ones `contracts/consumes.json` names.
+
 ## 3. Subjects — what acted, by identity, not by name
 
 The user's two bugs are one rule: **a look is keyed by what the thing IS, in a vocabulary dnd5e
@@ -486,6 +503,8 @@ reads fifty sentences and keeps the ones that read right.
 | `check-reader.mjs` | offline, a second | the dnd5e reader's timing policy (§2) on a stand-in world: when a use fires, the verdict per target, the subject's keys (§3), templates, effects, who plays, the hooks |
 | `check-build.mjs` | offline, two seconds | every FX in the corpus builds through the engine against a fitted moment, assets resolved — `smoke-fx`'s proof with nothing running |
 | `check-gates.mjs` | offline, a second | the gate contract (§2): not held, held, held-and-came-to-nothing, a gate that throws, a bound that expires plays, asked once; and the By the Books gate with it absent, disabled, old and current, and Battle Flow 2.x under the legacy id |
+| `check-moments.mjs` | offline, a second | By the Books' payload read into a moment (§2): the words, the subject, the twin per word, a resolve that came to nothing, the summon record, the tickets, the fallback |
+| `check-contract.mjs` | offline, a second | what the reader touches against By the Books' own contract files from the sibling clone (§2): the words, the records, every field, the gate's card flag, the versions; skipped, saying so, without the clone |
 | `census.mjs` | offline or live | every subject in the world and the compendia → which look answers, what plays nothing |
 | `assets.mjs` | offline | the catalogue search |
 | `smoke-fx.mjs` | live | every look builds on the sandbox against a synthetic moment and every path resolves live |

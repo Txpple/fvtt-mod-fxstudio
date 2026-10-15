@@ -65,9 +65,22 @@
 // THE TWIN (3.0's double emit). engine/render.js's ticket alone would keep the picture to one: both
 // arrivals carry the same momentId and `firstTime` is checked synchronously at the top of `play`.
 // But each arrival would still ask the hold gate, write a second "already played" ledger row and, for
-// the twelve words not read, log its skip twice. So the reader hears a momentId once: a small bounded
-// set, checked before anything is read. A payload with no momentId (a v1 build) is never a twin —
-// no build that double-emits publishes one — and is always heard.
+// the twelve words not read, log its skip twice. So the reader hears a momentId once PER WORD: a small
+// bounded set of `<momentId>|<event>`, checked before anything is read. One resolve can publish under
+// two words with one momentId (Parry: `hold-answered` and `maneuver`; a failed concentration save:
+// `save` and `break`), and each word is its own moment here, its own ticket (`ticket`, the same key),
+// so the second word is not taken for a twin of the first. A payload with no momentId (a v1 build) is
+// never a twin — no build that double-emits publishes one — and is always heard.
+//
+// THE PASS. By the Books publishes a resolve that came to nothing as well as one that happened: a
+// held roll's reaction passed (`details.answer` "pass"), a fold offered and passed (`details.outcome`
+// "passed"), a Riposte declined. The table saw nothing happen, so nothing plays: `declinedBy` reads
+// the answer and the outcome and the moment is a skip with the reason.
+//
+// THE CONTRACT. What this file reads of the payload is `READS`, and By the Books records what it
+// publishes in its own repo (contracts/moment.json, contracts/card-flags.json); tools/check-contract.mjs
+// holds the one to the other from the sibling clone, so a field renamed there fails here before either
+// ships. contracts/consumes.json names the versions this module last passed against.
 //
 // THE SUBJECT: the item's own keys when the item resolves (feature:sneak-attack — so a look authored
 // for the ability answers), then `event:<event>` last, so a look can also be keyed to the moment
@@ -98,6 +111,33 @@ const LIVE = {
 };
 
 /**
+ * What this reader touches of a By the Books payload: the envelope's fields, the `details` fields it
+ * reads on the words it plays, and the one card flag the gate reads. tools/check-contract.mjs holds
+ * each to By the Books' contract and holds this list to the code below.
+ */
+export const READS = Object.freeze({
+  envelope: ['event', 'kind', 'marker', 'momentId', 'messageId', 'at', 'actorUuid', 'tokenUuid', 'itemUuid', 'activityUuid', 'ability',
+    'targets', 'targets[].actorUuid', 'targets[].tokenUuid', 'targets[].hit'],
+  details: ['details.answer', 'details.outcome', 'details.companion'],
+  flags: { metamagic: ['chosen'] },
+});
+
+/** the answers and outcomes By the Books publishes for a resolve that came to nothing: a pass, a decline, an offer withdrawn */
+export const DECLINED = Object.freeze({
+  answer: ['pass', 'no', 'keep', 'skip', 'decline', 'declined'],
+  outcome: ['passed', 'passed (timer)', 'no longer needed', 'gone', 'timed out'],
+});
+
+/** why a payload is a resolve that came to nothing, or null when something happened */
+export function declinedBy(payload) {
+  const answer = payload?.details?.answer;
+  if (typeof answer === 'string' && DECLINED.answer.includes(answer)) return `answer "${answer}"`;
+  const outcome = payload?.details?.outcome;
+  if (typeof outcome === 'string' && DECLINED.outcome.includes(outcome)) return `outcome "${outcome}"`;
+  return null;
+}
+
+/**
  * A By the Books moment payload → a moment (core/moments.js), or null when the payload is not one
  * this module plays from, or {skip} with the reason. `resolve` is the live readers unless a tool
  * hands in its own (tools/check-moments.mjs proves this offline).
@@ -108,6 +148,8 @@ export function readMoment(payload, resolve = LIVE) {
   // a companion's beat on the summon record: leaving (into its pocket, dismissed) is `unsummon`, coming back `summon`
   const word = (read === 'summon' && payload.details?.companion === 'leave') ? 'unsummon' : read;
   if (!word) return { skip: `"${payload.event}" is not a By the Books word this build reads` };
+  const declined = declinedBy(payload);
+  if (declined) return { skip: `a resolve that came to nothing (${declined}): nothing to play` };
   const item = payload.itemUuid ? resolve.item(payload.itemUuid) : null;
   const subject = item ? subjectOfItem(item, { activity: null }) : { kind: 'event', name: payload.ability ?? word, eventId: word, keys: [] };
   if (!item) subject.keys = keysFor(subject);
@@ -130,17 +172,22 @@ export function readMoment(payload, resolve = LIVE) {
     id: `${payload.messageId ?? payload.at ?? 'bythebooks'}:${word}${payload.marker && payload.marker !== 'message' ? `:${payload.marker}` : ''}`,
     activity: payload.activityUuid ?? null,
     momentId: typeof payload.momentId === 'string' ? payload.momentId : null,
+    // one resolve may publish under two words with one momentId: each word plays once (engine/render.js's ticket)
+    ticket: wordTicket(payload),
     // no By the Books flag is read, by contract; the payload rides as `event` for a gate or a tool that wants the plain facts
     use: payload.messageId ?? null, type: 'bythebooks', data: null, document: null, event: payload,
     user: resolve.user(),
   };
 }
 
+/** a resolve's word, `<momentId>|<event>`: the key a twin and a ticket are judged by; null for a payload with no momentId (a v1 build) */
+export const wordTicket = (payload) => (typeof payload?.momentId === 'string' ? `${payload.momentId}|${payload.event}` : null);
+
 const HEARD_MAX = 500;
 const heard = new Set();
-/** true the first time a payload's momentId arrives, false for its twin under the other hook name; no momentId → always true */
+/** true the first time a resolve's word arrives, false for its twin under the other hook name; no momentId → always true */
 export function firstHearing(payload) {
-  const id = typeof payload?.momentId === 'string' ? payload.momentId : null;
+  const id = wordTicket(payload);
   if (!id) return true;
   if (heard.has(id)) return false;
   heard.add(id);

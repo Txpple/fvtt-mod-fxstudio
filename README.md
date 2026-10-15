@@ -67,6 +67,17 @@ front. The window has four tabs.
 Everything the window does goes through the module's API
 (`game.modules.get('fvtt-mod-fxstudio').api`), so a macro can do the same.
 
+## Hooks
+
+FX Studio emits one hook:
+
+| Hook | Arguments | When |
+| --- | --- | --- |
+| `fxstudio.rebuilt` | `(index)`: the corpus index the next moment resolves against | on the client whose FX were indexed again: every client at startup, the client that saved or deleted an FX, and any client a macro asks (`api.corpus.reload()`, `api.rebuild()`) |
+
+Nothing in Open Roll 5e needs it; the window listens to redraw itself. A listener should tolerate it
+never firing.
+
 ## Areas and moves
 
 A lasting area picture, such as Fog Cloud or Web, hides dnd5e's template region from the players
@@ -107,7 +118,8 @@ recipes/
   house.json           this table's own FX and overrides
   records.json         the record names behind the keys
   SCHEMA.md            the recipe schema
-styles/  templates/
+styles/                the window's stylesheet
+contracts/consumes.json  the By the Books contract versions this module last checked against
 tools/                 the offline checks, the live suites, the release build (tools/README.md)
 prototypes/            clickable mock-ups ruled on before a feature is built
 ```

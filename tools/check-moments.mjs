@@ -8,7 +8,7 @@ import { toUrl } from './lib/env.mjs';
 import { join } from 'node:path';
 import { REPO } from './lib/env.mjs';
 
-const { readMoment, firstHearing } = await import(toUrl(join(REPO, 'scripts/readers/bythebooks.js')));
+const { readMoment, firstHearing, declinedBy } = await import(toUrl(join(REPO, 'scripts/readers/bythebooks.js')));
 const { WHEN, BYTHEBOOKS_WORDS, FALLS_BACK_TO_USE, WHEN_WORDS } = await import(toUrl(join(REPO, 'scripts/core/moments.js')));
 const { buildIndex } = await import(toUrl(join(REPO, 'scripts/core/corpus.js')));
 
@@ -26,7 +26,7 @@ const world = {
   user: () => 'user1',
 };
 const payload = (over = {}) => ({
-  event: 'sneak', module: 'fvtt-mod-bythebooks', version: 1,
+  event: 'sneak', module: 'fvtt-mod-bythebooks', version: 2, kind: 'sneakDamage', marker: 'message',
   actorUuid: 'Actor.rogue', actorName: 'Rogue', tokenUuid: 'Scene.s.Token.r',
   itemUuid: sneak.uuid, itemName: 'Sneak Attack', activityUuid: null, ability: 'Sneak Attack',
   messageId: 'msgDamage', attackId: 'msgAttack',
@@ -76,8 +76,22 @@ is('a word this build does not know: a skip, so a newer By the Books never throw
 is('the words read are a closed list of their own, every one a moment kind', BYTHEBOOKS_WORDS.every((w) => WHEN.includes(w)), true);
 is('`use` off the hook is a skip: the card already plays it', typeof readMoment(payload({ event: 'use' }), world)?.skip, 'string');
 is('`effect` off the hook is a skip: the effect reader already plays it (and a revert would play it again)', typeof readMoment(payload({ event: 'effect' }), world)?.skip, 'string');
-is('the momentId rides on the moment', readMoment(payload({ momentId: 'msgDamage|sneak|whole' }), world)?.momentId, 'msgDamage|sneak|whole');
+is('the momentId rides on the moment', readMoment(payload({ momentId: 'msgDamage|sneakDamage|message' }), world)?.momentId, 'msgDamage|sneakDamage|message');
+is('and its ticket is the momentId and the word', readMoment(payload({ momentId: 'msgDamage|sneakDamage|message' }), world)?.ticket, 'msgDamage|sneakDamage|message|sneak');
 is('no momentId (a v1 Battle Flow): null, never undefined', readMoment(payload(), world)?.momentId, null);
+is('and no ticket', readMoment(payload(), world)?.ticket, null);
+
+console.log('\na resolve that came to nothing plays nothing');
+const parried = (over = {}) => payload({ event: 'hold-answered', kind: 'hold', marker: 'Actor.rogue', momentId: 'msgAttack|hold|Actor.rogue', ...over });
+is('a held roll answered with a cast is read', readMoment(parried({ details: { answer: 'cast' } }), world)?.when, 'hold-answered');
+is('a held roll passed is a skip', readMoment(parried({ details: { answer: 'pass', timedOut: false } }), world)?.skip?.startsWith('a resolve that came to nothing (answer "pass")'), true);
+is('a fold offered and passed is a skip', typeof readMoment(payload({ event: 'fold', kind: 'd20fold', marker: 'passed', details: { outcome: 'passed' } }), world)?.skip, 'string');
+is('a Precision die passed by the timer is a skip', typeof readMoment(payload({ event: 'maneuver', kind: 'precision', details: { outcome: 'passed (timer)' } }), world)?.skip, 'string');
+is('a Riposte declined is a skip', typeof readMoment(payload({ event: 'maneuver', kind: 'riposte', details: { answer: 'declined' } }), world)?.skip, 'string');
+is('a Precision die used is read', readMoment(payload({ event: 'maneuver', kind: 'precision', details: { outcome: 'used' } }), world)?.when, 'maneuver');
+is('a fold spent (no outcome) is read', readMoment(payload({ event: 'fold', kind: 'd20fold', marker: 'spend:0', details: { kind: 'bardic' } }), world)?.when, 'fold');
+is('declinedBy names why', declinedBy({ details: { outcome: 'no longer needed' } }), 'outcome "no longer needed"');
+is('and nothing for a resolve that happened', declinedBy({ details: { answer: 'use', outcome: 'used' } }), null);
 
 console.log('\na summon (By the Books\' cast on its summon record, 2026-10-12)');
 const imp = { name: 'Imp', uuid: 'Scene.s.Token.i' };
@@ -105,11 +119,17 @@ is('unsummon is a moment kind with a sentence', WHEN.includes('unsummon') && WHE
 is('unsummon does NOT fall back to use', FALLS_BACK_TO_USE.includes('unsummon'), false);
 
 console.log('\nthe twin (3.0 emits bythebooks.moment and battleflow.moment for one payload)');
-const twin = payload({ momentId: 'msgTwin|sneak|whole' });
+const twin = payload({ momentId: 'msgTwin|sneakDamage|message' });
 is('the first name is heard', firstHearing(twin), true);
 is('the same momentId under the other name is not', firstHearing({ ...twin }), false);
-is('another momentId is heard', firstHearing(payload({ momentId: 'msgTwin|rider|whole' })), true);
+is('another momentId is heard', firstHearing(payload({ momentId: 'msgTwin|clockRiders|0' })), true);
 is('a payload with no momentId is always heard (no double-emitting build publishes one)', firstHearing(payload()) && firstHearing(payload()), true);
+
+console.log('\none resolve under two words (Parry: hold-answered and maneuver, one momentId)');
+const parry = { event: 'hold-answered', kind: 'hold', marker: 'Actor.rogue', momentId: 'msgParry|hold|Actor.rogue', details: { answer: 'cast', mode: 'reduce' } };
+is('the first word is heard', firstHearing(payload(parry)), true);
+is('the second word on the same momentId is heard too: it is not a twin', firstHearing(payload({ ...parry, event: 'maneuver' })), true);
+is('and its twin under the other hook name is not', firstHearing(payload({ ...parry, event: 'maneuver' })), false);
 
 console.log('\nthe fallback, through the corpus index');
 const index = buildIndex({
@@ -119,10 +139,14 @@ const index = buildIndex({
 const { resolveMoment, firstTime } = await import(toUrl(join(REPO, 'scripts/engine/render.js'))); // a failed import FAILS the check; it used to be swallowed
 {
   console.log('\nthe tickets');
-  const ticketed = readMoment(payload({ momentId: 'msgDamage|sneak|whole' }), world);
+  const ticketed = readMoment(payload({ momentId: 'msgDamage|sneakDamage|message' }), world);
   is('a ticket plays the first time', firstTime(ticketed), true);
   is('and never a second time on this client', firstTime(ticketed), false);
-  is('a different ticket is new', firstTime(readMoment(payload({ momentId: 'msgDamage|rider|whole' }), world)), true);
+  is('a different ticket is new', firstTime(readMoment(payload({ momentId: 'msgDamage|clockRiders|0' }), world)), true);
+  const parryHold = readMoment(payload({ event: 'hold-answered', kind: 'hold', marker: 'Actor.rogue', momentId: 'msgParry2|hold|Actor.rogue', details: { answer: 'cast' } }), world);
+  const parryDie = readMoment(payload({ event: 'maneuver', kind: 'hold', marker: 'Actor.rogue', momentId: 'msgParry2|hold|Actor.rogue', details: { answer: 'cast' } }), world);
+  is('one resolve under two words: the first word plays', firstTime(parryHold), true);
+  is('and the second word plays too, its own ticket on the same momentId', firstTime(parryDie), true);
   is('a moment with no ticket is always new (the card readers, a v1 Battle Flow)', firstTime(m) && firstTime(m), true);
   const r = resolveMoment(index, m);
   is('a sneak moment with only a use look plays the use look', r?.fx?.id, 'sneak-attack');

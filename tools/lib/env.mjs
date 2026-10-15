@@ -13,6 +13,8 @@ export const DATA = (process.env.FOUNDRY_DATA ?? join(process.env.LOCALAPPDATA ?
 export const WORLD = process.env.FXS_WORLD ?? 'echoes-of-halruaa';   // the Molten world since the Greenrest campaign ended
 export const SCRATCH = resolve(process.env.FXS_SCRATCH ?? join(REPO, 'dist', 'scratch'));
 export const RECIPES = join(REPO, 'recipes');
+// By the Books' clone, beside this one (its contracts/ is what tools/check-contract.mjs reads)
+export const BYTHEBOOKS = resolve(process.env.FXS_BYTHEBOOKS ?? join(REPO, '..', 'fvtt-mod-bythebooks'));
 // Foundry's own public assets (icons/svg/*.svg and the like) live in the app install, not in Data
 export const APP_PUBLIC = (process.env.FOUNDRY_APP_PUBLIC ?? 'C:/Program Files/Foundry Virtual Tabletop/resources/app/public').replace(/\\/g, '/');
 /** where a raw file path may live, in order */

@@ -119,9 +119,10 @@ prototype. A phase starts on the user's word, never on a handoff.
 - **Two MCP bridges.** `foundry-local5e` is the sandbox (localhost:30000). ⚠ `foundry-halruaa5e` is **PROD** (the
   live Molten box; the Greenrest bridge was retired 2026-10-08): never write there without the user's word. The two share ids;
   `get-world-info` tells them apart by version and who is connected.
-- **The gate:** nine offline checks in `tools/` — `check-imports`, `check-layers`, `check-legacy`,
-  `check-gates`, `check-moments`, `check-engine`, `check-reader` after any edit under `scripts/`;
-  `check-fx`, `check-build` after any edit under `recipes/`. `build-release.ps1` runs them. Stand-ins
+- **The gate:** ten offline checks in `tools/` — `check-imports`, `check-layers`, `check-legacy`,
+  `check-gates`, `check-moments`, `check-contract`, `check-engine`, `check-reader` after any edit under `scripts/`;
+  `check-fx`, `check-build` after any edit under `recipes/`. `build-release.ps1` runs them.
+  `check-contract` reads By the Books' `contracts/` from the sibling clone and skips, saying so, without it. Stand-ins
   live in `tools/lib/stage.mjs` and `world.mjs`; a data-model change lands there first.
 - **The live suites:** `smoke-fx` (every FX builds live), `smoke-replay` (families through real
   dnd5e flows; `--watch` to look), `smoke-author`, `smoke-screens` (the window on the DOM),
@@ -147,12 +148,15 @@ Sequencer is used through its public API only, never patched.
 
 Zero dependency either way. By the Books publishes `bythebooks.moment` (a plain payload; Battle Flow
 2.x published `battleflow.moment`, and 3.0 emits both names for one release); this module listens to
-both names in `readers/bythebooks.js`, hears a `momentId` once (the twin), reads a closed list of five
+both names in `readers/bythebooks.js`, hears a `momentId` once per word (the twin; one resolve can publish
+under two words), skips a resolve that came to nothing (a pass, a decline: `declinedBy`), reads a closed list of five
 words (`BYTHEBOOKS_WORDS`) plus `cast` on its `summon` record as our `summon` (`BYTHEBOOKS_RECORDS`,
-DESIGN §26; Stock's `summon-appears` answers every summon, and a companion leaving is `unsummon`, answered by `summon-leaves`), plays a `momentId` once, and honours the hold through the gate in
+DESIGN §26; Stock's `summon-appears` answers every summon, and a companion leaving is `unsummon`, answered by `summon-leaves`), plays a `momentId` once per word, and honours the hold through the gate in
 `core/gates.js`, asking `fvtt-mod-bythebooks` first and the legacy `fvtt-mod-battleflow` when that is
 the active one. Neither is required nor in the manifest. The legacy names are for a table still on
-2.x, not for the double emit; they go when no table runs 2.x (the rename: its issue #6). Rules of
+2.x, not for the double emit; they go when no table runs 2.x (the rename: its issue #6). What this
+reads of By the Books is its contract, in its repo (`contracts/moment.json`, `contracts/card-flags.json`);
+`check-contract` holds the reader to it and `contracts/consumes.json` names the versions. Rules of
 the game belong to By the Books, upstream-bug fixes to Errata; this module only plays pictures and
 sounds.
 
