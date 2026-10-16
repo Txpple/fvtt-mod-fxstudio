@@ -122,7 +122,7 @@ try {
       await click(miss2);
       ok('§2 the door lands on the Editor, open on the ability, unlocked, knowing the item: "Nothing plays for Sharran Step"', tabNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Nothing plays for Sharran Step\./.test(text('.nothing .big')) && app.sheet.subject?.uuid === tmp.uuid && /Opened from a Library search/.test(text('.nothing')) && /spell:sharran-step/.test(text('.nothing')), `${text('.nothing .big')} · ${text('.nothing p.note')}`);
       ok('§2 the landing offers three doors: Starter, Copy from, Blank', $$('.nothing .three button').map((b) => b.querySelector('b').textContent).join(',') === 'Starter,Copy from,Blank' && !$('.rail'), $$('.nothing .three b').map((b) => b.textContent).join(','));
-      ok('§2 with no api.proposals the landing says nothing of the gap table', !$('.nothing .judged') && typeof api.proposals === 'undefined', typeof api.proposals);
+      ok('§2 the gap table knows nothing of the fixture\'s key, so the landing says nothing of it', !$('.nothing .judged') && (api.proposals?.get?.('spell:sharran-step') ?? null) === null, String(api.proposals?.get?.('spell:sharran-step')));
 
       // 3 · Blank: the sheet opens on + Add a scene, a menu in place (never a dialog, §28.9)
       await click('[data-act="sh-blank"]');
@@ -464,10 +464,10 @@ try {
       app.refresh(); app.paint(); await sleep(250);
       const tileN = () => $$('.tiles .tile').map((t) => t.querySelector('.num').textContent.trim());
       const c12 = api.census();
-      ok('§12 Coverage opens on My actors, its tiles the census', tileN()[0] === String(c12.asked) && tileN()[1] === String(c12.answered), `${tileN().join(' · ')}`);
-      const cvRows = () => $$('.cvlist .rows .row');
-      const first12 = cvRows()[0];
-      const door12 = first12?.querySelector('[data-act="entry"]');
+      const n12 = (i) => Number(String(tileN()[i] ?? '').replace(/,/g, ''));
+      ok('§12 Coverage opens on My actors, its tiles the tab\'s own census (items, effects and natural attacks): at least the items, and No FX is the difference', n12(0) >= c12.asked && n12(1) >= c12.answered && n12(0) - n12(1) === n12(2), `${tileN().join(' · ')} (items alone ${c12.asked} · ${c12.answered})`);
+      const cvRows = () => $$('.cvlist .rows .cvrow');
+      const door12 = [...cvRows()].map((r) => r.querySelector('[data-act="entry"]')).find((b) => b && b.dataset.uuid === tmp.uuid) ?? null;
       ok('§12 a No FX row is the door data-act="entry" with the item\'s uuid and data-create', !!door12 && !!door12.dataset.uuid && door12.dataset.create === '1', door12?.outerHTML.slice(0, 160) ?? 'no row');
       const name12 = (fromUuidSync(door12.dataset.uuid)?.name) ?? '';
       await click(door12);
@@ -484,7 +484,7 @@ try {
       ok('§12 Back returns to Coverage', tabNow() === 'coverage', tabNow());
       // the Copy from door, on the same landing
       app.sheet = null;
-      await click(cvRows()[0].querySelector('[data-act="entry"]'));
+      await click([...cvRows()].map((r) => r.querySelector('[data-act="entry"]')).find((b) => b && b.dataset.uuid === tmp.uuid));
       await click('[data-act="sh-door"][data-door="copy"]');
       ok('§12 the Copy from door opens a box listing FX to copy (no starters)', !!$('.nothing .sh-like') && $$('.nothing .suggest .hit').length > 0 && !$$('.nothing .suggest .hit').some((h) => (h.dataset.id ?? '').startsWith('starter:')), `${$$('.nothing .suggest .hit').length} hits`);
       await type('.nothing .sh-like', 'fire bolt');
@@ -497,17 +497,18 @@ try {
       const fake = document.createElement('button');
       fake.type = 'button'; fake.dataset.act = 'key'; fake.dataset.key = unheld12; fake.dataset.from = 'misty-step';
       pane12.append(fake);
-      api.proposals = { get: (k) => (k === unheld12 ? { status: 'proposed', reason: '', basis: 'misty-step', sentence: 'a mark on the caster', vfxFit: 'Sure', sfxFit: 'Likely' } : null) };
+      const real12 = api.proposals;
+      api.proposals = { ...real12, get: (k) => (k === unheld12 ? { status: 'proposed', reason: '', basis: 'misty-step', sentence: 'a mark on the caster', vfxFit: 'Sure', sfxFit: 'Likely' } : null) };
       fake.click(); await sleep(400);
       ok('§12 data-act="key" with data-from opens a new FX for the key with that FX\'s scenes copied in, and says what the gap table proposes', paneNow() === 'editor' && app.sheet.keys[0] === unheld12 && app.sheet.from === 'misty-step' && app.sheet.scenes.length === 3 && !app.sheet.landing && /The gap table proposes “a mark on the caster”, from Misty Step \(picture Sure, sound Likely\)/.test(text('.sheet .notes')), `${app.sheet.keys[0]} · ${text('.sheet .notes')}`);
       app.sheet = null; app.view.tab = 'coverage'; app.paint(); await sleep(200);
-      api.proposals = { get: (k) => (k === unheld12 ? { status: 'none', reason: 'it is a passive trait' } : null) };
+      api.proposals = { ...real12, get: (k) => (k === unheld12 ? { status: 'none', reason: 'it is a passive trait' } : null) };
       const fake2 = document.createElement('button');
       fake2.type = 'button'; fake2.dataset.act = 'key'; fake2.dataset.key = unheld12;
       $('[data-pane="coverage"]').append(fake2);
       fake2.click(); await sleep(400);
       ok('§12 data-act="key" alone lands on the landing, which says the gap table\'s judgement and still offers the doors', /Nothing plays for/.test(text('.nothing .big')) && /The gap table judged it: no proposed FX: it is a passive trait\. You can still write one\./.test(text('.nothing .judged')) && $$('.nothing .three button').length === 3, text('.nothing .judged'));
-      delete api.proposals;
+      api.proposals = real12;
       fake.remove(); fake2.remove();
       app.sheet = null; app.view.tab = 'coverage'; app.paint(); await sleep(200);
       // Find an item from a blank sheet (DESIGN §23)
@@ -730,7 +731,6 @@ try {
     } finally {
       window.removeEventListener('error', onError);
       window.removeEventListener('unhandledrejection', onError);
-      delete api.proposals;
       for (const id of made) if (api.fx.get(id)?.source === 'house') await api.corpus.erase(id).catch(() => null);
       let restored = true;
       for (const p of FILES) if ((await readFile(p)) !== snapshot[p]) { restored = false; await writeFile(p, snapshot[p]).catch(() => null); }
