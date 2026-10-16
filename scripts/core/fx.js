@@ -297,7 +297,8 @@ export function sceneWords(scene) {
       const sz = sizeWords(s.size); if (sz) w += `, ${sz}`;
       if (s.breathe) w += ', breathing';
       if (s.pulse) w += ', pulsing';
-      if (s.persist !== 'none') w += ` ${persistWords[s.persist]}`;
+      // an aura has no persist knob: the engine attaches it to the token and ends it with what made it (engine/shapes/aura.js)
+      w += ` ${persistWords.effect}`;
       return tail(w);
     }
     case 'beam': return tail(`a beam (${a}) from ${PLACE_WORDS[s.from]} to ${PLACE_WORDS[s.to]}${s.persist !== 'none' ? ` ${persistWords[s.persist]}` : ''}`);
@@ -321,7 +322,7 @@ export function sentence(fx, { name = null } = {}) {
   if (!fx) return 'Nothing plays.';
   if (fx.off) return `${name ?? fx.id} · plays nothing (switched off).`;
   const head = name ?? fx.id.replace(/-/g, ' ');
-  const when = WHEN_WORDS[fx.on] ?? fx.on;
+  const when = WHEN_WORDS[fx.on ?? 'use'] ?? fx.on;
   const scenes = fx.scenes ?? [];
   const clauses = [];
   const sounds = [];

@@ -26,13 +26,18 @@ const known = new Set(recipes.frozen?.meta?.missingFiles ?? []); // files AA's t
 const sets = file ? [['file', readFxFile(file)]] : [['stock', recipes.stock], ['house', recipes.house], ['starters', recipes.starters.map((s) => ({ ...s, id: s.id }))]];
 
 const problems = [];
-const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0, unrecorded: 0 };
+const counts = { fx: 0, off: 0, scenes: 0, assets: 0, ok: 0, missing: 0, knownMissing: 0, invalid: 0, frozen: 0, unrecorded: 0, holes: 0 };
+// a word the grammar has no words for leaves a hole in the sentence ("1 square around undefined")
+const HOLE = /\b(?:undefined|null|NaN)\b|\[object /;
 for (const [source, list] of sets) {
   for (const fx of list) {
     counts.fx++;
     const where = `${source} "${fx?.id}"`;
     const errs = validate(fx);
     if (errs.length) { counts.invalid++; problems.push(`${where}: ${errs.join('; ')}`); continue; }
+    // the sentence is read on every screen and in every card: it must have no hole in it
+    const words = sentence(fx);
+    if (HOLE.test(words)) { counts.holes++; problems.push(`${where}: a hole in its sentence: ${words}`); }
     // every keyed FX in the corpora carries the record the evidence says (core/records.js); a file under test may not, and is told
     if (source !== 'starters' && fx.for?.[0] && recipes.records[fx.for[0]] && !recordAgrees(fx, recipes.records)) {
       counts.unrecorded++;
@@ -67,6 +72,6 @@ if (recipes.frozen?.db) {
   walk(recipes.frozen.db);
 }
 void db;
-console.log(`check-fx: ${counts.fx} fx (${counts.off} off), ${counts.scenes} scenes, ${counts.assets} assets · resolve ${counts.ok}, missing ${counts.missing}, on the frozen table ${counts.frozen} · invalid ${counts.invalid} · frozen table files on disk ${frozenFiles - frozenMissing} of ${frozenFiles} · known-missing since AA ${counts.knownMissing}`);
+console.log(`check-fx: ${counts.fx} fx (${counts.off} off), ${counts.scenes} scenes, ${counts.assets} assets · resolve ${counts.ok}, missing ${counts.missing}, on the frozen table ${counts.frozen} · invalid ${counts.invalid} · sentences with a hole ${counts.holes} · frozen table files on disk ${frozenFiles - frozenMissing} of ${frozenFiles} · known-missing since AA ${counts.knownMissing}`);
 if (!quiet) for (const p of problems) console.log('  ✗ ' + p);
 if (problems.length) { console.log(`FAIL: ${problems.length} problem(s)`); process.exitCode = 1; } else console.log('PASS');
