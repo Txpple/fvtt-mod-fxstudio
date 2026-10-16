@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 25
+  "fx": 28
  },
  "fx": [
   {
@@ -930,6 +930,112 @@
      "persist": "until-removed",
      "below": true,
      "zIndex": 0
+    }
+   ]
+  },
+  {
+   "id": "lamp",
+   "for": [
+    "item:lamp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.Ekz3r0UKJ261oBJj",
+    "name": "Lamp",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "asset": {
+      "path": "jb2a.flames.01.orange"
+     },
+     "size": {
+      "tokenWidths": 0.75
+     },
+     "anchor": {
+      "x": 0.25,
+      "y": 0.75
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "persist": "template",
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "torch",
+   "for": [
+    "item:torch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.PKHfz87DirOHUBHn",
+    "name": "Torch",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "path": "jb2a.flames.01.orange"
+     },
+     "size": {
+      "tokenWidths": 0.75
+     },
+     "anchor": {
+      "x": 0.25,
+      "y": 0.75
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "persist": "template",
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "lantern-bullseye",
+   "for": [
+    "item:lantern-bullseye"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagLanternBull",
+    "name": "Lantern, Bullseye",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.detect_magic.cone.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "fit": "shape"
+     }
     }
    ]
   }
