@@ -25,8 +25,8 @@
 // before the bow, a cast activity's spell before the wand, an effect's own name before what made it.
 
 export const KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect', 'event'];
-/** the kinds a person authors against and the Library lists: every kind but the moment word (`event:<word>` is By the Books') */
-export const AUTHORED_KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect'];
+/** the kinds a person authors against and the Library lists: every kind, the moment's own `event:<word>` among them (DESIGN §28.2) */
+export const AUTHORED_KINDS = ['spell', 'weapon', 'natural', 'feature', 'item', 'effect', 'event'];
 
 /** which kind a dnd5e item type is, before the weapon/natural split */
 export const KIND_OF_ITEM_TYPE = { spell: 'spell', weapon: 'weapon', feat: 'feature', consumable: 'item', equipment: 'item', tool: 'item', loot: 'item', container: 'item' };

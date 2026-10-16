@@ -19,18 +19,15 @@ export const STATUS_WORDS = { custom: 'Custom', stock: 'Stock', none: 'No FX', o
 
 
 /** the kind of an ability, as a tag */
-export const KIND_WORDS = { spell: 'Spell', weapon: 'Weapon', feature: 'Feature', item: 'Item', effect: 'Effect' };
+export const KIND_WORDS = { spell: 'Spell', weapon: 'Weapon', natural: 'Natural', feature: 'Feature', item: 'Item', effect: 'Effect', event: 'Event' };
 
 /** the same kinds as a facet on the FX tab: what a list of them is called */
-export const KIND_PLURAL = { spell: 'Spells', weapon: 'Weapons', natural: 'Natural', feature: 'Features', item: 'Items', effect: 'Effects' };
+export const KIND_PLURAL = { spell: 'Spells', weapon: 'Weapons', natural: 'Natural', feature: 'Features', item: 'Items', effect: 'Effects', event: 'Events' };
 
 export const dot = (status) => `<span class="dot ${status}"></span>`;
 
 /** the title words for an FX id: "sharran-step" → "Sharran Step" */
 export const idWords = (id) => String(id ?? '').replace(/^starter:/, '').replace(/-/g, ' ').replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
-/** the moment as a term: On use · While active — the two words the Editor authors (DESIGN §26) */
-export const ON_WORDS = { use: 'On use', effect: 'While active' };
-
-/** every moment word as a term, for an FX that carries one the Editor does not author (the engine's own, core/moments.js WHEN): shown, never changed there */
-export const MOMENT_WORDS = { ...ON_WORDS, maneuver: 'On a maneuver', sneak: 'On Sneak Attack', fold: 'On a fold', rider: 'On a rider', 'hold-answered': 'On a held roll answered', summon: 'On summon', unsummon: 'On unsummon' };
+/** the nine moment words of core/moments.js WHEN, each as a pill's term: dnd5e's two, then By the Books' seven */
+export const MOMENT_TERMS = { use: 'Use', effect: 'Effect', maneuver: 'Maneuver', sneak: 'Sneak', fold: 'Fold', rider: 'Rider', 'hold-answered': 'Held roll', summon: 'Summon', unsummon: 'Unsummon' };
