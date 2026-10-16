@@ -30,7 +30,7 @@ spell:pass-without-trace	Close match	spell:invisibility	jb2a.shimmer.01.blue	psf
 spell:protection-from-energy	Close match	effect:acid-protection	jb2a.energy_field.01.multicolored	psfx.magic-signs.rune.v1.abjuration.outro	Protection from Energy: the same shield the five elemental protections already use.	Likely	Likely	0
 spell:resistance	Close match	effect:acid-protection	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	Resistance: a small blue shield at the target.	Likely	Likely	0
 spell:searing-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.orange	psfx.class-features.divine-smite.v1.001.target	A smite in fire orange.	Sure	Sure	9
-spell:shield	Close match	effect:imperceptible-barrier	jb2a.shield.01.intro.blue	psfx.1st-level-spells.shield-spell.intro.v1	Shield: the barrier snaps up. PSFX drew intro, loop and outro for this exact spell.	Sure	Sure	3
+spell:shield	No proposed FX				The Shield effect plays the barrier; the spell itself plays nothing.			
 spell:shield-of-faith	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	Shield of Faith: a gold shield held at the target.	Likely	Likely	0
 spell:shining-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.greenyellow	psfx.class-features.divine-smite.v1.001.target	A smite that leaves the target lit.	Sure	Sure	9
 spell:spirit-guardians	Close match	spell:bless	jb2a.spirit_guardians.blue.spirits	psfx.magic-signs.circle.v1.conjuration.loop	Spirit Guardians: the spirits JB2A drew for this exact spell, in eleven colours.	Sure	Likely	0

@@ -42,7 +42,7 @@ record itself suggests it. They run in this order; everything they write lands i
 
 ⚠ **`gap-proposals/` IS THE WORK, and it is tracked** (the user, 2026-09-09: *"make those tracked
 we dont want to lose that work"*). Twenty-three TSVs, 3166 hand-written judgments, one line per
-addressed key: 1600 with a proposed FX, 1566 marked *No proposed FX*. **Nothing regenerates them** —
+addressed key: 1599 with a proposed FX, 1567 marked *No proposed FX*. **Nothing regenerates them** —
 the tools find the gaps and prove the paths, but what an ability should look like was decided a row
 at a time. They sit beside the tool that reads them and **not** under `recipes/`, which the module
 serves to the game at boot.
