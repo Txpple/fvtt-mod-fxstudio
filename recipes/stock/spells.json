@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 380
+  "fx": 383
  },
  "fx": [
   {
@@ -14136,6 +14136,105 @@
      },
      "sound": {
       "asset": "psfx.magic-signs.rune.v1.necromancy.intro-fade"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "wrathful-smite",
+   "for": [
+    "spell:wrathful-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWrathfulSm",
+    "name": "Wrathful Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "searing-smite",
+   "for": [
+    "spell:searing-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSearingSmi",
+    "name": "Searing Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.orange"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "thunderous-smite",
+   "for": [
+    "spell:thunderous-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplThunderous",
+    "name": "Thunderous Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.blueyellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
      },
      "elevation": {
       "level": 999,
