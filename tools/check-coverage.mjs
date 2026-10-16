@@ -102,7 +102,7 @@ if (t.section('Check on the Compendiums scope agrees with gaps.mjs')) {
   }
   t.same(`pack by pack (${a.proposals.packs().length}), each picked alone agrees with the file's count for it`, off, []);
   const phb = cov.bookRows(a, new Set(['dnd-players-handbook.spells']));
-  t.is('the PHB spells alone: 244 with no FX, as the review counted', phb.asked - phb.answered, 244);
+  t.is('the PHB spells alone: 236 with no FX, the review\'s 244 less the party batch (seven spells and the Prone effect, whose record is Destructive Wave)', phb.asked - phb.answered, 236);
   const row = phb.groups[0].rows.find((x) => x.key === 'spell:shield');
   t.ok('the Shield spell is a row, judged, saying the effect plays the barrier', row?.st === 'judged' && /Shield effect plays the barrier/.test(row.words), JSON.stringify(row));
   let agree = 0;
@@ -120,7 +120,7 @@ const effect = (actor, { name, transfer = false, temporary = false }) => ({ name
 const cecil = {
   name: 'Cecil Stand-in', type: 'character', uuid: 'Actor.cecil',
   items: [
-    item('Actor.cecil', { name: 'Lute', type: 'tool', acts: 2 }),
+    item('Actor.cecil', { name: 'Drum', type: 'tool', acts: 2 }),
     item('Actor.cecil', { name: 'Tinderbox', type: 'tool' }),
     item('Actor.cecil', { name: 'Shield', type: 'spell' }),
     item('Actor.cecil', { name: 'Fire Bolt', type: 'spell' }),
@@ -147,7 +147,7 @@ if (t.section('My actors: why each row is there')) {
   const r = cov.actorRows(a, census);
   const by = Object.fromEntries(r.groups.flatMap((g) => g.rows).map((x) => [x.name, x]));
   t.is('a character is listed before an npc', r.groups[0].head.startsWith('Cecil Stand-in'), true);
-  t.ok('the Lute has a proposal, copied from an FX that exists', by.Lute?.st === 'proposal' && !!a.fx.get(by.Lute.from) && by.Lute.note === 'Sure · Sure', JSON.stringify(by.Lute));
+  t.ok('the Drum has a proposal, copied from an FX that exists', by.Drum?.st === 'proposal' && !!a.fx.get(by.Drum.from) && by.Drum.note === 'Sure · Sure', JSON.stringify(by.Drum));
   t.ok('the Tinderbox is judged: mundane gear', by.Tinderbox?.st === 'judged' && by.Tinderbox.note === REASONS.mundane, JSON.stringify(by.Tinderbox));
   t.ok('the Shield spell is judged: the effect plays the barrier', by.Shield?.st === 'judged' && /Shield effect plays the barrier/.test(by.Shield.words), JSON.stringify(by.Shield));
   t.ok('Fire Bolt has an FX that played nothing: the engine\'s why and its time from the ledger', by['Fire Bolt']?.st === 'ledger' && /no targets/.test(by['Fire Bolt'].words) && /Fire Bolt/.test(by['Fire Bolt'].note), JSON.stringify(by['Fire Bolt']));
@@ -167,9 +167,9 @@ if (t.section('My actors: why each row is there')) {
 const app = { view: { tab: 'coverage' }, census, element: null, rendered: false, render: async () => {} };
 if (t.section('the doors the rows emit')) {
   const html = cov.renderCoverage(app);
-  const lute = /<div class="cvrow" data-st="proposal">(?:(?!<div class="cvrow").)*?Lute(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
-  const basis = a.proposals.get('item:lute').basis;
-  t.ok('a proposal\'s door opens the Editor with the basis copied in', lute.includes(`data-act="key" data-key="item:lute" data-from="${basis}"`), lute.slice(0, 300));
+  const drum = /<div class="cvrow" data-st="proposal">(?:(?!<div class="cvrow").)*?Drum(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
+  const basis = a.proposals.get('item:drum').basis;
+  t.ok('a proposal\'s door opens the Editor with the basis copied in', drum.includes(`data-act="key" data-key="item:drum" data-from="${basis}"`), drum.slice(0, 300));
   const tinder = /<div class="cvrow" data-st="judged">(?:(?!<div class="cvrow").)*?Tinderbox(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
   t.ok('a judged item on an actor keeps its door: entry, its uuid, create', /data-act="entry" data-uuid="Actor\.cecil\.Item\.tinderbox" data-create="1"/.test(tinder), tinder.slice(0, 300));
   const flicker = /<div class="cvrow" data-st="none">(?:(?!<div class="cvrow").)*?Odd Flicker(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
@@ -183,7 +183,7 @@ if (t.section('the doors the rows emit')) {
   t.ok('Maintain is a disclosure holding Import, Import to Stock and the corpus check', /<details class="cvmaint"[^>]*>[\s\S]*data-act="import-fx" data-to="house"[\s\S]*data-act="import-fx" data-to="stock"[\s\S]*data-act="co-check"/.test(html));
   t.ok('the repo note has left the GM\'s screen', !/pull the files into the repo/.test(html));
   t.ok('the four tiles keep their addresses', /Abilities[\s\S]*With FX[\s\S]*No FX[\s\S]*Errors/.test(html));
-  app.cvv.q = 'lute';
+  app.cvv.q = 'drum';
   const searched = cov.renderCoverage(app);
   t.is('the search narrows the rows', (searched.match(/<div class="cvrow"/g) ?? []).length, 1);
   app.cvv.q = '';

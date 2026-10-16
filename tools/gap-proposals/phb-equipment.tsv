@@ -64,7 +64,6 @@ item:star-map-glass-disk-etched-with-constellations	No proposed FX				A spellcas
 item:explorers-pack	No proposed FX				A pack of gear — nothing to play.
 item:fine-clothes	No proposed FX				Clothing — nothing to play.
 item:flask	No proposed FX				Mundane gear — nothing to play.
-item:flute	Close match	spell:bless	jb2a.music_notations.treble_clef.green	psfx.musical-instruments.flute.01.long.keyOfC.C6	A flute played.	Sure	Sure	0
 item:forgery-kit	No proposed FX				A tool kit — no moment at the table.
 item:glassblowers-tools	No proposed FX				A tool kit — no moment at the table.
 item:grappling-hook	No proposed FX				Mundane gear — nothing to play.
@@ -80,13 +79,10 @@ item:ink-pen	No proposed FX				Mundane gear — nothing to play.
 item:jewelers-tools	No proposed FX				A tool kit — no moment at the table.
 item:jug	No proposed FX				Mundane gear — nothing to play.
 item:ladder	No proposed FX				Mundane gear — nothing to play.
-item:lamp	Close match	spell:light	jb2a.flames.04.loop.orange	psfx.cantrips.light.v1.001	A lamp lit.	Likely	Likely	0
-item:lantern-bullseye	Close match	spell:light	jb2a.detect_magic.cone.green	psfx.cantrips.light.v1.001	A lantern opened: light down a cone.	Likely	Likely	0
 item:lantern-hooded	Close match	spell:light	jb2a.markers.light_orb.loop.yellow	psfx.cantrips.light.v1.001	A lantern opened: light all round.	Likely	Likely	0
 item:leather-armor	No proposed FX				Worn armour with no activation.
 item:leatherworkers-tools	No proposed FX				A tool kit — no moment at the table.
 item:lock	No proposed FX				Mundane gear — nothing to play.
-item:lute	Close match	spell:bless	jb2a.music_notations.quaver.orange	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6	A lute played.	Sure	Sure	0
 item:lyre	Close match	spell:bless	jb2a.music_notations.sharp.blue	psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6	A lyre played.	Sure	Sure	0
 item:magnifying-glass	No proposed FX				Mundane gear — nothing to play.
 item:manacles	Close match	effect:ensnared	jb2a.markers.chain.square.loop.01.grey	psfx.impacts.bludgeoning.v1	The irons go on.	Sure	Likely	0
@@ -96,7 +92,6 @@ item:masons-tools	No proposed FX				A tool kit — no moment at the table.
 item:mirror	No proposed FX				Mundane gear — nothing to play.
 item:navigators-tools	No proposed FX				A tool kit — no moment at the table.
 item:needles	No proposed FX				Ammunition. The shot is the blowgun's FX.
-item:oil	Close match	spell:fireball	jb2a.explosion.top_fracture.flask.01	psfx.casting.fire.001	A flask of oil thrown, shattered and lit.	Likely	Sure	0
 item:orb	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
 item:padded-armor	No proposed FX				Worn armour with no activation.
 item:painters-supplies	No proposed FX				A tool kit — no moment at the table.
@@ -144,7 +139,6 @@ item:three-dragon-ante	No proposed FX				A game — nothing to play.
 item:tinderbox	No proposed FX				Mundane gear — nothing to play.
 item:tinkers-tools	No proposed FX				A tool kit — no moment at the table.
 item:star-map-owlbear-hide	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
-item:torch	Close match	spell:light	jb2a.flames.04.complete.orange	psfx.casting.fire.001	A torch lit.	Likely	Sure	0
 item:vial	No proposed FX				Mundane gear — nothing to play.
 item:viol	Close match	spell:bless	jb2a.music_notations.bass_clef.blue	psfx.musical-instruments.violin.01.sforzando.keyOfC.C6	A viol played.	Sure	Sure	0
 item:wand	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
@@ -153,5 +147,4 @@ item:waterskin	No proposed FX				Mundane gear — nothing to play.
 item:weavers-tools	No proposed FX				A tool kit — no moment at the table.
 item:woodcarvers-tools	No proposed FX				A tool kit — no moment at the table.
 item:yew-wand	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
-weapon:battleaxe	Close match	weapon:greataxe	jb2a.melee_attack.02.battleaxe.01	psfx.weapon-attacks.sword.v1	The battleaxe swing.	Sure	Likely	5
 weapon:improvised-weapon	Close match	weapon:club	jb2a.melee_generic.bludgeoning.one_handed	psfx.impacts.bludgeoning.v1	Whatever came to hand, swung.	Likely	Sure	5

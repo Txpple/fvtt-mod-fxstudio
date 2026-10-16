@@ -47,7 +47,6 @@ feature:open-hand-technique	No proposed FX				A passive benefit — no moment to
 feature:otherworldly-glamour	No proposed FX				A passive trait — no moment to play.
 feature:otherworldly-leap	Close match	effect:jump	jb2a.smoke.puff.ring.02.white	psfx.magic-signs.rune.v1.transmutation.intro	Otherworldly Leap: Jump at will.	Likely	Likely	0
 feature:pact-magic	No proposed FX				Spell slots — no moment to play.
-feature:pact-of-the-blade	Family match	weapon:longsword	jb2a.markers.runes02.dark_black.03	psfx.magic-signs.rune.v1.conjuration.intro	Pact of the Blade: the weapon is summoned into the hand.	Likely	Likely	0
 feature:pact-of-the-chain	No proposed FX				A passive benefit — no moment to play.			
 feature:pact-of-the-tome	No proposed FX				Cantrips gained — each has its own FX.
 feature:paladin	No proposed FX				A class name, not an ability — nothing to play.

@@ -12,9 +12,6 @@ spell:conjure-minor-elementals	Close match	spell:conjure-animals	jb2a.magic_sign
 spell:conjure-woodland-beings	Close match	spell:conjure-animals	jb2a.fairies.loop.01.greenyellow	psfx.magic-signs.circle.v1.conjuration.complete	Conjure Woodland Beings: nature spirits flit round the caster.	Likely	Likely	0
 spell:crown-of-madness	Close match	spell:dominate-person	jb2a.magic_signs.circle.02.enchantment.intro.red	psfx.magic-signs.circle.v1.enchantment.complete	Crown of Madness: an enchantment circle in red at the target.	Likely	Sure	0
 spell:crusaders-mantle	Close match	spell:bless	jb2a.template_circle.aura.02.loop.large.yellow	psfx.class-features.divine-smite.v1.001.caster	Crusader's Mantle: a gold aura around the crusader.	Likely	Sure	0
-spell:detect-evil-and-good	Close match	spell:dispel-magic	jb2a.detect_magic.circle.yellow	psfx.1st-level-spells.detect-magic.v1.001	The detection circle at the caster, in gold.	Sure	Sure	5
-spell:detect-magic	Close match	spell:dispel-magic	jb2a.detect_magic.circle.blue	psfx.1st-level-spells.detect-magic.v1.001	Detect Magic: the circle JB2A and PSFX both drew for this exact spell.	Sure	Sure	5
-spell:detect-poison-and-disease	Close match	spell:dispel-magic	jb2a.detect_magic.circle.green	psfx.1st-level-spells.detect-magic.v1.001	The detection circle at the caster, in green.	Sure	Sure	5
 spell:fire-shield	Close match	spell:mage-armor	jb2a.shield_themed.above.fire.01.orange	psfx.casting.fire.001	Fire Shield: fire held around the caster. The cold version is the blue variant of the same asset.	Sure	Likely	0
 spell:fount-of-moonlight	Close match	spell:moonbeam	jb2a.moonbeam.01.no_pulse.blue	psfx.2nd-level-spells.moonbeam.intro.v1.001	Fount of Moonlight: cold moonlight around the caster.	Likely	Likely	0
 spell:heal	Close match	spell:cure-wounds	jb2a.healing_generic.loop.yellowwhite	psfx.1st-level-spells.cure-wounds.v1.001	Heal: the big healing light — Cure Wounds, at sixth level.	Sure	Sure	0
@@ -29,16 +26,12 @@ spell:nystuls-magic-aura	Close match	spell:dispel-magic	jb2a.glint.purple.few	ps
 spell:pass-without-trace	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.circle.v1.abjuration.intro	Pass without Trace: the party goes quiet and dim.	Maybe	Maybe	1
 spell:protection-from-energy	Close match	effect:acid-protection	jb2a.energy_field.01.multicolored	psfx.magic-signs.rune.v1.abjuration.outro	Protection from Energy: the same shield the five elemental protections already use.	Likely	Likely	0
 spell:resistance	Close match	effect:acid-protection	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	Resistance: a small blue shield at the target.	Likely	Likely	0
-spell:searing-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.orange	psfx.class-features.divine-smite.v1.001.target	A smite in fire orange.	Sure	Sure	9
 spell:shield	No proposed FX				The Shield effect plays the barrier; the spell itself plays nothing.			
-spell:shield-of-faith	Close match	spell:mage-armor	jb2a.markers.shield.yellow.03	psfx.magic-signs.rune.v1.abjuration.intro	Shield of Faith: a gold shield held at the target.	Likely	Likely	0
 spell:shining-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.greenyellow	psfx.class-features.divine-smite.v1.001.target	A smite that leaves the target lit.	Sure	Sure	9
 spell:spirit-guardians	Close match	spell:bless	jb2a.spirit_guardians.blue.spirits	psfx.magic-signs.circle.v1.conjuration.loop	Spirit Guardians: the spirits JB2A drew for this exact spell, in eleven colours.	Sure	Likely	0
 spell:staggering-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_purple	psfx.class-features.divine-smite.v1.001.target	A smite in psychic violet.	Sure	Sure	9
 spell:steel-wind-strike	Close match	spell:misty-step	jb2a.ranged_slash.instant.001.blue	psfx.impacts.slashing.v1	Steel Wind Strike: a flash of cuts across every target.	Likely	Sure	0
 spell:stoneskin	Close match	effect:stoneskin	jb2a.impact.earth.01.browngreen	psfx.casting.earth.001	Stoneskin: stone closes over the skin. Its own effect already has an FX; this is the cast.	Likely	Likely	0
-spell:thunderous-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.blueyellow	psfx.class-features.divine-smite.v1.001.target	A smite that lands with thunder.	Sure	Sure	9
 spell:true-polymorph	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.complete.yellow	psfx.magic-signs.circle.v1.transmutation.complete	Polymorph's circle, at ninth level.	Sure	Sure	20
 spell:true-resurrection	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.complete.green	psfx.magic-signs.circle.v1.necromancy.complete	Raise Dead's circle, at ninth level.	Sure	Sure	9
-spell:wrathful-smite	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_red	psfx.class-features.divine-smite.v1.001.target	A smite in necrotic red.	Sure	Sure	9
 spell:yolandes-regal-presence	Close match	spell:dominate-person	jb2a.template_circle.out_pulse.02.burst.purplepink	psfx.magic-signs.circle.v1.enchantment.complete	A pulse of regal presence pushes outward from the caster.	Likely	Likely	13

@@ -144,7 +144,6 @@ effect:petrifying-indigo	Close match	spell:flesh-to-stone	jb2a.impact.earth.01.b
 effect:piercing-protection	Close match	effect:acid-protection	jb2a.markers.shield_rampart.loop.02.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to piercing: the rampart shield.	Likely	Likely	0
 effect:poisoned	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.02	psfx.cantrips.poison-spray.v1	Poisoned: the poison mark over the token.	Likely	Likely	0
 effect:prismatic-blinding	Close match	effect:searing-radiance	jb2a.markers.light.outro.purple02	psfx.magic-signs.rune.v1.abjuration.intro	Prismatic Wall: blinded by every colour at once.	Likely	Likely	0
-effect:prone	Close match	effect:slowed	jb2a.impact.013.002.blue	psfx.impacts.bludgeoning.v1	Knocked prone: the token goes down.	Likely	Sure	0
 effect:protection-from-death	Close match	effect:warded	jb2a.bless.200px.loop.yellow	psfx.magic-signs.rune.v1.abjuration.loop	Death Ward: gold light held over the warded.	Likely	Likely	0
 effect:pursuing-suggestion	Close match	effect:dominated	jb2a.markers.heart.dark_red.02	psfx.magic-signs.rune.v1.enchantment.intro	Suggestion: the planted idea holds.	Likely	Likely	0
 effect:radiant-protection	Close match	effect:acid-protection	jb2a.shield.03.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: the shield in white, as the five elemental protections already read.	Likely	Likely	0

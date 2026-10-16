@@ -119,7 +119,6 @@ feature:enchantment-savant	No proposed FX				A list of spells known — each spe
 feature:enfeebling-shot	Close match	weapon:longbow	jb2a.arrow.physical.red	psfx.ranged-weapons.longbow.v1	Enfeebling Shot: a dark red arrow that saps strength.	Likely	Sure	0
 feature:ever-ready-shot	No proposed FX				A use regained at Initiative — no moment to play.			
 feature:evocation-adept	Close match	spell:fire-bolt	jb2a.magic_signs.rune.evocation.complete.orange	psfx.magic-signs.rune.v1.evocation.intro	Evocation Adept: the evoker shapes the blast.	Maybe	Likely	0
-feature:familiar-friend	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.intro.green	psfx.magic-signs.circle.v1.conjuration.complete	Familiar Friend: the familiar answers.	Likely	Likely	0
 feature:familiar-trainer	No proposed FX				A background — no moment to play.			
 feature:focused-conjuration	No proposed FX				A passive benefit — no moment to play.			
 feature:focused-strike	No proposed FX				A rider on Stunning Strike, which plays the moment.			
@@ -252,7 +251,6 @@ item:workshop-wrecker	Close match	spell:shatter	jb2a.aura_themed.01.outward.comp
 natural:brain-drain	Close match	natural:tentacle	jb2a.explosion.03.purplepink	psfx.impacts.magicaleffects.psychic	Taisus drains the target's mind.	Likely	Sure	0
 natural:spore-spray	Close match	spell:poison-spray	jb2a.fumes.toxic.green	psfx.cantrips.poison-spray.v1	The spirit fungus sprays spores.	Likely	Sure	0
 spell:aura-of-evasion	Close match	spell:sanctuary	jb2a.template_circle.aura.03.inward.002.complete.combined.blueteal	psfx.cantrips.gust.v1	Aura of Evasion: an aura of alacrity around the caster.	Likely	Likely	0
-spell:battle-familiar	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.intro.red	psfx.magic-signs.circle.v1.conjuration.complete	Battle Familiar: a familiar armed for war.	Likely	Likely	0
 spell:detonate	Close match	spell:fireball	jb2a.explosion.03.red	psfx.impacts.magicaleffects.fire	Detonate: the seed inside the target explodes.	Likely	Likely	0
 spell:disruptive-tune	Close match	spell:shatter	jb2a.explosion.06.purplepink	psfx.1st-level-spells.dissonant-whispers.v1.002	Disruptive Tune: a jarring melody bursts over the area.	Sure	Likely	0
 spell:distorted-distance	Close match	spell:hypnotic-pattern	jb2a.magic_signs.circle.02.illusion.intro.purple	psfx.magic-signs.circle.v1.illusion.complete	Distorted Distance: space dilates in the sphere.	Likely	Likely	0

@@ -176,7 +176,6 @@ feature:sailor	No proposed FX				A background name, not an ability — nothing t
 feature:scribe	No proposed FX				A background name, not an ability — nothing to play.
 feature:skillful	No proposed FX				A proficiency — no moment to play.
 feature:soldier	No proposed FX				A background name, not an ability — nothing to play.
-feature:stonecunning	Close match	effect:stonecunning	jb2a.soundwave.01.multicolored01	psfx.casting.earth.001	Stonecunning: exactly as its own effect already plays.	Likely	Sure	3
 feature:tiefling-abyssal	No proposed FX				A species name, not an ability — nothing to play.
 feature:tiefling-chthonic	No proposed FX				A species name, not an ability — nothing to play.
 feature:tiefling-infernal	No proposed FX				A species name, not an ability — nothing to play.

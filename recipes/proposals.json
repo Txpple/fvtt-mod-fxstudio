@@ -2,9 +2,9 @@
  "schema": 1,
  "tool": "tools/proposals.mjs",
  "records": "2026-10-12",
- "gaps": 3166,
+ "gaps": 3147,
  "counts": {
-  "proposed": 1599,
+  "proposed": 1580,
   "none": 1567,
   "open": 0
  },
@@ -24,7 +24,7 @@
    "label": "Player's Handbook · Spells",
    "kind": "list",
    "keys": 650,
-   "gaps": 244
+   "gaps": 236
   },
   {
    "id": "dnd-players-handbook.feats",
@@ -38,21 +38,21 @@
    "label": "Player's Handbook · Character Classes",
    "kind": "list",
    "keys": 683,
-   "gaps": 554
+   "gaps": 553
   },
   {
    "id": "dnd-players-handbook.origins",
    "label": "Player's Handbook · Character Origins",
    "kind": "list",
    "keys": 86,
-   "gaps": 73
+   "gaps": 72
   },
   {
    "id": "dnd-players-handbook.equipment",
    "label": "Player's Handbook · Equipment",
    "kind": "list",
    "keys": 204,
-   "gaps": 158
+   "gaps": 151
   },
   {
    "id": "dnd-monster-manual.features",
@@ -108,14 +108,14 @@
    "label": "Arcana Unleashed · Spells",
    "kind": "list",
    "keys": 46,
-   "gaps": 40
+   "gaps": 39
   },
   {
    "id": "dnd-arcana-unleashed.feats",
    "label": "Arcana Unleashed · Feats",
    "kind": "list",
    "keys": 48,
-   "gaps": 48
+   "gaps": 47
   },
   {
    "id": "dnd-arcana-unleashed.subclasses",
@@ -964,7 +964,6 @@
 "effect:prismatic-conversion-fire":{"status":"none","reason":"always-on","sentence":"Always on while it is worn or known — no moment to play."},
 "effect:prismatic-conversion-lightning":{"status":"none","reason":"always-on","sentence":"Always on while it is worn or known — no moment to play."},
 "effect:prismatic-conversion-thunder":{"status":"none","reason":"always-on","sentence":"Always on while it is worn or known — no moment to play."},
-"effect:prone":{"status":"proposed","basis":"slowed","sentence":"Knocked prone: the token goes down.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.impact.013.002.blue","sfx":"psfx.impacts.bludgeoning.v1"},
 "effect:prone--restrained":{"status":"proposed","basis":"ensnared","sentence":"Smelting Charge: the target is down and pinned.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.chain.square.loop.01.red","sfx":"psfx.casting.fire.001"},
 "effect:protected-against-poison":{"status":"none","reason":"always-on","sentence":"Always on while it is worn or known — no moment to play."},
 "effect:protection-emanation":{"status":"proposed","basis":"mage-armor-mark","sentence":"The scroll's circle holds one kind of creature out.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.magic_signs.circle.02.abjuration.loop.blue","sfx":"psfx.magic-signs.circle.v1.abjuration.loop"},
@@ -1694,7 +1693,6 @@
 "feature:eye-rays":{"status":"proposed","basis":"guiding-bolt","sentence":"Eye Rays: a beam from each eye.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.energy_beam.normal.blue.01","sfx":"psfx.impacts.magicaleffects.psychic"},
 "feature:fairy-trickster":{"status":"proposed","basis":"confused","sentence":"Fairy Trickster: fey mischief.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.fairies.outward_burst.01.bluepurple","sfx":"psfx.magic-signs.rune.v1.enchantment.intro"},
 "feature:faithful-steed":{"status":"none","reason":"bookkeeping","sentence":"Find Steed once a day, which has its own FX."},
-"feature:familiar-friend":{"status":"proposed","basis":"find-familiar","sentence":"Familiar Friend: the familiar answers.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.magic_signs.circle.02.conjuration.intro.green","sfx":"psfx.magic-signs.circle.v1.conjuration.complete"},
 "feature:familiar-trainer":{"status":"none","reason":"always-on","sentence":"A background — no moment to play."},
 "feature:fanatical-focus":{"status":"none","reason":"always-on","sentence":"A reroll while raging — no moment of its own."},
 "feature:farmer":{"status":"none","reason":"header","sentence":"A background name, not an ability — nothing to play."},
@@ -2046,7 +2044,6 @@
 "feature:pacifying-spores":{"status":"proposed","basis":"charmed","sentence":"Pacifying Spores: the spores calm the target.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.particles.outward.greenyellow.02.02","sfx":"psfx.magic-signs.rune.v1.enchantment.intro"},
 "feature:pack-tactics":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},
 "feature:pact-magic":{"status":"none","reason":"always-on","sentence":"Spell slots — no moment to play."},
-"feature:pact-of-the-blade":{"status":"proposed","basis":"longsword","sentence":"Pact of the Blade: the weapon is summoned into the hand.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.runes02.dark_black.03","sfx":"psfx.magic-signs.rune.v1.conjuration.intro"},
 "feature:pact-of-the-chain":{"status":"none","reason":"always-on","sentence":"A passive benefit — no moment to play."},
 "feature:pact-of-the-tome":{"status":"none","reason":"bookkeeping","sentence":"Cantrips gained — each has its own FX."},
 "feature:paladin":{"status":"none","reason":"header","sentence":"A class name, not an ability — nothing to play."},
@@ -2273,7 +2270,6 @@
 "feature:sticky-net":{"status":"proposed","basis":"ensnared","sentence":"Sticky Net: the net lands on the target.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.web.01","sfx":"psfx.magic-signs.rune.v1.conjuration.intro"},
 "feature:sticky-shield":{"status":"proposed","basis":"ensnared","sentence":"Sticky Shield: the shield catches what hits it.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.web.loop.002.white","sfx":"psfx.magic-signs.rune.v1.conjuration.intro"},
 "feature:stomp":{"status":"proposed","basis":"slam","sentence":"Stomp: it brings its foot down. AA had this as a natural attack; the 2024 Monster Manual makes it a feature.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.impact.ground_crack.orange.01","sfx":"psfx.impacts.bludgeoning.v1"},
-"feature:stonecunning":{"status":"proposed","basis":"stonecunning","sentence":"Stonecunning: exactly as its own effect already plays.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.soundwave.01.multicolored01","sfx":"psfx.casting.earth.001"},
 "feature:storm-bolt":{"status":"proposed","basis":"lightning-bolt","sentence":"Storm Bolt: a bolt of thunder at range.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.lightning_strike.blue","sfx":"psfx.weapon-swooshes.lightning.v1.group01"},
 "feature:stormborn":{"status":"proposed","basis":"cone-of-cold","sentence":"Stormborn: cold comes off the druid.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.template_circle.out_pulse.03.loop.bluewhite","sfx":"psfx.5th-level-spells.cone-of-cold.v1.001"},
 "feature:strange-modifications":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},
@@ -2687,7 +2683,6 @@
 "item:flame-singed-love-letter":{"status":"none","reason":"mundane","sentence":"A Mist Talisman: a trinket with no rules of its own."},
 "item:flames":{"status":"none","reason":"bookkeeping","sentence":"A Deck of Many Things card. The draw plays on the Deck itself."},
 "item:flask":{"status":"none","reason":"mundane","sentence":"Mundane gear — nothing to play."},
-"item:flute":{"status":"proposed","basis":"bless","sentence":"A flute played.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.music_notations.treble_clef.green","sfx":"psfx.musical-instruments.flute.01.long.keyOfC.C6"},
 "item:fochlucan-bandore-instrument-of-the-bards":{"status":"proposed","basis":"bless","sentence":"An instrument of the bards is played.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.music_notations.treble_clef.blue","sfx":"psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6"},
 "item:folding-boat":{"status":"none","reason":"no-activity","sentence":"The record has no activity, so nothing at the table plays it."},
 "item:fool":{"status":"none","reason":"bookkeeping","sentence":"A Deck of Many Things card. The draw plays on the Deck itself."},
@@ -2794,8 +2789,6 @@
 "item:key":{"status":"none","reason":"bookkeeping","sentence":"A Deck of Many Things card. The draw plays on the Deck itself."},
 "item:knight":{"status":"none","reason":"bookkeeping","sentence":"A Deck of Many Things card. The draw plays on the Deck itself."},
 "item:ladder":{"status":"none","reason":"mundane","sentence":"Mundane gear — nothing to play."},
-"item:lamp":{"status":"proposed","basis":"light","sentence":"A lamp lit.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.flames.04.loop.orange","sfx":"psfx.cantrips.light.v1.001"},
-"item:lantern-bullseye":{"status":"proposed","basis":"light","sentence":"A lantern opened: light down a cone.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.detect_magic.cone.green","sfx":"psfx.cantrips.light.v1.001"},
 "item:lantern-hooded":{"status":"proposed","basis":"light","sentence":"A lantern opened: light all round.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.light_orb.loop.yellow","sfx":"psfx.cantrips.light.v1.001"},
 "item:lantern-of-revealing":{"status":"proposed","basis":"light","sentence":"The lantern is opened and the invisible is lit.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.light.outro.blue","sfx":"psfx.cantrips.light.v1.001"},
 "item:lapis-lazuli-scarab":{"status":"none","reason":"mundane","sentence":"A Mist Talisman: a trinket with no rules of its own."},
@@ -2810,7 +2803,6 @@
 "item:lolths-sting":{"status":"proposed","basis":"lingering-acid","sentence":"The poison takes.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.poison.purple.03","sfx":"psfx.cantrips.poison-spray.v1"},
 "item:long-compartment":{"status":"none","reason":"mundane","sentence":"A container. Nothing happens at the table."},
 "item:lucky-foot":{"status":"proposed","basis":"bless","sentence":"The Lucky Foot turns a 1 around.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.dodecahedron.rune.above.blueyellow","sfx":"psfx.conditions.boon.001.01"},
-"item:lute":{"status":"proposed","basis":"bless","sentence":"A lute played.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.music_notations.quaver.orange","sfx":"psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6"},
 "item:lyre":{"status":"proposed","basis":"bless","sentence":"A lyre played.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.music_notations.sharp.blue","sfx":"psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6"},
 "item:macfuirmidh-citterrn-instrument-of-the-bards":{"status":"proposed","basis":"bless","sentence":"An instrument of the bards is played.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.music_notations.treble_clef.blue","sfx":"psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6"},
 "item:mages-manacle":{"status":"proposed","basis":"hold-person","sentence":"Mage's Manacle: spiked chains bind the caster.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.chain.spike.loop.02.purple","sfx":"psfx.magic-signs.rune.v1.abjuration.intro"},
@@ -2857,7 +2849,6 @@
 "item:needles":{"status":"none","reason":"bookkeeping","sentence":"Ammunition. The shot is the blowgun's FX."},
 "item:nolzurs-marvelous-pigments":{"status":"proposed","basis":"conjure-animals","sentence":"What is painted becomes real.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.particle_burst.01.circle.yellow","sfx":"psfx.magic-signs.circle.v1.conjuration.complete"},
 "item:obsidian-steed-very-rare":{"status":"proposed","basis":"conjure-animals","sentence":"A figurine becomes a beast.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.smoke.puff.ring.01.dark_black","sfx":"psfx.magic-signs.circle.v1.conjuration.complete"},
-"item:oil":{"status":"proposed","basis":"fireball","sentence":"A flask of oil thrown, shattered and lit.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.explosion.top_fracture.flask.01","sfx":"psfx.casting.fire.001"},
 "item:oil-of-etherealness":{"status":"proposed","basis":"ethereal","sentence":"The oil is rubbed on and the body half-fades.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.shimmer.01.purple","sfx":"psfx.consumables.potions-vials.cork-bottle.001"},
 "item:oil-of-sharpness":{"status":"proposed","basis":"longsword","sentence":"The oil is rubbed on and the edge glints.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.glint.blue.few","sfx":"psfx.consumables.potions-vials.cork-bottle.001"},
 "item:oil-of-slipperiness":{"status":"proposed","basis":"grease","sentence":"Freedom of Movement, or a greased floor.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.liquid.splash.grey","sfx":"psfx.consumables.potions-vials.cork-bottle.001"},
@@ -3098,7 +3089,6 @@
 "item:tome-of-leadership-and-influence":{"status":"none","reason":"always-on","sentence":"A book read over six days — no moment at the table."},
 "item:tome-of-the-stilled-tongue":{"status":"proposed","basis":"raise-dead","sentence":"The tongue in the book speaks.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.runes.dark_black.02","sfx":"psfx.impacts.magicaleffects.necrotic"},
 "item:tome-of-understanding":{"status":"none","reason":"always-on","sentence":"A book read over six days — no moment at the table."},
-"item:torch":{"status":"proposed","basis":"light","sentence":"A torch lit.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.flames.04.complete.orange","sfx":"psfx.casting.fire.001"},
 "item:tramontane-armor":{"status":"proposed","basis":"gust-of-wind","sentence":"Tramontane Armor: a cold wind bursts outward.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.aura_themed.01.outward.complete.cold.01.blue","sfx":"psfx.cantrips.gust.v1"},
 "item:transmuter-stone":{"status":"none","reason":"rest","sentence":"The stone made at a Long Rest — no moment to play."},
 "item:travelers-pearl":{"status":"proposed","basis":"teleport","sentence":"The Traveler's Pearl opens the way.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.portals.vertical.ring_masked.blue","sfx":"psfx.2nd-level-spells.misty-step.v1.complete.generic"},
@@ -3241,7 +3231,6 @@
 "spell:aura-of-vitality":{"status":"proposed","basis":"cure-wounds","sentence":"Aura of Vitality: healing light held over the aura.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.healing_generic.loop.greenorange","sfx":"psfx.1st-level-spells.cure-wounds.v1.001"},
 "spell:banishing-smite":{"status":"proposed","basis":"spiritual-weapon","sentence":"A smite in force violet — one of seven smites, all built on the divine smite strike.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.divine_smite.target.purplepink","sfx":"psfx.class-features.divine-smite.v1.001.target"},
 "spell:barkskin":{"status":"proposed","basis":"bark-like-skin","sentence":"Barkskin: bark closes over the skin. Its own effect already has an FX; this is the cast.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.swirling_leaves.complete.01.green","sfx":"psfx.casting.earth.001"},
-"spell:battle-familiar":{"status":"proposed","basis":"find-familiar","sentence":"Battle Familiar: a familiar armed for war.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.magic_signs.circle.02.conjuration.intro.red","sfx":"psfx.magic-signs.circle.v1.conjuration.complete"},
 "spell:blinding-smite":{"status":"proposed","basis":"spiritual-weapon","sentence":"A smite in blinding white.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.divine_smite.target.yellowwhite","sfx":"psfx.class-features.divine-smite.v1.001.target"},
 "spell:blur":{"status":"proposed","basis":"invisibility","sentence":"Blur: the outline goes soft.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.smoke.puff.side.blue","sfx":"psfx.magic-signs.circle.v1.illusion.intro"},
 "spell:cacophonic-shield":{"status":"proposed","basis":"shatter","sentence":"Cacophonic Shield: a ring of noise round the caster.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.template_circle.out_pulse.01.loop.purplepink","sfx":"psfx.cantrips.thunderclap.v1"},
@@ -3249,9 +3238,6 @@
 "spell:conjure-woodland-beings":{"status":"proposed","basis":"conjure-animals","sentence":"Conjure Woodland Beings: nature spirits flit round the caster.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.fairies.loop.01.greenyellow","sfx":"psfx.magic-signs.circle.v1.conjuration.complete"},
 "spell:crown-of-madness":{"status":"proposed","basis":"dominate-person","sentence":"Crown of Madness: an enchantment circle in red at the target.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.magic_signs.circle.02.enchantment.intro.red","sfx":"psfx.magic-signs.circle.v1.enchantment.complete"},
 "spell:crusaders-mantle":{"status":"proposed","basis":"bless","sentence":"Crusader's Mantle: a gold aura around the crusader.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.template_circle.aura.02.loop.large.yellow","sfx":"psfx.class-features.divine-smite.v1.001.caster"},
-"spell:detect-evil-and-good":{"status":"proposed","basis":"dispel-magic","sentence":"The detection circle at the caster, in gold.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.detect_magic.circle.yellow","sfx":"psfx.1st-level-spells.detect-magic.v1.001"},
-"spell:detect-magic":{"status":"proposed","basis":"dispel-magic","sentence":"Detect Magic: the circle JB2A and PSFX both drew for this exact spell.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.detect_magic.circle.blue","sfx":"psfx.1st-level-spells.detect-magic.v1.001"},
-"spell:detect-poison-and-disease":{"status":"proposed","basis":"dispel-magic","sentence":"The detection circle at the caster, in green.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.detect_magic.circle.green","sfx":"psfx.1st-level-spells.detect-magic.v1.001"},
 "spell:detonate":{"status":"proposed","basis":"fireball","sentence":"Detonate: the seed inside the target explodes.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.explosion.03.red","sfx":"psfx.impacts.magicaleffects.fire"},
 "spell:dirge":{"status":"proposed","basis":"frightened","sentence":"Dirge: the song of the grave.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.markers.music.dark_red","sfx":"psfx.musical-instruments.violin.01.sforzando.keyOfA.Am6"},
 "spell:disruptive-tune":{"status":"proposed","basis":"shatter","sentence":"Disruptive Tune: a jarring melody bursts over the area.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.explosion.06.purplepink","sfx":"psfx.1st-level-spells.dissonant-whispers.v1.002"},
@@ -3288,9 +3274,7 @@
 "spell:protection-from-energy":{"status":"proposed","basis":"acid-protection","sentence":"Protection from Energy: the same shield the five elemental protections already use.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.energy_field.01.multicolored","sfx":"psfx.magic-signs.rune.v1.abjuration.outro"},
 "spell:resistance":{"status":"proposed","basis":"acid-protection","sentence":"Resistance: a small blue shield at the target.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.shield.blue.03","sfx":"psfx.magic-signs.rune.v1.abjuration.intro"},
 "spell:reweave-fate":{"status":"proposed","basis":"bless","sentence":"Reweave Fate: the thread is pulled straight.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.dodecahedron.star.above.blueyellow","sfx":"psfx.magic-signs.rune.v1.divination.intro"},
-"spell:searing-smite":{"status":"proposed","basis":"spiritual-weapon","sentence":"A smite in fire orange.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.divine_smite.target.orange","sfx":"psfx.class-features.divine-smite.v1.001.target"},
 "spell:shield":{"status":"none","reason":"bookkeeping","sentence":"The Shield effect plays the barrier; the spell itself plays nothing."},
-"spell:shield-of-faith":{"status":"proposed","basis":"mage-armor-mark","sentence":"Shield of Faith: a gold shield held at the target.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.markers.shield.yellow.03","sfx":"psfx.magic-signs.rune.v1.abjuration.intro"},
 "spell:shining-smite":{"status":"proposed","basis":"spiritual-weapon","sentence":"A smite that leaves the target lit.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.divine_smite.target.greenyellow","sfx":"psfx.class-features.divine-smite.v1.001.target"},
 "spell:spirit-guardians":{"status":"proposed","basis":"bless","sentence":"Spirit Guardians: the spirits JB2A drew for this exact spell, in eleven colours.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.spirit_guardians.blue.spirits","sfx":"psfx.magic-signs.circle.v1.conjuration.loop"},
 "spell:spirit-lantern":{"status":"proposed","basis":"spiritual-weapon","sentence":"Spirit Lantern: a ghostly black lantern hovers over the caster.","vfxFit":"Maybe","sfxFit":"Likely","vfx":"jb2a.spirit_guardians.dark_black.particles","sfx":"psfx.magic-signs.circle.v1.necromancy.complete"},
@@ -3300,7 +3284,6 @@
 "spell:summon-dinosaur":{"status":"proposed","basis":"summon-beast","sentence":"Summon Dinosaur: something huge lands.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.impact.ground_crack.01.orange","sfx":"psfx.casting.earth.001"},
 "spell:summon-plant":{"status":"proposed","basis":"summon-beast","sentence":"Summon Plant: the spirit of a plant grows up.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.plant_growth.01.ring.4x4.complete.bluepurple","sfx":"psfx.1st-level-spells.entangle.vines.v1.001.intro"},
 "spell:tashas-bubbling-cauldron":{"status":"proposed","basis":"stinking-cloud","sentence":"The cauldron bubbles where it lands.","vfxFit":"Likely","sfxFit":"Maybe","vfx":"jb2a.bubble.002.001.complete.greenpurple","sfx":"psfx.cantrips.poison-spray.v1"},
-"spell:thunderous-smite":{"status":"proposed","basis":"spiritual-weapon","sentence":"A smite that lands with thunder.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.divine_smite.target.blueyellow","sfx":"psfx.class-features.divine-smite.v1.001.target"},
 "spell:transfix":{"status":"proposed","basis":"hypnotic-pattern","sentence":"Transfix: an otherworldly allure.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.impact_themed.heart.pinkyellow","sfx":"psfx.impacts.magicaleffects.psychic"},
 "spell:true-polymorph":{"status":"proposed","basis":"polymorph","sentence":"Polymorph's circle, at ninth level.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.magic_signs.circle.02.transmutation.complete.yellow","sfx":"psfx.magic-signs.circle.v1.transmutation.complete"},
 "spell:true-resurrection":{"status":"proposed","basis":"raise-dead","sentence":"Raise Dead's circle, at ninth level.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.magic_signs.circle.02.necromancy.complete.green","sfx":"psfx.magic-signs.circle.v1.necromancy.complete"},
@@ -3310,13 +3293,11 @@
 "spell:wall-of-ice":{"status":"proposed","basis":"wall-of-fire","sentence":"Wall of Ice: a wall of jagged ice along the template.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.ice_spikes.wall.loop.blue","sfx":"psfx.cantrips.ray-of-frost.v1"},
 "spell:wall-of-stone":{"status":"proposed","basis":"wall-of-force","sentence":"Wall of Stone: stone tumbles in and settles along the template.","vfxFit":"Maybe","sfxFit":"Likely","vfx":"jb2a.falling_rocks.side.2x1.grey","sfx":"psfx.casting.earth.001"},
 "spell:waves-of-exhaustion":{"status":"proposed","basis":"enervation","sentence":"Waves of Exhaustion: a nimbus of grey light.","vfxFit":"Maybe","sfxFit":"Likely","vfx":"jb2a.spirit_guardians.dark_black.ring","sfx":"psfx.impacts.magicaleffects.necrotic"},
-"spell:wrathful-smite":{"status":"proposed","basis":"spiritual-weapon","sentence":"A smite in necrotic red.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.divine_smite.target.dark_red","sfx":"psfx.class-features.divine-smite.v1.001.target"},
 "spell:yolandes-regal-presence":{"status":"proposed","basis":"dominate-person","sentence":"A pulse of regal presence pushes outward from the caster.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.template_circle.out_pulse.02.burst.purplepink","sfx":"psfx.magic-signs.circle.v1.enchantment.complete"},
 "spell:zone-of-amicability":{"status":"proposed","basis":"calm-emotions","sentence":"Zone of Amicability: a calm emanates from the caster.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.template_circle.aura.03.inward.002.complete.combined.pinkyellow","sfx":"psfx.magic-signs.circle.v1.enchantment.complete"},
 "weapon:adamantine-weapon":{"status":"none","reason":"always-on","sentence":"A passive benefit — no moment to play."},
 "weapon:axe-of-the-dwarvish-lords":{"status":"proposed","basis":"greataxe","sentence":"The battleaxe swing in forge-fire orange, for the artifact of the dwarven forges.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.greataxe.melee.fire.orange","sfx":"psfx.weapon-swooshes.fire.v1.group01"},
 "weapon:ballista":{"status":"proposed","basis":"heavy-crossbow","sentence":"A siege bolt: a heavy bolt shot at siege scale.","vfxFit":"Likely","sfxFit":"Likely","vfx":"jb2a.bolt.physical.orange","sfx":"psfx.ranged-weapons.longbow.v1"},
-"weapon:battleaxe":{"status":"proposed","basis":"greataxe","sentence":"The battleaxe swing.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.melee_attack.02.battleaxe.01","sfx":"psfx.weapon-attacks.sword.v1"},
 "weapon:blackrazor":{"status":"proposed","basis":"greatsword","sentence":"The greatsword swing wreathed in black — the soul-drinking blade.","vfxFit":"Sure","sfxFit":"Sure","vfx":"jb2a.greatsword.melee.fire.black","sfx":"psfx.weapon-swooshes.necrotic.v1.group01"},
 "weapon:book-of-shadows":{"status":"none","reason":"bookkeeping","sentence":"A spellcasting focus. The spell it helps cast is its own FX."},
 "weapon:cannon":{"status":"proposed","basis":"antimatter-rifle","sentence":"A cannonball fired, with the powder report.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.throwable.launch.cannon_ball.01.black","sfx":"psfx.ranged-weapons.guns.single-fire.musket"},
