@@ -30,9 +30,10 @@ const SECTIONS = {
   14: 'the heal: Cure Wounds plays on its healing roll (dnd5e flags it "healing", not "damage"), on the target when one is aimed and on the caster when none is',
   15: 'the hold: a gate holds a moment — nothing plays while the hold stands, it plays when the hold lifts, a hold that lifts on nothing plays nothing, and with no gate the same cast plays straight away',
   16: "By the Books' moments: a `sneak` payload on bythebooks.moment plays Sneak Attack's use look on the dice (the fallback), a moment with no look plays nothing and names its event key, an unknown word is skipped without an error, hold-answered never falls back, and one payload under both hook names (3.0's double emit) plays once",
+  17: "the party's content (DESIGN §28.7): Wrathful, Searing and Thunderous Smite land the smite on the target from their damage rolls, each in its own colour; Shield of Faith marks the target with the gold shield from its card",
 };
 const DEPENDS = {};
-const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack'];
+const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack', 'Wrathful Smite', 'Searing Smite', 'Thunderous Smite', 'Shield of Faith'];
 
 const { plan, pulled, watch } = sectionPlan(SECTIONS, DEPENDS);
 const { f, dispose } = await connectSandbox({ tag: 'replay', watchdogMs: 900_000 });
@@ -336,6 +337,17 @@ try {
         await fire({ ...base, event: 'sneak', messageId: 'bf-sneak-3', module: 'fvtt-mod-battleflow' }, 'battleflow.moment');
         const legacy = ledgerFor('bf-sneak-3:sneak');
         ok('§16 a 2.x payload on battleflow.moment alone still plays', legacy?.played === true && legacy?.fx === 'sneak-attack', `${legacy?.fx} ${legacy?.why || ''}`);
+      }
+      if (want(17)) {
+        // the party's content: a smite plays on its Damage activity's roll (its save activity posts a card of its own), Shield of Faith on its card
+        await aim();
+        const smiteDamage = async (name) => { const a = activityOf(name, 'damage'); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'damage'); return { m, e: m ? ledgerFor(m.id) : null }; };
+        for (const [name, id, path] of [['Wrathful Smite', 'wrathful-smite', 'jb2a.divine_smite.target.dark_red'], ['Searing Smite', 'searing-smite', 'jb2a.divine_smite.target.orange'], ['Thunderous Smite', 'thunderous-smite', 'jb2a.divine_smite.target.blueyellow']]) {
+          const { e } = await smiteDamage(name);
+          ok(`§17 ${name}: the damage roll lands the smite on the target in its own colour`, e?.fx === id && e.played && named(e, path) && e.targets?.[0]?.name === target.name, `${e?.fx} on ${e?.targets?.map((t) => t.name).join(', ')} ${files(e)}`);
+        }
+        const { e } = await useIt('Shield of Faith');
+        ok('§17 Shield of Faith: the card marks the target with the gold shield', e?.fx === 'shield-of-faith' && e.played && named(e, 'jb2a.markers.shield.yellow.03') && e.targets?.[0]?.name === target.name, `${e?.fx} on ${e?.targets?.map((t) => t.name).join(', ')} ${files(e)}`);
       }
     } finally {
       await setAC(startAC);
