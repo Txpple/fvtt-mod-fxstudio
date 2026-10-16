@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The weapons: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 98
+  "fx": 99
  },
  "fx": [
   {
@@ -2714,6 +2714,30 @@
       "colour": "#FFFFFF",
       "contrast": 0,
       "saturation": -0.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "battleaxe",
+   "for": [
+    "weapon:battleaxe"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbwepBattleaxe0",
+    "name": "Battleaxe",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.02.battleaxe.01"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "start": 750
      }
     }
    ]
