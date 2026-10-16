@@ -77,6 +77,27 @@ const clone = (v) => JSON.parse(JSON.stringify(v));
 /** the key a subject answers by: its own one (an ammunition's or a cast spell's may come before it) */
 export const bareKey = (subject) => subject?.keys?.[0] ?? null;
 
+/**
+ * A DialogV2 asked and answered, with its window gone before the answer is acted on. Foundry
+ * resolves confirm, prompt and wait as the button is pressed and then closes the dialog through a
+ * transition; a modal keeps the page inert until it is removed, so a click in that window was lost.
+ * Here the dialog is closed without the transition the moment it answers, and the answer waits for
+ * it. A dialog that never rendered (a suite answering for it) has nothing to wait for.
+ */
+export async function asked(method, config) {
+  const D = foundry.applications.api.DialogV2;
+  let dialog = null;
+  let gone = null;
+  const closed = new Promise((resolve) => { gone = resolve; });
+  const result = await D[method]({
+    ...config,
+    render: (event, d) => { dialog = d; config.render?.(event, d); },
+    close: (event, d) => { config.close?.(event, d); gone(); },
+  });
+  if (dialog) { await dialog.close({ animate: false }); await closed; }
+  return result;
+}
+
 // -----------------------------------------------------------------------------------------------
 // opening
 // -----------------------------------------------------------------------------------------------
@@ -187,7 +208,7 @@ function problemsOf(app) {
 /** ask before dropping unsaved changes; true when it is fine to leave */
 export async function leaveSheet(app) {
   if (!sheetDirty(app)) return true;
-  const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: 'Drop unsaved changes?' }, content: `<p>${esc(sheetName(app))} has unsaved changes.</p>`, rejectClose: false, modal: true });
+  const ok = await asked('confirm', { window: { title: 'Drop unsaved changes?' }, content: `<p>${esc(sheetName(app))} has unsaved changes.</p>`, rejectClose: false, modal: true });
   if (ok) { app.sheet.edit = false; if (app.sheet.id) openSheet(app, { id: app.sheet.id, source: app.sheet.source, subject: app.sheet.subject }); else app.sheet = null; }
   return !!ok;
 }
@@ -433,8 +454,7 @@ async function ownKey(app) {
   if (!p) return app.toast('This item has no key to make its own.');
   const was = `${p.kind}:${p.id}`;
   const suggested = `${p.id}-${slug(sub.owner ?? 'own')}`;
-  const D = foundry.applications.api.DialogV2;
-  const chosen = await D.prompt({
+  const chosen = await asked('prompt', {
     window: { title: `Own key for ${esc(sub.name)}` },
     content: `<p>Writes an identifier of its own on <b>${esc(sub.owner)}</b>’s <b>${esc(sub.name)}</b>, so this FX plays for that item alone. Other copies keep answering <b>${esc(keyLabel(was))}</b>.</p>
       <div class="form-group"><label>Identifier</label><input type="text" name="identifier" value="${esc(suggested)}" autocomplete="off"></div>`,
@@ -495,25 +515,23 @@ function timeline(scenes) {
 
 /**
  * "+ Add a scene": a popup of the eight shapes, each with its one line of help; the pick closes it
- * (the user, 2026-09-12: a modal popup, not a drop-down). Resolves the shape, or null.
+ * at once, with no transition to lose the next click in (the user, 2026-09-12: a modal popup, not a
+ * drop-down). Resolves the shape, or null.
  */
 function askShape() {
-  const D = foundry.applications.api.DialogV2;
   const content = `<div class="fxstudio-addmodal">${Object.entries(SHAPE_WORDS).filter(([sh]) => sh !== 'custom').map(([sh, wd]) => `<button type="button" data-shape="${sh}"><b>${wd}</b><span>${esc(SHAPE_HELP[sh])}</span></button>`).join('')}</div>`;
-  return new Promise((resolve) => {
-    let picked = null;
-    D.wait({
-      window: { title: 'Add a scene' },
-      content,
-      rejectClose: false,
-      modal: true,
-      buttons: [{ action: 'cancel', label: 'Cancel', icon: 'fa-solid fa-xmark', default: true }],
-      render: (event, dialog) => {
-        const root = dialog?.element ?? event?.target?.element ?? document;
-        for (const b of root.querySelectorAll('.fxstudio-addmodal [data-shape]')) b.addEventListener('click', () => { picked = b.dataset.shape; dialog?.close?.(); });
-      },
-    }).then(() => resolve(picked), () => resolve(picked));
-  });
+  let picked = null;
+  return asked('wait', {
+    window: { title: 'Add a scene' },
+    content,
+    rejectClose: false,
+    modal: true,
+    buttons: [{ action: 'cancel', label: 'Cancel', icon: 'fa-solid fa-xmark', default: true }],
+    render: (event, dialog) => {
+      const root = dialog?.element ?? event?.target?.element ?? document;
+      for (const b of root.querySelectorAll('.fxstudio-addmodal [data-shape]')) b.addEventListener('click', () => { picked = b.dataset.shape; dialog?.close?.({ animate: false }); });
+    },
+  }).then(() => picked, () => picked);
 }
 
 /** "3 scenes · 1.4 s" beside the Sequence heading */
@@ -1175,8 +1193,7 @@ async function whereToSave(app, fx) {
   const s = app.sheet;
   const holder = holderOf(app);
   if (!fx.for?.length || (s.source !== 'stock' && holder?.source !== 'stock')) return 'house';
-  const D = foundry.applications.api.DialogV2;
-  const choice = await D.wait({
+  const choice = await asked('wait', {
     window: { title: `Save ${esc(sheetName(app))}` },
     content: `<p>This FX is ${SOURCE_TAG.stock}. Where does the change go?</p>`,
     buttons: [

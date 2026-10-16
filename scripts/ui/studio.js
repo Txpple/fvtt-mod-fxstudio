@@ -15,7 +15,7 @@
 import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { SOURCE_TAG, STATUS_WORDS, esc, idWords, statusOf } from './html.js';
-import { hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
+import { asked, hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
 import { onCorpusClick } from './corpus.js';
 import { onCoverageClick, renderCoverage } from './coverage.js';
 import { onFxClick, renderFx, renderList } from './fxtab.js';
@@ -283,7 +283,7 @@ export class Studio extends ApplicationV2 {
   async importFx(to) {
     const a = api();
     to = to === 'stock' ? 'stock' : 'house';
-    const file = await foundry.applications.api.DialogV2.prompt({
+    const file = await asked('prompt', {
       window: { title: `Import to ${SOURCE_TAG[to]}` },
       content: '<input type="file" name="file" accept=".json,application/json">',
       ok: { label: 'Import', callback: (ev, button) => button.form.elements.file?.files?.[0] ?? null },
@@ -313,7 +313,7 @@ export class Studio extends ApplicationV2 {
     if (!e) return undefined;
     const under = e.source === 'house' ? a.corpus.under(id) : null;
     const note = under ? ` The ${SOURCE_TAG[under]} FX of that id shows through again.` : e.shadowed ? ` The ${SOURCE_TAG.house} override stays and keeps playing.` : '';
-    const ok = await foundry.applications.api.DialogV2.confirm({ window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${note}</p>`, rejectClose: false, modal: true });
+    const ok = await asked('confirm', { window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${note}</p>`, rejectClose: false, modal: true });
     if (!ok) return undefined;
     let r;
     try { r = await a.corpus.erase(id, { from: e.source }); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
