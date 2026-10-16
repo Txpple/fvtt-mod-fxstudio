@@ -3,12 +3,46 @@
 // FX through the sheet (copy Misty Step, paint it dark black, Save — which WRITES house.json on
 // the sandbox, there being no draft layer since 2026-09-12); read it in the House group; edit a
 // Stock FX and choose the House override, then Stock itself; give one item its own FX and take it
-// back; the facets; Coverage; the Asset Library; Play; find the button on the item sheet. Builds
-// and tears down its own fixture; leaves the module's files as it found them, byte for byte.
+// back; the facets; Coverage; the Asset Library; Play; find the button on the item sheet. Two
+// dialogs are real DialogV2s driven to their answer (Add a scene, Delete answered No), the rest are
+// answered for the window; a greyed control is hovered with a real mouse; the window is measured at
+// 1,080px and at 780px. Builds and tears down its own fixture; leaves the module's files as it found
+// them, byte for byte.
 //
 //   node tools/smoke-screens.mjs
 import { connectSandbox } from './lib/foundry.mjs';
 import { fixtureDown, fixtureUp, report } from './lib/suite.mjs';
+
+/**
+ * The greyed reasons under a real mouse (the client's Playwright page): Foundry's tooltip fires on
+ * pointerenter through hit-testing, which no event the page dispatches on itself can prove. Each
+ * hover opens the window at a state from inside the page, moves the mouse from outside it, and
+ * reads the tooltip back.
+ */
+async function hoverChecks(f) {
+  const results = [];
+  const page = f.page;
+  if (!page?.mouse) { results.push({ name: '§15 a real hover over a greyed control shows its reason', pass: false, detail: 'the client exposes no mouse' }); return results; }
+  const read = () => f.evaluate(() => ({ active: !!game.tooltip.tooltip?.classList.contains('active'), text: (game.tooltip.tooltip?.textContent ?? '').trim(), on: game.tooltip.element?.outerHTML?.slice(0, 80) ?? '' }), null);
+  const hover = async (name, where, want) => {
+    const at = await f.evaluate(where, null);
+    if (!at) { results.push({ name, pass: false, detail: 'nothing to hover' }); return; }
+    await page.mouse.move(2, 2);
+    await page.waitForTimeout(150);
+    await page.mouse.move(at.x, at.y);
+    await page.waitForTimeout(900); // TooltipManager.TOOLTIP_ACTIVATION_MS is 500
+    const tip = await read();
+    results.push({ name, pass: tip.active && want.test(tip.text), detail: `${tip.active ? 'tooltip on' : 'no tooltip'} · "${tip.text.slice(0, 90)}"${tip.active ? '' : ` · pointer over ${at.tag}`}` });
+  };
+  await f.evaluate(async () => { const app = game.modules.get('fvtt-mod-fxstudio').api.open({}); app.view.fxSel = null; app.view.fxSelSource = null; await app.render({ force: true }); await new Promise((r) => setTimeout(r, 400)); }, null);
+  await hover('§15 a real hover over the greyed Export button shows its reason (R1: greyed where it stands, with the reason)', () => { const app = game.modules.get('fvtt-mod-fxstudio').api.open({}); const el = app.element.querySelector('.fxsearch button.export[data-na="true"]'); const r = el?.getBoundingClientRect(); return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2, tag: `${el.tagName}.${el.className}` } : null; }, /Mark an FX to export it/);
+  await f.evaluate(async () => { const api = game.modules.get('fvtt-mod-fxstudio').api; const app = api.open({ tab: 'editor', id: 'misty-step' }); await new Promise((r) => setTimeout(r, 400)); app.sheet.pick = 2; app.sheet.band = 'picture'; await app.render(); await new Promise((r) => setTimeout(r, 300)); }, null);
+  await hover('§15 a real hover over the greyed picture tile of a Move shows why the shape has none, not the door it cannot open', () => { const app = game.modules.get('fvtt-mod-fxstudio').api.open({}); const el = app.element.querySelector('.inspector .f-vfx[data-na="true"]'); const r = el?.getBoundingClientRect(); return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2, tag: `${el.tagName}.${el.className}` } : null; }, /A Move has no picture/);
+  await hover('§15 a real hover over the locked key pill explains the key', () => { const app = game.modules.get('fvtt-mod-fxstudio').api.open({}); const el = app.element.querySelector('.sheet[data-edit="false"] .hookstrip .pill.key'); const r = el?.getBoundingClientRect(); return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2, tag: `${el.tagName}.${el.className}` } : null; }, /The key: spell and dnd5e's identifier "misty-step"/);
+  await page.mouse.move(2, 2);
+  await f.evaluate(async () => { const app = game.modules.get('fvtt-mod-fxstudio').api.open({}); app.sheet = null; await app.close(); }, null);
+  return results;
+}
 
 const { f, dispose } = await connectSandbox({ tag: 'screens', watchdogMs: 600_000 });
 let fixture = null;
@@ -94,11 +128,26 @@ try {
       await sleep(450);
       ok('§3 the Editor opens on a new sheet, unlocked, hooked to the spell', paneNow() === 'editor' && $('.sheet')?.dataset.edit === 'true' && /Sharran Step \(spell\)/.test(text('.hookstrip')) && /New/.test(text('.sheet h2')), `pane ${paneNow()} · ${text('.sheet h2')}`);
       ok('§3 Save waits: no scenes yet, the problem is named', $('[data-act="sh-save"]')?.disabled === true && !!$('.sheet .problem'), text('.sheet .problem'));
-      // + Add a scene asks in a DialogV2 (the user, 2026-09-12: a modal popup, not a drop-down): answered for it here, the pick made from its content
-      const askShape3 = async (shape) => { const D = foundry.applications.api.DialogV2; const was = D.wait; let shapes = 0; D.wait = async (cfg) => { const tmp = document.createElement('div'); tmp.innerHTML = cfg.content; shapes = tmp.querySelectorAll('[data-shape]').length; cfg.render(null, { element: tmp, close() {} }); tmp.querySelector(`[data-shape="${shape}"]`)?.click(); return 'cancel'; }; try { await click('.addrow'); await sleep(300); } finally { D.wait = was; } return shapes; };
+      // + Add a scene asks in a REAL DialogV2 (the user, 2026-09-12: a modal popup, not a drop-down), driven
+      // here to its answer. The pick closes the popup without its transition, so the page is clickable at
+      // once: a click right after it is not lost (the review's 3.1.3)
+      const dialogs = () => [...foundry.applications.instances.values()].filter((w) => w instanceof foundry.applications.api.DialogV2);
+      const underTab = () => { const t = $('[data-tab="fx"]'); const r = t.getBoundingClientRect(); return [t, document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)]; };
       const hadLike3 = !!$('.sh-like');
-      const shapes3 = await askShape3('mark');
-      ok('§3 an empty sequence offers Copy from, and + Add a scene asks the shape in a popup of eight (the user, 2026-09-12)', hadLike3 && shapes3 === 8 && app.sheet.scenes.length === 1 && app.sheet.scenes[0].scene.shape === 'mark', `${shapes3} shapes · ${app.sheet.scenes.length} scene(s)`);
+      $('.addrow').click();
+      await until(() => !!dialogs()[0]?.element?.querySelector('[data-shape]'), 5000);
+      const dlg3 = dialogs()[0];
+      const cards3 = [...(dlg3?.element?.querySelectorAll('.fxstudio-addmodal [data-shape]') ?? [])];
+      const spill3 = cards3.filter((c) => { const r = c.getBoundingClientRect(); return [...c.children].some((k) => { const q = k.getBoundingClientRect(); return q.bottom > r.bottom + 1 || q.right > r.right + 1; }); });
+      const [, under3] = underTab();
+      ok('§3 an empty sequence offers Copy from, and + Add a scene asks the shape in a real popup of eight, each card holding its help line inside its border', hadLike3 && cards3.length === 8 && cards3.every((c) => (c.querySelector('span')?.textContent.length ?? 0) > 20) && !spill3.length && dlg3?.element?.open === true, `${cards3.length} shapes · ${spill3.length} spill`);
+      cards3.find((c) => c.dataset.shape === 'mark')?.click();
+      await sleep(30);
+      const [tab3, after3] = underTab();
+      ok('§3 the pick closes the popup at once: 30 ms later no dialog is open and the tab strip is under the pointer again', dialogs().length === 0 && !document.querySelector('dialog[open]') && after3 === tab3, `under the tab before: ${under3?.tagName}.${(under3?.className ?? '').toString().slice(0, 30)} · after: ${after3?.tagName}.${(after3?.className ?? '').toString().slice(0, 30)}`);
+      await click(tab3);
+      ok('§3 and that click lands: the Library tab is up, and the pick made a Mark scene', tabNow() === 'fx' && app.sheet.scenes.length === 1 && app.sheet.scenes[0].scene.shape === 'mark', `${tabNow()} · ${app.sheet.scenes.length} scene(s)`);
+      await click('[data-tab="editor"]');
       app.sheet.scenes.length = 0; app.sheet.pick = 0; await app.render(); await sleep(200);
       await type('.sh-like', 'misty step');
       const like = $$('.suggest .hit').find((h) => h.dataset.id === 'misty-step');
@@ -424,6 +473,10 @@ try {
       // Duplicate opens a copy with NO key: a copy under the same key could only be an override or a replacement
       await click('[data-act="sh-dup"]');
       ok('§7 Duplicate opens an unlocked copy with the scenes and no key: "No key yet", Choose an ability', $('.sheet')?.dataset.edit === 'true' && !$$('.hookstrip .pill.key').length && /No key yet/.test(text('.hookstrip')) && /Choose an ability/.test($('.sh-key-q')?.placeholder ?? '') && $$('.rail .row').length >= 1 && /New/.test(text('.sheet h2')), `${text('.hookstrip')} · ${$$('.rail .row').length} rows`);
+      // its one instruction is a toast, and the render that follows Duplicate must not wipe it (the review's 3.1.2)
+      await sleep(150);
+      const toast7 = app.element.querySelector(':scope > .toast');
+      ok('§7 Duplicate\'s instruction is still readable half a second on: the toast sits on the window frame as a live region', !!toast7 && toast7.dataset.on === 'true' && /Copy of Sharran Step\. Choose the ability it answers, then Save\./.test(toast7.textContent) && toast7.getAttribute('aria-live') === 'polite' && toast7.getAttribute('role') === 'status' && !app.element.querySelector('.fx-wrap .toast'), toast7 ? `${toast7.dataset.on} · "${toast7.textContent}"` : 'no toast on the frame');
       app.sheet = null; api.open({ item: tmp }); await sleep(300); await openEditorForSubject();
       const sw = $('.sh-edit'); sw.checked = true; sw.dispatchEvent(new Event('change', { bubbles: true })); await sleep(300);
       ok('§7 the Edit switch unlocks the sheet: Save and Cancel appear, the tools too', $('.sheet')?.dataset.edit === 'true' && !!$('[data-act="sh-save"]') && !!$('[data-act="sh-cancel"]') && !!$('[data-act="cw-drop"]'), '');
@@ -468,6 +521,16 @@ try {
       ok('§7 a change unlocks Save', /after 900 ms/.test(text('.sheet .preview')) && $('[data-act="sh-save"]')?.disabled === false, '');
       await click('[data-act="sh-cancel"]');
       ok('§7 Cancel drops the change and locks the sheet again', $('.sheet')?.dataset.edit === 'false' && /after 500 ms/.test(text('.sheet .preview')) && api.fx.get('sharran-step')?.original?.scenes?.[1]?.delay === 500, text('.sheet .preview').slice(0, 120));
+      // Delete asks in a REAL DialogV2, answered No here: nothing goes, the sheet keeps its scene, and the page is clickable the moment the dialog closes
+      await pick(1);
+      $('[data-act="sh-delete"]').click();
+      await until(() => !!dialogs()[0]?.element?.querySelector('button[data-action="no"]'), 5000);
+      const dlg7 = dialogs()[0];
+      ok('§7 Delete asks in a real dialog, naming the FX and its file', !!dlg7 && /Delete Sharran Step\?/.test(dlg7.element?.querySelector('.window-title')?.textContent ?? '') && /House file\. Deletes it permanently\./.test(dlg7.element?.textContent ?? ''), (dlg7?.element?.textContent ?? '').replace(/\s+/g, ' ').slice(0, 120));
+      dlg7?.element?.querySelector('button[data-action="no"]')?.click();
+      await sleep(30);
+      const [tab7, after7] = underTab();
+      ok('§7 answered No: 30 ms later no dialog is open, the FX stays, the sheet keeps its scene, and the tab strip is under the pointer', dialogs().length === 0 && !document.querySelector('dialog[open]') && !!api.fx.get('sharran-step') && app.sheet?.id === 'sharran-step' && app.sheet.pick === 1 && after7 === tab7, `${dialogs().length} dialogs · sheet ${app.sheet?.id} · pick ${app.sheet?.pick} · under the tab: ${after7?.tagName}`);
 
       // 9 · there is no ship (2026-09-12): Save wrote house.json in §4. The old name still lands on
       //     Coverage; the module's manifest is never touched by a Save; then the files are put back
@@ -647,20 +710,26 @@ try {
         picture: 'vfx,place,size,colour,opacity,tint,below,mirror,scatter',
         timing: 'delay,times,every,rate,fadein,fadeout,lasts,hold',
         sound: 'sfx,volume,start,sdelay,stimes,severy,spacer',
-        placement: 'rotate,anchor,elevation,zindex,mask,attach,spacer,spacer',
+        placement: 'rotate,anchor,elevation,zindex,mask,attach,spacer',
       };
       const grids13 = [];
       const heights13 = [];
+      const narrow13 = [];
+      let wideElev13 = false;
       for (const b of Object.keys(BANDS13)) {
         for (const n of [0, 2]) {
           await pick(n); await band(b);
           grids13.push(`${b}/${n}:${cells(b).join(',')}`);
           heights13.push(Math.round($('.inspector .knobs').getBoundingClientRect().height));
+          // a number box squeezed under 40px shows one digit of its value (the Elevation cell, before it was two wide)
+          for (const x of $$('.inspector .knobs input[type="number"]')) if (x.getBoundingClientRect().width < 40) narrow13.push(`${b}/${n} ${x.className} ${Math.round(x.getBoundingClientRect().width)}px`);
+          if (b === 'placement' && $('.inspector .f-elevation')?.classList.contains('wide')) wideElev13 = true;
         }
       }
       const wrong13 = grids13.filter((g) => g.split(':')[1] !== BANDS13[g.split('/')[0]]);
       ok('§13 every band is the same cells in one order, for a Mark and for a Move (R1; Picture leads with the preview tile)', !wrong13.length, wrong13.length ? wrong13.join(' | ') : grids13[0]);
       ok('§13 the inspector frame never resizes: every band is the same height (R3)', new Set(heights13).size === 1, heights13.join(','));
+      ok('§13 no number box in any band is squeezed under 40px at 1,080: the Elevation cell is two wide', !narrow13.length && wideElev13, narrow13.length ? narrow13.join(' · ') : `elevation wide ${wideElev13}`);
       const na13 = () => [...$$('.inspector .f[data-na="true"]')].map((x) => x.className.replace('f f-', '').replace(' wide', ''));
       await pick(0); await band('picture'); const naMark13 = na13();
       await pick(2); await band('picture'); const naMove13 = na13();
@@ -669,7 +738,6 @@ try {
       ok('§13 the shape band is the shape\'s own knobs, and is named for it', cells('shape').join(',') === 'range,spot,jump,fade,speed,after,spacer,spacer' && /Move/.test(text('[data-act="sh-band"][data-band="shape"]')), cells('shape').join(','));
       ok('§13 a greyed cell is switched off, not merely faded', $$('.inspector .f[data-na="true"]').length > 0 && $$('.inspector .f[data-na="true"]').every((c) => [...c.querySelectorAll('input, select, button')].every((x) => x.disabled)), `${$$('.inspector .f[data-na="true"]').length} greyed cells`);
       ok('§13 nothing wraps: a band is four proportional columns (R2)', getComputedStyle($('.inspector .knobs')).display === 'grid' && getComputedStyle($('.inspector .knobs')).gridTemplateColumns.split(' ').length === 4, getComputedStyle($('.inspector .knobs')).gridTemplateColumns);
-      ok('§13 the Add pills carry tooltips', $$('[data-act="cw-add"]').every((b) => (b.dataset.tooltip ?? '').length > 20), '');
       await pick(0); await band('picture');
       await choose('.cw-opacity', '50');
       ok('§13 Opacity is a knob and the sentence reads it back', /at 50% opacity/.test(text('.sheet .preview')), text('.sheet .preview').slice(0, 140));
@@ -710,8 +778,26 @@ try {
       const bar14 = Math.round($('.lockbar').getBoundingClientRect().height);
       ok('§14 band 1 is one line: eight controls, no wrap, and the sheet does not scroll sideways', getComputedStyle($('.lockbar')).flexWrap === 'nowrap' && bar14 < 40 && $$('.lockbar button').length + $$('.lockbar .switch').length === 8 && content14.scrollWidth <= content14.clientWidth + 1, `bar ${bar14}px · ${content14.scrollWidth} vs ${content14.clientWidth}`);
       ok('§14 the rail and the inspector are one band: 288px and the rest, the same height', Math.round($('.railside').getBoundingClientRect().width) === 288 && Math.abs($('.railside').getBoundingClientRect().height - $('.inspector').getBoundingClientRect().height) <= 1, `${Math.round($('.railside').getBoundingClientRect().width)}px · ${Math.round($('.railside').getBoundingClientRect().height)} vs ${Math.round($('.inspector').getBoundingClientRect().height)}`);
+      // the second width: 780px, where the window is known to scroll sideways (CLAUDE.md, unruled): the
+      // amount is measured, and the tab strip and the action bar must stay inside the window
+      app.setPosition({ width: 780 }); await sleep(400);
+      const c780 = app.element.querySelector('.fxstudio-content');
+      const side780 = c780.scrollWidth - c780.clientWidth;
+      const tabs780 = $('.tabs').getBoundingClientRect();
+      const bar780 = $('.lockbar').getBoundingClientRect();
+      const win780 = c780.getBoundingClientRect();
+      ok('§14 at 780px the tab strip and the action bar stay inside the window; the sideways scroll is measured', Math.round(win780.width) <= 782 && tabs780.right <= win780.right + 1 && bar780.left >= win780.left - 1 && bar780.right <= win780.right + 1, `window ${Math.round(win780.width)}px · sideways ${side780}px · tabs to ${Math.round(tabs780.right - win780.left)} · bar ${Math.round(bar780.left - win780.left)}–${Math.round(bar780.right - win780.left)}`);
+      app.setPosition({ width: 1080 }); await sleep(400);
+      // the sentence: two lines ending in an ellipsis, the whole of it on a click (the review's 3.1.4), no native title
       const box14 = $('.sentence-box');
-      ok('§14 the sentence sits in a fixed two-line box that never grows', getComputedStyle(box14).overflow === 'hidden' && Math.abs(box14.getBoundingClientRect().height - 2 * 1.55 * 15) < 2, `${Math.round(box14.getBoundingClientRect().height)}px`);
+      const b14 = box14.querySelector('b');
+      const two14 = 2 * 1.55 * 15;
+      ok('§14 the sentence shows two lines ending in an ellipsis, says there is more, and carries no native title', getComputedStyle(b14).overflow === 'hidden' && Math.abs(box14.getBoundingClientRect().height - two14) < 2 && b14.scrollHeight > b14.clientHeight + 1 && box14.dataset.clamped === 'true' && /whole sentence/.test(box14.dataset.tooltip ?? '') && !b14.hasAttribute('title'), `${Math.round(box14.getBoundingClientRect().height)}px · clamped ${box14.dataset.clamped} · "${box14.dataset.tooltip}"`);
+      await click(box14);
+      const open14 = $('.sentence-box');
+      ok('§14 a click opens the whole sentence, and the box then offers two lines again', open14.dataset.open === 'true' && open14.getBoundingClientRect().height > two14 + 10 && open14.querySelector('b').scrollHeight <= open14.querySelector('b').clientHeight + 1 && /two lines/.test(open14.dataset.tooltip ?? ''), `${Math.round(open14.getBoundingClientRect().height)}px · "${open14.dataset.tooltip}"`);
+      await click('.sentence-box');
+      ok('§14 and a second click folds it back to two lines', $('.sentence-box').dataset.open === 'false' && Math.abs($('.sentence-box').getBoundingClientRect().height - two14) < 2, `${Math.round($('.sentence-box').getBoundingClientRect().height)}px`);
       const geom14 = $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',');
       await click($$('.rail .pickbtn')[1]);
       ok('§14 picking a scene in the rail changes colour, never layout (R3)', $$('.rail .row').map((r) => Math.round(r.getBoundingClientRect().height)).join(',') === geom14 && $('.rail .row[data-now="true"]') === $$('.rail .row')[1] && $('.inspector .ihead .num')?.textContent === '2', `${geom14} · now ${[...$$('.rail .row')].findIndex((r) => r.dataset.now === 'true')}`);
@@ -777,6 +863,8 @@ try {
     results.push({ name: '§11 House is as it was', pass: JSON.stringify(after) === JSON.stringify(before), detail: `${before.length} → ${after.length}` });
     return { results };
   }, { fx: fixture });
+  // the greyed reasons under a real mouse, from outside the page
+  out.results.push(...await hoverChecks(f));
   report('screens', out, null);
 } finally {
   if (fixture) { const d = await f.evaluate(fixtureDown, { ...fixture, since }).catch((e) => ({ error: e.message })); console.log(`[screens] teardown: ${JSON.stringify(d)}`); }

@@ -9,16 +9,20 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-15).** v0.10.2 is the release, on prod through Foundry's installer with prod's House
-byte-identical to the repo's before and after. `main` carries unreleased work past it, held to By the
-Books' contract by `check-contract`: one picture per word, and a resolve that came to nothing (a held
-roll passed, a fold passed, a Riposte declined) plays nothing. It reads By the Books (`fvtt-mod-bythebooks`,
-hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy id, the `battleflow.moment` hook
-and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of Halruaa box** (Molten, the
-`foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is prod's, byte for byte, and
-`recipes/records.json` is built from the Echoes world (`tools/lib/env.mjs` defaults `FXS_WORLD` to
-`echoes-of-halruaa`). Five House FX (vesper-staff, first-light-thomas-a-invictus, goldthorn-jetten-elisedil,
-necrotic-scythe, irresistible-dance) answer keys no item in this world carries: made for Greenrest's
+**State (2026-10-16).** v0.10.2 is the release, on prod through Foundry's installer with prod's House
+byte-identical to the repo's before and after. `main` carries unreleased work past it: By the Books'
+contract held by `check-contract` (one picture per word; a resolve that came to nothing, a held roll
+passed, a fold passed, a Riposte declined, plays nothing), and Phase 0 of the state review (the suite's
+`docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling: a greyed control
+shows its reason on hover, the toast outlives a render, a dialog closes without losing the next click,
+the sentence opens on a click, an aura's sentence has no hole, the summon FX show their moment, the
+Editor follows a Delete or an Import, the gap data refreshed (3,166 gaps, `gap-check` clean). It reads By
+the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
+id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
+Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
+prod's, byte for byte, and `recipes/records.json` is built from the Echoes world (`tools/lib/env.mjs`
+defaults `FXS_WORLD` to `echoes-of-halruaa`). Four House FX (vesper-staff, first-light-thomas-a-invictus,
+goldthorn-jetten-elisedil, necrotic-scythe) answer keys no item in this world carries: made for Greenrest's
 characters, they play nothing here and their Record link points nowhere until such an item exists. The
 user tests on the sandbox by hand and names what is broken; we fix what they name. Nothing is owed. The
 dated journal is `docs/log/YYYY-MM.md`; [NEXT-SESSION.md](NEXT-SESSION.md) holds the older handoff history.
@@ -70,7 +74,8 @@ row marks itself and has three doors, Record · Delete · Editor. Editor (`ui/sh
 band-tabbed inspector; it survives a tab switch. Assets (`ui/library.js`), Coverage (`ui/coverage.js`).
 **The Claude Design redesign is SHELVED** (`shelved/` governs nothing; rollback tag `pre-revamp`
 at `a4c9824` also restores `like`/`with`). No plan drives the UI; the user's judgment does. Known
-and unruled: the window scrolls sideways below ~780px; a modal dialog swallows later clicks.
+and unruled: the window scrolls sideways below ~780px (the review's Phase 2); whether a popped-out
+window loses clicks under a modal is untested.
 
 **Parked, not owed** ([BACKLOG.md](BACKLOG.md)): the migration's exception tables
 (`recipes/migration-report.md`), a QA pass on Stock FX (the Web lesson is the method), the assets
