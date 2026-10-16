@@ -123,7 +123,8 @@ function tiles(app) {
   </div>`;
 }
 
-export function renderCoverage(app) {
+/** what the scope row and the list show, computed once per paint */
+function viewOf(app) {
   const st = cvState(app);
   const groups = groupsOf(app);
   const total = groups.reduce((t, g) => t + g.rows.length, 0);
@@ -141,24 +142,54 @@ export function renderCoverage(app) {
   const more = total > page ? `<p class="note more"><button type="button" class="link" data-act="cv-more">Load more</button> · ${total - page} more</p>` : '';
   const empty = st.scope === 'mine' ? 'Every ability on your actors has an FX.' : picking ? 'No item compendiums in this world.' : 'All have FX.';
   const n = st.chosen.size;
-  const scope = SCOPES.map(([v, w]) => `<button type="button" data-act="cv-scope" data-scope="${v}" aria-pressed="${st.scope === v}">${w}</button>`).join('');
   const head = st.scope === 'mine' ? `${total} with no FX · ${app.census?.actors?.length ?? 0} actors`
     : picking ? `${total} compendiums · ${n} picked`
       : `${total} with no FX · ${st.books.length} read`;
-  return `<div class="coverage">
-    ${renderMaintain(app)}
-    <div class="cvscope">
+  return { st, books, picking, n, head, body, more, empty };
+}
+
+function scopeHtml({ st, books, picking, n, head }) {
+  const scope = SCOPES.map(([v, w]) => `<button type="button" data-act="cv-scope" data-scope="${v}" aria-pressed="${st.scope === v}">${w}</button>`).join('');
+  return `<div class="cvscope">
       <div class="segs">${scope}</div>
       <span class="note">${esc(head)}</span>
       <span class="spacer"></span>
       <button type="button" data-act="cv-pick" ${books && !picking ? '' : 'data-na="true" disabled'} data-tooltip="${books ? 'Pick the compendiums again.' : 'Compendiums are picked in that scope.'}">Books · ${n}</button>
       <button type="button" class="primary" data-act="cv-check" ${books && n && !st.reading ? '' : 'data-na="true" disabled'} data-tooltip="${books ? (n ? 'Read the picked compendiums and ask what plays for each ability.' : 'Pick a compendium first.') : 'My actors is read from the world already.'}">${st.reading ? 'Checking…' : `Check${n ? ` (${n})` : ''}`}</button>
-    </div>
-    ${tiles(app)}
-    <div class="cvlist card">
+    </div>`;
+}
+
+const listHtml = ({ body, more, empty }) => `<div class="cvlist card">
       <div class="rows">${body || `<p class="note">${esc(empty)}</p>`}${more}</div>
-    </div>
+    </div>`;
+
+export function renderCoverage(app) {
+  const v = viewOf(app);
+  return `<div class="coverage">
+    ${renderMaintain(app)}
+    ${scopeHtml(v)}
+    ${tiles(app)}
+    ${listHtml(v)}
   </div>`;
+}
+
+/**
+ * The scope row and the list redrawn in place, the rows keeping their scroll: picking a book or
+ * Load more must not throw you back to the top of what you were reading (R4), the way the
+ * Library's narrow() keeps its list. The band and the tiles do not change on either.
+ */
+function repaint(app) {
+  const pane = app.element?.querySelector('[data-pane="coverage"][data-active="true"]');
+  if (!pane) return app.render();
+  const v = viewOf(app);
+  const top = pane.querySelector('.cvlist .rows')?.scrollTop ?? 0;
+  const scope = pane.querySelector('.cvscope');
+  if (scope) scope.outerHTML = scopeHtml(v);
+  const list = pane.querySelector('.cvlist');
+  if (list) list.outerHTML = listHtml(v);
+  const again = pane.querySelector('.cvlist .rows');
+  if (again) again.scrollTop = top;
+  return undefined;
 }
 
 // -----------------------------------------------------------------------------------------------
@@ -193,10 +224,10 @@ export async function onCoverageClick(app, b, act) {
   const st = cvState(app);
   switch (act) {
     case 'cv-scope': st.scope = b.dataset.scope; st.show = PAGE; return app.render();
-    case 'cv-book': { const id = b.dataset.book; if (st.chosen.has(id)) st.chosen.delete(id); else st.chosen.add(id); return app.render(); }
+    case 'cv-book': { const id = b.dataset.book; if (st.chosen.has(id)) st.chosen.delete(id); else st.chosen.add(id); return repaint(app); }
     case 'cv-pick': st.picking = true; st.show = PAGE; return app.render();
     case 'cv-check': st.reading = true; st.show = PAGE; await app.render(); try { await checkBooks(app); } finally { st.reading = false; } return app.render();
-    case 'cv-more': st.show += PAGE; return app.render();
+    case 'cv-more': st.show += PAGE; return repaint(app);
     default: return undefined;
   }
 }
