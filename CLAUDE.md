@@ -10,13 +10,19 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 socketlib, MIT.
 
 **State (2026-10-16).** v0.10.2 is the release, on prod through Foundry's installer with prod's House
-byte-identical to the repo's before and after. `main` carries unreleased work past it: By the Books'
-contract held by `check-contract` (one picture per word; a resolve that came to nothing, a held roll
-passed, a fold passed, a Riposte declined, plays nothing), and Phase 0 of the state review (the suite's
-`docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling: a greyed control
-shows its reason on hover, the toast outlives a render, a dialog closes without losing the next click,
-the sentence opens on a click, an aura's sentence has no hole, the summon FX show their moment, the
-Editor follows a Delete or an Import, the gap data refreshed (3,166 gaps, `gap-check` clean). It reads By
+byte-identical to the repo's before and after. `main` carries unreleased work past it, deployed to the
+sandbox for the user's testing: By the Books' contract held by `check-contract` (one picture per word; a
+resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
+`docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling; and Phases 2 to 4, the
+rulings of DESIGN §27 and §28 built: the window renders by part (`ui/morph.js`) and keeps focus and
+scroll, a picture is a name on the sheet with ▶ on every rail row and Play all, the nine moment words and
+`event:` keys are authored, Browse opens a drawer that picks into one scene (`ui/drawer.js`), the
+inspector is one column of the cells the shape reads with a size kind and From/To, the layout breaks on
+the window's own width, the wand, a search miss and a Coverage row land on "Nothing plays for…" with
+Starter, Copy from and Blank, and Coverage is the gap tool's screen over a shipped
+`recipes/proposals.json` (`tools/proposals.mjs`; 1,599 proposed, 1,567 judged, 0 open, agreeing with
+`gaps.mjs` at 3,166 gaps). Phase 5 (§28.7, the content) waits on the user's word per patch; a popped-out
+window under a modal is untested. It reads By
 the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
 id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
 Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
@@ -67,15 +73,20 @@ the suite folder: `../fvtt-mcp-dnd5e` resolves, the campaign repos are `../../fv
 - **Terms, not sentences:** Stock / House, a key, Own key, FX / VFX / SFX, override. The word "look" is
   retired. No JSON or raw library paths in front of a GM.
 
-**The window** (a description, not a plan): four tabs, Library · Editor · Assets · Coverage, 1080px.
-Library (`ui/fxtab.js`): search by name, facets, one list House → Stock, Import/Export top left; a
-row marks itself and has three doors, Record · Delete · Editor. Editor (`ui/sheet.js`): the FX sheet
-— identity, sentence, Key strip (Answers · Item with Own key · Moment · State), the sequence rail and
-band-tabbed inspector; it survives a tab switch. Assets (`ui/library.js`), Coverage (`ui/coverage.js`).
-**The Claude Design redesign is SHELVED** (`shelved/` governs nothing; rollback tag `pre-revamp`
-at `a4c9824` also restores `like`/`with`). No plan drives the UI; the user's judgment does. Known
-and ruled, not yet built (DESIGN §28.5, the review's Phase 2): the window scrolls sideways below
-~780px; whether a popped-out window loses clicks under a modal is untested.
+**The window** (a description, not a plan; its rulings are DESIGN §27 and §28): four tabs, Library ·
+Editor · Assets · Coverage, 1080px by default and laid out on its own width (the rail stacks over the
+inspector at 800px and under). Library (`ui/fxtab.js`): search by name, facets, one list House → Stock,
+Import/Export top left; a row marks itself and has three doors, Record · Delete · Editor; a search miss
+lists the abilities on this world's actors that play nothing, each a door. Editor (`ui/sheet.js`, its
+parts repainted through `ui/morph.js`): the FX sheet — identity, sentence, Key strip (Answers · Item with
+Own key · Moment with the nine words · State), the landing ("Nothing plays for…": Starter, Copy from,
+Blank), the sequence rail with ▶ per scene and Play all, the one-column inspector, Browse's drawer
+(`ui/drawer.js`); it survives a tab switch. Assets (`ui/library.js`) is a browser only. Coverage
+(`ui/coverage.js`) is the gap tool's screen: every row says why, from the moment rule,
+`recipes/proposals.json` and the ledger; Maintain is a disclosure in the corner. **The Claude Design
+redesign is SHELVED** (`shelved/` governs nothing; rollback tag `pre-revamp` at `a4c9824` also restores
+`like`/`with`). No plan drives the UI; the user's judgment does. Untested: a popped-out window under a
+modal.
 
 **Parked, not owed** ([BACKLOG.md](BACKLOG.md)): the migration's exception tables
 (`recipes/migration-report.md`), a QA pass on Stock FX (the Web lesson is the method), the assets

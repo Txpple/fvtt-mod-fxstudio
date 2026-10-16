@@ -2170,4 +2170,5 @@ screen under the pill, not on hover, and a greyed Own key says its reason in the
 
 **What this touches.** Phase 2 (the Editor: the render model, 28.2 to 28.5, §27), Phase 3 (the
 entrance and the Library: 28.1, 28.9), Phase 4 (Coverage: 28.6, 28.8), Phase 5 (28.7). Each phase starts
-on the user's go, as the plan says; nothing here is built yet.
+on the user's go, as the plan says. Phases 2 to 4 were built the same day on the user's word (the journal,
+2026-10-16); 28.7 waits on the user's word per patch.
