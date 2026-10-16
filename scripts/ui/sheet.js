@@ -1,5 +1,5 @@
 // The FX sheet: one screen per FX, the same whether it is read or changed. It opens from a row on
-// the FX tab, from its detail pane's Edit, from "Used in" on Assets, from Coverage, and from New FX.
+// the Library tab, from "Used in" on Assets, from Coverage, and from New FX.
 // IT IS THE EDITOR TAB (the user's ruling, 2026-09-07 — it was a pane over the FX tab at step 5):
 // every edit of an FX is made here and nowhere else, the tab is in the strip whether an FX is open
 // or not, and walking off to another tab leaves it open, unsaved changes and all. Back is still
@@ -17,22 +17,19 @@
 // sheet into a new House FX for that key, its scenes copied from what answered before. Nothing of
 // ours is left on the item, and the FX file is complete on its own.
 //
-// FIVE BANDS, top to bottom (rebuilt 2026-09-07, HANDOFF step 4). Only the inspector's contents
-// ever change:
+// FOUR PARTS, top to bottom. Only the inspector's contents ever change:
 //   1 Identity + action bar   name, tags, and one monospace line: the key, the id, the provenance
-//   2 Sentence                a fixed two-line box; the selected scene's clause is marked
+//   2 Sentence                two lines ending in an ellipsis, the whole on a click; the selected scene's clause is marked
 //   3 Key strip               one row, four columns: Answers · Item · Moment · State
-//   4 Sequence                rail | inspector, the overlap strip under the rail
-//   5 Note                    one row
+//   4 Sequence                rail | inspector
 // (There is no inheritance band. Nothing inherits — see below.)
 //
-// THE SEQUENCE IS A RAIL AND AN INSPECTOR. The rail is one fixed row per scene: its number, a still
-// of what it plays, "Shape · place", when it starts, and ▶. Under it the overlap strip draws every
-// scene on one ms scale, which is the thing a list of rows cannot show: what plays *while* what.
-// The inspector holds one scene at a time in a frame that never resizes — five band tabs
-// (Picture · Timing · Sound · Placement · the shape's own), each the same 4×2 grid of eight cells.
-// A knob keeps its address in both modes and for every shape; what a shape does not read is greyed
-// AND switched off where it stands (R1), taken from KNOBS in core/fx.js and from nothing else.
+// THE SEQUENCE IS A RAIL AND AN INSPECTOR. The rail is one fixed row per scene: its number,
+// "Shape · place" and when it starts. The inspector holds one scene at a time in a frame that never
+// resizes — five band tabs (Picture · Timing · Sound · Placement · the shape's own), each the same
+// 4×2 grid of eight cells, with ▶ under the picture tile. A knob keeps its address in both modes and
+// for every shape; what a shape does not read is greyed AND switched off where it stands (R1), taken
+// from KNOBS in core/fx.js and from nothing else.
 //
 // THE TWO DELAYS ARE NAMED (the user's parked question, closed here). `delay` is **Wait before**:
 // how long this scene waits before it starts. `wait` is **Hold next**: the next scene waits for
@@ -58,7 +55,7 @@ const STARTER_OF_SHAPE = { strike: 'starter:swing', shoot: 'starter:bolt', mark:
 export const SHAPE_WORDS = { strike: 'Swing', shoot: 'Bolt', mark: 'Mark', fill: 'Fill', aura: 'Aura', beam: 'Beam', move: 'Move', sound: 'Sound', custom: 'Custom' };
 const KIND_OF_SHAPE = (sh) => (sh === 'sound' ? 'sfx' : sh === 'move' ? 'move' : 'vfx');
 const KIND_TITLE = { vfx: 'VFX', sfx: 'SFX', move: '' };
-/** what each shape does, in plain words: the tooltip on its Add pill */
+/** what each shape does, in plain words: the help line on its card in Add a scene */
 const SHAPE_HELP = {
   strike: 'A melee attack played on the target, like a sword arc. For weapons and claws.',
   shoot: 'Something flies from the caster to each target. Fire Bolt, an arrow, Guiding Bolt.',
@@ -326,9 +323,9 @@ function sentenceHtml(app, fx, name) {
 const assetUrl = (file) => (globalThis.foundry?.utils?.getRoute ? foundry.utils.getRoute(file) : `/${file}`);
 
 /**
- * Why Play cannot run right now, in words, or null when it can. One rule, in one place: the sheet's
- * Play all, its per-scene ▶ and the FX tab's Play all read it, and every one of them greys WHERE IT
- * STANDS with the reason in its label rather than disappearing (R1).
+ * Why Play cannot run right now, in words, or null when it can. One rule, in one place: the
+ * per-scene ▶ reads it and greys WHERE IT STANDS with the reason in its label rather than
+ * disappearing (R1).
  */
 export function playWhyOf(scenes, off = false) {
   if (off) return 'switched off';
@@ -1063,7 +1060,6 @@ export async function onSheetClick(app, b, act) {
     case 'sh-on': if (!s.edit) return undefined; s.on = b.dataset.on; break;
     case 'sh-like-hit': s.from = b.dataset.id; s.scenes = seedFrom(b.dataset.id); s.pick = 0; break;
     case 'cw-add-ask': askShape().then((shape) => { if (shape && app.sheet === s) { addScene(app, shape); app.render(); } }); return undefined;
-    case 'cw-add': addScene(app, b.dataset.shape); break;
     case 'cw-drop': s.scenes.splice(i, 1); s.pick = Math.max(0, Math.min(s.pick, s.scenes.length - 1)); break;
     case 'cw-up': if (i > 0) { [s.scenes[i - 1], s.scenes[i]] = [s.scenes[i], s.scenes[i - 1]]; s.pick = i - 1; } break;
     case 'cw-down': if (i < s.scenes.length - 1) { [s.scenes[i + 1], s.scenes[i]] = [s.scenes[i], s.scenes[i + 1]]; s.pick = i + 1; } break;

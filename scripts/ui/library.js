@@ -278,7 +278,6 @@ export async function onLibraryClick(app, b, act) {
     case 'lib-open-fx': { if (!(await leaveSheet(app))) return undefined; openSheet(app, { id: b.dataset.id }); return app.render(); }
     case 'lib-pick-use': { const pick = L.pick; if (pick && applyPick(app, pick, viewPath(L, v))) { L.pick = null; app.view.tab = 'editor'; app.toast(`Scene ${pick.i + 1}: ${it.name}${viewLabel(L, v) ? ` ${viewLabel(L, v)}` : ''}.`); } return app.render(); }
     case 'lib-pick-back': L.pick = null; app.view.tab = 'editor'; return app.render();
-    case 'lib-open-unused': L.only = 'unused'; L.sel = null; app.view.tab = 'assets'; return app.render();
     default: return undefined;
   }
 }

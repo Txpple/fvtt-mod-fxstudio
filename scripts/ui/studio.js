@@ -25,7 +25,7 @@ import { onLibraryChange, onLibraryClick, onLibraryInput, renderLibrary } from '
 const api = () => game.modules.get(MODULE_ID).api;
 const TABS = [['fx', 'Library'], ['editor', 'Editor'], ['assets', 'Assets'], ['coverage', 'Coverage']];
 /** the acts that open a DIFFERENT FX into the sheet, and so must ask before dropping unsaved changes */
-const REPLACES = new Set(['entry', 'key', 'create-new', 'fx-editor']);
+const REPLACES = new Set(['entry', 'key', 'fx-editor']);
 /** the tabs step 5 replaced, so a macro, a bridge or an old call still lands where it meant to */
 const WAS = { stock: 'fx', house: 'fx', lookup: 'fx', library: 'assets', audit: 'coverage' };
 
@@ -36,8 +36,8 @@ export class Studio extends ApplicationV2 {
     id: 'fxstudio',
     classes: ['fxstudio'],
     window: { title: 'FX Studio', icon: 'fa-solid fa-wand-sparkles', resizable: true, contentClasses: ['fxstudio-content'] },
-    // the FX tab is three columns (facets · rows · the 300px pane), so the window opens at the width
-    // the screens were ruled at; narrower still works — nothing rearranges, the sentence ellipsises
+    // the window opens at the width the screens were ruled at; narrower still works, and the sheet
+    // scrolls sideways below about 780px
     position: { width: 1080, height: 800 },
   };
 
@@ -170,7 +170,6 @@ export class Studio extends ApplicationV2 {
     this.view.tab = 'fx';
   }
   showItem(item) { this.show(this.subjectFromItem(item)); }
-  showEntry(e) { this.show(this.subjectFromEntry(e)); }
   showKey(key) { this.show(this.subjectForKey(key)); }
   showFx(id) { this.show(this.subjectForFx(id), { ask: false }); this.view.fxSel = id; }
 
@@ -363,15 +362,7 @@ export class Studio extends ApplicationV2 {
     switch (act) {
       case 'tab': S.tab = b.dataset.tab; return this.render();
       case 'entry': { const item = fromUuidSync(b.dataset.uuid); if (!item) return undefined; if (b.dataset.create) this.openFor(this.subjectFromItem(item)); else this.showItem(item); return this.render(); }
-      case 'effect': { const row = this.census.actors.find((r) => r.name === b.dataset.actor); const ef = row?.effects[Number(b.dataset.i)]; if (!ef) return undefined; this.showEntry({ name: ef.name, keys: ef.keys, owner: row.name, on: 'effect' }); return this.render(); }
       case 'key': this.openFor(this.subjectForKey(b.dataset.key), { edit: true }); return this.render();
-      case 'create-new': openSheet(this, { subject: S.subject, edit: true }); return this.render();
-      // delete-fx · export-fx · create-new · new-kind were the detail pane's, and the pane is gone
-      // (2026-09-07). The methods are what the sheet and the API call; the acts have no door until
-      // the user says where they belong. (Revert went with the draft layer, 2026-09-12: Delete on a
-      // House override is the same thing — the Stock FX under it shows through.)
-      case 'delete-fx': return this.deleteFx(b.dataset.id);
-      case 'export-fx': return this.exportFx(b.dataset.id, b.dataset.source || null);
       case 'import-fx': return this.importFx(b.dataset.to || null);
       default: return undefined;
     }

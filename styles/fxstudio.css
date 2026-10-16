@@ -34,7 +34,6 @@
 .fxstudio .tabs button { border-radius: 999px; padding: 6px 15px; color: var(--fx-muted); background: transparent; border-color: transparent; }
 .fxstudio .tabs button[aria-selected="true"] { background: var(--fx-panel); color: var(--fx-text); border-color: var(--fx-line); font-weight: 500; }
 .fxstudio .pane { display: none; }
-.fxstudio .pane[data-active="true"] { display: block; }
 .fxstudio .card { background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 14px 16px; }
 .fxstudio .stack { display: grid; gap: 12px; }
 .fxstudio .search { position: relative; }
@@ -45,42 +44,24 @@
 .fxstudio .hit:hover { background: var(--fx-panel2); }
 .fxstudio .hit .o { color: var(--fx-muted); font-size: 12.5px; white-space: nowrap; }
 .fxstudio .pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.fxstudio .pills.others { margin-top: 8px; }
-.fxstudio .pills.inline { display: inline-flex; }
 .fxstudio .pills .lbl { color: var(--fx-muted); font-size: 12.5px; margin-right: 2px; }
 .fxstudio .pill { border: 1px solid var(--fx-line); background: var(--fx-panel); border-radius: 999px; padding: 4px 11px; font-size: 12.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 .fxstudio .pill[aria-pressed="true"] { border-color: var(--fx-accent); background: var(--fx-accent-soft); color: var(--fx-text); }
-.fxstudio .abilities { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
-.fxstudio .abilities .pill { padding: 3px 9px; font-size: 12.5px; }
 .fxstudio .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fx-faint); display: inline-block; flex: none; }
 .fxstudio .dot.custom { background: var(--fx-accent); }
 .fxstudio .dot.stock { background: var(--fx-good); }
 .fxstudio .dot.none { background: var(--fx-warn); }
 .fxstudio .dot.off { background: var(--fx-faint); }
-.fxstudio .result h2 { margin: 0 0 3px; font-size: 22px; font-weight: 600; letter-spacing: -.01em; border: 0; }
-.fxstudio .result .owner { color: var(--fx-muted); margin-bottom: 12px; }
-.fxstudio .sentence { font-size: 17px; line-height: 1.45; margin: 0 0 6px; }
-.fxstudio .sw { display: inline-block; width: 13px; height: 13px; border-radius: 50%; vertical-align: -2px; margin: 0 2px 0 4px; border: 1px solid rgba(0, 0, 0, .25); }
 .fxstudio .why { color: var(--fx-muted); margin: 0 0 12px; }
 .fxstudio .actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .fxstudio .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--fx-line); color: var(--fx-muted); margin-left: 8px; vertical-align: middle; font-weight: 400; }
-.fxstudio .editor { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--fx-line2); display: none; }
-.fxstudio .editor[data-open="true"] { display: block; }
-.fxstudio .editor h3 { margin: 0 0 10px; font-size: 15px; font-weight: 600; border: 0; }
-.fxstudio .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
 .fxstudio .field { margin-top: 8px; }
-.fxstudio .fields .field { margin-top: 0; }
 .fxstudio .field label { display: block; font-size: 12.5px; color: var(--fx-muted); margin-bottom: 4px; }
-.fxstudio .sound-search { display: none; }
-.fxstudio .sound-search[data-open="true"] { display: block; }
-.fxstudio .editor .pills { margin-top: 10px; }
 .fxstudio .preview { margin: 12px 0; padding: 10px 12px; background: var(--fx-panel2); border-radius: var(--fx-radius); }
 .fxstudio .sub { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; margin: 6px 0 8px; }
 .fxstudio .list .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 9px 0; border-bottom: 1px solid var(--fx-line2); }
 .fxstudio .list .row .n { font-weight: 500; }
 .fxstudio .list .row .s { color: var(--fx-muted); grid-column: 1 / -1; font-size: 13px; }
-.fxstudio .list .row .b { display: flex; gap: 4px; align-items: center; }
-.fxstudio .list .row .b button { padding: 3px 9px; font-size: 12.5px; }
 .fxstudio .tag { font-size: 11.5px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--fx-line); color: var(--fx-muted); white-space: nowrap; }
 .fxstudio .tag.yours { color: var(--fx-accent); border-color: var(--fx-accent); }
 .fxstudio .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--fx-gutter); }
@@ -99,12 +80,6 @@
 .application.fxstudio > .toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 1; width: fit-content; max-width: 90%; font-size: 14px; line-height: 1.5; background: var(--fx-text); color: var(--fx-ground); padding: 8px 14px; border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
 .application.fxstudio > .toast[data-on="true"] { opacity: 1; }
 
-.fxstudio .tag.main { color: var(--fx-good); border-color: var(--fx-good); }
-.fxstudio .tag.bound { color: var(--fx-warn); border-color: var(--fx-warn); }
-.fxstudio .flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: 8px; align-items: center; margin: 6px 0 8px; }
-.fxstudio .flow .box { border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 8px 10px; font-size: 13px; background: var(--fx-panel2); }
-.fxstudio .flow .box .l { color: var(--fx-muted); font-size: 11.5px; }
-.fxstudio .flow .arrow { color: var(--fx-faint); font-size: 16px; }
 /* the Library */
 .fxstudio .picking { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--fx-accent-soft); border: 1px solid var(--fx-accent); border-radius: var(--fx-radius); padding: 8px 12px; margin-bottom: 12px; }
 .fxstudio .picking .spacer { flex: 1; }
@@ -112,7 +87,6 @@
 .fxstudio .lib { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 14px; align-items: start; }
 .fxstudio .lib > * { min-width: 0; }
 .fxstudio .lib .viewer { padding: 12px; }
-.fxstudio .shelf { display: grid; gap: 8px; }
 .fxstudio .shelf .switch { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); overflow: hidden; }
 .fxstudio .fx-wrap .shelf .switch button { border: 0; border-radius: 0; background: transparent; color: var(--fx-muted); padding: 7px 6px; font-size: 12.5px; }
 .fxstudio .shelf .switch button[aria-pressed="true"] { background: var(--fx-accent-soft); color: var(--fx-text); font-weight: 500; }
@@ -145,7 +119,6 @@
 .fxstudio .path input:focus { outline: none; text-overflow: clip; }
 .fxstudio .fx-wrap .path .box button { padding: 3px 9px; font-size: 12px; }
 .fxstudio .fx-wrap button.link { display: inline; background: none; border: 0; padding: 0; margin: 0; color: var(--fx-accent); cursor: pointer; font-size: inherit; line-height: inherit; width: auto; }
-.fxstudio .faint { color: var(--fx-faint); }
 .fxstudio .actions .spacer { flex: 1; }
 .fxstudio .note.warn { color: var(--fx-warn); }
 @media (max-width: 720px) { .fxstudio .lib, .fxstudio .paths, .fxstudio .fxtab { grid-template-columns: 1fr; } }
@@ -178,13 +151,6 @@
 .fxstudio .stepper, .fxstudio .paths, .fxstudio .uses { flex: 0 0 auto; }
 .application.fxstudio .fxstudio-content { position: relative; }
 .fxstudio .fx-wrap { padding-bottom: 14px; }
-/* one-line rows for long lists (Custom, Corpus) */
-.fxstudio .lines .row.line { grid-template-columns: minmax(0, 1fr) auto; height: var(--fx-row); padding: 0; align-items: center; }
-.fxstudio .lines .row.line .n { font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fxstudio .lines .row.line .n .link { font-weight: 500; color: var(--fx-text); }
-.fxstudio .lines .row.line .n .link:hover { color: var(--fx-accent); }
-.fxstudio .fx-wrap .lines .row.line .b button { padding: 2px 8px; font-size: 12px; }
-.fxstudio .subtabs .pill { padding: 5px 13px; font-size: 13px; }
 /* the Used and Unused pills fill the shelf's width; the count sits under them, right */
 .fxstudio .shelf .pills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .fxstudio .shelf .pills .pill { justify-content: center; }
@@ -221,7 +187,6 @@
 .fxstudio .switch input:checked { background: var(--fx-accent); }
 .fxstudio .switch input:checked::after { left: 19px; }
 .fxstudio .fx-wrap button.danger { color: var(--fx-bad); }
-.fxstudio .fx-wrap button.inline { padding: 2px 8px; }
 .fxstudio .banner { background: var(--fx-accent-soft); border: 1px solid var(--fx-accent); border-radius: var(--fx-radius); padding: 8px 12px; font-size: 13px; margin-top: 12px; }
 /* every problem, not just the first; the ones that name a scene are the door to it */
 .fxstudio .problems { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 2px; }
@@ -247,7 +212,6 @@
 .fxstudio .seq > * { min-width: 0; }
 /* the rail shows four scenes and scrolls past that, so the form never grows (the user, 2026-09-12) */
 .fxstudio .rail { --fx-rail-row: 54px; display: grid; gap: 4px; align-content: start; max-height: calc(4 * var(--fx-rail-row) + 3 * 4px); overflow-y: auto; scrollbar-gutter: stable; }
-.fxstudio .rail .row { flex: 0 0 auto; }
 .fxstudio .rail .row { display: flex; align-items: center; gap: 4px; height: var(--fx-rail-row); border: 1px solid var(--fx-line); border-left: 5px solid var(--k, var(--fx-line)); border-radius: var(--fx-radius); background: var(--fx-panel); padding-right: 4px; overflow: hidden; }
 .fxstudio .rail .row .txt { display: grid; gap: 2px; min-width: 0; flex: 1 1 auto; }
 .fxstudio .rail .row[data-kind="vfx"], .fxstudio .inspector[data-kind="vfx"] { --k: var(--fx-accent); }
@@ -259,7 +223,7 @@
 .fxstudio .rail .row .num { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--k, var(--fx-line)); color: var(--fx-accent-ink); display: grid; place-items: center; font: 600 12px ui-monospace, Menlo, Consolas, monospace; }
 .fxstudio .rail .row .n { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
 .fxstudio .rail .row .ms { font: 11px ui-monospace, Menlo, Consolas, monospace; color: var(--fx-muted); font-variant-numeric: tabular-nums; }
-/* + Add a scene, and the shape menu it opens in place (never a modal) */
+/* + Add a scene; the shape cards it opens are the modal below */
 .fxstudio .fx-wrap button.addrow { display: block; width: 100%; margin-top: 6px; padding: 11px; border: 1px dashed var(--fx-line2); border-radius: var(--fx-radius); background: transparent; color: var(--fx-muted); font-size: 13px; }
 .fxstudio .fx-wrap button.addrow:hover, .fxstudio .fx-wrap button.addrow[aria-expanded="true"] { color: var(--fx-text); border-color: var(--fx-muted); }
 /* the Sequence header: the heading and "3 scenes · 1.4 s" */
@@ -322,12 +286,11 @@
    it — and the controls inside are the inert part */
 .fxstudio [data-na="true"] { opacity: .38; cursor: default; }
 .fxstudio [data-na="true"] .c > * { pointer-events: none; }
-.fxstudio .sheet[data-edit="false"] .inspector input, .fxstudio .sheet[data-edit="false"] .inspector select, .fxstudio .sheet[data-edit="false"] .knob { background: transparent; border-color: transparent; padding-left: 0; opacity: 1; color: var(--fx-text); }
+.fxstudio .sheet[data-edit="false"] .inspector input, .fxstudio .sheet[data-edit="false"] .inspector select { background: transparent; border-color: transparent; padding-left: 0; opacity: 1; color: var(--fx-text); }
 .fxstudio .sheet[data-edit="false"] .f .c button.browse { display: none; }
 /* locked, a pill is read, not pressed: it keeps its hover so its tooltip shows; the click is refused in the sheet */
 .fxstudio .sheet[data-edit="false"] .hookstrip .pill { cursor: default; }
 .fxstudio .sheet[data-edit="false"] .hookstrip .pill:not([aria-pressed="true"]):not(.more) { display: none; }
-.fxstudio .sheet .add { margin-top: 10px; }
 .fxstudio .sheet .copy { margin-top: 4px; }
 
 
