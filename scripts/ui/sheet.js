@@ -75,23 +75,30 @@ const clone = (v) => JSON.parse(JSON.stringify(v));
 export const bareKey = (subject) => subject?.keys?.[0] ?? null;
 
 /**
- * A DialogV2 asked and answered, with its window gone before the answer is acted on. Foundry
- * resolves confirm, prompt and wait as the button is pressed and then closes the dialog through a
- * transition; a modal keeps the page inert until it is removed, so a click in that window was lost.
- * Here the dialog is closed without the transition the moment it answers, and the answer waits for
- * it. A dialog that never rendered (a suite answering for it) has nothing to wait for.
+ * A DialogV2 that closes at once, on every path (a button, Escape, the X, a close of ours): Foundry
+ * closes a window through a transition, and a modal keeps the page inert until it is removed, so a
+ * click in that window was lost. Made when first asked for, since the class exists only in the game.
+ */
+let QuickDialog = null;
+const quickDialog = () => (QuickDialog ??= class extends foundry.applications.api.DialogV2 {
+  async close(options = {}) { return super.close({ ...options, animate: false }); }
+});
+
+/**
+ * A dialog asked and answered, with its window gone before the answer is acted on: confirm, prompt
+ * and wait resolve as the button is pressed, and the answer then waits for the close. A dialog that
+ * never rendered (a suite answering for it) has nothing to wait for.
  */
 export async function asked(method, config) {
-  const D = foundry.applications.api.DialogV2;
   let dialog = null;
   let gone = null;
   const closed = new Promise((resolve) => { gone = resolve; });
-  const result = await D[method]({
+  const result = await quickDialog()[method]({
     ...config,
     render: (event, d) => { dialog = d; config.render?.(event, d); },
     close: (event, d) => { config.close?.(event, d); gone(); },
   });
-  if (dialog) { await dialog.close({ animate: false }); await closed; }
+  if (dialog) { await dialog.close(); await closed; }
   return result;
 }
 
@@ -558,7 +565,7 @@ function askShape() {
     buttons: [{ action: 'cancel', label: 'Cancel', icon: 'fa-solid fa-xmark', default: true }],
     render: (event, dialog) => {
       const root = dialog?.element ?? event?.target?.element ?? document;
-      for (const b of root.querySelectorAll('.fxstudio-addmodal [data-shape]')) b.addEventListener('click', () => { picked = b.dataset.shape; dialog?.close?.({ animate: false }); });
+      for (const b of root.querySelectorAll('.fxstudio-addmodal [data-shape]')) b.addEventListener('click', () => { picked = b.dataset.shape; dialog?.close?.(); });
     },
   }).then(() => picked, () => picked);
 }
@@ -716,9 +723,11 @@ function cellHtml(app, key, scene, i) {
       const file = on ? pictureFile(scene) : null;
       const media = file ? (isVideo(file) ? `<video src="${esc(assetUrl(file))}" autoplay loop muted playsinline preload="metadata"></video>` : `<img src="${esc(assetUrl(file))}" alt="">`) : '';
       const why = playWhy(app, scene);
-      const tile = `<button type="button" class="preview" data-act="cw-show" data-i="${i}" data-slot="asset" data-tooltip="Asset Library" ${naDis(on)}>${media}<span class="cap">${esc(shown)}</span></button>`;
+      // the tile covers the cell, so a greyed tile carries the cell's reason rather than a door it cannot open
+      const noPicture = `A ${word} has no picture.`;
+      const tile = `<button type="button" class="preview" data-act="cw-show" data-i="${i}" data-slot="asset" data-tooltip="${on ? 'Asset Library' : esc(noPicture)}" ${naDis(on)}>${media}<span class="cap">${esc(shown)}</span></button>`;
       const doors = `${!locked && on ? `<button type="button" class="browse" data-act="cw-browse" data-i="${i}" data-slot="asset" data-tooltip="Asset Library">Change</button>` : ''}<button type="button" class="quiet play" data-act="sh-play-scene" data-i="${i}" data-tooltip="${esc(why ?? `Play scene ${i + 1} now. Nothing is saved.`)}" aria-label="Play scene ${i + 1}" ${why || !on ? 'disabled' : ''}>▶</button>`;
-      return `<div class="f f-vfx" data-tile="true"${on ? '' : ` data-na="true" data-tooltip="${esc(`A ${word} has no picture.`)}"`}>${tile}<div class="c">${doors}</div></div>`;
+      return `<div class="f f-vfx" data-tile="true"${on ? '' : ` data-na="true" data-tooltip="${esc(noPicture)}"`}>${tile}<div class="c">${doors}</div></div>`;
     }
     case 'colour': {
       // the asset's own colour, from the family's registration: a swap, never a tint
