@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 77
+  "fx": 78
  },
  "fx": [
   {
@@ -2148,6 +2148,34 @@
      "asset": {
       "path": "jb2a.cast_shape.circle.single01.blue"
      }
+    }
+   ]
+  },
+  {
+   "id": "prone",
+   "for": [
+    "effect:prone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDestructiv",
+    "name": "Destructive Wave",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     },
+     "asset": {
+      "path": "jb2a.impact.013.002.blue"
+     },
+     "size": {
+      "tokenWidths": 2
+     },
+     "below": true
     }
    ]
   }
