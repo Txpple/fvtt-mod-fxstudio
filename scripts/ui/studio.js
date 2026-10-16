@@ -15,7 +15,7 @@
 import { MODULE_ID } from '../settings.js';
 import { keyLabel, parseKey, slug } from '../core/subjects.js';
 import { SOURCE_TAG, STATUS_WORDS, esc, idWords, statusOf } from './html.js';
-import { asked, hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, renderSheet, sheetDirty } from './sheet.js';
+import { asked, hydrateSheet, leaveSheet, onSheetChange, onSheetClick, onSheetInput, onSheetKey, openSheet, reloadSheet, renderSheet, sheetDirty } from './sheet.js';
 import { onCorpusClick } from './corpus.js';
 import { onCoverageClick, renderCoverage } from './coverage.js';
 import { onFxClick, renderFx, renderList } from './fxtab.js';
@@ -303,8 +303,12 @@ export class Studio extends ApplicationV2 {
       saved++;
     }
     this.refresh();
+    // the Editor was on one of them: it reads the file as imported, unless it holds unsaved changes
+    const open = this.sheet?.id && list.some((fx) => fx.id === this.sheet.id) ? this.sheet.id : null;
+    const kept = open && sheetDirty(this) ? ` The Editor keeps its unsaved changes to ${idWords(open)}.` : '';
+    if (open && !kept) reloadSheet(this);
     await this.render();
-    return this.toast(`Imported ${saved} FX to ${SOURCE_TAG[to]}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}`);
+    return this.toast(`Imported ${saved} FX to ${SOURCE_TAG[to]}.${problems.length ? ` Skipped: ${problems.join(' · ')}` : ''}${kept}`);
   }
 
   /** delete an FX for good, out of the file of the layer named (else the winner); a House override deleted shows the Stock FX under it again */
@@ -314,12 +318,15 @@ export class Studio extends ApplicationV2 {
     if (!e) return undefined;
     const under = e.source === 'house' ? a.corpus.under(id) : null;
     const note = under ? ` The ${SOURCE_TAG[under]} FX of that id shows through again.` : e.shadowed ? ` The ${SOURCE_TAG.house} override stays and keeps playing.` : '';
-    const ok = await asked('confirm', { window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${note}</p>`, rejectClose: false, modal: true });
+    const dirty = this.sheet?.id === id && sheetDirty(this) ? ' The Editor\'s unsaved changes to it go too.' : '';
+    const ok = await asked('confirm', { window: { title: `Delete ${idWords(id)}?` }, content: `<p>${SOURCE_TAG[e.source] ?? e.source} file. Deletes it permanently.${note}${dirty}</p>`, rejectClose: false, modal: true });
     if (!ok) return undefined;
     let r;
     try { r = await a.corpus.erase(id, { from: e.source }); } catch (err) { return this.toast(`Could not delete it: ${err.message}`); }
     this.refresh();
     if (this.view.subject && this.answer()?.original?.id === id) this.view.subject = { ...this.view.subject };
+    // the Editor was on it: it reopens on what shows through, or closes when nothing does
+    if (this.sheet?.id === id) reloadSheet(this);
     await this.render();
     return this.toast(`Deleted: ${idWords(id)}${r.written.length ? ` (${r.written.map((f) => f.split('/').pop()).join(', ')})` : ''}.`);
   }

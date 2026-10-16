@@ -215,6 +215,22 @@ export async function leaveSheet(app) {
 
 const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.subject?.name ?? (k ? nameForKey(k) : s.id ? idWords(s.id) : 'New FX'); };
 
+/**
+ * The open sheet read again from the file, keeping its place (its tab, where it came from, the
+ * scene and band it was on): after a Delete or an Import made outside it. False when the FX is
+ * gone: the sheet closes, and the Editor tab goes back to where the sheet came from.
+ */
+export function reloadSheet(app) {
+  const s = app.sheet;
+  if (!s?.id) return false;
+  const tab = app.view.tab;
+  if (!api().fx.get(s.id)) { app.sheet = null; if (tab === 'editor') app.view.tab = s.cameFrom ?? 'fx'; return false; }
+  openSheet(app, { id: s.id, subject: s.subject });
+  Object.assign(app.sheet, { cameFrom: s.cameFrom, pick: s.pick, band: s.band, sentenceOpen: s.sentenceOpen });
+  app.view.tab = tab;
+  return true;
+}
+
 // -----------------------------------------------------------------------------------------------
 // rendering
 // -----------------------------------------------------------------------------------------------
@@ -403,6 +419,9 @@ function renderHook(app) {
     <div class="hcol"><span class="lbl">State</span><div class="pills">${pills([[false, 'On'], [true, 'Off']], s.off, 'sh-off', 'v')}</div></div>
   </div>`;
 }
+
+/** the entry a suggestion stands for, found by what it is (its item, its owner, its keys), never by a position in a list refresh() rebuilds under it */
+const entryAt = (app, b) => (app.entries ?? []).find((e) => (e.uuid ?? '') === (b.dataset.uuid ?? '') && (e.owner ?? '') === (b.dataset.owner ?? '') && e.keys.join(' ') === (b.dataset.keys ?? '')) ?? null;
 
 /** the sheet's one key becomes an entry's own (an ammunition's or a cast spell's key may sit before it; an effect's own is first) */
 function takeEntry(app, e) {
@@ -1022,15 +1041,11 @@ export async function onSheetClick(app, b, act) {
     case 'sh-record': return openRecord(b.dataset.uuid, b.dataset.name);
     // the sentence opens to its whole length when two lines did not hold it, and closes again
     case 'sh-sentence': if (!s.sentenceOpen && b.dataset.clamped !== 'true') return undefined; s.sentenceOpen = !s.sentenceOpen; break;
-    case 'sh-delete': {
-      // deleteFx asks; a House override deleted leaves the Stock FX of that id showing, so the
-      // sheet reopens on it
-      await app.deleteFx(s.id, s.source);
-      if (a.fx.get(s.id)) openSheet(app, { id: s.id }); else { app.sheet = null; app.view.tab = s.cameFrom ?? 'fx'; }
-      break;
-    }
+    // deleteFx asks, then reopens the sheet on what shows through (a House override deleted leaves
+    // the Stock FX of that id) or closes it when nothing does
+    case 'sh-delete': return app.deleteFx(s.id, s.source);
     // the key is REPLACED, never added to: one FX, one key
-    case 'sh-key-hit': { const e = app.entries[i]; if (e) takeEntry(app, e); s.keyQuery = ''; break; }
+    case 'sh-key-hit': { const e = entryAt(app, b); if (e) takeEntry(app, e); s.keyQuery = ''; break; }
     case 'sh-key-rec': takeKey(app, b.dataset.key); s.keyQuery = ''; break;
     case 'sh-pick-item': s.itemQuery = s.itemQuery === null || s.itemQuery === undefined ? '' : null; break;
     case 'sh-item-hit': { const item = fromUuidSync(b.dataset.uuid); if (item) takeItem(app, item); else s.itemQuery = null; break; }
@@ -1081,7 +1096,7 @@ export function onSheetInput(app, el) {
     if (!q) return open('');
     const hits = app.searchHits(q);
     const recs = recordHits(app, q, hits);
-    return open(hits.map(({ e, i }) => `<div class="hit" data-act="sh-key-hit" data-i="${i}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(app.hitWhere(e))}</span></div>`).join('')
+    return open(hits.map(({ e }) => `<div class="hit" data-act="sh-key-hit" data-uuid="${esc(e.uuid ?? '')}" data-owner="${esc(e.owner ?? '')}" data-keys="${esc(e.keys.join(' '))}"><span>${dot(e.status)}${esc(e.name)}${e.effect ? ' <span class="note">effect</span>' : ''}</span><span class="o">${esc(app.hitWhere(e))}</span></div>`).join('')
       + recs.map((r) => `<div class="hit" data-act="sh-key-rec" data-key="${esc(r.key)}"><span>${dot('none')}${esc(r.name)}</span><span class="o">${esc(r.where)}</span></div>`).join('')
       || '<div class="hit"><span class="o">No ability of that name in the books or on an actor</span></div>');
   }
