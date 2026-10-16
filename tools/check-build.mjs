@@ -15,6 +15,7 @@ import { readFxFile, readRecipes, useLibraries } from './lib/recipes.mjs';
 import { install, table, sections, standing } from './lib/stage.mjs';
 import { toUrl, REPO } from './lib/env.mjs';
 import { join } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
 
 const args = process.argv.slice(2);
 const quiet = args.includes('--quiet');
@@ -77,7 +78,25 @@ for (const [source, list] of sets) {
     counts.sounds += ctx.sounds.length;
   }
 }
+// THE SCREENS' JUDGEMENT FILE ships beside the corpus (recipes/proposals.json, tools/proposals.mjs):
+// a proposal's basis is the FX the Editor copies from, so every one must be an FX this build saw.
+// tools/proposals.mjs --check holds the file to the gaps; this holds it to the corpus.
+if (!file) {
+  const pj = join(REPO, 'recipes', 'proposals.json');
+  const built = new Set([...recipes.stock, ...recipes.house].map((fx) => fx.id));
+  if (!existsSync(pj)) problems.push('recipes/proposals.json is missing: node tools/proposals.mjs --write');
+  else {
+    const { _meta: meta = {}, proposals = {} } = JSON.parse(readFileSync(pj, 'utf8'));
+    const entries = Object.entries(proposals);
+    if (entries.length !== meta.gaps) problems.push(`recipes/proposals.json: ${entries.length} entries, its _meta says ${meta.gaps} gaps`);
+    for (const [key, e] of entries) {
+      if (e.status === 'proposed' && !built.has(e.basis)) problems.push(`recipes/proposals.json: ${key} copies from "${e.basis}", which is no FX`);
+      if (e.reason && !meta.reasons?.[e.reason]) problems.push(`recipes/proposals.json: ${key} gives the reason "${e.reason}", which is not in the closed list`);
+    }
+    counts.proposals = entries.length;
+  }
+}
 const shapes = Object.entries(counts.byShape).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ');
-console.log(`check-build: ${counts.fx} fx (${counts.off} off) · ${counts.built} build to ${counts.sections} sections naming ${counts.files} files and ${counts.sounds} sounds · missing ${counts.missing} (known since AA ${counts.knownMissing}) · scenes by shape: ${shapes}`);
+console.log(`check-build: ${counts.fx} fx (${counts.off} off) · ${counts.built} build to ${counts.sections} sections naming ${counts.files} files and ${counts.sounds} sounds · missing ${counts.missing} (known since AA ${counts.knownMissing}) · scenes by shape: ${shapes}${counts.proposals !== undefined ? ` · ${counts.proposals} gap judgements read, every basis an FX that builds` : ''}`);
 if (!quiet || problems.length) for (const p of problems) console.log('  ✗ ' + p);
 if (problems.length) { console.log(`FAIL: ${problems.length} problem(s)`); process.exitCode = 1; } else console.log(`PASS: every FX builds`);
