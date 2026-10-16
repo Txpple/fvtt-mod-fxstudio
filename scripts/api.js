@@ -32,6 +32,39 @@ export function makeApi(state) {
       .catch((e) => { console.warn('FX Studio | no records file, so no row can open one:', e.message); records = {}; return false; });
     return reading;
   };
+  // ── THE PROPOSALS ──────────────────────────────────────────────────────────────────────────────
+  // recipes/proposals.json, the gap table's judgements (tools/proposals.mjs, DESIGN 28.6): for every
+  // key no FX answers, a proposal waiting, a judgement that it needs none, or open. Read the way the
+  // records are, lazily, when the Coverage tab asks; never at boot, and never by the engine.
+  let proposals = null;
+  let proposalsMeta = null;
+  let readingProposals = null;
+  const readProposals = () => {
+    if (proposals) return Promise.resolve(true);
+    readingProposals ??= fetch(`modules/${MODULE_ID}/recipes/proposals.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`${r.status}`))))
+      .then((j) => { proposals = j.proposals ?? {}; proposalsMeta = j._meta ?? {}; return true; })
+      .catch((e) => { console.warn('FX Studio | no proposals file, so Coverage cannot say why a gap plays nothing:', e.message); proposals = {}; proposalsMeta = {}; return false; });
+    return readingProposals;
+  };
+  /** an entry in its whole shape: the file leaves an empty field out */
+  const PROPOSAL_FIELDS = ['status', 'reason', 'basis', 'sentence', 'vfxFit', 'sfxFit', 'vfx', 'sfx'];
+  const proposalsApi = {
+    /** read the file once; resolves true when the judgements are here */
+    read: readProposals,
+    /** true once the file has been read */
+    get loaded() { return !!proposals; },
+    ready: () => !!proposals,
+    /** the judgement for a key, {status, reason, basis, sentence, vfxFit, sfxFit, vfx, sfx}; null when the key is no gap or the file is not read yet */
+    get: (key) => (proposals?.[key] ? Object.fromEntries(PROPOSAL_FIELDS.map((k) => [k, proposals[key][k] ?? ''])) : null),
+    /** the packs the records come from, the books the Coverage tab offers: [{id, label, kind, keys, gaps}] */
+    packs: () => [...(proposalsMeta?.packs ?? [])],
+    /** the closed list of reasons a gap needs no FX, as words: {code: words} */
+    reasons: () => ({ ...(proposalsMeta?.reasons ?? {}) }),
+    /** the file's own numbers: {gaps, proposed, none, open} */
+    counts: () => ({ gaps: proposalsMeta?.gaps ?? null, ...(proposalsMeta?.counts ?? {}) }),
+  };
+
   const lookup = (id) => state.index.byId.get(id)?.fx ?? state.index.starters.get(id) ?? null;
   const copy = (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v)));
 
@@ -137,14 +170,17 @@ export function makeApi(state) {
 
   /**
    * The census: every ability on the world's actors (or the given ones) and every effect, with the
-   * fx that answers and what plays nothing. Data for the Check screen and the tools.
+   * fx that answers and what plays nothing. Data for the Coverage tab and the tools. An item row
+   * carries its key's `kind`, so a natural attack (a weapon whose kind is natural, core/subjects.js)
+   * lists beside the items as itself, and how many activities it has (the moment rule, DESIGN 25);
+   * an effect row carries its uuid and whether it sits on its owner and for how long.
    */
   const census = ({ actors = null } = {}) => {
     const list = actors ?? game.actors.contents;
     const TYPES = ['weapon', 'spell', 'feat', 'consumable', 'equipment', 'tool'];
     const out = { actors: [], nothing: [], answered: 0, asked: 0 };
     for (const actor of list) {
-      const row = { name: actor.name, type: actor.type, items: [], effects: [] };
+      const row = { name: actor.name, type: actor.type, uuid: actor.uuid ?? null, items: [], effects: [] };
       for (const it of actor.items) {
         if (!TYPES.includes(it.type)) continue;
         const acts = it.system?.activities?.contents ?? [];
@@ -154,12 +190,12 @@ export function makeApi(state) {
         const r = resolve(state.index, subject.keys, 'use', { hasPlace });
         out.asked++;
         if (r.fx) out.answered++; else out.nothing.push({ actor: actor.name, name: it.name, type: it.type, keys: subject.keys });
-        row.items.push({ name: it.name, type: it.type, id: it.id, uuid: it.uuid, keys: subject.keys, hasPlace, fx: r.fx?.id ?? null, key: r.key ?? null, source: r.source ?? null, why: r.why ?? null, off: !r.fx && /switched off/.test(r.why ?? '') });
+        row.items.push({ name: it.name, type: it.type, id: it.id, uuid: it.uuid, keys: subject.keys, kind: subject.kind, activities: acts.length, hasPlace, fx: r.fx?.id ?? null, key: r.key ?? null, source: r.source ?? null, why: r.why ?? null, off: !r.fx && /switched off/.test(r.why ?? '') });
       }
       for (const ef of actor.allApplicableEffects?.() ?? actor.effects) {
         const subject = subjectOfEffect(ef);
         const r = resolve(state.index, subject.keys, 'effect');
-        row.effects.push({ name: ef.name, keys: subject.keys, fx: r.fx?.id ?? null, key: r.key ?? null, source: r.source ?? null });
+        row.effects.push({ name: ef.name, keys: subject.keys, kind: 'effect', id: ef.id ?? null, uuid: ef.uuid ?? null, transfer: !!ef.transfer, temporary: !!ef.isTemporary, disabled: !!ef.disabled, fx: r.fx?.id ?? null, key: r.key ?? null, source: r.source ?? null, why: r.why ?? null, off: !!r.off });
       }
       out.actors.push(row);
     }
@@ -204,6 +240,8 @@ export function makeApi(state) {
     rebuild: () => state.rebuild(),
     /** the records: read once (resolves true when the map is here), the map as it is, and whether it is here */
     records: { read: readRecords, map: () => records, ready: () => !!records },
+    /** the gap table's judgements (recipes/proposals.json), read once and lazily: THE PROPOSALS above */
+    proposals: proposalsApi,
     /**
      * THE GATES (core/gates.js): how another module asks this table to wait. `register(name, ask)`
      * takes a function called once per moment, before it plays, which answers null (not held), or a

@@ -368,3 +368,60 @@
 
 /* a Stock FX under a House override keeps its row, dimmed (2026-09-12) */
 .fxstudio .fxlist .row[data-shadowed="true"] .n { opacity: .55; }
+
+/* ===== Coverage (the gap tool's screen) ===== */
+/* DESIGN 28.6. Appended whole and nothing above it edited: the rules above for .coverage, .band and
+   .cvscope stay, and the ones that must change are overridden here by the more specific .coverage.cv2.
+   Five rows — scope, tiles, the filters and search, the list, the Maintain corner — and only the list
+   scrolls (R4). The tab is its own container, so a narrow window stacks a row rather than overlapping it. */
+.fxstudio .coverage.cv2 { grid-template-rows: auto auto auto minmax(0, 1fr) auto; container: cvtab / inline-size; }
+/* the tiles: a number, its label, and one line of what it is made of */
+.fxstudio .coverage.cv2 .tile .sm { color: var(--fx-muted); font-size: 11.5px; margin-top: 2px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@container cvtab (max-width: 640px) { .fxstudio .coverage.cv2 .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* the filters on the left, the search on the right, one control tall */
+.fxstudio .coverage.cv2 .cvbar { display: flex; align-items: center; gap: 10px; min-width: 0; flex-wrap: wrap; }
+.fxstudio .coverage.cv2 .cvfilt { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; min-width: 0; flex: 1 1 auto; }
+/* a pill here is a pill, not a button: the window's button rule is more specific than .pill */
+.fxstudio .fx-wrap .coverage.cv2 .pill { border-radius: 999px; padding: 3px 10px; font-size: 12.5px; line-height: 1.4; }
+.fxstudio .fx-wrap .coverage.cv2 .cvbar input.cv-q { flex: 0 1 260px; width: 260px; min-width: 140px; font-size: 12.5px; padding: 4px 9px; height: 26px; }
+/* the list: a card holding the one scroll region */
+.fxstudio .coverage.cv2 .cvlist { padding: 0; overflow: hidden; }
+.fxstudio .coverage.cv2 .cvlist .rows { padding: 0 0 6px; }
+.fxstudio .coverage.cv2 .cvlist .rows > p.note { padding: 10px 12px 0; }
+/* a row: the name and its kind · why it is here · its door, one line and one height (R3) */
+.fxstudio .cvrow { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr) auto; gap: 4px 14px; align-items: center; min-height: calc(var(--fx-row) + var(--fx-gutter)); padding: 0 12px; border-bottom: 1px solid var(--fx-line2); }
+.fxstudio .cvrow .nm { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 13px; font-weight: 500; }
+.fxstudio .cvrow .nm .n { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 0 1 auto; }
+.fxstudio .cvrow .nm .on { color: var(--fx-muted); font-weight: 400; font-size: 12px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 0 1 auto; }
+.fxstudio .cvrow .nm .tag { flex: 0 0 auto; font-weight: 400; }
+.fxstudio .cvrow .why { margin: 0; color: var(--fx-muted); font-size: 12.5px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .cvrow .why b { color: var(--fx-text); font-weight: 500; }
+.fxstudio .cvrow .why .conf { font: 11px ui-monospace, Menlo, Consolas, monospace; color: var(--fx-faint); margin-left: 8px; }
+.fxstudio .cvrow .door2 { display: flex; gap: 6px; justify-content: flex-end; }
+.fxstudio .fx-wrap .cvrow .door2 button { padding: 4px 10px; font-size: 12.5px; white-space: nowrap; }
+.fxstudio .cvrow[data-st="judged"] .nm .n, .fxstudio .cvrow[data-st="off"] .nm .n { color: var(--fx-muted); }
+@container cvtab (max-width: 760px) {
+  .fxstudio .cvrow { grid-template-columns: minmax(0, 1fr) auto; padding: 6px 12px; }
+  .fxstudio .cvrow .why { grid-column: 1 / -1; grid-row: 2; white-space: normal; }
+}
+/* the books to pick: one line per package, its packs as pills with how many abilities each holds */
+.fxstudio .cvbooks { display: grid; gap: 8px; padding: 10px 12px; }
+.fxstudio .cvbooks .bkhead { display: flex; align-items: baseline; gap: 12px; }
+.fxstudio .cvbooks .bkhead .sub { margin: 0; }
+.fxstudio .cvbooks .bk { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 6px 12px; align-items: start; }
+.fxstudio .cvbooks .bk .pk { font-size: 13px; font-weight: 500; padding-top: 4px; min-width: 0; }
+.fxstudio .cvbooks .pill .c { color: var(--fx-faint); font-size: 11px; font-variant-numeric: tabular-nums; }
+.fxstudio .cvbooks .pill[aria-pressed="true"] .c { color: var(--fx-muted); }
+.fxstudio .cvbooks p.note { margin: 2px 0 0; }
+@container cvtab (max-width: 640px) { .fxstudio .cvbooks .bk { grid-template-columns: 1fr; } }
+/* Maintain: a disclosure in the corner, closed until asked */
+.fxstudio .coverage.cv2 .cvfoot { display: flex; justify-content: flex-end; min-width: 0; }
+.fxstudio .cvmaint { font-size: 12.5px; color: var(--fx-muted); max-width: 100%; }
+.fxstudio .cvmaint summary { cursor: pointer; list-style: none; display: inline-flex; gap: 6px; align-items: center; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--fx-line2); }
+.fxstudio .cvmaint summary::-webkit-details-marker { display: none; }
+.fxstudio .cvmaint summary:hover { border-color: var(--fx-muted); color: var(--fx-text); }
+.fxstudio .cvmaint .faint { color: var(--fx-faint); }
+.fxstudio .cvmaint .body { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-panel); display: grid; gap: 8px; }
+.fxstudio .cvmaint .acts { display: flex; gap: 6px; flex-wrap: wrap; }
+.fxstudio .fx-wrap .cvmaint .acts button { padding: 4px 11px; font-size: 12.5px; }
+.fxstudio .cvmaint p.note { margin: 0; }
