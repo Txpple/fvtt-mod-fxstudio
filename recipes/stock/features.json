@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 286
+  "fx": 287
  },
  "fx": [
   {
@@ -9877,6 +9877,34 @@
      },
      "asset": {
       "path": "jb2a.magic_signs.circle.02.conjuration.intro.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pact-of-the-blade",
+   "for": [
+    "feature:pact-of-the-blade"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.classes.Item.phbinvPactBlade0",
+    "name": "Pact of the Blade",
+    "where": "Player's Handbook · Character Classes"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.markers.runes02.dark_black.03"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
      }
     }
    ]
