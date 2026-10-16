@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 386
+  "fx": 387
  },
  "fx": [
   {
@@ -14324,6 +14324,33 @@
       "path": "jb2a.detect_magic.circle.green"
      },
      "below": true
+    }
+   ]
+  },
+  {
+   "id": "shield-of-faith",
+   "for": [
+    "spell:shield-of-faith"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShieldofFa",
+    "name": "Shield of Faith",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.markers.shield.yellow.03"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
     }
    ]
   }
