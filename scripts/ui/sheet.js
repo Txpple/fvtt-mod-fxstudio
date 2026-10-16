@@ -49,7 +49,7 @@ import { MODULE_ID } from '../settings.js';
 import { AUTHORED_KINDS, keyLabel, parseKey, slug } from '../core/subjects.js';
 import { needsPlace } from '../core/corpus.js';
 import { KNOBS, PLACES, PLACE_WORDS, assetWords, pathWords, provenance, sceneWords, withDefaults } from '../core/fx.js';
-import { ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
+import { MOMENT_WORDS, ON_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
 import { nameForKey, openRecord, recordFor, recordOf, recordWords, recordsRead } from './records.js';
 import { openPicker } from './library.js';
 
@@ -222,7 +222,7 @@ export function renderSheet(app) {
   const a = api();
   const s = app.sheet;
   // the tab's resting state: it is always in the strip, so it has to say what it is when it is empty
-  if (!s) return `<div class="stack"><div class="card"><div class="sub">Editor</div><p class="note">No FX open. Every FX is edited here — pick one on the FX tab and press Edit, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button><button type="button" class="quiet" data-act="tab" data-tab="fx">Browse FX</button></div></div></div>`;
+  if (!s) return `<div class="stack"><div class="card"><div class="sub">Editor</div><p class="note">No FX open. Every FX is edited here — pick one on the Library tab and press Editor, or start a new one.</p><div class="actions"><button type="button" class="primary" data-act="sh-new">New FX</button><button type="button" class="quiet" data-act="tab" data-tab="fx">Browse FX</button></div></div></div>`;
   const edit = s.edit;
   const fx = safeDraft(app);
   const problems = edit ? problemsOf(app) : [];
@@ -360,11 +360,15 @@ function renderHook(app) {
   const key = s.keys[0] ?? null;
   const p = key ? parseKey(key) : null;
   const inBooks = key ? !!recordFor(key) : false;
-  const keyTip = !key ? '' : inBooks
-    ? `The key: ${p.kind} and dnd5e's identifier "${p.id}". Every copy of ${keyLabel(key).replace(/ \([a-z]+\)$/, '')} carries it and plays this FX. Own key gives one copy an identifier of its own.`
-    : `The key: ${p.kind} and dnd5e's identifier "${p.id}", which this world's own item carries. Only an item with that identifier plays this FX.`;
+  // an event: key is the table's own moment, not an item's (DESIGN §26): the line says so
+  const isEvent = p?.kind === 'event';
+  const keyTip = !key ? '' : isEvent
+    ? `The key: the table's event "${p.id}". This FX plays at every ${p.id} at the table, after the ability's own FX.`
+    : inBooks
+      ? `The key: ${p.kind} and dnd5e's identifier "${p.id}". Every copy of ${keyLabel(key).replace(/ \([a-z]+\)$/, '')} carries it and plays this FX. Own key gives one copy an identifier of its own.`
+      : `The key: ${p.kind} and dnd5e's identifier "${p.id}", which this world's own item carries. Only an item with that identifier plays this FX.`;
   const keyPills = key ? `<span class="pill key" aria-pressed="true" data-tooltip="${esc(keyTip)}">${esc(keyLabel(key))}</span>` : '';
-  const keyLine = key ? `<code class="key" data-tooltip="${esc(keyTip)}">${esc(key)}</code><span class="note">${inBooks ? 'every copy answers it' : "this world's own item"}</span>` : '';
+  const keyLine = key ? `<code class="key" data-tooltip="${esc(keyTip)}">${esc(key)}</code><span class="note">${isEvent ? 'an event at the table' : inBooks ? 'every copy answers it' : "this world's own item"}</span>` : '';
   const addKey = edit ? `<div class="search sh-key-search"><input type="search" class="sh-key-q" placeholder="${key ? 'Change the ability' : 'Choose an ability'}" aria-label="${key ? 'Change the ability' : 'Choose an ability'}" autocomplete="off" value="${esc(s.keyQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
   const pills = (list, cur, act, attr) => list.map(([v, w]) => `<button type="button" class="pill" aria-pressed="${cur === v}" data-act="${act}" data-${attr}="${v}">${w}</button>`).join('');
   // THE ITEM column keeps its place whether or not we came from an item (R1). The item the sheet
@@ -386,10 +390,16 @@ function renderHook(app) {
     ? `<button type="button" class="pill" data-act="sh-own-key" data-tooltip="${esc(ownTip)}">Own key</button>`
     : `<span class="pill" data-na="true" data-tooltip="${esc(ownTip)}">Own key</span>`;
   const pickItem = picking ? `<div class="search sh-item-search"><input type="search" class="sh-item-q" placeholder="Find an item on an actor" aria-label="Find an item on an actor" autocomplete="off" value="${esc(s.itemQuery)}"><div class="suggest" data-open="false"></div></div>` : '';
+  // THE MOMENT: the two words the Editor authors are pills; an FX carrying any other word (summon,
+  // unsummon, the By the Books words: the engine's own, DESIGN §26) shows it as a read-only pill
+  // rather than an empty cell, and nothing here rewrites it
+  const moment = Object.hasOwn(ON_WORDS, s.on)
+    ? pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')
+    : `<span class="pill" aria-pressed="true" data-tooltip="${esc(`The moment "${s.on}" is the engine's own: the Editor shows it and does not change it.`)}">${esc(MOMENT_WORDS[s.on] ?? s.on)}</span>`;
   return `<div class="hookstrip">
     <div class="hcol wide"><span class="lbl">Answers</span><div class="pills wrap">${keyPills}${!key ? '<span class="note">No key yet</span>' : ''}${addKey}</div><div class="keyline">${keyLine}</div></div>
     <div class="hcol"><span class="lbl">Item</span><div class="pills">${itemPill}${ownKey}</div>${pickItem}</div>
-    <div class="hcol"><span class="lbl">Moment</span><div class="pills">${pills(Object.entries(ON_WORDS), s.on, 'sh-on', 'on')}</div></div>
+    <div class="hcol"><span class="lbl">Moment</span><div class="pills">${moment}</div></div>
     <div class="hcol"><span class="lbl">State</span><div class="pills">${pills([[false, 'On'], [true, 'Off']], s.off, 'sh-off', 'v')}</div></div>
   </div>`;
 }

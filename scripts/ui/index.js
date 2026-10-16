@@ -16,7 +16,7 @@ export function registerScreens({ moduleId }) {
   game.settings.registerMenu(moduleId, 'studio', {
     name: 'FX Studio',
     label: 'Open FX Studio',
-    hint: 'Look up what plays for any ability, change it, and see what plays nothing yet.',
+    hint: 'The FX this table plays: browse them, edit one, pick from the asset libraries, and see what plays nothing yet.',
     icon: 'fa-solid fa-wand-sparkles',
     type: Studio,
     restricted: true,

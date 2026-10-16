@@ -37,5 +37,8 @@ export const dot = (status) => `<span class="dot ${status}"></span>`;
 /** the title words for an FX id: "sharran-step" → "Sharran Step" */
 export const idWords = (id) => String(id ?? '').replace(/^starter:/, '').replace(/-/g, ' ').replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
-/** the moment as a term: On use · While active */
+/** the moment as a term: On use · While active — the two words the Editor authors (DESIGN §26) */
 export const ON_WORDS = { use: 'On use', effect: 'While active' };
+
+/** every moment word as a term, for an FX that carries one the Editor does not author (the engine's own, core/moments.js WHEN): shown, never changed there */
+export const MOMENT_WORDS = { ...ON_WORDS, maneuver: 'On a maneuver', sneak: 'On Sneak Attack', fold: 'On a fold', rider: 'On a rider', 'hold-answered': 'On a held roll answered', summon: 'On summon', unsummon: 'On unsummon' };
