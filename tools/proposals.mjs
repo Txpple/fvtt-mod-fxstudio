@@ -202,7 +202,9 @@ const out = {
   },
   proposals: entries,
 };
-const text = JSON.stringify(out);
+// one entry to a line: small to ship, and a changed judgement is one line in a diff
+const lines = Object.entries(entries).map(([k, e]) => `${JSON.stringify(k)}:${JSON.stringify(e)}`);
+const text = `{"_meta":${JSON.stringify(out._meta, null, 1)},\n"proposals":{\n${lines.join(',\n')}\n}}\n`;
 
 // ── the report ────────────────────────────────────────────────────────────────────────────────
 say(`${gapKeys.length} gaps · ${counts.proposed} proposed · ${counts.none} judged no FX · ${counts.open} open`);
