@@ -74,8 +74,8 @@ row marks itself and has three doors, Record · Delete · Editor. Editor (`ui/sh
 band-tabbed inspector; it survives a tab switch. Assets (`ui/library.js`), Coverage (`ui/coverage.js`).
 **The Claude Design redesign is SHELVED** (`shelved/` governs nothing; rollback tag `pre-revamp`
 at `a4c9824` also restores `like`/`with`). No plan drives the UI; the user's judgment does. Known
-and unruled: the window scrolls sideways below ~780px (the review's Phase 2); whether a popped-out
-window loses clicks under a modal is untested.
+and ruled, not yet built (DESIGN §28.5, the review's Phase 2): the window scrolls sideways below
+~780px; whether a popped-out window loses clicks under a modal is untested.
 
 **Parked, not owed** ([BACKLOG.md](BACKLOG.md)): the migration's exception tables
 (`recipes/migration-report.md`), a QA pass on Stock FX (the Web lesson is the method), the assets

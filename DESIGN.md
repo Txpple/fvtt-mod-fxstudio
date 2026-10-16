@@ -2064,3 +2064,110 @@ ledger row (`<messageId>:<word>:<marker>`). Its Stock FX, `summon-leaves` in `st
 arrival: the purple conjuration circle's OUTRO (whole, then unwinding) below the token with the PSFX circle
 outro sound, and the white smoke-puff ring as it goes. By the Books publishes the beat while the token still
 stands and removes it a moment later, so the picture has somewhere to play.
+
+## 27. A picture is a name on the sheet, as a sound is (the user's ruling, 2026-10-16)
+
+Off the first publish of the Phase 1 prototype, the user:
+
+> *"i would like the vfx to be handled like the sound on the editor. i dont want a vfx preview on that
+> page. it adds lag/load time. if someone wants to view it, it should link to the asset viewer, same as
+> sound."*
+
+**What stands.** The inspector's VFX cell is the SFX cell's twin: the picture's name in words
+(`pathWords`), a link that opens the Asset Library on it, and Browse beside it. The sheet loads no
+`<video>` and no image for any scene, so the `hydrateSheet` timer and the per-commit video churn go with
+the tile. ▶ lives on the rail, one per scene of every shape, and Play all in the Sequence head. The one
+difference from the sound cell: no ✕ on a picture, since a picture scene must name a picture.
+
+## 28. The Phase 1 rulings (the user's ruling, 2026-10-16)
+
+The review (the suite's `docs/reviews/2026-10-16-fxstudio-review.md`, section 7) asked eight questions and
+Phase 1 built the prototype to rule them off (https://claude.ai/artifact/29Zu2JmpHzReR3TH9yYD71, six tabs).
+The user asked for the rulings written in the recommended form first (*"write based on your
+recommendations, and i will iterate from there"*), then accepted them as written: *"Accept §28 as ruled."*
+Each item below is the user's ruling. Where an item reopens an earlier section, that section is named and
+this one wins.
+
+### 28.1 Create has a door in all three places (reopens §13, "we'll add new later": now)
+
+The item-sheet wand, a Library search miss and a Coverage row all land on the same place: the Editor,
+open on the ability, unlocked, knowing the item when there is one. With no FX to show, the sheet says
+*Nothing plays for <name>* and offers three doors: **Starter** (a whole starter, every scene of it: the
+teleport starter brings its two marks and its move), **Copy from** (the scenes of an FX, as a copy) and
+**Blank**. A starter used from here is used whole; the rail's Add still stamps one scene of a shape.
+The search miss lists the abilities on this world's actors that match the typed name and play nothing,
+each a door; a Coverage row is the same door. When the gap table holds a judgement for the key (*No
+proposed FX* with its reason), the landing says so and still offers the doors.
+
+### 28.2 The nine words and `event:` are authored (reopens §26's last sentence)
+
+The Moment column names all nine words of WHEN, each a pill, the sentence's phrase under the pressed one
+(`WHEN_WORDS`), and a note on which are By the Books' and which fall back to `use`. `event` joins
+`AUTHORED_KINDS`; an event FX's key line reads *an event: every ability at this moment, after the
+ability's own FX for the word*, never *this world's own item*; the Item column says *an event has no
+item*. Stock's two event FX open with their Moment shown and are edited on the sheet, not by hand.
+
+### 28.3 Picking into the sheet, in place (reopens §12 "remove the use button", kept; BACKLOG's picker)
+
+Browse on a picture or a sound opens a drawer under the cell, inside the inspector: the Assets tab's
+search (families by name, paths included), a pick writes into this scene and no other. A pick keeps
+what the scene carries when the family is the same: a `{paths}` random set, a `{byPosition}` triple and
+the `template` stretch metadata; a different family replaces the asset whole. The Assets tab is a
+browser only; it has no picker role, no remembered pick and no Use, so a half-finished pick cannot
+outlive a tab switch or land in another sheet.
+
+### 28.4 One column of the cells the shape reads (reopens §9 step 4, R1's fixed 4×2 bands)
+
+The inspector is one column: the shape's own group first and open (a Move: Range, Spot, Jump, Fade,
+Speed, After), then Picture, Timing, Sound and Placement collapsed, each holding only the cells
+`KNOBS[shape]` lists. A cell that means nothing yet (Every while Times is 1, Hold next on the last
+scene) is shown dim with its reason in words beside it; a cell the shape does not read is not shown.
+Size carries a kind switch (tokens wide, squares around, squares wide, fit the shape) and the number;
+a bolt and a beam show From and To; Colour appears only when the family lists more than one. R1 stays
+for the Key strip and the rail; the inspector's frame is allowed to change height with the scene.
+
+### 28.5 The window's own width is the breakpoint (under R2)
+
+The sheet's layout is container queries on the window's width, never the browser's: at 800px and under,
+the rail stacks over the inspector and the Key strip is two columns; at 480px and under, one. The rail
+keeps 288px only beside the inspector. Inside the window the tab strip and the sheet's identity band
+with its action bar are sticky, so the laptop case (1,366×768, the window clamped to about 700px of
+content) scrolls the sentence and the sequence under them. `smoke-screens` measures 1,080 and 780 and
+asserts no sideways scroll at either.
+
+### 28.6 Coverage is the gap tool's screen (reopens §9 step 7, Maintain at the top)
+
+Every row says why it is there, from three sources: the moment rule read in full from the records (no
+activity, always on, bookkeeping for another ability, chosen at a rest), the proposals (`gaps.mjs` and
+the TSVs built into a shipped `recipes/proposals.json`: *has a proposal*, its basis, sentence and the
+two confidences, with a door that opens the Editor with the basis copied in), and the ledger (*has an
+FX, played nothing* with the engine's own why and the last play). Effects and natural attacks are in
+the list; the books offered are `LIST_PACKS` and nothing else, so no SRD 5.1 and no world compendium;
+the four tiles keep their addresses. Maintain is a disclosure in the corner with Import, Import to
+Stock and the corpus check. The tab and `gaps.mjs` agree to the number.
+
+### 28.7 Content in this order
+
+The Echoes party's nineteen keys with proposals first (the three smites, the three detects, Shield of
+Faith, Battle-familiar, the lamp, torch and instruments, Pact of the Blade, Stonecunning, the
+battleaxe); then the PHB's remaining spell proposals, the seven Sure/Sure first; then the fourteen
+Battle Master maneuvers, so `maneuver` has something to play; then the QA four re-authored as template
+fills. Each a patch on the user's word.
+
+### 28.8 `spell:shield` keeps its behaviour
+
+The Shield spell plays nothing and the Shield effect plays the barrier, as `smoke-boot` and
+`smoke-replay` pin it. The proposal row becomes *No proposed FX: the Shield effect plays the barrier*,
+so it stops counting as open; Coverage shows the spell's row with that reason.
+
+### 28.9 Three smaller choices made in the prototype
+
+A Library search whose hits share a name shows the record's book under each row (the two Misty Steps:
+*Player's Handbook · Spells* and *Monster Manual · Features*), the record's name itself unchanged
+(§15, §19); the Delete confirm names the key and the layer. Add a scene is a menu in place under the
+rail, never a dialog, so no click is lost after it. The Key strip's explanation of the key is on the
+screen under the pill, not on hover, and a greyed Own key says its reason in the same place.
+
+**What this touches.** Phase 2 (the Editor: the render model, 28.2 to 28.5, §27), Phase 3 (the
+entrance and the Library: 28.1, 28.9), Phase 4 (Coverage: 28.6, 28.8), Phase 5 (28.7). Each phase starts
+on the user's go, as the plan says; nothing here is built yet.
