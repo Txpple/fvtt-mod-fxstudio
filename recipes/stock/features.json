@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 287
+  "fx": 288
  },
  "fx": [
   {
@@ -9902,6 +9902,39 @@
      "asset": {
       "path": "jb2a.markers.runes02.dark_black.03"
      },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "stonecunning-pulse",
+   "for": [
+    "feature:stonecunning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.origins.Item.phbsptStonecunni",
+    "name": "Stonecunning",
+    "where": "Player's Handbook · Character Origins"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.soundwave.01.multicolored01"
+     },
+     "size": {
+      "radius": 2,
+      "plusToken": true
+     },
+     "opacity": 0.5,
      "elevation": {
       "level": 999,
       "absolute": false
