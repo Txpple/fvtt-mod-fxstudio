@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 387
+  "fx": 388
  },
  "fx": [
   {
@@ -14350,6 +14350,30 @@
      "elevation": {
       "level": 999,
       "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "battle-familiar",
+   "for": [
+    "spell:battle-familiar"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunBattleFamilq9",
+    "name": "Battle Familiar",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.red"
      }
     }
    ]

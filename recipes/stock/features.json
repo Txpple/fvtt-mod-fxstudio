@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 284
+  "fx": 286
  },
  "fx": [
   {
@@ -9853,6 +9853,30 @@
       "to": 0.01,
       "after": 750,
       "back": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "familiar-friend",
+   "for": [
+    "feature:familiar-friend"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.feats.Item.aunFamiliarFri4q",
+    "name": "Familiar Friend",
+    "where": "Arcana Unleashed · Feats"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.green"
      }
     }
    ]
