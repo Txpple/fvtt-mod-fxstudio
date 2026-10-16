@@ -95,8 +95,9 @@
 .fxstudio p.note.more { margin: 8px 0 2px; padding: 4px 0 0; }
 .fxstudio .bad { color: var(--fx-bad); }
 .fxstudio code { font-size: 12px; color: var(--fx-muted); }
-.fxstudio .toast { position: sticky; bottom: 8px; margin: 12px auto 0; width: fit-content; max-width: 90%; background: var(--fx-text); color: var(--fx-ground); padding: 8px 14px; border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
-.fxstudio .toast[data-on="true"] { opacity: 1; }
+/* the toast: one line of feedback on the window's frame, over the content, so a render of the content does not take it away */
+.application.fxstudio > .toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 1; width: fit-content; max-width: 90%; font-size: 14px; line-height: 1.5; background: var(--fx-text); color: var(--fx-ground); padding: 8px 14px; border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.application.fxstudio > .toast[data-on="true"] { opacity: 1; }
 
 .fxstudio .tag.main { color: var(--fx-good); border-color: var(--fx-good); }
 .fxstudio .tag.bound { color: var(--fx-warn); border-color: var(--fx-warn); }
@@ -175,7 +176,6 @@
 .fxstudio .stage { flex: 1 1 auto; min-height: 220px; max-height: none; aspect-ratio: auto; }
 .fxstudio .stage .stage-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .fxstudio .stepper, .fxstudio .paths, .fxstudio .uses { flex: 0 0 auto; }
-.fxstudio .toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); margin: 0; }
 .application.fxstudio .fxstudio-content { position: relative; }
 .fxstudio .fx-wrap { padding-bottom: 14px; }
 /* one-line rows for long lists (Custom, Corpus) */

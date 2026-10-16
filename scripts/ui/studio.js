@@ -201,7 +201,6 @@ export class Studio extends ApplicationV2 {
       <section class="pane" data-pane="editor" data-active="${t === 'editor'}">${t === 'editor' ? renderSheet(this) : ''}</section>
       <section class="pane" data-pane="assets" data-active="${t === 'assets'}">${t === 'assets' ? renderLibrary(this) : ''}</section>
       <section class="pane" data-pane="coverage" data-active="${t === 'coverage'}">${t === 'coverage' ? renderCoverage(this) : ''}</section>
-      <div class="toast" data-on="false"></div>
     </div>`;
   }
 
@@ -236,9 +235,23 @@ export class Studio extends ApplicationV2 {
     root.addEventListener('keydown', (ev) => this.onKey(ev));
   }
 
+  /**
+   * One line of feedback, on the window's frame rather than in its content: a render replaces the
+   * content, and Duplicate, Cancel, Delete and the picker's Use all speak and then render, so a
+   * toast in the content was wiped before it could be read. The node is made once and kept; a
+   * screen reader hears it as a status.
+   */
   toast(msg) {
-    const t = this.element?.querySelector('.toast');
-    if (!t) return;
+    const root = this.element;
+    if (!root) return;
+    let t = root.querySelector(':scope > .toast');
+    if (!t) {
+      t = root.ownerDocument.createElement('div');
+      t.className = 'toast';
+      t.setAttribute('role', 'status');
+      t.setAttribute('aria-live', 'polite');
+      root.append(t);
+    }
     t.textContent = msg;
     t.dataset.on = 'true';
     clearTimeout(this._toastTimer);
