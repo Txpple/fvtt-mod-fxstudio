@@ -108,7 +108,7 @@ export async function asked(method, config) {
  */
 export function openSheet(app, { id = null, source = null, subject = null, from = null, scenes = null, edit = false } = {}) {
   const a = api();
-  const s = { id: null, source: null, shadowed: false, original: null, subject: null, keys: [], on: 'use', off: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture' };
+  const s = { id: null, source: null, shadowed: false, original: null, subject: null, keys: [], on: 'use', off: false, scenes: [], note: '', edit: !!edit, cameFrom: app.view.tab === 'editor' ? (app.sheet?.cameFrom ?? 'fx') : app.view.tab, isNew: !id, from: null, snapshot: null, keyQuery: '', itemQuery: null, pick: 0, band: 'picture', sentenceOpen: false };
   const e = id ? a.fx.get(id, source) : null;
   if (e) {
     s.id = id; s.source = e.source; s.shadowed = !!e.shadowed; s.original = e.original;
@@ -263,7 +263,7 @@ export function renderSheet(app) {
     </div>
     <p class="whyline"><span class="why">${esc(whyWords(app))}</span><code class="id">${esc(fx?.id ?? s.id ?? '')}</code>${s.original && provenance(s.original) ? `<span class="prov">${esc(provenance(s.original))}</span>` : ''}</p>
     ${banner}${problemList}
-    <div class="preview"><div class="sub">What plays</div><div class="sentence-box">${sentenceHtml(app, fx, name)}</div></div>
+    <div class="preview"><div class="sub">What plays</div><div class="sentence-box" role="button" tabindex="0" data-act="sh-sentence" data-open="${!!s.sentenceOpen}">${sentenceHtml(app, fx, name)}</div></div>
     <div class="section"><div class="sub">Key</div>${renderHook(app)}</div>
     <div class="section sequence"><div class="sechead"><div class="sub">Sequence</div>${seqMeta(app)}</div>${renderSequence(app)}</div>
   </div>`;
@@ -292,15 +292,18 @@ function whyWords(app) {
   return `${key} · ${s.source ? SOURCE_TAG[s.source] : 'New'}`;
 }
 
-/** the FX as its sentence, with the selected scene's own clause marked */
+/**
+ * The FX as its sentence, with the selected scene's own clause marked. The box shows two lines
+ * and an ellipsis; hydrateSheet marks it when there is more, and a click shows the whole of it.
+ */
 function sentenceHtml(app, fx, name) {
   if (!fx) return '';
   const line = api().fx.sentence(fx, { name });
   const scene = app.sheet.scenes[pickOf(app)]?.scene;
   const clause = scene && !app.sheet.off ? sceneWords(scene) : '';
   const at = clause ? line.indexOf(clause) : -1;
-  if (at < 0) return `<b title="${esc(line)}">${esc(line)}</b>`;
-  return `<b title="${esc(line)}">${esc(line.slice(0, at))}<mark>${esc(clause)}</mark>${esc(line.slice(at + clause.length))}</b>`;
+  if (at < 0) return `<b>${esc(line)}</b>`;
+  return `<b>${esc(line.slice(0, at))}<mark>${esc(clause)}</mark>${esc(line.slice(at + clause.length))}</b>`;
 }
 
 // --- Play (HANDOFF step 2): api.preview, on the selected token, saving nothing ------------------
@@ -482,15 +485,15 @@ async function ownKey(app) {
 }
 
 // -----------------------------------------------------------------------------------------------
-// band 4 — the sequence: the rail, the overlap strip, the inspector
+// the sequence: the rail and the inspector
 // -----------------------------------------------------------------------------------------------
 /**
  * When each scene starts and how long it runs, on one ms scale. The rule is the engine's own
  * (engine/common.js `timing`): a scene that holds the sequence makes the next one start when it
  * has finished, plus or minus the offset; a scene that does not hold starts alongside the one
  * before it, after its own Wait before. A picture's own length is NOT in the grammar, so it is
- * measured from the file the browser has loaded (DURATIONS, filled by hydrateSheet) and marked an
- * estimate until then — never quietly guessed.
+ * measured from the file the browser has loaded (DURATIONS, filled by hydrateSheet) and stands at
+ * a nominal length until then.
  */
 const NOMINAL_MS = 1000;
 const DURATIONS = new Map();
@@ -509,7 +512,7 @@ function timeline(scenes) {
     const start = holds ? cursor : cursor + (scene.delay ?? 0);
     const end = start + dur;
     if (holds) cursor = end + (typeof scene.wait === 'number' ? scene.wait : 0);
-    return { start, end, dur, open: (sc.persist ?? 'none') !== 'none', est: known === undefined };
+    return { start, end, dur };
   });
 }
 
@@ -535,12 +538,11 @@ function askShape() {
 }
 
 /** "3 scenes · 1.4 s" beside the Sequence heading */
+const seqMetaWords = (s, t) => `${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} · ${(Math.max(...t.map((x) => x.end), 0) / 1000).toFixed(1)} s`;
 function seqMeta(app) {
   const s = app.sheet;
   if (s.off || !s.scenes.length) return '';
-  const t = timeline(s.scenes);
-  const hi = Math.max(...t.map((x) => x.end), 0);
-  return `<span class="seqmeta">${s.scenes.length} scene${s.scenes.length === 1 ? '' : 's'} · ${(hi / 1000).toFixed(1)} s</span>`;
+  return `<span class="seqmeta">${seqMetaWords(s, timeline(s.scenes))}</span>`;
 }
 
 /** a scene of this shape, stamped out of its starter (a stencil: the FX owns the copy), opened in the inspector */
@@ -903,16 +905,17 @@ function cellHtml(app, key, scene, i) {
 }
 
 // -----------------------------------------------------------------------------------------------
-// after the render: the strip needs the pictures' own lengths, which only the browser knows
+// after the render: what only the browser knows, written in place — never a second render
 // -----------------------------------------------------------------------------------------------
 /**
  * Ask the browser how long each scene's file runs, once per file (an off-screen video element that
- * loads metadata only), and redraw the strip when an answer comes back. Until then the bar is
- * drawn at a nominal length and marked an estimate — the sheet never states a duration it has not
- * been told.
+ * loads metadata only), and write the times that depend on it in place when an answer comes back:
+ * "3 scenes · 1.4 s" and each rail row's start. Until then they stand at a nominal length. The
+ * sentence box is marked when its two lines do not hold the sentence, so it can open on a click.
  */
 export function hydrateSheet(app) {
   if (!app.element || !app.sheet) return;
+  markClamped(app);
   for (const { scene } of app.sheet.scenes) {
     const file = pictureFile(scene);
     if (!file || !isVideo(file) || ASKED.has(file)) continue;
@@ -924,11 +927,33 @@ export function hydrateSheet(app) {
       const d = Number(v.duration);
       if (!Number.isFinite(d) || d <= 0) return;
       DURATIONS.set(file, Math.round(d * 1000));
-      clearTimeout(app._stripTimer);
-      app._stripTimer = setTimeout(() => { if (app.view?.tab === 'editor' && app.sheet) app.render(); }, 150);
+      paintTimes(app);
     }, { once: true });
     v.src = `${assetUrl(file)}#t=0.1`;
   }
+}
+
+/** the times on the open sheet, written in place from the timeline */
+function paintTimes(app) {
+  const s = app.sheet;
+  const root = app.view?.tab === 'editor' && s ? app.element?.querySelector('[data-pane="editor"] .sheet') : null;
+  if (!root) return;
+  const t = timeline(s.scenes);
+  const meta = root.querySelector('.seqmeta');
+  if (meta) meta.textContent = seqMetaWords(s, t);
+  root.querySelectorAll('.rail .row .ms').forEach((el, i) => { if (t[i]) el.textContent = `${Math.round(t[i].start)} ms`; });
+}
+
+/** the sentence box says whether its two lines hold the sentence, and what a click on it does */
+function markClamped(app) {
+  const box = app.element?.querySelector('[data-pane="editor"] .sentence-box');
+  const b = box?.querySelector('b');
+  if (!box || !b) return;
+  const open = box.dataset.open === 'true';
+  const clamped = open || b.scrollHeight > b.clientHeight + 1;
+  box.dataset.clamped = String(clamped);
+  if (clamped) box.dataset.tooltip = open ? 'Show two lines' : 'Show the whole sentence';
+  else delete box.dataset.tooltip;
 }
 
 // -----------------------------------------------------------------------------------------------
@@ -984,6 +1009,8 @@ export async function onSheetClick(app, b, act) {
     case 'sh-dup': { openSheet(app, { from: s.id }); app.sheet.cameFrom = s.cameFrom; app.toast(`Copy of ${idWords(s.id)}. Choose the ability it answers, then Save.`); break; }
     case 'sh-export': return app.exportFx(s.id, s.source);
     case 'sh-record': return openRecord(b.dataset.uuid, b.dataset.name);
+    // the sentence opens to its whole length when two lines did not hold it, and closes again
+    case 'sh-sentence': if (!s.sentenceOpen && b.dataset.clamped !== 'true') return undefined; s.sentenceOpen = !s.sentenceOpen; break;
     case 'sh-delete': {
       // deleteFx asks; a House override deleted leaves the Stock FX of that id showing, so the
       // sheet reopens on it

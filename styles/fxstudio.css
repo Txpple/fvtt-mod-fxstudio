@@ -205,11 +205,13 @@
 .fxstudio .whyline .why { color: var(--fx-text); white-space: nowrap; flex: 0 0 auto; }
 .fxstudio .whyline code.id { flex: 0 0 auto; }
 .fxstudio .whyline .prov { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* band 2 — the sentence: two lines, never taller, the selected scene's clause marked */
+/* band 2 — the sentence: two lines ending in an ellipsis, the whole of it on a click, the selected scene's clause marked */
 .fxstudio .sheet .preview { margin: 12px 0 0; padding: 10px 12px; background: var(--fx-panel2); border-radius: var(--fx-radius); }
 .fxstudio .sheet .preview .sub { margin: 0 0 4px; }
-.fxstudio .sentence-box { height: calc(2 * 1.55 * 15px); overflow: hidden; }
-.fxstudio .sentence-box b { font-size: 15px; line-height: 1.55; font-weight: 600; display: block; }
+.fxstudio .sentence-box { min-height: calc(2 * 1.55 * 15px); }
+.fxstudio .sentence-box[data-clamped="true"] { cursor: pointer; }
+.fxstudio .sentence-box b { font-size: 15px; line-height: 1.55; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.fxstudio .sentence-box[data-open="true"] b { display: block; overflow: visible; }
 .fxstudio .sentence-box mark { background: var(--fx-accent-soft); color: var(--fx-text); border-radius: 4px; padding: 0 2px; }
 .fxstudio .lockbar { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; margin-left: auto; flex: 0 0 auto; }
 .fxstudio .fx-wrap .lockbar button { padding: 5px 10px; font-size: 12.5px; white-space: nowrap; }

@@ -223,7 +223,8 @@ export class Studio extends ApplicationV2 {
 
   async _onRender() {
     if (this.element?.ownerDocument !== document) this.fitDetached();
-    // the sheet's overlap strip needs the pictures' own lengths, which only the browser knows
+    // the sheet's times need the pictures' own lengths and the sentence box its measure, which only
+    // the browser knows: both are written in place after the render
     if (this.view.tab === 'editor' && this.sheet) hydrateSheet(this);
     if (this._bound) return;
     this._bound = true;
@@ -408,6 +409,8 @@ export class Studio extends ApplicationV2 {
   onKey(ev) {
     const el = ev.target;
     if (ev.key === 'Escape') { this.element.querySelectorAll('.suggest').forEach((x) => { x.dataset.open = 'false'; }); return; }
+    // a box that is a button (the sentence) answers Enter and Space as a button does
+    if ((ev.key === 'Enter' || ev.key === ' ') && el.matches?.('[role="button"][data-act]')) { ev.preventDefault(); el.click(); return; }
     if ((el.className.includes('cw-') || el.className.includes('sh-')) && onSheetKey(this, ev)) return;
     // Enter has nothing to submit: the list narrows as the box is typed in
     if (ev.key === 'Enter' && el.classList.contains('fx-q')) ev.preventDefault();
