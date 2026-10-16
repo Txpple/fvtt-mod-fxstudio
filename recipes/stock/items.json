@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 28
+  "fx": 29
  },
  "fx": [
   {
@@ -1035,6 +1035,60 @@
      },
      "size": {
       "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "oil",
+   "for": [
+    "item:oil"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.8dJcpxveaFEzjK5C",
+    "name": "Oil",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "to": "each-target",
+     "asset": {
+      "path": "jb2a.throwable.throw.flask.01.orange"
+     },
+     "wait": true
+    },
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.explosion.top_fracture.flask.01"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.explosion.top_fracture.flask.01"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "size": {
+      "fit": "object",
+      "scale": 1.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
      }
     }
    ]
