@@ -615,10 +615,10 @@ const SHAPE_CELLS = {
   beam: [], sound: [], custom: [],
 };
 const shapeCells = (shape) => SHAPE_CELLS[shape] ?? [];
-/** the cells of a band, padded to eight (the SFX cell is two wide, so its band holds seven; the preview tile makes Picture nine) */
+/** the cells of a band, padded to eight (the SFX and Elevation cells are two wide, so their bands hold seven; the preview tile makes Picture nine) */
 function cellsOf(band, shape) {
   const list = band === 'shape' ? shapeCells(shape) : BAND_CELLS[band] ?? [];
-  const wanted = band === 'sound' ? 7 : band === 'picture' ? 9 : 8;
+  const wanted = band === 'sound' || band === 'placement' ? 7 : band === 'picture' ? 9 : 8;
   return [...list, ...Array(Math.max(0, wanted - list.length)).fill('spacer')];
 }
 
@@ -829,9 +829,10 @@ function cellHtml(app, key, scene, i) {
       return field('anchor', 'Anchor', `${num('cw-anchor', on, anc.x, 'data-k="x" min="0" max="1" step="0.05" aria-label="Anchor across"')}${num('cw-anchor', on, anc.y, 'data-k="y" min="0" max="1" step="0.05" aria-label="Anchor down"')}`, !on);
     }
     case 'elevation': {
+      // a number and a two-word switch: two columns, or the number is squeezed to nothing beside the words
       const on = may('elevation');
       const el = scene.elevation ?? null;
-      return field('elevation', 'Elevation', `${num('cw-elev', on, el?.level ?? 0, 'step="1" aria-label="Elevation"')}${seg('cw-elev-abs', on && !!el, el?.absolute, 'Relative', 'Absolute')}`, !on);
+      return field('elevation', 'Elevation', `${num('cw-elev', on, el?.level ?? 0, 'step="1" aria-label="Elevation"')}${seg('cw-elev-abs', on && !!el, el?.absolute, 'Relative', 'Absolute')}`, !on, true);
     }
     case 'zindex': {
       const on = may('zIndex');
