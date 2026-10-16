@@ -1,13 +1,17 @@
 // The item-sheet button: an "FX Studio" control on every dnd5e item sheet, for the GM, that opens
-// the window on that very item — what plays for it, and the Editor knowing the item, which is where
-// it can be given a key of its own (DESIGN §23). Two doors:
+// the Editor on that very item, unlocked and knowing the item (DESIGN §28.1): on the FX that answers
+// it, or — when nothing does — on the landing, "Nothing plays for …" and its three doors. The item is
+// where Own key gives it a key of its own (DESIGN §23), a sidebar item as much as an actor's. Two doors:
 // a visible button in the header next to the close button (the markup dnd5e uses for its own
 // copy-uuid button), and an entry in the sheet's controls dropdown, which Foundry 14 fills through
 // `getHeaderControls<ClassName>` for every class in the sheet's chain (ItemSheet5e is dnd5e's).
+/** what the button asks for: the Editor, unlocked, on the item */
+const wand = (item) => ({ tab: 'editor', item, edit: true, via: 'wand' });
+
 export function registerSheetButton(open) {
   Hooks.on('getHeaderControlsItemSheet5e', (app, controls) => {
     if (!game.user?.isGM) return;
-    controls.unshift({ icon: 'fa-solid fa-wand-sparkles', label: 'FX Studio', action: 'fxstudio', onClick: () => open({ item: app.document }) });
+    controls.unshift({ icon: 'fa-solid fa-wand-sparkles', label: 'FX Studio', action: 'fxstudio', onClick: () => open(wand(app.document)) });
   });
   Hooks.on('renderItemSheet5e', (app, element) => {
     if (!game.user?.isGM) return;
@@ -20,7 +24,7 @@ export function registerSheetButton(open) {
     button.dataset.action = 'fxstudio';
     button.dataset.tooltip = '';
     button.setAttribute('aria-label', 'FX Studio');
-    button.addEventListener('click', (ev) => { ev.preventDefault(); open({ item: app.document }); });
+    button.addEventListener('click', (ev) => { ev.preventDefault(); open(wand(app.document)); });
     close.insertAdjacentElement('beforebegin', button);
   });
 }

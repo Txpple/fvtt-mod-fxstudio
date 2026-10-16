@@ -5,9 +5,9 @@
   --fx-text: #e8e4da; --fx-muted: #a0a2ad; --fx-faint: #6b6e7a;
   --fx-accent: #5fc4bd; --fx-accent-ink: #0f1d1c; --fx-accent-soft: #1f3634;
   --fx-good: #6fbf73; --fx-warn: #e0a04a; --fx-warn-soft: #2b2318; --fx-bad: #e06c6c; --fx-shadow: 0 8px 24px rgba(0, 0, 0, .45);
-  /* the layout primitives (HANDOFF step 3, R5): one gutter, one row height, one radius, for every
-     tab. Small shapes keep their own — a 10px radius on a 34px thumbnail is a circle. */
-  --fx-gutter: 10px; --fx-row: 34px; --fx-radius: 10px;
+  /* the layout primitives (R5): one gutter, one row height, one radius, for every tab, and the tab
+     strip's height, which the sheet's sticky band stands under */
+  --fx-gutter: 10px; --fx-row: 34px; --fx-radius: 10px; --fx-tabs-h: 52px;
 }
 .application.fxstudio.theme-light {
   --fx-ground: #f4f3ef; --fx-panel: #ffffff; --fx-panel2: #f7f6f2; --fx-line: #dcdad2; --fx-line2: #eae8e1;
@@ -15,8 +15,12 @@
   --fx-accent: #1f8f88; --fx-accent-ink: #ffffff; --fx-accent-soft: #e3f2f0;
   --fx-good: #3f9a48; --fx-warn: #b8862a; --fx-warn-soft: #fbf1de; --fx-bad: #c9524f; --fx-shadow: 0 8px 24px rgba(20, 24, 40, .10);
 }
-.application.fxstudio .fxstudio-content { padding: 0; background: var(--fx-ground); color: var(--fx-text); overflow: auto; }
-.fxstudio .fx-wrap { padding: 14px 18px 24px; font-size: 14px; line-height: 1.5; }
+/* THE WINDOW'S OWN WIDTH IS THE BREAKPOINT (DESIGN §28.5): the content element is the container every
+   narrow layout below queries, never the browser's viewport */
+.application.fxstudio .fxstudio-content { padding: 0; background: var(--fx-ground); color: var(--fx-text); overflow: auto; display: flex; flex-direction: column; position: relative; container: fxs / inline-size; }
+.fxstudio .fx-wrap { padding: 0 18px 14px; font-size: 14px; line-height: 1.5; flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+/* the Editor scrolls as one page under its sticky bands, so its wrap is as tall as the sheet */
+.fxstudio .fx-wrap[data-tab="editor"] { flex: 1 0 auto; }
 .fxstudio .fx-wrap * { box-sizing: border-box; }
 .fxstudio .fx-wrap button { font: inherit; color: inherit; background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 7px 13px; cursor: pointer; line-height: 1.3; width: auto; height: auto; }
 /* a greyed button is hovered for its reason, so it must not light up */
@@ -27,43 +31,43 @@
 .fxstudio .fx-wrap button:disabled { opacity: .6; cursor: default; }
 /* a greyed primary is greyed: at .6 opacity the accent still reads as the thing to press */
 .fxstudio .fx-wrap button.primary:disabled { background: var(--fx-panel); color: var(--fx-muted); border-color: var(--fx-line); }
+.fxstudio .fx-wrap button:focus-visible, .fxstudio .fx-wrap summary:focus-visible { outline: 2px solid var(--fx-accent); outline-offset: 2px; }
 .fxstudio .fx-wrap input, .fxstudio .fx-wrap select { font: inherit; color: var(--fx-text); background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 8px 12px; width: 100%; height: auto; }
 .fxstudio .fx-wrap input:focus, .fxstudio .fx-wrap select:focus { outline: none; border-color: var(--fx-accent); box-shadow: 0 0 0 3px var(--fx-accent-soft); }
 .fxstudio .fx-wrap select option { color: var(--fx-text); background: var(--fx-panel); }
-.fxstudio .tabs { display: flex; gap: 6px; margin: 12px 0 16px; flex-wrap: nowrap; }
+/* the tab strip stays at the top of the window while what is under it scrolls */
+.fxstudio .tabs { position: sticky; top: 0; z-index: 6; display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; height: var(--fx-tabs-h); margin: 0 -18px 4px; padding: 0 18px; background: var(--fx-ground); flex: 0 0 auto; }
 .fxstudio .tabs button { border-radius: 999px; padding: 6px 15px; color: var(--fx-muted); background: transparent; border-color: transparent; }
 .fxstudio .tabs button[aria-selected="true"] { background: var(--fx-panel); color: var(--fx-text); border-color: var(--fx-line); font-weight: 500; }
 .fxstudio .pane { display: none; }
+.fxstudio .pane[data-active="true"] { display: block; flex: 0 0 auto; }
 .fxstudio .card { background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 14px 16px; }
 .fxstudio .stack { display: grid; gap: 12px; }
 .fxstudio .search { position: relative; }
-.fxstudio .search input.fx-q { font-size: 16px; padding: 12px 14px; }
-.fxstudio .suggest { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); max-height: 280px; overflow: auto; z-index: 5; display: none; }
+.fxstudio .suggest { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); max-height: 280px; overflow: auto; z-index: 7; display: none; }
 .fxstudio .suggest[data-open="true"] { display: block; }
+/* a suggestion is a button, so it takes the focus and the keyboard */
 .fxstudio .hit { display: flex; justify-content: space-between; gap: 12px; padding: 8px 12px; cursor: pointer; border-bottom: 1px solid var(--fx-line2); }
-.fxstudio .hit:hover { background: var(--fx-panel2); }
+.fxstudio .fx-wrap button.hit { width: 100%; text-align: left; border: 0; border-bottom: 1px solid var(--fx-line2); border-radius: 0; background: transparent; padding: 8px 12px; font-size: 13px; }
+.fxstudio .fx-wrap button.hit:hover:not(:disabled) { background: var(--fx-panel2); }
+.fxstudio .hit.none { cursor: default; }
 .fxstudio .hit .o { color: var(--fx-muted); font-size: 12.5px; white-space: nowrap; }
 .fxstudio .pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.fxstudio .pills .lbl { color: var(--fx-muted); font-size: 12.5px; margin-right: 2px; }
 .fxstudio .pill { border: 1px solid var(--fx-line); background: var(--fx-panel); border-radius: 999px; padding: 4px 11px; font-size: 12.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
-.fxstudio .pill[aria-pressed="true"] { border-color: var(--fx-accent); background: var(--fx-accent-soft); color: var(--fx-text); }
-.fxstudio .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fx-faint); display: inline-block; flex: none; }
+.fxstudio .fx-wrap button.pill { border-radius: 999px; padding: 4px 11px; font-size: 12.5px; }
+.fxstudio .pill[aria-pressed="true"], .fxstudio .fx-wrap button.pill[aria-pressed="true"] { border-color: var(--fx-accent); background: var(--fx-accent-soft); color: var(--fx-text); }
+.fxstudio .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fx-faint); display: inline-block; flex: none; margin-right: 6px; vertical-align: middle; }
 .fxstudio .dot.custom { background: var(--fx-accent); }
 .fxstudio .dot.stock { background: var(--fx-good); }
 .fxstudio .dot.none { background: var(--fx-warn); }
 .fxstudio .dot.off { background: var(--fx-faint); }
-.fxstudio .why { color: var(--fx-muted); margin: 0 0 12px; }
 .fxstudio .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.fxstudio .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--fx-line); color: var(--fx-muted); margin-left: 8px; vertical-align: middle; font-weight: 400; }
 .fxstudio .field { margin-top: 8px; }
 .fxstudio .field label { display: block; font-size: 12.5px; color: var(--fx-muted); margin-bottom: 4px; }
-.fxstudio .preview { margin: 12px 0; padding: 10px 12px; background: var(--fx-panel2); border-radius: var(--fx-radius); }
 .fxstudio .sub { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; margin: 6px 0 8px; }
-.fxstudio .list .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 9px 0; border-bottom: 1px solid var(--fx-line2); }
-.fxstudio .list .row .n { font-weight: 500; }
-.fxstudio .list .row .s { color: var(--fx-muted); grid-column: 1 / -1; font-size: 13px; }
-.fxstudio .tag { font-size: 11.5px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--fx-line); color: var(--fx-muted); white-space: nowrap; }
+.fxstudio .tag { font-size: 11.5px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--fx-line); color: var(--fx-muted); white-space: nowrap; font-weight: 400; }
 .fxstudio .tag.yours { color: var(--fx-accent); border-color: var(--fx-accent); }
+.fxstudio .tag.off, .fxstudio .tag.event { color: var(--fx-warn); border-color: var(--fx-warn); }
 .fxstudio .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--fx-gutter); }
 .fxstudio .tile { background: var(--fx-panel); border: 1px solid var(--fx-line); border-radius: var(--fx-radius); padding: 12px 14px; }
 .fxstudio .tile .num { font-size: 26px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
@@ -76,29 +80,37 @@
 .fxstudio p.note.more { margin: 8px 0 2px; padding: 4px 0 0; }
 .fxstudio .bad { color: var(--fx-bad); }
 .fxstudio code { font-size: 12px; color: var(--fx-muted); }
+.fxstudio .fx-wrap button.link { display: inline; background: none; border: 0; padding: 0; margin: 0; color: var(--fx-accent); cursor: pointer; font-size: inherit; line-height: inherit; width: auto; }
+.fxstudio .actions .spacer { flex: 1; }
 /* the toast: one line of feedback on the window's frame, over the content, so a render of the content does not take it away */
-.application.fxstudio > .toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 1; width: fit-content; max-width: 90%; font-size: 14px; line-height: 1.5; background: var(--fx-text); color: var(--fx-ground); padding: 8px 14px; border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.application.fxstudio > .toast { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 8; width: fit-content; max-width: 90%; font-size: 14px; line-height: 1.5; background: var(--fx-text); color: var(--fx-ground); padding: 8px 14px; border-radius: var(--fx-radius); box-shadow: var(--fx-shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
 .application.fxstudio > .toast[data-on="true"] { opacity: 1; }
+/* a control greyed WHERE IT STANDS (R1): it keeps its pointer events, so Foundry's tooltip shows its reason on hover; the controls inside are the inert part */
+.fxstudio [data-na="true"] { opacity: .38; cursor: default; }
+.fxstudio [data-na="true"] .c > * { pointer-events: none; }
 
-/* the Library */
-.fxstudio .picking { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--fx-accent-soft); border: 1px solid var(--fx-accent); border-radius: var(--fx-radius); padding: 8px 12px; margin-bottom: 12px; }
-.fxstudio .picking .spacer { flex: 1; }
-.fxstudio .picking b { font-weight: 600; }
-.fxstudio .lib { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 14px; align-items: start; }
+/* ===== the Asset Library: a browser (the shelf, the stage, the stepper, the paths, where it is used) ===== */
+.fxstudio .pane[data-pane="assets"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.fxstudio .lib { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 14px; align-items: stretch; flex: 1 1 auto; min-height: 0; grid-template-rows: minmax(0, 1fr); }
 .fxstudio .lib > * { min-width: 0; }
-.fxstudio .lib .viewer { padding: 12px; }
+.fxstudio .lib .viewer { padding: 12px; display: flex; flex-direction: column; min-height: 0; }
+.fxstudio .lib .viewer > * { min-width: 0; }
+.fxstudio .shelf { display: flex; flex-direction: column; gap: 8px; height: 100%; min-height: 0; }
 .fxstudio .shelf .switch { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); overflow: hidden; }
 .fxstudio .fx-wrap .shelf .switch button { border: 0; border-radius: 0; background: transparent; color: var(--fx-muted); padding: 7px 6px; font-size: 12.5px; }
 .fxstudio .shelf .switch button[aria-pressed="true"] { background: var(--fx-accent-soft); color: var(--fx-text); font-weight: 500; }
-.fxstudio .shelf .list { max-height: 420px; overflow: auto; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-panel); }
+.fxstudio .shelf .list { flex: 1 1 0; min-height: 120px; overflow: auto; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-panel); }
 .fxstudio .shelf .letter { position: sticky; top: 0; background: var(--fx-panel2); color: var(--fx-muted); font-size: 11.5px; letter-spacing: .08em; font-weight: 600; padding: 4px 12px; border-bottom: 1px solid var(--fx-line2); z-index: 1; }
 .fxstudio .fx-wrap .shelf .list button.row { display: flex; align-items: center; gap: 8px; width: 100%; height: var(--fx-row); text-align: left; border: 0; border-radius: 0; background: transparent; padding: 0 12px; font-size: 13.5px; }
 .fxstudio .shelf .list button.row:hover { background: var(--fx-panel2); }
 .fxstudio .shelf .list button.row[aria-current="true"] { background: var(--fx-accent-soft); color: var(--fx-text); }
 .fxstudio .shelf .list .row .n { flex: 1; }
 .fxstudio .shelf .list .row .c { color: var(--fx-faint); font-size: 12px; font-variant-numeric: tabular-nums; }
-.fxstudio .stage { background: #101218; color: #e8e4da; border-radius: var(--fx-radius); position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9; max-height: 280px; width: 100%; overflow: hidden; border: 1px solid #262a36; }
-.fxstudio .stage .stage-video { width: 100%; height: 100%; object-fit: contain; display: block; border: 0; }
+/* the Used and Unused pills fill the shelf's width */
+.fxstudio .shelf .pills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.fxstudio .shelf .pills .pill { justify-content: center; }
+.fxstudio .stage { background: #101218; color: #e8e4da; border-radius: var(--fx-radius); position: relative; display: grid; place-items: center; width: 100%; overflow: hidden; border: 1px solid #262a36; flex: 1 1 auto; min-height: 220px; }
+.fxstudio .stage .stage-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; border: 0; }
 .fxstudio .stage .caption { position: absolute; left: 14px; bottom: 10px; text-shadow: 0 1px 3px rgba(0, 0, 0, .8); }
 .fxstudio .stage .name { font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
 .fxstudio .stage .v { color: rgba(232, 228, 218, .7); font-size: 13px; }
@@ -109,27 +121,20 @@
 .fxstudio .stage .frame { text-align: center; padding: 20px; }
 .fxstudio .stage .frame.sound { width: min(300px, 60%); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(224, 160, 74, .45), rgba(224, 160, 74, .1) 55%, transparent 72%); display: grid; place-items: center; align-content: center; }
 .fxstudio .fx-wrap .stage button.play { width: 60px; height: 60px; border-radius: 50%; background: var(--fx-accent); color: var(--fx-accent-ink); border: 0; font-size: 22px; display: grid; place-items: center; padding: 0; margin: 0 auto 6px; }
-.fxstudio .stepper { display: grid; grid-template-columns: auto 1fr auto; margin-top: 10px; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); overflow: hidden; }
+/* the variant stepper: the Assets tab's, and the drawer's */
+.fxstudio .stepper { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; margin-top: 10px; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); overflow: hidden; flex: 0 0 auto; }
+.fxstudio .stepper > * { min-width: 0; }
 .fxstudio .fx-wrap .stepper button { border: 0; border-radius: 0; }
-.fxstudio .fx-wrap .stepper select { border: 0; border-radius: 0; border-left: 1px solid var(--fx-line); border-right: 1px solid var(--fx-line); text-align: center; }
-.fxstudio .paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--fx-gutter); margin-top: 12px; }
+.fxstudio .fx-wrap .stepper select { border: 0; border-radius: 0; border-left: 1px solid var(--fx-line); border-right: 1px solid var(--fx-line); text-align: center; min-width: 0; text-overflow: ellipsis; }
+.fxstudio .paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--fx-gutter); margin-top: 12px; flex: 0 0 auto; }
+.fxstudio .paths > *, .fxstudio .path .box { min-width: 0; }
 .fxstudio .path label { display: block; font-size: 12px; color: var(--fx-muted); margin-bottom: 4px; }
 .fxstudio .path .box { display: flex; align-items: center; gap: 8px; background: var(--fx-panel2); border: 1px solid var(--fx-line2); border-radius: var(--fx-radius); padding: 6px 10px; }
 .fxstudio .path input { flex: 1; min-width: 0; background: transparent; border: 0; padding: 0; margin: 0; color: var(--fx-text); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; text-overflow: ellipsis; }
 .fxstudio .path input:focus { outline: none; text-overflow: clip; }
 .fxstudio .fx-wrap .path .box button { padding: 3px 9px; font-size: 12px; }
-.fxstudio .fx-wrap button.link { display: inline; background: none; border: 0; padding: 0; margin: 0; color: var(--fx-accent); cursor: pointer; font-size: inherit; line-height: inherit; width: auto; }
-.fxstudio .actions .spacer { flex: 1; }
-.fxstudio .note.warn { color: var(--fx-warn); }
-@media (max-width: 720px) { .fxstudio .lib, .fxstudio .paths, .fxstudio .fxtab { grid-template-columns: 1fr; } }
-.fxstudio .paths > *, .fxstudio .path .box, .fxstudio .stepper > *, .fxstudio .lib .viewer > * { min-width: 0; }
-.fxstudio .fx-wrap .stepper select { min-width: 0; text-overflow: ellipsis; }
-/* the shelf ends where the viewer ends: the viewer sets the row, the list fills the shelf and scrolls */
-.fxstudio .lib { align-items: stretch; }
-.fxstudio .shelf { display: flex; flex-direction: column; gap: 8px; height: 0; min-height: 100%; }
-.fxstudio .shelf .list { flex: 1 1 0; min-height: 120px; max-height: none; }
 /* where an asset is used: a fixed box, one line per variant, scrolls when long */
-.fxstudio .uses { margin-top: 12px; height: 96px; overflow: auto; background: var(--fx-panel2); border-radius: var(--fx-radius); padding: 6px 10px; font-size: 12.5px; }
+.fxstudio .uses { margin-top: 12px; height: 96px; overflow: auto; background: var(--fx-panel2); border-radius: var(--fx-radius); padding: 6px 10px; font-size: 12.5px; flex: 0 0 auto; }
 .fxstudio .uses .sub { margin: 2px 0 4px; }
 .fxstudio .uses .use { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 8px; padding: 2px 0; color: var(--fx-muted); }
 .fxstudio .uses .use .v { color: var(--fx-text); text-align: left; overflow-wrap: anywhere; }
@@ -137,41 +142,38 @@
 .fxstudio .fx-wrap .uses .use button.link { color: var(--fx-text); }
 .fxstudio .fx-wrap .uses .use button.link:hover { text-decoration: underline; }
 .fxstudio .uses .use[data-now="true"] .v { font-weight: 700; }
-/* the Asset Library fills the window: what fits at the default size is the minimum; taller windows
-   give the stage and the list the room (2026-09-06) */
-.application.fxstudio .fxstudio-content { display: flex; flex-direction: column; }
-.fxstudio .fx-wrap { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
-.fxstudio .pane[data-active="true"] { display: block; flex: 0 0 auto; }
-.fxstudio .pane[data-pane="assets"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
-.fxstudio .lib { flex: 1 1 auto; min-height: 0; grid-template-rows: minmax(0, 1fr); }
-.fxstudio .shelf { height: 100%; min-height: 0; }
-.fxstudio .lib .viewer { display: flex; flex-direction: column; min-height: 0; }
-.fxstudio .stage { flex: 1 1 auto; min-height: 220px; max-height: none; aspect-ratio: auto; }
-.fxstudio .stage .stage-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.fxstudio .stepper, .fxstudio .paths, .fxstudio .uses { flex: 0 0 auto; }
-.application.fxstudio .fxstudio-content { position: relative; }
-.fxstudio .fx-wrap { padding-bottom: 14px; }
-/* the Used and Unused pills fill the shelf's width; the count sits under them, right */
-.fxstudio .shelf .pills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.fxstudio .shelf .pills .pill { justify-content: center; }
+@container fxs (max-width: 720px) { .fxstudio .lib, .fxstudio .paths { grid-template-columns: 1fr; } }
 
-/* the FX sheet: five bands, a rail and an inspector (rebuilt 2026-09-07, HANDOFF step 4) */
-/* band 1 — the name, the tags and the action bar, on one line that does not wrap */
-.fxstudio .sheet-head { display: flex; align-items: center; gap: 14px; }
+/* ===== the FX sheet: the head, the notes, the sentence, the Key strip, the rail and the inspector ===== */
+/* the head: the name, the tags, the record and the action bar — one band that stays in view under the tab strip as the sheet scrolls */
+.fxstudio .sheet-head { position: sticky; top: var(--fx-tabs-h); z-index: 5; display: flex; align-items: center; gap: 14px; margin: -14px -16px 0; padding: 12px 16px 10px; background: var(--fx-panel); border-bottom: 1px solid var(--fx-line2); border-radius: var(--fx-radius) var(--fx-radius) 0 0; }
 .fxstudio .sheet-title { flex: 1 1 auto; min-width: 0; }
 .fxstudio .sheet-title h2 { margin: 0; font-size: 20px; font-weight: 600; border: 0; display: flex; align-items: center; gap: 8px; min-width: 0; }
 .fxstudio .sheet-title h2 .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fxstudio .sheet-title h2 .tag { flex: 0 0 auto; }
-/* where the ability comes from, under its name: the book, and the door to it (the user, 2026-09-09) */
 .fxstudio .sheet-title .recordline { margin: 2px 0 0; font-size: 12px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fxstudio .sheet-title .recordline .record { color: var(--fx-muted); }
 .fxstudio .sheet-title .recordline .record:hover { color: var(--fx-text); }
-/* the hook, the id and the provenance on one monospace line */
-.fxstudio .whyline { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 0; min-width: 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; color: var(--fx-muted); }
+/* the key, the id and the provenance on one monospace line */
+.fxstudio .whyline { display: flex; align-items: baseline; gap: 10px; margin: 4px 0 0; min-width: 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; color: var(--fx-muted); }
 .fxstudio .whyline .why { color: var(--fx-text); white-space: nowrap; flex: 0 0 auto; }
 .fxstudio .whyline code.id { flex: 0 0 auto; }
 .fxstudio .whyline .prov { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* band 2 — the sentence: two lines ending in an ellipsis, the whole of it on a click, the selected scene's clause marked */
+.fxstudio .lockbar { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; margin-left: auto; flex: 0 0 auto; }
+.fxstudio .fx-wrap .lockbar button { padding: 5px 10px; font-size: 12.5px; white-space: nowrap; }
+.fxstudio .switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; font-weight: 500; }
+.fxstudio .fx-wrap .switch input { appearance: none; width: 38px; height: 22px; border-radius: 999px; background: var(--fx-line); position: relative; margin: 0; cursor: pointer; border: 0; padding: 0; flex: 0 0 auto; }
+.fxstudio .switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--fx-panel); transition: left .15s; }
+.fxstudio .fx-wrap .switch input:checked { background: var(--fx-accent); }
+.fxstudio .switch input:checked::after { left: 19px; }
+.fxstudio .fx-wrap button.danger { color: var(--fx-bad); }
+/* the notes: the banner, every problem (the ones that name a scene are the door to it), the gap table's word */
+.fxstudio .banner { background: var(--fx-accent-soft); border: 1px solid var(--fx-accent); border-radius: var(--fx-radius); padding: 8px 12px; font-size: 13px; margin-top: 12px; }
+.fxstudio .problems { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 2px; }
+.fxstudio .problem { font-size: 13px; }
+.fxstudio .fx-wrap .problem button.link { color: var(--fx-bad); text-align: left; }
+.fxstudio .judged { margin: 10px 0 0; font-size: 12.5px; color: var(--fx-muted); }
+/* the sentence: two lines ending in an ellipsis, the whole of it on a click, the selected scene's clause marked */
 .fxstudio .sheet .preview { margin: 12px 0 0; padding: 10px 12px; background: var(--fx-panel2); border-radius: var(--fx-radius); }
 .fxstudio .sheet .preview .sub { margin: 0 0 4px; }
 .fxstudio .sentence-box { min-height: calc(2 * 1.55 * 15px); }
@@ -179,38 +181,33 @@
 .fxstudio .sentence-box b { font-size: 15px; line-height: 1.55; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .fxstudio .sentence-box[data-open="true"] b { display: block; overflow: visible; }
 .fxstudio .sentence-box mark { background: var(--fx-accent-soft); color: var(--fx-text); border-radius: 4px; padding: 0 2px; }
-.fxstudio .lockbar { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; margin-left: auto; flex: 0 0 auto; }
-.fxstudio .fx-wrap .lockbar button { padding: 5px 10px; font-size: 12.5px; white-space: nowrap; }
-.fxstudio .switch { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; font-weight: 500; }
-.fxstudio .switch input { appearance: none; width: 38px; height: 22px; border-radius: 999px; background: var(--fx-line); position: relative; margin: 0; cursor: pointer; border: 0; padding: 0; }
-.fxstudio .switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--fx-panel); transition: left .15s; }
-.fxstudio .switch input:checked { background: var(--fx-accent); }
-.fxstudio .switch input:checked::after { left: 19px; }
-.fxstudio .fx-wrap button.danger { color: var(--fx-bad); }
-.fxstudio .banner { background: var(--fx-accent-soft); border: 1px solid var(--fx-accent); border-radius: var(--fx-radius); padding: 8px 12px; font-size: 13px; margin-top: 12px; }
-/* every problem, not just the first; the ones that name a scene are the door to it */
-.fxstudio .problems { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 2px; }
-.fxstudio .problem { font-size: 13px; }
-.fxstudio .fx-wrap .problem button.link { color: var(--fx-bad); text-align: left; }
 .fxstudio .sheet .section { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--fx-line2); }
-/* band 3 — the hook strip: one row, four columns, which never become three */
-.fxstudio .hookstrip { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr) minmax(0, 1.3fr) minmax(0, .8fr); gap: var(--fx-gutter); align-items: start; }
+.fxstudio .sheet .section > .sub { margin-top: 0; }
+/* the Key strip: four columns, each explained on the screen under its pills (R1 keeps its addresses) */
+.fxstudio .hookstrip { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 1.6fr) minmax(0, .7fr); gap: 10px 14px; align-items: start; }
 .fxstudio .hookstrip .hcol { display: grid; gap: 5px; align-content: start; min-width: 0; }
 .fxstudio .hookstrip .lbl { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; }
 .fxstudio .hookstrip .pills { min-width: 0; }
-.fxstudio .pill.more { color: var(--fx-muted); }
-.fxstudio .pills.wrap { align-items: center; }
+.fxstudio .fx-wrap .hookstrip .moments button.pill { padding: 3px 9px; font-size: 12px; }
+.fxstudio .hookstrip .why { margin: 0; font-size: 12px; line-height: 1.4; color: var(--fx-muted); }
+.fxstudio .hookstrip .phrase { margin: 0; font-size: 12px; color: var(--fx-accent); }
 .fxstudio .pill.key { display: inline-flex; align-items: center; gap: 6px; }
-.fxstudio .hookstrip .keyline { display: flex; gap: 8px; align-items: baseline; min-height: 16px; font-size: 11.5px; color: var(--fx-muted); }
-.fxstudio .hookstrip .keyline code.key { font-family: var(--font-mono, monospace); font-size: 11px; color: var(--fx-muted); background: transparent; padding: 0; }
-.fxstudio .sh-key-search { flex: 1 1 auto; min-width: 100px; }
-.fxstudio .sh-key-search input { width: 100%; padding: 6px 10px; font-size: 13px; }
-.fxstudio .tag.off { color: var(--fx-warn); border-color: var(--fx-warn); }
-/* band 4 — the sequence: the rail on the left, the inspector on the right */
-/* 288px rail | inspector, the two columns the same height whichever is the taller */
-.fxstudio .seq { display: grid; grid-template-columns: 288px minmax(0, 1fr); gap: var(--fx-gutter); align-items: stretch; }
+.fxstudio .hookstrip .keyline { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; min-height: 16px; font-size: 11.5px; color: var(--fx-muted); }
+.fxstudio .hookstrip .keyline code.key { font-family: var(--font-mono, monospace); font-size: 11px; color: var(--fx-text); background: transparent; padding: 0; }
+.fxstudio .sh-key-search, .fxstudio .sh-item-search { flex: 1 1 auto; min-width: 100px; }
+.fxstudio .fx-wrap .sh-key-search input, .fxstudio .fx-wrap .sh-item-search input { width: 100%; padding: 6px 10px; font-size: 13px; }
+/* locked, a pill is read, not pressed: only the pressed words stay; a greyed pill keeps its place and its reason */
+.fxstudio .sheet[data-edit="false"] .hookstrip .pill { cursor: default; }
+.fxstudio .sheet[data-edit="false"] .hookstrip .pills button.pill:not([aria-pressed="true"]) { display: none; }
+/* the sequence: its head, then the rail beside the inspector */
+.fxstudio .sechead { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.fxstudio .sechead .sub { margin: 0; }
+.fxstudio .sechead .spacer { flex: 1; }
+.fxstudio .seqmeta { color: var(--fx-muted); font-size: 12.5px; }
+.fxstudio .fx-wrap .sechead button.playall { padding: 4px 10px; font-size: 12.5px; color: var(--fx-accent); }
+.fxstudio .seq { display: grid; grid-template-columns: 288px minmax(0, 1fr); gap: var(--fx-gutter); align-items: start; }
 .fxstudio .seq > * { min-width: 0; }
-/* the rail shows four scenes and scrolls past that, so the form never grows (the user, 2026-09-12) */
+/* the rail shows four scenes and scrolls past that, so it never grows (R1) */
 .fxstudio .rail { --fx-rail-row: 54px; display: grid; gap: 4px; align-content: start; max-height: calc(4 * var(--fx-rail-row) + 3 * 4px); overflow-y: auto; scrollbar-gutter: stable; }
 .fxstudio .rail .row { display: flex; align-items: center; gap: 4px; height: var(--fx-rail-row); border: 1px solid var(--fx-line); border-left: 5px solid var(--k, var(--fx-line)); border-radius: var(--fx-radius); background: var(--fx-panel); padding-right: 4px; overflow: hidden; }
 .fxstudio .rail .row .txt { display: grid; gap: 2px; min-width: 0; flex: 1 1 auto; }
@@ -220,55 +217,50 @@
 /* selection is colour, never size (R3) */
 .fxstudio .rail .row[data-now="true"] { background: var(--fx-accent-soft); border-color: var(--fx-accent); }
 .fxstudio .fx-wrap .rail .row button.pickbtn { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 8px; height: 100%; padding: 0 0 0 8px; text-align: left; background: transparent; border: 0; border-radius: 0; }
-.fxstudio .rail .row .num { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--k, var(--fx-line)); color: var(--fx-accent-ink); display: grid; place-items: center; font: 600 12px ui-monospace, Menlo, Consolas, monospace; }
+.fxstudio .fx-wrap .rail .row button.play { flex: 0 0 auto; padding: 3px 9px; color: var(--fx-accent); }
+.fxstudio .rail .row .num, .fxstudio .inspector .ihead .num { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: var(--k, var(--fx-line)); color: var(--fx-accent-ink); display: grid; place-items: center; font: 600 12px ui-monospace, Menlo, Consolas, monospace; }
 .fxstudio .rail .row .n { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
 .fxstudio .rail .row .ms { font: 11px ui-monospace, Menlo, Consolas, monospace; color: var(--fx-muted); font-variant-numeric: tabular-nums; }
-/* + Add a scene; the shape cards it opens are the modal below */
+/* + Add a scene, and the eight shapes it opens in place under the rail: never a dialog, so no click is lost */
 .fxstudio .fx-wrap button.addrow { display: block; width: 100%; margin-top: 6px; padding: 11px; border: 1px dashed var(--fx-line2); border-radius: var(--fx-radius); background: transparent; color: var(--fx-muted); font-size: 13px; }
 .fxstudio .fx-wrap button.addrow:hover, .fxstudio .fx-wrap button.addrow[aria-expanded="true"] { color: var(--fx-text); border-color: var(--fx-muted); }
-/* the Sequence header: the heading and "3 scenes · 1.4 s" */
-.fxstudio .sechead { display: flex; align-items: baseline; gap: 12px; }
-.fxstudio .seqmeta { color: var(--fx-muted); font-size: 12.5px; }
-/* the Add a scene popup: eight cards in a DialogV2, which sits outside the window's own scope. A card
-   is as tall as its help line: Foundry gives every button one fixed height, and the line spilled past the border */
-.fxstudio-addmodal { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; min-width: 520px; }
-.fxstudio-addmodal button { display: grid; gap: 2px; width: 100%; height: auto; min-height: 0; text-align: left; white-space: normal; padding: 8px 11px; border: 1px solid var(--fx-line, #2a2f3a); border-radius: 10px; background: transparent; color: inherit; font: inherit; cursor: pointer; line-height: 1.3; }
-.fxstudio-addmodal button:hover { background: var(--fx-accent-soft, rgba(45, 212, 191, .12)); border-color: var(--fx-accent, #2dd4bf); }
-.fxstudio-addmodal button b { font-size: 13px; }
-.fxstudio-addmodal button span { font-size: 11.5px; opacity: .75; white-space: normal; }
-/* the inspector: one scene in a frame that never resizes — five bands, each the same 4×2 grid */
-.fxstudio .inspector { display: grid; gap: 8px; align-content: start; min-width: 0; padding: 10px 12px; background: var(--fx-panel); border: 1px solid var(--fx-line); border-left: 5px solid var(--k, var(--fx-line)); border-radius: var(--fx-radius); }
+.fxstudio .addmenu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+.fxstudio .fx-wrap .addmenu button { display: grid; gap: 2px; align-content: start; min-width: 0; text-align: left; white-space: normal; padding: 8px 11px; }
+.fxstudio .fx-wrap .addmenu button:hover:not(:disabled) { background: var(--fx-accent-soft); border-color: var(--fx-accent); }
+.fxstudio .addmenu button b { font-size: 13px; font-weight: 600; }
+.fxstudio .addmenu button span { font-size: 11.5px; color: var(--fx-muted); white-space: normal; }
+/* the inspector: ONE COLUMN of the cells the scene's shape reads, in groups that open and close (DESIGN §28.4) */
+.fxstudio .inspector { display: grid; gap: 4px; align-content: start; min-width: 0; padding: 10px 12px; background: var(--fx-panel); border: 1px solid var(--fx-line); border-left: 5px solid var(--k, var(--fx-line)); border-radius: var(--fx-radius); }
 .fxstudio .inspector .ihead { display: flex; align-items: center; gap: 8px; }
-.fxstudio .inspector .ihead .num { width: 22px; height: 22px; border-radius: 50%; background: var(--k, var(--fx-line)); color: var(--fx-accent-ink); display: grid; place-items: center; font: 600 12px ui-monospace, Menlo, Consolas, monospace; }
 .fxstudio .inspector .ihead .kind { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--k, var(--fx-muted)); font-weight: 600; }
 .fxstudio .inspector .tools { margin-left: auto; display: flex; gap: 2px; }
 .fxstudio .fx-wrap .inspector .tools button { padding: 3px 8px; }
-.fxstudio .bandtabs { display: flex; gap: 6px; }
-.fxstudio .bandtabs .pill { padding: 4px 12px; font-size: 12.5px; }
-.fxstudio .bandtabs .pill[aria-selected="true"] { border-color: var(--fx-accent); background: var(--fx-accent-soft); }
-.fxstudio .inspector .knobs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 50px; gap: var(--fx-gutter); align-items: end; min-width: 0; }
-.fxstudio .inspector[data-band="picture"] .knobs { grid-template-columns: 168px repeat(4, minmax(0, 1fr)); }
-/* the preview tile: the picture itself, its name over it, Change and ▶ beneath (the user, 2026-09-12) */
-.fxstudio .f[data-tile] { grid-row: span 2; grid-template-rows: minmax(0, 1fr) auto; align-content: stretch; height: 100%; }
-.fxstudio .fx-wrap .f[data-tile] button.preview { position: relative; display: block; width: 100%; height: 100%; min-height: 60px; padding: 0; overflow: hidden; border: 1px solid var(--fx-line); border-radius: 8px; background: #101218; }
-.fxstudio .f[data-tile] .preview video, .fxstudio .f[data-tile] .preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.fxstudio .f[data-tile] .preview .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 3px 7px; font: 11px ui-monospace, Menlo, Consolas, monospace; color: var(--fx-text); background: rgba(6, 8, 12, .62); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
-.fxstudio .f[data-tile] .c { justify-content: space-between; }
-.fxstudio .fx-wrap .f[data-tile] .c button.browse { flex: 1 1 auto; padding: 5px 8px; font-size: 12.5px; }
-.fxstudio .fx-wrap .f[data-tile] .c button.play { padding: 3px 9px; color: var(--fx-accent); }
-.fxstudio .inspector .line { color: var(--fx-muted); font-size: 12.5px; min-height: 1.5em; }
+.fxstudio .inspector .line { color: var(--fx-muted); font-size: 12.5px; min-height: 1.5em; margin-bottom: 2px; }
 .fxstudio .inspector.empty { align-content: center; min-height: 120px; }
 .fxstudio .off-note { margin: 0; }
-/* one cell, at its permanent address (R1) */
-.fxstudio .f { display: grid; gap: 3px; min-width: 0; align-content: end; }
-.fxstudio .f.wide { grid-column: span 2; }
-.fxstudio .f .l { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fxstudio .f .c { display: flex; gap: 4px; align-items: center; min-width: 0; }
-.fxstudio .f .c > input, .fxstudio .f .c > select, .fxstudio .f .c .search { width: 100%; min-width: 0; }
-.fxstudio .f .c > input, .fxstudio .f .c > select, .fxstudio .f .c .search input { padding: 5px 8px; font-size: 12.5px; }
-.fxstudio .f .c .search { position: relative; }
-.fxstudio .f .c .suffix { color: var(--fx-muted); font-size: 12px; white-space: nowrap; }
-.fxstudio .fx-wrap .f .c button.browse { padding: 4px 8px; font-size: 12px; white-space: nowrap; }
+.fxstudio .inspector .grp { border-top: 1px solid var(--fx-line2); }
+.fxstudio .inspector .grp > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 7px 0; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--fx-muted); font-weight: 600; user-select: none; }
+.fxstudio .inspector .grp > summary::-webkit-details-marker { display: none; }
+.fxstudio .inspector .grp > summary::before { content: "▸"; color: var(--fx-faint); font-size: 12px; }
+.fxstudio .inspector .grp[open] > summary::before { content: "▾"; }
+.fxstudio .inspector .grp > summary .n { margin-left: auto; font: 11px ui-monospace, Menlo, Consolas, monospace; color: var(--fx-faint); letter-spacing: 0; text-transform: none; font-weight: 400; }
+.fxstudio .inspector .cells { display: grid; gap: 2px; padding: 0 0 8px; }
+/* one cell: its label beside its control */
+.fxstudio .inspector .f { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 2px 12px; align-items: center; min-height: 32px; min-width: 0; }
+.fxstudio .inspector .f .l { font-size: 12.5px; color: var(--fx-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fxstudio .inspector .f .c { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; min-width: 0; }
+.fxstudio .fx-wrap .inspector .f .c > input, .fxstudio .fx-wrap .inspector .f .c > select { padding: 4px 8px; font-size: 12.5px; min-width: 0; }
+.fxstudio .fx-wrap .inspector .f .c > input[type="number"] { width: 84px; flex: 0 0 auto; }
+.fxstudio .fx-wrap .inspector .f .c > select { width: auto; max-width: 100%; flex: 0 1 auto; }
+.fxstudio .fx-wrap .inspector .f .c > input[type="color"] { width: 34px; height: 26px; padding: 1px; flex: 0 0 auto; }
+.fxstudio .inspector .f .c .suffix { color: var(--fx-muted); font-size: 12px; white-space: nowrap; }
+.fxstudio .fx-wrap .inspector .f .c button { padding: 3px 8px; font-size: 12px; }
+.fxstudio .fx-wrap .inspector .f .c button.link.asset { padding: 0; font-size: 13px; min-width: 0; max-width: 100%; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--fx-text); text-decoration: underline; text-decoration-color: var(--fx-line); text-underline-offset: 3px; }
+.fxstudio .fx-wrap .inspector .f .c button.link.asset:hover:not(:disabled) { color: var(--fx-accent); }
+.fxstudio .inspector .f .c .swatch { width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--fx-line); flex: 0 0 auto; }
+/* a cell that means nothing yet is dim, its reason beside it in words (not on hover) */
+.fxstudio .inspector .f[data-dim="true"] .l, .fxstudio .inspector .f[data-dim="true"] .c > :not(.dimwhy) { opacity: .45; }
+.fxstudio .inspector .f .dimwhy { font-size: 11.5px; color: var(--fx-muted); font-style: italic; }
 /* a two-word switch: the checkbox is hidden, the lit word is the state; a chip is a one-word switch */
 .fxstudio .f .c label.seg { position: relative; display: inline-flex; flex: 0 0 auto; border: 1px solid var(--fx-line); border-radius: 8px; overflow: hidden; font-size: 12px; cursor: pointer; user-select: none; }
 .fxstudio .f .c label.seg input, .fxstudio .f .c label.chip input { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; }
@@ -276,35 +268,51 @@
 .fxstudio .f .c label.seg span.on { border-left: 1px solid var(--fx-line); }
 .fxstudio .f .c label.seg:has(input:not(:checked)) span.off, .fxstudio .f .c label.seg:has(input:checked) span.on { background: var(--fx-accent-soft); color: var(--fx-text); }
 .fxstudio .f .c label.seg:has(input:disabled) { cursor: default; }
+.fxstudio .f .c label.seg:has(input:focus-visible), .fxstudio .f .c label.chip:has(input:focus-visible) { outline: 2px solid var(--fx-accent); outline-offset: 1px; }
 .fxstudio .f .c label.chip { position: relative; display: inline-flex; flex: 0 0 auto; padding: 4px 9px; border: 1px solid var(--fx-line); border-radius: 8px; font-size: 12px; color: var(--fx-muted); cursor: pointer; user-select: none; white-space: nowrap; }
 .fxstudio .f .c label.chip:has(input:checked) { background: var(--fx-accent-soft); color: var(--fx-text); }
-.fxstudio .f .c input[type="color"] { width: 34px; height: 26px; padding: 1px; flex: 0 0 auto; }
-.fxstudio .f .c .swatch { width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--fx-line); flex: 0 0 auto; }
-.fxstudio .f .c button.link.asset { min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* a cell a shape does not read, or that means nothing yet: greyed where it stands with its reason (R1).
-   The element keeps its pointer events — Foundry's tooltip fires on pointerenter, and the reason is on
-   it — and the controls inside are the inert part */
-.fxstudio [data-na="true"] { opacity: .38; cursor: default; }
-.fxstudio [data-na="true"] .c > * { pointer-events: none; }
-.fxstudio .sheet[data-edit="false"] .inspector input, .fxstudio .sheet[data-edit="false"] .inspector select { background: transparent; border-color: transparent; padding-left: 0; opacity: 1; color: var(--fx-text); }
-.fxstudio .sheet[data-edit="false"] .f .c button.browse { display: none; }
-/* locked, a pill is read, not pressed: it keeps its hover so its tooltip shows; the click is refused in the sheet */
-.fxstudio .sheet[data-edit="false"] .hookstrip .pill { cursor: default; }
-.fxstudio .sheet[data-edit="false"] .hookstrip .pill:not([aria-pressed="true"]):not(.more) { display: none; }
-.fxstudio .sheet .copy { margin-top: 4px; }
+/* locked, the controls read as words: nothing looks typeable */
+.fxstudio .sheet[data-edit="false"] .inspector input, .fxstudio .sheet[data-edit="false"] .inspector select { background: transparent; border-color: transparent; padding-left: 0; opacity: 1; color: var(--fx-text); appearance: none; }
+/* the drawer: a picture or a sound picked into this scene, under its cell */
+.fxstudio .drawer { display: grid; gap: 8px; margin: 4px 0 8px; padding: 10px 12px; border: 1px solid var(--fx-accent); background: var(--fx-accent-soft); border-radius: var(--fx-radius); min-width: 0; }
+.fxstudio .drawer .dhead { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.fxstudio .drawer .dhead .sub { margin: 0; }
+.fxstudio .drawer .dhead .note { flex: 1 1 200px; min-width: 0; }
+.fxstudio .fx-wrap .drawer input.dr-q { padding: 6px 10px; font-size: 12.5px; }
+.fxstudio .drawer .dlist { display: grid; gap: 3px; max-height: 196px; overflow: auto; }
+.fxstudio .fx-wrap .drawer button.hit { display: flex; align-items: center; gap: 8px; border: 1px solid var(--fx-line); border-radius: 8px; background: var(--fx-panel); padding: 5px 8px; }
+.fxstudio .fx-wrap .drawer button.hit[aria-pressed="true"] { border-color: var(--fx-accent); }
+.fxstudio .drawer .hit .w { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .drawer .stepper { margin-top: 0; background: var(--fx-panel); }
+.fxstudio .drawer .dfoot { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.fxstudio .drawer .dpath { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .fx-wrap .drawer .dfoot button.play { color: var(--fx-accent); padding: 3px 9px; }
+.fxstudio .fx-wrap .drawer .dfoot button.primary { padding: 5px 12px; font-size: 12.5px; flex: 0 0 auto; }
+/* Copy from: a search box under an empty sequence, and on the landing */
+.fxstudio .sheet .copy { margin-top: 8px; }
+/* the landing: "Nothing plays for …" and three doors (DESIGN §28.1) */
+.fxstudio .nothing { display: grid; gap: 12px; margin-top: 14px; padding: 16px 18px; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-panel2); }
+.fxstudio .nothing .big { font-size: 18px; font-weight: 600; margin: 0; }
+.fxstudio .nothing p.note { margin: 0; }
+.fxstudio .nothing .judged { margin: 0; }
+.fxstudio .nothing .three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.fxstudio .fx-wrap .nothing .three button.door { display: grid; gap: 3px; align-content: start; min-width: 0; text-align: left; padding: 12px 14px; white-space: normal; }
+.fxstudio .fx-wrap .nothing .three button.door[aria-pressed="true"] { border-color: var(--fx-accent); background: var(--fx-accent-soft); }
+.fxstudio .nothing .three b { font-size: 14px; font-weight: 600; }
+.fxstudio .nothing .three span { font-size: 12.5px; color: var(--fx-muted); }
+.fxstudio .nothing .doorbody { display: grid; gap: 8px; padding: 10px 12px; border: 1px solid var(--fx-line); border-radius: var(--fx-radius); background: var(--fx-ground); }
+.fxstudio .nothing .doorbody .sub { margin: 0; }
+.fxstudio .nothing .hits { display: grid; gap: 4px; }
+.fxstudio .fx-wrap .nothing .hits button.hit { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; align-items: baseline; gap: 4px 12px; border: 1px solid var(--fx-line); border-radius: 8px; background: var(--fx-panel); }
+.fxstudio .nothing .hits .w { color: var(--fx-muted); font-size: 12.5px; min-width: 0; }
 
-
-/* the FX tab (2026-09-07, the user's pass): the search, then facets | rows. Two columns and one
-   scroll region (R4) — the search and the facets are fixed, the rows are the only thing that moves.
-   The 300px detail pane is gone; a row opens its FX in the Editor. */
+/* ===== the Library: the search, the facets and the rows (R4: one scroll region, the rows) ===== */
 .fxstudio .pane[data-pane="fx"][data-active="true"] { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
 .fxstudio .fxtab { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 190px minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: var(--fx-gutter); align-items: stretch; }
 .fxstudio .fxtab > * { min-width: 0; }
-/* the search belongs to this screen: its own row over both columns, sized like a control and not
-   like a banner (the user, 2026-09-07: "its kinda big and puffy") — 280px, one facet row tall */
+/* the search: its own row over both columns, sized like a control, the files at its left */
 .fxstudio .fxsearch { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 280px); justify-content: start; gap: 8px; align-items: center; }
 .fxstudio .fx-wrap .fxsearch input { font-size: 12.5px; padding: 4px 9px; height: 26px; }
-/* the files first, at the top left (the user, 2026-09-13): Import, then Export, each exactly as tall as the box beside them */
 .fxstudio .fxsearch .files { display: flex; gap: 6px; }
 .fxstudio .fx-wrap .fxsearch .files button { height: 26px; padding: 0 14px; font-size: 12.5px; }
 /* the facet column: every facet at a permanent address, its count beside it, greyed at zero (R1) */
@@ -312,10 +320,6 @@
 .fxstudio .facets .fgroup { display: grid; gap: 1px; }
 .fxstudio .facets .sub { margin: 0 0 2px; }
 .fxstudio .fx-wrap .facets button.frow { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; height: 24px; padding: 0 9px; text-align: left; font-size: 12.5px; background: transparent; border-color: transparent; }
-/* a pressed facet must LOOK pressed. These two lost to the base rule above on specificity
-   (`.fxstudio .fx-wrap .facets button.frow` is one element more specific), so a filter that was on
-   painted transparent like every other row — the user, 2026-09-07: "the behavior is odd … if the
-   filter is active, the item should remain highlighted". Same selector shape, so they win. */
 .fxstudio .fx-wrap .facets button.frow:hover:not(:disabled) { background: var(--fx-panel2); }
 .fxstudio .fx-wrap .facets button.frow[aria-pressed="true"] { background: var(--fx-accent-soft); border-color: var(--fx-accent); color: var(--fx-text); font-weight: 500; }
 .fxstudio .fx-wrap .facets button.frow[aria-pressed="true"] .c { color: var(--fx-text); }
@@ -328,7 +332,7 @@
 .fxstudio .fxlist .listhead .sub { margin: 0; }
 .fxstudio .fxlist .rows { flex: 1 1 auto; min-height: 0; overflow: auto; margin-top: 8px; }
 .fxstudio .rows .grouphead { position: sticky; top: 0; z-index: 1; background: var(--fx-warn-soft); color: var(--fx-warn); font: 600 11px/1 'IBM Plex Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px; border-top: 1px solid var(--fx-warn); border-bottom: 1px solid var(--fx-warn); }
-/* one row, one name, one height: selection is colour only (R3) */
+/* one row, one name, one height: selection is colour only (R3); two records of one name carry their book under it */
 .fxstudio .rows .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; height: calc(var(--fx-row) + var(--fx-gutter)); border-bottom: 1px solid var(--fx-line2); padding-right: 12px; }
 .fxstudio .rows .row .acts { display: flex; gap: 14px; flex: 0 0 auto; }
 .fxstudio .fx-wrap .rows .row .acts button.link { font-size: 12.5px; color: var(--fx-text); }
@@ -337,6 +341,31 @@
 .fxstudio .rows .row[data-now="true"] { background: var(--fx-accent-soft); }
 .fxstudio .fx-wrap .rows .row button.pickbtn { display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; width: 100%; min-width: 0; height: 100%; text-align: left; background: transparent; border: 0; border-radius: 0; padding: 0 0 0 10px; }
 .fxstudio .rows .row .n { font-size: 13px; font-weight: 500; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fxstudio .rows .row .bk { font-size: 11.5px; line-height: 1.3; color: var(--fx-muted); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* a Stock FX under a House override keeps its row, dimmed */
+.fxstudio .fxlist .row[data-shadowed="true"] .n { opacity: .55; }
+/* a search that finds no FX: the abilities on this world's actors that play nothing, each a door to the Editor */
+.fxstudio .misses { display: grid; gap: 4px; padding: 6px 2px; }
+.fxstudio .misses p.note { margin: 0 0 4px; }
+.fxstudio .fx-wrap .misses button.missrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 7px 10px; font-size: 13px; }
+.fxstudio .misses .missrow .o { color: var(--fx-muted); font-size: 12px; white-space: nowrap; }
+
+/* ===== the narrow window (DESIGN §28.5): at 800px and under the rail stacks over the inspector and the
+   Key strip is two columns; at 480px and under, one. The rail keeps 288px only beside the inspector. ===== */
+@container fxs (max-width: 800px) {
+  .fxstudio .seq { grid-template-columns: minmax(0, 1fr); }
+  .fxstudio .hookstrip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fxstudio .sheet-head { flex-wrap: wrap; }
+  .fxstudio .lockbar { margin-left: 0; flex-wrap: wrap; }
+  .fxstudio .nothing .three { grid-template-columns: minmax(0, 1fr); }
+  .fxstudio .fxtab { grid-template-columns: 160px minmax(0, 1fr); }
+}
+@container fxs (max-width: 480px) {
+  .fxstudio .hookstrip { grid-template-columns: minmax(0, 1fr); }
+  .fxstudio .inspector .f { grid-template-columns: minmax(0, 1fr); }
+  .fxstudio .fxtab { grid-template-columns: minmax(0, 1fr); }
+  .fxstudio .addmenu { grid-template-columns: minmax(0, 1fr); }
+}
 
 /* Coverage: the Maintain band, the scope switch, four tiles and the rows (step 7, 2026-09-07).
    Four rows of the tab's own grid — band, scope, tiles, list — and only the last one scrolls (R4) */
@@ -365,9 +394,6 @@
 /* the list: the one thing on this screen that scrolls */
 .fxstudio .cvlist { display: flex; flex-direction: column; min-height: 0; padding: 10px 12px; }
 .fxstudio .cvlist .rows { flex: 1 1 auto; min-height: 0; overflow: auto; }
-
-/* a Stock FX under a House override keeps its row, dimmed (2026-09-12) */
-.fxstudio .fxlist .row[data-shadowed="true"] .n { opacity: .55; }
 
 /* ===== Coverage (the gap tool's screen) ===== */
 /* DESIGN 28.6. Appended whole and nothing above it edited: the rules above for .coverage, .band and

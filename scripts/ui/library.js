@@ -1,26 +1,28 @@
 // The Asset Library: the libraries' own registration browsed as the table sees it — JB2A by style,
 // PSFX by group and sound — each with its variants stepped by arrows or a dropdown, the VFX playing
-// on a loop and the SFX behind a Play button, the Sequencer path an FX names and the file under
-// it. Two doors (ruled off prototypes/fxstudio4-library.html, 2026-09-06): the tab for browsing,
-// and the same browser opened from a line of Create FX to pick that line's VFX or SFX. What the
-// corpus already uses is marked and named, and the Used and Unused pills filter to either.
-// THE TAB DOES NOT WRITE (the user, 2026-09-07: "remove the use button"). Browsing is browsing; the
-// only Use left is the picker's, when the sheet's Browse sent you here for one scene's VFX or SFX.
-// The list keeps its scroll through every step: the pane re-renders itself, never the window.
+// on a loop and the SFX behind a Play button, the Sequencer path an FX names and the file under it.
+// What the corpus already uses is marked and named, and the Used and Unused pills filter to either.
+// THE TAB IS A BROWSER AND NOTHING ELSE (DESIGN §28.3): it has no picker role, no remembered pick
+// and no Use. Picking a picture or a sound into a scene happens on the sheet, in the drawer under
+// the cell (ui/drawer.js), which shares this file's families, stepper and sound player — so a
+// half-finished pick cannot outlive a tab switch or land in another sheet. "Used in" still opens
+// an FX in the Editor, and the sheet's name link opens this tab on the asset it names.
+// The list keeps its scroll through every step: the pane is painted over in place, never rebuilt.
 import { MODULE_ID } from '../settings.js';
 import { assetsOf } from '../core/fx.js';
 import { esc, idWords } from './html.js';
-import { nameForKey, nameOf } from './records.js';
-import { leaveSheet, openSheet } from './sheet.js';
+import { nameOf } from './records.js';
+import { morph } from './morph.js';
+import { openSheet } from './sheet.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const FEET = /^\d+ft$/;
-const words = (s) => String(s).replace(/[_-]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+export const words = (s) => String(s).replace(/[_-]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 const LIB_WORDS = { jb2a: ['VFX · JB2A'], psfx: ['SFX · PSFX'] };
 
-/** the Library's view state on the window; `pick` is set by the sheet: {i, slot: 'asset' | 'sound'} */
+/** the Library's view state on the window */
 export function libraryState(app) {
-  app.view.library ??= { lib: 'jb2a', q: '', only: null, sel: null, vi: 0, fi: null, pick: null };
+  app.view.library ??= { lib: 'jb2a', q: '', only: null, sel: null, vi: 0, fi: null };
   return app.view.library;
 }
 
@@ -93,7 +95,7 @@ function usersOf(app, family) {
  * file index, a range key) selects that variant, and a file index is carried in fi; a path
  * shallower than any variant selects the first variant under it.
  */
-function locate(it, path) {
+export function locate(it, path) {
   const p = String(path).toLowerCase();
   const at = (test) => it.variants.findIndex((x) => test(x.path.toLowerCase()));
   let vi = at((q) => q === p);
@@ -109,22 +111,28 @@ function locate(it, path) {
 }
 
 /** the family a library path belongs to: jb2a.<style>, psfx.<group>.<sound> */
-const familyOfPath = (path) => { const p = String(path ?? '').split('.'); return p[0] === 'psfx' ? p.slice(0, 3).join('.') : p.slice(0, 2).join('.'); };
+export const familyOfPath = (path) => { const p = String(path ?? '').split('.'); return p[0] === 'psfx' ? p.slice(0, 3).join('.') : p.slice(0, 2).join('.'); };
+
+/** the family on the shelf a library path belongs to, or null */
+export const familyFor = (app, path) => {
+  if (!path || String(path).includes('/')) return null;
+  const lib = String(path).startsWith('psfx') ? 'psfx' : 'jb2a';
+  const family = familyOfPath(path).toLowerCase();
+  return (shelf(app)[lib] ?? []).find((r) => r.id.toLowerCase() === family) ?? null;
+};
 
 /**
  * Point the Library at one library path: its library, its family, its variant and, when the path
  * names one file inside a variant, that file. Any filter in the way is cleared. True when it was
- * found. The door the sheet, the used-in lines and Browse all come through.
+ * found.
  */
 export function focusPath(app, path) {
   const L = libraryState(app);
   if (!path || String(path).includes('/')) return false;
-  const lib = String(path).startsWith('psfx') ? 'psfx' : 'jb2a';
-  const family = familyOfPath(path);
-  const it = (shelf(app)[lib] ?? []).find((r) => r.id.toLowerCase() === family.toLowerCase());
-  L.lib = lib;
+  L.lib = String(path).startsWith('psfx') ? 'psfx' : 'jb2a';
   L.only = null;
   L.q = '';
+  const it = familyFor(app, path);
   if (!it) return false;
   L.sel = it.id;
   const { vi, fi } = locate(it, path);
@@ -133,26 +141,36 @@ export function focusPath(app, path) {
   return true;
 }
 
-const url = (file) => (globalThis.foundry?.utils?.getRoute ? foundry.utils.getRoute(file) : `/${file}`);
+/** the sheet's name link: the Assets tab, on the asset a scene names (a door, never a pick) */
+export function showAsset(app, path, slot = 'asset') {
+  const L = libraryState(app);
+  L.lib = slot === 'sound' ? 'psfx' : 'jb2a';
+  L.only = null;
+  L.q = '';
+  L.sel = null;
+  L.vi = 0;
+  L.fi = null;
+  if (path) focusPath(app, path);
+  app.view.tab = 'assets';
+}
+
+export const url = (file) => (globalThis.foundry?.utils?.getRoute ? foundry.utils.getRoute(file) : `/${file}`);
 
 /**
  * EVERYTHING THE STEPPER CAN STAND ON. A variant holding ONE file is one stop. A variant holding
  * SEVERAL is the variant itself — Sequencer picks one of them at random — AND each file, because an
- * FX can name either and the used-in list already names them apart. Without this the browser showed
- * "V1 · 1 of 1" over a sound with four files in it, three of which the corpus names by hand: the
- * user, 2026-09-07 — "i see multiple versions of the sound but only one in drop down".
+ * FX can name either and the used-in list already names them apart.
  */
-const stepsOf = (it) => (it?.variants ?? []).flatMap((v, vi) => {
+export const stepsOf = (it) => (it?.variants ?? []).flatMap((v, vi) => {
   const base = words(v.label ?? '') || it.name;
   const many = (v.files?.length ?? 0) > 1;
-  const head = { vi, fi: null, label: many ? `${base} · any of ${v.files.length}` : base, path: v.path };
-  return many ? [head, ...v.files.map((_, fi) => ({ vi, fi, label: `${base} · file ${fi}`, path: `${v.path}.${fi}` }))] : [head];
+  const head = { vi, fi: null, label: many ? `${base} · any of ${v.files.length}` : base, path: v.path, file: v.file };
+  return many ? [head, ...v.files.map((f, fi) => ({ vi, fi, label: `${base} · file ${fi}`, path: `${v.path}.${fi}`, file: f }))] : [head];
 });
 
 // what is in the viewer: the variant, or one file inside it when a used line named that file
 const viewPath = (L, v) => (v ? (L.fi == null ? v.path : `${v.path}.${L.fi}`) : '');
 const viewFile = (L, v) => (v ? (L.fi == null ? v.file : (v.files?.[L.fi] ?? v.file)) : '');
-const viewLabel = (L, v) => (v ? words(v.label ?? '') + (L.fi == null ? '' : `.${L.fi}`) : '');
 
 function current(app) {
   const L = libraryState(app);
@@ -181,9 +199,6 @@ export function renderLibrary(app) {
   const groups = new Map();
   for (const r of rows) (groups.get(r.group) ?? groups.set(r.group, []).get(r.group)).push(r);
   const list = [...groups.entries()].map(([g, items]) => `<div class="letter">${esc(g)}</div>${items.map((r) => `<button type="button" class="row" data-act="lib-sel" data-id="${esc(r.id)}" aria-current="${r.id === L.sel}"><span class="dot ${r.used ? 'stock' : 'none'}"></span><span class="n">${esc(r.name)}</span><span class="c">${stepsOf(r).length}</span></button>`).join('')}`).join('');
-  const pick = L.pick;
-  const subjectName = app.sheet?.subject?.name ?? (app.sheet?.keys?.[0] ? nameForKey(app.sheet.keys[0]) : 'the FX');
-  const banner = pick ? `<div class="picking"><span><b>${pick.slot === 'sound' ? 'SFX' : 'VFX'}</b> ${pick.view ? 'in' : 'for'} <b>${esc(subjectName)}</b> · scene ${pick.i + 1}</span><span class="spacer"></span><button type="button" class="quiet" data-act="lib-pick-back">Back</button>${pick.view ? '' : `<button type="button" class="primary" data-act="lib-pick-use" ${v ? '' : 'disabled'}>Use</button>`}</div>` : '';
   let stage;
   if (!it) stage = '<div class="frame"><div class="name">No match</div></div>';
   else if (L.lib === 'jb2a') stage = `${vFile ? `<video class="stage-video" src="${esc(url(vFile))}" autoplay loop muted playsinline></video>` : ''}<div class="caption"><div class="name">${esc(it.name)}</div><div class="v">${esc(vLabel)}</div></div><span class="chip">loops</span>`;
@@ -195,10 +210,8 @@ export function renderLibrary(app) {
       ${readOnly('lib-file', 'File', vFile)}
     </div>` : '';
   // Where it is used: one line per path an FX names, ANYWHERE UNDER THIS FAMILY — not only the
-  // variant on screen, which is why the head now says so (the user, 2026-09-07: "the names here
-  // don't tie out"). The line for what IS on screen is marked. A path is spelled here exactly as
-  // the viewer spells it: `words()` alone kept the dots, so one thing read "V1 Group05" above and
-  // "V1.Group05" below.
+  // variant on screen, which is why the head says so. The line for what IS on screen is marked. A
+  // path is spelled here exactly as the viewer spells it.
   let usedBy = '';
   const byPath = it ? usersOf(app, it.id) : new Map();
   const nUsers = [...byPath.values()].reduce((t, l) => t + l.length, 0);
@@ -213,16 +226,15 @@ export function renderLibrary(app) {
       if (under) return `${words(under.label) || it.name} · file ${path.slice(under.path.length + 1)}`;
       return words(path.slice(it.id.length + 1).replace(/\./g, ' '));
     };
-    usedBy = `<div class="uses lib-users"><div class="sub">${nUsers ? `Used in ${nUsers} FX · every path under ${esc(it.name)}` : `${esc(it.name)} is used by no FX`}</div>${[...byPath.entries()].sort((x, y) => x[0].localeCompare(y[0])).map(([path, list]) => `<div class="use" data-now="${path === cur}"><button type="button" class="v link" data-act="lib-goto" data-path="${esc(path)}" data-tooltip="Load ${esc(path)} above">${esc(label(path))}</button><span class="who">${list.map((u) => `<button type="button" class="link" data-act="lib-open-fx" data-id="${esc(u.id)}" data-tooltip="Open ${esc(u.name)} in the FX Editor">${esc(u.name)}</button>`).join(', ')}</span></div>`).join('')}</div>`;
+    usedBy = `<div class="uses lib-users"><div class="sub">${nUsers ? `Used in ${nUsers} FX · every path under ${esc(it.name)}` : `${esc(it.name)} is used by no FX`}</div>${[...byPath.entries()].sort((x, y) => x[0].localeCompare(y[0])).map(([path, list]) => `<div class="use" data-now="${path === cur}"><button type="button" class="v link" data-act="lib-goto" data-path="${esc(path)}" data-tooltip="Load ${esc(path)} above">${esc(label(path))}</button><span class="who">${list.map((u) => `<button type="button" class="link" data-act="lib-open-fx" data-id="${esc(u.id)}" data-tooltip="Open ${esc(u.name)} in the Editor">${esc(u.name)}</button>`).join(', ')}</span></div>`).join('')}</div>`;
   }
   // an FX counts towards a stop when it names THAT path exactly — the files are their own stops
-  // now, so counting them under their variant too would say the same FX twice
   const inFx = (x) => { const n = (byPath.get(x.path.toLowerCase()) ?? []).length; return n ? ` · ${n} FX` : ''; };
-  const stepper = it ? `<div class="stepper"><button type="button" data-act="lib-prev" aria-label="previous" ${steps.length > 1 ? '' : 'disabled'}>‹</button><select class="lib-variant" aria-label="variant">${steps.map((x, i) => `<option value="${i}"${i === si ? ' selected' : ''}>${esc(x.label)} · ${i + 1} of ${steps.length}${inFx(x)}</option>`).join('')}</select><button type="button" data-act="lib-next" aria-label="next" ${steps.length > 1 ? '' : 'disabled'}>›</button></div>` : '';
-  return `${banner}<div class="lib">
+  const stepper = it ? `<div class="stepper"><button type="button" data-act="lib-prev" aria-label="previous" ${steps.length > 1 ? '' : 'disabled'}>‹</button><select class="lib-variant" data-field="variant" aria-label="variant">${steps.map((x, i) => `<option value="${i}"${i === si ? ' selected' : ''}>${esc(x.label)} · ${i + 1} of ${steps.length}${inFx(x)}</option>`).join('')}</select><button type="button" data-act="lib-next" aria-label="next" ${steps.length > 1 ? '' : 'disabled'}>›</button></div>` : '';
+  return `<div class="lib">
     <div class="shelf">
       <div class="switch">${Object.entries(LIB_WORDS).map(([lib, [label]]) => `<button type="button" data-act="lib-switch" data-lib="${lib}" aria-pressed="${L.lib === lib}">${label}</button>`).join('')}</div>
-      <input type="search" class="lib-q" placeholder="Search" aria-label="Search the library" autocomplete="off" value="${esc(L.q)}">
+      <input type="search" class="lib-q" data-field="q" placeholder="Search" aria-label="Search the library" autocomplete="off" value="${esc(L.q)}">
       <div class="pills"><button type="button" class="pill lib-used" data-act="lib-only" data-only="used" aria-pressed="${L.only === 'used'}"><span class="dot stock"></span>Used · ${all.filter((r) => r.used).length}</button><button type="button" class="pill lib-unused" data-act="lib-only" data-only="unused" aria-pressed="${L.only === 'unused'}"><span class="dot none"></span>Unused · ${all.filter((r) => !r.used).length}</button></div>
       <div class="list">${list || '<p class="note" style="padding:10px 12px">No match.</p>'}</div>
     </div>
@@ -233,85 +245,54 @@ export function renderLibrary(app) {
   </div>`;
 }
 
-/** re-render the pane alone, keeping the list where it was scrolled */
-function rerender(app) {
+/** the pane painted over in place: the list keeps its scroll, the box its caret */
+function repaint(app) {
   const pane = app.element?.querySelector('[data-pane="assets"]');
   if (!pane) return app.render();
-  const list = pane.querySelector('.shelf .list');
-  const top = list?.scrollTop ?? 0;
-  pane.innerHTML = renderLibrary(app);
-  const again = pane.querySelector('.shelf .list');
-  if (again) again.scrollTop = top;
+  morph(pane, renderLibrary(app));
   return undefined;
 }
 
-async function playSound(app, file) {
+/** play one sound file once, stopping the last one (the Assets tab and the sheet's drawer share it) */
+export async function playSound(app, file) {
   if (!file) return app.toast('No file to play.');
   try {
     app._librarySound?.stop?.();
-    const src = url(file);
     const AH = globalThis.foundry?.audio?.AudioHelper ?? globalThis.AudioHelper;
-    app._librarySound = await AH.play({ src, volume: 0.8, loop: false }, false);
+    app._librarySound = await AH.play({ src: url(file), volume: 0.8, loop: false }, false);
   } catch (e) { app.toast(`Could not play it: ${e.message}`); }
-}
-
-/** the sheet's scene takes what is in the viewer: its VFX, or its SFX */
-function applyPick(app, pick, path) {
-  const x = app.sheet?.scenes?.[pick.i];
-  if (!x || !path) return false;
-  if (pick.slot === 'sound') { if (x.scene.shape === 'sound') x.scene.asset = { path }; else x.scene.sound = { ...(x.scene.sound ?? {}), asset: path }; }
-  else x.scene.asset = { path };
-  return true;
+  return undefined;
 }
 
 export async function onLibraryClick(app, b, act) {
-  const { L, it, v, steps, si } = current(app);
+  const { L, v, steps, si } = current(app);
   switch (act) {
-    case 'lib-switch': L.lib = b.dataset.lib; L.sel = null; L.vi = 0; L.fi = null; return rerender(app);
-    case 'lib-sel': L.sel = b.dataset.id; L.vi = 0; L.fi = null; return rerender(app);
-    case 'lib-prev': goStep(L, steps, si - 1); return rerender(app);
-    case 'lib-next': goStep(L, steps, si + 1); return rerender(app);
-    case 'lib-goto': focusPath(app, b.dataset.path); return rerender(app);
-    case 'lib-only': L.only = L.only === b.dataset.only ? null : b.dataset.only; L.sel = null; L.fi = null; return rerender(app);
+    case 'lib-switch': L.lib = b.dataset.lib; L.sel = null; L.vi = 0; L.fi = null; return repaint(app);
+    case 'lib-sel': L.sel = b.dataset.id; L.vi = 0; L.fi = null; return repaint(app);
+    case 'lib-prev': goStep(L, steps, si - 1); return repaint(app);
+    case 'lib-next': goStep(L, steps, si + 1); return repaint(app);
+    case 'lib-goto': focusPath(app, b.dataset.path); return repaint(app);
+    case 'lib-only': L.only = L.only === b.dataset.only ? null : b.dataset.only; L.sel = null; L.fi = null; return repaint(app);
     case 'lib-play': return playSound(app, viewFile(L, v));
     case 'lib-copy': { try { await (game.clipboard?.copyPlainText ? game.clipboard.copyPlainText(b.dataset.text) : navigator.clipboard.writeText(b.dataset.text)); app.toast('Copied.'); } catch { app.toast('Could not copy.'); } return undefined; }
-    case 'lib-open-fx': { if (!(await leaveSheet(app))) return undefined; openSheet(app, { id: b.dataset.id }); return app.render(); }
-    case 'lib-pick-use': { const pick = L.pick; if (pick && applyPick(app, pick, viewPath(L, v))) { L.pick = null; app.view.tab = 'editor'; app.toast(`Scene ${pick.i + 1}: ${it.name}${viewLabel(L, v) ? ` ${viewLabel(L, v)}` : ''}.`); } return app.render(); }
-    case 'lib-pick-back': L.pick = null; app.view.tab = 'editor'; return app.render();
+    // the window asked before dropping a dirty sheet (Studio.onClick: lib-open-fx replaces it)
+    case 'lib-open-fx': openSheet(app, { id: b.dataset.id }); return app.paint();
     default: return undefined;
   }
 }
 
-export function onLibraryInput(app, el) {
+export function onLibraryInput(app, el, field) {
+  if (field !== 'q') return undefined;
   const L = libraryState(app);
-  if (!el.classList.contains('lib-q')) return undefined;
   L.q = el.value;
   clearTimeout(app._libTimer);
-  app._libTimer = setTimeout(() => {
-    rerender(app);
-    const q = app.element?.querySelector('.lib-q');
-    q?.focus();
-    q?.setSelectionRange(q.value.length, q.value.length);
-  }, 200);
+  app._libTimer = setTimeout(() => repaint(app), 200);
   return undefined;
 }
 
-export function onLibraryChange(app, el) {
+export function onLibraryChange(app, el, field) {
+  if (field !== 'variant') return undefined;
   const { L, steps } = current(app);
-  if (el.classList.contains('lib-variant')) { goStep(L, steps, Number(el.value)); return rerender(app); }
-  return undefined;
-}
-
-/** the sheet opens the Library to pick a scene's VFX or SFX, on what the scene names already */
-export function openPicker(app, i, slot, path = null, view = false) {
-  const L = libraryState(app);
-  L.pick = { i, slot, view };
-  L.lib = slot === 'sound' ? 'psfx' : 'jb2a';
-  L.only = null;
-  L.q = '';
-  L.sel = null;
-  L.vi = 0;
-  L.fi = null;
-  if (path) focusPath(app, path);
-  app.view.tab = 'assets';
+  goStep(L, steps, Number(el.value));
+  return repaint(app);
 }

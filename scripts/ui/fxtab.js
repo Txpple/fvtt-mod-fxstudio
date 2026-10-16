@@ -27,9 +27,10 @@
 // what cannot run right now is greyed WHERE IT STANDS with its reason, never dropped (R1).
 import { MODULE_ID } from '../settings.js';
 import { AUTHORED_KINDS, keyLabel, parseKey } from '../core/subjects.js';
-import { KIND_PLURAL, SOURCE_TAG, esc, idWords } from './html.js';
+import { KIND_PLURAL, KIND_WORDS, SOURCE_TAG, dot, esc, idWords } from './html.js';
 import { openSheet } from './sheet.js';
 import { nameOf, openRecord, recordOf, recordWords, recordsRead } from './records.js';
+import { morph } from './morph.js';
 
 const api = () => game.modules.get(MODULE_ID).api;
 const PAGE = 200;
@@ -100,7 +101,7 @@ const exportButton = (app) => {
 };
 const searchBox = (app) => `<div class="fxsearch">
     <div class="files"><button type="button" class="quiet import" data-act="import-fx" data-to="house" data-tooltip="Read a file of FX into ${SOURCE_TAG.house}">Import</button>${exportButton(app)}</div>
-    <div class="search"><input type="search" class="fx-q" placeholder="Search for an FX…" aria-label="Search for an FX" autocomplete="off" value="${esc(app.view.q ?? '')}"></div>
+    <div class="search"><input type="search" class="fx-q" data-field="q" placeholder="Search for an FX…" aria-label="Search for an FX" autocomplete="off" value="${esc(app.view.q ?? '')}"></div>
   </div>`;
 
 /** Export follows the mark, repainted in place: a mark never rebuilds the list (R3), so it must not rebuild the row above it either */
@@ -155,31 +156,71 @@ const marked = (app, r) => app.view.fxSel === r.id && (!app.view.fxSelSource || 
  * A row is a name; clicking it marks it, and the marked row is the only one showing its doors. A
  * Stock FX under a House override keeps its row (the user, 2026-09-12), dimmed, its tooltip saying so.
  */
-const rowHtml = (app, r) => `<div class="row" data-now="${marked(app, r)}" data-shadowed="${r.shadowed}">
-    <button type="button" class="pickbtn" data-act="fx-sel" data-id="${esc(r.id)}" data-source="${r.source}" aria-current="${marked(app, r)}" ${r.shadowed ? `data-tooltip="${SOURCE_TAG.house} overrides this: the ${SOURCE_TAG.house} FX of the same id plays instead"` : ''}><span class="n">${esc(r.name)}</span></button>
+const rowHtml = (app, r, book = '') => `<div class="row" data-now="${marked(app, r)}" data-shadowed="${r.shadowed}">
+    <button type="button" class="pickbtn" data-act="fx-sel" data-id="${esc(r.id)}" data-source="${r.source}" aria-current="${marked(app, r)}" ${r.shadowed ? `data-tooltip="${SOURCE_TAG.house} overrides this: the ${SOURCE_TAG.house} FX of the same id plays instead"` : ''}><span class="n">${esc(r.name)}</span>${book ? `<span class="bk">${esc(book)}</span>` : ''}</button>
     <span class="acts">${recordDoor(app, r)}<button type="button" class="link danger" data-act="fx-del" data-id="${esc(r.id)}" data-source="${r.source}" data-tooltip="Delete ${esc(r.name)} (${SOURCE_TAG[r.source]}) for good">Delete</button><button type="button" class="link" data-act="fx-editor" data-id="${esc(r.id)}" data-source="${r.source}" data-tooltip="Open ${esc(r.name)} (${SOURCE_TAG[r.source]}) in the Editor">Editor</button></span>
   </div>`;
 
-/** the list card on its own, so the search can redraw it without redrawing the box being typed in */
-export function renderList(app) {
+/**
+ * TWO RECORDS, ONE NAME (DESIGN §28.9): when the rows shown hold one name for more than one key (the
+ * Player's Handbook's Misty Step and the Monster Manual's), each such row carries its record's book
+ * under the name, which itself stays the record's own (§15). An override and the Stock FX under it
+ * are one key, and need no telling apart.
+ */
+function sharedNames(rows) {
+  const keys = new Map();
+  for (const r of rows) (keys.get(r.name) ?? keys.set(r.name, new Set()).get(r.name)).add(r.keys[0] ?? r.id);
+  return new Set([...keys].filter(([, k]) => k.size > 1).map(([n]) => n));
+}
+const bookOf = (r) => recordOf(r.e.fx)?.where ?? SOURCE_TAG[r.source];
+
+/**
+ * A SEARCH THAT FINDS NO FX is a door (DESIGN §28.1): the abilities on this world's actors that match
+ * the words and play nothing, each opening the Editor on it, unlocked, at the landing's three doors.
+ * An item opens by its uuid; an effect, which is no item, by its key.
+ */
+function missDoors(app, q) {
+  const needle = q.trim().toLowerCase();
+  if (!needle) return '';
+  const seen = new Set();
+  const hits = (app.entries ?? []).filter((e) => e.status === 'none' && e.owner && e.name.toLowerCase().includes(needle))
+    .filter((e) => { const k = e.uuid ?? `${e.owner}|${e.keys[0]}`; if (seen.has(k)) return false; seen.add(k); return true; })
+    .sort((x, y) => x.name.localeCompare(y.name) || x.owner.localeCompare(y.owner)).slice(0, 30);
+  const kindWord = (e) => (e.effect ? 'Effect' : KIND_WORDS[e.keys.at(-1)?.split(':')[0]] ?? e.type ?? '');
+  const door = (e) => `<button type="button" class="missrow" ${e.uuid ? `data-act="entry" data-uuid="${esc(e.uuid)}" data-create="1"` : `data-act="key" data-key="${esc(e.keys[0])}"`}><span class="n">${dot('none')}${esc(e.name)}</span><span class="o">${esc(e.owner)} · ${esc(kindWord(e))} · plays nothing</span></button>`;
+  return `<div class="misses"><p class="note">${hits.length ? 'No match. These abilities on this world’s actors play nothing yet; each opens the Editor on it.' : 'No match.'}</p>${hits.map(door).join('')}</div>`;
+}
+
+/** the inside of the list card, so the search can paint it without touching the box being typed in */
+function listInner(app) {
   const V = fxState(app);
   const rows = shownRows(app);
   const total = catalogue(app).length;
   const per = { house: 0, stock: 0 };
   for (const r of rows) per[r.source]++;
   const page = Math.min(V.show, rows.length);
+  const shared = sharedNames(rows);
   let last = null;
   const body = rows.slice(0, page).map((r) => {
     const head = r.source === last ? '' : `<div class="grouphead">${SOURCE_TAG[r.source]} · ${per[r.source]} FX</div>`;
     last = r.source;
-    return head + rowHtml(app, r);
+    return head + rowHtml(app, r, shared.has(r.name) ? bookOf(r) : '');
   }).join('');
   const more = rows.length > page ? `<p class="note more"><button type="button" class="link" data-act="fx-more">Load more</button> · ${rows.length - page} more</p>` : '';
-  return `<div class="fxlist card">
-      <div class="listhead"><span class="sub">${rows.length}${rows.length === total ? '' : ` of ${total}`} FX</span></div>
-      <div class="rows">${body || `<p class="note">${rows.length ? '' : 'No match.'}</p>`}${more}</div>
-    </div>`;
+  const empty = rows.length ? '' : (app.view.q ?? '').trim() ? missDoors(app, app.view.q) : '<p class="note">No match.</p>';
+  return `<div class="listhead"><span class="sub">${rows.length}${rows.length === total ? '' : ` of ${total}`} FX</span></div>
+      <div class="rows">${body}${empty}${more}</div>`;
 }
+export const renderList = (app) => `<div class="fxlist card">${listInner(app)}</div>`;
+
+/** the list card painted over in place, as the search is typed in: the box keeps its caret, the rows their scroll */
+export function narrowList(app) {
+  const list = app.element?.querySelector('[data-pane="fx"][data-active="true"] .fxlist');
+  if (list) morph(list, listInner(app));
+}
+
+/** the whole tab painted over in place: a facet, Clear */
+const repaint = (app) => { const pane = app.element?.querySelector('[data-pane="fx"][data-active="true"]'); if (pane) morph(pane, renderFx(app)); else app.paint(); };
 
 export const renderFx = (app) => `<div class="fxtab">
     ${searchBox(app)}
@@ -198,11 +239,11 @@ export async function onFxClick(app, b, act2) {
       const v = b.dataset.v;
       if (set.has(v)) set.delete(v); else set.add(v);
       V.show = PAGE;
-      return app.render();
+      return repaint(app);
     }
-    case 'fx-clear': V.lives.clear(); V.kinds.clear(); V.only.clear(); V.show = PAGE; return app.render();
+    case 'fx-clear': V.lives.clear(); V.kinds.clear(); V.only.clear(); V.show = PAGE; return repaint(app);
     // Load more must not throw you back to the top of what you were reading
-    case 'fx-more': V.show += PAGE; app.narrow(); return undefined;
+    case 'fx-more': V.show += PAGE; narrowList(app); return undefined;
     // Selection is COLOUR ONLY (R3), so it is painted in place. Re-rendering the window rebuilt the
     // rows and lost the scroll — the user, 2026-09-07: "it resets the listview and i lose its focus"
     case 'fx-sel': {
@@ -220,11 +261,27 @@ export async function onFxClick(app, b, act2) {
     }
     // Export takes the marked row: by id AND layer, so a Stock FX under a House override exports as itself
     case 'fx-export': { const r = markedRow(app); return r ? app.exportFx(r.id, r.source) : app.toast(`${NOTHING_MARKED}.`); }
-    case 'fx-editor': { const id = b.dataset.id; app.view.fxSel = id; app.view.fxSelSource = b.dataset.source || null; openSheet(app, { id, source: b.dataset.source || null, subject: app.subjectForFx(id) }); return app.render(); }
+    case 'fx-editor': { const id = b.dataset.id; app.view.fxSel = id; app.view.fxSelSource = b.dataset.source || null; openSheet(app, { id, source: b.dataset.source || null, subject: app.subjectForFx(id) }); return app.paint(); }
     // deleteFx asks first, and unpins whatever item pointed at it; the layer is the row's
     case 'fx-del': return app.deleteFx(b.dataset.id, b.dataset.source || null);
     // the record opens in its OWN sheet, beside the window — the Library is not a book reader
     case 'fx-record': return openRecord(b.dataset.uuid, b.dataset.name);
     default: return undefined;
   }
+}
+
+/** the tab's own search: the letters narrow its list, and that is all they do */
+export function onFxInput(app, el, field) {
+  if (field !== 'q') return undefined;
+  app.view.q = el.value;
+  if (!el.value.trim() && app.view.subject) { app.view.subject = null; app.view.fxSel = null; }
+  fxState(app).show = PAGE;
+  clearTimeout(app._qTimer);
+  app._qTimer = setTimeout(() => narrowList(app), 250);
+  return undefined;
+}
+
+/** Enter has nothing to submit: the list narrows as the box is typed in */
+export function onFxKey(app, ev, field) {
+  if (field === 'q' && ev.key === 'Enter') ev.preventDefault();
 }
