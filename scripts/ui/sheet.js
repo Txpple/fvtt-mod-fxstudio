@@ -987,8 +987,9 @@ export async function onSheetClick(app, b, act) {
       if (!x) return undefined;
       return previewFx(app, { id: 'preview', on: s.on, scenes: [clone(x.scene)] }, `scene ${i + 1}`);
     }
-    case 'sh-off': s.off = b.dataset.v === 'true'; break;
-    case 'sh-on': s.on = b.dataset.on; break;
+    // locked, the Moment and State pills are read: hovered for their words, pressed for nothing
+    case 'sh-off': if (!s.edit) return undefined; s.off = b.dataset.v === 'true'; break;
+    case 'sh-on': if (!s.edit) return undefined; s.on = b.dataset.on; break;
     case 'sh-like-hit': s.from = b.dataset.id; s.scenes = seedFrom(b.dataset.id); s.pick = 0; break;
     case 'cw-add-ask': askShape().then((shape) => { if (shape && app.sheet === s) { addScene(app, shape); app.render(); } }); return undefined;
     case 'cw-add': addScene(app, b.dataset.shape); break;
