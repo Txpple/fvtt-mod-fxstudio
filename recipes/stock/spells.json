@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 383
+  "fx": 386
  },
  "fx": [
   {
@@ -14240,6 +14240,90 @@
       "level": 999,
       "absolute": false
      }
+    }
+   ]
+  },
+  {
+   "id": "detect-magic",
+   "for": [
+    "spell:detect-magic"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDetectMagi",
+    "name": "Detect Magic",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "size": {
+      "radius": 6
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.blue"
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "detect-evil-and-good",
+   "for": [
+    "spell:detect-evil-and-good"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDetectEvil",
+    "name": "Detect Evil and Good",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "size": {
+      "radius": 6
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.yellow"
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "detect-poison-and-disease",
+   "for": [
+    "spell:detect-poison-and-disease"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDetectPois",
+    "name": "Detect Poison and Disease",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "size": {
+      "radius": 6
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.green"
+     },
+     "below": true
     }
    ]
   }
