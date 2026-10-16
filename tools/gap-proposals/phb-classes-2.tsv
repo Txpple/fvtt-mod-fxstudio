@@ -131,7 +131,6 @@ feature:fey-wanderer-spells	No proposed FX				A spell list — each spell has it
 feature:fiend	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:fiend-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:fiendish-resilience	No proposed FX				A resistance chosen on a rest — the resistance effects each have a proposal.
-feature:fiendish-vigor	Close match	effect:courageous	jb2a.energy_field.02.below.purple	psfx.conditions.boon.001.01	Fiendish Vigor: False Life at will.	Likely	Likely	0
 feature:fighter	No proposed FX				A class name, not an ability — nothing to play.
 feature:fighting-style	No proposed FX				A style chosen at first level — no moment to play.
 feature:flurry-of-healing-and-harm	No proposed FX				A passive benefit — no moment to play.			

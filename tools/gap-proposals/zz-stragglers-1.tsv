@@ -25,8 +25,3 @@ effect:heavenly-wings	Close match	feature:celestial-revelation	jb2a.condition.bo
 natural:swarming-bites	Close match	natural:bite	jb2a.bite.200px.purple	psfx.impacts.slashing.v1	The swarm bites, and the magic goes out of an item.	Likely	Likely	0
 natural:swipe	Close match	natural:claw	jb2a.claws.200px.brown	psfx.creature.dragons.attacks.rend.cold	A heavy swipe that knocks the target down.	Sure	Likely	0
 item:ball-bearings	No proposed FX				Neither library has anything that reads as spilled ball bearings.
-item:acorn-with-squirrel-spit	No proposed FX				Junk loot — no moment to play.
-item:chart-of-the-four-chambers	No proposed FX				Junk loot — no moment to play.
-item:volos-guide-annotated	No proposed FX				Junk loot — no moment to play.
-item:feather	No proposed FX				An item with no record behind it — no moment to play.
-effect:dead	No proposed FX				A status with no record behind it; a death is not ours to dress.
