@@ -231,11 +231,12 @@ export async function leaveSheet(app) {
   return !!ok;
 }
 
-const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; return s.subject?.name ?? (k ? nameForKey(k) : s.id ? idWords(s.id) : 'New FX'); };
+/** what the sheet is called: its subject's name; an event FX by its own id (Summon Appears), since no record or item names an event */
+const sheetName = (app) => { const s = app.sheet; const k = s.keys[0]; if (kindOf(k) === 'event' && s.id) return idWords(s.id); return s.subject?.name ?? (k ? nameForKey(k) : s.id ? idWords(s.id) : 'New FX'); };
 
 /**
- * The open sheet read again from the file, keeping its place (its tab, where it came from, the scene
- * and the groups it had open): after a Delete, an Import or a save made elsewhere. False when the FX
+ * The open sheet read again from the file, keeping its place (its tab, where it came from, the scene,
+ * the groups it had open, locked or not): after a Delete, an Import or a save made elsewhere. False when the FX
  * is gone: the sheet closes, and the Editor tab goes back to where the sheet came from.
  */
 export function reloadSheet(app) {
@@ -243,7 +244,7 @@ export function reloadSheet(app) {
   if (!s?.id) return false;
   const tab = app.view.tab;
   if (!api().fx.get(s.id)) { app.sheet = null; if (tab === 'editor') app.view.tab = s.cameFrom ?? 'fx'; return false; }
-  openSheet(app, { id: s.id, subject: s.subject });
+  openSheet(app, { id: s.id, subject: s.subject, edit: s.edit });
   Object.assign(app.sheet, { cameFrom: s.cameFrom, pick: s.pick, open: s.open, sentenceOpen: s.sentenceOpen });
   app.view.tab = tab;
   return true;

@@ -55,9 +55,10 @@ export function openDrawer(app, i, slot) {
 function hits(app, d) {
   const lib = d.slot === 'sound' ? 'psfx' : 'jb2a';
   const all = shelf(app)[lib] ?? [];
-  const q = d.q.trim().toLowerCase();
+  const flat = (t) => String(t).toLowerCase().replace(/[._-]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const q = flat(d.q);
   if (!q) return all.slice(0, 40);
-  const byName = all.filter((it) => it.name.toLowerCase().includes(q) || it.id.toLowerCase().includes(q.replace(/\s+/g, '_')));
+  const byName = all.filter((it) => flat(`${it.id} ${it.group} ${it.name}`).includes(q));
   const ids = new Set(byName.map((it) => it.id.toLowerCase()));
   const byPath = [];
   for (const h of api().assets.search(q, { roots: [lib], limit: 60 })) {
