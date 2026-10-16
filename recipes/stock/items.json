@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 29
+  "fx": 31
  },
  "fx": [
   {
@@ -1086,6 +1086,72 @@
       "fit": "object",
       "scale": 1.25
      },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "flute",
+   "for": [
+    "item:flute"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusFlute00000",
+    "name": "Flute",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.green"
+     },
+     "size": {
+      "tokenWidths": 1.25
+     },
+     "repeat": 3,
+     "every": 600,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "lute",
+   "for": [
+    "item:lute"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusLute000000",
+    "name": "Lute",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.music_notations.quaver.orange"
+     },
+     "size": {
+      "tokenWidths": 1.25
+     },
+     "repeat": 3,
+     "every": 600,
      "elevation": {
       "level": 999,
       "absolute": false
