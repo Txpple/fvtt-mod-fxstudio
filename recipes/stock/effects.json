@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 151
+  "fx": 176
  },
  "fx": [
   {
@@ -4139,6 +4139,635 @@
       "asset": "psfx.impacts.magicaleffects.necrotic"
      },
      "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-actions",
+   "for": [
+    "effect:cursed-actions"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.018.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-attacks",
+   "for": [
+    "effect:cursed-attacks"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.010.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-charisma",
+   "for": [
+    "effect:cursed-charisma"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.019.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-constitution",
+   "for": [
+    "effect:cursed-constitution"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.022.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-dexterity",
+   "for": [
+    "effect:cursed-dexterity"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.023.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-intelligence",
+   "for": [
+    "effect:cursed-intelligence"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.024.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-resilience",
+   "for": [
+    "effect:cursed-resilience"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.012.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-strength",
+   "for": [
+    "effect:cursed-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.005.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cursed-wisdom",
+   "for": [
+    "effect:cursed-wisdom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBestowCurs",
+    "name": "Bestow Curse",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.020.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "hexed-charisma",
+   "for": [
+    "effect:hexed-charisma"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "hexed-constitution",
+   "for": [
+    "effect:hexed-constitution"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.purple.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "hexed-dexterity",
+   "for": [
+    "effect:hexed-dexterity"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.purple.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "hexed-intelligence",
+   "for": [
+    "effect:hexed-intelligence"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_red.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "hexed-strength",
+   "for": [
+    "effect:hexed-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_red.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "hexed-wisdom",
+   "for": [
+    "effect:hexed-wisdom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHex0000000",
+    "name": "Hex",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_green.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "infected-charisma",
+   "for": [
+    "effect:infected-charisma"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "infected-constitution",
+   "for": [
+    "effect:infected-constitution"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "infected-dexterity",
+   "for": [
+    "effect:infected-dexterity"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "infected-intelligence",
+   "for": [
+    "effect:infected-intelligence"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "infected-strength",
+   "for": [
+    "effect:infected-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.purple.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "infected-wisdom",
+   "for": [
+    "effect:infected-wisdom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContagion0",
+    "name": "Contagion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.purple.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "resurrection-sickness-day-1",
+   "for": [
+    "effect:resurrection-sickness-day-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRaiseDead0",
+    "name": "Raise Dead",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "resurrection-sickness-day-2",
+   "for": [
+    "effect:resurrection-sickness-day-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRaiseDead0",
+    "name": "Raise Dead",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_green.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "resurrection-sickness-day-3",
+   "for": [
+    "effect:resurrection-sickness-day-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRaiseDead0",
+    "name": "Raise Dead",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_green.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "resurrection-sickness-day-4",
+   "for": [
+    "effect:resurrection-sickness-day-4"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRaiseDead0",
+    "name": "Raise Dead",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_green.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
     }
    ]
   }
