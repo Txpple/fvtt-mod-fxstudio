@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 395
+  "fx": 398
  },
  "fx": [
   {
@@ -14585,6 +14585,156 @@
      "size": {
       "tokenWidths": 2.25
      }
+    }
+   ]
+  },
+  {
+   "id": "mass-suggestion",
+   "for": [
+    "spell:mass-suggestion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMassSugges",
+    "name": "Mass Suggestion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.enchantment.complete.pink"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.purplepink"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "true-polymorph",
+   "for": [
+    "spell:true-polymorph"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTruePolymo",
+    "name": "True Polymorph",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.transmutation.complete"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.markers.02.yellow"
+     },
+     "repeat": 7,
+     "every": 1400
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.transmutation.complete.yellow"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "true-resurrection",
+   "for": [
+    "spell:true-resurrection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTrueResurr",
+    "name": "True Resurrection",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.necromancy.complete.green"
+     },
+     "below": true
+    },
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.light.loop.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.dancing-lights.v1.001",
+      "delay": 3400
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.sacred_flame.target.green",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.cantrips.sacred-flame.v1.001.target",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
     }
    ]
   }
