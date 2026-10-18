@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 232
+  "fx": 246
  },
  "fx": [
   {
@@ -6222,6 +6222,399 @@
      "opacity": 0.6,
      "size": {
       "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "bludgeoning-protection",
+   "for": [
+    "effect:bludgeoning-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
+    "name": "Resistance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.loop.01.white"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "piercing-protection",
+   "for": [
+    "effect:piercing-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
+    "name": "Resistance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.loop.02.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "slashing-protection",
+   "for": [
+    "effect:slashing-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
+    "name": "Resistance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.loop.01.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "necrotic-protection",
+   "for": [
+    "effect:necrotic-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
+    "name": "Resistance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shield.02.loop.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "radiant-protection",
+   "for": [
+    "effect:radiant-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
+    "name": "Resistance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shield.03.loop.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "protection-from-death",
+   "for": [
+    "effect:protection-from-death"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDeathWard0",
+    "name": "Death Ward",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.bless.200px.loop.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "persist": "effect",
+     "opacity": 0.75,
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "holy-protection",
+   "for": [
+    "effect:holy-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHolyAura00",
+    "name": "Holy Aura",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.bless.400px.loop.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "persist": "effect",
+     "opacity": 0.75,
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "contingency-spell",
+   "for": [
+    "effect:contingency-spell"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplContingenc",
+    "name": "Contingency",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.02.loop.06.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75,
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "mind-blanked",
+   "for": [
+    "effect:mind-blanked"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindBlank0",
+    "name": "Mind Blank",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes02.white.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "wreathed-in-light",
+   "for": [
+    "effect:wreathed-in-light"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFountofMoo",
+    "name": "Fount of Moonlight",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.bless.200px.loop.blue"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.moonbeam.intro.v1.001"
+     },
+     "persist": "effect",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "aura-of-life-effect",
+   "for": [
+    "effect:aura-of-life"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofLife",
+    "name": "Aura of Life",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "aura",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.template_circle.aura.01.loop.large.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "size": {
+      "radius": 6
+     },
+     "opacity": 0.6,
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "aura-of-purity-effect",
+   "for": [
+    "effect:aura-of-purity"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofPuri",
+    "name": "Aura of Purity",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "aura",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.template_circle.aura.01.loop.large.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "size": {
+      "radius": 6
+     },
+     "opacity": 0.6,
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "crusaders-mantle-effect",
+   "for": [
+    "effect:crusaders-mantle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCrusadersM",
+    "name": "Crusader's Mantle",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "aura",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.template_circle.aura.02.loop.large.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "size": {
+      "radius": 6
+     },
+     "opacity": 0.6,
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "booming-voice",
+   "for": [
+    "effect:booming-voice"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplThaumaturg",
+    "name": "Thaumaturgy",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "aura",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.soundwave.01.orangeyellow"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1"
+     },
+     "size": {
+      "radius": 2
+     },
+     "opacity": 0.2,
+     "elevation": {
+      "level": 999,
+      "absolute": false
      }
     }
    ]
