@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 246
+  "fx": 268
  },
  "fx": [
   {
@@ -6615,6 +6615,586 @@
      "elevation": {
       "level": 999,
       "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "elemental-acid-1",
+   "for": [
+    "effect:elemental-acid-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-acid-2",
+   "for": [
+    "effect:elemental-acid-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes02.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-acid-3",
+   "for": [
+    "effect:elemental-acid-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-cold-1",
+   "for": [
+    "effect:elemental-cold-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.blue.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-cold-2",
+   "for": [
+    "effect:elemental-cold-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes02.blue.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-cold-3",
+   "for": [
+    "effect:elemental-cold-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.blue.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-fire-1",
+   "for": [
+    "effect:elemental-fire-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.red.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-fire-2",
+   "for": [
+    "effect:elemental-fire-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes02.red.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-fire-3",
+   "for": [
+    "effect:elemental-fire-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.red.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-lightning-1",
+   "for": [
+    "effect:elemental-lightning-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.yellow.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-lightning-2",
+   "for": [
+    "effect:elemental-lightning-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes02.yellow.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-lightning-3",
+   "for": [
+    "effect:elemental-lightning-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.yellow.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-thunder-1",
+   "for": [
+    "effect:elemental-thunder-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.orange.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-thunder-2",
+   "for": [
+    "effect:elemental-thunder-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes02.orange.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elemental-thunder-3",
+   "for": [
+    "effect:elemental-thunder-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplElementalW",
+    "name": "Elemental Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.orange.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "magic-weapon-1",
+   "for": [
+    "effect:magic-weapon-1"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicWeapo",
+    "name": "Magic Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.glint.blue.few"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "magic-weapon-2",
+   "for": [
+    "effect:magic-weapon-2"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicWeapo",
+    "name": "Magic Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.glint.yellow.few"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "magic-weapon-3",
+   "for": [
+    "effect:magic-weapon-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicWeapo",
+    "name": "Magic Weapon",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.glint.yellow.many"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "hunters-mark-effect",
+   "for": [
+    "effect:hunters-mark"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHuntersMar",
+    "name": "Hunter's Mark",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.hunters_mark.loop.01.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.loop"
+     },
+     "persist": "effect",
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "true-strike-effect",
+   "for": [
+    "effect:true-strike"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTrueStrike",
+    "name": "True Strike",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.hunters_mark.pulse.04.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "shocked",
+   "for": [
+    "effect:shocked"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShockingGr",
+    "name": "Shocking Grasp",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.static_electricity.02.blue02"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.shocking-grasp.v1.001"
+     },
+     "persist": "effect",
+     "mask": true,
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "sustained-lightning",
+   "for": [
+    "effect:sustained-lightning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWitchBolt0",
+    "name": "Witch Bolt",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.static_electricity.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01"
+     },
+     "persist": "effect",
+     "mask": true,
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
      }
     }
    ]
