@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 138
+  "fx": 151
  },
  "fx": [
   {
@@ -3794,6 +3794,351 @@
       "tokenWidths": 2.25
      },
      "below": true
+    }
+   ]
+  },
+  {
+   "id": "duplicate-a",
+   "for": [
+    "effect:duplicate-a"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMirrorImag",
+    "name": "Mirror Image",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shimmer.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5,
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "duplicate-b",
+   "for": [
+    "effect:duplicate-b"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMirrorImag",
+    "name": "Mirror Image",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shimmer.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5,
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "duplicate-c",
+   "for": [
+    "effect:duplicate-c"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMirrorImag",
+    "name": "Mirror Image",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shimmer.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5,
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "blurred",
+   "for": [
+    "effect:blurred"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlur000000",
+    "name": "Blur",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "invisible",
+   "for": [
+    "effect:invisible"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGreaterInv",
+    "name": "Greater Invisibility",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "etherealness-effect",
+   "for": [
+    "effect:etherealness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEtherealne",
+    "name": "Etherealness",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "hidden-from-divination",
+   "for": [
+    "effect:hidden-from-divination"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplNondetecti",
+    "name": "Nondetection",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "concealed",
+   "for": [
+    "effect:concealed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPasswithou",
+    "name": "Pass without Trace",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "masked",
+   "for": [
+    "effect:masked"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplNystulsMag",
+    "name": "Nystul's Magic Aura",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shimmer.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5,
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "sequestered",
+   "for": [
+    "effect:sequestered"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSequester0",
+    "name": "Sequester",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "cataleptic",
+   "for": [
+    "effect:cataleptic"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFeignDeath",
+    "name": "Feign Death",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sleep.target.green"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.sleep.v1.001"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "catatonic",
+   "for": [
+    "effect:catatonic"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicJar00",
+    "name": "Magic Jar",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sleep.target.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "trapped-soul",
+   "for": [
+    "effect:trapped-soul"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMagicJar00",
+    "name": "Magic Jar",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.purple.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
     }
    ]
   }
