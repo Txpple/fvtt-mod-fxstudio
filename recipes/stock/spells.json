@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 411
+  "fx": 416
  },
  "fx": [
   {
@@ -15099,6 +15099,141 @@
      "size": {
       "tokenWidths": 1.875
      }
+    }
+   ]
+  },
+  {
+   "id": "insect-plague",
+   "for": [
+    "spell:insect-plague"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplInsectPlag",
+    "name": "Insect Plague",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.ambient_fog.001.complete.large.greenyellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.dissonant-whispers.v1.002"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "jallarzis-storm-of-radiance",
+   "for": [
+    "spell:jallarzis-storm-of-radiance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplJallarzisS",
+    "name": "Jallarzi's Storm of Radiance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.01.burst.yellowwhite"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1"
+     },
+     "at": "source",
+     "size": {
+      "radius": 2,
+      "plusToken": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "yolandes-regal-presence",
+   "for": [
+    "spell:yolandes-regal-presence"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplYolandesRe",
+    "name": "Yolande's Regal Presence",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.purplepink"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.complete"
+     },
+     "at": "source",
+     "size": {
+      "radius": 2,
+      "plusToken": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "conjure-woodland-beings",
+   "for": [
+    "spell:conjure-woodland-beings"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureWoo",
+    "name": "Conjure Woodland Beings",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.fairies.loop.01.greenyellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "at": "source",
+     "size": {
+      "radius": 2,
+      "plusToken": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "conjure-minor-elementals",
+   "for": [
+    "spell:conjure-minor-elementals"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplConjureMin",
+    "name": "Conjure Minor Elementals",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.red"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "at": "source"
     }
    ]
   }
