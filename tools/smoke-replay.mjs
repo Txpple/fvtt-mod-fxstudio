@@ -31,9 +31,10 @@ const SECTIONS = {
   15: 'the hold: a gate holds a moment — nothing plays while the hold stands, it plays when the hold lifts, a hold that lifts on nothing plays nothing, and with no gate the same cast plays straight away',
   16: "By the Books' moments: a `sneak` payload on bythebooks.moment plays Sneak Attack's use look on the dice (the fallback), a moment with no look plays nothing and names its event key, an unknown word is skipped without an error, hold-answered never falls back, and one payload under both hook names (3.0's double emit) plays once",
   17: "the party's content (DESIGN §28.7): Wrathful, Searing and Thunderous Smite land the smite on the target from their damage rolls, each in its own colour; Shield of Faith marks the target with the gold shield from its card",
+  18: "the second batch (DESIGN §28.7, the PHB's spells): Blinding Smite from its damage roll, Heal from its healing roll on the target, Blur at the caster from its card, Mass Suggestion on the aimed target from its card (a save with no damage plays on the card), Wall of Ice filling its placed template and ending with it, a Guidance effect holding its light on the token until deleted",
 };
 const DEPENDS = {};
-const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack', 'Wrathful Smite', 'Searing Smite', 'Thunderous Smite', 'Shield of Faith'];
+const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack', 'Wrathful Smite', 'Searing Smite', 'Thunderous Smite', 'Shield of Faith', 'Blinding Smite', 'Heal', 'Blur', 'Mass Suggestion', 'Wall of Ice', 'Guidance'];
 
 const { plan, pulled, watch } = sectionPlan(SECTIONS, DEPENDS);
 const { f, dispose } = await connectSandbox({ tag: 'replay', watchdogMs: 900_000 });
@@ -348,6 +349,39 @@ try {
         }
         const { e } = await useIt('Shield of Faith');
         ok('§17 Shield of Faith: the card marks the target with the gold shield', e?.fx === 'shield-of-faith' && e.played && named(e, 'jb2a.markers.shield.yellow.03') && e.targets?.[0]?.name === target.name, `${e?.fx} on ${e?.targets?.map((t) => t.name).join(', ')} ${files(e)}`);
+      }
+      if (want(18)) {
+        // the second batch, one FX of each moment it uses: a smite's damage roll, a heal's healing roll, a card at the caster, a card on the target, a template, an effect
+        await aim();
+        const smiteRoll = async (name) => { const a = activityOf(name, 'damage'); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'damage'); return { m, e: m ? ledgerFor(m.id) : null }; };
+        let { e } = await smiteRoll('Blinding Smite');
+        ok('§18 Blinding Smite: the damage roll lands the smite on the target in yellow and white', e?.fx === 'blinding-smite' && e.played && named(e, 'jb2a.divine_smite.target.yellowwhite') && e.targets?.[0]?.name === target.name, `${e?.fx} on ${e?.targets?.map((t) => t.name).join(', ')} ${files(e)}`);
+        ({ e } = await rollDamage('Heal'));
+        ok('§18 Heal: the healing roll bursts the light on the target', e?.fx === 'heal' && e.played && named(e, 'jb2a.healing_generic.burst') && e.targets?.[0]?.name === target.name, `${e?.fx} on ${e?.targets?.map((t) => t.name).join(', ')} ${files(e)}`);
+        ({ e } = await useIt('Mass Suggestion'));
+        ok('§18 Mass Suggestion: a save with no damage plays on the card, the circle on the aimed target', e?.fx === 'mass-suggestion' && e.played && named(e, 'jb2a.magic_signs.circle.02.enchantment.complete.pink') && e.targets?.[0]?.name === target.name, `${e?.fx} on ${e?.targets?.map((t) => t.name).join(', ')} ${files(e)}`);
+        await aim(false);
+        // Blur is a concentration spell and the caster still concentrates on §17's Shield of Faith: dnd5e refuses a second concentration cast with the dialog suppressed, so end it first
+        await caster.actor.endConcentration?.();
+        await sleep(400);
+        const blur = await useIt('Blur');
+        e = blur.e;
+        ok('§18 Blur: the card puffs the smoke at the caster', e?.fx === 'blur' && e.played && named(e, 'jb2a.smoke.puff.side.blue') && !e.targets?.length, `${blur.m ? `card ${blur.m.id} (${blur.m.type}, activity ${blur.m.system?.activity?.type})` : 'no usage card posted'} · ${e ? `${e.fx} ${e.why || ''} ${files(e)}` : `no ledger entry; last ledger rows: ${api.ledger.slice(-3).map((x) => `${x.id}:${x.fx}:${x.why || ''}`).join(' | ')}`}`);
+        const t = await placeTemplate('Wall of Ice', { t: 'circle', distance: 10, x: 1100, y: 500 });
+        ok('§18 Wall of Ice: the placed template fills with the ice spikes', t.e?.fx === 'wall-of-ice' && t.e.played && named(t.e, 'jb2a.ice_spikes.wall'), files(t.e));
+        const standing = Sequencer.EffectManager.getEffects({ origin: item('Wall of Ice')?.uuid }).length;
+        ok('§18 Wall of Ice: the spikes stand with the template', standing > 0, `${standing} effect(s)`);
+        await removeTemplate(t.region);
+        await sleep(800);
+        const left = Sequencer.EffectManager.getEffects({ origin: item('Wall of Ice')?.uuid }).length;
+        ok('§18 Wall of Ice: deleting the template ends them', left === 0, `${left} effect(s) left`);
+        const guidance = item('Guidance')?.effects.contents[0];
+        const [eff] = guidance ? await target.actor.createEmbeddedDocuments('ActiveEffect', [{ ...guidance.toObject(), origin: target.actor.uuid, disabled: false }]) : [null];
+        await sleep(1200 + watch);
+        e = eff ? ledgerFor(eff.id) : null;
+        ok(`§18 ${eff?.name ?? 'Guidance'}: the effect holds the steady blue light on the token`, !!eff && e?.fx?.endsWith('-guidance') && e.played && named(e, 'jb2a.markers.light.nopulse.blue') && effectsOn(target, eff.uuid).length > 0, `${e?.fx} ${e?.why || ''} ${files(e)} standing=${eff ? effectsOn(target, eff.uuid).length : 'no effect on the Guidance record'}`);
+        if (eff) { await eff.delete(); await sleep(700); }
+        ok('§18 the Guidance effect deleted: the light is gone', !eff || effectsOn(target, eff.uuid).length === 0, eff ? `${effectsOn(target, eff.uuid).length}` : 'skipped');
       }
     } finally {
       await setAC(startAC);
