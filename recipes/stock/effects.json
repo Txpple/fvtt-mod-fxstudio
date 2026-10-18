@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 268
+  "fx": 273
  },
  "fx": [
   {
@@ -7196,6 +7196,133 @@
      "size": {
       "tokenWidths": 1.875
      }
+    }
+   ]
+  },
+  {
+   "id": "bestial-communication",
+   "for": [
+    "effect:bestial-communication"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpeakwithA",
+    "name": "Speak with Animals",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.007.refraction"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "speaking-with-plants",
+   "for": [
+    "effect:speaking-with-plants"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpeakwithP",
+    "name": "Speak with Plants",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.swirling_leaves.loop.01.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "bonded-telepathy",
+   "for": [
+    "effect:bonded-telepathy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRarysTelep",
+    "name": "Rary's Telepathic Bond",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.blue.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "telepathically-linked",
+   "for": [
+    "effect:telepathically-linked"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTelepathy0",
+    "name": "Telepathy",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "flying-steed",
+   "for": [
+    "effect:flying-steed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFindSteed0",
+    "name": "Find Steed",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.wind_lines.01.01.white"
+     },
+     "sound": {
+      "asset": "psfx.creature.movement.flight.wings.small"
+     },
+     "persist": "effect",
+     "mask": true
     }
    ]
   }
