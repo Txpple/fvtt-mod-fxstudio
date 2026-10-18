@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 416
+  "fx": 423
  },
  "fx": [
   {
@@ -15234,6 +15234,195 @@
       "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
      },
      "at": "source"
+    }
+   ]
+  },
+  {
+   "id": "crown-of-madness",
+   "for": [
+    "spell:crown-of-madness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCrownofMad",
+    "name": "Crown of Madness",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.complete"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.enchantment.intro.red"
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "lesser-restoration",
+   "for": [
+    "spell:lesser-restoration"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLesserRest",
+    "name": "Lesser Restoration",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.condition.boon.02.006.refraction"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "protection-from-energy",
+   "for": [
+    "spell:protection-from-energy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbProtectionFro",
+    "name": "Protection from Energy",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.energy_field.01.multicolored"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "resistance",
+   "for": [
+    "spell:resistance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResistance",
+    "name": "Resistance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.shield.blue.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "size": {
+      "tokenWidths": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "nystuls-magic-aura",
+   "for": [
+    "spell:nystuls-magic-aura"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplNystulsMag",
+    "name": "Nystul's Magic Aura",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.glint.purple.few"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.intro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "locate-animals-or-plants",
+   "for": [
+    "spell:locate-animals-or-plants"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLocateAnim",
+    "name": "Locate Animals or Plants",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.detect_magic.circle.green"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "locate-object",
+   "for": [
+    "spell:locate-object"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplLocateObje",
+    "name": "Locate Object",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.detect_magic.circle.grey"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "below": true
     }
    ]
   }
