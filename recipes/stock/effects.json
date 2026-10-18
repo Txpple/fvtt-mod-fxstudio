@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 106
+  "fx": 123
  },
  "fx": [
   {
@@ -2926,6 +2926,457 @@
      },
      "persist": "effect",
      "opacity": 0.6
+    }
+   ]
+  },
+  {
+   "id": "level-2-5-max-hp",
+   "for": [
+    "effect:level-2-5-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-3-10-max-hp",
+   "for": [
+    "effect:level-3-10-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-4-15-max-hp",
+   "for": [
+    "effect:level-4-15-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-5-20-max-hp",
+   "for": [
+    "effect:level-5-20-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-6-25-max-hp",
+   "for": [
+    "effect:level-6-25-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-7-30-max-hp",
+   "for": [
+    "effect:level-7-30-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-8-35-max-hp",
+   "for": [
+    "effect:level-8-35-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "level-9-40-max-hp",
+   "for": [
+    "effect:level-9-40-max-hp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAid0000000",
+    "name": "Aid",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "stabilized",
+   "for": [
+    "effect:stabilized"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSparetheDy",
+    "name": "Spare the Dying",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.yellow"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "feasts-benefits",
+   "for": [
+    "effect:feasts-benefits"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeroesFeas",
+    "name": "Heroes' Feast",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.008.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.002.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "bravery",
+   "for": [
+    "effect:bravery"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeroism000",
+    "name": "Heroism",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.002.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "hopeful",
+   "for": [
+    "effect:hopeful"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBeaconofHo",
+    "name": "Beacon of Hope",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.003.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.003.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "enhanced-charisma",
+   "for": [
+    "effect:enhanced-charisma"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
+    "name": "Enhance Ability",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.014.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "enhanced-dexterity",
+   "for": [
+    "effect:enhanced-dexterity"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
+    "name": "Enhance Ability",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.015.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "enhanced-intelligence",
+   "for": [
+    "effect:enhanced-intelligence"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
+    "name": "Enhance Ability",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.021.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "enhanced-strength",
+   "for": [
+    "effect:enhanced-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
+    "name": "Enhance Ability",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.004.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "enhanced-wisdom",
+   "for": [
+    "effect:enhanced-wisdom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnhanceAbi",
+    "name": "Enhance Ability",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.boon.02.013.refraction"
+     },
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01"
+     },
+     "persist": "effect",
+     "opacity": 0.5
     }
    ]
   }
