@@ -59,6 +59,7 @@
    "scenes": [
     {
      "shape": "shoot",
+     "to": "template",
      "asset": {
       "path": "jb2a.throwable.throw.bomb.01.black"
      },
@@ -68,12 +69,13 @@
     },
     {
      "shape": "mark",
-     "at": "impact",
+     "at": "template",
      "asset": {
       "path": "jb2a.explosion.orange"
      },
      "size": {
-      "radius": 1.5
+      "fit": "object",
+      "scale": 1.25
      },
      "elevation": {
       "level": 999,
