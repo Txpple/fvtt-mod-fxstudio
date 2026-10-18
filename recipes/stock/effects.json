@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 123
+  "fx": 138
  },
  "fx": [
   {
@@ -3377,6 +3377,423 @@
      },
      "persist": "effect",
      "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "shillelagh-1d8",
+   "for": [
+    "effect:shillelagh-1d8"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShillelagh",
+    "name": "Shillelagh",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.swirling_leaves.outburst.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "shillelagh-1d10",
+   "for": [
+    "effect:shillelagh-1d10"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShillelagh",
+    "name": "Shillelagh",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.swirling_leaves.outburst.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "shillelagh-1d12",
+   "for": [
+    "effect:shillelagh-1d12"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShillelagh",
+    "name": "Shillelagh",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.swirling_leaves.outburst.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "shillelagh-2d6",
+   "for": [
+    "effect:shillelagh-2d6"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShillelagh",
+    "name": "Shillelagh",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.swirling_leaves.outburst.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "altered-appearance",
+   "for": [
+    "effect:altered-appearance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAlterSelf0",
+    "name": "Alter Self",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.transmutation.intro.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "aquatic-adaptation",
+   "for": [
+    "effect:aquatic-adaptation"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAlterSelf0",
+    "name": "Alter Self",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.bubble.002.001.loop.blueteal"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "persist": "effect",
+     "mask": true,
+     "opacity": 0.7
+    }
+   ]
+  },
+  {
+   "id": "enlarged",
+   "for": [
+    "effect:enlarged"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnlargeRed",
+    "name": "Enlarge/Reduce",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.particles.outward.orange.02.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "reduced",
+   "for": [
+    "effect:reduced"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnlargeRed",
+    "name": "Enlarge/Reduce",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.particles.inward.blue.01.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "changed-appearance",
+   "for": [
+    "effect:changed-appearance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSeeming000",
+    "name": "Seeming",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "disguised",
+   "for": [
+    "effect:disguised"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDisguiseSe",
+    "name": "Disguise Self",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "darkvision-effect",
+   "for": [
+    "effect:darkvision"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDarkvision",
+    "name": "Darkvision",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.eyes.01.dark_green.single"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75,
+     "size": {
+      "tokenWidths": 1.125
+     }
+    }
+   ]
+  },
+  {
+   "id": "see-invisibility-effect",
+   "for": [
+    "effect:see-invisibility"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSeeInvisib",
+    "name": "See Invisibility",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.eyes.01.bluegreen.single"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "persist": "effect",
+     "opacity": 0.75,
+     "size": {
+      "tokenWidths": 1.125
+     }
+    }
+   ]
+  },
+  {
+   "id": "truesight",
+   "for": [
+    "effect:truesight"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplTrueSeeing",
+    "name": "True Seeing",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.eyes.01.dark_yellow.single"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "persist": "effect",
+     "opacity": 0.75,
+     "size": {
+      "tokenWidths": 1.125
+     }
+    }
+   ]
+  },
+  {
+   "id": "spider-climb-effect",
+   "for": [
+    "effect:spider-climb"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpiderClim",
+    "name": "Spider Climb",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.web.loop.002.white"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "mask": true,
+     "opacity": 0.7
+    }
+   ]
+  },
+  {
+   "id": "water-walking",
+   "for": [
+    "effect:water-walking"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWaterWalk0",
+    "name": "Water Walk",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact.water.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "below": true
     }
    ]
   }
