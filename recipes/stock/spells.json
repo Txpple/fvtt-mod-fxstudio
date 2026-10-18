@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 405
+  "fx": 411
  },
  "fx": [
   {
@@ -14923,6 +14923,179 @@
      "sound": {
       "asset": "psfx.casting.earth.001"
      },
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "aura-of-life",
+   "for": [
+    "spell:aura-of-life"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofLife",
+    "name": "Aura of Life",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.aura.01.complete.large.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "radius": 6,
+      "plusToken": true
+     },
+     "below": true,
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "aura-of-purity",
+   "for": [
+    "spell:aura-of-purity"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofPuri",
+    "name": "Aura of Purity",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.aura.01.complete.large.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "radius": 6,
+      "plusToken": true
+     },
+     "below": true,
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "crusaders-mantle",
+   "for": [
+    "spell:crusaders-mantle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCrusadersM",
+    "name": "Crusader's Mantle",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.aura.02.complete.large.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "at": "source",
+     "size": {
+      "radius": 6,
+      "plusToken": true
+     },
+     "below": true,
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "holy-aura",
+   "for": [
+    "spell:holy-aura"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHolyAura00",
+    "name": "Holy Aura",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.bless.400px.intro.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "spirit-guardians",
+   "for": [
+    "spell:spirit-guardians"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpiritGuar",
+    "name": "Spirit Guardians",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.spirit_guardians.blue.spirits"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.loop"
+     },
+     "at": "source",
+     "size": {
+      "radius": 3,
+      "plusToken": true
+     },
+     "opacity": 0.85
+    }
+   ]
+  },
+  {
+   "id": "fount-of-moonlight",
+   "for": [
+    "spell:fount-of-moonlight"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFountofMoo",
+    "name": "Fount of Moonlight",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.moonbeam.01.intro.blue"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.moonbeam.intro.v1.001"
+     },
+     "at": "source",
      "size": {
       "tokenWidths": 1.875
      }
