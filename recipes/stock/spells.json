@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 426
+  "fx": 427
  },
  "fx": [
   {
@@ -15501,6 +15501,77 @@
      },
      "size": {
       "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "steel-wind-strike",
+   "for": [
+    "spell:steel-wind-strike"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSteelWindS",
+    "name": "Steel Wind Strike",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "from": "source",
+     "to": "each-target",
+     "asset": {
+      "path": "jb2a.ranged_slash.instant.001.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     },
+     "wait": 400
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.misty_step.01.blue"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.misty_step.02.blue"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "fadeOut": 250,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "after": 1000,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
      }
     }
    ]
