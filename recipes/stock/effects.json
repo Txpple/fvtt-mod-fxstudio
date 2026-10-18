@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 218
+  "fx": 232
  },
  "fx": [
   {
@@ -5837,6 +5837,389 @@
       "asset": "psfx.cantrips.toll-the-dead.ominous-bell.001"
      },
      "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "chaining",
+   "for": [
+    "effect:chaining"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplImprisonme",
+    "name": "Imprisonment",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.chain.standard.complete.02.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "arguing",
+   "for": [
+    "effect:arguing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSymbol0000",
+    "name": "Symbol",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "no-movement",
+   "for": [
+    "effect:no-movement"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPowerWordS",
+    "name": "Power Word Stun",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.chain.standard.loop.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "unable-to-move",
+   "for": [
+    "effect:unable-to-move"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFleshtoSto",
+    "name": "Flesh to Stone",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.chain.square.loop.02.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "restrained-indigo",
+   "for": [
+    "effect:restrained-indigo"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticW",
+    "name": "Prismatic Wall",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "persist": "effect",
+     "size": {
+      "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "hedged-prison",
+   "for": [
+    "effect:hedged-prison"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplImprisonme",
+    "name": "Imprisonment",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.wall_of_force.sphere.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "persist": "effect",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "minimus-containment",
+   "for": [
+    "effect:minimus-containment"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplImprisonme",
+    "name": "Imprisonment",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.wall_of_force.sphere.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     },
+     "persist": "effect",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "burial",
+   "for": [
+    "effect:burial"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplImprisonme",
+    "name": "Imprisonment",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact.earth.01.browngreen"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "petrifying-indigo",
+   "for": [
+    "effect:petrifying-indigo"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticS",
+    "name": "Prismatic Spray",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact.earth.01.browngreen"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "turning-to-stone",
+   "for": [
+    "effect:turning-to-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFleshtoSto",
+    "name": "Flesh to Stone",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.ground_cracks.03.white"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "persist": "effect",
+     "below": true,
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "teleporting-violet",
+   "for": [
+    "effect:teleporting-violet"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticS",
+    "name": "Prismatic Spray",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.portals.vertical.vortex_masked.purple"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 2
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "no-reactions",
+   "for": [
+    "effect:no-reactions"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplArmsofHada",
+    "name": "Arms of Hadar",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.vine.loop.void.single.01.dark_pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true
+    }
+   ]
+  },
+  {
+   "id": "half-speed",
+   "for": [
+    "effect:half-speed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSpiritGuar",
+    "name": "Spirit Guardians",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.token_border.circle.static.purple.004"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "lethargy",
+   "for": [
+    "effect:lethargy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHaste00000",
+    "name": "Haste",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.token_border.circle.static.purple.004"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6,
      "size": {
       "tokenWidths": 1.875
      }
