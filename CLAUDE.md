@@ -23,8 +23,9 @@ Starter, Copy from and Blank, and Coverage is the gap tool's screen over a shipp
 `recipes/proposals.json` (`tools/proposals.mjs`; 1,345 proposed, 1,567 judged, 0 open, agreeing with
 `gaps.mjs` at 2,912 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
 party's nineteen keys and the PHB's 235 remaining spell proposals (39 spells, 195 of their effects, the Magical
-Berries; one gap left in the PHB spells, the Shield spell as ruled); the next patches (the fourteen Battle Master
-maneuvers, the QA four) wait on the user's word each; a popped-out window under a modal is untested. It reads By
+Berries; one gap left in the PHB spells, the Shield spell as ruled), and the QA four (Ice Knife, the Grenade
+Launcher, Dominate Mind, the Bomb) are re-authored at the templates their records place; the Battle Master
+maneuvers were ruled out of scope, so §28.7 is delivered. A popped-out window under a modal is untested. It reads By
 the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
 id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
 Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
