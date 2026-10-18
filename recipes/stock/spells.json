@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 388
+  "fx": 392
  },
  "fx": [
   {
@@ -14374,6 +14374,138 @@
      },
      "asset": {
       "path": "jb2a.magic_signs.circle.02.conjuration.intro.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "banishing-smite",
+   "for": [
+    "spell:banishing-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBanishingS",
+    "name": "Banishing Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.purplepink"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "blinding-smite",
+   "for": [
+    "spell:blinding-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlindingSm",
+    "name": "Blinding Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.yellowwhite"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "shining-smite",
+   "for": [
+    "spell:shining-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplShiningSmi",
+    "name": "Shining Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.greenyellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "staggering-smite",
+   "for": [
+    "spell:staggering-smite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStaggering",
+    "name": "Staggering Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.divine_smite.target.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
      }
     }
    ]
