@@ -2154,6 +2154,10 @@ battleaxe); then the PHB's remaining spell proposals, the seven Sure/Sure first;
 Battle Master maneuvers, so `maneuver` has something to play; then the QA four re-authored as template
 fills. Each a patch on the user's word.
 
+**The maneuvers are out (the user, 2026-10-18: "skip the maneuvers, that is out of scope").** The order is
+the party's keys, the PHB's spell proposals, then the QA four; `maneuver` keeps playing the ability's `use`
+look, as the fallback says.
+
 ### 28.8 `spell:shield` keeps its behaviour
 
 The Shield spell plays nothing and the Shield effect plays the barrier, as `smoke-boot` and
