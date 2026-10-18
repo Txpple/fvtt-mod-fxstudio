@@ -2191,18 +2191,20 @@
    "scenes": [
     {
      "shape": "shoot",
+     "to": "template",
      "asset": {
       "path": "jb2a.throwable.launch.grenade.01.green"
      }
     },
     {
      "shape": "mark",
-     "at": "impact",
+     "at": "template",
      "asset": {
       "path": "jb2a.explosion.01.yellow"
      },
      "size": {
-      "radius": 1.5
+      "fit": "object",
+      "scale": 1.25
      },
      "elevation": {
       "level": 999,
