@@ -1023,6 +1023,7 @@
    "scenes": [
     {
      "shape": "shoot",
+     "to": "template",
      "asset": {
       "path": "jb2a.spell_projectile.ice_shard.blue"
      },
@@ -1033,7 +1034,7 @@
     },
     {
      "shape": "mark",
-     "at": "impact",
+     "at": "template",
      "asset": {
       "path": "jb2a.impact.frost.blue.01"
      },
@@ -1041,6 +1042,10 @@
       "asset": "psfx.impacts.magicaleffects.cold",
       "volume": 1,
       "delay": 1000
+     },
+     "size": {
+      "fit": "object",
+      "scale": 1
      },
      "opacity": 0.25,
      "rate": 2,
