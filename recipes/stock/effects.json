@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 176
+  "fx": 218
  },
  "fx": [
   {
@@ -4768,6 +4768,1078 @@
      },
      "persist": "effect",
      "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "fear-effect",
+   "for": [
+    "effect:fear"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFear000000",
+    "name": "Fear",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_purple.02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "panicked",
+   "for": [
+    "effect:panicked"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEyebite000",
+    "name": "Eyebite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_red.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "antipathy",
+   "for": [
+    "effect:antipathy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntipathyS",
+    "name": "Antipathy/Sympathy",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_purple.02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "fears-manifested",
+   "for": [
+    "effect:fears-manifested"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPhantasmal",
+    "name": "Phantasmal Killer",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.horror.purple.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "frightening-terrors",
+   "for": [
+    "effect:frightening-terrors"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWeird00000",
+    "name": "Weird",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.horror.dark_teal.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "asleep",
+   "for": [
+    "effect:asleep"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEyebite000",
+    "name": "Eyebite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sleep.target.dark_orangepurple"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.sleep.v1.001"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "slumber",
+   "for": [
+    "effect:slumber"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplImprisonme",
+    "name": "Imprisonment",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.sleep.target.pink"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.sleep.v1.001"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "deafened",
+   "for": [
+    "effect:deafened"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
+    "name": "Divine Word",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.icon.mute.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "deafness",
+   "for": [
+    "effect:deafness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlindnessD",
+    "name": "Blindness/Deafness",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.icon.mute.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "silenced",
+   "for": [
+    "effect:silenced"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSilence000",
+    "name": "Silence",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.icon.mute.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "blindness",
+   "for": [
+    "effect:blindness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlindnessD",
+    "name": "Blindness/Deafness",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.020.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "blinded-deafened-stunned",
+   "for": [
+    "effect:blinded-deafened-stunned"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
+    "name": "Divine Word",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.icon.stun.dark_teal"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "blinded",
+   "for": [
+    "effect:blinded"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlindingSm",
+    "name": "Blinding Smite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.light.outro.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "blinded-deafened",
+   "for": [
+    "effect:blinded-deafened"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
+    "name": "Divine Word",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact.sound.01.pinkteal"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "blinded-violet",
+   "for": [
+    "effect:blinded-violet"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticW",
+    "name": "Prismatic Wall",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.light.outro.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "prismatic-blinding",
+   "for": [
+    "effect:prismatic-blinding"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPrismaticW",
+    "name": "Prismatic Wall",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.light.outro.purple02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "senses-overwhelmed",
+   "for": [
+    "effect:senses-overwhelmed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplJallarzisS",
+    "name": "Jallarzi's Storm of Radiance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.light.outro.yellow"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "poisoned",
+   "for": [
+    "effect:poisoned"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofSickn",
+    "name": "Ray of Sickness",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.02"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "sickened",
+   "for": [
+    "effect:sickened"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEyebite000",
+    "name": "Eyebite",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "stinking-poison",
+   "for": [
+    "effect:stinking-poison"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStinkingCl",
+    "name": "Stinking Cloud",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.smoke.plumes.01.yellow"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "persist": "effect",
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "blocked-healing",
+   "for": [
+    "effect:blocked-healing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplChillTouch",
+    "name": "Chill Touch",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_green.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "paralyzed",
+   "for": [
+    "effect:paralyzed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHoldMonste",
+    "name": "Hold Monster",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.004.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "incapacitated",
+   "for": [
+    "effect:incapacitated"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSymbol0000",
+    "name": "Symbol",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.dizzy_stars.400px.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "befuddled",
+   "for": [
+    "effect:befuddled"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBefuddleme",
+    "name": "Befuddlement",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.024.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "distracted",
+   "for": [
+    "effect:distracted"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplEnthrall00",
+    "name": "Enthrall",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.dizzy_stars.200px.pink"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "slivered",
+   "for": [
+    "effect:slivered"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindSliver",
+    "name": "Mind Sliver",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.dizzy_stars.200px.purple"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.mind-sliver.v1"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "spiked",
+   "for": [
+    "effect:spiked"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMindSpike0",
+    "name": "Mind Spike",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.024.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "brief-enfeeblement",
+   "for": [
+    "effect:brief-enfeeblement"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofEnfee",
+    "name": "Ray of Enfeeblement",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.010.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "enervated",
+   "for": [
+    "effect:enervated"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplRayofEnfee",
+    "name": "Ray of Enfeeblement",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.010.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "spell-taxed",
+   "for": [
+    "effect:spell-taxed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplResurrecti",
+    "name": "Resurrection",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.021.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "wish-stress",
+   "for": [
+    "effect:wish-stress"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplWish000000",
+    "name": "Wish",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.021.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "memory-modification",
+   "for": [
+    "effect:memory-modification"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplModifyMemo",
+    "name": "Modify Memory",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.side_impact.part.slow.spiral.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "seeing-illusions",
+   "for": [
+    "effect:seeing-illusions"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbPhantasmalFor",
+    "name": "Phantasmal Force",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.side_impact.part.slow.spiral.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "calmed",
+   "for": [
+    "effect:calmed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCalmEmotio",
+    "name": "Calm Emotions",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.intro.blue02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "indifference",
+   "for": [
+    "effect:indifference"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCalmEmotio",
+    "name": "Calm Emotions",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.intro.blue02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "sympathy",
+   "for": [
+    "effect:sympathy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntipathyS",
+    "name": "Antipathy/Sympathy",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.heart.pink.02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "compelled",
+   "for": [
+    "effect:compelled"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplCompelledD",
+    "name": "Compelled Duel",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.010.red"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "under-orders",
+   "for": [
+    "effect:under-orders"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGeas000000",
+    "name": "Geas",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.condition.curse.01.004.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "pursuing-suggestion",
+   "for": [
+    "effect:pursuing-suggestion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSuggestion",
+    "name": "Suggestion",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.heart.dark_red.02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "cannot-lie",
+   "for": [
+    "effect:cannot-lie"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplZoneofTrut",
+    "name": "Zone of Truth",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes03.orange.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "glib",
+   "for": [
+    "effect:glib"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGlibness00",
+    "name": "Glibness",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.runes.dark_orange.02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "persist": "effect"
+    }
+   ]
+  },
+  {
+   "id": "death",
+   "for": [
+    "effect:death"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplDivineWord",
+    "name": "Divine Word",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_red.03"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.toll-the-dead.ominous-bell.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
     }
    ]
   }
