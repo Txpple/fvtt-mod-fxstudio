@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 398
+  "fx": 405
  },
  "fx": [
   {
@@ -14735,6 +14735,197 @@
       "absolute": false
      },
      "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "antilife-shell",
+   "for": [
+    "spell:antilife-shell"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntilifeSh",
+    "name": "Antilife Shell",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.antilife_shell.blue_with_circle"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "at": "source",
+     "size": {
+      "radius": 2,
+      "plusToken": true
+     },
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "antimagic-field",
+   "for": [
+    "spell:antimagic-field"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAntimagicF",
+    "name": "Antimagic Field",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.wall_of_force.sphere.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete"
+     },
+     "at": "source",
+     "size": {
+      "radius": 2,
+      "plusToken": true
+     },
+     "opacity": 0.7
+    }
+   ]
+  },
+  {
+   "id": "fire-shield",
+   "for": [
+    "spell:fire-shield"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplFireShield",
+    "name": "Fire Shield",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.shield_themed.above.fire.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "blur",
+   "for": [
+    "spell:blur"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBlur000000",
+    "name": "Blur",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.intro"
+     },
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     }
+    }
+   ]
+  },
+  {
+   "id": "pass-without-trace",
+   "for": [
+    "spell:pass-without-trace"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplPasswithou",
+    "name": "Pass without Trace",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.shimmer.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.intro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "opacity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "stoneskin-spell",
+   "for": [
+    "spell:stoneskin"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplStoneskin0",
+    "name": "Stoneskin",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact.earth.01.browngreen"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "barkskin",
+   "for": [
+    "spell:barkskin"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplBarkskin00",
+    "name": "Barkskin",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.swirling_leaves.complete.01.green"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     }
     }
    ]
   }
