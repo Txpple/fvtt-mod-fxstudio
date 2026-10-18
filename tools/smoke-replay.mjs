@@ -32,9 +32,10 @@ const SECTIONS = {
   16: "By the Books' moments: a `sneak` payload on bythebooks.moment plays Sneak Attack's use look on the dice (the fallback), a moment with no look plays nothing and names its event key, an unknown word is skipped without an error, hold-answered never falls back, and one payload under both hook names (3.0's double emit) plays once",
   17: "the party's content (DESIGN §28.7): Wrathful, Searing and Thunderous Smite land the smite on the target from their damage rolls, each in its own colour; Shield of Faith marks the target with the gold shield from its card",
   18: "the second batch (DESIGN §28.7, the PHB's spells): Blinding Smite from its damage roll, Heal from its healing roll on the target, Blur at the caster from its card, Mass Suggestion on the aimed target from its card (a save with no damage plays on the card), Wall of Ice filling its placed template and ending with it, a Guidance effect holding its light on the token until deleted",
+  19: "the QA four (DESIGN §28.7, areas the migration authored as ranged): Ice Knife's shard flies to the Shard Explosion's radius and the frost bursts there (its attack card plays no shard), the Grenade Launcher's grenade flies to its sphere and the explosion fills it, Dominate Mind's pulse fills the 60-foot radius with the strands to the aimed target, the Bomb flies to its sphere and explodes there",
 };
 const DEPENDS = {};
-const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack', 'Wrathful Smite', 'Searing Smite', 'Thunderous Smite', 'Shield of Faith', 'Blinding Smite', 'Heal', 'Blur', 'Mass Suggestion', 'Wall of Ice', 'Guidance'];
+const ITEMS = ['Longsword', 'Dagger', 'Fire Bolt', 'Charm Person', 'Sacred Flame', 'Burning Hands', 'Lightning Bolt', 'Grease', 'Cloud of Daggers', 'Fireball', 'Thunderwave', 'Witch Bolt', 'Misty Step', 'Barkskin', 'Bless', 'Maul', 'Shield', 'Cure Wounds', 'Sneak Attack', 'Wrathful Smite', 'Searing Smite', 'Thunderous Smite', 'Shield of Faith', 'Blinding Smite', 'Heal', 'Blur', 'Mass Suggestion', 'Wall of Ice', 'Guidance', 'Ice Knife', 'Grenade Launcher', 'Dominate Mind', 'Bomb'];
 
 const { plan, pulled, watch } = sectionPlan(SECTIONS, DEPENDS);
 const { f, dispose } = await connectSandbox({ tag: 'replay', watchdogMs: 900_000 });
@@ -70,9 +71,9 @@ try {
     const rollAttack = async (name) => { const a = activityOf(name, 'attack'); const before = game.messages.size; await a.rollAttack({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'attack'); return { m, e: m ? ledgerFor(m.id) : null }; };
     const rollDamage = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.rollDamage({}, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => ['damage', 'healing'].includes(x.type)); return { m, e: m ? ledgerFor(m.id) : null }; };
     const useIt = async (name) => { const a = activityOf(name); const before = game.messages.size; await a.use({ consume: false, create: { measuredTemplate: false } }, { configure: false }, {}); await settle(); const m = game.messages.contents.slice(before).find((x) => x.type === 'usage'); return { m, e: m ? ledgerFor(m.id) : null }; };
-    // an area as dnd5e 6.0 places one: a Region with Foundry 14 shape data, stamped with the activity, the item and the usage token
-    const areaShape = ({ t, distance, width = 5, direction = 0, x, y }) => { const g = canvas.scene.grid.size / canvas.scene.grid.distance; const s = distance * g; return t === 'cone' ? { type: 'cone', x, y, radius: s, angle: CONFIG.MeasuredTemplate.defaults.angle, rotation: direction } : t === 'ray' ? { type: 'line', x, y, length: s, width: width * g, rotation: direction } : t === 'rect' ? { type: 'rectangle', x, y, width: s, height: s, rotation: direction } : t === 'ring' ? { type: 'ring', x, y, radius: s, innerWidth: 0, outerWidth: width * g } : { type: 'circle', x, y, radius: s }; };
-    const placeTemplate = async (name, data) => { const a = activityOf(name); const [region] = await canvas.scene.createEmbeddedDocuments('Region', [{ name: `${a.item.name} [${game.user.name}]`, shapes: [areaShape(data)], visibility: CONST.REGION_VISIBILITY.ALWAYS, flags: { dnd5e: { activity: a.uuid, item: a.item.uuid, origin: caster.document.uuid, spellLevel: a.item.system.level ?? null } } }]); await sleep(600); await settle(); return { region, e: ledgerFor(region.id) }; };
+    // an area as dnd5e 6.0 places one: a Region with Foundry 14 shape data, stamped with the activity, the item and the usage token; a radius is an emanation around a one-square token whose top-left is x, y
+    const areaShape = ({ t, distance, width = 5, direction = 0, x, y }) => { const g = canvas.scene.grid.size / canvas.scene.grid.distance; const s = distance * g; return t === 'cone' ? { type: 'cone', x, y, radius: s, angle: CONFIG.MeasuredTemplate.defaults.angle, rotation: direction } : t === 'ray' ? { type: 'line', x, y, length: s, width: width * g, rotation: direction } : t === 'rect' ? { type: 'rectangle', x, y, width: s, height: s, rotation: direction } : t === 'ring' ? { type: 'ring', x, y, radius: s, innerWidth: 0, outerWidth: width * g } : t === 'radius' ? { type: 'emanation', radius: s, base: { type: 'token', x, y, rotation: 0, width: 1, height: 1, shape: CONST.TOKEN_SHAPES.RECTANGLE_1 } } : { type: 'circle', x, y, radius: s }; };
+    const placeTemplate = async (name, data, type) => { const a = activityOf(name, type); const [region] = await canvas.scene.createEmbeddedDocuments('Region', [{ name: `${a.item.name} [${game.user.name}]`, shapes: [areaShape(data)], visibility: CONST.REGION_VISIBILITY.ALWAYS, flags: { dnd5e: { activity: a.uuid, item: a.item.uuid, origin: caster.document.uuid, spellLevel: a.item.system.level ?? null } } }]); await sleep(600); await settle(); return { region, e: ledgerFor(region.id) }; };
     const removeTemplate = async (region) => { if (canvas.scene.regions.get(region.id)) await canvas.scene.deleteEmbeddedDocuments('Region', [region.id]); await sleep(600); };
     const files = (e) => (e?.files ?? []).flat().join(', ');
     const named = (e, part) => (e?.files ?? []).flat().some((p) => String(p).includes(part));
@@ -382,6 +383,28 @@ try {
         ok(`§18 ${eff?.name ?? 'Guidance'}: the effect holds the steady blue light on the token`, !!eff && e?.fx?.endsWith('-guidance') && e.played && named(e, 'jb2a.markers.light.nopulse.blue') && effectsOn(target, eff.uuid).length > 0, `${e?.fx} ${e?.why || ''} ${files(e)} standing=${eff ? effectsOn(target, eff.uuid).length : 'no effect on the Guidance record'}`);
         if (eff) { await eff.delete(); await sleep(700); }
         ok('§18 the Guidance effect deleted: the light is gone', !eff || effectsOn(target, eff.uuid).length === 0, eff ? `${effectsOn(target, eff.uuid).length}` : 'skipped');
+      }
+      if (want(19)) {
+        // the QA four: each record places an area, so each plays on the template; the pictures travel to the template and burst at it
+        await aim();
+        await setAC(1);
+        let { e } = await rollAttack('Ice Knife');
+        ok('§19 Ice Knife: the attack card plays no shard (the area is the Shard Explosion\'s template)', !named(e, 'jb2a.spell_projectile.ice_shard') && !named(e, 'jb2a.impact.frost'), e ? `${e.fx} ${e.why || ''} ${files(e) || 'no files'}` : 'no ledger entry');
+        await aim(false);
+        let t = await placeTemplate('Ice Knife', { t: 'radius', distance: 5, x: target.document.x, y: target.document.y }, 'save');
+        ok('§19 Ice Knife: the Shard Explosion\'s radius flies the shard from the caster to it and bursts the frost there', t.e?.fx === 'ice-knife' && t.e.played && named(t.e, 'jb2a.spell_projectile.ice_shard') && named(t.e, 'jb2a.impact.frost.blue.01'), `${t.e?.fx} ${t.e?.why || ''} ${files(t.e)}`);
+        await removeTemplate(t.region);
+        t = await placeTemplate('Grenade Launcher', { t: 'circle', distance: 20, x: 1100, y: 500 });
+        ok('§19 Grenade Launcher: the grenade flies to the placed sphere and the explosion fills it', t.e?.fx === 'grenade-launcher' && t.e.played && named(t.e, 'jb2a.throwable.launch.grenade') && named(t.e, 'jb2a.explosion.01.yellow'), `${t.e?.fx} ${t.e?.why || ''} ${files(t.e)}`);
+        await removeTemplate(t.region);
+        await aim();
+        t = await placeTemplate('Dominate Mind', { t: 'radius', distance: 60, x: caster.document.x, y: caster.document.y });
+        ok('§19 Dominate Mind: the pulse fills the 60-foot radius and the strands reach the aimed target, with the enchantment sound', t.e?.fx === 'dominate-mind' && t.e.played && named(t.e, 'jb2a.template_circle.out_pulse.02.burst') && named(t.e, 'jb2a.energy_strands.range.multiple') && t.e.sounds?.some((s) => s.includes('enchantment')), `${t.e?.fx} ${t.e?.why || ''} ${files(t.e)} + ${t.e?.sounds?.join(', ')}`);
+        await removeTemplate(t.region);
+        await aim(false);
+        t = await placeTemplate('Bomb', { t: 'circle', distance: 5, x: 1100, y: 500 });
+        ok('§19 Bomb: the bomb flies to the placed sphere and explodes there', t.e?.fx === 'bomb' && t.e.played && named(t.e, 'jb2a.throwable.throw.bomb') && named(t.e, 'jb2a.explosion'), `${t.e?.fx} ${t.e?.why || ''} ${files(t.e)}`);
+        await removeTemplate(t.region);
       }
     } finally {
       await setAC(startAC);

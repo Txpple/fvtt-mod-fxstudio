@@ -57,7 +57,7 @@ export function report(tag, out, plan) {
 /**
  * Page side: build the fixture. A scene of its own (viewed by this client only, never activated),
  * two linked NPC actors with flat AC and a deep HP pool, one token each, six squares apart; the
- * items named are copied onto the caster from the 2024 PHB packs. Idempotent: reuses what exists.
+ * items named are copied onto the caster from the 2024 books' packs (the PHB first, then the DMG and the MM). Idempotent: reuses what exists.
  * Returns ids. Takes {items: [names]}.
  */
 export const fixtureUp = async ({ items = [] } = {}) => {
@@ -79,10 +79,10 @@ export const fixtureUp = async ({ items = [] } = {}) => {
   ]);
   const casterToken = tokens.find((t) => t.actorId === caster.id);
   const targetToken = tokens.find((t) => t.actorId === target.id);
-  // the caster's items, from the PHB packs by exact name (spells, equipment, features)
+  // the caster's items, from the books' packs by exact name (spells, equipment, features): the PHB first, then the DMG and the MM
   const added = [];
   const missing = [];
-  const packs = game.packs.filter((p) => p.documentName === 'Item' && p.collection.startsWith('dnd-players-handbook'));
+  const packs = ['dnd-players-handbook', 'dnd-dungeon-masters-guide', 'dnd-monster-manual'].flatMap((book) => game.packs.filter((p) => p.documentName === 'Item' && p.collection.startsWith(book)));
   for (const name of items) {
     if (caster.items.getName(name)) { added.push(name); continue; }
     let doc = null;
