@@ -479,20 +479,19 @@
      "shape": "shoot",
      "asset": {
       "path": "jb2a.energy_strands.range.multiple.dark_green.01"
+     }
+    },
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.greenorange"
      },
      "sound": {
       "asset": "psfx.magic-signs.circle.v1.enchantment.intro",
       "start": 850
-     }
-    },
-    {
-     "shape": "mark",
-     "at": "impact",
-     "asset": {
-      "path": "jb2a.template_circle.out_pulse.02.burst.greenorange"
      },
      "size": {
-      "radius": 1.5
+      "fit": "shape"
      },
      "elevation": {
       "level": 999,
