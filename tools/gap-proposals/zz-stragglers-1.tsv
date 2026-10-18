@@ -16,11 +16,6 @@ feature:steadfast	No proposed FX				A passive trait — no moment to play.
 feature:ventriloquism	No proposed FX				A voice thrown — nothing on a token to play.
 feature:warriors-wrath	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:wild-talent	No proposed FX				A passive trait — no moment to play.
-spell:wall-of-ice	Close match	spell:wall-of-fire	jb2a.ice_spikes.wall.loop.blue	psfx.cantrips.ray-of-frost.v1	Wall of Ice: a wall of jagged ice along the template.	Sure	Likely	0
-spell:wall-of-stone	Close match	spell:wall-of-force	jb2a.falling_rocks.side.2x1.grey	psfx.casting.earth.001	Wall of Stone: stone tumbles in and settles along the template.	Maybe	Likely	0
-spell:insect-plague	Close match	spell:cloudkill	jb2a.ambient_fog.001.complete.large.greenyellow	psfx.1st-level-spells.dissonant-whispers.v1.002	Insect Plague: a sickly swarm-cloud fills the sphere, clicking.	Maybe	Maybe	0
-spell:tashas-bubbling-cauldron	Close match	spell:stinking-cloud	jb2a.bubble.002.001.complete.greenpurple	psfx.cantrips.poison-spray.v1	The cauldron bubbles where it lands.	Likely	Maybe	0
-effect:turning-to-stone	Close match	spell:flesh-to-stone	jb2a.ground_cracks.03.white	psfx.casting.earth.001	Flesh to Stone takes hold: the body begins to set.	Maybe	Likely	0
 effect:heavenly-wings	Close match	feature:celestial-revelation	jb2a.condition.boon.02.003.refraction	psfx.creature.movement.flight.wings.large	Heavenly Wings: spectral wings unfold in white light.	Likely	Likely	0
 natural:swarming-bites	Close match	natural:bite	jb2a.bite.200px.purple	psfx.impacts.slashing.v1	The swarm bites, and the magic goes out of an item.	Likely	Likely	0
 natural:swipe	Close match	natural:claw	jb2a.claws.200px.brown	psfx.creature.dragons.attacks.rend.cold	A heavy swipe that knocks the target down.	Sure	Likely	0

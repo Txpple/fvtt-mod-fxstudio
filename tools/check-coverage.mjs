@@ -102,7 +102,7 @@ if (t.section('Check on the Compendiums scope agrees with gaps.mjs')) {
   }
   t.same(`pack by pack (${a.proposals.packs().length}), each picked alone agrees with the file's count for it`, off, []);
   const phb = cov.bookRows(a, new Set(['dnd-players-handbook.spells']));
-  t.is('the PHB spells alone: 236 with no FX, the review\'s 244 less the party batch (seven spells and the Prone effect, whose record is Destructive Wave)', phb.asked - phb.answered, 236);
+  t.is('the PHB spells alone: 1 with no FX, the Shield spell (judged): the party batch took seven spells and the Prone effect, the second batch the 235 others', phb.asked - phb.answered, 1);
   const row = phb.groups[0].rows.find((x) => x.key === 'spell:shield');
   t.ok('the Shield spell is a row, judged, saying the effect plays the barrier', row?.st === 'judged' && /Shield effect plays the barrier/.test(row.words), JSON.stringify(row));
   let agree = 0;
