@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 31
+  "fx": 32
  },
  "fx": [
   {
@@ -1155,6 +1155,32 @@
      "elevation": {
       "level": 999,
       "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "magical-berries",
+   "for": [
+    "item:magical-berries"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbutlMagicalBer",
+    "name": "Magical Berries",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     },
+     "sound": {
+      "asset": "psfx.consumables.food-and-drink.consume.food.bite.juicy.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
      }
     }
    ]

@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 392
+  "fx": 395
  },
  "fx": [
   {
@@ -14506,6 +14506,84 @@
      "elevation": {
       "level": 999,
       "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "heal",
+   "for": [
+    "spell:heal"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplHeal000000",
+    "name": "Heal",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.burst.yellowwhite"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "mass-healing-word",
+   "for": [
+    "spell:mass-healing-word"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplMassHealin",
+    "name": "Mass Healing Word",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.400px.blue"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "aura-of-vitality",
+   "for": [
+    "spell:aura-of-vitality"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplAuraofVita",
+    "name": "Aura of Vitality",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.healing_generic.burst.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
      }
     }
    ]
