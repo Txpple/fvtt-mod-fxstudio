@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The effects: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 87
+  "fx": 106
  },
  "fx": [
   {
@@ -2432,6 +2432,500 @@
      "persist": "effect",
      "mask": true,
      "opacity": 0.7
+    }
+   ]
+  },
+  {
+   "id": "acrobatic-guidance",
+   "for": [
+    "effect:acrobatic-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "animal-handling-guidance",
+   "for": [
+    "effect:animal-handling-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "arcana-guidance",
+   "for": [
+    "effect:arcana-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "athletic-guidance",
+   "for": [
+    "effect:athletic-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "deception-guidance",
+   "for": [
+    "effect:deception-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "history-guidance",
+   "for": [
+    "effect:history-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "insight-guidance",
+   "for": [
+    "effect:insight-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "intimidation-guidance",
+   "for": [
+    "effect:intimidation-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "investigation-guidance",
+   "for": [
+    "effect:investigation-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "medicine-guidance",
+   "for": [
+    "effect:medicine-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "nature-guidance",
+   "for": [
+    "effect:nature-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "perception-guidance",
+   "for": [
+    "effect:perception-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "performance-guidance",
+   "for": [
+    "effect:performance-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "persuasion-guidance",
+   "for": [
+    "effect:persuasion-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "religion-guidance",
+   "for": [
+    "effect:religion-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "sleight-of-hand-guidance",
+   "for": [
+    "effect:sleight-of-hand-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "stealth-guidance",
+   "for": [
+    "effect:stealth-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "survival-guidance",
+   "for": [
+    "effect:survival-guidance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplGuidance00",
+    "name": "Guidance",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.markers.light.nopulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.5
+    }
+   ]
+  },
+  {
+   "id": "endless-ammunition",
+   "for": [
+    "effect:endless-ammunition"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.spells.Item.phbsplSwiftQuive",
+    "name": "Swift Quiver",
+    "where": "Player's Handbook · Spells"
+   },
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.glint.yellow.few"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     },
+     "persist": "effect",
+     "opacity": 0.6
     }
    ]
   }
