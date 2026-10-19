@@ -9,8 +9,8 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-18).** v0.10.3 is the release, on prod through Foundry's installer with prod's House
-byte-identical to the repo's before and after. `main` is the release, deployed to the
+**State (2026-10-19).** v0.10.3 is the release, on prod through Foundry's installer with prod's House
+byte-identical to the repo's before and after. `main` is the release plus one Stock FX (Darkness Aura), served to prod and the
 sandbox for the user's testing: By the Books' contract held by `check-contract` (one picture per word; a
 resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
 `docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling; and Phases 2 to 4, the
