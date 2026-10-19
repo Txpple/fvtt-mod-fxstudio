@@ -2,9 +2,9 @@
  "schema": 1,
  "tool": "tools/proposals.mjs",
  "records": "2026-10-12",
- "gaps": 2912,
+ "gaps": 2911,
  "counts": {
-  "proposed": 1345,
+  "proposed": 1344,
   "none": 1567,
   "open": 0
  },
@@ -59,7 +59,7 @@
    "label": "Monster Manual · Features",
    "kind": "list",
    "keys": 598,
-   "gaps": 413
+   "gaps": 412
   },
   {
    "id": "dnd-dungeon-masters-guide.equipment",
@@ -1350,7 +1350,6 @@
 "feature:curving-shot":{"status":"proposed","basis":"longbow","sentence":"Curving Shot: a missed arrow bends toward a new target.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.arrow.physical.orange","sfx":"psfx.ranged-weapons.longbow.v1"},
 "feature:dance":{"status":"none","reason":"header","sentence":"A subclass name, not an ability — nothing to play."},
 "feature:danger-sense":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},
-"feature:darkness-aura":{"status":"proposed","basis":"darkness","sentence":"Darkness Aura: the light goes out around it.","vfxFit":"Sure","sfxFit":"Likely","vfx":"jb2a.darkness.black","sfx":"psfx.magic-signs.rune.v1.illusion.intro"},
 "feature:dazzling-footwork":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},
 "feature:dead-magic-dweller":{"status":"none","reason":"header","sentence":"A background name, not an ability — nothing to play."},
 "feature:deadly-leap":{"status":"proposed","basis":"hasted","sentence":"Deadly Leap: it lands and the ground cracks.","vfxFit":"Likely","sfxFit":"Sure","vfx":"jb2a.impact.ground_crack.orange.01","sfx":"psfx.impacts.bludgeoning.v1"},

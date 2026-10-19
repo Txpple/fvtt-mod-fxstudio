@@ -20,12 +20,12 @@ scroll, a picture is a name on the sheet with ▶ on every rail row and Play all
 inspector is one column of the cells the shape reads with a size kind and From/To, the layout breaks on
 the window's own width, the wand, a search miss and a Coverage row land on "Nothing plays for…" with
 Starter, Copy from and Blank, and Coverage is the gap tool's screen over a shipped
-`recipes/proposals.json` (`tools/proposals.mjs`; 1,345 proposed, 1,567 judged, 0 open, agreeing with
-`gaps.mjs` at 2,912 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
+`recipes/proposals.json` (`tools/proposals.mjs`; 1,344 proposed, 1,567 judged, 0 open, agreeing with
+`gaps.mjs` at 2,911 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
 party's nineteen keys and the PHB's 235 remaining spell proposals (39 spells, 195 of their effects, the Magical
 Berries; one gap left in the PHB spells, the Shield spell as ruled), and the QA four (Ice Knife, the Grenade
 Launcher, Dominate Mind, the Bomb) are re-authored at the templates their records place; the Battle Master
-maneuvers were ruled out of scope, so §28.7 is delivered. A popped-out window under a modal is untested. It reads By
+maneuvers were ruled out of scope, so §28.7 is delivered; the Monster Manual's Darkness Aura is Stock since, on the user's word (the Darkmantle in the sandbox). A popped-out window under a modal is untested. It reads By
 the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
 id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
 Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
@@ -59,7 +59,7 @@ the suite folder: `../fvtt-mcp-dnd5e` resolves, the campaign repos are `../../fv
   `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
   no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
   identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
-  item, never typed. Stock is 1284 FX (1282 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
+  item, never typed. Stock is 1285 FX (1283 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
   another is the design, not redundancy (§18–19) — never offer to clean it up.
 - **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
   from `recipes/records.json`; the Library's Record door opens that record.

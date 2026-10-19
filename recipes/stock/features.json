@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 288
+  "fx": 289
  },
  "fx": [
   {
@@ -9938,6 +9938,34 @@
       "level": 999,
       "absolute": false
      }
+    }
+   ]
+  },
+  {
+   "id": "darkness-aura",
+   "for": [
+    "feature:darkness-aura"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.features.Item.mmDarknessAura00",
+    "name": "Darkness Aura",
+    "where": "Monster Manual · Features"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.7,
+     "persist": "template"
     }
    ]
   }

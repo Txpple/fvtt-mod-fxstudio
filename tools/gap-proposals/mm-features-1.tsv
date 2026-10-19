@@ -60,7 +60,6 @@ feature:counterattack	No proposed FX				A bonus to AC on a reaction — no momen
 feature:coven-magic	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.enchantment.intro.dark_green	psfx.magic-signs.circle.v1.conjuration.complete	Coven Magic: the hags cast together.	Likely	Likely	0
 feature:create-specter	Close match	spell:raise-dead	jb2a.magic_signs.circle.02.necromancy.intro.dark_green	psfx.magic-signs.circle.v1.necromancy.complete	Create Specter: the dead get up.	Likely	Sure	0
 feature:create-whirlwind	Close match	spell:shatter	jb2a.whirlwind.bluegrey	psfx.cantrips.gust.v1	Create Whirlwind: a column of wind.	Sure	Sure	1
-feature:darkness-aura	Close match	spell:darkness	jb2a.darkness.black	psfx.magic-signs.rune.v1.illusion.intro	Darkness Aura: the light goes out around it.	Sure	Likely	9
 feature:deadly-leap	Close match	effect:hasted	jb2a.impact.ground_crack.orange.01	psfx.impacts.bludgeoning.v1	Deadly Leap: it lands and the ground cracks.	Likely	Sure	3
 feature:death-glare	Close match	effect:frightened	jb2a.eyes.01.dark_red.single	psfx.impacts.magicaleffects.psychic	Death Glare: the eye that kills fear into you.	Likely	Likely	0
 feature:death-throes	Close match	spell:fireball	jb2a.explosion.06.greenorange	psfx.3rd-level-spells.fireball.v1.001.explosion	Death Throes: it goes up when it dies.	Sure	Sure	0

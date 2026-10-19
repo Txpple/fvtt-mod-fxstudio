@@ -42,8 +42,8 @@ The pass the user asked for: read every addressed key no FX answers, and propose
 record itself suggests it. They run in this order; everything they write lands in `dist/`.
 
 ⚠ **`gap-proposals/` IS THE WORK, and it is tracked** (the user, 2026-09-09: *"make those tracked
-we dont want to lose that work"*). Twenty-three TSVs, 2912 hand-written judgments, one line per
-addressed key: 1345 with a proposed FX, 1567 marked *No proposed FX*. **Nothing regenerates them** —
+we dont want to lose that work"*). Twenty-three TSVs, 2911 hand-written judgments, one line per
+addressed key: 1344 with a proposed FX, 1567 marked *No proposed FX*. **Nothing regenerates them** —
 the tools find the gaps and prove the paths, but what an ability should look like was decided a row
 at a time. They sit beside the tool that reads them and **not** under `recipes/`, which the module
 serves to the game at boot.
