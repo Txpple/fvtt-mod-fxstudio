@@ -22,76 +22,42 @@ effect:7th-level-enspelled-weapon	No proposed FX				A lasting enchantment on the
 effect:8th-level-enspelled-armor	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:8th-level-enspelled-staff	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:8th-level-enspelled-weapon	No proposed FX				A lasting enchantment on the item — no moment to play.			
-effect:ablaze	Close match	effect:burning	jb2a.markers.on_token_mask.complete.01.orange	psfx.weapon-swooshes.fire.v1.group01	The Flame Tongue is lit: flame licks over the wielder until it is put out.	Likely	Sure	0
 effect:abyssal-language	No proposed FX				A language the armour grants — nothing to play.
 effect:adamantine-ammunition	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:adamantine-armor	No proposed FX				Worn, always on — no moment to play.
 effect:adamantine-weapon	No proposed FX				A property of the edge, not a moment. The swing has a proposal on the weapon record.
-effect:air-bubble	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	A bubble of air at the wearer's head.	Sure	Likely	0
 effect:air-focus	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:ammunition-1	No proposed FX				A plus on the head — the shot has a proposal on the item record.
 effect:ammunition-2	No proposed FX				A plus on the head — the shot has a proposal on the item record.
 effect:ammunition-3	No proposed FX				A plus on the head — the shot has a proposal on the item record.
-effect:ammunition-of-slaying-aberrations	Close match	effect:outlined	jb2a.impact.013.001.greenpurple	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind: a force burst at the target — all fourteen creature types read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-beasts	Close match	effect:outlined	jb2a.impact.013.002.orangeyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-celestials	Close match	effect:outlined	jb2a.impact.013.003.orangeyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-constructs	Close match	effect:outlined	jb2a.impact.014.001.blue	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-dragons	Close match	effect:outlined	jb2a.impact.014.002.orangeyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-elementals	Close match	effect:outlined	jb2a.impact.014.003.blueteal	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-fey	Close match	effect:outlined	jb2a.impact.014.004.greenyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-fiends	Close match	effect:outlined	jb2a.impact.013.001.orangeyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-giants	Close match	effect:outlined	jb2a.impact.013.002.blue	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-humanoids	Close match	effect:outlined	jb2a.impact.013.003.bluepurple	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-monstrosities	Close match	effect:outlined	jb2a.impact.014.001.greenpurple	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-oozes	Close match	effect:outlined	jb2a.impact.014.002.greenyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-plants	Close match	effect:outlined	jb2a.impact.014.003.greenyellow	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
-effect:ammunition-of-slaying-undead	Close match	effect:outlined	jb2a.impact.014.004.bluepurple	psfx.impacts.magicaleffects.generic.002.001	Ammunition of Slaying finds its kind — all fourteen read the same.	Likely	Likely	0
 effect:anchor	No proposed FX				A boat that will not move — nothing on a token to play.
-effect:animated-shield	Close match	effect:protected	jb2a.markers.shield.blue.03	psfx.magic-signs.rune.v1.abjuration.intro	The shield floats and guards.	Likely	Likely	0
 effect:aquatic-bonuses-swimming-and-breathing	No proposed FX				Worn, always on — no moment to play.
 effect:archmagi-armor	No proposed FX				Worn, always on — no moment to play.
 effect:armor-1	No proposed FX				A plus on the armour — no moment to play.
 effect:armor-2	No proposed FX				A plus on the armour — no moment to play.
 effect:armor-3	No proposed FX				A plus on the armour — no moment to play.
 effect:armor-bludgeoning-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
-effect:armor-of-acid-resistance	Close match	effect:acid-protection	jb2a.shield.02.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to acid: a green ward with a crackling rim.	Likely	Likely	0
-effect:armor-of-cold-resistance	Close match	effect:cold-protection	jb2a.shield.02.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to cold: a blue ward with a crackling rim.	Likely	Likely	0
-effect:armor-of-fire-resistance	Close match	effect:fire-protection	jb2a.shield.02.loop.red	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to fire: a red ward with a crackling rim.	Likely	Likely	0
-effect:armor-of-force-resistance	Close match	effect:acid-protection	jb2a.shield.03.loop.white	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to force: a white honeycomb force field.	Likely	Likely	0
 effect:armor-of-gleaming	No proposed FX				Armour that stays clean — nothing to play.
-effect:armor-of-lightning-resistance	Close match	effect:lightning-protection	jb2a.shield.02.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to lightning: a yellow ward with a crackling rim.	Likely	Likely	0
-effect:armor-of-necrotic-resistance	Close match	effect:acid-protection	jb2a.shield.02.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to necrotic: a violet ward with a crackling rim.	Likely	Likely	0
-effect:armor-of-poison-resistance	Close match	effect:poison-protection	jb2a.shield.03.loop.green	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to poison: a green honeycomb ward.	Likely	Likely	0
-effect:armor-of-psychic-resistance	Close match	effect:acid-protection	jb2a.shield.03.loop.purple	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to psychic: a violet honeycomb ward.	Likely	Likely	0
-effect:armor-of-radiant-resistance	Close match	effect:acid-protection	jb2a.shield.03.loop.yellow	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to radiant: a golden honeycomb ward.	Likely	Likely	0
-effect:armor-of-thunder-resistance	Close match	effect:thunder-protection	jb2a.shield.03.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Resistance to thunder: a blue honeycomb ward.	Likely	Likely	0
 effect:armor-piercing-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:armor-slashing-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:attached-ruby	No proposed FX				A focus stuck to a weapon — nothing to play.
 effect:battle-hunger	No proposed FX				Always on while it is worn or known — no moment to play.			
-effect:berserker-axe	Close match	effect:berserk	jb2a.markers.on_token_mask.complete.01.red	psfx.impacts.magicaleffects.necrotic	The Berserker Axe takes hold of its wielder.	Likely	Maybe	0
 effect:berserker-hp-increase	No proposed FX				Extra hit points — no moment to play.
-effect:bewitching-scent	Close match	effect:charmed	jb2a.markers.heart.pink.02	psfx.magic-signs.rune.v1.enchantment.intro	The perfume takes: whoever smells it is charmed.	Sure	Likely	0
 effect:black-scale	No proposed FX				A dragon scale mail's colour — worn, always on. Ten scales, all the same in this respect.
-effect:blessed-with-heroism	Close match	effect:courageous	jb2a.condition.boon.02.002.refraction	psfx.conditions.boon.001.01	A charm of heroism: a prismatic winged-sword boon, and temporary hit points.	Likely	Sure	0
 effect:blessing-of-weapon-enhancement	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:blessings-of-moradin	No proposed FX				Always on while it is worn or known — no moment to play.			
-effect:blinded-by-brilliance	Close match	effect:searing-radiance	jb2a.markers.light.intro.blue02	psfx.cantrips.light.v1.001	The Gem of Brightness: a flare of light on whoever failed.	Likely	Likely	0
 effect:bludgeoning-piercing-slashing-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:bludgeoning-resistance	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:blue-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
 effect:bonus-ac-saves-1	No proposed FX				Worn, always on — no moment to play.
 effect:bonus-ac-unarmored	No proposed FX				Worn, always on — no moment to play.
 effect:bonus-damage-bows	No proposed FX				Worn, always on — no moment to play.
-effect:boots-of-speed-active	Close match	effect:hasted	jb2a.token_border.circle.spinning.orange.004	psfx.magic-signs.rune.v1.transmutation.complete	The Boots of Speed are on: a bright arc races round the wearer.	Sure	Likely	0
 effect:bow-proficiencies	No proposed FX				A proficiency the bracers grant — nothing to play.
 effect:brass-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
 effect:bronze-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
-effect:burst-into-flames	Close match	effect:burning	jb2a.shield_themed.above.fire.01.orange	psfx.casting.fire.001	The Helm of Brilliance bursts into flame round its wearer.	Likely	Sure	0
 effect:cantrip-enspelled-armor	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:cantrip-enspelled-staff	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:cantrip-enspelled-weapon	No proposed FX				A lasting enchantment on the item — no moment to play.			
-effect:captured	Close match	effect:ensnared	jb2a.web.loop.002.white	psfx.impacts.bludgeoning.v1	Caught in the net.	Likely	Likely	0
 effect:cast-off-armor	No proposed FX				Armour that comes off quickly — nothing to play.
 effect:celestial-calm	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:clear-minded	No proposed FX				An ability score raised by a book — no moment to play.
@@ -99,17 +65,13 @@ effect:climber	No proposed FX				A climbing speed. The potion that grants it has
 effect:cloud-giant-strength	No proposed FX				Worn, always on — no moment to play. All seven giant belts read the same.
 effect:combat-ready-initiative-advantage	No proposed FX				Advantage on initiative — no moment to play.
 effect:comet-card-death-save-advantage	No proposed FX				A Deck of Many Things card's boon — the draw plays on the Deck itself.
-effect:comet-card-marked-foe	Close match	effect:outlined	jb2a.hunters_mark.pulse.03.purple	psfx.magic-signs.rune.v1.divination.intro	The Comet card marks a foe.	Likely	Likely	0
 effect:condition-immunity-and-blindsight	No proposed FX				Blackrazor's passive gift — no moment to play.
 effect:copper-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
 effect:dancing-sword	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:defender	No proposed FX				Points moved between attack and AC — no moment to play.
 effect:demon-armor	No proposed FX				Worn, always on — no moment to play.
-effect:dimensionally-bound	Close match	effect:banished	jb2a.markers.chain.diamond.loop.01.grey	psfx.magic-signs.rune.v1.abjuration.loop	The shackles hold: no teleporting out.	Sure	Likely	0
-effect:disadvantaged	Close match	effect:confused	jb2a.condition.curse.01.010.purple	psfx.impacts.magicaleffects.psychic	The Rival Coin lands badly: a crossed-swords curse sign.	Likely	Likely	0
 effect:displacement-suppressed	No proposed FX				The cloak stops working for a round — the absence of an FX is the point.
 effect:divine-wisdom	No proposed FX				An ability score raised by a book — no moment to play.
-effect:donjon-card-suspended-animation	Close match	effect:suspended-animation	jb2a.markers.bubble.complete.blue	psfx.magic-signs.circle.v1.abjuration.complete	The Donjon card seals the drawer in a sphere.	Likely	Likely	0
 effect:dragon-slayer	No proposed FX				Extra dice against dragons — the swing has a proposal on the weapon record.
 effect:dwarven-plate	No proposed FX				Worn, always on — no moment to play.
 effect:dwarvenkind-benefits	No proposed FX				Worn, always on — no moment to play.
@@ -117,7 +79,6 @@ effect:earth-focus	No proposed FX				Always on while it is worn or known — no 
 effect:efreeti-bonuses-resistance-primordial-movement	No proposed FX				Worn, always on — no moment to play.
 effect:efreeti-chain	No proposed FX				Worn, always on — no moment to play.
 effect:elven-chain	No proposed FX				Worn, always on — no moment to play.
-effect:energy-bow	Close match	weapon:energy-bow	jb2a.markers.runes03.blue.03	psfx.ranged-weapons.longbow.v1	The Energy Bow is drawn — its shot already has an FX on the weapon record.	Likely	Likely	0
 effect:enhance-fortitude-constitution-bonus	No proposed FX				An Ioun stone's ability bonus — the stone itself has a proposal.
 effect:enhanced-agility-dexterity-bonus	No proposed FX				An Ioun stone's ability bonus — the stone itself has a proposal.
 effect:enhanced-awareness-initiative-and-perception	No proposed FX				An Ioun stone's ability bonus — the stone itself has a proposal.
@@ -127,39 +88,26 @@ effect:enhanced-leadership-charisma-bonus	No proposed FX				An Ioun stone's abil
 effect:enhanced-mastery-proficiency-bonus	No proposed FX				An Ioun stone's ability bonus — the stone itself has a proposal.
 effect:enhanced-protection-1-ac	No proposed FX				An Ioun stone's AC bonus — the stone itself has a proposal.
 effect:enhanced-strength-strength-bonus	No proposed FX				An Ioun stone's ability bonus — the stone itself has a proposal.
-effect:entangled	Close match	effect:ensnared	jb2a.markers.chain.standard.loop.01.grey	psfx.magic-signs.rune.v1.transmutation.intro	The rope binds the target.	Sure	Likely	0
-effect:euryale-card-cursed-saves	Close match	effect:banished	jb2a.condition.curse.01.020.green	psfx.magic-signs.rune.v1.necromancy.intro	The Euryale card's gaze curses the drawer.	Likely	Likely	0
 effect:executioners-axe	No proposed FX				A property of the axe — the swing has an FX on the weapon record.
 effect:faster	No proposed FX				A mount's speed — no moment to play.
-effect:feather-token-fan	Close match	effect:flight	jb2a.wind_stream.200.white	psfx.cantrips.gust.v1	The fan's wind.	Sure	Sure	0
 effect:fire-focus	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:fire-giant-strength	No proposed FX				Worn, always on — no moment to play.
 effect:flame-tongue	No proposed FX				A lasting enchantment on the item — no moment to play.			
 effect:flames-card-devilish-enmity	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:fly-speed	No proposed FX				Always on while it is worn or known — no moment to play.			
-effect:flyer	Close match	effect:flight	jb2a.wind_lines.01.02.white	psfx.creature.movement.flight.wings.small	A flying speed from the potion.	Likely	Likely	0
-effect:fool-card-disadvantage	Close match	effect:banished	jb2a.icosahedron.skull.below.dark_greenpurple	psfx.magic-signs.rune.v1.enchantment.intro	The Fool card: a cursed d20 circle under the drawer.	Likely	Likely	0
 effect:force-resistance	No proposed FX				Always on while it is worn or known — no moment to play.			
-effect:frost-brand	Close match	effect:chill-shield	jb2a.markers.on_token_mask.complete.01.blue	psfx.weapon-swooshes.cold.v1.group01	The Frost Brand is lit: rime light over the wielder.	Likely	Sure	0
 effect:frost-giant-strength	No proposed FX				Worn, always on — no moment to play.
-effect:full-of-vitality	Close match	effect:regenerating	jb2a.healing_generic.loop.tealyellow	psfx.1st-level-spells.cure-wounds.v1.001	The Potion of Vitality holds for a day.	Sure	Likely	0
 effect:giant-slayer	No proposed FX				Extra dice against giants — the swing has a proposal on the weapon record.
 effect:giants-bane-paired-attunement-bonuses	No proposed FX				A bonus while both are attuned — no moment to play.
 effect:gloves-on	No proposed FX				Worn, always on — no moment to play.
 effect:goggles-on	No proposed FX				Worn, always on — no moment to play.
 effect:gold-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
 effect:green-scale	No proposed FX				A dragon scale mail's colour — worn, always on.
-effect:halo	Close match	effect:shining	jb2a.bless.200px.loop.yellow	psfx.magic-signs.rune.v1.abjuration.intro	The Book of Exalted Deeds gives its reader a golden halo.	Sure	Likely	0
 effect:hammer-of-thunderbolts	No proposed FX				A property of the hammer — the swing has a proposal on the weapon record.
 effect:healthy	No proposed FX				A blessing of health — no moment to play.
-effect:held-by-tentacles	Close match	effect:ensnared	jb2a.vine.loop.void.single.01.dark_pinkpurple	psfx.impacts.magicaleffects.psychic	The rod's tentacle coils round the target.	Likely	Likely	0
 effect:hill-giant-strength	No proposed FX				Worn, always on — no moment to play.
 effect:holy-avenger	No proposed FX				A property of the blade — the swing has a proposal on the weapon record.
 effect:holy-symbol	No proposed FX				The talisman used as a focus — the spell it helps cast is its own FX.
-effect:hood-up-invisible	Close match	spell:invisibility	jb2a.shimmer.01.blue	psfx.magic-signs.rune.v1.illusion.intro	The hood is up and the wearer is gone.	Likely	Likely	1
-effect:horn-of-valhalla-condition-immunity	Close match	effect:courageous	jb2a.condition.boon.02.001.refraction	psfx.conditions.boon.001.01	The horn's berserkers cannot be frightened.	Likely	Sure	0
 effect:icy-touch-bonus-damage	No proposed FX				Always on while it is worn or known — no moment to play.			
-effect:in-love	Close match	effect:charmed	jb2a.markers.heart.dark_red.02	psfx.magic-signs.rune.v1.enchantment.intro	The philter takes: the drinker is in love.	Sure	Likely	0
-effect:incapacitated-and-suffocating-sneezing	Close match	effect:lingering-acid	jb2a.fog_cloud.03.green02	psfx.cantrips.poison-spray.v1	The dust takes: sneezing and choking.	Likely	Likely	0
 effect:initiative-advantage	No proposed FX				Advantage on initiative — no moment to play.
 effect:intelligent	No proposed FX				An ability score raised by a headband — no moment to play.

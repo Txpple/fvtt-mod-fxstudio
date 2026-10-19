@@ -42,8 +42,8 @@ The pass the user asked for: read every addressed key no FX answers, and propose
 record itself suggests it. They run in this order; everything they write lands in `dist/`.
 
 ⚠ **`gap-proposals/` IS THE WORK, and it is tracked** (the user, 2026-09-09: *"make those tracked
-we dont want to lose that work"*). Twenty-three TSVs, 2911 hand-written judgments, one line per
-addressed key: 1344 with a proposed FX, 1567 marked *No proposed FX*. **Nothing regenerates them** —
+we dont want to lose that work"*). Twenty-three TSVs, 1591 hand-written judgments, one line per
+addressed key: 24 with a proposed FX, 1567 marked *No proposed FX*. **Nothing regenerates them** —
 the tools find the gaps and prove the paths, but what an ability should look like was decided a row
 at a time. They sit beside the tool that reads them and **not** under `recipes/`, which the module
 serves to the game at boot.
@@ -56,6 +56,7 @@ serves to the game at boot.
 | `gap-check.mjs` | **nothing leaves unchecked**: every VFX and SFX path met against the loaded JB2A and PSFX databases (a node prefix counts, Sequencer resolves one), every `basis` met against a key the corpus really answers, no duplicate keys, and no proposal for a key that is not a gap. |
 | `gap-report.mjs` | joins the gaps to the proposals and names each basis the way the screens do (`nameForKey`) → `dist/gap-report.json`. |
 | `proposals.mjs` | **the judgements, shipped**: the gaps (`dist/gaps.json`, with their moment) joined to the rows → `recipes/proposals.json`, the file the Coverage tab reads (DESIGN §28.6). One entry per gap: *proposed* (the basis as the FX id to copy from, the sentence, the two fits), *none* (a reason from a closed list — the moment rule's no activity, always on, a lasting enchantment, chosen at a rest; bookkeeping for another ability, mundane gear, a name not an ability, or judged by hand — beside the row's own words), or *open*. A key with no row is still read by the moment rule. Only what the tab shows ships. `_meta.packs` names the packs the records come from (LIST_PACKS, the creature packs that hold natural attacks, and this world's own items), so the tab offers exactly those. `--write` writes it; `--check` holds it to the gaps (the count must equal `gaps.mjs`'s) and the rows, and fails on a difference. Run after `gap-report`, and after `records.mjs --write` or any FX that answers a gap. |
+| `promote-proposals.mjs` | **every proposal made a Stock FX** (the user, 2026-10-19): the basis's main scene stamped out with the proposal's picture and sound and fitted to the record's moment — an `effect:` key on its effect, every other on its card or on its placed template; a fill with no template is a mark, an effect plays a mark or an aura on its owner, a picture with nothing to end it plays once; a teleport keeps its scenes; every scene keeps only its shape's knobs, the record stamped (`stampRecord`). A non-square picture that would squash in a mark or an aura is re-shaped (a swing a strike, a flight a shot, a line on its template a fill) or held back as a proposal. Dry by default; `--write` appends to `recipes/stock/<kind>.json`. Then retire the rows and run the gap chain, as for any batch. |
 | `gap-xlsx.py` | the workbook, grouped by compendium: a Summary, one sheet per book with ten or more gaps, `This world` and `Other books`, and an `All gaps` sheet for filtering. Takes the output path; defaults to the desktop. Needs `openpyxl`. |
 
 `lib/stage.mjs` is the offline stage: enough of the canvas and Sequencer's API for an FX to build

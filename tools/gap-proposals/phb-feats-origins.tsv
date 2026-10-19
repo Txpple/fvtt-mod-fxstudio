@@ -9,26 +9,20 @@ effect:boon-of-truesight	No proposed FX				Always on while it is worn or known �
 effect:cold-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:crushed	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:defense	No proposed FX				A bonus to AC — no moment to play.
-effect:defensive-duelist	Close match	spell:mage-armor	jb2a.side_impact.part.shockwave.blue	psfx.impacts.slashing.v1	Defensive Duelist: the blow is turned aside.	Likely	Sure	0
 effect:dueling	No proposed FX				A bonus to damage — no moment to play.
 effect:durable	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:enhanced-dual-wielding	No proposed FX				A passive trait — no moment to play.
 effect:fire-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:fog-of-war	No proposed FX				A passive trait — no moment to play.
-effect:halted	Close match	effect:slowed	jb2a.icon.stun.dark_teal	psfx.impacts.slashing.v1	Sentinel: the target's speed is nought.	Likely	Likely	0
 effect:heavy-armor-master	No proposed FX				A damage reduction — no moment to play.
 effect:lightning-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:medium-armor-master	No proposed FX				A passive trait — no moment to play.
-effect:merged-with-shadows	Close match	spell:invisibility	jb2a.smoke.puff.centered.dark_black	psfx.magic-signs.rune.v1.illusion.intro	Merged with Shadows: it is part of the dark.	Likely	Likely	0
 effect:necrotic-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:poison-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
-effect:poisoned-dex	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.01	psfx.cantrips.poison-spray.v1	Poisoner: the target is poisoned.	Likely	Likely	0
-effect:poisoned-int	Close match	effect:lingering-acid	jb2a.markers.poison.purple.01	psfx.cantrips.poison-spray.v1	Poisoner: the target is poisoned.	Likely	Likely	0
 effect:psychic-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:radiant-boon-of-energy-resistance	No proposed FX				Bookkeeping for another ability, which plays the moment — nothing of its own to play.			
 effect:shield-bashed	Close match	effect:slowed	jb2a.melee_attack.06.shield.04	psfx.impacts.bludgeoning.v1	Shield Master: the shield bashes them down.	Sure	Sure	0
 effect:skulker	No proposed FX				A passive trait — no moment to play.
-effect:slashed	Close match	effect:lingering-acid	jb2a.markers.drop.red.03	psfx.impacts.slashing.v1	Slasher: the cut slows or blinds.	Sure	Sure	0
 effect:speedy	No proposed FX				A passive trait — no moment to play.
 effect:tavern-brawler	No proposed FX				Always on while it is worn or known — no moment to play.			
 effect:telepathic-utterance	No proposed FX				Always on while it is worn or known — no moment to play.			
@@ -43,41 +37,29 @@ feature:athlete	No proposed FX				A passive trait — no moment to play.
 feature:blessed-warrior	No proposed FX				Cantrips gained — each has its own FX.
 feature:blind-fighting	No proposed FX				Blindsight — no moment to play.
 feature:boon-of-combat-prowess	No proposed FX				The record has no activity, so nothing at the table plays it.			
-feature:boon-of-dimensional-travel	Close match	spell:misty-step	jb2a.misty_step.01.blue	psfx.2nd-level-spells.misty-step.v1.complete.generic	Boon of Dimensional Travel: it steps thirty feet.	Sure	Sure	15
-feature:boon-of-energy-resistance	Close match	effect:acid-protection	jb2a.shield.02.loop.blue	psfx.magic-signs.rune.v1.abjuration.outro	Boon of Energy Resistance: the shield, in the colour of the type chosen.	Likely	Likely	0
-feature:boon-of-fate	Close match	effect:outlined	jb2a.icosahedron.star.below.blueyellow	psfx.magic-signs.rune.v1.divination.intro	Boon of Fate: a roll is changed.	Likely	Likely	0
 feature:boon-of-fortitude	No proposed FX				A passive benefit — no moment to play.			
 feature:boon-of-irresistible-offense	No proposed FX				Damage that ignores resistance — the swing has its own FX.
-feature:boon-of-recovery	Close match	spell:cure-wounds	jb2a.healing_generic.loop.bluewhite	psfx.1st-level-spells.cure-wounds.v1.001	Boon of Recovery: half hit points back.	Likely	Sure	0
 feature:boon-of-skill	No proposed FX				A proficiency — no moment to play.
-feature:boon-of-speed	Close match	effect:hasted	jb2a.token_border.circle.spinning.orange.009	psfx.magic-signs.rune.v1.transmutation.complete	Boon of Speed: it moves.	Likely	Likely	0
 feature:boon-of-spell-recall	No proposed FX				A passive benefit — no moment to play.			
-feature:boon-of-the-night-spirit	Close match	spell:invisibility	jb2a.smoke.puff.centered.dark_black	psfx.magic-signs.rune.v1.illusion.intro	Boon of the Night Spirit: it goes into shadow.	Likely	Likely	0
 feature:boon-of-truesight	No proposed FX				The record has no activity, so nothing at the table plays it.			
-feature:charger	Close match	effect:hasted	jb2a.impact.013.002.orangeyellow	psfx.impacts.bludgeoning.v1	Charger: it comes in fast and hard.	Likely	Sure	0
 feature:chef	No proposed FX				A passive benefit — no moment to play.			
 feature:crafter	No proposed FX				A proficiency — no moment to play.
 feature:crossbow-expert	No proposed FX				A passive trait — no moment to play.
 feature:crusher	No proposed FX				A passive trait — the Crushed effect has a proposal of its own.
 feature:defense	No proposed FX				A bonus to AC — no moment to play.
-feature:defensive-duelist	Close match	spell:mage-armor	jb2a.side_impact.part.shockwave.blue	psfx.impacts.slashing.v1	Defensive Duelist: the blow is turned aside.	Likely	Sure	0
 feature:druidic-warrior	No proposed FX				Cantrips gained — each has its own FX.
 feature:dual-wielder	No proposed FX				A passive trait — no moment to play.
 feature:dueling	No proposed FX				A fighting style — no moment to play.
-feature:durable	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.1st-level-spells.cure-wounds.v1.001	Durable: it heals better.	Likely	Sure	0
 feature:elemental-adept	No proposed FX				A passive trait — the spell has its own FX.
 feature:fey-touched	No proposed FX				Spells gained — each has its own FX.
 feature:grappler	No proposed FX				A passive trait — the grapple has a proposal of its own.
 feature:great-weapon-fighting	No proposed FX				A fighting style — no moment to play.
 feature:great-weapon-master	No proposed FX				A passive benefit — no moment to play.			
-feature:healer	Close match	spell:cure-wounds	jb2a.healing_generic.200px.red	psfx.consumables.potions-vials.cork-bottle.001	Healer: the kit does its work.	Likely	Likely	0
 feature:heavily-armored	No proposed FX				A proficiency — no moment to play.
 feature:heavy-armor-master	No proposed FX				A damage reduction — no moment to play.
 feature:inspiring-leader	No proposed FX				A passive benefit — no moment to play.			
-feature:interception	Close match	spell:mage-armor	jb2a.markers.shield.blue.01	psfx.impacts.bludgeoning.v1	Interception: the blow is taken for someone else.	Likely	Sure	0
 feature:keen-mind	No proposed FX				A passive trait — no moment to play.
 feature:lightly-armored	No proposed FX				A proficiency — no moment to play.
-feature:lucky	Close match	effect:outlined	jb2a.icosahedron.roll.blue	psfx.magic-signs.rune.v1.divination.intro	Lucky: a d20 tumbles and settles its way.	Sure	Likely	0
 feature:mage-slayer	No proposed FX				A reaction attack — the swing has its own FX.
 feature:magic-initiate	No proposed FX				Spells gained — each has its own FX.
 feature:martial-weapon-training	No proposed FX				A proficiency — no moment to play.
@@ -87,38 +69,29 @@ feature:mounted-combatant	No proposed FX				A passive trait — no moment to pla
 feature:musician	No proposed FX				A proficiency — no moment to play.
 feature:observant	No proposed FX				A passive trait — no moment to play.
 feature:piercer	No proposed FX				A passive trait — no moment to play.
-feature:poisoner	Close match	effect:lingering-acid	jb2a.markers.poison.dark_green.01	psfx.cantrips.poison-spray.v1	Poisoner: the blade is coated.	Likely	Likely	0
 feature:polearm-master	No proposed FX				An extra bonus-action attack — the swing has its own FX.
-feature:protection	Close match	spell:mage-armor	jb2a.markers.shield.green.01	psfx.impacts.bludgeoning.v1	Protection: the shield covers an ally.	Likely	Sure	0
 feature:resilient	No proposed FX				A proficiency — no moment to play.
 feature:ritual-caster	No proposed FX				A ritual cast — the spell has its own FX.
 feature:savage-attacker	No proposed FX				A damage reroll — no moment to play.
 feature:sentinel	No proposed FX				A passive trait — the Halted effect has a proposal of its own.
 feature:shadow-touched	No proposed FX				Spells gained — each has its own FX.
 feature:sharpshooter	No proposed FX				A passive trait — no moment to play.
-feature:shield-master	Close match	effect:slowed	jb2a.melee_attack.06.shield.04	psfx.impacts.bludgeoning.v1	Shield Master: the shield puts them down.	Sure	Sure	0
 feature:skill-expert	No proposed FX				A proficiency — no moment to play.
 feature:skilled	No proposed FX				A proficiency — no moment to play.
 feature:skulker	No proposed FX				A passive trait — no moment to play.
 feature:slasher	No proposed FX				A passive trait — the Slashed effect has a proposal of its own.
 feature:speedy	No proposed FX				A passive trait — no moment to play.
 feature:spell-sniper	No proposed FX				A passive trait — the spell has its own FX.
-feature:tavern-brawler	Close match	natural:unarmed-strike	jb2a.unarmed_strike.physical.01.orange	psfx.impacts.bludgeoning.v1	Tavern Brawler: the fist lands.	Sure	Sure	0
 feature:telepathic	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:thrown-weapon-fighting	No proposed FX				A fighting style — no moment to play.
 feature:tough	No proposed FX				Extra hit points — no moment to play.
 feature:two-weapon-fighting	No proposed FX				A fighting style — no moment to play.
-feature:unarmed-fighting	Close match	natural:unarmed-strike	jb2a.unarmed_strike.physical.02.blue	psfx.impacts.bludgeoning.v1	Unarmed Fighting: the fist hits harder.	Sure	Sure	0
 feature:war-caster	No proposed FX				A passive trait — no moment to play.
 feature:weapon-master	No proposed FX				A proficiency — no moment to play.
-effect:chilled	Close match	effect:reduced-movement	jb2a.markers.snowflake.dark_blue.02	psfx.impacts.magicaleffects.cold	Chilled: the cold is on them.	Likely	Sure	0
-effect:draconic-flight	Close match	spell:fly	jb2a.swirling_feathers.outburst.01.textured	psfx.creature.movement.flight.wings.small	Draconic Flight: spectral wings.	Likely	Likely	0
 effect:dwarven-toughness	No proposed FX				Extra hit points — no moment to play.
 effect:gnomish-cunning	No proposed FX				A passive trait — no moment to play.
 effect:halfling-nimbleness	No proposed FX				A passive trait — no moment to play.
-effect:large-form	Close match	effect:bark-like-skin	jb2a.particles.outward.orange.02.01	psfx.magic-signs.rune.v1.transmutation.intro	Large Form: the goliath grows.	Likely	Likely	0
 effect:luck	No proposed FX				A passive trait — no moment to play.
-effect:necrotic-shroud	Close match	spell:fly	jb2a.swirling_feathers.outburst.01.purple	psfx.impacts.magicaleffects.necrotic	Necrotic Shroud: dark feathers burst out as the shroud takes the aasimar.	Likely	Likely	3
 effect:powerful-build	No proposed FX				A passive trait — no moment to play.
 feature:aasimar	No proposed FX				A species name, not an ability — nothing to play.
 feature:acolyte	No proposed FX				A background name, not an ability — nothing to play.
@@ -145,7 +118,6 @@ feature:fiendish-legacy	No proposed FX				A lineage choice — nothing to play.
 feature:fiendish-legacy-abyssal	No proposed FX				A lineage choice — the spells it grants have their own FX.
 feature:fiendish-legacy-chthonic	No proposed FX				A lineage choice — the spells it grants have their own FX.
 feature:fiendish-legacy-infernal	No proposed FX				A lineage choice — the spells it grants have their own FX.
-feature:fires-burn	Close match	effect:burning	jb2a.impact.fire.01.orange	psfx.casting.fire.001	Fires Burn: the tiefling's fire answers.	Likely	Sure	0
 feature:giant-ancestry	No proposed FX				A passive trait — no moment to play.
 feature:gnome-forest	No proposed FX				A species name, not an ability — nothing to play.
 feature:gnome-rock	No proposed FX				A species name, not an ability — nothing to play.
@@ -161,7 +133,6 @@ feature:halfling-nimbleness	No proposed FX				A passive trait — no moment to p
 feature:hermit	No proposed FX				A background name, not an ability — nothing to play.
 feature:human	No proposed FX				A species name, not an ability — nothing to play.
 feature:keen-senses	No proposed FX				A proficiency — no moment to play.
-feature:large-form	Close match	effect:bark-like-skin	jb2a.particles.outward.orange.02.01	psfx.magic-signs.rune.v1.transmutation.intro	Large Form: the goliath grows.	Likely	Likely	0
 feature:light-bearer	No proposed FX				The Light cantrip, which has its own FX.
 feature:luck	No proposed FX				A passive trait — no moment to play.
 feature:merchant	No proposed FX				A background name, not an ability — nothing to play.

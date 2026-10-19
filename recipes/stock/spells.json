@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The spells: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 427
+  "fx": 460
  },
  "fx": [
   {
@@ -15578,6 +15578,895 @@
       "after": 750,
       "back": 250
      }
+    }
+   ]
+  },
+  {
+   "id": "arcanists-magic-aura",
+   "for": [
+    "spell:arcanists-magic-aura"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.spells24.Item.phbsplNystulsMag",
+    "name": "Arcanist's Magic Aura",
+    "where": "SRD 5.2 · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "aura-of-evasion",
+   "for": [
+    "spell:aura-of-evasion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunAuraofEvasiIJ",
+    "name": "Aura of Evasion",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.aura.03.inward.002.complete.combined.blueteal"
+     },
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cacophonic-shield",
+   "for": [
+    "spell:cacophonic-shield"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofCacophonicShi",
+    "name": "Cacophonic Shield",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.01.loop.purplepink"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "opacity": 0.75,
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "detonate",
+   "for": [
+    "spell:detonate"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDetonate6PwEy",
+    "name": "Detonate",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.explosion.03.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.fire",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "dirge",
+   "for": [
+    "spell:dirge"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofDirge00000000",
+    "name": "Dirge",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "size": {
+      "radius": 0.75,
+      "plusToken": true
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.music.dark_red"
+     },
+     "sound": {
+      "asset": "psfx.musical-instruments.violin.01.sforzando.keyOfA.Am6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "disruptive-tune",
+   "for": [
+    "spell:disruptive-tune"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDisruptiveTaN",
+    "name": "Disruptive Tune",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.explosion.06.purplepink"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.dissonant-whispers.v1.002",
+      "delay": 1000
+     },
+     "opacity": 0.75,
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "distorted-distance",
+   "for": [
+    "spell:distorted-distance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDistortedDiLa",
+    "name": "Distorted Distance",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.illusion.intro.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.complete"
+     },
+     "size": {
+      "fit": "shape",
+      "scale": {
+       "x": 1.25,
+       "y": 1.25
+      }
+     },
+     "opacity": 0.8,
+     "mask": true,
+     "rate": 2,
+     "clearTemplate": true,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "dueling-ground",
+   "for": [
+    "spell:dueling-ground"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunDuelingGrouLS",
+    "name": "Dueling Ground",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.abjuration.intro.red"
+     },
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete"
+     }
+    }
+   ]
+  },
+  {
+   "id": "elemental-suffusion",
+   "for": [
+    "spell:elemental-suffusion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofSongalsElemen",
+    "name": "Songal's Elemental Suffusion",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.particles.outward.purple.02.02"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic-v2.001.01"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "elusion",
+   "for": [
+    "spell:elusion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofElminstersElu",
+    "name": "Elminster's Elusion",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.shield-spell.intro.v1"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.aura_themed.01.orbit.loop.metal.01.teal"
+     }
+    }
+   ]
+  },
+  {
+   "id": "entrancing-mirrors",
+   "for": [
+    "spell:entrancing-mirrors"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunEntrancingMlx",
+    "name": "Entrancing Mirrors",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.complete",
+      "start": 500
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.illusion.intro.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "festering-blast",
+   "for": [
+    "spell:festering-blast"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunFesteringBlzT",
+    "name": "Festering Blast",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.breath_weapons02.burst.line.fire.green.01"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "opacity": 0.75,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "fractured-awareness",
+   "for": [
+    "spell:fractured-awareness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunFracturedAwZD",
+    "name": "Fractured Awareness",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.divination.complete.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "opacity": 0.75,
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "grave-ground",
+   "for": [
+    "spell:grave-ground"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunGraveGroundcR",
+    "name": "Grave Ground",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.ground_cracks.02.green"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "below": true,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "hindsight",
+   "for": [
+    "spell:hindsight"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunHindsightoKSP",
+    "name": "Hindsight",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.complete",
+      "delay": 1
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.divination.intro.dark_blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "inflict-doubt",
+   "for": [
+    "spell:inflict-doubt"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunInflictDoubTp",
+    "name": "Inflict Doubt",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     },
+     "opacity": 0.75,
+     "asset": {
+      "path": "jb2a.magic_signs.rune.enchantment.complete.grey"
+     },
+     "wait": true
+    }
+   ]
+  },
+  {
+   "id": "invulnerability-spell",
+   "for": [
+    "spell:invulnerability"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunInvulnerabiVp",
+    "name": "Invulnerability",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.abjuration.intro.yellow"
+     },
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete"
+     }
+    }
+   ]
+  },
+  {
+   "id": "iron-body-spell",
+   "for": [
+    "spell:iron-body"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunIronBodyti7sg",
+    "name": "Iron Body",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.aura_themed.01.inward.complete.metal.01.grey"
+     }
+    }
+   ]
+  },
+  {
+   "id": "jolt-to-life",
+   "for": [
+    "spell:jolt-to-life"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.AVoqeXk2ZFHWZzQB",
+    "name": "Jolt to Life",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.shocking-grasp.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.static_electricity.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lightning-ring",
+   "for": [
+    "spell:lightning-ring"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunLightningRiWL",
+    "name": "Lightning Ring",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.template_circle.lightning.01.complete.bluepurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.lightning"
+     },
+     "from": "area"
+    }
+   ]
+  },
+  {
+   "id": "moment-of-prescience",
+   "for": [
+    "spell:moment-of-prescience"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunMomentofPrehK",
+    "name": "Moment of Prescience",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.rune.divination.complete.yellow"
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "mooncloak",
+   "for": [
+    "spell:mooncloak"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.options.Item.hofAlustrielsMoo",
+    "name": "Alustriel’s Mooncloak",
+    "where": "Forgotten Realms: Heroes of Faerûn · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.moonbeam.01.no_pulse.blue"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.moonbeam.intro.v1.001",
+      "volume": 0.25
+     },
+     "opacity": 0.75,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "mordenkainens-lucubration",
+   "for": [
+    "spell:mordenkainens-lucubration"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunMordenkaineKp",
+    "name": "Mordenkainen's Lucubration",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "asset": {
+      "path": "jb2a.glint.blue.many"
+     }
+    }
+   ]
+  },
+  {
+   "id": "reweave-fate",
+   "for": [
+    "spell:reweave-fate"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunReweaveFate6C",
+    "name": "Reweave Fate",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.star.above.blueyellow"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "spirit-lantern-spell",
+   "for": [
+    "spell:spirit-lantern"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.oY5tTbIhlVJbrnKW",
+    "name": "Spirit Lantern",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.spirit_guardians.dark_black.particles"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.complete"
+     },
+     "fadeIn": 100,
+     "fadeOut": 100,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "summon-dinosaur",
+   "for": [
+    "spell:summon-dinosaur"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunSummonDinosvH",
+    "name": "Summon Dinosaur",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.impact.ground_crack.01.orange"
+     }
+    }
+   ]
+  },
+  {
+   "id": "summon-plant",
+   "for": [
+    "spell:summon-plant"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunSummonPlantZd",
+    "name": "Summon Plant",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.01.ring.4x4.complete.bluepurple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "transfix",
+   "for": [
+    "spell:transfix"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunTransfixipkCO",
+    "name": "Transfix",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact_themed.heart.pinkyellow"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "opacity": 0.8,
+     "mask": true,
+     "rate": 2,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "uncertain-footing",
+   "for": [
+    "spell:uncertain-footing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunUncertainForz",
+    "name": "Uncertain Footing",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.illusion.complete.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "opacity": 0.8,
+     "mask": true,
+     "rate": 2,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "vision-of-elapsing-eons",
+   "for": [
+    "spell:vision-of-elapsing-eons"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunVisionofElaMG",
+    "name": "Vision of Elapsing Eons",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.illusion.intro.dark_purple"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wail-of-the-banshee",
+   "for": [
+    "spell:wail-of-the-banshee"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunWailoftheBaRt",
+    "name": "Wail of the Banshee",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.horror.teal.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "delay": 4000
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 4000
+    }
+   ]
+  },
+  {
+   "id": "waves-of-exhaustion",
+   "for": [
+    "spell:waves-of-exhaustion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunWavesofExhacv",
+    "name": "Waves of Exhaustion",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "beam",
+     "asset": {
+      "path": "jb2a.spirit_guardians.dark_black.ring"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "persist": "none"
+    }
+   ]
+  },
+  {
+   "id": "zone-of-amicability-spell",
+   "for": [
+    "spell:zone-of-amicability"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.spells.Item.aunZoneofAmicaC6",
+    "name": "Zone of Amicability",
+    "where": "Arcana Unleashed · Spells"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.template_circle.aura.03.inward.002.complete.combined.pinkyellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.complete"
+     },
+     "persist": "none",
+     "at": "targets-else-source"
     }
    ]
   }

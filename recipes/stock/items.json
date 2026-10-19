@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The items: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 32
+  "fx": 335
  },
  "fx": [
   {
@@ -1183,6 +1183,8168 @@
      },
      "size": {
       "tokenWidths": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "absorption-ioun-stone",
+   "for": [
+    "item:absorption-ioun-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAbsorptionIou",
+    "name": "Ioun Stone of Absorption",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.ioun_stones.01.purple.absorption"
+     }
+    }
+   ]
+  },
+  {
+   "id": "alchemy-jug",
+   "for": [
+    "item:alchemy-jug"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAlchemyJug000",
+    "name": "Activate Alchemy Jug",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "asset": {
+      "path": "jb2a.liquid.splash_side.bright_blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ammunition-1-2-or-3",
+   "for": [
+    "item:ammunition-1-2-or-3"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAmmunition12o",
+    "name": "Ammunition, +1, +2, or +3",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.glint.yellow.few"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "ammunition-of-slaying",
+   "for": [
+    "item:ammunition-of-slaying"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSlayingAmmuni",
+    "name": "Ammunition of Slaying",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.arrow.physical.white.02"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "anchor-feather-token",
+   "for": [
+    "item:anchor-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgAnchorQuaalsF",
+    "name": "Feather Token (Anchor)",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "anchor-quaals-feather-token",
+   "for": [
+    "item:anchor-quaals-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAnchorQuaalsF",
+    "name": "Quaal's Feather Token (Anchor)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "animated-shield-item",
+   "for": [
+    "item:animated-shield"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAnimatedShiel",
+    "name": "Animated Shield",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.shield.blue.02"
+     }
+    }
+   ]
+  },
+  {
+   "id": "anstruth-harp-instrument-of-the-bards",
+   "for": [
+    "item:anstruth-harp-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAnstruthHarpI",
+    "name": "Anstruth Harp Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "antitoxin-item",
+   "for": [
+    "item:antitoxin"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagAntitoxin00",
+    "name": "Antitoxin",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "apparatus-of-kwalish",
+   "for": [
+    "item:apparatus-of-kwalish"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgApparatusOfKw",
+    "name": "Apparatus of Kwalish",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.ambient.tools.gears.001"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.grey"
+     }
+    }
+   ]
+  },
+  {
+   "id": "apparatus-of-the-crab",
+   "for": [
+    "item:apparatus-of-the-crab"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgApparatusOfKw",
+    "name": "Apparatus of the Crab",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.ambient.tools.gears.001"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.grey"
+     }
+    }
+   ]
+  },
+  {
+   "id": "arcane-chatelaine",
+   "for": [
+    "item:arcane-chatelaine"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcaneChatekU",
+    "name": "Arcane Chatelaine",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.rune.abjuration.complete.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "arcanists-bestiary",
+   "for": [
+    "item:arcanists-bestiary"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunArcanistsBeXG",
+    "name": "Arcanist's Bestiary",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.enchantment.complete.orange"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro",
+      "delay": 250
+     },
+     "opacity": 0.01,
+     "size": {
+      "radius": 0.01
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "delay": 250
+    }
+   ]
+  },
+  {
+   "id": "armor-of-invulnerability",
+   "for": [
+    "item:armor-of-invulnerability"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArmorOfInvuln",
+    "name": "Armor of Invulnerability",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.complete.01.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "armor-of-resistance",
+   "for": [
+    "item:armor-of-resistance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArmorOfResist",
+    "name": "Armor of Resistance",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "opacity": 0.6,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.shield.02.loop.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "arrow-catching-shield",
+   "for": [
+    "item:arrow-catching-shield"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgArrowcatching",
+    "name": "Arrow-Catching Shield",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.shield.blue.01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "arsonist-spirit",
+   "for": [
+    "item:arsonist-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSArsonistSF5",
+    "name": "Arsonist Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "targets-else-source",
+     "asset": {
+      "path": "jb2a.impact.fire.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "avenger-spirit-item",
+   "for": [
+    "item:avenger-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSAvengerSpv2",
+    "name": "Avenger Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.condition.curse.01.005.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "baba-yagas-dancing-broom",
+   "for": [
+    "item:baba-yagas-dancing-broom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBabaYagasDanc",
+    "name": "Baba Yaga's Dancing Broom",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.complete.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bag-of-beans",
+   "for": [
+    "item:bag-of-beans"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfBeans000",
+    "name": "Bag of Beans",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.02.round.2x2.complete.greenred"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bag-of-tricks",
+   "for": [
+    "item:bag-of-tricks"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBagOfTricks00",
+    "name": "Gray Bag of Tricks",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bagpipes",
+   "for": [
+    "item:bagpipes"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusBagpipes00",
+    "name": "Bagpipes",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.crotchet.green"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "bandore",
+   "for": [
+    "item:bandore"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofBandore000000",
+    "name": "Bandore",
+    "where": "Forgotten Realms: Heroes of Faerûn · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "bead-of-force",
+   "for": [
+    "item:bead-of-force"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBeadOfForce00",
+    "name": "Bead of Force",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.generic.002.001"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.wall_of_force.sphere.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bellows-of-strangulation",
+   "for": [
+    "item:bellows-of-strangulation"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBellowsofStJo",
+    "name": "Bellows of Strangulation",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons02.burst.cone.arcana.dark_black.01"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "mask": true,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "beloved-spirit",
+   "for": [
+    "item:beloved-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSBelovedSp2V",
+    "name": "Beloved Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bird-feather-token",
+   "for": [
+    "item:bird-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgBirdQuaalsFea",
+    "name": "Feather Token (Bird)",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bird-quaals-feather-token",
+   "for": [
+    "item:bird-quaals-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBirdQuaalsFea",
+    "name": "Quaal's Feather Token (Bird)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "blood-amulet",
+   "for": [
+    "item:blood-amulet"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBloodAmuletFw",
+    "name": "Blood Amulet",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.liquid.splash_side.red"
+     },
+     "size": {
+      "radius": 1
+     },
+     "zIndex": 2,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 250,
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "blossom-rod",
+   "for": [
+    "item:blossom-rod"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunBlossomRod2C1",
+    "name": "Blossom Rod",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.plant_growth.01.round.2x2.complete.bluepurple"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "below": true,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "blue-elemental-gem",
+   "for": [
+    "item:blue-elemental-gem"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBlueElemental",
+    "name": "Elemental Gem (Blue Sapphire)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "asset": {
+      "path": "jb2a.whirlwind.bluewhite"
+     }
+    }
+   ]
+  },
+  {
+   "id": "boat-utility",
+   "for": [
+    "item:boat-utility"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBoatUtility00",
+    "name": "Activate Folding Boat",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.generic.001"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.grey"
+     }
+    }
+   ]
+  },
+  {
+   "id": "book-of-exalted-deeds",
+   "for": [
+    "item:book-of-exalted-deeds"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBookOfExalted",
+    "name": "Book of Exalted Deeds",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.bless.200px.intro.yellow"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "book-of-vile-darkness",
+   "for": [
+    "item:book-of-vile-darkness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBookOfVileDar",
+    "name": "Book of Vile Darkness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.runes02.dark_black.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "boots-of-levitation",
+   "for": [
+    "item:boots-of-levitation"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBootsOfLevita",
+    "name": "Boots of Levitation",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.energy_field.02.below.blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "boots-of-speed",
+   "for": [
+    "item:boots-of-speed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBootsOfSpeed0",
+    "name": "Boots of Speed",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.complete",
+      "start": 500
+     },
+     "asset": {
+      "path": "jb2a.token_border.circle.spinning.orange.004"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bowl-of-commanding-water-elementals",
+   "for": [
+    "item:bowl-of-commanding-water-elementals"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBowlOfCommand",
+    "name": "Bowl of Commanding Water Elementals",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "asset": {
+      "path": "jb2a.bubble.002.002.complete.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "brass-horn-of-valhalla",
+   "for": [
+    "item:brass-horn-of-valhalla"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBrassHornOfVa",
+    "name": "Brass Horn of Valhalla",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "brazier-of-commanding-fire-elementals",
+   "for": [
+    "item:brazier-of-commanding-fire-elementals"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBrazierOfComm",
+    "name": "Brazier of Commanding Fire Elementals",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "path": "jb2a.fire_ring.500px.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bright-fungal-cloak",
+   "for": [
+    "item:bright-fungal-cloak"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofBrightFungalC",
+    "name": "Bright Fungal Cloak",
+    "where": "Forgotten Realms: Heroes of Faerûn · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light.complete.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bronze-griffon-rare",
+   "for": [
+    "item:bronze-griffon-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpBronzeGrif",
+    "name": "Bronze Griffon",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.02.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bronze-horn-of-valhalla",
+   "for": [
+    "item:bronze-horn-of-valhalla"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBronzeHornOfV",
+    "name": "Bronze Horn of Valhalla",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "broom-of-flying",
+   "for": [
+    "item:broom-of-flying"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBroomOfFlying",
+    "name": "Broom of Flying",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.wind_lines.01.leaves.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "brute-spirit",
+   "for": [
+    "item:brute-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSBruteSpir1q",
+    "name": "Brute Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.thunderwave.center.blue"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "bullseye-lantern",
+   "for": [
+    "item:bullseye-lantern"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.KZUoiZrigDbovEu7",
+    "name": "Bullseye Lantern",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.cone.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "canaith-mandolin-instrument-of-the-bards",
+   "for": [
+    "item:canaith-mandolin-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCanaithMandol",
+    "name": "Canaith Mandolin Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "cap-of-water-breathing",
+   "for": [
+    "item:cap-of-water-breathing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCapOfWaterBre",
+    "name": "Cap of Water Breathing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.bubble.001.001.loop.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cape-of-the-mountebank",
+   "for": [
+    "item:cape-of-the-mountebank"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCapeOfTheMoun",
+    "name": "Cape of the Mountebank",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.dark_black"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "rate": 1.5,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.2nd-level-spells.misty-step.v1.complete.generic"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.smoke.puff.side.dark_black"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "rate": 1.5,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 500,
+     "after": 1000,
+     "seen": false,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "carpet-of-flying",
+   "for": [
+    "item:carpet-of-flying"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCarpetOfFlyin",
+    "name": "Carpet of Flying",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.wind_stream.200.white"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cauldron-of-rebirth",
+   "for": [
+    "item:cauldron-of-rebirth"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCauldronOfReb",
+    "name": "Cauldron of Rebirth",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.necromancy.complete.green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.complete",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "censer-of-controlling-air-elementals",
+   "for": [
+    "item:censer-of-controlling-air-elementals"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCenserOfContr",
+    "name": "Censer of Controlling Air Elementals",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "asset": {
+      "path": "jb2a.whirlwind.bluegrey"
+     }
+    }
+   ]
+  },
+  {
+   "id": "chain-item",
+   "for": [
+    "item:chain"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagChain000000",
+    "name": "Chain",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.standard.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "chime-of-opening",
+   "for": [
+    "item:chime-of-opening"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgChimeOfOpenin",
+    "name": "Chime of Opening",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.doors.clean.unlock.wooden.01"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.soundwave.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "circlet-of-blasting",
+   "for": [
+    "item:circlet-of-blasting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCircletOfBlas",
+    "name": "Circlet of Blasting",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.scorching_ray.02.orange"
+     },
+     "sound": {
+      "asset": "psfx.2nd-level-spells.scorching-ray.v1",
+      "delay": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "cittern",
+   "for": [
+    "item:cittern"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofCittern000000",
+    "name": "Cittern",
+    "where": "Forgotten Realms: Heroes of Faerûn · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "cli-lyre-instrument-of-the-bards",
+   "for": [
+    "item:cli-lyre-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCliLyreInstru",
+    "name": "Cli Lyre Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "cloak-of-arachnida",
+   "for": [
+    "item:cloak-of-arachnida"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCloakOfArachn",
+    "name": "Cloak of Arachnida",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.web.complete.002.white"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "mask": true,
+     "persist": "template",
+     "elevation": {
+      "level": 1199,
+      "absolute": false
+     },
+     "delay": 500,
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cloak-of-invisibility",
+   "for": [
+    "item:cloak-of-invisibility"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCloakOfInvisi",
+    "name": "Cloak of Invisibility",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.intro"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cloak-of-the-bat",
+   "for": [
+    "item:cloak-of-the-bat"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCloakOfTheBat",
+    "name": "Cloak of the Bat",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.bats.complete.01.green"
+     },
+     "sound": {
+      "asset": "psfx.creature.movement.flight.wings.small"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cloud-potion-of-giant-strength",
+   "for": [
+    "item:cloud-potion-of-giant-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCloudPotionOf",
+    "name": "Potion of Giant Strength (Cloud)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.02.004.refraction"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "conjurers-canopy",
+   "for": [
+    "item:conjurers-canopy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunConjurersCa8H",
+    "name": "Conjurer's Canopy",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_blue"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "rate": 2,
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    }
+   ]
+  },
+  {
+   "id": "coward-spirit",
+   "for": [
+    "item:coward-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSCowardSpi34",
+    "name": "Coward Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "size": {
+      "radius": 0.75,
+      "plusToken": true
+     },
+     "persist": "template",
+     "asset": {
+      "path": "jb2a.template_circle.symbol.out_flow.fear.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "crystal-ball",
+   "for": [
+    "item:crystal-ball"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCrystalBall00",
+    "name": "Crystal Ball",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cube-of-force",
+   "for": [
+    "item:cube-of-force"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCubeOfForce00",
+    "name": "Cube of Force",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.energy_field.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cube-of-summoning",
+   "for": [
+    "item:cube-of-summoning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCubeOfSummoni",
+    "name": "Cube of Summoning",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.particle_burst.01.star.bluepurple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "daerns-instant-fortress",
+   "for": [
+    "item:daerns-instant-fortress"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDaernsInstant",
+    "name": "Daern's Instant Fortress",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.impact.earth.01.browngreen"
+     }
+    }
+   ]
+  },
+  {
+   "id": "decanter-of-endless-water",
+   "for": [
+    "item:decanter-of-endless-water"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDecanterOfEnd",
+    "name": "Decanter of Endless Water",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "asset": {
+      "path": "jb2a.water_splash.cone.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "deck-of-illusions",
+   "for": [
+    "item:deck-of-illusions"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDeckOfIllusio",
+    "name": "Deck of Illusions",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.illusion.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.illusion.complete.purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "deck-of-many-things",
+   "for": [
+    "item:deck-of-many-things"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDeckOfManyThi",
+    "name": "Deck of Many Things",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.complete"
+     },
+     "asset": {
+      "path": "jb2a.ranged.card.01.projectile.01.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "demon-armor",
+   "for": [
+    "item:demon-armor"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDemonArmor000",
+    "name": "Demon Armor",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.runes03.dark_red.03"
+     }
+    }
+   ]
+  },
+  {
+   "id": "demonomicon-of-iggwilv",
+   "for": [
+    "item:demonomicon-of-iggwilv"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDemonomiconOf",
+    "name": "Demonomicon of Iggwilv",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.runes03.dark_black.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "dimensional-shackles",
+   "for": [
+    "item:dimensional-shackles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDimensionalSh",
+    "name": "Dimensional Shackles",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.square.loop.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.loop"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dispelling-ammunition-arrow",
+   "for": [
+    "item:dispelling-ammunition-arrow"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDispellingA5p",
+    "name": "Dispelling Ammunition (Arrow)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.arrow.physical.white.02"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "dispelling-ammunition-bolt",
+   "for": [
+    "item:dispelling-ammunition-bolt"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.Nx7CA222Zc0XABDB",
+    "name": "Dispelling Ammunition (Bolt)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bolt.physical.white02"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dispelling-ammunition-bullet-firearm",
+   "for": [
+    "item:dispelling-ammunition-bullet-firearm"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.6BkNsMYGyokiR0cO",
+    "name": "Dispelling Ammunition (Bullet, Firearm)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bullet.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dispelling-ammunition-bullet-sling",
+   "for": [
+    "item:dispelling-ammunition-bullet-sling"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.K0SsVF2IW2vCfRpR",
+    "name": "Dispelling Ammunition (Bullet, Sling)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.slingshot"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 1500
+     }
+    }
+   ]
+  },
+  {
+   "id": "dispelling-ammunition-needle",
+   "for": [
+    "item:dispelling-ammunition-needle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.l3AJIye62BqDRh0k",
+    "name": "Dispelling Ammunition (Needle)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.dart.01.throw.physical.white"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "doss-lute-instrument-of-the-bards",
+   "for": [
+    "item:doss-lute-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDossLuteInstr",
+    "name": "Doss Lute Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "dragon-orb",
+   "for": [
+    "item:dragon-orb"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgOrbOfDragonki",
+    "name": "Dragon Orb",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.enchantment.complete.dark_red"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.creature.dragons.roar.large"
+     }
+    }
+   ]
+  },
+  {
+   "id": "driftglobe",
+   "for": [
+    "item:driftglobe"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDriftglobe000",
+    "name": "Driftglobe",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "drum",
+   "for": [
+    "item:drum"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusDrum000000",
+    "name": "Drum",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.drum.01.001",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.beamed_quavers.orange"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "dulcimer",
+   "for": [
+    "item:dulcimer"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusDulcimer00",
+    "name": "Dulcimer",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.quaver.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "dust-of-disappearance",
+   "for": [
+    "item:dust-of-disappearance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDustOfDisappe",
+    "name": "Dust of Disappearance",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.01.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dust-of-dryness",
+   "for": [
+    "item:dust-of-dryness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDustOfDryness",
+    "name": "Dust of Dryness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.01.dark_black"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dust-of-sneezing-and-choking",
+   "for": [
+    "item:dust-of-sneezing-and-choking"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDustOfSneezin",
+    "name": "Dust of Sneezing and Choking",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     },
+     "asset": {
+      "path": "jb2a.fog_cloud.03.green02"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dynamite-stick",
+   "for": [
+    "item:dynamite-stick"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDynamiteStick",
+    "name": "Dynamite Stick",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.explosion.03.yellow"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "ebony-fly-rare",
+   "for": [
+    "item:ebony-fly-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpEbonyFlyRa",
+    "name": "Ebony Fly",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.02.dark_black"
+     }
+    }
+   ]
+  },
+  {
+   "id": "efreeti-bottle",
+   "for": [
+    "item:efreeti-bottle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEfreetiBottle",
+    "name": "Efreeti Bottle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "path": "jb2a.smoke.plumes.01.dark_red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "elemental-gem",
+   "for": [
+    "item:elemental-gem"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgElementalGem0",
+    "name": "Elemental Gem",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.particle_burst.01.circle.orangepink"
+     }
+    }
+   ]
+  },
+  {
+   "id": "elixir-of-health",
+   "for": [
+    "item:elixir-of-health"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgElixirOfHealt",
+    "name": "Elixir of Health",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "emerald-elemental-gem",
+   "for": [
+    "item:emerald-elemental-gem"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEmeraldElemen",
+    "name": "Elemental Gem (Emerald)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "asset": {
+      "path": "jb2a.bubble.002.002.complete.blueteal"
+     }
+    }
+   ]
+  },
+  {
+   "id": "enspelled-armor",
+   "for": [
+    "item:enspelled-armor"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledArmo",
+    "name": "Enspelled Armor",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.magic_signs.rune.02.complete.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "eversmoking-bottle",
+   "for": [
+    "item:eversmoking-bottle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEversmokingBo",
+    "name": "Eversmoking Bottle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.smoke.plumes_loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic.001",
+      "volume": 0.25
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "eye-and-hand-of-vecna",
+   "for": [
+    "item:eye-and-hand-of-vecna"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEyeAndHandOfV",
+    "name": "Eye and Hand of Vecna",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.runes02.dark_red.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "eyes-of-charming",
+   "for": [
+    "item:eyes-of-charming"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEyesOfCharmin",
+    "name": "Eyes of Charming",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.side_impact.heart.pink"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "falling-net",
+   "for": [
+    "item:falling-net"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFallingNet000",
+    "name": "Falling Net",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "template",
+     "asset": {
+      "path": "jb2a.web.complete.002.white"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fan-feather-token",
+   "for": [
+    "item:fan-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgFanQuaalsFeat",
+    "name": "Feather Token (Fan)",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "asset": {
+      "path": "jb2a.wind_lines.01.02.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fan-quaals-feather-token",
+   "for": [
+    "item:fan-quaals-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFanQuaalsFeat",
+    "name": "Quaal's Feather Token (Fan)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "asset": {
+      "path": "jb2a.wind_lines.01.02.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fire-casting-statue",
+   "for": [
+    "item:fire-casting-statue"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFirecastingSt",
+    "name": "Fire-Casting Statue",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.template_cone_5e.001.001.orangeyellow"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fire-potion-of-giant-strength",
+   "for": [
+    "item:fire-potion-of-giant-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFirePotionOfG",
+    "name": "Potion of Giant Strength (Fire)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.01.024.red"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fochlucan-bandore-instrument-of-the-bards",
+   "for": [
+    "item:fochlucan-bandore-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFochlucanBand",
+    "name": "Fochlucan Bandore Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "fortune-teller-spirit",
+   "for": [
+    "item:fortune-teller-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSFortuneTeZz",
+    "name": "Fortune Teller Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.01.016.yellow"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "frost-potion-of-giant-strength",
+   "for": [
+    "item:frost-potion-of-giant-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFrostPotionOf",
+    "name": "Potion of Giant Strength (Frost)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.01.024.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fruit-of-restoration",
+   "for": [
+    "item:fruit-of-restoration"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFruitOfRestor",
+    "name": "Fruit of Restoration",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.food-and-drink.consume.food.bite.juicy.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "gem-of-brightness",
+   "for": [
+    "item:gem-of-brightness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemOfBrightne",
+    "name": "Gem of Brightness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.breath_weapons02.burst.cone.holy.yellow.01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "gem-of-seeing",
+   "for": [
+    "item:gem-of-seeing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGemOfSeeing00",
+    "name": "Gem of Seeing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "tint": {
+      "colour": "#00c8ff",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.eyes.01.dark_yellow.single"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "gloves-of-missile-snaring",
+   "for": [
+    "item:gloves-of-missile-snaring"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGlovesOfMissi",
+    "name": "Gloves of Missile Snaring",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.shield.blue.03"
+     }
+    }
+   ]
+  },
+  {
+   "id": "goading-ammunition-arrow",
+   "for": [
+    "item:goading-ammunition-arrow"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGoadingAmmuiO",
+    "name": "Goading Ammunition (Arrow)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.arrow.physical.red"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "goading-ammunition-bolt",
+   "for": [
+    "item:goading-ammunition-bolt"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.YdUQhKPLVQd8bCJz",
+    "name": "Goading Ammunition (Bolt)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bolt.physical.red"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "goading-ammunition-bullet-firearm",
+   "for": [
+    "item:goading-ammunition-bullet-firearm"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.duOrxjBl86WHBzdw",
+    "name": "Goading Ammunition (Bullet, Firearm)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bullet.02.red"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "goading-ammunition-bullet-sling",
+   "for": [
+    "item:goading-ammunition-bullet-sling"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.nNYMwtX19yOlYDli",
+    "name": "Goading Ammunition (Bullet, Sling)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.slingshot"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 1500
+     }
+    }
+   ]
+  },
+  {
+   "id": "goading-ammunition-needle",
+   "for": [
+    "item:goading-ammunition-needle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.xAwt4vNZMLwBiG6x",
+    "name": "Goading Ammunition (Needle)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.dart.01.throw.physical.white"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "golden-lions-rare",
+   "for": [
+    "item:golden-lions-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpGoldenLion",
+    "name": "Golden Lions",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.01.multicolored"
+     }
+    }
+   ]
+  },
+  {
+   "id": "goodberry-charm",
+   "for": [
+    "item:goodberry-charm"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGoodberryChar",
+    "name": "Goodberry Charm",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "greater-absorption-ioun-stone",
+   "for": [
+    "item:greater-absorption-ioun-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGreaterAbsorp",
+    "name": "Ioun Stone of Greater Absorption",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.ioun_stones.01.purple.great_absorption"
+     }
+    }
+   ]
+  },
+  {
+   "id": "grenade-fragmentation",
+   "for": [
+    "item:grenade-fragmentation"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGrenadeFragme",
+    "name": "Grenade, Fragmentation",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.explosion.shrapnel.grenade.03.black"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "grenade-smoke",
+   "for": [
+    "item:grenade-smoke"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGrenadeSmoke0",
+    "name": "Grenade, Smoke",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.smoke.plumes.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic.001",
+      "volume": 0.25
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "gunpowder-keg",
+   "for": [
+    "item:gunpowder-keg"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGunpowderKeg0",
+    "name": "Gunpowder, Keg",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.explosion_side.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "gunpowder-powder-horn",
+   "for": [
+    "item:gunpowder-powder-horn"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGunpowderPowd",
+    "name": "Gunpowder, Powder Horn",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.explosion.07.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "hag-eye",
+   "for": [
+    "item:hag-eye"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHagEye0000000",
+    "name": "Hag Eye",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "tint": {
+      "colour": "#00c8ff",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.eyes.01.dark_green.single"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "harkons-bite-item",
+   "for": [
+    "item:harkons-bite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwHarkonsBite2Q",
+    "name": "Harkon's Bite",
+    "where": "Ravenloft: The Horrors Within · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.7,
+     "rate": 0.5,
+     "tint": {
+      "colour": "#804000",
+      "contrast": 0,
+      "saturation": -0.5
+     },
+     "persist": "none",
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     },
+     "asset": {
+      "path": "jb2a.shimmer.01.orange"
+     },
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "hat-of-disguise",
+   "for": [
+    "item:hat-of-disguise"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHatOfDisguise",
+    "name": "Hat of Disguise",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.side.dark_purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "hat-of-vermin",
+   "for": [
+    "item:hat-of-vermin"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHatOfVermin00",
+    "name": "Hat of Vermin",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.bats.complete.01.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "healers-kit",
+   "for": [
+    "item:healers-kit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagHealersKit0",
+    "name": "Healer's Kit",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "helm-of-brilliance",
+   "for": [
+    "item:helm-of-brilliance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHelmOfBrillia",
+    "name": "Helm of Brilliance",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.markers.light.outro.yellow02"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster",
+      "delay": 750
+     },
+     "opacity": 0.001,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "helm-of-comprehending-languages",
+   "for": [
+    "item:helm-of-comprehending-languages"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHelmOfCompreh",
+    "name": "Helm of Comprehending Languages",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.runes03.orange.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "helm-of-telepathy",
+   "for": [
+    "item:helm-of-telepathy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHelmOfTelepat",
+    "name": "Helm of Telepathy",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.runes02.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "hidden-pit",
+   "for": [
+    "item:hidden-pit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHiddenPit0000",
+    "name": "Hidden Pit",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.impact.earth.01.browngreen"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 1000
+     },
+     "opacity": 0.75,
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "hill-potion-of-giant-strength",
+   "for": [
+    "item:hill-potion-of-giant-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHillPotionOfG",
+    "name": "Potion of Giant Strength (Hill)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.01.024.green"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "hooded-lantern",
+   "for": [
+    "item:hooded-lantern"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.DKYzehYrMUKiFDxt",
+    "name": "Hooded Lantern",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "horn",
+   "for": [
+    "item:horn"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusHorn000000",
+    "name": "Horn",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.bass_clef.orange"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "horn-of-blasting",
+   "for": [
+    "item:horn-of-blasting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHornOfBlastin",
+    "name": "Horn of Blasting",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.thunderwave.center.blue"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.thunderclap.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "horn-of-valhalla",
+   "for": [
+    "item:horn-of-valhalla"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHornofValhall",
+    "name": "Horn of Valhalla",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "idol-of-good-fortunes",
+   "for": [
+    "item:idol-of-good-fortunes"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunIdolofGoodFyf",
+    "name": "Idol of Good Fortunes",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.star.below.blueyellow"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "instant-fortress",
+   "for": [
+    "item:instant-fortress"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgDaernsInstant",
+    "name": "Instant Fortress",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.impact.earth.01.browngreen"
+     }
+    }
+   ]
+  },
+  {
+   "id": "instrument-of-illusions",
+   "for": [
+    "item:instrument-of-illusions"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgInstrumentOfI",
+    "name": "Instrument of Illusions",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfA.A6"
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "instrument-of-the-bards",
+   "for": [
+    "item:instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgInstrumentOfT",
+    "name": "Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "iron-bands",
+   "for": [
+    "item:iron-bands"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgIronBandsOfBi",
+    "name": "Iron Bands",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "iron-bands-of-bilarro",
+   "for": [
+    "item:iron-bands-of-bilarro"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgIronBandsOfBi",
+    "name": "Iron Bands of Bilarro",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.square.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "iron-flask",
+   "for": [
+    "item:iron-flask"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgIronFlask0000",
+    "name": "Iron Flask",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.plumes.01.dark_red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "iron-horn-of-valhalla",
+   "for": [
+    "item:iron-horn-of-valhalla"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgIronHornOfVal",
+    "name": "Iron Horn of Valhalla",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ivory-goats",
+   "for": [
+    "item:ivory-goats"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpIvoryGoats",
+    "name": "Ivory Goats",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.02.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "keoghtoms-ointment",
+   "for": [
+    "item:keoghtoms-ointment"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgKeoghtomsOint",
+    "name": "Keoghtom's Ointment",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lantern-hooded",
+   "for": [
+    "item:lantern-hooded"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagLanternHood",
+    "name": "Lantern, Hooded",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lantern-of-revealing",
+   "for": [
+    "item:lantern-of-revealing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLanternOfReve",
+    "name": "Lantern of Revealing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.cantrips.light.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light.outro.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lolths-sting",
+   "for": [
+    "item:lolths-sting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLolthsSting00",
+    "name": "Lolth's Sting",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 3
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.poison.purple.03"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.7
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lucky-foot",
+   "for": [
+    "item:lucky-foot"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunLuckyFootNp8N",
+    "name": "Lucky Foot",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.conditions.boon.001.01",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.dodecahedron.rune.above.blueyellow"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "lyre",
+   "for": [
+    "item:lyre"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusLyre000000",
+    "name": "Lyre",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.sharp.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "macfuirmidh-citterrn-instrument-of-the-bards",
+   "for": [
+    "item:macfuirmidh-citterrn-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMacfuirmidhCi",
+    "name": "Mac-Fuirmidh Cittern Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "mages-manacle",
+   "for": [
+    "item:mages-manacle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMagesManaclIw",
+    "name": "Mage's Manacle",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.chain.spike.loop.02.purple"
+     },
+     "size": {
+      "radius": 1
+     },
+     "zIndex": 2,
+     "below": true,
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "manacles",
+   "for": [
+    "item:manacles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagManacles000",
+    "name": "Manacles",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.square.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "manual-of-golems",
+   "for": [
+    "item:manual-of-golems"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgManualOfGolem",
+    "name": "Manual of Golems",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.impact.boulder.01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "marble-elephant-rare",
+   "for": [
+    "item:marble-elephant-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpMarbleElep",
+    "name": "Marble Elephant",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.01.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mariners-armor-item",
+   "for": [
+    "item:mariners-armor"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMarinersArmor",
+    "name": "Mariner's Armor",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.bubble.002.001.loop.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "marvelous-pigments",
+   "for": [
+    "item:marvelous-pigments"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgNolzursMarvel",
+    "name": "Marvelous Pigments",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.particle_burst.01.circle.orangepink"
+     }
+    }
+   ]
+  },
+  {
+   "id": "medallion-of-thoughts",
+   "for": [
+    "item:medallion-of-thoughts"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMedallionOfTh",
+    "name": "Medallion of Thoughts",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.runes03.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mind-reading-crystal-ball-of",
+   "for": [
+    "item:mind-reading-crystal-ball-of"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMindReadingCr",
+    "name": "Crystal Ball of Mind Reading",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.dark_blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mysterious-deck",
+   "for": [
+    "item:mysterious-deck"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgDeckOfManyThi",
+    "name": "Mysterious Deck",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.complete"
+     },
+     "asset": {
+      "path": "jb2a.ranged.card.01.projectile.01.purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-fireballs",
+   "for": [
+    "item:necklace-of-fireballs"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgNecklaceOfFir",
+    "name": "Necklace of Fireballs",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "to": "each-target",
+     "asset": {
+      "path": "jb2a.fireball.explosion.orange"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.explosion",
+      "volume": 1
+     },
+     "wait": -1800,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-prayer-beads",
+   "for": [
+    "item:necklace-of-prayer-beads"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgNecklaceOfPra",
+    "name": "Necklace of Prayer Beads",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.01.021.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-the-beastly-familiar-azurite",
+   "for": [
+    "item:necklace-of-the-beastly-familiar-azurite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunNecklaceoftdK",
+    "name": "Necklace of the Beastly Familiar (Azurite)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.01.023.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-the-beastly-familiar-chrysoprase",
+   "for": [
+    "item:necklace-of-the-beastly-familiar-chrysoprase"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.uxpeCtn6FLwAL9Gf",
+    "name": "Necklace of the Beastly Familiar (Chrysoprase)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.01.023.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-the-beastly-familiar-fire-opal",
+   "for": [
+    "item:necklace-of-the-beastly-familiar-fire-opal"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.FoJxaTGKckzk5Hof",
+    "name": "Necklace of the Beastly Familiar (Fire Opal)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.01.023.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-the-beastly-familiar-topaz",
+   "for": [
+    "item:necklace-of-the-beastly-familiar-topaz"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.habvW1Bz6tFFTM0e",
+    "name": "Necklace of the Beastly Familiar (Topaz)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.01.023.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "necklace-of-the-beastly-familiar-zircon",
+   "for": [
+    "item:necklace-of-the-beastly-familiar-zircon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.b4VSkPIvvpUTAqmU",
+    "name": "Necklace of the Beastly Familiar (Zircon)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.02.023.refraction"
+     }
+    }
+   ]
+  },
+  {
+   "id": "nolzurs-marvelous-pigments",
+   "for": [
+    "item:nolzurs-marvelous-pigments"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgNolzursMarvel",
+    "name": "Nolzur's Marvelous Pigments",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.particle_burst.01.circle.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "obsidian-steed-very-rare",
+   "for": [
+    "item:obsidian-steed-very-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpObsidianSt",
+    "name": "Obsidian Steed",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.01.dark_black"
+     }
+    }
+   ]
+  },
+  {
+   "id": "oil-of-etherealness",
+   "for": [
+    "item:oil-of-etherealness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOilOfEthereal",
+    "name": "Oil of Etherealness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.5,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "tint": {
+      "colour": "#00ffff",
+      "contrast": 1,
+      "saturation": 0
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.shimmer.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "oil-of-sharpness",
+   "for": [
+    "item:oil-of-sharpness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOilOfSharpnes",
+    "name": "Oil of Sharpness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.glint.blue.few"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle.001"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "oil-of-slipperiness",
+   "for": [
+    "item:oil-of-slipperiness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOilOfSlipperi",
+    "name": "Oil of Slipperiness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.liquid.splash.grey"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.cork-bottle.001",
+      "start": 2500
+     },
+     "below": true,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "ollam-harp-instrument-of-the-bards",
+   "for": [
+    "item:ollam-harp-instrument-of-the-bards"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOllamHarpInst",
+    "name": "Ollamh Harp Instrument of the Bards",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "onyx-dog-rare",
+   "for": [
+    "item:onyx-dog-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpOnyxDogRar",
+    "name": "Onyx Dog",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.02.dark_black"
+     }
+    }
+   ]
+  },
+  {
+   "id": "orb-of-dragonkind",
+   "for": [
+    "item:orb-of-dragonkind"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOrbOfDragonki",
+    "name": "Orb of Dragonkind",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.enchantment.intro.dark_red"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.creature.dragons.roar.large"
+     }
+    }
+   ]
+  },
+  {
+   "id": "orb-of-sorcery",
+   "for": [
+    "item:orb-of-sorcery"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunOrbofSorcer7q",
+    "name": "Orb of Sorcery",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.glint.purple.many"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pan-flute",
+   "for": [
+    "item:pan-flute"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusPanflute00",
+    "name": "Pan Flute",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfA.A6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.flat.green"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "pearl-of-power",
+   "for": [
+    "item:pearl-of-power"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPearlOfPower0",
+    "name": "Pearl of Power",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.particles.inward.blue.02.01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "perfume-of-bewitching",
+   "for": [
+    "item:perfume-of-bewitching"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPerfumeOfBewi",
+    "name": "Perfume of Bewitching",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.side_impact.part.slow.heart.pink"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "philter-of-love",
+   "for": [
+    "item:philter-of-love"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPhilterOfLove",
+    "name": "Philter of Love",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.heart.pink.02"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pipes-of-haunting",
+   "for": [
+    "item:pipes-of-haunting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPipesOfHaunti",
+    "name": "Pipes of Haunting",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "size": {
+      "radius": 0.75,
+      "plusToken": true
+     },
+     "persist": "template",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_purple.02"
+     },
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfA.Am6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "pipes-of-the-sewers",
+   "for": [
+    "item:pipes-of-the-sewers"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPipesOfTheSew",
+    "name": "Pipes of the Sewers",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.music_notations.beamed_quavers.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "plate-armor-of-etherealness",
+   "for": [
+    "item:plate-armor-of-etherealness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPlateArmorOfE",
+    "name": "Plate Armor of Etherealness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.5,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "tint": {
+      "colour": "#00ffff",
+      "contrast": 1,
+      "saturation": 0
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.shimmer.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "poison-basic",
+   "for": [
+    "item:poison-basic"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbagPoisonBasic",
+    "name": "Poison, Basic",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 3
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.02"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.7
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "poisoned-darts",
+   "for": [
+    "item:poisoned-darts"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPoisonedDarts",
+    "name": "Poisoned Darts",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 3
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.dart.01.throw.physical.white"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.7
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "poisoned-needle-item",
+   "for": [
+    "item:poisoned-needle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPoisonedNeedl",
+    "name": "Poisoned Needle",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 3
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.side_impact.part.slow.poison.greenyellow"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.7
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "portable-hole",
+   "for": [
+    "item:portable-hole"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPortableHole0",
+    "name": "Portable Hole",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.portals.horizontal.ring.dark_purple"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "rate": 1.5,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.portals.horizontal.ring.dark_purple"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "rate": 1.5,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 500,
+     "after": 1000,
+     "seen": false,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-animal-friendship",
+   "for": [
+    "item:potion-of-animal-friendship"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfAnima",
+    "name": "Potion of Animal Friendship",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.heart.teal.02"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-clairvoyance",
+   "for": [
+    "item:potion-of-clairvoyance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfClair",
+    "name": "Potion of Clairvoyance",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.divination.intro.dark_blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-climbing",
+   "for": [
+    "item:potion-of-climbing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfClimb",
+    "name": "Potion of Climbing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.light.intro.green"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-comprehension",
+   "for": [
+    "item:potion-of-comprehension"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfCompr",
+    "name": "Potion of Comprehension",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.runes.dark_orange.02"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-diminution",
+   "for": [
+    "item:potion-of-diminution"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfDimin",
+    "name": "Potion of Diminution",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.7,
+     "rate": 0.5,
+     "tint": {
+      "colour": "#804000",
+      "contrast": 0,
+      "saturation": -0.5
+     },
+     "persist": "none",
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     },
+     "asset": {
+      "path": "jb2a.particles.inward.blue.01.03"
+     },
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-dragons-breath-black",
+   "for": [
+    "item:potion-of-dragons-breath-black"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPotionofDra5c",
+    "name": "Potion of Dragon's Breath (Black)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.acid.line.green"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-dragons-breath-blue",
+   "for": [
+    "item:potion-of-dragons-breath-blue"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.wD8HMsGpwLMLmxXu",
+    "name": "Potion of Dragon's Breath (Blue)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.lightning.line.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-dragons-breath-green",
+   "for": [
+    "item:potion-of-dragons-breath-green"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.KWVxudq3rZX7pOCX",
+    "name": "Potion of Dragon's Breath (Green)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.poison.cone.green"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-dragons-breath-red",
+   "for": [
+    "item:potion-of-dragons-breath-red"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.IVlWA7gUBiNDWzp8",
+    "name": "Potion of Dragon's Breath (Red)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons02.burst.cone.fire.orange.01"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-dragons-breath-white",
+   "for": [
+    "item:potion-of-dragons-breath-white"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.6cNHLeZeZeb9DNaw",
+    "name": "Potion of Dragon's Breath (White)",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons02.burst.cone.ice.01"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001",
+      "delay": 3000
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-fire-breath",
+   "for": [
+    "item:potion-of-fire-breath"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfFireB",
+    "name": "Potion of Fire Breath",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.breath_weapons02.burst.cone.fire.orange.01"
+     },
+     "sound": {
+      "asset": "psfx.creature.dragons.attacks.breath.small.fire"
+     },
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "potion-of-flying",
+   "for": [
+    "item:potion-of-flying"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfFlyin",
+    "name": "Potion of Flying",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.wind_lines.01.02.white"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-gaseous-form",
+   "for": [
+    "item:potion-of-gaseous-form"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfGaseo",
+    "name": "Potion of Gaseous Form",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.fog_cloud.01.white"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-greater-invisibility",
+   "for": [
+    "item:potion-of-greater-invisibility"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfGreat",
+    "name": "Potion of Greater Invisibility",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-growth",
+   "for": [
+    "item:potion-of-growth"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfGrowt",
+    "name": "Potion of Growth",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.7,
+     "rate": 0.5,
+     "tint": {
+      "colour": "#804000",
+      "contrast": 0,
+      "saturation": -0.5
+     },
+     "persist": "none",
+     "attach": {
+      "alpha": true,
+      "visibility": true
+     },
+     "asset": {
+      "path": "jb2a.particles.outward.orange.02.01"
+     },
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-heroism",
+   "for": [
+    "item:potion-of-heroism"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfHeroi",
+    "name": "Potion of Heroism",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.02.002.refraction"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-invisibility",
+   "for": [
+    "item:potion-of-invisibility"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfInvis",
+    "name": "Potion of Invisibility",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-invulnerability",
+   "for": [
+    "item:potion-of-invulnerability"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfInvul",
+    "name": "Potion of Invulnerability",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.shield_rampart.complete.01.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-mind-reading",
+   "for": [
+    "item:potion-of-mind-reading"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfMindR",
+    "name": "Potion of Mind Reading",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.runes03.green02.03"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-pugilism",
+   "for": [
+    "item:potion-of-pugilism"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfPugil",
+    "name": "Potion of Pugilism",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.02.004.refraction"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-resistance",
+   "for": [
+    "item:potion-of-resistance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfResis",
+    "name": "Potion of Resistance",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "opacity": 0.6,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.shield.02.loop.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-speed",
+   "for": [
+    "item:potion-of-speed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfSpeed",
+    "name": "Potion of Speed",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001",
+      "start": 500
+     },
+     "asset": {
+      "path": "jb2a.token_border.circle.spinning.orange.004"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-tirelessness",
+   "for": [
+    "item:potion-of-tirelessness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunPotionofTiraT",
+    "name": "Potion of Tirelessness",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.shimmer.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "opacity": 0.01,
+     "size": {
+      "tokenWidths": 0.015
+     },
+     "elevation": {
+      "level": -2,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    }
+   ]
+  },
+  {
+   "id": "potion-of-vitality",
+   "for": [
+    "item:potion-of-vitality"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfVital",
+    "name": "Potion of Vitality",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "potion-of-water-breathing",
+   "for": [
+    "item:potion-of-water-breathing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgPotionOfWater",
+    "name": "Potion of Water Breathing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.bubble.001.001.loop.blue"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "priest-spirit",
+   "for": [
+    "item:priest-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSPriestSpi36",
+    "name": "Priest Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.condition.boon.01.021.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "queen-ehlissas-marvelous-nightingale",
+   "for": [
+    "item:queen-ehlissas-marvelous-nightingale"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunQueenEhlissFM",
+    "name": "Queen Ehlissa's Marvelous Nightingale",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.explosion.06.tealyellow"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2500,
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfA.A6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "red-elemental-gem",
+   "for": [
+    "item:red-elemental-gem"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRedElementalG",
+    "name": "Elemental Gem (Red Corundum)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "asset": {
+      "path": "jb2a.fire_ring.900px.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "regeneration-ioun-stone",
+   "for": [
+    "item:regeneration-ioun-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgRegnerationIo",
+    "name": "Ioun Stone of Regeneration",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.ioun_stones.01.white.regeneration"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "regneration-ioun-stone",
+   "for": [
+    "item:regneration-ioun-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRegnerationIo",
+    "name": "Ioun Stone of Regeneration",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.ioun_stones.01.white.regeneration"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "renegade-spirit",
+   "for": [
+    "item:renegade-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSRenegadeSXD",
+    "name": "Renegade Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.conjuration.complete.orange"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.complete"
+     }
+    }
+   ]
+  },
+  {
+   "id": "reserve-ioun-stone",
+   "for": [
+    "item:reserve-ioun-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgReserveIounSt",
+    "name": "Ioun Stone of Reserve",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.ioun_stones.01.purple.reserve"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-animal-influence",
+   "for": [
+    "item:ring-of-animal-influence"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfAnimalI",
+    "name": "Ring of Animal Influence",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.heart.teal.02"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-djinni-summoning",
+   "for": [
+    "item:ring-of-djinni-summoning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfDjinniS",
+    "name": "Ring of Djinni Summoning",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.smoke.plumes.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-elemental-command",
+   "for": [
+    "item:ring-of-elemental-command"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAirRingOfElem",
+    "name": "Air Ring of Elemental Command",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-evasion",
+   "for": [
+    "item:ring-of-evasion"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfEvasion",
+    "name": "Ring of Evasion",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.smoke.puff.side.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-jumping",
+   "for": [
+    "item:ring-of-jumping"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfJumping",
+    "name": "Ring of Jumping",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.smoke.puff.ring.02.white"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-regeneration",
+   "for": [
+    "item:ring-of-regeneration"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfRegener",
+    "name": "Ring of Regeneration",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.healing_generic.loop.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-resistance",
+   "for": [
+    "item:ring-of-resistance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfResista",
+    "name": "Ring of Resistance",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.outro"
+     },
+     "opacity": 0.6,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.shield.02.complete.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-shooting-stars",
+   "for": [
+    "item:ring-of-shooting-stars"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfShootin",
+    "name": "Ring of Shooting Stars",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.particle_burst.01.star.bluepurple"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 750
+     },
+     "opacity": 0.001,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-spell-turning",
+   "for": [
+    "item:ring-of-spell-turning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfSpellTu",
+    "name": "Ring of Spell Turning",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.side_impact.part.shockwave.pink"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-telekinesis",
+   "for": [
+    "item:ring-of-telekinesis"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfTelekin",
+    "name": "Ring of Telekinesis",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.energy_strands.range.multiple.blue.01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-the-ram",
+   "for": [
+    "item:ring-of-the-ram"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfTheRam0",
+    "name": "Ring of the Ram",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.impact.013.001.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.generic.002.001",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "ring-of-three-wishes",
+   "for": [
+    "item:ring-of-three-wishes"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfThreeWi",
+    "name": "Ring of Three Wishes",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.particle_burst.01.star.orangepink"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-water-walking",
+   "for": [
+    "item:ring-of-water-walking"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfWaterWa",
+    "name": "Ring of Water Walking",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.impact.water.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ring-of-x-ray-vision",
+   "for": [
+    "item:ring-of-x-ray-vision"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRingOfXrayVis",
+    "name": "Ring of X-ray Vision",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "tint": {
+      "colour": "#00c8ff",
+      "contrast": 0,
+      "saturation": -1
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.eyes.01.bluegreen.single"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "rival-coin",
+   "for": [
+    "item:rival-coin"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRivalCoin0000",
+    "name": "Rival Coin",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.curse.01.010.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "robe-of-scintillating-colors",
+   "for": [
+    "item:robe-of-scintillating-colors"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRobeOfScintil",
+    "name": "Robe of Scintillating Colors",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "template",
+     "asset": {
+      "path": "jb2a.energy_field.01.multicolored"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.illusion.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "robe-of-stars",
+   "for": [
+    "item:robe-of-stars"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRobeOfStars00",
+    "name": "Robe of Stars",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.twinkling_stars.points06.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "robe-of-useful-items",
+   "for": [
+    "item:robe-of-useful-items"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRobeOfUsefulI",
+    "name": "Robe of Useful Items",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.intro"
+     },
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.grey"
+     }
+    }
+   ]
+  },
+  {
+   "id": "rod-of-absorption",
+   "for": [
+    "item:rod-of-absorption"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfAbsorpti",
+    "name": "Rod of Absorption",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.particles.inward.greenyellow.02.01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "rod-of-alertness",
+   "for": [
+    "item:rod-of-alertness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfAlertnes",
+    "name": "Rod of Alertness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.intro",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.template_circle.aura.01.loop.large.yellow"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "rod-of-resurrection",
+   "for": [
+    "item:rod-of-resurrection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfResurrec",
+    "name": "Rod of Resurrection",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.necromancy.intro.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.necromancy.complete",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "rod-of-rulership",
+   "for": [
+    "item:rod-of-rulership"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfRulershi",
+    "name": "Rod of Rulership",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.enchantment.intro.dark_yellow"
+     },
+     "size": {
+      "radius": 1.5
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400,
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.enchantment.complete"
+     }
+    }
+   ]
+  },
+  {
+   "id": "rolling-stone",
+   "for": [
+    "item:rolling-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRollingStone0",
+    "name": "Rolling Stone",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.rolling_boulder.loop.01.rock.brown"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 1000
+     },
+     "opacity": 0.75,
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "rope-of-entanglement",
+   "for": [
+    "item:rope-of-entanglement"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRopeOfEntangl",
+    "name": "Rope of Entanglement",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.standard.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "scarab-of-protection",
+   "for": [
+    "item:scarab-of-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgScarabOfProte",
+    "name": "Scarab of Protection",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.markers.shield.yellow.03"
+     }
+    }
+   ]
+  },
+  {
+   "id": "scroll-of-protection",
+   "for": [
+    "item:scroll-of-protection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgScrollOfProte",
+    "name": "Scroll of Protection",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.abjuration.complete"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.abjuration.intro.dark_blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "scroll-of-titan-summoning",
+   "for": [
+    "item:scroll-of-titan-summoning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgScrollOfTitan",
+    "name": "Scroll of Titan Summoning",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sending-stones",
+   "for": [
+    "item:sending-stones"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSendingStones",
+    "name": "Sending Stones",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.runes.blue.03"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "serpentine-owl-rare",
+   "for": [
+    "item:serpentine-owl-rare"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpSerpentine",
+    "name": "Serpentine Owl",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "shade-spirit",
+   "for": [
+    "item:shade-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSShadeSpirvt",
+    "name": "Shade Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.darkness.black"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.7,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "sharpshooter-spirit",
+   "for": [
+    "item:sharpshooter-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSSharpshooGM",
+    "name": "Sharpshooter Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.impact.004.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.generic.002.001",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "shawm",
+   "for": [
+    "item:shawm"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusShawm00000",
+    "name": "Shawm",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfF.F6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.sharp.green"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "shield-of-the-cavalier",
+   "for": [
+    "item:shield-of-the-cavalier"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgShieldOfTheCa",
+    "name": "Shield of the Cavalier",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.melee_attack.06.shield.02"
+     }
+    }
+   ]
+  },
+  {
+   "id": "silver-horn-of-valhalla",
+   "for": [
+    "item:silver-horn-of-valhalla"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSilverHornOfV",
+    "name": "Silver Horn of Valhalla",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.musical-instruments.bagpipes.01.drone.keyOfC.C6"
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.conjuration.intro.dark_yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "silver-raven-uncommon",
+   "for": [
+    "item:silver-raven-uncommon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFwpSilverRave",
+    "name": "Silver Raven",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "soul-trinkets",
+   "for": [
+    "item:soul-trinkets"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwPRSoulTrinkg0",
+    "name": "Soul Trinkets",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.runes.dark_black.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "spell-duelists-trophy",
+   "for": [
+    "item:spell-duelists-trophy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSpellDuelispp",
+    "name": "Spell Duelist's Trophy",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.rune.abjuration.complete.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sphere-of-annihilation",
+   "for": [
+    "item:sphere-of-annihilation"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSphereOfAnnih",
+    "name": "Sphere of Annihilation",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.sphere_of_annihilation.600px.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     },
+     "below": true,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "spiders-sting",
+   "for": [
+    "item:spiders-sting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgLolthsSting00",
+    "name": "Spider's Sting",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 3
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.03"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.7
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "spirit-board",
+   "for": [
+    "item:spirit-board"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSpiritBoard00",
+    "name": "Spirit Board",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.ouija_planchette.pink"
+     },
+     "sound": {
+      "asset": "psfx.incantations.whispers.fem.001.forward.slow.001",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "stone-of-controlling-earth-elementals",
+   "for": [
+    "item:stone-of-controlling-earth-elementals"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStoneOfContro",
+    "name": "Stone of Controlling Earth Elementals",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.impact.boulder.02"
+     }
+    }
+   ]
+  },
+  {
+   "id": "stone-potion-of-giant-strength",
+   "for": [
+    "item:stone-potion-of-giant-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStonePotionOf",
+    "name": "Potion of Giant Strength (Stone)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.01.024.yellow"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "storm-potion-of-giant-strength",
+   "for": [
+    "item:storm-potion-of-giant-strength"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStormPotionOf",
+    "name": "Potion of Giant Strength (Storm)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.25,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.boon.02.024.refraction"
+     },
+     "sound": {
+      "asset": "psfx.consumables.potions-vials.drink-liquid.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "swan-boat-feather-token",
+   "for": [
+    "item:swan-boat-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgSwanBoatQuaal",
+    "name": "Feather Token (Swan Boat)",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "swan-boat-quaals-feather-token",
+   "for": [
+    "item:swan-boat-quaals-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwanBoatQuaal",
+    "name": "Quaal's Feather Token (Swan Boat)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sweeping-broom",
+   "for": [
+    "item:sweeping-broom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunSweepingBroJz",
+    "name": "Sweeping Broom",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.wind_lines.01.leaves.01.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "mask": true,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "talisman-of-pure-good",
+   "for": [
+    "item:talisman-of-pure-good"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTalismanOfPur",
+    "name": "Talisman of Pure Good",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.divine_smite.target.yellowwhite"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 750
+     },
+     "opacity": 0.001,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "talisman-of-ultimate-evil",
+   "for": [
+    "item:talisman-of-ultimate-evil"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTalismanOfUlt",
+    "name": "Talisman of Ultimate Evil",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.skull.dark_red.03"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "telepathy-crystal-ball-of",
+   "for": [
+    "item:telepathy-crystal-ball-of"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTelepathyCrys",
+    "name": "Crystal Ball of Telepathy",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.white"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tentacle-rod",
+   "for": [
+    "item:tentacle-rod"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTentacleRod00",
+    "name": "Tentacle Rod",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.vine.loop.void.group.01.dark_pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     },
+     "below": true,
+     "persist": "none",
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "thayan-spell-tattoo",
+   "for": [
+    "item:thayan-spell-tattoo"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofThayanSpellTa",
+    "name": "Thayan Spell Tattoo",
+    "where": "Forgotten Realms: Heroes of Faerûn · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.intro"
+     },
+     "rate": 2,
+     "asset": {
+      "path": "jb2a.magic_signs.rune.02.complete.01.red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tome-of-the-stilled-tongue",
+   "for": [
+    "item:tome-of-the-stilled-tongue"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTomeOfTheStil",
+    "name": "Tome of the Stilled Tongue",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.markers.runes.dark_black.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "tramontane-armor",
+   "for": [
+    "item:tramontane-armor"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunTramontaneAyR",
+    "name": "Tramontane Armor",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.aura_themed.01.outward.complete.cold.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75,
+     "mask": true,
+     "persist": "template"
+    }
+   ]
+  },
+  {
+   "id": "tree-feather-token",
+   "for": [
+    "item:tree-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgTreeQuaalsFea",
+    "name": "Feather Token (Tree)",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.04.round.4x4.complete.greenwhite"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tree-quaals-feather-token",
+   "for": [
+    "item:tree-quaals-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTreeQuaalsFea",
+    "name": "Quaal's Feather Token (Tree)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.plant_growth.04.round.4x4.complete.greenwhite"
+     }
+    }
+   ]
+  },
+  {
+   "id": "trickster-spirit",
+   "for": [
+    "item:trickster-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSTricksterO6",
+    "name": "Trickster Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.condition.curse.01.024.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "true-seeing-crystal-ball-of",
+   "for": [
+    "item:true-seeing-crystal-ball-of"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTrueSeeingCry",
+    "name": "Crystal Ball of True Seeing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.divination.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.markers.light_orb.loop.yellow"
+     }
+    }
+   ]
+  },
+  {
+   "id": "universal-pantograph",
+   "for": [
+    "item:universal-pantograph"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunUniversalPaxD",
+    "name": "Universal Pantograph",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.transmutation.intro"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.transmutation.intro.blue"
+     },
+     "repeat": 7,
+     "every": 1400
+    }
+   ]
+  },
+  {
+   "id": "viol",
+   "for": [
+    "item:viol"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbmusViol000000",
+    "name": "Viol",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.violin.01.sforzando.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.bass_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "walloping-arrows",
+   "for": [
+    "item:walloping-arrows"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWallopingAmmu",
+    "name": "Walloping Ammunition",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.side_impact.part.shockwave.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-binding",
+   "for": [
+    "item:wand-of-binding"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfBinding",
+    "name": "Wand of Binding",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.abjuration.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-conducting",
+   "for": [
+    "item:wand-of-conducting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfConduct",
+    "name": "Wand of Conducting",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.violin.01.sforzando.keyOfC.C6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "wand-of-enemy-detection",
+   "for": [
+    "item:wand-of-enemy-detection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfEnemyDe",
+    "name": "Wand of Enemy Detection",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.dark_red"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-fear",
+   "for": [
+    "item:wand-of-fear"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfFear000",
+    "name": "Wand of Fear",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "size": {
+      "radius": 0.75,
+      "plusToken": true
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.fear.dark_red.02"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-fireballs",
+   "for": [
+    "item:wand-of-fireballs"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfFirebal",
+    "name": "Wand of Fireballs",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "to": "each-target",
+     "asset": {
+      "path": "jb2a.fireball.explosion.orange"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.fireball.v1.001.explosion",
+      "volume": 1
+     },
+     "wait": -1800,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "mirror": "none",
+     "zIndex": 0
+    }
+   ]
+  },
+  {
+   "id": "wand-of-lightning-bolts",
+   "for": [
+    "item:wand-of-lightning-bolts"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfLightni",
+    "name": "Wand of Lightning Bolts",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "asset": {
+      "path": "jb2a.lightning_bolt.wide.blue"
+     },
+     "sound": {
+      "asset": "psfx.3rd-level-spells.call-lightning.v1.primary"
+     },
+     "at": "targets-else-source"
+    }
+   ]
+  },
+  {
+   "id": "wand-of-magic-detection",
+   "for": [
+    "item:wand-of-magic-detection"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfMagicDe",
+    "name": "Wand of Magic Detection",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.detect-magic.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.circle.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-magic-missiles",
+   "for": [
+    "item:wand-of-magic-missiles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfMagicMi",
+    "name": "Wand of Magic Missiles",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.magic_missile.purple"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.magic-missile.v1",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "wand-of-paralysis",
+   "for": [
+    "item:wand-of-paralysis"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfParalys",
+    "name": "Wand of Paralysis",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.75,
+     "size": {
+      "radius": 0.75,
+      "plusToken": true
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.icon.stun.purple"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-polymorph",
+   "for": [
+    "item:wand-of-polymorph"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfPolymor",
+    "name": "Wand of Polymorph",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.transmutation.complete"
+     },
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "asset": {
+      "path": "jb2a.magic_signs.circle.02.transmutation.intro.dark_yellow"
+     },
+     "repeat": 7,
+     "every": 1400
+    }
+   ]
+  },
+  {
+   "id": "wand-of-pyrotechnics",
+   "for": [
+    "item:wand-of-pyrotechnics"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfPyrotec",
+    "name": "Wand of Pyrotechnics",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "targets-else-source",
+     "asset": {
+      "path": "jb2a.firework.01.bluepink.03"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "wand-of-secrets",
+   "for": [
+    "item:wand-of-secrets"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfSecrets",
+    "name": "Wand of Secrets",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.divination.intro"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.detect_magic.cone.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-slumber",
+   "for": [
+    "item:wand-of-slumber"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWandofSlumbzf",
+    "name": "Wand of Slumber",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "targets-else-source",
+     "asset": {
+      "path": "jb2a.sleep.cloud.02.pink"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.sleep.v1"
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 799,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "wand-of-web",
+   "for": [
+    "item:wand-of-web"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfWeb0000",
+    "name": "Wand of Web",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.web.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.conjuration.intro"
+     },
+     "tint": {
+      "colour": "#dbd8d0",
+      "contrast": 1,
+      "saturation": -1
+     },
+     "to": "each-target"
+    }
+   ]
+  },
+  {
+   "id": "wand-of-wonder",
+   "for": [
+    "item:wand-of-wonder"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfWonder0",
+    "name": "Wand of Wonder",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.firework.02.orangeyellow.01"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete",
+      "volume": 1
+     },
+     "zIndex": 5,
+     "wait": -1750,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "fadeIn": 0,
+     "fadeOut": 0
+    }
+   ]
+  },
+  {
+   "id": "wayfarer-spirit-item",
+   "for": [
+    "item:wayfarer-spirit"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwCSWayfarerSqp",
+    "name": "Wayfarer Spirit",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.healing_generic.200px.green"
+     }
+    }
+   ]
+  },
+  {
+   "id": "well-of-many-worlds",
+   "for": [
+    "item:well-of-many-worlds"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWellOfManyWor",
+    "name": "Well of Many Worlds",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "asset": {
+      "path": "jb2a.portals.horizontal.ring.dark_purple"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "rate": 1.5,
+     "zIndex": 0,
+     "sound": {
+      "asset": "psfx.magic-signs.circle.v1.conjuration.complete"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "destination",
+     "asset": {
+      "path": "jb2a.portals.horizontal.ring.dark_purple"
+     },
+     "delay": 500,
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "size": {
+      "tokenWidths": 3
+     },
+     "fadeOut": 250,
+     "rate": 1.5,
+     "zIndex": 0
+    },
+    {
+     "shape": "move",
+     "range": 500,
+     "after": 1000,
+     "seen": false,
+     "fade": {
+      "to": 0.01,
+      "after": 750,
+      "back": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "whip-feather-token",
+   "for": [
+    "item:whip-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd5e.equipment24.Item.dmgWhipQuaalsFea",
+    "name": "Feather Token (Whip)",
+    "where": "SRD 5.2 · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     },
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.two_handed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "whip-quaals-feather-token",
+   "for": [
+    "item:whip-quaals-feather-token"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWhipQuaalsFea",
+    "name": "Quaal's Feather Token (Whip)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     },
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.two_handed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wind-fan",
+   "for": [
+    "item:wind-fan"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWindFan000000",
+    "name": "Wind Fan",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     },
+     "asset": {
+      "path": "jb2a.gust_of_wind.default"
+     }
+    }
+   ]
+  },
+  {
+   "id": "windskiff",
+   "for": [
+    "item:windskiff"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofWindskiff4000",
+    "name": "Windskiff",
+    "where": "Forgotten Realms: Heroes of Faerûn · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.wind_lines.01.01.white"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "winged-boots",
+   "for": [
+    "item:winged-boots"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWingedBoots00",
+    "name": "Winged Boots",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.wind_lines.01.01.white"
+     },
+     "sound": {
+      "asset": "psfx.creature.movement.flight.wings.small"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wings-of-flying",
+   "for": [
+    "item:wings-of-flying"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWingsOfFlying",
+    "name": "Wings of Flying",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.creature.movement.flight.wings.small"
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     },
+     "below": true
+    }
+   ]
+  },
+  {
+   "id": "workshop-wrecker",
+   "for": [
+    "item:workshop-wrecker"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWorkshopWrenc",
+    "name": "Workshop Wrecker",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.aura_themed.01.outward.complete.metal.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 1000
+     },
+     "size": {
+      "fit": "shape"
+     },
+     "opacity": 0.75
+    }
+   ]
+  },
+  {
+   "id": "yarting",
+   "for": [
+    "item:yarting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-heroes-faerun.items.Item.hofYarting000000",
+    "name": "Yarting",
+    "where": "Forgotten Realms: Heroes of Faerûn · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF.F6",
+      "delay": 1001
+     },
+     "asset": {
+      "path": "jb2a.music_notations.treble_clef.blue"
+     },
+     "delay": 1
+    }
+   ]
+  },
+  {
+   "id": "yellow-elemental-gem",
+   "for": [
+    "item:yellow-elemental-gem"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgYellowElement",
+    "name": "Elemental Gem (Yellow Diamond)",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     },
+     "asset": {
+      "path": "jb2a.ground_cracks.orange.02"
      }
     }
    ]

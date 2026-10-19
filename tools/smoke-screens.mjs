@@ -211,7 +211,7 @@ try {
       ok('§4 keyed to an ability that already has a Stock FX, the sheet takes that FX\'s id and the banner says so', text('.sheet code.id') === 'misty-step' && /already has an FX in Stock/.test(text('.sheet .banner')) && /Save asks/.test(text('.sheet .banner')), `${text('.sheet code.id')} · ${text('.sheet .banner')}`);
       await type('.sh-key-q', 'Sharran Step'); await enter('.sh-key-q');
       ok('§4 … and keyed back, no banner and its own id', text('.sheet code.id') === 'sharran-step' && !$('.sheet .banner'), `${text('.sheet code.id')} · ${text('.sheet .banner')}`);
-      const unheld = Object.entries(api.records.map() ?? {}).find(([k, r]) => k.startsWith('spell:') && !api.fx.for(k).length && !app.entries.some((e) => e.keys.includes(k)) && r.name.length > 6);
+      const unheld = Object.entries(api.records.map() ?? {}).find(([k, r]) => /^(spell|feature):/.test(k) && !api.fx.for(k).length && !app.entries.some((e) => e.keys.includes(k)) && r.name.length > 6);
       await type('.sh-key-q', unheld[1].name);
       await sleep(300);
       const recHit = $$('.sh-key-search .hit[data-act="sh-key-rec"]').find((h) => h.dataset.key === unheld[0]);
@@ -492,7 +492,7 @@ try {
       ok('§12 picking one copies its scenes in and the sheet follows', app.sheet.from === 'fire-bolt' && app.sheet.scenes.length >= 1 && !!$('.rail .row'), `${app.sheet.from} · ${app.sheet.scenes.length}`);
       app.sheet = null; app.view.tab = 'coverage'; app.paint(); await sleep(200);
       // the key door, and the key door with data-from (the other screen's "has a proposal" door), and the gap table's word
-      const unheld12 = Object.keys(api.records.map() ?? {}).find((k) => k.startsWith('spell:') && !api.fx.for(k).length && !app.entries.some((e) => e.keys.includes(k)));
+      const unheld12 = Object.keys(api.records.map() ?? {}).find((k) => /^(spell|feature):/.test(k) && !api.fx.for(k).length && !app.entries.some((e) => e.keys.includes(k)));
       const pane12 = $('[data-pane="coverage"]');
       const fake = document.createElement('button');
       fake.type = 'button'; fake.dataset.act = 'key'; fake.dataset.key = unheld12; fake.dataset.from = 'misty-step';

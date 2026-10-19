@@ -11,8 +11,6 @@ feature:arcane-apotheosis	No proposed FX				A passive trait — no moment to pla
 feature:trickster	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:archfey	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:archfey-spells	No proposed FX				A spell list — each spell has its own FX.
-feature:armor-of-shadows	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.abjuration.intro.dark_purple	psfx.magic-signs.rune.v1.abjuration.intro	Armor of Shadows: Mage Armor at will, in shadow.	Likely	Likely	0
-feature:ascendant-step	Close match	effect:levitating	jb2a.energy_field.02.below.purple	psfx.magic-signs.rune.v1.transmutation.intro	Ascendant Step: Levitate at will.	Likely	Likely	0
 feature:aspect-of-the-wilds	No proposed FX				A passive trait — no moment to play.
 feature:assassin	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:assassins-tools	No proposed FX				A proficiency — no moment to play.
@@ -24,30 +22,22 @@ feature:aura-of-devotion	No proposed FX				The record has no activity, so nothin
 feature:aura-of-protection	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:aura-of-warding	No proposed FX				A passive benefit — no moment to play.			
 feature:avatar-of-battle	No proposed FX				A passive trait — no moment to play.
-feature:avenging-angel	Close match	effect:avenging-angel	jb2a.swirling_feathers.outburst.01.orange	psfx.class-features.divine-smite.v1.001.caster	Avenging Angel: golden feathers burst out as the wings open.	Likely	Likely	3
 feature:bait-and-switch	No proposed FX				A swap of places — no moment of its own.
 feature:barbarian	No proposed FX				A class name, not an ability — nothing to play.
 feature:bard	No proposed FX				A class name, not an ability — nothing to play.
-feature:bastion-of-law	Close match	spell:mage-armor	jb2a.icosahedron.rune.below.blueyellow	psfx.magic-signs.rune.v1.abjuration.intro	Bastion of Law: a ward of dice runes round the target.	Likely	Likely	0
 feature:battering-roots	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:battle-magic	No proposed FX				An extra attack after a spell — no moment of its own.
 feature:battle-master	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:beast	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:beast-spells	No proposed FX				A spell list — each spell has its own FX.
-feature:beguiling-magic	Close match	effect:charmed	jb2a.magic_signs.circle.02.enchantment.intro.dark_pink	psfx.magic-signs.circle.v1.enchantment.complete	Beguiling Magic: the fey warlock charms or frightens.	Likely	Likely	0
-feature:beguiling-twist	Close match	effect:charmed	jb2a.markers.heart.pink.02	psfx.magic-signs.circle.v1.enchantment.complete	Beguiling Twist: the charm is turned onto someone else.	Likely	Likely	0
 feature:bestial-fury	No proposed FX				A passive benefit — no moment to play.			
-feature:blessed-strikes-divine-strike	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.yellowwhite	psfx.class-features.divine-smite.v1.001.target	Divine Strike: the cleric's blow carries the god's light.	Likely	Sure	9
 feature:blessed-strikes-potent-spellcasting	No proposed FX				Extra damage on a cantrip that has its own FX.
-feature:blessing-of-the-trickster	Close match	spell:invisibility	jb2a.smoke.puff.side.dark_purple	psfx.magic-signs.rune.v1.illusion.intro	Blessing of the Trickster: advantage on Stealth.	Likely	Likely	0
 feature:body-and-mind	No proposed FX				A passive trait — no moment to play.
 feature:bonus-proficiencies	No proposed FX				A proficiency — no moment to play.
-feature:brutal-strike	Close match	effect:rage	jb2a.impact.013.003.blue	psfx.impacts.bludgeoning.v1	Brutal Strike: the blow lands hard enough to move the target.	Likely	Sure	0
 feature:careful-spell	No proposed FX				A metamagic — the spell it shapes has its own FX.
 feature:celestial	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:celestial-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:champion	No proposed FX				A subclass name, not an ability — nothing to play.
-feature:circle-forms	Close match	spell:polymorph	jb2a.magic_signs.circle.02.transmutation.intro.dark_green	psfx.magic-signs.circle.v1.transmutation.complete	Wild Shape into a beast: the transmutation circle.	Likely	Sure	0
 feature:land	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:circle-of-the-land-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:moon	No proposed FX				A subclass name, not an ability — nothing to play.
@@ -56,7 +46,6 @@ feature:sea	No proposed FX				A subclass name, not an ability — nothing to pla
 feature:circle-of-the-sea-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:stars	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:cleric	No proposed FX				A class name, not an ability — nothing to play.
-feature:clockwork-cavalcade	Close match	spell:cure-wounds	jb2a.healing_generic.burst.tealyellow	psfx.ambient.tools.gears.001	Clockwork Cavalcade: the spirits of Mechanus set everything right.	Likely	Sure	2
 feature:clockwork	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:clockwork-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:dance	No proposed FX				A subclass name, not an ability — nothing to play.
@@ -65,24 +54,17 @@ feature:lore	No proposed FX				A subclass name, not an ability — nothing to pl
 feature:valor	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:combat-inspiration	No proposed FX				A use of Bardic Inspiration, which has its own FX.
 feature:combat-superiority	No proposed FX				A pool of dice — no moment to play.
-feature:commanders-strike	Close match	effect:courageous	jb2a.hunters_mark.pulse.03.blue	psfx.class-features.bardic-inspiration.v1.keyOfC.001	Commander's Strike: an ally is told to strike.	Likely	Likely	0
 feature:commanding-presence	No proposed FX				A passive benefit — no moment to play.			
 feature:contact-patron	No proposed FX				The record has no activity, so nothing at the table plays it.			
-feature:corona-of-light	Close match	effect:shining	jb2a.energy_field.01.yellow	psfx.class-features.divine-smite.v1.001.caster	Corona of Light: the cleric blazes.	Likely	Likely	0
 feature:create-thrall	No proposed FX				A passive benefit — no moment to play.			
 feature:danger-sense	No proposed FX				A passive trait — no moment to play.
 feature:dazzling-footwork	No proposed FX				A passive trait — no moment to play.
-feature:deflect-attacks	Close match	spell:mage-armor	jb2a.side_impact.part.shockwave.blue	psfx.impacts.bludgeoning.v1	Deflect Attacks: the monk turns the blow aside. This is the 2024 name for what AA called Deflect Missiles.	Likely	Likely	0
-feature:deflect-energy	Close match	spell:mage-armor	jb2a.side_impact.part.shockwave.pink	psfx.impacts.magicaleffects.generic.002.001	Deflect Energy: the monk turns the blast aside.	Likely	Likely	0
 feature:deft-explorer	No proposed FX				A passive trait — no moment to play.
 feature:devils-sight	No proposed FX				A passive trait — no moment to play.
 feature:devouring-blade	No proposed FX				An extra attack with the pact weapon, which has its own FX.
-feature:disarming-attack	Close match	effect:slowed	jb2a.melee_generic.slash.01.greenyellow	psfx.impacts.slashing.v1	Disarming Attack: the weapon comes out of the target's hand.	Likely	Sure	0
 feature:disciple-of-life	No proposed FX				A passive benefit — no moment to play.			
 feature:distant-spell	No proposed FX				A metamagic — the spell it shapes has its own FX.
-feature:distracting-strike	Close match	effect:outlined	jb2a.hunters_mark.pulse.07.blue	psfx.impacts.slashing.v1	Distracting Strike: the target is opened up.	Likely	Likely	0
 feature:divination-savant	No proposed FX				A passive trait — no moment to play.
-feature:divine-fury	Close match	spell:spiritual-weapon	jb2a.divine_smite.target.dark_red	psfx.class-features.divine-smite.v1.001.target	Divine Fury: the zealot's first blow each turn burns.	Likely	Sure	9
 feature:divine-order	No proposed FX				A choice of order — no moment to play.
 feature:divine-order-protector	No proposed FX				A proficiency — no moment to play.
 feature:divine-order-thaumaturge	No proposed FX				A cantrip and a bonus — no moment to play.
@@ -91,20 +73,16 @@ feature:draconic-resilience	No proposed FX				A passive trait — no moment to p
 feature:draconic	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:draconic-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:dragon-companion	No proposed FX				A passive benefit — no moment to play.			
-feature:dragon-wings	Close match	spell:fly	jb2a.swirling_feathers.outburst.01.textured	psfx.creature.movement.flight.wings.small	Dragon Wings: the sorcerer takes to the air.	Likely	Likely	0
 feature:druid	No proposed FX				A class name, not an ability — nothing to play.
 feature:druidic	No proposed FX				A language — nothing to play.
-feature:elder-champion	Close match	effect:blessed	jb2a.template_circle.aura.01.loop.large.green	psfx.magic-signs.circle.v1.transmutation.complete	Elder Champion: the paladin takes the ancient form.	Likely	Likely	0
 feature:eldritch-hex	No proposed FX				A passive trait — no moment to play.
 feature:eldritch-invocations	No proposed FX				A list of invocations — each has its own record.
 feature:eldritch-knight	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:eldritch-mind	No proposed FX				A passive trait — no moment to play.
 feature:eldritch-spear	No proposed FX				An extended range on Eldritch Blast, which has its own FX.
 feature:eldritch-strike	No proposed FX				Disadvantage on a save after a hit — no moment of its own.
-feature:elemental-epitome	Close match	effect:heated-metal	jb2a.particles.swirl.purple.02.01	psfx.magic-signs.rune.v1.transmutation.intro	Elemental Epitome: the monk takes on an element.	Likely	Likely	0
 feature:elemental-fury	No proposed FX				A choice of fury — no moment to play.
 feature:elemental-fury-potent-spellcasting	No proposed FX				Extra damage on a cantrip that has its own FX.
-feature:elemental-fury-primal-strike	Close match	effect:heated-metal	jb2a.side_impact.ice_shard.blue	psfx.impacts.magicaleffects.cold	Primal Strike: the druid's blow carries the element.	Likely	Sure	0
 feature:elusive	No proposed FX				A passive trait — no moment to play.
 feature:empowered-spell	No proposed FX				A metamagic — the spell it shapes has its own FX.
 feature:empowered-strikes	No proposed FX				Force damage on an unarmed strike, which has its own FX.
@@ -121,11 +99,8 @@ feature:extra-attack	No proposed FX				An extra swing, which has its own FX.
 feature:faithful-steed	No proposed FX				Find Steed once a day, which has its own FX.
 feature:fanatical-focus	No proposed FX				A reroll while raging — no moment of its own.
 feature:fast-movement	No proposed FX				A passive trait — no moment to play.
-feature:favored-enemy	Close match	effect:outlined	jb2a.hunters_mark.loop.01.green	psfx.magic-signs.rune.v1.divination.loop	Favored Enemy: Hunter's Mark for free.	Sure	Likely	0
-feature:feinting-attack	Close match	effect:outlined	jb2a.hunters_mark.pulse.07.blue	psfx.impacts.slashing.v1	Feinting Attack: the feint lands.	Likely	Likely	0
 feature:feral-instinct	No proposed FX				A passive trait — no moment to play.
 feature:feral-senses	No proposed FX				A passive trait — no moment to play.
-feature:fey-reinforcements	Close match	spell:conjure-animals	jb2a.fairies.outward_burst.01.white	psfx.magic-signs.circle.v1.conjuration.complete	Fey Reinforcements: Summon Fey for free.	Likely	Likely	0
 feature:fey	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:fey-wanderer-spells	No proposed FX				A spell list — each spell has its own FX.
 feature:fiend	No proposed FX				A subclass name, not an ability — nothing to play.
@@ -135,20 +110,13 @@ feature:fighter	No proposed FX				A class name, not an ability — nothing to pl
 feature:fighting-style	No proposed FX				A style chosen at first level — no moment to play.
 feature:flurry-of-healing-and-harm	No proposed FX				A passive benefit — no moment to play.			
 feature:foe-slayer	No proposed FX				A passive benefit — no moment to play.			
-feature:frenzy	Close match	effect:rage	jb2a.markers.on_token_mask.complete.01.red	psfx.impacts.slashing.v1	Frenzy: the berserker piles on damage.	Likely	Likely	0
 feature:full-of-stars	No proposed FX				The record has no activity, so nothing at the table plays it.			
-feature:gaze-of-two-minds	Close match	effect:foresight	jb2a.eyes.01.dark_purple.single	psfx.magic-signs.rune.v1.divination.intro	Gaze of Two Minds: the warlock sees through another's eyes.	Likely	Likely	0
-feature:gift-of-the-depths	Close match	effect:unrestricted-movement	jb2a.bubble.001.001.loop.blue	psfx.casting.water.001	Gift of the Depths: a swim speed and water breathing.	Sure	Sure	0
-feature:gift-of-the-protectors	Close match	spell:mage-armor	jb2a.markers.shield.yellow.01	psfx.magic-signs.rune.v1.abjuration.intro	Gift of the Protectors: the named ally survives at one hit point.	Likely	Likely	0
 feature:gloom	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:gloom-stalker-spells	No proposed FX				A spell list — each spell has its own FX.
-feature:goading-attack	Close match	effect:dominated	jb2a.hunters_mark.pulse.08.green	psfx.impacts.slashing.v1	Goading Attack: the target must come for you.	Likely	Likely	0
 feature:great-old-one	No proposed FX				A subclass name, not an ability — nothing to play.
 feature:great-old-one-spells	No proposed FX				A spell list — each spell has its own FX.
-feature:greater-divine-intervention	Close match	spell:raise-dead	jb2a.moonbeam.01.intro.yellow	psfx.class-features.divine-smite.v1.001.caster	Greater Divine Intervention: a pillar of light comes down.	Likely	Sure	0
 feature:greater-portent	No proposed FX				More rolls held in reserve — no moment to play.
 feature:guarded-mind	No proposed FX				A passive trait — no moment to play.
-feature:guided-strike	Close match	effect:outlined	jb2a.hunters_mark.pulse.04.purple	psfx.class-features.divine-smite.v1.001.caster	Guided Strike: the god steadies the blow.	Likely	Likely	0
 feature:heightened-focus	No proposed FX				A better use of focus points — no moment of its own.
 feature:heightened-spell	No proposed FX				A metamagic — the spell it shapes has its own FX.
 feature:heroic-warrior	No proposed FX				Heroic Inspiration in combat — no moment to play.
@@ -171,10 +139,6 @@ feature:improved-shadow-step	No proposed FX				A better Shadow Step, which has i
 feature:improved-war-magic	No proposed FX				An extra attack after a spell — no moment of its own.
 feature:improved-warding-flare	No proposed FX				A passive benefit — no moment to play.			
 feature:indomitable-might	No proposed FX				A passive trait — no moment to play.
-feature:inspiring-movement	Close match	effect:courageous	jb2a.condition.boon.02.015.refraction	psfx.class-features.bardic-inspiration.v1.keyOfC.001	Inspiring Movement: an ally is moved out of danger.	Likely	Sure	0
-feature:inspiring-smite	Close match	spell:cure-wounds	jb2a.healing_generic.burst.yellowwhite	psfx.class-features.divine-smite.v1.001.caster	Inspiring Smite: temporary hit points spread from the smite.	Likely	Likely	2
 feature:instinctive-pounce	No proposed FX				Movement when raging — no moment of its own.
-feature:intimidating-presence	Close match	effect:frightened	jb2a.template_circle.symbol.out_flow.fear.orange	psfx.impacts.magicaleffects.psychic	Intimidating Presence: a wave of fear off the barbarian.	Sure	Likely	0
-feature:investment-of-the-chain-master	Close match	spell:find-familiar	jb2a.magic_signs.circle.02.conjuration.loop.dark_purple	psfx.magic-signs.rune.v1.conjuration.complete	Investment of the Chain Master: the familiar is empowered.	Likely	Likely	3
 feature:iron-mind	No proposed FX				A proficiency — no moment to play.
 feature:jack-of-all-trades	No proposed FX				A passive trait — no moment to play.

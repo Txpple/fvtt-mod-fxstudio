@@ -2158,6 +2158,12 @@ fills. Each a patch on the user's word.
 the party's keys, the PHB's spell proposals, then the QA four; `maneuver` keeps playing the ability's `use`
 look, as the fallback says.
 
+**Then every proposal left (the user, 2026-10-19, after the Darkmantle's Darkness Aura played nothing: "make all
+the updates").** One pass by rule rather than by hand (`tools/promote-proposals.mjs`, its rules in tools/README.md):
+1,320 FX across every book beside Darkness Aura's by hand; 24 stay proposed, a picture that would squash in a mark
+(portals, tall flames, falling rocks, traps), for a hand. The per-row tuning the earlier batches did (a steadier
+variant, a persist judged per effect) is not in it: what plays wrong is fixed when the user names it.
+
 ### 28.8 `spell:shield` keeps its behaviour
 
 The Shield spell plays nothing and the Shield effect plays the barrier, as `smoke-boot` and

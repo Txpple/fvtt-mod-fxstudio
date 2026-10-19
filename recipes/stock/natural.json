@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The natural: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 163
+  "fx": 235
  },
  "fx": [
   {
@@ -4655,6 +4655,2015 @@
      "sound": {
       "asset": "psfx.impacts.bludgeoning.v1",
       "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "arcane-tentacles",
+   "for": [
+    "natural:arcane-tentacles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMindFlayerArca.Item.mmArcaneTentacle",
+    "name": "Arcane Tentacles",
+    "where": "Monster Manual · Actors",
+    "on": "Mind Flayer Arcanist"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.entangle.02.loop.01.dark_pinkpurple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "attach",
+   "for": [
+    "natural:attach"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCloaker0000000.Item.mmAttach00000000",
+    "name": "Attach",
+    "where": "Monster Manual · Actors",
+    "on": "Cloaker",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "barb",
+   "for": [
+    "natural:barb"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwNightgaunt000.Item.lyA2LnwVnjadt69K",
+    "name": "Barb",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Nightgaunt"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.piercing.one_handed"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bites",
+   "for": [
+    "natural:bites"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSwarmOfBats000.Item.mmBites000000000",
+    "name": "Bites",
+    "where": "Monster Manual · Actors",
+    "on": "Swarm of Bats",
+    "of": 11
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.200px.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bladed-arm",
+   "for": [
+    "natural:bladed-arm"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmIronGolem00000.Item.mmBladedArm00000",
+    "name": "Bladed Arm",
+    "where": "Monster Manual · Actors",
+    "on": "Iron Golem",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.slashing.one_handed"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bone-cudgel",
+   "for": [
+    "natural:bone-cudgel"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGrimlock000000.Item.mmBoneCudgel0000",
+    "name": "Bone Cudgel",
+    "where": "Monster Manual · Actors",
+    "on": "Grimlock",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.02.club.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "brain-drain",
+   "for": [
+    "natural:brain-drain"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunTaisus0000000.Item.aunBrainDrain000",
+    "name": "Brain Drain",
+    "where": "Arcana Unleashed · Bestiary",
+    "on": "Taisus"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.explosion.03.purplepink"
+     }
+    }
+   ]
+  },
+  {
+   "id": "brain-rending-bite",
+   "for": [
+    "natural:brain-rending-bite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwAberrantDeath.Item.lr8WZATdLtXq2sKi",
+    "name": "Brain-Rending Bite",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Aberrant Death’s Head"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.400px.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "branch",
+   "for": [
+    "natural:branch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmTreeBlight0000.Item.mmBranch00000000",
+    "name": "Branch",
+    "where": "Monster Manual · Actors",
+    "on": "Tree Blight"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.vine.loop.elemental.group.01.dark_orange"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "channel-negative-energy",
+   "for": [
+    "natural:channel-negative-energy"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmMummyLord00000.Item.d6GVHcFrHv83C7eS",
+    "name": "Channel Negative Energy",
+    "where": "Monster Manual · Actors",
+    "on": "Mummy Lord",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.energy_beam.normal.bluepink.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "delay": 2400
+     },
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 2400
+    }
+   ]
+  },
+  {
+   "id": "charged-tendril",
+   "for": [
+    "natural:charged-tendril"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmShamblingMound.Item.mmChargedTendril",
+    "name": "Charged Tendril",
+    "where": "Monster Manual · Actors",
+    "on": "Shambling Mound",
+    "of": 3
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.static_electricity.01.blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "chromatic-spittle",
+   "for": [
+    "natural:chromatic-spittle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmWingedKobold00.Item.mmChromaticSpitt",
+    "name": "Chromatic Spittle",
+    "where": "Monster Manual · Actors",
+    "on": "Winged Kobold"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.ranged.01.instant.01.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "delay": 1000,
+      "start": 500
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ]
+  },
+  {
+   "id": "clawed-gauntlet",
+   "for": [
+    "natural:clawed-gauntlet"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgClawedGauntle",
+    "name": "Clawed Gauntlet",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.200px.bright_orange"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "coagulated-nodule",
+   "for": [
+    "natural:coagulated-nodule"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGreaterStarSp.Item.3B1rFRSWto8FvNms",
+    "name": "Coagulated Nodule",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Greater Star Spawn Emissary"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.dark_purple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "conjure-slimy-glob",
+   "for": [
+    "natural:conjure-slimy-glob"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmKuotoaWhip0000.Item.mmConjureSlimyGl",
+    "name": "Conjure Slimy Glob",
+    "where": "Monster Manual · Actors",
+    "on": "Kuo-toa Whip"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.liquid.splash_side.bright_green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "constricting-vine",
+   "for": [
+    "natural:constricting-vine"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVineBlight0000.Item.mmConstrictingVi",
+    "name": "Constricting Vine",
+    "where": "Monster Manual · Actors",
+    "on": "Vine Blight"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.entangle.02.loop.02.green"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "corrupting-touch",
+   "for": [
+    "natural:corrupting-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBanshee0000000.Item.EcKrguAvYxOpoFCS",
+    "name": "Corrupting Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Banshee",
+    "of": 4
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.side_impact.skull.pink_purple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "crushing-stone",
+   "for": [
+    "natural:crushing-stone"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwRelentlessJug.Item.9xcNVoDApekaJ9tm",
+    "name": "Crushing Stone",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Relentless Juggernaut"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.orange"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "cursed-touch",
+   "for": [
+    "natural:cursed-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmRakshasa000000.Item.mmCursedTouch000",
+    "name": "Cursed Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Rakshasa",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.condition.curse.01.010.purple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "deathly-ray",
+   "for": [
+    "natural:deathly-ray"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmDeathCultist00.Item.mmDeathlyRay0000",
+    "name": "Deathly Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Death Cultist",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.spell_projectile.skull.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "divine-ray",
+   "for": [
+    "natural:divine-ray"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmEmpyrean000000.Item.mmDivineRay00000",
+    "name": "Divine Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Empyrean"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.guiding_bolt.01.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "draining-swipe",
+   "for": [
+    "natural:draining-swipe"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmShadow00000000.Item.mmDrainingSwipe0",
+    "name": "Draining Swipe",
+    "where": "Monster Manual · Actors",
+    "on": "Shadow",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.400px.bright_purple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dreadful-swipe",
+   "for": [
+    "natural:dreadful-swipe"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwReanimatedCom.Item.esYBaygflUwoZ438",
+    "name": "Dreadful Swipe",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Reanimated Companion"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.400px.bright_green"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "feral-pounce",
+   "for": [
+    "natural:feral-pounce"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwFeralPounce7E",
+    "name": "Feral Pounce",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.400px.red"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fiendish-touch",
+   "for": [
+    "natural:fiendish-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSuccubus000000.Item.mmFiendishTouch0",
+    "name": "Fiendish Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Succubus",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.dark_purple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fiery-skull",
+   "for": [
+    "natural:fiery-skull"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwDullahan00000.Item.5tmz2U4eQR1SkMs3",
+    "name": "Fiery Skull",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Dullahan"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.fire.01.orange"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "flame-scepter",
+   "for": [
+    "natural:flame-scepter"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmFlamingSkeleto.Item.jmtfmb8isTfURSSq",
+    "name": "Flame Scepter",
+    "where": "Monster Manual · Actors",
+    "on": "Flaming Skeleton"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.fire_bolt.orange"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "flash-of-light",
+   "for": [
+    "natural:flash-of-light"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCyclopsOracle0.Item.mmFlashOfLight00",
+    "name": "Flash of Light",
+    "where": "Monster Manual · Actors",
+    "on": "Cyclops Oracle"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.light.complete.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     }
+    }
+   ]
+  },
+  {
+   "id": "forsaken-brand",
+   "for": [
+    "natural:forsaken-brand"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwLordSothofSit.Item.ShLIOf0gbHvSvyJq",
+    "name": "Forsaken Brand",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Lord Soth of Sithicus"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.green"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.necrotic.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gears-launcher",
+   "for": [
+    "natural:gears-launcher"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmModronQuadrone.Item.mmGearsLauncher0",
+    "name": "Gears Launcher",
+    "where": "Monster Manual · Actors",
+    "on": "Modron Quadrone"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bullet.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.ambient.tools.gears.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "grab",
+   "for": [
+    "natural:grab"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBugbearWarrior.Item.mmGrab0000000000",
+    "name": "Grab",
+    "where": "Monster Manual · Actors",
+    "on": "Bugbear Warrior",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "hammer-throw",
+   "for": [
+    "natural:hammer-throw"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmFireGiant00000.Item.mmHammerThrow000",
+    "name": "Hammer Throw",
+    "where": "Monster Manual · Actors",
+    "on": "Fire Giant",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.hammer.throw"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.fire.v1.group01",
+      "delay": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "horrific-necrosis",
+   "for": [
+    "natural:horrific-necrosis"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGhastGravecall.Item.gJilki9uDfxw8OeL",
+    "name": "Horrific Necrosis",
+    "where": "Monster Manual · Actors",
+    "on": "Ghast Gravecaller"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.400px.bright_green"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "icy-bite",
+   "for": [
+    "natural:icy-bite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmLacedonGhoul00.Item.mmIcyBite0000000",
+    "name": "Icy Bite",
+    "where": "Monster Manual · Actors",
+    "on": "Lacedon Ghoul"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.400px.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.cold"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lashing-maw",
+   "for": [
+    "natural:lashing-maw"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGreaterStarSp.Item.IsIh3PUVU04fEbie",
+    "name": "Lashing Maw",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Greater Star Spawn Emissary",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.400px.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lightning-rod",
+   "for": [
+    "natural:lightning-rod"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwViktraMordenh.Item.UlhXbBMD95me4Apf",
+    "name": "Lightning Rod",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Viktra Mordenheim"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.chain_lightning.primary.blue"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "makeshift-axe",
+   "for": [
+    "natural:makeshift-axe"
+   ],
+   "record": {
+    "uuid": "Actor.UjFNqZW5uYXZb8Xm.Item.mmBoneCudgel0000",
+    "name": "Makeshift Axe",
+    "where": "this world · Grimlock (Axe)"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.02.handaxe.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1",
+      "start": 650
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.handaxe.throw.01"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "necrotic-bolt",
+   "for": [
+    "natural:necrotic-bolt"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwPriestofOsybu.Item.3XWBV1iY9i9bCvre",
+    "name": "Necrotic Bolt",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Priest of Osybus"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.spell_projectile.skull.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "necrotic-ray",
+   "for": [
+    "natural:necrotic-ray"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSpiritNaga0000.Item.mmNecroticRay000",
+    "name": "Necrotic Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Spirit Naga",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.spell_projectile.skull.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "paralyzing-tentacles-natural",
+   "for": [
+    "natural:paralyzing-tentacles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGrell000000000.Item.PYIeX0xuuewqAlgZ",
+    "name": "Paralyzing Tentacles",
+    "where": "Monster Manual · Actors",
+    "on": "Grell",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.black_tentacles.dark_purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "paralyzing-touch",
+   "for": [
+    "natural:paralyzing-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmLich0000000000.Item.9p8yotv4r7nt3NWl",
+    "name": "Paralyzing Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Lich",
+    "of": 4
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact_themed.skull.pinkpurple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "petrifying-bite",
+   "for": [
+    "natural:petrifying-bite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCockatrice0000.Item.mmPetrifyingBite",
+    "name": "Petrifying Bite",
+    "where": "Monster Manual · Actors",
+    "on": "Cockatrice",
+    "of": 4
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.200px.grey"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001"
+     }
+    }
+   ]
+  },
+  {
+   "id": "phantasmic-assault",
+   "for": [
+    "natural:phantasmic-assault"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwUnspeakableHo.Item.mdiEMcxRwpf2CzWO",
+    "name": "Phantasmic Assault",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Unspeakable Horror"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.impact_themed.skull.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "prance",
+   "for": [
+    "natural:prance"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSatyrRevelmast.Item.mmPrance00000000",
+    "name": "Prance",
+    "where": "Monster Manual · Actors",
+    "on": "Satyr Revelmaster"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "opacity": 0.6,
+     "size": {
+      "tokenWidths": 1.875
+     },
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.music.pink"
+     },
+     "sound": {
+      "asset": "psfx.musical-instruments.flute.01.long.keyOfA.A6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "psychic-warp",
+   "for": [
+    "natural:psychic-warp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGithzeraiPsion.Item.mmPsychicWarp000",
+    "name": "Psychic Warp",
+    "where": "Monster Manual · Actors",
+    "on": "Githzerai Psion"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.impact_themed.skull.pinkpurple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "radiant-wisp",
+   "for": [
+    "natural:radiant-wisp"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGenniferWeath.Item.J3t81lN5Mcy0Om8T",
+    "name": "Radiant Wisp",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Gennifer Weathermay-Foxgrove"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.guiding_bolt.01.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "ravenous-bites",
+   "for": [
+    "natural:ravenous-bites"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwSwarmofRaveno.Item.Gf86wgOqCghVGdJd",
+    "name": "Ravenous Bites",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Swarm of Ravenous Insects"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.200px.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "restless-touch",
+   "for": [
+    "natural:restless-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmIncubus0000000.Item.mmRestlessTouch0",
+    "name": "Restless Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Incubus",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.dark_purple"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "rotten-flesh",
+   "for": [
+    "natural:rotten-flesh"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwZombieLimbsSw.Item.I144U6ubpd6UqjzI",
+    "name": "Rotten Flesh",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Swarm of Zombie Limbs"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.green"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "rotting-touch",
+   "for": [
+    "natural:rotting-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVioletFungus00.Item.mmRottingTouch00",
+    "name": "Rotting Touch",
+    "where": "Monster Manual · Actors",
+    "on": "Violet Fungus",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.green"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "shred",
+   "for": [
+    "natural:shred"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmVrock000000000.Item.mmShred000000000",
+    "name": "Shred",
+    "where": "Monster Manual · Actors",
+    "on": "Vrock",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.400px.bright_green"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "smother",
+   "for": [
+    "natural:smother"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmAnimatedRugOfS.Item.mmSmother0000000",
+    "name": "Smother",
+    "where": "Monster Manual · Actors",
+    "on": "Animated Rug of Smothering",
+    "of": 3
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "soothing-tentacle",
+   "for": [
+    "natural:soothing-tentacle"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwElderThing000.Item.L0BbXKji96IyxIO4",
+    "name": "Soothing Tentacle",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Elder Thing"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.black_tentacles.dark_purple"
+     }
+    }
+   ]
+  },
+  {
+   "id": "spectral-jaws",
+   "for": [
+    "natural:spectral-jaws"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSahuaginPriest.Item.mmSpectralJaws00",
+    "name": "Spectral Jaws",
+    "where": "Monster Manual · Actors",
+    "on": "Sahuagin Priest"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.200px.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "spore-spray",
+   "for": [
+    "natural:spore-spray"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.actors.Actor.aunSpiritFungudP.Item.fO1xSoHYqfiz7W3s",
+    "name": "Spore Spray",
+    "where": "Arcana Unleashed · Bestiary",
+    "on": "Spirit Fungus"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.fumes.toxic.green"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "start": 2500
+     }
+    }
+   ]
+  },
+  {
+   "id": "strange-scepter",
+   "for": [
+    "natural:strange-scepter"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmKuotoaArchprie.Item.mmStrangeScepter",
+    "name": "Strange Scepter",
+    "where": "Monster Manual · Actors",
+    "on": "Kuo-toa Archpriest",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.energy_beam.normal.bluegreen.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic",
+      "start": 200,
+      "repeat": 3,
+      "every": 500
+     },
+     "repeat": 3,
+     "every": 500
+    }
+   ]
+  },
+  {
+   "id": "suffocate",
+   "for": [
+    "natural:suffocate"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGraveyardReven.Item.3YYshLRIcL7GvBG2",
+    "name": "Suffocate",
+    "where": "Monster Manual · Actors",
+    "on": "Graveyard Revenant",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.markers.chain.diamond.loop.01.grey"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sun-ray",
+   "for": [
+    "natural:sun-ray"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmCentaurWarden0.Item.mmSunRay00000000",
+    "name": "Sun Ray",
+    "where": "Monster Manual · Actors",
+    "on": "Centaur Warden"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.guiding_bolt.01.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target",
+      "delay": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "swarm-of-grasping-hands",
+   "for": [
+    "natural:swarm-of-grasping-hands"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSwarmOfCrawlin.Item.mmSwarmOfGraspin",
+    "name": "Swarm of Grasping Hands",
+    "where": "Monster Manual · Actors",
+    "on": "Swarm of Crawling Claws",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.200px.brown"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "swarm-of-proboscises",
+   "for": [
+    "natural:swarm-of-proboscises"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSwarmOfStirges.Item.mmSwarmOfProbosc",
+    "name": "Swarm of Proboscises",
+    "where": "Monster Manual · Actors",
+    "on": "Swarm of Stirges"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.200px.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "swarming-bites",
+   "for": [
+    "natural:swarming-bites"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwGremishka0000.Item.uli0q7C3GFNvjZ2z",
+    "name": "Swarming Bites (Swarm Form Only)",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Gremishka"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.200px.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "swipe",
+   "for": [
+    "natural:swipe"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwHarkonLukas00.Item.Ow2eLeYz80ZUjEbB",
+    "name": "Swipe (Dire Wolf or Hybrid Form Only)",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Harkon Lukas"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.claws.200px.brown"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.creature.dragons.attacks.rend.cold"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tail-spine",
+   "for": [
+    "natural:tail-spine"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmSpinedDevil000.Item.mmTailSpine00000",
+    "name": "Tail Spine",
+    "where": "Monster Manual · Actors",
+    "on": "Spined Devil"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.piercing.one_handed"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tentacles",
+   "for": [
+    "natural:tentacles"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGiantOctopus00.Item.mmTentacles00000",
+    "name": "Tentacles",
+    "where": "Monster Manual · Actors",
+    "on": "Giant Octopus",
+    "of": 11
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "volume": 0.5
+     },
+     "asset": {
+      "path": "jb2a.entangle.02.loop.03.dark_blue"
+     }
+    }
+   ]
+  },
+  {
+   "id": "thorn-volley",
+   "for": [
+    "natural:thorn-volley"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmGulthiasBlight.Item.mmThornVolley000",
+    "name": "Thorn Volley",
+    "where": "Monster Manual · Actors",
+    "on": "Gulthias Blight",
+    "of": 2
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.arrow.physical.white.01"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "thrash",
+   "for": [
+    "natural:thrash"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBarlgura000000.Item.mmThrash00000000",
+    "name": "Thrash",
+    "where": "Monster Manual · Actors",
+    "on": "Barlgura"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact.004.orange"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "tormenting-bite",
+   "for": [
+    "natural:tormenting-bite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmBarlgura000000.Item.mmTormentingBite",
+    "name": "Tormenting Bite",
+    "where": "Monster Manual · Actors",
+    "on": "Barlgura"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.400px.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "toxic-touch",
+   "for": [
+    "natural:toxic-touch"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwIvanaBoritsi0.Item.g2p4xzRCZuFc16UO",
+    "name": "Toxic Touch",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Ivana Boritsi"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 3
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.side_impact.part.slow.poison.greenyellow"
+     },
+     "anchor": {
+      "x": 0.5,
+      "y": 0.7
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vampiric-bite",
+   "for": [
+    "natural:vampiric-bite"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.options.Item.rhwVampiricBitnE",
+    "name": "Vampiric Bite",
+    "where": "Ravenloft: The Horrors Within · Character Options"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bite.400px.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "vile-slime",
+   "for": [
+    "natural:vile-slime"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmLemure00000000.Item.mmVileSlime00000",
+    "name": "Vile Slime",
+    "where": "Monster Manual · Actors",
+    "on": "Lemure",
+    "of": 3
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "impact",
+     "asset": {
+      "path": "jb2a.liquid.splash_side.bright_purple"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.acid-splash.v1",
+      "delay": 1000,
+      "start": 500
+     },
+     "size": {
+      "radius": 1
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1000
+    }
+   ]
+  },
+  {
+   "id": "vine",
+   "for": [
+    "natural:vine"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.actors.Actor.rhwBodytakerPlan.Item.x9btiIZ60QmpHiZf",
+    "name": "Vine",
+    "where": "Ravenloft: The Horrors Within · Bestiary",
+    "on": "Bodytaker Plant"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2.25
+     },
+     "mask": true,
+     "persist": "none",
+     "asset": {
+      "path": "jb2a.vine.loop.nature.group.01.green"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.entangle.vines.v1.001.intro"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wind-swipe",
+   "for": [
+    "natural:wind-swipe"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-monster-manual.actors.Actor.mmInvisibleStalk.Item.mmWindSwipe00000",
+    "name": "Wind Swipe",
+    "where": "Monster Manual · Actors",
+    "on": "Invisible Stalker",
+    "of": 3
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.wind_stream.400.white"
+     },
+     "size": {
+      "tokenWidths": 3.75
+     },
+     "sound": {
+      "asset": "psfx.cantrips.gust.v1"
      }
     }
    ]

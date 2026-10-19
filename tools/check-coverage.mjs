@@ -120,7 +120,7 @@ const effect = (actor, { name, transfer = false, temporary = false }) => ({ name
 const cecil = {
   name: 'Cecil Stand-in', type: 'character', uuid: 'Actor.cecil',
   items: [
-    item('Actor.cecil', { name: 'Drum', type: 'tool', acts: 2 }),
+    item('Actor.cecil', { name: 'Candle of the Deep', type: 'consumable', acts: 2 }),
     item('Actor.cecil', { name: 'Tinderbox', type: 'tool' }),
     item('Actor.cecil', { name: 'Shield', type: 'spell' }),
     item('Actor.cecil', { name: 'Fire Bolt', type: 'spell' }),
@@ -147,29 +147,29 @@ if (t.section('My actors: why each row is there')) {
   const r = cov.actorRows(a, census);
   const by = Object.fromEntries(r.groups.flatMap((g) => g.rows).map((x) => [x.name, x]));
   t.is('a character is listed before an npc', r.groups[0].head.startsWith('Cecil Stand-in'), true);
-  t.ok('the Drum has a proposal, copied from an FX that exists', by.Drum?.st === 'proposal' && !!a.fx.get(by.Drum.from) && by.Drum.note === 'Sure · Sure', JSON.stringify(by.Drum));
+  t.ok('the Candle of the Deep has a proposal, copied from an FX that exists', by['Candle of the Deep']?.st === 'proposal' && !!a.fx.get(by['Candle of the Deep'].from) && by['Candle of the Deep'].note === 'Sure · Likely', JSON.stringify(by['Candle of the Deep']));
   t.ok('the Tinderbox is judged: mundane gear', by.Tinderbox?.st === 'judged' && by.Tinderbox.note === REASONS.mundane, JSON.stringify(by.Tinderbox));
   t.ok('the Shield spell is judged: the effect plays the barrier', by.Shield?.st === 'judged' && /Shield effect plays the barrier/.test(by.Shield.words), JSON.stringify(by.Shield));
   t.ok('Fire Bolt has an FX that played nothing: the engine\'s why and its time from the ledger', by['Fire Bolt']?.st === 'ledger' && /no targets/.test(by['Fire Bolt'].words) && /Fire Bolt/.test(by['Fire Bolt'].note), JSON.stringify(by['Fire Bolt']));
   t.ok('a weapon with no activity and no row is judged by the moment rule', by['Rusty Hook']?.st === 'judged' && by['Rusty Hook'].reason === 'no-activity', JSON.stringify(by['Rusty Hook']));
   t.ok('a weapon with an activity and no row is open: no row in the gap table yet', by['Strange Blade']?.st === 'none', JSON.stringify(by['Strange Blade']));
-  t.ok('the Makeshift Axe, a natural attack, has its proposal', by['Makeshift Axe']?.st === 'proposal' && by['Makeshift Axe'].kind === 'natural', JSON.stringify(by['Makeshift Axe']));
+  t.ok('the Makeshift Axe, a natural attack, is answered by its Stock FX: no row', !by['Makeshift Axe'] && !!a.fx.get('makeshift-axe'), JSON.stringify(by['Makeshift Axe']));
   t.ok('an effect the file judged is judged: always on', by.Adept?.st === 'judged' && by.Adept.reason === 'always-on', JSON.stringify(by.Adept));
   t.ok('an effect with no row that sits on its owner for good is judged by the moment rule', by['Glowing Hum']?.st === 'judged' && by['Glowing Hum'].reason === 'always-on', JSON.stringify(by['Glowing Hum']));
   t.ok('an effect with no row put on for a time is open', by['Odd Flicker']?.st === 'none', JSON.stringify(by['Odd Flicker']));
   t.is('an effect a sheet carries twice is one row', r.groups[0].rows.filter((x) => x.name === 'Adept').length, 1);
   t.is('Abilities counts the items and the effects once each', r.asked, 6 + 3 + 1);
-  t.is('With FX counts what answers (Fire Bolt)', r.answered, 1);
-  t.same('the rows by why', r.counts, { proposal: 2, judged: 5, none: 2, off: 0, ledger: 1 });
+  t.is('With FX counts what answers (Fire Bolt, the Makeshift Axe)', r.answered, 2);
+  t.same('the rows by why', r.counts, { proposal: 1, judged: 5, none: 2, off: 0, ledger: 1 });
 }
 
 // ── 4 ──────────────────────────────────────────────────────────────────────────────────────────
 const app = { view: { tab: 'coverage' }, census, element: null, rendered: false, render: async () => {} };
 if (t.section('the doors the rows emit')) {
   const html = cov.renderCoverage(app);
-  const drum = /<div class="cvrow" data-st="proposal">(?:(?!<div class="cvrow").)*?Drum(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
-  const basis = a.proposals.get('item:drum').basis;
-  t.ok('a proposal\'s door opens the Editor with the basis copied in', drum.includes(`data-act="key" data-key="item:drum" data-from="${basis}"`), drum.slice(0, 300));
+  const drum = /<div class="cvrow" data-st="proposal">(?:(?!<div class="cvrow").)*?Candle of the Deep(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
+  const basis = a.proposals.get('item:candle-of-the-deep').basis;
+  t.ok('a proposal\'s door opens the Editor with the basis copied in', drum.includes(`data-act="key" data-key="item:candle-of-the-deep" data-from="${basis}"`), drum.slice(0, 300));
   const tinder = /<div class="cvrow" data-st="judged">(?:(?!<div class="cvrow").)*?Tinderbox(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
   t.ok('a judged item on an actor keeps its door: entry, its uuid, create', /data-act="entry" data-uuid="Actor\.cecil\.Item\.tinderbox" data-create="1"/.test(tinder), tinder.slice(0, 300));
   const flicker = /<div class="cvrow" data-st="none">(?:(?!<div class="cvrow").)*?Odd Flicker(?:(?!<div class="cvrow").)*/s.exec(html)?.[0] ?? '';
@@ -183,7 +183,7 @@ if (t.section('the doors the rows emit')) {
   t.ok('Maintain is a disclosure holding Import, Import to Stock and the corpus check', /<details class="cvmaint"[^>]*>[\s\S]*data-act="import-fx" data-to="house"[\s\S]*data-act="import-fx" data-to="stock"[\s\S]*data-act="co-check"/.test(html));
   t.ok('the repo note has left the GM\'s screen', !/pull the files into the repo/.test(html));
   t.ok('the four tiles keep their addresses', /Abilities[\s\S]*With FX[\s\S]*No FX[\s\S]*Errors/.test(html));
-  app.cvv.q = 'drum';
+  app.cvv.q = 'candle';
   const searched = cov.renderCoverage(app);
   t.is('the search narrows the rows', (searched.match(/<div class="cvrow"/g) ?? []).length, 1);
   app.cvv.q = '';

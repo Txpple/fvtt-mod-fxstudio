@@ -1,12 +1,8 @@
 feature:web-walker	No proposed FX				A passive trait — no moment to play.
-feature:whirlwind-of-sand	Close match	spell:shatter	jb2a.whirlwind.bluegrey	psfx.cantrips.gust.v1	Whirlwind of Sand: it becomes a column of sand.	Maybe	Sure	1
-feature:wishes	Close match	spell:mage-armor	jb2a.magic_signs.circle.02.conjuration.complete.dark_yellow	psfx.magic-signs.circle.v1.conjuration.complete	Wishes: the djinni grants one.	Likely	Likely	31
 weapon:book-of-shadows	No proposed FX				A spellcasting focus. The spell it helps cast is its own FX.
 feature:battle-ready	No proposed FX				A passive trait — no moment to play.
 feature:beast-whisperer	No proposed FX				A passive trait — no moment to play.
-feature:death-jinx	Close match	effect:banished	jb2a.condition.curse.01.015.purple	psfx.impacts.magicaleffects.necrotic	Death Jinx: a parting curse when it dies.	Likely	Likely	0
 feature:dimensional-disruption	No proposed FX				A passive benefit — no moment to play.			
-feature:disciple-of-the-nine-hells	Close match	spell:conjure-animals	jb2a.magic_signs.circle.02.conjuration.intro.dark_red	psfx.magic-signs.circle.v1.conjuration.complete	Disciple of the Nine Hells: something answers.	Likely	Likely	0
 feature:emissary-of-juiblex	No proposed FX				A passive trait — no moment to play.
 feature:gloom-shroud	No proposed FX				A passive benefit — no moment to play.			
 feature:poison-tolerant	No proposed FX				A passive trait — no moment to play.
@@ -16,7 +12,4 @@ feature:steadfast	No proposed FX				A passive trait — no moment to play.
 feature:ventriloquism	No proposed FX				A voice thrown — nothing on a token to play.
 feature:warriors-wrath	No proposed FX				The record has no activity, so nothing at the table plays it.			
 feature:wild-talent	No proposed FX				A passive trait — no moment to play.
-effect:heavenly-wings	Close match	feature:celestial-revelation	jb2a.condition.boon.02.003.refraction	psfx.creature.movement.flight.wings.large	Heavenly Wings: spectral wings unfold in white light.	Likely	Likely	0
-natural:swarming-bites	Close match	natural:bite	jb2a.bite.200px.purple	psfx.impacts.slashing.v1	The swarm bites, and the magic goes out of an item.	Likely	Likely	0
-natural:swipe	Close match	natural:claw	jb2a.claws.200px.brown	psfx.creature.dragons.attacks.rend.cold	A heavy swipe that knocks the target down.	Sure	Likely	0
 item:ball-bearings	No proposed FX				Neither library has anything that reads as spilled ball bearings.

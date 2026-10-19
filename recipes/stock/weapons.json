@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The weapons: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 99
+  "fx": 162
  },
  "fx": [
   {
@@ -2740,6 +2740,1714 @@
      "sound": {
       "asset": "psfx.weapon-attacks.sword.v1",
       "start": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "axe-of-the-dwarvish-lords",
+   "for": [
+    "weapon:axe-of-the-dwarvish-lords"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgAxeOfTheDwarv",
+    "name": "Axe of the Dwarvish Lords",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.greataxe.melee.fire.orange"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.fire.v1.group01",
+      "start": 650
+     }
+    }
+   ]
+  },
+  {
+   "id": "ballista",
+   "for": [
+    "weapon:ballista"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBallista00000",
+    "name": "Ballista",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.bolt.physical.orange"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "blackrazor",
+   "for": [
+    "weapon:blackrazor"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgBlackrazor000",
+    "name": "Blackrazor",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.greatsword.melee.fire.black"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.necrotic.v1.group01",
+      "start": 650
+     }
+    }
+   ]
+  },
+  {
+   "id": "cannon",
+   "for": [
+    "weapon:cannon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgCannon0000000",
+    "name": "Cannon",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.throwable.launch.cannon_ball.01.black"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dagger-of-venom",
+   "for": [
+    "weapon:dagger-of-venom"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDaggerOfVenom",
+    "name": "Dagger of Venom",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.dagger.melee.fire.green"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "start": 500
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.dagger.throw.01.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "defender",
+   "for": [
+    "weapon:defender"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDefender00000",
+    "name": "Defender",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.glint.blue.few"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dissuader",
+   "for": [
+    "weapon:dissuader"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunDissuader6CCG",
+    "name": "Dissuader",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.04.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "dragon-slayer",
+   "for": [
+    "weapon:dragon-slayer"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDragonSlayer0",
+    "name": "Dragon Slayer",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.orange"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.fire.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "dwarven-thrower",
+   "for": [
+    "weapon:dwarven-thrower"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgDwarvenThrowe",
+    "name": "Dwarven Thrower",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.warhammer.melee.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "ebonbane",
+   "for": [
+    "weapon:ebonbane"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-ravenloft-horrors-within.items.Item.rhwEbonbane00000",
+    "name": "Ebonbane",
+    "where": "Ravenloft: The Horrors Within · Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.black"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.necrotic.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "enspelled-weapon",
+   "for": [
+    "weapon:enspelled-weapon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgEnspelledWeap",
+    "name": "Enspelled Weapon",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.02.complete.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.evocation.intro"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "flame-tongue",
+   "for": [
+    "weapon:flame-tongue"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFlameTongue00",
+    "name": "Flame Tongue",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.red"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.fire.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "flamethrower-coach",
+   "for": [
+    "weapon:flamethrower-coach"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFlamethrowerC",
+    "name": "Flamethrower Coach",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.breath_weapons.fire.line.orange"
+     },
+     "sound": {
+      "asset": "psfx.creature.dragons.attacks.breath.large.fire"
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "frost-brand-weapon",
+   "for": [
+    "weapon:frost-brand"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgFrostBrand000",
+    "name": "Frost Brand",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.blue"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.cold.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "giant-slayer",
+   "for": [
+    "weapon:giant-slayer"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgGiantSlayer00",
+    "name": "Giant Slayer",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.glint.yellow.many"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "grave-reaper",
+   "for": [
+    "weapon:grave-reaper"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunGraveReaperAT",
+    "name": "Grave Reaper",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.dagger.melee.fire.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1",
+      "start": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "hammer-of-thunderbolts",
+   "for": [
+    "weapon:hammer-of-thunderbolts"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHammerOfThund",
+    "name": "Hammer of Thunderbolts",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.03.maul.01"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01",
+      "delay": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "holy-avenger",
+   "for": [
+    "weapon:holy-avenger"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgHolyAvenger00",
+    "name": "Holy Avenger",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.yellow"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.caster"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "improvised-weapon",
+   "for": [
+    "weapon:improvised-weapon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.equipment.Item.phbImprovisedWea",
+    "name": "Improvised Weapon",
+    "where": "Player's Handbook · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.bludgeoning.one_handed"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "javelin-of-lightning",
+   "for": [
+    "weapon:javelin-of-lightning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgJavelinOfLigh",
+    "name": "Javelin of Lightning",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.javelin.01.throw"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "keg-launcher",
+   "for": [
+    "weapon:keg-launcher"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgKegLauncher00",
+    "name": "Keg Launcher",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "template",
+     "asset": {
+      "path": "jb2a.barrel.toss.wooden.01.01.brown"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "delay": 1500,
+     "sound": {
+      "asset": "psfx.ranged-weapons.guns.single-fire.musket"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lightning-cannon",
+   "for": [
+    "weapon:lightning-cannon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLightningCann",
+    "name": "Lightning Cannon",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.lightning_ball.blue"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01"
+     }
+    }
+   ]
+  },
+  {
+   "id": "lute-of-thunderous-thumping",
+   "for": [
+    "weapon:lute-of-thunderous-thumping"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgLuteOfThunder",
+    "name": "Lute of Thunderous Thumping",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.club.melee.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfA.A6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mace-of-disruption",
+   "for": [
+    "weapon:mace-of-disruption"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMaceOfDisrupt",
+    "name": "Mace of Disruption",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.mace.melee.fire.orange"
+     },
+     "sound": {
+      "asset": "psfx.class-features.divine-smite.v1.001.target"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mace-of-smiting",
+   "for": [
+    "weapon:mace-of-smiting"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMaceOfSmiting",
+    "name": "Mace of Smiting",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.mace.melee.01.white"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mace-of-terror",
+   "for": [
+    "weapon:mace-of-terror"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMaceOfTerror0",
+    "name": "Mace of Terror",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.mace.melee.fire.dark_purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.psychic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mage-breaker",
+   "for": [
+    "weapon:mage-breaker"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunMageBreakerFf",
+    "name": "Mage Breaker",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.dagger.melee.fire.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1",
+      "start": 500
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.dagger.throw.01.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "mangonel",
+   "for": [
+    "weapon:mangonel"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMangonel00000",
+    "name": "Mangonel",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.boulder.siege.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "moonblade-weapon",
+   "for": [
+    "weapon:moonblade"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgMoonblade0000",
+    "name": "Moonblade",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.white"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.light.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "nine-lives-stealer",
+   "for": [
+    "weapon:nine-lives-stealer"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgNineLivesStea",
+    "name": "Nine Lives Stealer",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.green"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.necrotic.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "oathbow",
+   "for": [
+    "weapon:oathbow"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgOathbow000000",
+    "name": "Oathbow",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.arrow.physical.white.02"
+     },
+     "sound": {
+      "asset": "psfx.ranged-weapons.longbow.v1",
+      "start": 250
+     }
+    }
+   ]
+  },
+  {
+   "id": "quarterstaff-of-the-acrobat",
+   "for": [
+    "weapon:quarterstaff-of-the-acrobat"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgQuarterstaffO",
+    "name": "Quarterstaff of the Acrobat",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.04.white"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "rod-of-lordly-might",
+   "for": [
+    "weapon:rod-of-lordly-might"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgRodOfLordlyMi",
+    "name": "Rod of Lordly Might",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.mace.melee.01.orange"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "scimitar-of-speed",
+   "for": [
+    "weapon:scimitar-of-speed"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgScimitarOfSpe",
+    "name": "Scimitar of Speed",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.04.scimitar.01"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1",
+      "start": 750
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-birdcalls",
+   "for": [
+    "weapon:staff-of-birdcalls"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfBirdca",
+    "name": "Staff of Birdcalls",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-charming",
+   "for": [
+    "weapon:staff-of-charming"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfCharmi",
+    "name": "Staff of Charming",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.spell_projectile.heart.pink"
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.enchantment.intro",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-fire",
+   "for": [
+    "weapon:staff-of-fire"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfFire00",
+    "name": "Staff of Fire",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.fire_jet.orange"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-flowers",
+   "for": [
+    "weapon:staff-of-flowers"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfFlower",
+    "name": "Staff of Flowers",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.swirling_leaves.outburst.01.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-frost",
+   "for": [
+    "weapon:staff-of-frost"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfFrost0",
+    "name": "Staff of Frost",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.cone_of_cold.blue"
+     },
+     "sound": {
+      "asset": "psfx.5th-level-spells.cone-of-cold.v1.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-healing",
+   "for": [
+    "weapon:staff-of-healing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfHealin",
+    "name": "Staff of Healing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.healing_generic.200px.blue"
+     },
+     "sound": {
+      "asset": "psfx.1st-level-spells.cure-wounds.v1.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-power",
+   "for": [
+    "weapon:staff-of-power"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfPower0",
+    "name": "Staff of Power",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.02.complete.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic-v2.001.01",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-skulls",
+   "for": [
+    "weapon:staff-of-skulls"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffofSkulll",
+    "name": "Staff of Skulls",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.01.purple"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-striking",
+   "for": [
+    "weapon:staff-of-striking"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfStriki",
+    "name": "Staff of Striking",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.generic.002.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-swarming-insects",
+   "for": [
+    "weapon:staff-of-swarming-insects"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfSwarmi",
+    "name": "Staff of Swarming Insects",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.markers.poison.dark_green.03"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-the-adder",
+   "for": [
+    "weapon:staff-of-the-adder"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfTheAdd",
+    "name": "Staff of the Adder",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.impact_themed.poison.greenyellow"
+     },
+     "sound": {
+      "asset": "psfx.cantrips.poison-spray.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-the-lost",
+   "for": [
+    "weapon:staff-of-the-lost"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunStaffoftheL1l",
+    "name": "Staff of the Lost",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.quarterstaff.melee.02.blue"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-the-magi",
+   "for": [
+    "weapon:staff-of-the-magi"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfTheMag",
+    "name": "Staff of the Magi",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.magic_signs.rune.02.loop.03.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic-v2.002.01",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-the-python",
+   "for": [
+    "weapon:staff-of-the-python"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfThePyt",
+    "name": "Staff of the Python",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.smoke.puff.centered.dark_green"
+     },
+     "sound": {
+      "asset": "psfx.casting.generic.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-the-woodlands",
+   "for": [
+    "weapon:staff-of-the-woodlands"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfTheWoo",
+    "name": "Staff of the Woodlands",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.swirling_leaves.complete.01.green"
+     },
+     "sound": {
+      "asset": "psfx.casting.earth.001",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-thunder-and-lightning",
+   "for": [
+    "weapon:staff-of-thunder-and-lightning"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfThunde",
+    "name": "Staff of Thunder and Lightning",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.lightning_strike.blue"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.lightning.v1.group01",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "staff-of-withering",
+   "for": [
+    "weapon:staff-of-withering"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgStaffOfWither",
+    "name": "Staff of Withering",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.toll_the_dead.purple.complete"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic",
+      "delay": 600
+     }
+    }
+   ]
+  },
+  {
+   "id": "suspended-cauldron",
+   "for": [
+    "weapon:suspended-cauldron"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSuspendedCaul",
+    "name": "Suspended Cauldron",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "fill",
+     "asset": {
+      "path": "jb2a.bubble.002.001.complete.orangeyellow"
+     },
+     "sound": {
+      "asset": "psfx.casting.fire.001"
+     },
+     "size": {
+      "fit": "shape"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sword-of-answering",
+   "for": [
+    "weapon:sword-of-answering"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwordOfAnswer",
+    "name": "Sword of Answering",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.01.magic_sword.blue.02"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sword-of-kas",
+   "for": [
+    "weapon:sword-of-kas"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwordOfKas000",
+    "name": "Sword of Kas",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.red"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.necrotic.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sword-of-life-stealing",
+   "for": [
+    "weapon:sword-of-life-stealing"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwordOfLifeSt",
+    "name": "Sword of Life Stealing",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.fire.purple"
+     },
+     "sound": {
+      "asset": "psfx.weapon-swooshes.necrotic.v1.group01"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sword-of-sharpness",
+   "for": [
+    "weapon:sword-of-sharpness"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgSwordOfSharpn",
+    "name": "Sword of Sharpness",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_attack.04.katana.01"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "trebuchet",
+   "for": [
+    "weapon:trebuchet"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTrebuchet0000",
+    "name": "Trebuchet",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "shoot",
+     "asset": {
+      "path": "jb2a.boulder.siege.02"
+     },
+     "sound": {
+      "asset": "psfx.impacts.bludgeoning.v1"
+     }
+    }
+   ]
+  },
+  {
+   "id": "trident-of-fish-command",
+   "for": [
+    "weapon:trident-of-fish-command"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgTridentOfFish",
+    "name": "Trident of Fish Command",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.spear.melee.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.spear.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.spear.throw.01"
+      },
+      "sound": {
+       "asset": "psfx.ranged-weapons.longbow.v1"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "veterans-cane",
+   "for": [
+    "weapon:veterans-cane"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgVeteransCane0",
+    "name": "Veteran's Cane",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.01.white"
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vicious-weapon",
+   "for": [
+    "weapon:vicious-weapon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgViciousWeapon",
+    "name": "Vicious Weapon",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.melee_generic.creature_attack.claw.002.red"
+     },
+     "sound": {
+      "asset": "psfx.impacts.slashing.v1"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "wand-of-orcus",
+   "for": [
+    "weapon:wand-of-orcus"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWandOfOrcus00",
+    "name": "Wand of Orcus",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.mace.melee.fire.green"
+     },
+     "sound": {
+      "asset": "psfx.impacts.magicaleffects.necrotic"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wave",
+   "for": [
+    "weapon:wave"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-dungeon-masters-guide.equipment.Item.dmgWave000000000",
+    "name": "Wave",
+    "where": "Dungeon Master's Guide · Equipment"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.spear.melee.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.spear.throw.01"
+      },
+      "sound": {
+       "asset": "psfx.ranged-weapons.longbow.v1"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "wave-swept-weapon",
+   "for": [
+    "weapon:wave-swept-weapon"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-arcana-unleashed.items.Item.aunWaveSweptWe1L",
+    "name": "Wave-Swept Weapon",
+    "where": "Arcana Unleashed · Magic Items"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.01.blue"
+     },
+     "sound": {
+      "asset": "psfx.casting.water.001"
+     },
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      },
+      "sound": {
+       "asset": "psfx.weapon-swooshes.light.v1.group01.1",
+       "delay": 500,
+       "repeat": 4,
+       "every": 125
+      }
      }
     }
    ]
