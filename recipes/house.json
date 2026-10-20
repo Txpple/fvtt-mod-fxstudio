@@ -5,8 +5,8 @@
   "tool": "curated by hand",
   "licence": "MIT, except Vesper Staff and Necrotic Scythe, derived from D&D5e Animations (GPL-3, see STOCK-LICENSE)",
   "note": "This table’s own FX: one key each, the item’s identifier. Save writes this file; tools/pull-corpus.mjs brings it into the repo. Never written by the migration.",
-  "fx": 9,
-  "written": "2026-09-21",
+  "fx": 10,
+  "written": "2026-10-20",
   "erased": "2026-09-16"
  },
  "fx": [
@@ -100,6 +100,43 @@
    "note": "Thomas A. Invictus’s First Light: the item carries the identifier first-light, and this FX answers it alone.",
    "by": "Matt the DM",
    "at": "2026-09-13"
+  },
+  {
+   "id": "patience-lysandra-vane",
+   "for": [
+    "weapon:patience"
+   ],
+   "record": {
+    "uuid": "Actor.Hvmz9KKqq7POfqFy.Item.BXPh4HyWBmRbnJXb",
+    "name": "Patience",
+    "where": "this world · Lysandra Vane"
+   },
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "strike",
+     "asset": {
+      "path": "jb2a.sword.melee.01.purple",
+      "template": [
+       100,
+       0,
+       0
+      ]
+     },
+     "sound": {
+      "asset": "psfx.weapon-attacks.sword.v1"
+     },
+     "delay": 0,
+     "thrown": {
+      "asset": {
+       "path": "jb2a.sword.throw.white"
+      }
+     }
+    }
+   ],
+   "note": "Lysandra Vane’s pact blade Patience (identifier patience), playing Midnight’s FX.",
+   "by": "Matt the DM",
+   "at": "2026-10-20"
   },
   {
    "id": "goldthorn-jetten-elisedil",
