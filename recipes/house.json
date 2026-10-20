@@ -116,7 +116,7 @@
     {
      "shape": "strike",
      "asset": {
-      "path": "jb2a.sword.melee.01.purple",
+      "file": "modules/jb2a_patreon/Library/Generic/Weapon_Attacks/Melee/Sword01_06_Regular_Purple_800x600.webm",
       "template": [
        100,
        0,
@@ -134,7 +134,7 @@
      }
     }
    ],
-   "note": "Lysandra Vane’s pact blade Patience (identifier patience), playing Midnight’s FX.",
+   "note": "Lysandra Vane’s pact blade Patience (identifier patience): the purple JB2A Sword01_06 strike, Midnight’s sound and throw.",
    "by": "Matt the DM",
    "at": "2026-10-20"
   },
