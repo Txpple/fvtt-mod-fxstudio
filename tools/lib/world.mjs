@@ -88,7 +88,7 @@ export function world() {
       actors.set(id, actor);
       return register(actor);
     },
-    /** an item on an actor, with its activities: [{id, type, damage: true|parts, target: 'circle'|null, spell: uuid, heal}] */
+    /** an item on an actor, with its activities: [{id, type, damage: true|parts, target: 'circle'|null, affects: 'self'|…, spell: uuid, heal}] */
     item(actor, { id, name = id, type = 'weapon', system = {}, flags = {}, activities = [] } = {}) {
       const item = Object.assign(new globalThis.Item(), {
         uuid: `${actor.uuid}.Item.${id}`, id, name, type, documentName: 'Item', actor, parent: actor,
@@ -100,7 +100,8 @@ export function world() {
         const act = {
           uuid: `${item.uuid}.Activity.${a.id}`, id: a.id, name: a.name ?? a.type ?? 'utility', type: a.type ?? 'utility', item,
           damage: { parts: a.damage === true ? [{ formula: '1d8' }] : Array.isArray(a.damage) ? a.damage : [] },
-          target: { template: { type: a.target ?? '' } },
+          // dnd5e's prepared target: the item's when the activity does not override it
+          target: { template: { type: a.target ?? '' }, affects: { type: a.affects ?? '' } },
           spell: a.spell ? { uuid: a.spell } : null,
           getUsageToken: () => actor.tokens?.[0]?.document ?? null,
         };

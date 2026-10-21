@@ -85,6 +85,14 @@ if (t.section("the verdict: hit or miss per target, dnd5e's own (an unreadable A
   t.same('no targets: none', m({ total: 18 }, []).targets, []);
   t.is("a target's token is read from the descriptor's token uuid first", tokenOfTarget({ token: goblin.tokens[0].document.uuid, actor: orc.uuid }).name, 'Goblin');
   t.is('… else from its actor', tokenOfTarget({ token: null, actor: orc.uuid }).name, 'Orc');
+  // Produce Flame: Cast (a utility that affects its user, the spell's own target inherited) and Hurl Fire (an attack, overridden)
+  const produceFlame = W.item(caster, { id: 'pflame', name: 'Produce Flame', type: 'spell', system: { identifier: 'produce-flame' },
+    activities: [{ id: 'cast', name: 'Cast', type: 'utility', affects: 'self' }, { id: 'hurl', name: 'Hurl Fire', type: 'attack', damage: true, affects: 'creatureOrObject' }] });
+  const held = readMessage(usage(produceFlame, { activity: act(produceFlame, 'cast'), targets: [{ actor: goblin, ac: 15 }] }));
+  t.same('an activity that affects only its user carries no targets, whatever was targeted (Produce Flame\'s Cast throws nothing)', [held.kind, held.subject.keys[0], held.targets], ['use', 'spell:produce-flame', []]);
+  const hurl = readMessage(rolled(produceFlame, 'attack', { activity: act(produceFlame, 'hurl'), targets: [{ actor: goblin, ac: 15 }] }));
+  t.same('… and the same spell\'s attack keeps its target and verdict (Hurl Fire throws)', [hurl.kind, hurl.targets.map((x) => [x.token.name, x.hit])], ['attack', [['Goblin', true]]]);
+  t.same('an activity that affects others keeps the targets dnd5e stamped', readMessage(usage(mistyStep, { targets: [{ actor: goblin, ac: 15 }] })).targets.map((x) => x.token.name), ['Goblin']);
 }
 
 // ---------------------------------------------------------------------------------------------

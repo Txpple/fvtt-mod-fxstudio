@@ -13,6 +13,7 @@
 //   an area              on the template placement (the Region drawn)
 //   everything else      on the usage card
 //   a moment another module HOLDS      when the hold lifts (core/gates.js, readers/bythebooks.js)
+// and a card's targets are dnd5e's, except that an activity affecting only its user has none.
 // This is what Automated Animations did on this world by accident of its hooks; here it is one
 // table. By the Books' verdict hook can replace "on the attack card" in phase 4 without any FX changing.
 //
@@ -169,7 +170,12 @@ export function readMessage(message) {
   // non-critical roll under the AC, a fumble, or an AC that could not be read — total cover);
   // with no d20 on the card there is no verdict and every target counts as hit
   const evaluated = kind === 'attack' ? sys.evaluatedTargets ?? [] : [];
-  const rows = evaluated.length ? evaluated : sys.targets ?? [];
+  // an activity that affects only its user (dnd5e's own `target.affects.type` "self", the item's when
+  // the activity does not override it, as dnd5e reads it for the effects tray) acts on no one the user
+  // happened to target: its card carries no targets, so it plays as it does with nothing targeted —
+  // Produce Flame's Cast holds the flame and throws nothing, its Hurl Fire (an attack, overridden) throws
+  const selfOnly = activity?.target?.affects?.type === 'self';
+  const rows = selfOnly ? [] : evaluated.length ? evaluated : sys.targets ?? [];
   const targets = [];
   for (const t of rows) {
     const token = tokenOfTarget(t);

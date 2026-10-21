@@ -114,7 +114,9 @@ known and no later: after the attack roll for attacks (hit and miss known), afte
 for save and healing spells (targets known), on template placement for areas, on the card for
 everything else. This is what AA did on this world by accident of its hooks; here it is one table
 in `readers/dnd5e.js` and one paragraph in the docs, and By the Books' verdict hook can replace
-"after the attack roll" in phase 4 without any look changing.
+"after the attack roll" in phase 4 without any look changing. A card's targets are dnd5e's, but an
+activity that affects only its user (`target.affects.type` "self") has none, whatever the user had
+targeted (DESIGN §30).
 
 **The policy's other half: a moment can be HELD** (ruled 2026-09-09; `core/gates.js`). Some answers
 are not known when the table's own event fires — By the Books asks a Careful Spell's caster who the

@@ -2220,3 +2220,35 @@ subject is `event:gift` alone and the feat's FX cannot answer yet; matching the 
 an effect's `effect`), and `gaps.mjs` asks whether any FX is written for it; a feat answered only on a By
 the Books word split them. `answerOf` in `ui/coverage.js` asks the key's own word and then the others,
 so the two agree to the number again (`check-coverage`).
+
+## 30. An activity that affects only its user has no targets (the user's testing, 2026-10-21)
+
+The user: *"if i cast produce flame as 'Cast' and have a target it casts a projectile tho it shouldnt
+since 'Cast' means just holding it."* Produce Flame has two activities: **Cast**, a utility that inherits
+the spell's own target (`affects.type` "self", range Self), and **Hurl Fire**, an attack that overrides
+it (one creature or object, 60 feet). Stock `produce-flame` (`on: use`) is a flame at the caster and then
+a fire bolt to each target. Hurl Fire plays on its attack card; Cast on its usage card, which dnd5e
+stamps with whatever the user had targeted — so the bolt flew from a spell that only holds a flame.
+
+**Not by activity.** An FX cannot be scoped to one activity: §23 cut the activity suffix
+(`spell:fire-bolt/attack`) with the name forms, one key per item, and `resolve()` tells two FX of a key
+apart only by the placed template. Splitting Produce Flame would be a new grammar.
+
+**The reader's rule instead.** A card's targets are dnd5e's, except that an activity affecting only its
+user — dnd5e's own `target.affects.type` "self", the item's when the activity does not override it (the
+very test dnd5e's effects tray makes) — carries none (`readers/dnd5e.js`). It plays as it does when
+nothing is targeted: Cast shows the flame at the caster, following it, and the bolt has no one to fly
+to; Hurl Fire, overriding the target, keeps its target and verdict and throws. The recipe is unchanged.
+`check-reader` proves both and that an activity affecting others keeps dnd5e's targets.
+
+**What else it moves** (measured offline over `LIST_PACKS`: a self activity, no template, whose key's
+`use` FX reaches for targets): a stray target no longer draws the picture for Backlash, Invulnerability,
+Moment of Prescience, Mooncloak's Liberation, Mordenkainen's Lucubration (its five), Spirit Lantern's two
+and Sylune's Viper; each now plays at the caster (a `targets-else-source` mark) or not at all (an
+`each-target` one), as it already did with nothing targeted. The other cast-then-attack spells play no
+projectile from their first activity: Flame Blade's two both play its whirlwind at the caster;
+Shillelagh, Spiritual Weapon, Bigby's Hand and Mordenkainen's Sword have a single activity (an enchant
+or a summon), Flaming Sphere a summon and a ram that fill its sphere, Call Lightning one save on its
+template; Dancing Lights' Move Lights affects a space, not its user. Spiritual Weapon's and Bigby's
+Hand's summons do strike at a stray target (a smite at each target), but a summon affects a space, so
+this rule leaves them as they are.
