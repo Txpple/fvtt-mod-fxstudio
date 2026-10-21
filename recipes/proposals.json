@@ -2,10 +2,10 @@
  "schema": 1,
  "tool": "tools/proposals.mjs",
  "records": "2026-10-12",
- "gaps": 1591,
+ "gaps": 1598,
  "counts": {
   "proposed": 24,
-  "none": 1567,
+  "none": 1574,
   "open": 0
  },
  "reasons": {
@@ -59,7 +59,7 @@
    "label": "Monster Manual · Features",
    "kind": "list",
    "keys": 598,
-   "gaps": 135
+   "gaps": 142
   },
   {
    "id": "dnd-dungeon-masters-guide.equipment",
@@ -413,6 +413,13 @@
 "effect:evasive-ac":{"status":"none","reason":"always-on","sentence":"A bonus to AC — no moment to play."},
 "effect:exceptionally-trained":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},
 "effect:executioners-axe":{"status":"none","reason":"bookkeeping","sentence":"A property of the axe — the swing has an FX on the weapon record."},
+"effect:exhaustion":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
+"effect:exhaustion-1":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
+"effect:exhaustion-2":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
+"effect:exhaustion-3":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
+"effect:exhaustion-4":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
+"effect:exhaustion-5":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
+"effect:exhaustion-dead":{"status":"none","reason":"judged","sentence":"Ruled out by the user: Exhaustion plays nothing."},
 "effect:extrasensory-perception":{"status":"none","reason":"always-on","sentence":"Always on while it is worn or known — no moment to play."},
 "effect:eyes-of-the-dark":{"status":"none","reason":"always-on","sentence":"Always on while it is worn or known — no moment to play."},
 "effect:fast-movement":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},

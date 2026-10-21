@@ -9,7 +9,7 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-19).** v0.10.4 is the release (every proposal left made Stock), on prod through Foundry's
+**State (2026-10-21).** v0.10.4 is the release (every proposal left made Stock), on prod through Foundry's
 installer with prod's House byte-identical to the repo's before and after. `main` is the release, deployed to the
 sandbox for the user's testing: By the Books' contract held by `check-contract` (one picture per word; a
 resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
@@ -20,12 +20,12 @@ scroll, a picture is a name on the sheet with ▶ on every rail row and Play all
 inspector is one column of the cells the shape reads with a size kind and From/To, the layout breaks on
 the window's own width, the wand, a search miss and a Coverage row land on "Nothing plays for…" with
 Starter, Copy from and Blank, and Coverage is the gap tool's screen over a shipped
-`recipes/proposals.json` (`tools/proposals.mjs`; 24 proposed, 1,567 judged, 0 open, agreeing with
-`gaps.mjs` at 1,591 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
+`recipes/proposals.json` (`tools/proposals.mjs`; 24 proposed, 1,574 judged, 0 open, agreeing with
+`gaps.mjs` at 1,598 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
 party's nineteen keys and the PHB's 235 remaining spell proposals (39 spells, 195 of their effects, the Magical
 Berries; one gap left in the PHB spells, the Shield spell as ruled), and the QA four (Ice Knife, the Grenade
 Launcher, Dominate Mind, the Bomb) are re-authored at the templates their records place; the Battle Master
-maneuvers were ruled out of scope, so §28.7 is delivered; then, on the user's word, every proposal left (`tools/promote-proposals.mjs`: 1,321 FX with Darkness Aura, every book; 24 held back whose picture would squash in a mark, still proposed for a hand). A popped-out window under a modal is untested. It reads By
+maneuvers were ruled out of scope, so §28.7 is delivered; then, on the user's word, every proposal left (`tools/promote-proposals.mjs`: 1,321 FX with Darkness Aura, every book; 24 held back whose picture would squash in a mark, still proposed for a hand). After the release, on `main` and unreleased: Exhaustion plays nothing (the user: its picture was too big), its seven Stock FX (`effect:exhaustion`, `-1` to `-5`, `-dead`) removed and judged in `mm-effects.tsv`. A popped-out window under a modal is untested. It reads By
 the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
 id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
 Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
@@ -59,7 +59,7 @@ the suite folder: `../fvtt-mcp-dnd5e` resolves, the campaign repos are `../../fv
   `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
   no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
   identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
-  item, never typed. Stock is 2605 FX (2603 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
+  item, never typed. Stock is 2598 FX (2596 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
   another is the design, not redundancy (§18–19) — never offer to clean it up.
 - **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
   from `recipes/records.json`; the Library's Record door opens that record.
