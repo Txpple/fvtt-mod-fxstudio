@@ -105,6 +105,8 @@ if (t.section('Check on the Compendiums scope agrees with gaps.mjs')) {
   t.is('the PHB spells alone: 1 with no FX, the Shield spell (judged): the party batch took seven spells and the Prone effect, the second batch the 235 others', phb.asked - phb.answered, 1);
   const row = phb.groups[0].rows.find((x) => x.key === 'spell:shield');
   t.ok('the Shield spell is a row, judged, saying the effect plays the barrier', row?.st === 'judged' && /Shield effect plays the barrier/.test(row.words), JSON.stringify(row));
+  const feats = cov.bookRows(a, new Set(['dnd-players-handbook.feats']));
+  t.ok('a record answered on a By the Books word counts as answered (Musician plays on gift): no row', !feats.groups.some((g) => g.rows.some((x) => x.key === 'feature:musician')), 'feature:musician is a row');
   let agree = 0;
   for (const rec of Object.values(records)) if (cov.collectionOf(rec.uuid) === toolCollectionOf(rec.uuid)) agree++;
   t.is('the tab and the tools read a record\'s pack the same way', agree, Object.keys(records).length);

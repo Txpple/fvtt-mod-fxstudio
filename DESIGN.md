@@ -2182,3 +2182,41 @@ screen under the pill, not on hover, and a greyed Own key says its reason in the
 entrance and the Library: 28.1, 28.9), Phase 4 (Coverage: 28.6, 28.8), Phase 5 (28.7). Each phase starts
 on the user's go, as the plan says. Phases 2 to 4 were built the same day on the user's word (the journal,
 2026-10-16); 28.7 waits on the user's word per patch.
+
+## 29. A gift given to allies is a moment (the user's ask, 2026-10-21)
+
+The user: *"when cecil gives a musician's inspiration to someone, can you give a bardic song variant vfx
+on those who receive it."* By the Books already publishes it: when the allies picked for Musician's
+Encouraging Song after a rest are given Heroic Inspiration, `bythebooks.moment` with `event: "choice"`,
+`kind: "restSong"` (its record), the singer as actor and token, and one target row per creature given
+it (`momentId` `<messageId>|restSong|message`). The same record carries every grant given to allies:
+Inspiring Leader's and a Chef's Temporary Hit Points, the Replenishing Meal, Life-Giving Force,
+Inspiring Smite.
+
+**The word.** `gift` joins WHEN, said *when it is given to allies*, read as `summon` is (§26): ours, by
+its record — `BYTHEBOOKS_RECORDS` maps `choice|restSong` to `gift`; every other `choice` stays a logged
+skip, and BYTHEBOOKS_WORDS is unchanged. The source is the giver's token, the targets the recipients'
+tokens (a row with no token uuid finds the actor's token on the viewed scene), the subject the item's
+own keys first and `event:gift` last, the ledger id `<messageId>:gift`. No fallback to `use`: what a
+gift gives is often rolled on a card of its own (Inspiring Leader's on the rest card, Inspiring Smite's
+on its cast), which already played. Given to no one, it has no targets and an each-target picture
+plays nothing. The Moment column names ten words now.
+
+**The FX is the feat's, not the moment's.** One record carries six abilities, and a song's picture on
+a Paladin's Inspiring Smite would be wrong, so the FX is keyed by identity (§23): Stock `musician`,
+`feature:musician` on `gift`, in `stock/features.json` with the feat's record. Bardic Inspiration's FX
+is the base, as a variant is (a full copy, the colour changed): its burst
+(`jb2a.bardic_inspiration`) and then its music marker (`jb2a.markers.music`), both in GREEN-ORANGE
+(Bardic Inspiration plays blue-yellow, Font of Inspiration purple-pink, Otto's pink), both on each
+recipient, the burst above the token, with its lute in the key of F (Bardic Inspiration's is in A).
+Both files are square. Musician's gap row (*a proficiency — no moment to play*) is retired.
+
+**It needs the item.** The feat's key is the subject's only when By the Books names the item on the
+payload (`itemUuid`). Its 3.4.9 names only the row (`ability: "Musician"`, `itemUuid: null`), so the
+subject is `event:gift` alone and the feat's FX cannot answer yet; matching the name would be a name form
+(§14). The record already holds the feat (`itemId`, `actorUuid`), so By the Books naming it is one line.
+
+**Coverage counts a key answered on any word.** The tab asked each record's key on its own word (`use`,
+an effect's `effect`), and `gaps.mjs` asks whether any FX is written for it; a feat answered only on a By
+the Books word split them. `answerOf` in `ui/coverage.js` asks the key's own word and then the others,
+so the two agree to the number again (`check-coverage`).

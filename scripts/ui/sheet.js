@@ -579,7 +579,7 @@ function renderKey(app) {
   const itemRows = itemOpen ? (itemHits(app, s.itemQuery).map((e) => `<button type="button" class="hit" data-act="sh-item-hit" data-uuid="${esc(e.uuid)}"><span>${dot(e.status)}${esc(e.owner)} · ${esc(e.name)}</span><span class="o">${esc(app.hitWhere(e))}</span></button>`).join('') || '<div class="hit none"><span class="o">No item of that name on an actor</span></div>') : '';
   const pickItem = picking && !isEvent ? `<div class="search sh-item-search"><input type="search" class="sh-item-q" data-field="item-q" placeholder="Find an item on an actor" aria-label="Find an item on an actor" autocomplete="off" value="${esc(s.itemQuery)}"><div class="suggest" data-open="${itemOpen}">${itemRows}</div></div>` : '';
 
-  // THE MOMENT: all nine words of WHEN, the pressed one's phrase under them, and which are whose. On
+  // THE MOMENT: every word of WHEN, the pressed one's phrase under them, and which are whose. On
   // an event key the word IS the event, so pressing another word re-keys it; dnd5e's two are not
   // heard as events and are greyed there.
   const pills = WHEN.map((w) => {

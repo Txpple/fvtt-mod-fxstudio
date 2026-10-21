@@ -9,7 +9,7 @@
       "version": 2,
       "test": "tools/check-contract.mjs",
       "events": ["maneuver", "sneak", "fold", "rider", "hold-answered"],
-      "records": ["cast|summon"]
+      "records": ["cast|summon", "choice|restSong"]
     },
     {
       "emitter": "fvtt-mod-bythebooks",

@@ -41,9 +41,12 @@
  * (`api.moments.events`), one for one; `summon` (2026-10-12) is ours: its `cast` word on its `summon`
  * record (the reader names it), since a `cast` alone also means a transform and others; `unsummon`
  * (2026-10-12) is the same record's companion beat with `details.companion: "leave"` — a familiar
- * going into its pocket or dismissed (a companion called back is `summon` again).
+ * going into its pocket or dismissed (a companion called back is `summon` again). `gift` (2026-10-21)
+ * is ours too: its `choice` word on its `restSong` record — something GIVEN to allies landed on them
+ * (Musician's Heroic Inspiration after a rest, Inspiring Leader's Temporary Hit Points, a Chef's
+ * treats); the targets are the creatures who received it.
  */
-export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered', 'summon', 'unsummon'];
+export const WHEN = ['use', 'effect', 'maneuver', 'sneak', 'fold', 'rider', 'hold-answered', 'summon', 'unsummon', 'gift'];
 
 /**
  * The By the Books words this build READS (readers/bythebooks.js) — a closed list of its own, not
@@ -58,9 +61,11 @@ export const BYTHEBOOKS_WORDS = ['maneuver', 'sneak', 'fold', 'rider', 'hold-ans
 /**
  * By the Books RECORDS this build reads under a word it otherwise skips: `<event>|<kind>` → our WHEN
  * word. `cast` on the `summon` record (2026-10-12) is a creature By the Books created where the caster
- * placed it; any other `cast` (a transform, a plain cast) stays a skip.
+ * placed it; any other `cast` (a transform, a plain cast) stays a skip. `choice` on the `restSong`
+ * record (2026-10-21) is a grant given to allies that landed; every other `choice` (a pick, a swap)
+ * stays a skip.
  */
-export const BYTHEBOOKS_RECORDS = { 'cast|summon': 'summon' };
+export const BYTHEBOOKS_RECORDS = { 'cast|summon': 'summon', 'choice|restSong': 'gift' };
 
 /** what the sentence says for each kind */
 export const WHEN_WORDS = {
@@ -73,6 +78,7 @@ export const WHEN_WORDS = {
   'hold-answered': 'when it answers a held roll',
   summon: 'when its creature appears',
   unsummon: 'when its creature leaves',
+  gift: 'when it is given to allies',
 };
 
 /**
@@ -83,6 +89,9 @@ export const WHEN_WORDS = {
  * cast that answers a hold (Shield) posts its own usage card, which already plays the `use` look —
  * a fallback would play it twice. Nor is `summon`, for the same reason: the summoning spell's usage card
  * already played its `use` look at the cast, and the creature appearing is a second picture or none.
+ * Nor is `gift`: what it gives is often rolled on a card of its own (Inspiring Leader's heal on the rest
+ * card, Inspiring Smite's on its cast), which already played the `use` look; the gift landing on its
+ * recipients plays only what is authored for it.
  */
 export const FALLS_BACK_TO_USE = ['maneuver', 'sneak', 'fold', 'rider'];
 

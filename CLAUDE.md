@@ -15,17 +15,17 @@ sandbox for the user's testing: By the Books' contract held by `check-contract` 
 resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
 `docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling; and Phases 2 to 4, the
 rulings of DESIGN §27 and §28 built: the window renders by part (`ui/morph.js`) and keeps focus and
-scroll, a picture is a name on the sheet with ▶ on every rail row and Play all, the nine moment words and
+scroll, a picture is a name on the sheet with ▶ on every rail row and Play all, the moment words and
 `event:` keys are authored, Browse opens a drawer that picks into one scene (`ui/drawer.js`), the
 inspector is one column of the cells the shape reads with a size kind and From/To, the layout breaks on
 the window's own width, the wand, a search miss and a Coverage row land on "Nothing plays for…" with
 Starter, Copy from and Blank, and Coverage is the gap tool's screen over a shipped
-`recipes/proposals.json` (`tools/proposals.mjs`; 24 proposed, 1,574 judged, 0 open, agreeing with
-`gaps.mjs` at 1,598 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
+`recipes/proposals.json` (`tools/proposals.mjs`; 24 proposed, 1,573 judged, 0 open, agreeing with
+`gaps.mjs` at 1,597 gaps). Phase 5 (§28.7, the content): the first two batches are Stock on `main`, the Echoes
 party's nineteen keys and the PHB's 235 remaining spell proposals (39 spells, 195 of their effects, the Magical
 Berries; one gap left in the PHB spells, the Shield spell as ruled), and the QA four (Ice Knife, the Grenade
 Launcher, Dominate Mind, the Bomb) are re-authored at the templates their records place; the Battle Master
-maneuvers were ruled out of scope, so §28.7 is delivered; then, on the user's word, every proposal left (`tools/promote-proposals.mjs`: 1,321 FX with Darkness Aura, every book; 24 held back whose picture would squash in a mark, still proposed for a hand). In 0.10.5, Exhaustion plays nothing (the user: its picture was too big), its seven Stock FX (`effect:exhaustion`, `-1` to `-5`, `-dead`) removed and judged in `mm-effects.tsv`. A popped-out window under a modal is untested. It reads By
+maneuvers were ruled out of scope, so §28.7 is delivered; then, on the user's word, every proposal left (`tools/promote-proposals.mjs`: 1,321 FX with Darkness Aura, every book; 24 held back whose picture would squash in a mark, still proposed for a hand). In 0.10.5, Exhaustion plays nothing (the user: its picture was too big), its seven Stock FX (`effect:exhaustion`, `-1` to `-5`, `-dead`) removed and judged in `mm-effects.tsv`. Unreleased, on `feat/musician`: By the Books' `choice` on its `restSong` record is read as a tenth word, `gift` (DESIGN §29), and Stock's `musician` plays Bardic Inspiration's burst and music marker in green-orange on each ally given Heroic Inspiration by Musician; it plays once By the Books names the feat on the payload (`itemUuid`, null in 3.4.9). A popped-out window under a modal is untested. It reads By
 the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
 id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
 Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
@@ -59,7 +59,7 @@ the suite folder: `../fvtt-mcp-dnd5e` resolves, the campaign repos are `../../fv
   `<kind>:<identifier>` from `system.identifier`, else dnd5e's formatting of the name. No name forms,
   no base-weapon rung, no hooks, no flag of ours on any item. The Editor's **Own key** writes an
   identifier on an item and the sheet becomes a House FX for it. A key is earned from a record or an
-  item, never typed. Stock is 2598 FX (2596 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
+  item, never typed. Stock is 2599 FX (2597 keyed to records, plus `summon-appears` and `summon-leaves` in `stock/events.json`, DESIGN §26), House 9. An FX per record playing the same animation as
   another is the design, not redundancy (§18–19) — never offer to clean it up.
 - **A name is the record's name (§15).** `nameForKey()` in `ui/records.js` answers on every screen
   from `recipes/records.json`; the Library's Record door opens that record.
@@ -82,7 +82,7 @@ inspector at 800px and under). Library (`ui/fxtab.js`): search by name, facets, 
 Import/Export top left; a row marks itself and has three doors, Record · Delete · Editor; a search miss
 lists the abilities on this world's actors that play nothing, each a door. Editor (`ui/sheet.js`, its
 parts repainted through `ui/morph.js`): the FX sheet — identity, sentence, Key strip (Answers · Item with
-Own key · Moment with the nine words · State), the landing ("Nothing plays for…": Starter, Copy from,
+Own key · Moment with the ten words · State), the landing ("Nothing plays for…": Starter, Copy from,
 Blank), the sequence rail with ▶ per scene and Play all, the one-column inspector, Browse's drawer
 (`ui/drawer.js`); it survives a tab switch. Assets (`ui/library.js`) is a browser only. Coverage
 (`ui/coverage.js`) is the gap tool's screen: every row says why, from the moment rule,
@@ -167,7 +167,7 @@ Zero dependency either way. By the Books publishes `bythebooks.moment` (a plain 
 both names in `readers/bythebooks.js`, hears a `momentId` once per word (the twin; one resolve can publish
 under two words), skips a resolve that came to nothing (a pass, a decline: `declinedBy`), reads a closed list of five
 words (`BYTHEBOOKS_WORDS`) plus `cast` on its `summon` record as our `summon` (`BYTHEBOOKS_RECORDS`,
-DESIGN §26; Stock's `summon-appears` answers every summon, and a companion leaving is `unsummon`, answered by `summon-leaves`), plays a `momentId` once per word, and honours the hold through the gate in
+DESIGN §26; Stock's `summon-appears` answers every summon, and a companion leaving is `unsummon`, answered by `summon-leaves`; `choice` on its `restSong` record as our `gift`, DESIGN §29, answered by the giving feat's own FX, Musician's in Stock), plays a `momentId` once per word, and honours the hold through the gate in
 `core/gates.js`, asking `fvtt-mod-bythebooks` first and the legacy `fvtt-mod-battleflow` when that is
 the active one. Neither is required nor in the manifest. The legacy names are for a table still on
 2.x, not for the double emit; they go when no table runs 2.x (the rename: its issue #6). What this

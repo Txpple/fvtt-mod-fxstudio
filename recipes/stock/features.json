@@ -18,7 +18,7 @@
    "Sisimshow"
   ],
   "note": "The features: one FX per record, keyed by dnd5e's identifier. Derived from the D&D5e Animations preset (GPL-3, STOCK-LICENSE), a separate work from the MIT code beside it.",
-  "fx": 724
+  "fx": 725
  },
  "fx": [
   {
@@ -22195,6 +22195,48 @@
      "persist": "template"
     }
    ]
+  },
+  {
+   "id": "musician",
+   "for": [
+    "feature:musician"
+   ],
+   "record": {
+    "uuid": "Compendium.dnd-players-handbook.feats.Item.phbftMusician000",
+    "name": "Musician",
+    "where": "Player's Handbook · Feats"
+   },
+   "on": "gift",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "asset": {
+      "path": "jb2a.bardic_inspiration.greenorange"
+     },
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed.keyOfF"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "wait": true,
+     "follow": true
+    },
+    {
+     "shape": "mark",
+     "at": "each-target",
+     "sound": {
+      "asset": "psfx.musical-instruments.lute.01.strummed-tremolo.keyOfF"
+     },
+     "asset": {
+      "path": "jb2a.markers.music.greenorange"
+     },
+     "follow": true
+    }
+   ],
+   "note": "Encouraging Song: Bardic Inspiration's picture and lute, in green and orange and the key of F, on each ally given Heroic Inspiration after a rest (By the Books' restSong record, read as gift)."
   }
  ]
 }

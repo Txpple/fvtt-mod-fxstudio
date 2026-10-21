@@ -29,5 +29,5 @@ export const dot = (status) => `<span class="dot ${status}"></span>`;
 /** the title words for an FX id: "sharran-step" → "Sharran Step" */
 export const idWords = (id) => String(id ?? '').replace(/^starter:/, '').replace(/-/g, ' ').replace(/\b[a-z]/g, (c) => c.toUpperCase());
 
-/** the nine moment words of core/moments.js WHEN, each as a pill's term: dnd5e's two, then By the Books' seven */
-export const MOMENT_TERMS = { use: 'Use', effect: 'Effect', maneuver: 'Maneuver', sneak: 'Sneak', fold: 'Fold', rider: 'Rider', 'hold-answered': 'Held roll', summon: 'Summon', unsummon: 'Unsummon' };
+/** the ten moment words of core/moments.js WHEN, each as a pill's term: dnd5e's two, then By the Books' eight */
+export const MOMENT_TERMS = { use: 'Use', effect: 'Effect', maneuver: 'Maneuver', sneak: 'Sneak', fold: 'Fold', rider: 'Rider', 'hold-answered': 'Held roll', summon: 'Summon', unsummon: 'Unsummon', gift: 'Gift' };

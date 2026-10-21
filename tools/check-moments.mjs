@@ -118,6 +118,37 @@ is('a companion called back is a summon again', readMoment(summoned({ marker: 'c
 is('unsummon is a moment kind with a sentence', WHEN.includes('unsummon') && WHEN_WORDS.unsummon, 'when its creature leaves');
 is('unsummon does NOT fall back to use', FALLS_BACK_TO_USE.includes('unsummon'), false);
 
+console.log('\na gift (By the Books\' choice on its restSong record: Musician\'s Heroic Inspiration after a rest, 2026-10-21)');
+const bard = { name: 'Bard', uuid: 'Scene.s.Token.b' };
+const fighter = { name: 'Fighter', uuid: 'Scene.s.Token.f' };
+const musician = { documentName: 'Item', uuid: 'Actor.bard.Item.musician', name: 'Musician', type: 'feat', system: { identifier: 'musician' }, flags: {} };
+const leader = { documentName: 'Item', uuid: 'Actor.bard.Item.leader', name: 'Inspiring Leader', type: 'feat', system: { identifier: 'inspiring-leader' }, flags: {} };
+const giftWorld = {
+  ...world,
+  token: (uuid) => ({ 'Scene.s.Token.b': bard, 'Scene.s.Token.f': fighter })[uuid] ?? world.token(uuid),
+  item: (uuid) => ({ [musician.uuid]: musician, [leader.uuid]: leader })[uuid] ?? world.item(uuid),
+};
+const given = (over = {}) => payload({ event: 'choice', kind: 'restSong', marker: 'message', momentId: 'msgSong|restSong|message', messageId: 'msgSong', attackId: null,
+  actorUuid: 'Actor.bard', actorName: 'Bard', tokenUuid: 'Scene.s.Token.b', itemUuid: musician.uuid, itemName: 'Musician', ability: 'Musician',
+  targets: [{ actorUuid: 'Actor.rogue', tokenUuid: 'Scene.s.Token.r', name: 'Rogue' }, { actorUuid: 'Actor.fighter', tokenUuid: 'Scene.s.Token.f', name: 'Fighter' }],
+  details: { grant: 'inspiration', given: ['Rogue', 'Fighter'] }, ...over });
+const gift = readMoment(given(), giftWorld);
+is('choice on the restSong record is a gift moment', gift?.when, 'gift');
+is('the subject is the feat that gave it, keyed by identity first', gift?.subject?.keys?.[0], 'feature:musician');
+is('and by the moment word last', gift?.subject?.keys?.at(-1), 'event:gift');
+is('the source is the giver', gift?.source, bard);
+is('the targets are the creatures who received it', gift?.targets?.map((t) => t.token.name).join(), 'Rogue,Fighter');
+is('the ledger id names the word', gift?.id, 'msgSong:gift');
+is('its ticket is the momentId and By the Books\' word', gift?.ticket, 'msgSong|restSong|message|choice');
+const bareGift = readMoment(given({ itemUuid: null, itemName: null }), giftWorld);
+is('no item named (only the row\'s name): the event key alone', bareGift?.subject?.keys?.join(), 'event:gift');
+is('a recipient with no token uuid: the actor\'s token on the viewed scene', readMoment(given({ targets: [{ actorUuid: 'Actor.goblin', tokenUuid: null, name: 'Goblin' }] }), giftWorld)?.targets?.[0]?.token, goblinToken);
+is('given to no one: a moment with no targets (an each-target picture plays nothing)', readMoment(given({ targets: [], details: { grant: 'inspiration', given: [] } }), giftWorld)?.targets?.length, 0);
+is('a choice on any other record (an Initiative swap) stays a skip', typeof readMoment(given({ kind: 'initiativeSwap' }), giftWorld)?.skip, 'string');
+is('the word alone off the hook is not read (it is ours, not By the Books\')', typeof readMoment(payload({ event: 'gift' }), world)?.skip, 'string');
+is('gift is a moment kind with a sentence', WHEN.includes('gift') && WHEN_WORDS.gift, 'when it is given to allies');
+is('gift does NOT fall back to use (what it gives is often rolled on a card that already played)', FALLS_BACK_TO_USE.includes('gift'), false);
+
 console.log('\nthe twin (3.0 emits bythebooks.moment and battleflow.moment for one payload)');
 const twin = payload({ momentId: 'msgTwin|sneakDamage|message' });
 is('the first name is heard', firstHearing(twin), true);
@@ -164,6 +195,14 @@ const { resolveMoment, firstTime } = await import(toUrl(join(REPO, 'scripts/engi
   const castOnly = buildIndex({ stock: [{ id: 'any-cast', for: ['event:summon'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'a' } }] }], house: [], starters: [] });
   is('a summon with only a use FX plays nothing (the cast already did)', resolveMoment(castOnly, sm)?.fx ?? null, null);
   is('an FX keyed event:summon on summon answers every summon', resolveMoment(buildIndex({ stock: [{ id: 'any-summon', for: ['event:summon'], on: 'summon', scenes: [{ shape: 'mark', asset: { path: 'd' } }] }], house: [], starters: [] }), sm)?.fx?.id, 'any-summon');
+  const song = buildIndex({ stock: [
+    { id: 'musician', for: ['feature:musician'], on: 'gift', scenes: [{ shape: 'mark', at: 'each-target', asset: { path: 'e' } }] },
+    { id: 'inspiring-leader', for: ['feature:inspiring-leader'], on: 'use', scenes: [{ shape: 'mark', asset: { path: 'f' } }] },
+  ], house: [], starters: [] });
+  is('an FX keyed to the feat on gift answers its gift', resolveMoment(song, gift)?.fx?.id, 'musician');
+  is('another feat\'s gift is not answered by it, and does not fall back to its use FX', resolveMoment(song, readMoment(given({ itemUuid: leader.uuid, ability: 'Inspiring Leader', details: { grant: 'temphp', given: ['Rogue'] } }), giftWorld))?.fx ?? null, null);
+  is('with no item named, the feat\'s FX cannot answer (By the Books must name the item)', resolveMoment(song, bareGift)?.fx ?? null, null);
+  is('a gift plays once per momentId', firstTime(gift) && !firstTime(gift), true);
   is('the event key answers on its own when a look is keyed to it', resolveMoment(buildIndex({ stock: [{ id: 'any-sneak', for: ['event:sneak'], on: 'sneak', scenes: [{ shape: 'mark', asset: { path: 'c' } }] }], house: [], starters: [] }), m)?.fx?.id, 'any-sneak');
 }
 

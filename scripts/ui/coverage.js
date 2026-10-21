@@ -24,6 +24,7 @@
 // The acts are the window's own (ui/studio.js routes "entry", "key" and the "cv-" prefix).
 import { MODULE_ID } from '../settings.js';
 import { parseKey } from '../core/subjects.js';
+import { WHEN } from '../core/moments.js';
 import { assetsOf } from '../core/fx.js';
 import { KIND_WORDS, dot, esc } from './html.js';
 import { renderMaintain } from './corpus.js';
@@ -55,6 +56,22 @@ export const collectionOf = (uuid) => /^Compendium\.([^.]+\.[^.]+)\./.exec(uuid 
 
 /** the moment word a key is resolved for: an effect's own, else use */
 const wordOf = (key) => (parseKey(key)?.kind === 'effect' ? 'effect' : 'use');
+
+/**
+ * What answers a record's key: its own word first, then any other word an FX was written for (the
+ * Musician feat plays on By the Books' `gift`, not on a card of its own) — so a key counts as
+ * answered exactly when tools/gaps.mjs says so, whatever word its FX answers.
+ */
+function answerOf(a, key) {
+  const own = a.resolve({ keys: [key] }, wordOf(key));
+  if (own.fx || own.off) return own;
+  for (const w of WHEN) {
+    if (w === wordOf(key)) continue;
+    const r = a.resolve({ keys: [key] }, w);
+    if (r.fx) return r;
+  }
+  return own;
+}
 
 /**
  * The moment rule read off the thing itself (DESIGN 25), for a key the file holds no judgement
@@ -145,8 +162,8 @@ export function actorRows(a, census) {
 }
 
 /**
- * COMPENDIUMS: the records of the picked packs, each key asked what answers it on its own word —
- * the very question tools/gaps.mjs asks of the same file, so with every pack picked the two agree
+ * COMPENDIUMS: the records of the picked packs, each key asked what answers it on its own word, then
+ * on any other (`answerOf`) — the very question tools/gaps.mjs asks of the same file, so with every pack picked the two agree
  * to the number. Returns the shape actorRows returns, grouped by pack in the file's order.
  */
 export function bookRows(a, chosen) {
@@ -161,7 +178,7 @@ export function bookRows(a, chosen) {
     const name = nameForKey(key, rec.name);
     const owner = kind === 'effect' ? rec.name : rec.on ?? null;
     const base = { name, owner, kind, key, item: false };
-    const r = a.resolve({ keys: [key] }, wordOf(key));
+    const r = answerOf(a, key);
     if (r.fx) { g.answered++; const l = playedNothing(a, [key]); if (l) { g.rows.push({ ...base, ...l }); out.counts.ledger++; } continue; }
     if (r.off) { g.rows.push({ ...base, st: 'off', words: 'switched off in House', note: '' }); out.counts.off++; continue; }
     const j = judge(a, key);

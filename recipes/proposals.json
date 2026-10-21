@@ -2,10 +2,10 @@
  "schema": 1,
  "tool": "tools/proposals.mjs",
  "records": "2026-10-12",
- "gaps": 1598,
+ "gaps": 1597,
  "counts": {
   "proposed": 24,
-  "none": 1574,
+  "none": 1573,
   "open": 0
  },
  "reasons": {
@@ -31,7 +31,7 @@
    "label": "Player's Handbook · Feats",
    "kind": "list",
    "keys": 114,
-   "gaps": 90
+   "gaps": 89
   },
   {
    "id": "dnd-players-handbook.classes",
@@ -1136,7 +1136,6 @@
 "feature:mulhorandi-pilgrim":{"status":"none","reason":"header","sentence":"A background name, not an ability — nothing to play."},
 "feature:multiattack":{"status":"none","reason":"bookkeeping","sentence":"More attacks, each of which has its own FX."},
 "feature:multiple-heads":{"status":"none","reason":"always-on","sentence":"A passive trait — no moment to play."},
-"feature:musician":{"status":"none","reason":"always-on","sentence":"A proficiency — no moment to play."},
 "feature:mystic-arcanum":{"status":"none","reason":"bookkeeping","sentence":"A spell gained — it has its own FX."},
 "feature:mystic-fighting-style":{"status":"none","reason":"always-on","sentence":"A passive benefit — no moment to play."},
 "feature:mystic-focus":{"status":"none","reason":"always-on","sentence":"A passive benefit — no moment to play."},
