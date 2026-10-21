@@ -9,7 +9,7 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-21).** v0.10.4 is the release (every proposal left made Stock), on prod through Foundry's
+**State (2026-10-21).** v0.10.5 is the release (Exhaustion plays nothing; 0.10.4 made every proposal left Stock), on prod through Foundry's
 installer with prod's House byte-identical to the repo's before and after. `main` is the release, deployed to the
 sandbox for the user's testing: By the Books' contract held by `check-contract` (one picture per word; a
 resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
@@ -25,7 +25,7 @@ Starter, Copy from and Blank, and Coverage is the gap tool's screen over a shipp
 party's nineteen keys and the PHB's 235 remaining spell proposals (39 spells, 195 of their effects, the Magical
 Berries; one gap left in the PHB spells, the Shield spell as ruled), and the QA four (Ice Knife, the Grenade
 Launcher, Dominate Mind, the Bomb) are re-authored at the templates their records place; the Battle Master
-maneuvers were ruled out of scope, so §28.7 is delivered; then, on the user's word, every proposal left (`tools/promote-proposals.mjs`: 1,321 FX with Darkness Aura, every book; 24 held back whose picture would squash in a mark, still proposed for a hand). After the release, on `main` and unreleased: Exhaustion plays nothing (the user: its picture was too big), its seven Stock FX (`effect:exhaustion`, `-1` to `-5`, `-dead`) removed and judged in `mm-effects.tsv`. A popped-out window under a modal is untested. It reads By
+maneuvers were ruled out of scope, so §28.7 is delivered; then, on the user's word, every proposal left (`tools/promote-proposals.mjs`: 1,321 FX with Darkness Aura, every book; 24 held back whose picture would squash in a mark, still proposed for a hand). In 0.10.5, Exhaustion plays nothing (the user: its picture was too big), its seven Stock FX (`effect:exhaustion`, `-1` to `-5`, `-dead`) removed and judged in `mm-effects.tsv`. A popped-out window under a modal is untested. It reads By
 the Books (`fvtt-mod-bythebooks`, hooks `bythebooks.*`) and still a table on Battle Flow 2.x (the legacy
 id, the `battleflow.moment` hook and flag scope). **dnd5e 6.0.0–6.9.99 only**. **Prod is the Echoes of
 Halruaa box** (Molten, the `foundry-halruaa5e` bridge), where FX Studio is active; the repo's House is
