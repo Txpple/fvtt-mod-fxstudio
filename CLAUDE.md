@@ -9,7 +9,7 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-22).** v0.10.6 is the release (Musician's song on the word `gift`; a self-only activity carries no targets; 0.10.5 silenced Exhaustion), on prod through Foundry's
+**State (2026-10-22).** v0.10.7 is the release (the downed Unconscious plays nothing, DESIGN §31; 0.10.6: Musician's song on the word `gift`; a self-only activity carries no targets; 0.10.5 silenced Exhaustion), on prod through Foundry's
 installer with prod's House byte-identical to the repo's before and after. `main` is the release plus one unreleased
 change, deployed to the sandbox for the user's testing: dnd5e's downed Unconscious (its `autoDowned` flag) plays
 nothing, a Sleep's still does (DESIGN §31). The rest of `main`: By the Books' contract held by `check-contract` (one picture per word; a
