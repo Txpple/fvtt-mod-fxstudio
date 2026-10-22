@@ -2221,6 +2221,22 @@ an effect's `effect`), and `gaps.mjs` asks whether any FX is written for it; a f
 the Books word split them. `answerOf` in `ui/coverage.js` asks the key's own word and then the others,
 so the two agree to the number again (`check-coverage`).
 
+## 31. The downed condition is not a picture (the user's testing, 2026-10-22)
+
+The user, with By the Books playing death saves on the sandbox: the Unconscious FX *"is a noisy vfx for
+downed players"*, and it should still play for everyone else who is unconscious. A player character at
+0 Hit Points wears dnd5e's Unconscious (its *Apply Downed Conditions*; By the Books writes the same
+condition out of combat), and Stock `effect:unconscious` played on it as on any Unconscious.
+
+**The flag tells them apart.** dnd5e stamps the condition it writes at 0 Hit Points with
+`flags.dnd5e.autoDowned`, so the heal can take back what it wrote; By the Books' out-of-combat pass
+writes the same flag for the same reason. A Sleep's Unconscious, a Symbol's, a monster's, carries no
+flag. The reader (`readers/dnd5e.js`) skips an Unconscious effect that carries it: dying is
+bookkeeping, not a moment (§25's spirit), and nothing plays. The flag alone is not the rule — dnd5e's
+Dead at 0 Hit Points carries it too, and a creature dying is a moment if a table ever gives it a
+picture — so the skip reads the Unconscious status with the flag. The recipe is unchanged;
+`check-reader` proves the downed one skipped, the Sleep one played, and a downed Dead still read.
+
 ## 30. An activity that affects only its user has no targets (the user's testing, 2026-10-21)
 
 The user: *"if i cast produce flame as 'Cast' and have a target it casts a projectile tho it shouldnt

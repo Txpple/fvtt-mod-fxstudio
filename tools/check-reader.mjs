@@ -175,6 +175,12 @@ if (t.section('an active effect: its own name, then what made it (6.0: system.or
   t.same('… keyed by its name alone when it has no origin', readEffect(onItem).subject.keys, ['effect:sharpened']);
   t.is('an effect on an actor with no token: skipped', readEffect(W.effect(ghost, { id: 'e', name: 'Haunted' })).skip, 'no token for the effect');
   t.is('an effect with no actor at all is not a moment', readEffect({ parent: null, name: 'x' }), null);
+  const downed = W.effect(caster, { id: 'downed', name: 'Unconscious', statuses: ['unconscious'], flags: { dnd5e: { autoDowned: true } } });
+  t.is("dnd5e's downed Unconscious (its autoDowned flag) is skipped: dying is not a picture (DESIGN §31)", readEffect(downed).skip, 'the downed condition: dying is not a picture');
+  const asleep = W.effect(caster, { id: 'asleep', name: 'Unconscious', statuses: ['unconscious'] });
+  t.same('the same condition from a spell (Sleep, no flag) is a moment', readEffect(asleep).subject.keys, ['effect:unconscious']);
+  const deadDowned = W.effect(caster, { id: 'deadDowned', name: 'Dead', statuses: ['dead'], flags: { dnd5e: { autoDowned: true } } });
+  t.same('the flag alone is not the skip: a downed Dead (an NPC at 0) is still a moment', readEffect(deadDowned).subject.keys, ['effect:dead']);
   const fromEffect = W.effect(caster, { id: 'e2', name: 'Blinded', system: { origin: { effect: bless.uuid } } });
   t.same("an origin effect that itself has an item origin: that item's keys", subjectOfEffect(fromEffect).keys, ['effect:blinded', 'spell:hold-person']);
   const orphan = W.effect(caster, { id: 'e2b', name: 'Dazed', system: { origin: { effect: onItem.uuid } } });

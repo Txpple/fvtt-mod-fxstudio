@@ -115,10 +115,10 @@ export function world() {
      * `system.origin` by kind ({item, activity, effect, behavior, actor, message, profile}) and the
      * legacy `origin` string derived from it the way dnd5e 6.0 prepares it — the most specific one.
      */
-    effect(parent, { id, name = id, type = 'base', system = {}, disabled = false, flags = {} } = {}) {
+    effect(parent, { id, name = id, type = 'base', system = {}, disabled = false, flags = {}, statuses = [] } = {}) {
       const o = system.origin ?? {};
       const origin = o.effect ?? o.behavior ?? o.activity ?? o.item ?? o.actor ?? null;
-      return register({ uuid: `${parent.uuid}.ActiveEffect.${id}`, id, name, type, origin, system: { ...system, origin: o }, disabled, parent, flags, documentName: 'ActiveEffect' });
+      return register({ uuid: `${parent.uuid}.ActiveEffect.${id}`, id, name, type, origin, system: { ...system, origin: o }, disabled, parent, flags, statuses: new Set(statuses), documentName: 'ActiveEffect' });
     },
     /**
      * A card dnd5e posts, typed: `usage` (no roll), or `attack` | `damage` | `healing` with a roll

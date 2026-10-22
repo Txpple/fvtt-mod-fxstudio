@@ -9,9 +9,10 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-21).** v0.10.6 is the release (Musician's song on the word `gift`; a self-only activity carries no targets; 0.10.5 silenced Exhaustion), on prod through Foundry's
-installer with prod's House byte-identical to the repo's before and after. `main` is the release, deployed to the
-sandbox for the user's testing: By the Books' contract held by `check-contract` (one picture per word; a
+**State (2026-10-22).** v0.10.6 is the release (Musician's song on the word `gift`; a self-only activity carries no targets; 0.10.5 silenced Exhaustion), on prod through Foundry's
+installer with prod's House byte-identical to the repo's before and after. `main` is the release plus one unreleased
+change, deployed to the sandbox for the user's testing: dnd5e's downed Unconscious (its `autoDowned` flag) plays
+nothing, a Sleep's still does (DESIGN §31). The rest of `main`: By the Books' contract held by `check-contract` (one picture per word; a
 resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
 `docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling; and Phases 2 to 4, the
 rulings of DESIGN §27 and §28 built: the window renders by part (`ui/morph.js`) and keeps focus and

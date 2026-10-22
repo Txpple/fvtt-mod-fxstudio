@@ -211,6 +211,10 @@ export function readRegion(region) {
 export function readEffect(effect) {
   const actor = effect.parent instanceof Item ? effect.parent.actor : effect.parent;
   if (!actor) return null;
+  // dnd5e's downed Unconscious (Apply Downed Conditions, its `autoDowned` flag; By the Books writes the same out of
+  // combat) is bookkeeping for a creature at 0 Hit Points, not a picture: a dying player wears no FX (DESIGN §31).
+  // The same condition from a spell (Sleep) carries no flag and plays.
+  if (effect.flags?.dnd5e?.autoDowned === true && effect.statuses?.has?.('unconscious')) return { skip: 'the downed condition: dying is not a picture' };
   const token = actor.token?.object ?? actor.getActiveTokens?.()[0] ?? null;
   if (!token) return { skip: 'no token for the effect' };
   const sys = effect.system ?? {};
