@@ -5,8 +5,8 @@
   "tool": "curated by hand",
   "licence": "MIT, except Vesper Staff and Necrotic Scythe, derived from D&D5e Animations (GPL-3, see STOCK-LICENSE)",
   "note": "This table’s own FX: one key each, the item’s identifier. Save writes this file; tools/pull-corpus.mjs brings it into the repo. Never written by the migration.",
-  "fx": 10,
-  "written": "2026-10-20",
+  "fx": 12,
+  "written": "2026-10-28",
   "erased": "2026-09-16"
  },
  "fx": [
@@ -327,6 +327,54 @@
    ],
    "by": "Matt the DM",
    "at": "2026-09-21"
+  },
+  {
+   "id": "help-assist-attack",
+   "for": [
+    "feature:help-assist-an-attack-roll"
+   ],
+   "on": "use",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "targets-else-source",
+     "asset": {
+      "path": "jb2a.swirling_feathers.outburst.01.textured"
+     },
+     "size": {
+      "tokenWidths": 1.5
+     },
+     "sound": {
+      "asset": "psfx.creature.movement.flight.wings.small"
+     }
+    }
+   ],
+   "note": "A familiar's Help - Assist an Attack Roll (By the Books seeds it on the familiar as it lands): feathers burst around the creature it helps against.",
+   "by": "Claude",
+   "at": "2026-10-28"
+  },
+  {
+   "id": "help-assist-attack-landed",
+   "for": [
+    "feature:help-assist-an-attack-roll"
+   ],
+   "on": "effect",
+   "scenes": [
+    {
+     "shape": "mark",
+     "at": "targets-else-source",
+     "asset": {
+      "path": "jb2a.dizzy_stars.400px.yellow"
+     },
+     "size": {
+      "tokenWidths": 1.25
+     },
+     "delay": 400
+    }
+   ],
+   "note": "The Helped effect a familiar's Help - Assist an Attack Roll lands on an enemy: dizzy stars, once (fire and forget; the effect itself stands until the next ally's attack). Keyed on the origin, so a PC's Help plays nothing.",
+   "by": "Claude",
+   "at": "2026-10-28"
   }
  ]
 }
