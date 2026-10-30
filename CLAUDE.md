@@ -9,7 +9,7 @@ Part of Open Roll 5e beside By the Books (`../fvtt-mod-bythebooks`, formerly Bat
 (`../fvtt-mod-errata5e`, fixes for vendor bugs): plain ES modules, no build step, no patching, no libWrapper, no
 socketlib, MIT.
 
-**State (2026-10-29).** v0.10.8 is the release, no code changed: two House FX for a familiar's Help (`feature:help-assist-an-attack-roll`, By the Books 3.4.18), on prod by `house.json` alone, no installer run, so prod's `module.json` still says 0.10.7. 0.10.7 (the downed Unconscious plays nothing, DESIGN §31; 0.10.6: Musician's song on the word `gift`; a self-only activity carries no targets; 0.10.5 silenced Exhaustion), on prod through Foundry's
+**State (2026-10-30).** v0.10.8 is the release, no code changed: two House FX for a familiar's Help (`feature:help-assist-an-attack-roll`, By the Books 3.4.18), on prod through the installer (prod's `house.json` byte-identical before it; after it every file matches and a GM page reads 0.10.8 active). 0.10.7 (the downed Unconscious plays nothing, DESIGN §31; 0.10.6: Musician's song on the word `gift`; a self-only activity carries no targets; 0.10.5 silenced Exhaustion), on prod through Foundry's
 installer with prod's House byte-identical to the repo's before and after. Released before it: By the Books' contract held by `check-contract` (one picture per word; a
 resolve that came to nothing plays nothing); Phase 0 of the state review (the suite's
 `docs/reviews/2026-10-16-fxstudio-review.md`), the fix pass that needed no ruling; and Phases 2 to 4, the
