@@ -136,7 +136,7 @@ prototype. A phase starts on the user's word, never on a handoff.
   `get-world-info` tells them apart by version and who is connected.
 - **The gate:** ten offline checks in `tools/` — `check-imports`, `check-layers`, `check-legacy`,
   `check-gates`, `check-moments`, `check-contract`, `check-engine`, `check-reader` after any edit under `scripts/`;
-  `check-fx`, `check-build` after any edit under `recipes/`. `build-release.ps1` runs them.
+  `check-fx`, `check-build` after any edit under `recipes/`. `build-release.mjs` runs them.
   `check-contract` reads By the Books' `contracts/` from the sibling clone and skips, saying so, without it. Stand-ins
   live in `tools/lib/stage.mjs` and `world.mjs`; a data-model change lands there first.
 - **The live suites:** `smoke-fx` (every FX builds live), `smoke-replay` (families through real
@@ -179,6 +179,6 @@ sounds.
 
 Bump `version` and the `download` URL in `module.json` together, one `release:` commit, tag
 `vX.Y.Z`, push main and the tag (a lightweight tag needs `git push origin vX.Y.Z`), then
-`powershell -ExecutionPolicy Bypass -File tools/build-release.ps1` (runs the gate, writes the zip
-with forward-slash entries) and `gh release create vX.Y.Z --notes-file dist/RELEASE-NOTES.md
+`node tools/build-release.mjs` (runs the gate, then the suite's `tools/build-module-zip.mjs` writes
+the zip and reads it back) and `gh release create vX.Y.Z --notes-file dist/RELEASE-NOTES.md
 dist/fvtt-mod-fxstudio.zip module.json`. Notes are hand-written in `dist/` for a public page.

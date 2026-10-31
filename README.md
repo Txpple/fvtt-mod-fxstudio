@@ -128,11 +128,11 @@ prototypes/            clickable mock-ups ruled on before a feature is built
 
 There is no build step: the module is plain ES modules loaded straight from `scripts/`. The
 offline gate is the `check-*.mjs` scripts in `tools/`, which prove the engine, the readers, the
-layers and every recipe file; `tools/build-release.ps1` runs them all and writes the zip. The live
+layers and every recipe file; `tools/build-release.mjs` runs them all and writes the zip. The live
 suites (`smoke-*.mjs`) run against the local sandbox through the house MCP repo (`fvtt-mcp-dnd5e`,
 a `file:` dev dependency beside this one); run `npm install` once. [tools/README.md](tools/README.md)
 describes each tool. Releases: bump `version` and the `download` URL in `module.json` together, tag
-`vX.Y.Z`, build with `tools/build-release.ps1`, and publish the zip and manifest as a GitHub
+`vX.Y.Z`, build with `tools/build-release.mjs`, and publish the zip and manifest as a GitHub
 release.
 
 <!-- openroll5e:family -->
