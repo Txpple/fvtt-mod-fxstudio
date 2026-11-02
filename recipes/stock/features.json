@@ -2265,15 +2265,33 @@
     {
      "shape": "mark",
      "at": "source",
-     "sound": {
-      "asset": "psfx.1st-level-spells.arms-of-hadar.v1.001",
-      "delay": 250
+     "size": {
+      "tokenWidths": 1.75
      },
      "asset": {
-      "path": "jb2a.bless.400px.intro.purple"
+      "path": "jb2a.on_token_buff.001.001.purplered"
+     },
+     "elevation": {
+      "level": 999,
+      "absolute": false
+     },
+     "sound": {
+      "asset": "psfx.magic-signs.rune.v1.necromancy.complete"
+     }
+    },
+    {
+     "shape": "mark",
+     "at": "source",
+     "size": {
+      "tokenWidths": 2
+     },
+     "below": true,
+     "asset": {
+      "path": "jb2a.template_circle.out_pulse.02.burst.purplepink"
      }
     }
-   ]
+   ],
+   "note": "Fiendish Vigor's look (the user, 2026-11-02): the purple-red buff and the pulse on the warlock as the Temporary Hit Points land — By the Books rolls the feature's own heal on a kill, its healing card the moment."
   },
   {
    "id": "dark-ones-own-luck",
