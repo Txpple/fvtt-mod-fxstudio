@@ -15870,21 +15870,24 @@
     "name": "Inspiring Smite",
     "where": "Player's Handbook · Character Classes"
    },
-   "on": "use",
+   "on": "gift",
    "scenes": [
     {
      "shape": "mark",
+     "at": "each-target",
      "sound": {
       "asset": "psfx.class-features.divine-smite.v1.001.caster"
      },
      "size": {
-      "tokenWidths": 2.25
+      "tokenWidths": 1.75
      },
      "asset": {
       "path": "jb2a.healing_generic.burst.yellowwhite"
-     }
+     },
+     "follow": true
     }
-   ]
+   ],
+   "note": "On the gift (the user, 2026-11-02): By the Books hands the Temporary Hit Points out in its popup, never through a use, so the picture plays on each creature given a share (its restSong record, read as gift) — the golden burst with Divine Smite's sound."
   },
   {
    "id": "instinctive-charm",
