@@ -34,7 +34,7 @@ export function build(seq, scene0, ctx) {
   ctx.pictures++;
   e.opacity(s.opacity);
   e.origin(moment.origin);
-  elevate(e, s);
+  elevate(e, s, ctx, region);
   e.zIndex(s.zIndex);
   if (rotate !== undefined) e.rotate(rotate);
   if (s.mask) e.mask(region);

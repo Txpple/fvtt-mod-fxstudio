@@ -14,7 +14,7 @@
 // What the spell's words demand of the spot (2026-09-04 at the table, Misty Step: "an unoccupied
 // space you can see") is judged here before the token moves, and never the range: the ring and the
 // table hold that.
-import { SEQUENCE_OPTIONS, addSound, full } from '../common.js';
+import { SEQUENCE_OPTIONS, addSound, full, withinLevel } from '../common.js';
 import { destinationSpot } from '../places.js';
 
 /**
@@ -98,7 +98,7 @@ export function armPicker(scene0, moment, onPick) {
   const borderSize = sourceTokenGS / canvas.grid.size + 0.5 + (s.range ?? 30) / canvas.dimensions.distance;
   const borderData = { lineSize: 4, lineColor: game.user.color.toString(), radius: borderSize, width: borderSize * 2, height: borderSize * 2, gridUnits: true, name: 'range' };
   const ring = new Sequence(SEQUENCE_OPTIONS);
-  const border = ring.effect().fadeIn(500).persist().fadeOut(500).atLocation(source, {}).shape('circle', borderData).elevation(source.document.elevation + 1).forUsers(game.users.map((u) => u.id)).name('fxstudio-move-range').opacity(0.75);
+  const border = ring.effect().fadeIn(500).persist().fadeOut(500).atLocation(source, {}).shape('circle', borderData).elevation(withinLevel(1, false, [source]).level).forUsers(game.users.map((u) => u.id)).name('fxstudio-move-range').opacity(0.75);
   border.loopProperty('shapes.range', 'scale.x', { from: 0.98, to: 1.02, duration: 1500, pingPong: true, ease: 'easeInOutSine' });
   border.loopProperty('shapes.range', 'scale.y', { from: 0.98, to: 1.02, duration: 1500, pingPong: true, ease: 'easeInOutSine' });
   ring.play();

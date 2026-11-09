@@ -2268,3 +2268,22 @@ or a summon), Flaming Sphere a summon and a ram that fill its sphere, Call Light
 template; Dancing Lights' Move Lights affects a space, not its user. Spiritual Weapon's and Bigby's
 Hand's summons do strike at a stray target (a smite at each target), but a summon affects a space, so
 this rule leaves them as they are.
+
+## 32. An elevation is held inside the level it plays on (the DM's testing, 2026-11-09)
+
+The DM cast Misty Step for Lysandra on the sandbox: the token moved, no mist at either end, and the
+ledger said the FX played. Stock's elevations are the migration's: `level: 999` for "above everything"
+(370 FX, 454 scenes: marks, shoots, fills, auras, beams) and a negative level for "under the token" (31
+scenes). Foundry 14 cuts a scene into levels, and Sequencer 4.3 draws a picture only on the viewed level
+its elevation falls in; any `.elevation()` counts as a placed height, even on a picture attached to a
+token. On a scene with a real level (the Echoes world's Ground spans 0 to 10; 14 of its 50 scenes) a
+picture at 999 or at -2 is on no level and never drawn. A scene with only Foundry's default level draws
+everything, so the same FX showed elsewhere.
+
+**The engine's rule** (`withinLevel` in `engine/common.js`, every shape through `elevate`): the level is
+the picture's token's (else the acting token's, else the viewed one); above its top the picture is held
+0.01 under the top, where Sequencer still sorts it over every token of the level; under its bottom it is
+held at the bottom and put under the tokens, as a negative level meant. A relative elevation is cut from
+the higher of the picture's two ends, as Sequencer offsets it. A scene without levels (Foundry 13) or a
+level's open end keeps the knob as authored. The recipes are unchanged; the knob still means what the
+sheet says. The move's range ring is held the same way. `check-engine` proves it on a staged level.

@@ -41,10 +41,55 @@ export function tint(section, scene) {
   section.filter('ColorMatrix', { contrast: t.contrast ?? 0, saturate: t.saturation ?? 0 });
 }
 
-/** under the tokens, or at an elevation */
-export function elevate(section, scene) {
-  if (scene.below) section.belowTokens(true);
-  else if (scene.elevation) section.elevation(scene.elevation.level, { absolute: !!scene.elevation.absolute });
+/**
+ * Under the tokens, or at an elevation. `on`: the placeables the picture stands on, its source then
+ * its target (a point stands on nothing). On Foundry 14 a scene is cut into levels and Sequencer
+ * draws a picture only on the viewed level its elevation falls in, so an elevation is held inside
+ * the level the picture plays on (`withinLevel`); one held up at the floor stays under the tokens.
+ */
+export function elevate(section, scene, ctx = null, ...on) {
+  if (scene.below) { section.belowTokens(true); return; }
+  if (!scene.elevation) return;
+  const absolute = !!scene.elevation.absolute;
+  const held = withinLevel(scene.elevation.level, absolute, on, ctx?.moment?.source);
+  section.elevation(held.level, { absolute });
+  if (held.below) section.belowTokens(true);
+}
+
+/** how far under its level's top a raised picture is held: a picture exactly at the top belongs to the level above */
+export const LEVEL_MARGIN = 0.01;
+
+/** a placeable's elevation as Sequencer reads it: a token's number, a region's bottom, 0 for a point */
+function elevationOf(o) {
+  const e = o?.document?.elevation ?? o?.elevation ?? 0;
+  const n = typeof e === 'object' ? e?.bottom ?? e?.top ?? 0 : e;
+  return Number.isFinite(n) ? n : 0;
+}
+
+/**
+ * The elevation knob, held inside the level the picture plays on: {level, below}. Stock's
+ * `level: 999` means "above everything" and its negative levels "under the token"; on a Foundry 14
+ * scene with levels (a level spans, say, 0 to 10) a picture at 999 or at -2 is on no level and
+ * Sequencer never draws it. The level is the first token's of `on`, else the acting token's
+ * (`fallback`), else the viewed one. Above its top (less LEVEL_MARGIN) the picture is held at the
+ * top, still over every token of the level (Sequencer sorts its pictures over tokens at one
+ * elevation); under its bottom it is held at the bottom and put under the tokens (`below`), as it
+ * was meant to be. Sequencer places a relative elevation from the higher of the picture's source and
+ * target (a missing one counting 0), so a relative amount is cut from there. A scene without levels
+ * (Foundry 13), or a level's open end, keeps the knob as authored.
+ */
+export function withinLevel(level, absolute, on = [], fallback = null) {
+  const as = { level, below: false };
+  const levels = globalThis.canvas?.scene?.levels;
+  if (!levels?.size || typeof levels.get !== 'function') return as;
+  const holder = [...on, fallback].find((o) => o?.document?.level && levels.get(o.document.level));
+  const lvl = holder ? levels.get(holder.document.level) : globalThis.canvas?.level ?? null;
+  const { bottom, top } = lvl?.elevation ?? {};
+  const base = absolute ? 0 : Math.max(...on.map(elevationOf), ...(on.length < 2 ? [0] : []));
+  const z = base + level;
+  if (Number.isFinite(top) && z > top - LEVEL_MARGIN) return { level: top - LEVEL_MARGIN - base, below: false };
+  if (Number.isFinite(bottom) && z < bottom) return { level: bottom - base, below: true };
+  return as;
 }
 
 /** grid units for a size knob at a spot, or null when the size fits something (a template, an object) */

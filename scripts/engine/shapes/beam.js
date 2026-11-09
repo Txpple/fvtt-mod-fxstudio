@@ -24,7 +24,7 @@ export function build(seq, scene0, ctx) {
     e.playbackRate(s.rate);
     e.origin(moment.origin);
     e.opacity(s.opacity ?? 1);
-    elevate(e, s);
+    elevate(e, s, ctx, from.token, p.token);
     e.name(`${ctx.fx.id} ${p.token.id}`);
   }
 }

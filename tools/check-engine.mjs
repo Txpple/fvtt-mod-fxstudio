@@ -117,6 +117,7 @@ if (t.section('the knobs every shape shares: asset, sound, timing, tint, elevati
   const el = built({ shape: 'mark', asset: 'test.glow', at: 'source', elevation: { level: 10, absolute: true } });
   t.same('an elevation is a level, absolute or not', el.effects[0].get('elevation'), [10, { absolute: true }]);
   t.same('a bare string asset is a path', el.ctx.files, ['test.glow']);
+  t.same('a scene without levels keeps the elevation as authored', built({ shape: 'mark', asset: 'test.glow', at: 'source', elevation: { level: 999, absolute: false } }).effects[0].get('elevation'), [999, { absolute: false }]);
   const gone = built({ shape: 'mark', asset: { path: 'test.nothing' }, at: 'source' });
   t.same('a missing asset is recorded and still named (softFail plays nothing, the ledger says why)', [gone.ctx.missing.length, gone.effects[0].get('file')], [1, ['test.nothing']]);
   const col = built({ shape: 'mark', asset: { path: 'test.bolt.orange', colour: 'blue' }, at: 'source' });
@@ -129,6 +130,38 @@ if (t.section('the knobs every shape shares: asset, sound, timing, tint, elevati
   t.same('several paths are handed to Sequencer to choose among', pick.effects[0].get('file'), [['test.glow', 'test.ring']]);
   const tmpl = built({ shape: 'mark', asset: { path: 'test.glow', template: [200, 50, 50] }, at: 'source' });
   t.same("an asset's stretch template is set on the section", tmpl.effects[0].get('template'), [{ gridSize: 200, startPoint: 50, endPoint: 50 }]);
+}
+
+// ---------------------------------------------------------------------------------------------
+if (t.section('an elevation inside the level: Foundry 14 draws a picture only on the level it is in')) {
+  // a level spans 0 to 10 (the Echoes world's Ground); Sequencer draws a picture at 999 on no level
+  const ground = { id: 'ground', elevation: { bottom: 0, top: 10, base: 0 } };
+  const open = { id: 'open', elevation: { bottom: -Infinity, top: Infinity, base: 0 } };
+  const scene = canvas.scene;
+  const levels = new Map([[ground.id, ground], [open.id, open]]);
+  scene.levels = levels;
+  for (const tk of [caster, near]) tk.document.level = 'ground';
+  const elev = (sc, over) => built({ asset: 'test.glow', ...sc }, over).effects.map((e) => e.get('elevation'));
+  const mark = (elevation, at = 'source') => ({ shape: 'mark', at, elevation });
+  const raised = { level: 999, absolute: false };
+  t.same("a raised mark on a token is held just under its level's top", elev(mark(raised)), [[9.99, { absolute: false }]]);
+  t.same('… at a spot (a point stands at 0), the level the acting token is on', elev(mark(raised, 'destination'), { destination: { x: 860, y: 840 } }), [[9.99, { absolute: false }]]);
+  t.same('an elevation inside the level is left alone', elev(mark({ level: 2, absolute: false })), [[2, { absolute: false }]]);
+  t.same('an absolute elevation above the level is held at its top', elev(mark({ level: 999, absolute: true })), [[9.99, { absolute: true }]]);
+  caster.document.elevation = 4;
+  t.same("a raised token's relative amount reaches the same ceiling", elev(mark(raised)), [[5.99, { absolute: false }]]);
+  caster.document.elevation = 0;
+  near.document.elevation = 6;
+  t.same('a beam counts the higher of its two ends, as Sequencer does', elev({ shape: 'beam', from: 'source', to: 'each-target', elevation: raised }, { targets: [hit(near)] }), [[3.99, { absolute: false }]]);
+  near.document.elevation = 0;
+  t.same('an aura on a token is held inside the level too', elev({ shape: 'aura', at: 'source', elevation: raised }), [[9.99, { absolute: false }]]);
+  const under = built({ shape: 'mark', asset: 'test.glow', at: 'source', elevation: { level: -2, absolute: false } }).effects[0];
+  t.same("a picture under the level's floor is held at the floor, under the tokens", [under.get('elevation'), under.get('belowTokens')], [[0, { absolute: false }], [true]]);
+  t.is('a raised picture is not put under the tokens', built(mark(raised)).effects[0].has('belowTokens'), false);
+  caster.document.level = 'open';
+  t.same('a level with open ends keeps the elevation as authored', [elev(mark(raised)), elev(mark({ level: -2, absolute: false }))], [[[999, { absolute: false }]], [[-2, { absolute: false }]]]);
+  for (const tk of [caster, near]) delete tk.document.level;
+  delete scene.levels;
 }
 
 // ---------------------------------------------------------------------------------------------

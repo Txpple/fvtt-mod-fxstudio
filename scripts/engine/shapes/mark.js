@@ -26,7 +26,7 @@ export function build(seq, scene0, ctx) {
     const size = gridSize(s.size, p);
     if (size !== null) e.size(size, { gridUnits: true });
     else if (s.size?.fit === 'object') e.scaleToObject(s.size.scale ?? 1);
-    elevate(e, s);
+    elevate(e, s, ctx, p.token ?? p.region);
     if (s.mask && (p.token || p.region)) e.mask(p.token ?? p.region);
     e.zIndex(s.zIndex);
     tint(e, s);

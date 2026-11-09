@@ -35,7 +35,7 @@ export function build(seq, scene0, ctx) {
     repeats(e, s);
     e.opacity(s.opacity);
     if (p.target.token) { e.missed(s.onMiss === 'fly-past' && p.target.hit === false); e.name(spotName(p.target.token)); }
-    elevate(e, s);
+    elevate(e, s, ctx, p.from.token ?? p.from.region, p.to.token ?? p.to.region);
     e.zIndex(s.zIndex);
     tint(e, s);
     timing(e, s, isLast(i, shots.length));

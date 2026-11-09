@@ -20,7 +20,7 @@ export function build(seq, scene0, ctx) {
     persistOn(e, s, p.token, ctx);
     if (s.tint?.colour) { e.tint(s.tint.colour); e.filter('ColorMatrix', { saturate: s.tint.saturation ?? 0 }); }
     e.size(gridSize(s.size, p) ?? 6, { gridUnits: true });
-    elevate(e, s);
+    elevate(e, s, ctx, p.token ?? p.region);
     e.opacity(s.opacity);
     if (s.fadeIn !== undefined) e.fadeIn(s.fadeIn);
     if (s.fadeOut !== undefined) e.fadeOut(s.fadeOut);

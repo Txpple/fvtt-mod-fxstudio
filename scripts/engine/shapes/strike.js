@@ -38,7 +38,7 @@ export function build(seq, scene0, ctx) {
     if (s.mirror === 'random') e.randomizeMirrorY();
     e.missed(!t.hit);
     e.name(spotName(t.token));
-    elevate(e, s);
+    elevate(e, s, ctx, source, t.token);
     e.zIndex(s.zIndex);
     tint(e, s);
     timing(e, s, isLast(i, swings.length));
@@ -57,7 +57,7 @@ export function build(seq, scene0, ctx) {
       repeats(e, s);
       e.missed(!t.hit);
       e.name(spotName(t.token));
-      elevate(e, s);
+      elevate(e, s, ctx, source, t.token);
       e.playbackRate(s.rate);
       tint(e, s);
       timing(e, s, isLast(i, flights.length));
